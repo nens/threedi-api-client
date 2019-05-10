@@ -29,7 +29,10 @@ def find_version(*file_paths):
         return version_match.group(1)
     raise RuntimeError("Unable to find version string.")
 
-requirements = [ ]
+requirements = [
+    'certifi>=2019.3.9', 
+    'urllib3>=1.25.2'
+]
 
 setup_requirements = ['pytest-runner', ]
 
