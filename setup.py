@@ -4,12 +4,30 @@
 """The setup script."""
 
 from setuptools import setup, find_packages
+import codecs
+import re
+import os
+
+here = os.path.abspath(os.path.dirname(__file__))
+
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
+
+def read(*parts):
+    with codecs.open(os.path.join(here, *parts), 'r') as fp:
+        return fp.read()
+
+def find_version(*file_paths):
+    version_file = read(*file_paths)
+    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
+                              version_file, re.M)
+    if version_match:
+        return version_match.group(1)
+    raise RuntimeError("Unable to find version string.")
 
 requirements = [ ]
 
@@ -43,7 +61,7 @@ setup(
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/larsclaussen/threedi_openapi_client',
-    version='0.1.0',
+    url='https://github.com/nens/threedi-openapi-client',
+    version=find_version("openapi_client", "__init__.py"),
     zip_safe=False,
 )
