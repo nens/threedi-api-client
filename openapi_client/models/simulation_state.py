@@ -37,7 +37,8 @@ class SimulationState(object):
         'simulation': 'str',
         'created': 'datetime',
         'timestep': 'int',
-        'crash_report': 'str'
+        'crash_report': 'str',
+        'progress': 'str'
     }
 
     attribute_map = {
@@ -46,10 +47,11 @@ class SimulationState(object):
         'simulation': 'simulation',
         'created': 'created',
         'timestep': 'timestep',
-        'crash_report': 'crash_report'
+        'crash_report': 'crash_report',
+        'progress': 'progress'
     }
 
-    def __init__(self, url=None, name=None, simulation=None, created=None, timestep=None, crash_report=None):  # noqa: E501
+    def __init__(self, url=None, name=None, simulation=None, created=None, timestep=None, crash_report=None, progress=None):  # noqa: E501
         """SimulationState - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
@@ -58,6 +60,7 @@ class SimulationState(object):
         self._created = None
         self._timestep = None
         self._crash_report = None
+        self._progress = None
         self.discriminator = None
 
         if url is not None:
@@ -69,6 +72,8 @@ class SimulationState(object):
             self.created = created
         self.timestep = timestep
         self.crash_report = crash_report
+        if progress is not None:
+            self.progress = progress
 
     @property
     def url(self):
@@ -111,7 +116,7 @@ class SimulationState(object):
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        allowed_values = ["created", "starting", "queued", "running", "pausing", "paused", "destroying", "finished", "crashed"]  # noqa: E501
+        allowed_values = ["created", "starting", "queued", "running", "pausing", "paused", "destroying", "finished", "postprocessing", "crashed"]  # noqa: E501
         if name not in allowed_values:
             raise ValueError(
                 "Invalid value for `name` ({0}), must be one of {1}"  # noqa: E501
@@ -207,6 +212,27 @@ class SimulationState(object):
         """
 
         self._crash_report = crash_report
+
+    @property
+    def progress(self):
+        """Gets the progress of this SimulationState.  # noqa: E501
+
+
+        :return: The progress of this SimulationState.  # noqa: E501
+        :rtype: str
+        """
+        return self._progress
+
+    @progress.setter
+    def progress(self, progress):
+        """Sets the progress of this SimulationState.
+
+
+        :param progress: The progress of this SimulationState.  # noqa: E501
+        :type: str
+        """
+
+        self._progress = progress
 
     def to_dict(self):
         """Returns the model properties as a dict"""

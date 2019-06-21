@@ -70,8 +70,7 @@ class TimeseriesRainOverview(object):
             self.url = url
         if simulation is not None:
             self.simulation = simulation
-        if start_timestep is not None:
-            self.start_timestep = start_timestep
+        self.start_timestep = start_timestep
         if end_timestep is not None:
             self.end_timestep = end_timestep
         if interpolate is not None:
@@ -143,6 +142,12 @@ class TimeseriesRainOverview(object):
         :param start_timestep: The start_timestep of this TimeseriesRainOverview.  # noqa: E501
         :type: int
         """
+        if start_timestep is None:
+            raise ValueError("Invalid value for `start_timestep`, must not be `None`")  # noqa: E501
+        if start_timestep is not None and start_timestep > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `start_timestep`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if start_timestep is not None and start_timestep < 0:  # noqa: E501
+            raise ValueError("Invalid value for `start_timestep`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._start_timestep = start_timestep
 

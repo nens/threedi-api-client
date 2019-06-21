@@ -35,7 +35,7 @@ class InlineResponse20023(object):
         'next': 'str',
         'previous': 'str',
         'count': 'int',
-        'results': 'list[BoundaryCondition]'
+        'results': 'list[ResultFile]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse20023(object):
 
 
         :return: The results of this InlineResponse20023.  # noqa: E501
-        :rtype: list[BoundaryCondition]
+        :rtype: list[ResultFile]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse20023(object):
 
 
         :param results: The results of this InlineResponse20023.  # noqa: E501
-        :type: list[BoundaryCondition]
+        :type: list[ResultFile]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

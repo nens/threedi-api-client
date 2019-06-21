@@ -37,6 +37,7 @@ class Upload(object):
         'filename': 'str',
         'bucket': 'str',
         'prefix': 'str',
+        'related_object': 'str',
         'type': 'str',
         'state': 'str'
     }
@@ -47,11 +48,12 @@ class Upload(object):
         'filename': 'filename',
         'bucket': 'bucket',
         'prefix': 'prefix',
+        'related_object': 'related_object',
         'type': 'type',
         'state': 'state'
     }
 
-    def __init__(self, url=None, storage_name=None, filename=None, bucket=None, prefix=None, type=None, state=None):  # noqa: E501
+    def __init__(self, url=None, storage_name=None, filename=None, bucket=None, prefix=None, related_object=None, type=None, state=None):  # noqa: E501
         """Upload - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
@@ -59,6 +61,7 @@ class Upload(object):
         self._filename = None
         self._bucket = None
         self._prefix = None
+        self._related_object = None
         self._type = None
         self._state = None
         self.discriminator = None
@@ -70,6 +73,8 @@ class Upload(object):
         self.filename = filename
         self.bucket = bucket
         self.prefix = prefix
+        if related_object is not None:
+            self.related_object = related_object
         self.type = type
         self.state = state
 
@@ -195,6 +200,27 @@ class Upload(object):
         self._prefix = prefix
 
     @property
+    def related_object(self):
+        """Gets the related_object of this Upload.  # noqa: E501
+
+
+        :return: The related_object of this Upload.  # noqa: E501
+        :rtype: str
+        """
+        return self._related_object
+
+    @related_object.setter
+    def related_object(self, related_object):
+        """Sets the related_object of this Upload.
+
+
+        :param related_object: The related_object of this Upload.  # noqa: E501
+        :type: str
+        """
+
+        self._related_object = related_object
+
+    @property
     def type(self):
         """Gets the type of this Upload.  # noqa: E501
 
@@ -214,7 +240,7 @@ class Upload(object):
         """
         if type is None:
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["temporalraster"]  # noqa: E501
+        allowed_values = ["timeseries", "rastertimeseries", "results"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
@@ -243,7 +269,7 @@ class Upload(object):
         """
         if state is None:
             raise ValueError("Invalid value for `state`, must not be `None`")  # noqa: E501
-        allowed_values = ["created", "uploaded", "processed"]  # noqa: E501
+        allowed_values = ["created", "uploaded", "processed", "error"]  # noqa: E501
         if state not in allowed_values:
             raise ValueError(
                 "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501

@@ -34,21 +34,27 @@ class UploadReadOnly(object):
     openapi_types = {
         'url': 'str',
         'filename': 'str',
-        'state': 'str'
+        'state': 'str',
+        'state_description': 'str',
+        'type': 'str'
     }
 
     attribute_map = {
         'url': 'url',
         'filename': 'filename',
-        'state': 'state'
+        'state': 'state',
+        'state_description': 'state_description',
+        'type': 'type'
     }
 
-    def __init__(self, url=None, filename=None, state=None):  # noqa: E501
+    def __init__(self, url=None, filename=None, state=None, state_description=None, type=None):  # noqa: E501
         """UploadReadOnly - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
         self._filename = None
         self._state = None
+        self._state_description = None
+        self._type = None
         self.discriminator = None
 
         if url is not None:
@@ -57,6 +63,9 @@ class UploadReadOnly(object):
             self.filename = filename
         if state is not None:
             self.state = state
+        if state_description is not None:
+            self.state_description = state_description
+        self.type = type
 
     @property
     def url(self):
@@ -120,7 +129,7 @@ class UploadReadOnly(object):
         :param state: The state of this UploadReadOnly.  # noqa: E501
         :type: str
         """
-        allowed_values = ["created", "uploaded", "processed"]  # noqa: E501
+        allowed_values = ["created", "uploaded", "processed", "error"]  # noqa: E501
         if state not in allowed_values:
             raise ValueError(
                 "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
@@ -128,6 +137,58 @@ class UploadReadOnly(object):
             )
 
         self._state = state
+
+    @property
+    def state_description(self):
+        """Gets the state_description of this UploadReadOnly.  # noqa: E501
+
+
+        :return: The state_description of this UploadReadOnly.  # noqa: E501
+        :rtype: str
+        """
+        return self._state_description
+
+    @state_description.setter
+    def state_description(self, state_description):
+        """Sets the state_description of this UploadReadOnly.
+
+
+        :param state_description: The state_description of this UploadReadOnly.  # noqa: E501
+        :type: str
+        """
+        if state_description is not None and len(state_description) < 1:
+            raise ValueError("Invalid value for `state_description`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._state_description = state_description
+
+    @property
+    def type(self):
+        """Gets the type of this UploadReadOnly.  # noqa: E501
+
+
+        :return: The type of this UploadReadOnly.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this UploadReadOnly.
+
+
+        :param type: The type of this UploadReadOnly.  # noqa: E501
+        :type: str
+        """
+        if type is None:
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
+        allowed_values = ["timeseries", "rastertimeseries", "results"]  # noqa: E501
+        if type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

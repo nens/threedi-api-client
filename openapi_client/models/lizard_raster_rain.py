@@ -35,6 +35,7 @@ class LizardRasterRain(object):
         'url': 'str',
         'start_timestep': 'int',
         'end_timestep': 'int',
+        'units': 'str',
         'reference_uuid': 'str',
         'start_datetime': 'datetime',
         'simulation': 'str',
@@ -48,6 +49,7 @@ class LizardRasterRain(object):
         'url': 'url',
         'start_timestep': 'start_timestep',
         'end_timestep': 'end_timestep',
+        'units': 'units',
         'reference_uuid': 'reference_uuid',
         'start_datetime': 'start_datetime',
         'simulation': 'simulation',
@@ -57,12 +59,13 @@ class LizardRasterRain(object):
         'store_path': 'store_path'
     }
 
-    def __init__(self, url=None, start_timestep=None, end_timestep=None, reference_uuid=None, start_datetime=None, simulation=None, multiplier=None, interval=None, origin_offset=None, store_path=None):  # noqa: E501
+    def __init__(self, url=None, start_timestep=None, end_timestep=None, units=None, reference_uuid=None, start_datetime=None, simulation=None, multiplier=None, interval=None, origin_offset=None, store_path=None):  # noqa: E501
         """LizardRasterRain - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
         self._start_timestep = None
         self._end_timestep = None
+        self._units = None
         self._reference_uuid = None
         self._start_datetime = None
         self._simulation = None
@@ -76,6 +79,8 @@ class LizardRasterRain(object):
             self.url = url
         self.start_timestep = start_timestep
         self.end_timestep = end_timestep
+        if units is not None:
+            self.units = units
         self.reference_uuid = reference_uuid
         self.start_datetime = start_datetime
         if simulation is not None:
@@ -165,6 +170,33 @@ class LizardRasterRain(object):
             raise ValueError("Invalid value for `end_timestep`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._end_timestep = end_timestep
+
+    @property
+    def units(self):
+        """Gets the units of this LizardRasterRain.  # noqa: E501
+
+
+        :return: The units of this LizardRasterRain.  # noqa: E501
+        :rtype: str
+        """
+        return self._units
+
+    @units.setter
+    def units(self, units):
+        """Sets the units of this LizardRasterRain.
+
+
+        :param units: The units of this LizardRasterRain.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["mm/duration", "mm/h", "m/s"]  # noqa: E501
+        if units not in allowed_values:
+            raise ValueError(
+                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
+                .format(units, allowed_values)
+            )
+
+        self._units = units
 
     @property
     def reference_uuid(self):

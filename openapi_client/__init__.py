@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = '0.1.1.dev0'
+__version__ = "1.0.0"
 
 # import apis into sdk package
 from openapi_client.api.auth_api import AuthApi
@@ -59,7 +59,11 @@ from openapi_client.models.inline_response20023 import InlineResponse20023
 from openapi_client.models.inline_response20024 import InlineResponse20024
 from openapi_client.models.inline_response20025 import InlineResponse20025
 from openapi_client.models.inline_response20026 import InlineResponse20026
+from openapi_client.models.inline_response20027 import InlineResponse20027
+from openapi_client.models.inline_response20028 import InlineResponse20028
+from openapi_client.models.inline_response20029 import InlineResponse20029
 from openapi_client.models.inline_response2003 import InlineResponse2003
+from openapi_client.models.inline_response20030 import InlineResponse20030
 from openapi_client.models.inline_response2004 import InlineResponse2004
 from openapi_client.models.inline_response2005 import InlineResponse2005
 from openapi_client.models.inline_response2006 import InlineResponse2006
@@ -77,10 +81,12 @@ from openapi_client.models.potential_breach import PotentialBreach
 from openapi_client.models.raster import Raster
 from openapi_client.models.raster_options import RasterOptions
 from openapi_client.models.repository import Repository
+from openapi_client.models.result_file import ResultFile
 from openapi_client.models.revision import Revision
 from openapi_client.models.role import Role
 from openapi_client.models.simulation import Simulation
 from openapi_client.models.simulation_state import SimulationState
+from openapi_client.models.simulation_update import SimulationUpdate
 from openapi_client.models.stable_threshold_flow_state import StableThresholdFlowState
 from openapi_client.models.threedi_model import ThreediModel
 from openapi_client.models.threedi_model_flow_state import ThreediModelFlowState
@@ -96,4 +102,9 @@ from openapi_client.models.token_response import TokenResponse
 from openapi_client.models.upload import Upload
 from openapi_client.models.upload_raster_rain import UploadRasterRain
 from openapi_client.models.upload_raster_rain_update import UploadRasterRainUpdate
+from openapi_client.models.upload_raster_sources_sinks import UploadRasterSourcesSinks
 from openapi_client.models.upload_read_only import UploadReadOnly
+from openapi_client.models.upload_timeseries_rain import UploadTimeseriesRain
+from openapi_client.models.upload_timeseries_rain_update import UploadTimeseriesRainUpdate
+from openapi_client.models.upload_timeseries_sources_sinks import UploadTimeseriesSourcesSinks
+from openapi_client.models.upload_timestamps import UploadTimestamps

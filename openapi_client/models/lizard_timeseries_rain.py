@@ -39,7 +39,8 @@ class LizardTimeseriesRain(object):
         'reference_uuid': 'str',
         'start_datetime': 'datetime',
         'interpolate': 'bool',
-        'values': 'list[list[float]]'
+        'values': 'list[list[float]]',
+        'units': 'str'
     }
 
     attribute_map = {
@@ -50,10 +51,11 @@ class LizardTimeseriesRain(object):
         'reference_uuid': 'reference_uuid',
         'start_datetime': 'start_datetime',
         'interpolate': 'interpolate',
-        'values': 'values'
+        'values': 'values',
+        'units': 'units'
     }
 
-    def __init__(self, url=None, simulation=None, start_timestep=None, end_timestep=None, reference_uuid=None, start_datetime=None, interpolate=None, values=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, start_timestep=None, end_timestep=None, reference_uuid=None, start_datetime=None, interpolate=None, values=None, units=None):  # noqa: E501
         """LizardTimeseriesRain - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
@@ -64,6 +66,7 @@ class LizardTimeseriesRain(object):
         self._start_datetime = None
         self._interpolate = None
         self._values = None
+        self._units = None
         self.discriminator = None
 
         if url is not None:
@@ -78,6 +81,8 @@ class LizardTimeseriesRain(object):
             self.interpolate = interpolate
         if values is not None:
             self.values = values
+        if units is not None:
+            self.units = units
 
     @property
     def url(self):
@@ -268,6 +273,33 @@ class LizardTimeseriesRain(object):
         """
 
         self._values = values
+
+    @property
+    def units(self):
+        """Gets the units of this LizardTimeseriesRain.  # noqa: E501
+
+
+        :return: The units of this LizardTimeseriesRain.  # noqa: E501
+        :rtype: str
+        """
+        return self._units
+
+    @units.setter
+    def units(self, units):
+        """Sets the units of this LizardTimeseriesRain.
+
+
+        :param units: The units of this LizardTimeseriesRain.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["mm/duration", "mm/h", "m/s"]  # noqa: E501
+        if units not in allowed_values:
+            raise ValueError(
+                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
+                .format(units, allowed_values)
+            )
+
+        self._units = units
 
     def to_dict(self):
         """Returns the model properties as a dict"""

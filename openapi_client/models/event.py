@@ -38,7 +38,11 @@ class Event(object):
         'breach': 'list[Breach]',
         'lizardrastersourcessinks': 'list[LizardRasterSourcesSinks]',
         'lizardtimeseriessourcessinks': 'list[LizardTimeseriesSourcesSinks]',
-        'timeseriessourcessinks': 'list[TimeseriesSourcesSinksOverview]'
+        'uploadrastersourcessinks': 'list[UploadRasterSourcesSinks]',
+        'uploadtimeseriessourcessinks': 'list[UploadTimeseriesSourcesSinks]',
+        'timeseriessourcessinks': 'list[TimeseriesSourcesSinksOverview]',
+        'uploadrasterrain': 'list[UploadRasterRain]',
+        'uploadtimeseriesrain': 'list[UploadTimeseriesRain]'
     }
 
     attribute_map = {
@@ -48,10 +52,14 @@ class Event(object):
         'breach': 'breach',
         'lizardrastersourcessinks': 'lizardrastersourcessinks',
         'lizardtimeseriessourcessinks': 'lizardtimeseriessourcessinks',
-        'timeseriessourcessinks': 'timeseriessourcessinks'
+        'uploadrastersourcessinks': 'uploadrastersourcessinks',
+        'uploadtimeseriessourcessinks': 'uploadtimeseriessourcessinks',
+        'timeseriessourcessinks': 'timeseriessourcessinks',
+        'uploadrasterrain': 'uploadrasterrain',
+        'uploadtimeseriesrain': 'uploadtimeseriesrain'
     }
 
-    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, timeseriessourcessinks=None):  # noqa: E501
+    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, uploadrastersourcessinks=None, uploadtimeseriessourcessinks=None, timeseriessourcessinks=None, uploadrasterrain=None, uploadtimeseriesrain=None):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
 
         self._lizardrasterrain = None
@@ -60,7 +68,11 @@ class Event(object):
         self._breach = None
         self._lizardrastersourcessinks = None
         self._lizardtimeseriessourcessinks = None
+        self._uploadrastersourcessinks = None
+        self._uploadtimeseriessourcessinks = None
         self._timeseriessourcessinks = None
+        self._uploadrasterrain = None
+        self._uploadtimeseriesrain = None
         self.discriminator = None
 
         if lizardrasterrain is not None:
@@ -75,8 +87,16 @@ class Event(object):
             self.lizardrastersourcessinks = lizardrastersourcessinks
         if lizardtimeseriessourcessinks is not None:
             self.lizardtimeseriessourcessinks = lizardtimeseriessourcessinks
+        if uploadrastersourcessinks is not None:
+            self.uploadrastersourcessinks = uploadrastersourcessinks
+        if uploadtimeseriessourcessinks is not None:
+            self.uploadtimeseriessourcessinks = uploadtimeseriessourcessinks
         if timeseriessourcessinks is not None:
             self.timeseriessourcessinks = timeseriessourcessinks
+        if uploadrasterrain is not None:
+            self.uploadrasterrain = uploadrasterrain
+        if uploadtimeseriesrain is not None:
+            self.uploadtimeseriesrain = uploadtimeseriesrain
 
     @property
     def lizardrasterrain(self):
@@ -205,6 +225,48 @@ class Event(object):
         self._lizardtimeseriessourcessinks = lizardtimeseriessourcessinks
 
     @property
+    def uploadrastersourcessinks(self):
+        """Gets the uploadrastersourcessinks of this Event.  # noqa: E501
+
+
+        :return: The uploadrastersourcessinks of this Event.  # noqa: E501
+        :rtype: list[UploadRasterSourcesSinks]
+        """
+        return self._uploadrastersourcessinks
+
+    @uploadrastersourcessinks.setter
+    def uploadrastersourcessinks(self, uploadrastersourcessinks):
+        """Sets the uploadrastersourcessinks of this Event.
+
+
+        :param uploadrastersourcessinks: The uploadrastersourcessinks of this Event.  # noqa: E501
+        :type: list[UploadRasterSourcesSinks]
+        """
+
+        self._uploadrastersourcessinks = uploadrastersourcessinks
+
+    @property
+    def uploadtimeseriessourcessinks(self):
+        """Gets the uploadtimeseriessourcessinks of this Event.  # noqa: E501
+
+
+        :return: The uploadtimeseriessourcessinks of this Event.  # noqa: E501
+        :rtype: list[UploadTimeseriesSourcesSinks]
+        """
+        return self._uploadtimeseriessourcessinks
+
+    @uploadtimeseriessourcessinks.setter
+    def uploadtimeseriessourcessinks(self, uploadtimeseriessourcessinks):
+        """Sets the uploadtimeseriessourcessinks of this Event.
+
+
+        :param uploadtimeseriessourcessinks: The uploadtimeseriessourcessinks of this Event.  # noqa: E501
+        :type: list[UploadTimeseriesSourcesSinks]
+        """
+
+        self._uploadtimeseriessourcessinks = uploadtimeseriessourcessinks
+
+    @property
     def timeseriessourcessinks(self):
         """Gets the timeseriessourcessinks of this Event.  # noqa: E501
 
@@ -224,6 +286,48 @@ class Event(object):
         """
 
         self._timeseriessourcessinks = timeseriessourcessinks
+
+    @property
+    def uploadrasterrain(self):
+        """Gets the uploadrasterrain of this Event.  # noqa: E501
+
+
+        :return: The uploadrasterrain of this Event.  # noqa: E501
+        :rtype: list[UploadRasterRain]
+        """
+        return self._uploadrasterrain
+
+    @uploadrasterrain.setter
+    def uploadrasterrain(self, uploadrasterrain):
+        """Sets the uploadrasterrain of this Event.
+
+
+        :param uploadrasterrain: The uploadrasterrain of this Event.  # noqa: E501
+        :type: list[UploadRasterRain]
+        """
+
+        self._uploadrasterrain = uploadrasterrain
+
+    @property
+    def uploadtimeseriesrain(self):
+        """Gets the uploadtimeseriesrain of this Event.  # noqa: E501
+
+
+        :return: The uploadtimeseriesrain of this Event.  # noqa: E501
+        :rtype: list[UploadTimeseriesRain]
+        """
+        return self._uploadtimeseriesrain
+
+    @uploadtimeseriesrain.setter
+    def uploadtimeseriesrain(self, uploadtimeseriesrain):
+        """Sets the uploadtimeseriesrain of this Event.
+
+
+        :param uploadtimeseriesrain: The uploadtimeseriesrain of this Event.  # noqa: E501
+        :type: list[UploadTimeseriesRain]
+        """
+
+        self._uploadtimeseriesrain = uploadtimeseriesrain
 
     def to_dict(self):
         """Returns the model properties as a dict"""

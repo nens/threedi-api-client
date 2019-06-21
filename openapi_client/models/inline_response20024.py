@@ -35,7 +35,7 @@ class InlineResponse20024(object):
         'next': 'str',
         'previous': 'str',
         'count': 'int',
-        'results': 'list[ThreediModelFlowState]'
+        'results': 'list[SimulationState]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse20024(object):
 
 
         :return: The results of this InlineResponse20024.  # noqa: E501
-        :rtype: list[ThreediModelFlowState]
+        :rtype: list[SimulationState]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse20024(object):
 
 
         :param results: The results of this InlineResponse20024.  # noqa: E501
-        :type: list[ThreediModelFlowState]
+        :type: list[SimulationState]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

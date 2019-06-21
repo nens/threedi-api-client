@@ -37,7 +37,12 @@ class UploadRasterRainUpdate(object):
         'simulation': 'str',
         'start_timestep': 'int',
         'end_timestep': 'int',
-        'interval': 'int'
+        'timestamps': 'list[int]',
+        'geotransform': 'list[float]',
+        'epsg_code': 'int',
+        'interval': 'int',
+        'values_reference': 'str',
+        'units': 'str'
     }
 
     attribute_map = {
@@ -46,10 +51,15 @@ class UploadRasterRainUpdate(object):
         'simulation': 'simulation',
         'start_timestep': 'start_timestep',
         'end_timestep': 'end_timestep',
-        'interval': 'interval'
+        'timestamps': 'timestamps',
+        'geotransform': 'geotransform',
+        'epsg_code': 'epsg_code',
+        'interval': 'interval',
+        'values_reference': 'values_reference',
+        'units': 'units'
     }
 
-    def __init__(self, url=None, multiplier=None, simulation=None, start_timestep=None, end_timestep=None, interval=None):  # noqa: E501
+    def __init__(self, url=None, multiplier=None, simulation=None, start_timestep=None, end_timestep=None, timestamps=None, geotransform=None, epsg_code=None, interval=None, values_reference=None, units=None):  # noqa: E501
         """UploadRasterRainUpdate - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
@@ -57,7 +67,12 @@ class UploadRasterRainUpdate(object):
         self._simulation = None
         self._start_timestep = None
         self._end_timestep = None
+        self._timestamps = None
+        self._geotransform = None
+        self._epsg_code = None
         self._interval = None
+        self._values_reference = None
+        self._units = None
         self.discriminator = None
 
         if url is not None:
@@ -68,7 +83,14 @@ class UploadRasterRainUpdate(object):
             self.simulation = simulation
         self.start_timestep = start_timestep
         self.end_timestep = end_timestep
+        self.timestamps = timestamps
+        if geotransform is not None:
+            self.geotransform = geotransform
+        if epsg_code is not None:
+            self.epsg_code = epsg_code
         self.interval = interval
+        self.values_reference = values_reference
+        self.units = units
 
     @property
     def url(self):
@@ -188,10 +210,79 @@ class UploadRasterRainUpdate(object):
         self._end_timestep = end_timestep
 
     @property
+    def timestamps(self):
+        """Gets the timestamps of this UploadRasterRainUpdate.  # noqa: E501
+
+        in simulation in seconds  # noqa: E501
+
+        :return: The timestamps of this UploadRasterRainUpdate.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._timestamps
+
+    @timestamps.setter
+    def timestamps(self, timestamps):
+        """Sets the timestamps of this UploadRasterRainUpdate.
+
+        in simulation in seconds  # noqa: E501
+
+        :param timestamps: The timestamps of this UploadRasterRainUpdate.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._timestamps = timestamps
+
+    @property
+    def geotransform(self):
+        """Gets the geotransform of this UploadRasterRainUpdate.  # noqa: E501
+
+
+        :return: The geotransform of this UploadRasterRainUpdate.  # noqa: E501
+        :rtype: list[float]
+        """
+        return self._geotransform
+
+    @geotransform.setter
+    def geotransform(self, geotransform):
+        """Sets the geotransform of this UploadRasterRainUpdate.
+
+
+        :param geotransform: The geotransform of this UploadRasterRainUpdate.  # noqa: E501
+        :type: list[float]
+        """
+
+        self._geotransform = geotransform
+
+    @property
+    def epsg_code(self):
+        """Gets the epsg_code of this UploadRasterRainUpdate.  # noqa: E501
+
+
+        :return: The epsg_code of this UploadRasterRainUpdate.  # noqa: E501
+        :rtype: int
+        """
+        return self._epsg_code
+
+    @epsg_code.setter
+    def epsg_code(self, epsg_code):
+        """Sets the epsg_code of this UploadRasterRainUpdate.
+
+
+        :param epsg_code: The epsg_code of this UploadRasterRainUpdate.  # noqa: E501
+        :type: int
+        """
+        if epsg_code is not None and epsg_code > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `epsg_code`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if epsg_code is not None and epsg_code < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `epsg_code`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+
+        self._epsg_code = epsg_code
+
+    @property
     def interval(self):
         """Gets the interval of this UploadRasterRainUpdate.  # noqa: E501
 
-        Interval in seconds  # noqa: E501
+        interval in seconds  # noqa: E501
 
         :return: The interval of this UploadRasterRainUpdate.  # noqa: E501
         :rtype: int
@@ -202,17 +293,69 @@ class UploadRasterRainUpdate(object):
     def interval(self, interval):
         """Sets the interval of this UploadRasterRainUpdate.
 
-        Interval in seconds  # noqa: E501
+        interval in seconds  # noqa: E501
 
         :param interval: The interval of this UploadRasterRainUpdate.  # noqa: E501
         :type: int
         """
         if interval is not None and interval > 2147483647:  # noqa: E501
             raise ValueError("Invalid value for `interval`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if interval is not None and interval < -2147483648:  # noqa: E501
-            raise ValueError("Invalid value for `interval`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+        if interval is not None and interval < 0:  # noqa: E501
+            raise ValueError("Invalid value for `interval`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._interval = interval
+
+    @property
+    def values_reference(self):
+        """Gets the values_reference of this UploadRasterRainUpdate.  # noqa: E501
+
+
+        :return: The values_reference of this UploadRasterRainUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._values_reference
+
+    @values_reference.setter
+    def values_reference(self, values_reference):
+        """Sets the values_reference of this UploadRasterRainUpdate.
+
+
+        :param values_reference: The values_reference of this UploadRasterRainUpdate.  # noqa: E501
+        :type: str
+        """
+        if values_reference is not None and len(values_reference) > 255:
+            raise ValueError("Invalid value for `values_reference`, length must be less than or equal to `255`")  # noqa: E501
+
+        self._values_reference = values_reference
+
+    @property
+    def units(self):
+        """Gets the units of this UploadRasterRainUpdate.  # noqa: E501
+
+
+        :return: The units of this UploadRasterRainUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._units
+
+    @units.setter
+    def units(self, units):
+        """Sets the units of this UploadRasterRainUpdate.
+
+
+        :param units: The units of this UploadRasterRainUpdate.  # noqa: E501
+        :type: str
+        """
+        if units is None:
+            raise ValueError("Invalid value for `units`, must not be `None`")  # noqa: E501
+        allowed_values = ["mm", "mm/h", "mm/hr"]  # noqa: E501
+        if units not in allowed_values:
+            raise ValueError(
+                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
+                .format(units, allowed_values)
+            )
+
+        self._units = units
 
     def to_dict(self):
         """Returns the model properties as a dict"""

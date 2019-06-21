@@ -35,7 +35,7 @@ class InlineResponse20026(object):
         'next': 'str',
         'previous': 'str',
         'count': 'int',
-        'results': 'list[Raster]'
+        'results': 'list[ThreediModel]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse20026(object):
 
 
         :return: The results of this InlineResponse20026.  # noqa: E501
-        :rtype: list[Raster]
+        :rtype: list[ThreediModel]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse20026(object):
 
 
         :param results: The results of this InlineResponse20026.  # noqa: E501
-        :type: list[Raster]
+        :type: list[ThreediModel]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

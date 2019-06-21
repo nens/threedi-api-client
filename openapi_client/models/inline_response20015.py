@@ -35,7 +35,7 @@ class InlineResponse20015(object):
         'next': 'str',
         'previous': 'str',
         'count': 'int',
-        'results': 'list[ConstantSourcesSinks]'
+        'results': 'list[UploadTimeseriesRain]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse20015(object):
 
 
         :return: The results of this InlineResponse20015.  # noqa: E501
-        :rtype: list[ConstantSourcesSinks]
+        :rtype: list[UploadTimeseriesRain]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse20015(object):
 
 
         :param results: The results of this InlineResponse20015.  # noqa: E501
-        :type: list[ConstantSourcesSinks]
+        :type: list[UploadTimeseriesRain]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
