@@ -5,7 +5,7 @@ History
 0.1.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix package name
 
 
 0.1.2 (2019-06-24)
