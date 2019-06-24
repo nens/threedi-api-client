@@ -2,7 +2,7 @@
 History
 =======
 
-0.1.4 (unreleased)
+0.1.4 (2019-06-24)
 ------------------
 
 - Include modules.
