@@ -17,9 +17,11 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
+
 def read(*parts):
     with codecs.open(os.path.join(here, *parts), 'r') as fp:
         return fp.read()
+
 
 def find_version(*file_paths):
     version_file = read(*file_paths)
@@ -60,7 +62,7 @@ setup(
     include_package_data=True,
     keywords='threedi_openapi_client',
     name='threedi_openapi_client',
-    packages=find_packages(include=['threedi_openapi_client']),
+    packages=find_packages(include=['openapi_client']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
