@@ -2,7 +2,7 @@
 History
 =======
 
-0.1.3 (unreleased)
+0.1.3 (2019-06-24)
 ------------------
 
 - Fix package name
