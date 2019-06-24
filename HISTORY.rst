@@ -5,7 +5,7 @@ History
 0.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- PyPi release.
 
 
 0.1.1 (2019-06-21)
