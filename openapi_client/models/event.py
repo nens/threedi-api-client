@@ -42,7 +42,9 @@ class Event(object):
         'uploadtimeseriessourcessinks': 'list[UploadTimeseriesSourcesSinks]',
         'timeseriessourcessinks': 'list[TimeseriesSourcesSinksOverview]',
         'uploadrasterrain': 'list[UploadRasterRain]',
-        'uploadtimeseriesrain': 'list[UploadTimeseriesRain]'
+        'uploadtimeseriesrain': 'list[UploadTimeseriesRain]',
+        'initial_flowstate': 'InitialFlowStateOverview',
+        'flowstates': 'list[FlowStateOverview]'
     }
 
     attribute_map = {
@@ -56,10 +58,12 @@ class Event(object):
         'uploadtimeseriessourcessinks': 'uploadtimeseriessourcessinks',
         'timeseriessourcessinks': 'timeseriessourcessinks',
         'uploadrasterrain': 'uploadrasterrain',
-        'uploadtimeseriesrain': 'uploadtimeseriesrain'
+        'uploadtimeseriesrain': 'uploadtimeseriesrain',
+        'initial_flowstate': 'initial_flowstate',
+        'flowstates': 'flowstates'
     }
 
-    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, uploadrastersourcessinks=None, uploadtimeseriessourcessinks=None, timeseriessourcessinks=None, uploadrasterrain=None, uploadtimeseriesrain=None):  # noqa: E501
+    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, uploadrastersourcessinks=None, uploadtimeseriessourcessinks=None, timeseriessourcessinks=None, uploadrasterrain=None, uploadtimeseriesrain=None, initial_flowstate=None, flowstates=None):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
 
         self._lizardrasterrain = None
@@ -73,6 +77,8 @@ class Event(object):
         self._timeseriessourcessinks = None
         self._uploadrasterrain = None
         self._uploadtimeseriesrain = None
+        self._initial_flowstate = None
+        self._flowstates = None
         self.discriminator = None
 
         if lizardrasterrain is not None:
@@ -97,6 +103,10 @@ class Event(object):
             self.uploadrasterrain = uploadrasterrain
         if uploadtimeseriesrain is not None:
             self.uploadtimeseriesrain = uploadtimeseriesrain
+        if initial_flowstate is not None:
+            self.initial_flowstate = initial_flowstate
+        if flowstates is not None:
+            self.flowstates = flowstates
 
     @property
     def lizardrasterrain(self):
@@ -328,6 +338,48 @@ class Event(object):
         """
 
         self._uploadtimeseriesrain = uploadtimeseriesrain
+
+    @property
+    def initial_flowstate(self):
+        """Gets the initial_flowstate of this Event.  # noqa: E501
+
+
+        :return: The initial_flowstate of this Event.  # noqa: E501
+        :rtype: InitialFlowStateOverview
+        """
+        return self._initial_flowstate
+
+    @initial_flowstate.setter
+    def initial_flowstate(self, initial_flowstate):
+        """Sets the initial_flowstate of this Event.
+
+
+        :param initial_flowstate: The initial_flowstate of this Event.  # noqa: E501
+        :type: InitialFlowStateOverview
+        """
+
+        self._initial_flowstate = initial_flowstate
+
+    @property
+    def flowstates(self):
+        """Gets the flowstates of this Event.  # noqa: E501
+
+
+        :return: The flowstates of this Event.  # noqa: E501
+        :rtype: list[FlowStateOverview]
+        """
+        return self._flowstates
+
+    @flowstates.setter
+    def flowstates(self, flowstates):
+        """Sets the flowstates of this Event.
+
+
+        :param flowstates: The flowstates of this Event.  # noqa: E501
+        :type: list[FlowStateOverview]
+        """
+
+        self._flowstates = flowstates
 
     def to_dict(self):
         """Returns the model properties as a dict"""

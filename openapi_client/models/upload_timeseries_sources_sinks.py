@@ -41,7 +41,8 @@ class UploadTimeseriesSourcesSinks(object):
         'interval': 'int',
         'values_reference': 'str',
         'units': 'str',
-        'upload': 'UploadReadOnly'
+        'upload': 'UploadReadOnly',
+        'fill_value': 'str'
     }
 
     attribute_map = {
@@ -54,10 +55,11 @@ class UploadTimeseriesSourcesSinks(object):
         'interval': 'interval',
         'values_reference': 'values_reference',
         'units': 'units',
-        'upload': 'upload'
+        'upload': 'upload',
+        'fill_value': 'fill_value'
     }
 
-    def __init__(self, url=None, multiplier=None, simulation=None, start_timestep=None, end_timestep=None, timestamps=None, interval=None, values_reference=None, units=None, upload=None):  # noqa: E501
+    def __init__(self, url=None, multiplier=None, simulation=None, start_timestep=None, end_timestep=None, timestamps=None, interval=None, values_reference=None, units=None, upload=None, fill_value=None):  # noqa: E501
         """UploadTimeseriesSourcesSinks - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
@@ -70,6 +72,7 @@ class UploadTimeseriesSourcesSinks(object):
         self._values_reference = None
         self._units = None
         self._upload = None
+        self._fill_value = None
         self.discriminator = None
 
         if url is not None:
@@ -86,6 +89,8 @@ class UploadTimeseriesSourcesSinks(object):
         self.units = units
         if upload is not None:
             self.upload = upload
+        if fill_value is not None:
+            self.fill_value = fill_value
 
     @property
     def url(self):
@@ -326,6 +331,31 @@ class UploadTimeseriesSourcesSinks(object):
         """
 
         self._upload = upload
+
+    @property
+    def fill_value(self):
+        """Gets the fill_value of this UploadTimeseriesSourcesSinks.  # noqa: E501
+
+
+        :return: The fill_value of this UploadTimeseriesSourcesSinks.  # noqa: E501
+        :rtype: str
+        """
+        return self._fill_value
+
+    @fill_value.setter
+    def fill_value(self, fill_value):
+        """Sets the fill_value of this UploadTimeseriesSourcesSinks.
+
+
+        :param fill_value: The fill_value of this UploadTimeseriesSourcesSinks.  # noqa: E501
+        :type: str
+        """
+        if fill_value is not None and len(fill_value) > 128:
+            raise ValueError("Invalid value for `fill_value`, length must be less than or equal to `128`")  # noqa: E501
+        if fill_value is not None and len(fill_value) < 1:
+            raise ValueError("Invalid value for `fill_value`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._fill_value = fill_value
 
     def to_dict(self):
         """Returns the model properties as a dict"""

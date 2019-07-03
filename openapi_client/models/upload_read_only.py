@@ -65,7 +65,8 @@ class UploadReadOnly(object):
             self.state = state
         if state_description is not None:
             self.state_description = state_description
-        self.type = type
+        if type is not None:
+            self.type = type
 
     @property
     def url(self):
@@ -179,9 +180,7 @@ class UploadReadOnly(object):
         :param type: The type of this UploadReadOnly.  # noqa: E501
         :type: str
         """
-        if type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["timeseries", "rastertimeseries", "results"]  # noqa: E501
+        allowed_values = ["timeseries", "rastertimeseries", "savedstate", "results"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501

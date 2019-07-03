@@ -38,7 +38,8 @@ class StableThresholdFlowState(object):
         'created': 'datetime',
         'tags': 'str',
         'expiry': 'datetime',
-        'thresholds': 'list[Threshold]'
+        'thresholds': 'list[Threshold]',
+        'upload': 'UploadReadOnly'
     }
 
     attribute_map = {
@@ -48,10 +49,11 @@ class StableThresholdFlowState(object):
         'created': 'created',
         'tags': 'tags',
         'expiry': 'expiry',
-        'thresholds': 'thresholds'
+        'thresholds': 'thresholds',
+        'upload': 'upload'
     }
 
-    def __init__(self, url=None, name=None, simulation=None, created=None, tags=None, expiry=None, thresholds=None):  # noqa: E501
+    def __init__(self, url=None, name=None, simulation=None, created=None, tags=None, expiry=None, thresholds=None, upload=None):  # noqa: E501
         """StableThresholdFlowState - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
@@ -61,6 +63,7 @@ class StableThresholdFlowState(object):
         self._tags = None
         self._expiry = None
         self._thresholds = None
+        self._upload = None
         self.discriminator = None
 
         if url is not None:
@@ -75,6 +78,8 @@ class StableThresholdFlowState(object):
             self.tags = tags
         self.expiry = expiry
         self.thresholds = thresholds
+        if upload is not None:
+            self.upload = upload
 
     @property
     def url(self):
@@ -228,6 +233,27 @@ class StableThresholdFlowState(object):
             raise ValueError("Invalid value for `thresholds`, must not be `None`")  # noqa: E501
 
         self._thresholds = thresholds
+
+    @property
+    def upload(self):
+        """Gets the upload of this StableThresholdFlowState.  # noqa: E501
+
+
+        :return: The upload of this StableThresholdFlowState.  # noqa: E501
+        :rtype: UploadReadOnly
+        """
+        return self._upload
+
+    @upload.setter
+    def upload(self, upload):
+        """Sets the upload of this StableThresholdFlowState.
+
+
+        :param upload: The upload of this StableThresholdFlowState.  # noqa: E501
+        :type: UploadReadOnly
+        """
+
+        self._upload = upload
 
     def to_dict(self):
         """Returns the model properties as a dict"""

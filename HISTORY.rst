@@ -5,7 +5,7 @@ History
 0.1.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Updated file uploading
 
 
 0.1.4 (2019-06-24)

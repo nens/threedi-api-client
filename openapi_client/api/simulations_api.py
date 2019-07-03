@@ -900,8 +900,8 @@ class SimulationsApi(object):
 
         :param async_req bool
         :param str simulation_pk: (required)
-        :param TimedFlowState data: (required)
-        :return: TimedFlowState
+        :param TimedFlowStateAdmin data: (required)
+        :return: TimedFlowStateAdmin
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -923,8 +923,8 @@ class SimulationsApi(object):
 
         :param async_req bool
         :param str simulation_pk: (required)
-        :param TimedFlowState data: (required)
-        :return: TimedFlowState
+        :param TimedFlowStateAdmin data: (required)
+        :return: TimedFlowStateAdmin
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -989,7 +989,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='TimedFlowState',  # noqa: E501
+            response_type='TimedFlowStateAdmin',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1213,8 +1213,8 @@ class SimulationsApi(object):
         :param async_req bool
         :param int id: A unique integer value identifying this flow state. (required)
         :param str simulation_pk: (required)
-        :param TimedFlowState data: (required)
-        :return: TimedFlowState
+        :param TimedFlowStateAdmin data: (required)
+        :return: TimedFlowStateAdmin
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1237,8 +1237,8 @@ class SimulationsApi(object):
         :param async_req bool
         :param int id: A unique integer value identifying this flow state. (required)
         :param str simulation_pk: (required)
-        :param TimedFlowState data: (required)
-        :return: TimedFlowState
+        :param TimedFlowStateAdmin data: (required)
+        :return: TimedFlowStateAdmin
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1309,7 +1309,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='TimedFlowState',  # noqa: E501
+            response_type='TimedFlowStateAdmin',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1329,7 +1329,7 @@ class SimulationsApi(object):
         :param async_req bool
         :param int id: A unique integer value identifying this flow state. (required)
         :param str simulation_pk: (required)
-        :return: TimedFlowState
+        :return: TimedFlowStateAdmin
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1352,7 +1352,7 @@ class SimulationsApi(object):
         :param async_req bool
         :param int id: A unique integer value identifying this flow state. (required)
         :param str simulation_pk: (required)
-        :return: TimedFlowState
+        :return: TimedFlowStateAdmin
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1413,7 +1413,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='TimedFlowState',  # noqa: E501
+            response_type='TimedFlowStateAdmin',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1433,8 +1433,8 @@ class SimulationsApi(object):
         :param async_req bool
         :param int id: A unique integer value identifying this flow state. (required)
         :param str simulation_pk: (required)
-        :param TimedFlowState data: (required)
-        :return: TimedFlowState
+        :param TimedFlowStateAdmin data: (required)
+        :return: TimedFlowStateAdmin
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1457,8 +1457,8 @@ class SimulationsApi(object):
         :param async_req bool
         :param int id: A unique integer value identifying this flow state. (required)
         :param str simulation_pk: (required)
-        :param TimedFlowState data: (required)
-        :return: TimedFlowState
+        :param TimedFlowStateAdmin data: (required)
+        :return: TimedFlowStateAdmin
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1529,7 +1529,105 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='TimedFlowState',  # noqa: E501
+            response_type='TimedFlowStateAdmin',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_create_flow_states_timed_upload(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_create_flow_states_timed_upload  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_create_flow_states_timed_upload(id, simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int id: A unique integer value identifying this flow state. (required)
+        :param str simulation_pk: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.simulations_create_flow_states_timed_upload_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        else:
+            (data) = self.simulations_create_flow_states_timed_upload_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+            return data
+
+    def simulations_create_flow_states_timed_upload_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_create_flow_states_timed_upload  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_create_flow_states_timed_upload_with_http_info(id, simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int id: A unique integer value identifying this flow state. (required)
+        :param str simulation_pk: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'simulation_pk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_create_flow_states_timed_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `simulations_create_flow_states_timed_upload`")  # noqa: E501
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_create_flow_states_timed_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/create-flow-states/timed/{id}/upload/', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3680,7 +3778,7 @@ class SimulationsApi(object):
         :param async_req bool
         :param str filename: (required)
         :param str simulation_pk: (required)
-        :return: None
+        :return: FileUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3702,7 +3800,7 @@ class SimulationsApi(object):
         :param async_req bool
         :param str filename: (required)
         :param str simulation_pk: (required)
-        :return: None
+        :return: FileUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3748,6 +3846,10 @@ class SimulationsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -3759,7 +3861,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='FileUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5722,7 +5824,7 @@ class SimulationsApi(object):
         :param async_req bool
         :param str filename: (required)
         :param str simulation_pk: (required)
-        :return: None
+        :return: FileUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5744,7 +5846,7 @@ class SimulationsApi(object):
         :param async_req bool
         :param str filename: (required)
         :param str simulation_pk: (required)
-        :return: None
+        :return: FileUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5790,6 +5892,10 @@ class SimulationsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -5801,7 +5907,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='FileUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -11449,6 +11555,758 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def simulations_progress_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_progress_create  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_progress_create(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str simulation_pk: (required)
+        :param Progress data: (required)
+        :return: Progress
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.simulations_progress_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+        else:
+            (data) = self.simulations_progress_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+            return data
+
+    def simulations_progress_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_progress_create  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_progress_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str simulation_pk: (required)
+        :param Progress data: (required)
+        :return: Progress
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_progress_create" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_progress_create`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ValueError("Missing the required parameter `data` when calling `simulations_progress_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/progress/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Progress',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_progress_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_progress_delete  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_progress_delete(id, simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int id: A unique integer value identifying this progress. (required)
+        :param str simulation_pk: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.simulations_progress_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        else:
+            (data) = self.simulations_progress_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+            return data
+
+    def simulations_progress_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_progress_delete  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_progress_delete_with_http_info(id, simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int id: A unique integer value identifying this progress. (required)
+        :param str simulation_pk: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'simulation_pk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_progress_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `simulations_progress_delete`")  # noqa: E501
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_progress_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/progress/{id}/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_progress_latest(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_progress_latest  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_progress_latest(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :return: Progress
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.simulations_progress_latest_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+        else:
+            (data) = self.simulations_progress_latest_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+            return data
+
+    def simulations_progress_latest_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_progress_latest  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_progress_latest_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :return: Progress
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_progress_latest" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_progress_latest`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/progress/latest/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Progress',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_progress_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_progress_list  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_progress_list(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :return: InlineResponse20023
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.simulations_progress_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+        else:
+            (data) = self.simulations_progress_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+            return data
+
+    def simulations_progress_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_progress_list  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_progress_list_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :return: InlineResponse20023
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_progress_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_progress_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/progress/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20023',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_progress_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_progress_partial_update  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_progress_partial_update(id, simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int id: A unique integer value identifying this progress. (required)
+        :param str simulation_pk: (required)
+        :param Progress data: (required)
+        :return: Progress
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.simulations_progress_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
+        else:
+            (data) = self.simulations_progress_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
+            return data
+
+    def simulations_progress_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_progress_partial_update  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_progress_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int id: A unique integer value identifying this progress. (required)
+        :param str simulation_pk: (required)
+        :param Progress data: (required)
+        :return: Progress
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_progress_partial_update" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `simulations_progress_partial_update`")  # noqa: E501
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_progress_partial_update`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ValueError("Missing the required parameter `data` when calling `simulations_progress_partial_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/progress/{id}/', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Progress',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_progress_read(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_progress_read  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_progress_read(id, simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int id: A unique integer value identifying this progress. (required)
+        :param str simulation_pk: (required)
+        :return: Progress
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.simulations_progress_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        else:
+            (data) = self.simulations_progress_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+            return data
+
+    def simulations_progress_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_progress_read  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_progress_read_with_http_info(id, simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int id: A unique integer value identifying this progress. (required)
+        :param str simulation_pk: (required)
+        :return: Progress
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'simulation_pk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_progress_read" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `simulations_progress_read`")  # noqa: E501
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_progress_read`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/progress/{id}/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Progress',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_progress_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_progress_update  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_progress_update(id, simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int id: A unique integer value identifying this progress. (required)
+        :param str simulation_pk: (required)
+        :param Progress data: (required)
+        :return: Progress
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.simulations_progress_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
+        else:
+            (data) = self.simulations_progress_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
+            return data
+
+    def simulations_progress_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_progress_update  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_progress_update_with_http_info(id, simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int id: A unique integer value identifying this progress. (required)
+        :param str simulation_pk: (required)
+        :param Progress data: (required)
+        :return: Progress
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_progress_update" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `simulations_progress_update`")  # noqa: E501
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_progress_update`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ValueError("Missing the required parameter `data` when calling `simulations_progress_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/progress/{id}/', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Progress',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def simulations_read(self, id, **kwargs):  # noqa: E501
         """simulations_read  # noqa: E501
 
@@ -11753,13 +12611,13 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_results_downloads_download(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_results_downloads_download  # noqa: E501
+    def simulations_results_downloads_download_read(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_downloads_download_read  # noqa: E501
 
         A simple ViewSet for viewing uploadRasterRain  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_results_downloads_download(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_results_downloads_download_read(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -11771,18 +12629,18 @@ class SimulationsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.simulations_results_downloads_download_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+            return self.simulations_results_downloads_download_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
         else:
-            (data) = self.simulations_results_downloads_download_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+            (data) = self.simulations_results_downloads_download_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
             return data
 
-    def simulations_results_downloads_download_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_results_downloads_download  # noqa: E501
+    def simulations_results_downloads_download_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_downloads_download_read  # noqa: E501
 
         A simple ViewSet for viewing uploadRasterRain  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_results_downloads_download_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_results_downloads_download_read_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -11805,18 +12663,18 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_results_downloads_download" % key
+                    " to method simulations_results_downloads_download_read" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in local_var_params or
                 local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_results_downloads_download`")  # noqa: E501
+            raise ValueError("Missing the required parameter `id` when calling `simulations_results_downloads_download_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_downloads_download`")  # noqa: E501
+            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_downloads_download_read`")  # noqa: E501
 
         collection_formats = {}
 
@@ -11866,7 +12724,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20023
+        :return: InlineResponse20024
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11890,7 +12748,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20023
+        :return: InlineResponse20024
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11949,7 +12807,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20023',  # noqa: E501
+            response_type='InlineResponse20024',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12724,7 +13582,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20024
+        :return: InlineResponse20025
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12748,7 +13606,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20024
+        :return: InlineResponse20025
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12807,7 +13665,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20024',  # noqa: E501
+            response_type='InlineResponse20025',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -13259,42 +14117,42 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_uploads_download(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_uploads_download  # noqa: E501
+    def simulations_uploads_download_read(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_uploads_download_read  # noqa: E501
 
-        A simple ViewSet for viewing simulations  # noqa: E501
+        Endpoint for downloading files.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_uploads_download(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_uploads_download_read(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param int id: A unique integer value identifying this upload. (required)
         :param str simulation_pk: (required)
-        :return: Upload
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.simulations_uploads_download_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+            return self.simulations_uploads_download_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
         else:
-            (data) = self.simulations_uploads_download_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+            (data) = self.simulations_uploads_download_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
             return data
 
-    def simulations_uploads_download_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_uploads_download  # noqa: E501
+    def simulations_uploads_download_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_uploads_download_read  # noqa: E501
 
-        A simple ViewSet for viewing simulations  # noqa: E501
+        Endpoint for downloading files.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_uploads_download_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_uploads_download_read_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param int id: A unique integer value identifying this upload. (required)
         :param str simulation_pk: (required)
-        :return: Upload
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13311,18 +14169,18 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_uploads_download" % key
+                    " to method simulations_uploads_download_read" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in local_var_params or
                 local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_uploads_download`")  # noqa: E501
+            raise ValueError("Missing the required parameter `id` when calling `simulations_uploads_download_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_uploads_download`")  # noqa: E501
+            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_uploads_download_read`")  # noqa: E501
 
         collection_formats = {}
 
@@ -13340,10 +14198,6 @@ class SimulationsApi(object):
         local_var_files = {}
 
         body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # Authentication setting
         auth_settings = ['Bearer']  # noqa: E501
 
@@ -13355,7 +14209,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -13376,7 +14230,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20025
+        :return: InlineResponse20026
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13400,7 +14254,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20025
+        :return: InlineResponse20026
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13459,7 +14313,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20025',  # noqa: E501
+            response_type='InlineResponse20026',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

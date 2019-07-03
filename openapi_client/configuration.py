@@ -240,7 +240,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         """
         return [
             {
-                'url': "http://10.90.16.40:8000/api/v3.0",
+                'url': "https://staging.3diwatermanagement.com/api/v3.0",
                 'description': "No description provided",
             }
         ]

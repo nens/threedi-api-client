@@ -35,7 +35,7 @@ class InlineResponse2008(object):
         'next': 'str',
         'previous': 'str',
         'count': 'int',
-        'results': 'list[TimedFlowState]'
+        'results': 'list[TimedFlowStateAdmin]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse2008(object):
 
 
         :return: The results of this InlineResponse2008.  # noqa: E501
-        :rtype: list[TimedFlowState]
+        :rtype: list[TimedFlowStateAdmin]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse2008(object):
 
 
         :param results: The results of this InlineResponse2008.  # noqa: E501
-        :type: list[TimedFlowState]
+        :type: list[TimedFlowStateAdmin]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

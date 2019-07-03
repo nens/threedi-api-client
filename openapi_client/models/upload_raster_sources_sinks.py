@@ -43,7 +43,8 @@ class UploadRasterSourcesSinks(object):
         'units': 'str',
         'geotransform': 'list[float]',
         'epsg_code': 'int',
-        'upload': 'UploadReadOnly'
+        'upload': 'UploadReadOnly',
+        'fill_value': 'str'
     }
 
     attribute_map = {
@@ -58,10 +59,11 @@ class UploadRasterSourcesSinks(object):
         'units': 'units',
         'geotransform': 'geotransform',
         'epsg_code': 'epsg_code',
-        'upload': 'upload'
+        'upload': 'upload',
+        'fill_value': 'fill_value'
     }
 
-    def __init__(self, url=None, multiplier=None, simulation=None, start_timestep=None, end_timestep=None, timestamps=None, interval=None, values_reference=None, units=None, geotransform=None, epsg_code=None, upload=None):  # noqa: E501
+    def __init__(self, url=None, multiplier=None, simulation=None, start_timestep=None, end_timestep=None, timestamps=None, interval=None, values_reference=None, units=None, geotransform=None, epsg_code=None, upload=None, fill_value=None):  # noqa: E501
         """UploadRasterSourcesSinks - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
@@ -76,6 +78,7 @@ class UploadRasterSourcesSinks(object):
         self._geotransform = None
         self._epsg_code = None
         self._upload = None
+        self._fill_value = None
         self.discriminator = None
 
         if url is not None:
@@ -96,6 +99,8 @@ class UploadRasterSourcesSinks(object):
             self.epsg_code = epsg_code
         if upload is not None:
             self.upload = upload
+        if fill_value is not None:
+            self.fill_value = fill_value
 
     @property
     def url(self):
@@ -307,7 +312,7 @@ class UploadRasterSourcesSinks(object):
         """
         if units is None:
             raise ValueError("Invalid value for `units`, must not be `None`")  # noqa: E501
-        allowed_values = ["mm", "mm/h", "mm/hr"]  # noqa: E501
+        allowed_values = ["m/s", "mm", "mm/h", "mm/hr"]  # noqa: E501
         if units not in allowed_values:
             raise ValueError(
                 "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
@@ -382,6 +387,31 @@ class UploadRasterSourcesSinks(object):
         """
 
         self._upload = upload
+
+    @property
+    def fill_value(self):
+        """Gets the fill_value of this UploadRasterSourcesSinks.  # noqa: E501
+
+
+        :return: The fill_value of this UploadRasterSourcesSinks.  # noqa: E501
+        :rtype: str
+        """
+        return self._fill_value
+
+    @fill_value.setter
+    def fill_value(self, fill_value):
+        """Sets the fill_value of this UploadRasterSourcesSinks.
+
+
+        :param fill_value: The fill_value of this UploadRasterSourcesSinks.  # noqa: E501
+        :type: str
+        """
+        if fill_value is not None and len(fill_value) > 128:
+            raise ValueError("Invalid value for `fill_value`, length must be less than or equal to `128`")  # noqa: E501
+        if fill_value is not None and len(fill_value) < 1:
+            raise ValueError("Invalid value for `fill_value`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._fill_value = fill_value
 
     def to_dict(self):
         """Returns the model properties as a dict"""

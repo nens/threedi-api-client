@@ -6,7 +6,7 @@
 import pytest
 
 
-from threedi_openapi_client import threedi_openapi_client
+# from threedi_openapi_client import openapi_client
 
 
 @pytest.fixture

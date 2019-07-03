@@ -35,7 +35,7 @@ class InlineResponse20025(object):
         'next': 'str',
         'previous': 'str',
         'count': 'int',
-        'results': 'list[Upload]'
+        'results': 'list[SimulationState]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse20025(object):
 
 
         :return: The results of this InlineResponse20025.  # noqa: E501
-        :rtype: list[Upload]
+        :rtype: list[SimulationState]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse20025(object):
 
 
         :param results: The results of this InlineResponse20025.  # noqa: E501
-        :type: list[Upload]
+        :type: list[SimulationState]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
