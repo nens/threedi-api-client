@@ -61,7 +61,7 @@ get your auth tokens::
 Upload example (rain raster upload)::
    
         import requests
-        from openapi_client import SimulationApi
+        from openapi_client import SimulationsApi
 
         simulation_pk = 1
         filename = 'bergermeer_rasters_from_geotiffs.nc'
@@ -69,7 +69,7 @@ Upload example (rain raster upload)::
 
         # Use the api_client as created in the code block
         # above
-        sim_api = SimulationApi(api_client)
+        sim_api = SimulationsApi(api_client)
 
         # Create rain raster upload resource in API
         # returns a 'file_upload' instance containing a
