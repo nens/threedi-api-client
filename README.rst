@@ -58,6 +58,33 @@ get your auth tokens::
         client = ApiClient(configuration)
 
 
+Upload example (rain raster upload)::
+   
+        import requests
+        from openapi_client import SimulationApi
+
+        simulation_pk = 1
+        filename = 'bergermeer_rasters_from_geotiffs.nc'
+        local_file_path = './data/bergermeer_rasters_from_geotiffs.nc'
+
+        # Use the api_client as created in the code block
+        # above
+        sim_api = SimulationApi(api_client)
+
+        # Create rain raster upload resource in API
+        # returns a 'file_upload' instance containing a
+        # put_url property which is the URL to the object
+        # storage object to be uploaded with an HTTP PUT requests.
+        file_upload = sim_api.simulations_events_rain_rasters_upload(
+            filename, simulation_pk)
+
+        # Open the local file in binary mode for uploading
+        with open(local_file_path, 'rb') as f: 
+            # Requests automatically streams the file this way
+            requests.put(file_upload.put_url, data=f)
+
+
+
 Credits
 -------
 
