@@ -2,7 +2,7 @@
 History
 =======
 
-0.1.5 (unreleased)
+0.1.5 (2019-07-03)
 ------------------
 
 - Updated file uploading
