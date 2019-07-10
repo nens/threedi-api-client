@@ -207,10 +207,12 @@ class TimeseriesSourcesSinks(object):
         """
         if units is None:
             raise ValueError("Invalid value for `units`, must not be `None`")  # noqa: E501
-        if units is not None and len(units) > 12:
-            raise ValueError("Invalid value for `units`, length must be less than or equal to `12`")  # noqa: E501
-        if units is not None and len(units) < 1:
-            raise ValueError("Invalid value for `units`, length must be greater than or equal to `1`")  # noqa: E501
+        allowed_values = ["m/s"]  # noqa: E501
+        if units not in allowed_values:
+            raise ValueError(
+                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
+                .format(units, allowed_values)
+            )
 
         self._units = units
 

@@ -63,8 +63,7 @@ class UploadReadOnly(object):
             self.filename = filename
         if state is not None:
             self.state = state
-        if state_description is not None:
-            self.state_description = state_description
+        self.state_description = state_description
         if type is not None:
             self.type = type
 
@@ -157,8 +156,8 @@ class UploadReadOnly(object):
         :param state_description: The state_description of this UploadReadOnly.  # noqa: E501
         :type: str
         """
-        if state_description is not None and len(state_description) < 1:
-            raise ValueError("Invalid value for `state_description`, length must be greater than or equal to `1`")  # noqa: E501
+        if state_description is not None and len(state_description) > 512:
+            raise ValueError("Invalid value for `state_description`, length must be less than or equal to `512`")  # noqa: E501
 
         self._state_description = state_description
 

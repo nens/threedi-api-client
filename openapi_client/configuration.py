@@ -47,7 +47,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     def __init__(self):
         """Constructor"""
         # Default Base url
-        self.host = "https://staging.3diwatermanagement.com/api/v3.0"
+        self.host = "http://10.90.16.49:8000/api/v3.0"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
@@ -240,7 +240,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         """
         return [
             {
-                'url': "https://staging.3diwatermanagement.com/api/v3.0",
+                'url': "http://10.90.16.49:8000/api/v3.0",
                 'description': "No description provided",
             }
         ]

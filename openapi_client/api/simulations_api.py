@@ -34,9 +34,9 @@ class SimulationsApi(object):
         self.api_client = api_client
 
     def simulations_actions_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """Post an action to the simulation to start, pause or destroy it.  # noqa: E501
+        """Post an action to the simulation to start, pause or end it.  # noqa: E501
 
-        Post {\"name\": \"start\"} to start the simulation.  # noqa: E501
+        Example usage:  To start a simulation ``` {\"name\": \"start\"} ```  To pause a simulation ``` {\"name\": \"pause\"} ```  To end a simulation ``` {\"name\": \"shutdown\"} ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_actions_create(simulation_pk, data, async_req=True)
@@ -57,9 +57,9 @@ class SimulationsApi(object):
             return data
 
     def simulations_actions_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """Post an action to the simulation to start, pause or destroy it.  # noqa: E501
+        """Post an action to the simulation to start, pause or end it.  # noqa: E501
 
-        Post {\"name\": \"start\"} to start the simulation.  # noqa: E501
+        Example usage:  To start a simulation ``` {\"name\": \"start\"} ```  To pause a simulation ``` {\"name\": \"pause\"} ```  To end a simulation ``` {\"name\": \"shutdown\"} ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_actions_create_with_http_info(simulation_pk, data, async_req=True)
@@ -892,7 +892,7 @@ class SimulationsApi(object):
     def simulations_create_flow_states_timed_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_create_flow_states_timed_create  # noqa: E501
 
-        A simple ViewSet for end FlowState's  # noqa: E501
+        A simple ViewSet for timed FlowState's  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_create_flow_states_timed_create(simulation_pk, data, async_req=True)
@@ -915,7 +915,7 @@ class SimulationsApi(object):
     def simulations_create_flow_states_timed_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_create_flow_states_timed_create  # noqa: E501
 
-        A simple ViewSet for end FlowState's  # noqa: E501
+        A simple ViewSet for timed FlowState's  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_create_flow_states_timed_create_with_http_info(simulation_pk, data, async_req=True)
@@ -1000,7 +1000,7 @@ class SimulationsApi(object):
     def simulations_create_flow_states_timed_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
         """simulations_create_flow_states_timed_delete  # noqa: E501
 
-        A simple ViewSet for end FlowState's  # noqa: E501
+        A simple ViewSet for timed FlowState's  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_create_flow_states_timed_delete(id, simulation_pk, async_req=True)
@@ -1023,7 +1023,7 @@ class SimulationsApi(object):
     def simulations_create_flow_states_timed_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
         """simulations_create_flow_states_timed_delete  # noqa: E501
 
-        A simple ViewSet for end FlowState's  # noqa: E501
+        A simple ViewSet for timed FlowState's  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_create_flow_states_timed_delete_with_http_info(id, simulation_pk, async_req=True)
@@ -1100,7 +1100,7 @@ class SimulationsApi(object):
     def simulations_create_flow_states_timed_list(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_create_flow_states_timed_list  # noqa: E501
 
-        A simple ViewSet for end FlowState's  # noqa: E501
+        A simple ViewSet for timed FlowState's  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_create_flow_states_timed_list(simulation_pk, async_req=True)
@@ -1124,7 +1124,7 @@ class SimulationsApi(object):
     def simulations_create_flow_states_timed_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_create_flow_states_timed_list  # noqa: E501
 
-        A simple ViewSet for end FlowState's  # noqa: E501
+        A simple ViewSet for timed FlowState's  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_create_flow_states_timed_list_with_http_info(simulation_pk, async_req=True)
@@ -1204,7 +1204,7 @@ class SimulationsApi(object):
     def simulations_create_flow_states_timed_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_create_flow_states_timed_partial_update  # noqa: E501
 
-        A simple ViewSet for end FlowState's  # noqa: E501
+        A simple ViewSet for timed FlowState's  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_create_flow_states_timed_partial_update(id, simulation_pk, data, async_req=True)
@@ -1228,7 +1228,7 @@ class SimulationsApi(object):
     def simulations_create_flow_states_timed_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_create_flow_states_timed_partial_update  # noqa: E501
 
-        A simple ViewSet for end FlowState's  # noqa: E501
+        A simple ViewSet for timed FlowState's  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_create_flow_states_timed_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
@@ -1320,7 +1320,7 @@ class SimulationsApi(object):
     def simulations_create_flow_states_timed_read(self, id, simulation_pk, **kwargs):  # noqa: E501
         """simulations_create_flow_states_timed_read  # noqa: E501
 
-        A simple ViewSet for end FlowState's  # noqa: E501
+        A simple ViewSet for timed FlowState's  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_create_flow_states_timed_read(id, simulation_pk, async_req=True)
@@ -1343,7 +1343,7 @@ class SimulationsApi(object):
     def simulations_create_flow_states_timed_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
         """simulations_create_flow_states_timed_read  # noqa: E501
 
-        A simple ViewSet for end FlowState's  # noqa: E501
+        A simple ViewSet for timed FlowState's  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_create_flow_states_timed_read_with_http_info(id, simulation_pk, async_req=True)
@@ -1424,7 +1424,7 @@ class SimulationsApi(object):
     def simulations_create_flow_states_timed_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_create_flow_states_timed_update  # noqa: E501
 
-        A simple ViewSet for end FlowState's  # noqa: E501
+        A simple ViewSet for timed FlowState's  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_create_flow_states_timed_update(id, simulation_pk, data, async_req=True)
@@ -1448,7 +1448,7 @@ class SimulationsApi(object):
     def simulations_create_flow_states_timed_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_create_flow_states_timed_update  # noqa: E501
 
-        A simple ViewSet for end FlowState's  # noqa: E501
+        A simple ViewSet for timed FlowState's  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_create_flow_states_timed_update_with_http_info(id, simulation_pk, data, async_req=True)
@@ -6566,7 +6566,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_constant_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_constant_create  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing ConstantSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_constant_create(simulation_pk, data, async_req=True)
@@ -6589,7 +6589,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_constant_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_constant_create  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing ConstantSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_constant_create_with_http_info(simulation_pk, data, async_req=True)
@@ -6674,7 +6674,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_constant_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_constant_delete  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing ConstantSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_constant_delete(id, simulation_pk, async_req=True)
@@ -6697,7 +6697,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_constant_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_constant_delete  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing ConstantSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_constant_delete_with_http_info(id, simulation_pk, async_req=True)
@@ -6774,7 +6774,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_constant_list(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_constant_list  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing ConstantSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_constant_list(simulation_pk, async_req=True)
@@ -6798,7 +6798,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_constant_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_constant_list  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing ConstantSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_constant_list_with_http_info(simulation_pk, async_req=True)
@@ -6878,7 +6878,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_constant_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_constant_partial_update  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing ConstantSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_constant_partial_update(id, simulation_pk, data, async_req=True)
@@ -6902,7 +6902,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_constant_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_constant_partial_update  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing ConstantSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_constant_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
@@ -6994,7 +6994,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_constant_read(self, id, simulation_pk, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_constant_read  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing ConstantSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_constant_read(id, simulation_pk, async_req=True)
@@ -7017,7 +7017,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_constant_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_constant_read  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing ConstantSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_constant_read_with_http_info(id, simulation_pk, async_req=True)
@@ -7098,7 +7098,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_constant_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_constant_update  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing ConstantSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_constant_update(id, simulation_pk, data, async_req=True)
@@ -7122,7 +7122,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_constant_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_constant_update  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing ConstantSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_constant_update_with_http_info(id, simulation_pk, data, async_req=True)
@@ -8608,7 +8608,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_timeseries_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_timeseries_create  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        Example payload: ```     {       \"start_timestep\": 0,       \"values\": [         [           0,           0.0005         ],         [           300,           0.0002         ]       ],       \"units\": \"m/s\"     } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_timeseries_create(simulation_pk, data, async_req=True)
@@ -8631,7 +8631,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_timeseries_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_timeseries_create  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        Example payload: ```     {       \"start_timestep\": 0,       \"values\": [         [           0,           0.0005         ],         [           300,           0.0002         ]       ],       \"units\": \"m/s\"     } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_timeseries_create_with_http_info(simulation_pk, data, async_req=True)
@@ -8716,7 +8716,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_timeseries_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_timeseries_delete  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing TimeseriesSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_timeseries_delete(id, simulation_pk, async_req=True)
@@ -8739,7 +8739,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_timeseries_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_timeseries_delete  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing TimeseriesSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_timeseries_delete_with_http_info(id, simulation_pk, async_req=True)
@@ -8816,7 +8816,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_timeseries_list(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_timeseries_list  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing TimeseriesSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_timeseries_list(simulation_pk, async_req=True)
@@ -8840,7 +8840,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_timeseries_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_timeseries_list  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing TimeseriesSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_timeseries_list_with_http_info(simulation_pk, async_req=True)
@@ -9568,7 +9568,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_timeseries_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_timeseries_partial_update  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing TimeseriesSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_timeseries_partial_update(id, simulation_pk, data, async_req=True)
@@ -9592,7 +9592,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_timeseries_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_timeseries_partial_update  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing TimeseriesSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_timeseries_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
@@ -9684,7 +9684,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_timeseries_read(self, id, simulation_pk, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_timeseries_read  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing TimeseriesSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_timeseries_read(id, simulation_pk, async_req=True)
@@ -9707,7 +9707,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_timeseries_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_timeseries_read  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing TimeseriesSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_timeseries_read_with_http_info(id, simulation_pk, async_req=True)
@@ -9788,7 +9788,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_timeseries_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_timeseries_update  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing TimeseriesSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_timeseries_update(id, simulation_pk, data, async_req=True)
@@ -9812,7 +9812,7 @@ class SimulationsApi(object):
     def simulations_events_sources_sinks_timeseries_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_sources_sinks_timeseries_update  # noqa: E501
 
-        A simple ViewSet for viewing TimeseriesRain  # noqa: E501
+        A simple ViewSet for viewing TimeseriesSourcesSinks  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_sources_sinks_timeseries_update_with_http_info(id, simulation_pk, data, async_req=True)
