@@ -2,7 +2,7 @@
 History
 =======
 
-0.1.6 (unreleased)
+0.1.6 (2019-09-04)
 ------------------
 
 - Added geojson/gridadmin/rasters upload & download
