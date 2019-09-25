@@ -35,7 +35,7 @@ class InlineResponse20030(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[ResultFile]'
+        'results': 'list[InitialSavedState]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse20030(object):
 
 
         :return: The results of this InlineResponse20030.  # noqa: E501
-        :rtype: list[ResultFile]
+        :rtype: list[InitialSavedState]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse20030(object):
 
 
         :param results: The results of this InlineResponse20030.  # noqa: E501
-        :type: list[ResultFile]
+        :type: list[InitialSavedState]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

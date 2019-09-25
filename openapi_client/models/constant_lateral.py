@@ -43,7 +43,8 @@ class ConstantLateral(object):
         'connection_node': 'int',
         'state': 'str',
         'state_detail': 'str',
-        'node': 'int'
+        'node': 'int',
+        'id': 'int'
     }
 
     attribute_map = {
@@ -58,10 +59,11 @@ class ConstantLateral(object):
         'connection_node': 'connection_node',
         'state': 'state',
         'state_detail': 'state_detail',
-        'node': 'node'
+        'node': 'node',
+        'id': 'id'
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, duration=None, value=None, units=None, epsg=None, point=None, connection_node=None, state=None, state_detail=None, node=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, offset=None, duration=None, value=None, units=None, epsg=None, point=None, connection_node=None, state=None, state_detail=None, node=None, id=None):  # noqa: E501
         """ConstantLateral - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
@@ -76,6 +78,7 @@ class ConstantLateral(object):
         self._state = None
         self._state_detail = None
         self._node = None
+        self._id = None
         self.discriminator = None
 
         if url is not None:
@@ -95,6 +98,8 @@ class ConstantLateral(object):
             self.state_detail = state_detail
         if node is not None:
             self.node = node
+        if id is not None:
+            self.id = id
 
     @property
     def url(self):
@@ -387,6 +392,27 @@ class ConstantLateral(object):
         """
 
         self._node = node
+
+    @property
+    def id(self):
+        """Gets the id of this ConstantLateral.  # noqa: E501
+
+
+        :return: The id of this ConstantLateral.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this ConstantLateral.
+
+
+        :param id: The id of this ConstantLateral.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

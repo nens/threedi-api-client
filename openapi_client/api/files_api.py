@@ -37,6 +37,218 @@ class FilesApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def files_delete(self, id, **kwargs):  # noqa: E501
+        """files_delete  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.files_delete(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this file. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.files_delete_with_http_info(id, **kwargs)  # noqa: E501
+
+    def files_delete_with_http_info(self, id, **kwargs):  # noqa: E501
+        """files_delete  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.files_delete_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this file. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method files_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ApiValueError("Missing the required parameter `id` when calling `files_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/files/{id}/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def files_destroy_file(self, id, **kwargs):  # noqa: E501
+        """files_destroy_file  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.files_destroy_file(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this file. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: File
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.files_destroy_file_with_http_info(id, **kwargs)  # noqa: E501
+
+    def files_destroy_file_with_http_info(self, id, **kwargs):  # noqa: E501
+        """files_destroy_file  # noqa: E501
+
+        A simple ViewSet for viewing simulations  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.files_destroy_file_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this file. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(File, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method files_destroy_file" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ApiValueError("Missing the required parameter `id` when calling `files_destroy_file`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/files/{id}/destroy_file/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='File',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def files_download(self, id, **kwargs):  # noqa: E501
         """files_download  # noqa: E501
 
@@ -158,6 +370,15 @@ class FilesApi(object):
         :param str filename:
         :param str filename__icontains:
         :param str etag:
+        :param str expiry_date:
+        :param str expiry_date__lte:
+        :param str expiry_date__lt:
+        :param str expiry_date__gte:
+        :param str expiry_date__gt:
+        :param str state:
+        :param str state__in: Multiple values may be separated by commas.
+        :param str type:
+        :param str type__in: Multiple values may be separated by commas.
         :param str meta:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -168,7 +389,7 @@ class FilesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse200
+        :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -188,6 +409,15 @@ class FilesApi(object):
         :param str filename:
         :param str filename__icontains:
         :param str etag:
+        :param str expiry_date:
+        :param str expiry_date__lte:
+        :param str expiry_date__lt:
+        :param str expiry_date__gte:
+        :param str expiry_date__gt:
+        :param str state:
+        :param str state__in: Multiple values may be separated by commas.
+        :param str type:
+        :param str type__in: Multiple values may be separated by commas.
         :param str meta:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -200,14 +430,14 @@ class FilesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse200, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2001, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['filename', 'filename__icontains', 'etag', 'meta', 'limit', 'offset']  # noqa: E501
+        all_params = ['filename', 'filename__icontains', 'etag', 'expiry_date', 'expiry_date__lte', 'expiry_date__lt', 'expiry_date__gte', 'expiry_date__gt', 'state', 'state__in', 'type', 'type__in', 'meta', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -233,6 +463,24 @@ class FilesApi(object):
             query_params.append(('filename__icontains', local_var_params['filename__icontains']))  # noqa: E501
         if 'etag' in local_var_params:
             query_params.append(('etag', local_var_params['etag']))  # noqa: E501
+        if 'expiry_date' in local_var_params:
+            query_params.append(('expiry_date', local_var_params['expiry_date']))  # noqa: E501
+        if 'expiry_date__lte' in local_var_params:
+            query_params.append(('expiry_date__lte', local_var_params['expiry_date__lte']))  # noqa: E501
+        if 'expiry_date__lt' in local_var_params:
+            query_params.append(('expiry_date__lt', local_var_params['expiry_date__lt']))  # noqa: E501
+        if 'expiry_date__gte' in local_var_params:
+            query_params.append(('expiry_date__gte', local_var_params['expiry_date__gte']))  # noqa: E501
+        if 'expiry_date__gt' in local_var_params:
+            query_params.append(('expiry_date__gt', local_var_params['expiry_date__gt']))  # noqa: E501
+        if 'state' in local_var_params:
+            query_params.append(('state', local_var_params['state']))  # noqa: E501
+        if 'state__in' in local_var_params:
+            query_params.append(('state__in', local_var_params['state__in']))  # noqa: E501
+        if 'type' in local_var_params:
+            query_params.append(('type', local_var_params['type']))  # noqa: E501
+        if 'type__in' in local_var_params:
+            query_params.append(('type__in', local_var_params['type__in']))  # noqa: E501
         if 'meta' in local_var_params:
             query_params.append(('meta', local_var_params['meta']))  # noqa: E501
         if 'limit' in local_var_params:
@@ -261,7 +509,7 @@ class FilesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200',  # noqa: E501
+            response_type='InlineResponse2001',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

@@ -35,7 +35,7 @@ class InlineResponse2004(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[Repository]'
+        'results': 'list[OrganisationRole]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse2004(object):
 
 
         :return: The results of this InlineResponse2004.  # noqa: E501
-        :rtype: list[Repository]
+        :rtype: list[OrganisationRole]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse2004(object):
 
 
         :param results: The results of this InlineResponse2004.  # noqa: E501
-        :type: list[Repository]
+        :type: list[OrganisationRole]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

@@ -35,7 +35,7 @@ class InlineResponse20012(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[TimeseriesLateral]'
+        'results': 'list[ConstantLateral]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse20012(object):
 
 
         :return: The results of this InlineResponse20012.  # noqa: E501
-        :rtype: list[TimeseriesLateral]
+        :rtype: list[ConstantLateral]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse20012(object):
 
 
         :param results: The results of this InlineResponse20012.  # noqa: E501
-        :type: list[TimeseriesLateral]
+        :type: list[ConstantLateral]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

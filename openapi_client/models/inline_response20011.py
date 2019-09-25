@@ -35,7 +35,7 @@ class InlineResponse20011(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[ConstantLateral]'
+        'results': 'list[Breach]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse20011(object):
 
 
         :return: The results of this InlineResponse20011.  # noqa: E501
-        :rtype: list[ConstantLateral]
+        :rtype: list[Breach]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse20011(object):
 
 
         :param results: The results of this InlineResponse20011.  # noqa: E501
-        :type: list[ConstantLateral]
+        :type: list[Breach]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

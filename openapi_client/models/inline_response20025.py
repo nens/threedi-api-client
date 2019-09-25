@@ -35,7 +35,7 @@ class InlineResponse20025(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[OneDWaterLevel]'
+        'results': 'list[NetCDFTimeseriesSourcesSinks]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse20025(object):
 
 
         :return: The results of this InlineResponse20025.  # noqa: E501
-        :rtype: list[OneDWaterLevel]
+        :rtype: list[NetCDFTimeseriesSourcesSinks]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse20025(object):
 
 
         :param results: The results of this InlineResponse20025.  # noqa: E501
-        :type: list[OneDWaterLevel]
+        :type: list[NetCDFTimeseriesSourcesSinks]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

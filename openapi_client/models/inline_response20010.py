@@ -35,7 +35,7 @@ class InlineResponse20010(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[Breach]'
+        'results': 'list[TimedSavedStateUpdate]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse20010(object):
 
 
         :return: The results of this InlineResponse20010.  # noqa: E501
-        :rtype: list[Breach]
+        :rtype: list[TimedSavedStateUpdate]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse20010(object):
 
 
         :param results: The results of this InlineResponse20010.  # noqa: E501
-        :type: list[Breach]
+        :type: list[TimedSavedStateUpdate]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

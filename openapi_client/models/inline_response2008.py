@@ -35,7 +35,7 @@ class InlineResponse2008(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[StableThresholdSavedState]'
+        'results': 'list[Simulation]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse2008(object):
 
 
         :return: The results of this InlineResponse2008.  # noqa: E501
-        :rtype: list[StableThresholdSavedState]
+        :rtype: list[Simulation]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse2008(object):
 
 
         :param results: The results of this InlineResponse2008.  # noqa: E501
-        :type: list[StableThresholdSavedState]
+        :type: list[Simulation]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

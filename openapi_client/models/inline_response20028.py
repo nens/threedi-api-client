@@ -35,7 +35,7 @@ class InlineResponse20028(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[OneDWaterLevelPredefined]'
+        'results': 'list[GroundWaterLevel]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse20028(object):
 
 
         :return: The results of this InlineResponse20028.  # noqa: E501
-        :rtype: list[OneDWaterLevelPredefined]
+        :rtype: list[GroundWaterLevel]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse20028(object):
 
 
         :param results: The results of this InlineResponse20028.  # noqa: E501
-        :type: list[OneDWaterLevelPredefined]
+        :type: list[GroundWaterLevel]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

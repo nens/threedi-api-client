@@ -35,7 +35,7 @@ class InlineResponse2001(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[InpyVersion]'
+        'results': 'list[File]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse2001(object):
 
 
         :return: The results of this InlineResponse2001.  # noqa: E501
-        :rtype: list[InpyVersion]
+        :rtype: list[File]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse2001(object):
 
 
         :param results: The results of this InlineResponse2001.  # noqa: E501
-        :type: list[InpyVersion]
+        :type: list[File]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

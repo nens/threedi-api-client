@@ -35,7 +35,7 @@ class InlineResponse20034(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[PotentialBreach]'
+        'results': 'list[BoundaryCondition]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse20034(object):
 
 
         :return: The results of this InlineResponse20034.  # noqa: E501
-        :rtype: list[PotentialBreach]
+        :rtype: list[BoundaryCondition]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse20034(object):
 
 
         :param results: The results of this InlineResponse20034.  # noqa: E501
-        :type: list[PotentialBreach]
+        :type: list[BoundaryCondition]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
