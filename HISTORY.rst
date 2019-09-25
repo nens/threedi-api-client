@@ -2,7 +2,7 @@
 History
 =======
 
-0.1.7 (unreleased)
+0.1.7 (2019-09-25)
 ------------------
 
 - Laterals now have id field. 
