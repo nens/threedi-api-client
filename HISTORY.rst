@@ -5,7 +5,9 @@ History
 0.1.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Laterals now have id field. 
+
+- Usage integration
 
 
 0.1.6 (2019-09-04)
