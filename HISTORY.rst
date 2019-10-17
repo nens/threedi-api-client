@@ -2,7 +2,7 @@
 History
 =======
 
-0.1.8 (unreleased)
+0.1.8 (2019-10-17)
 ------------------
 
 - Added timed control
