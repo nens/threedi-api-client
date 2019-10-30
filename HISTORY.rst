@@ -2,7 +2,7 @@
 History
 =======
 
-0.0.17 (unreleased)
+0.0.17 (2019-10-30)
 -------------------
 
 - Limit compatible python versions
