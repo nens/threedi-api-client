@@ -13,5 +13,6 @@ from openapi_client.api.repositories_api import RepositoriesApi
 from openapi_client.api.revisions_api import RevisionsApi
 from openapi_client.api.roles_api import RolesApi
 from openapi_client.api.simulations_api import SimulationsApi
+from openapi_client.api.statuses_api import StatusesApi
 from openapi_client.api.threedimodels_api import ThreedimodelsApi
 from openapi_client.api.usage_api import UsageApi
