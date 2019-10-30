@@ -2,7 +2,7 @@
 History
 =======
 
-0.1.9 (unreleased)
+0.1.9 (2019-10-30)
 ------------------
 
 - Added resource `statuses`.
