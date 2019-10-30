@@ -3,7 +3,7 @@
 """
     3DI API
 
-    3DI simulation API   Framework release: 0.0.10   3Di core release: 2.0.2.dev6  deployed on:  01:51PM (UTC) on October 07, 2019  # noqa: E501
+    3DI simulation API   Framework release: 0.0.16   3Di core release: 2.0.2  deployed on:  03:33PM (UTC) on October 29, 2019  # noqa: E501
 
     OpenAPI spec version: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -36,7 +36,7 @@ class SimulationsApi(object):
     def simulations_actions_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """Post an action to the simulation to start, pause or end it.  # noqa: E501
 
-        Example usage:  To initalize a simulation (and pause) ``` {\"name\": \"initialize\"} ```  To iniitalize and directly run a simulation ``` {\"name\": \"start\"} ```  To pause a simulation ``` {\"name\": \"pause\"} ```  To end a simulation ``` {\"name\": \"shutdown\"} ```  # noqa: E501
+        Example usage:  To initialize a simulation (and pause) ``` {\"name\": \"initialize\"} ```  To initialize and directly run a simulation ``` {\"name\": \"start\"} ```  To pause a simulation ``` {\"name\": \"pause\"} ```  To end a simulation ``` {\"name\": \"shutdown\"} ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_actions_create(simulation_pk, data, async_req=True)
@@ -59,7 +59,7 @@ class SimulationsApi(object):
     def simulations_actions_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """Post an action to the simulation to start, pause or end it.  # noqa: E501
 
-        Example usage:  To initalize a simulation (and pause) ``` {\"name\": \"initialize\"} ```  To iniitalize and directly run a simulation ``` {\"name\": \"start\"} ```  To pause a simulation ``` {\"name\": \"pause\"} ```  To end a simulation ``` {\"name\": \"shutdown\"} ```  # noqa: E501
+        Example usage:  To initialize a simulation (and pause) ``` {\"name\": \"initialize\"} ```  To initialize and directly run a simulation ``` {\"name\": \"start\"} ```  To pause a simulation ``` {\"name\": \"pause\"} ```  To end a simulation ``` {\"name\": \"shutdown\"} ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_actions_create_with_http_info(simulation_pk, data, async_req=True)
@@ -14970,9 +14970,9 @@ class SimulationsApi(object):
             collection_formats=collection_formats)
 
     def simulations_list(self, **kwargs):  # noqa: E501
-        """simulations_list  # noqa: E501
+        """List all simulations resources.  # noqa: E501
 
-        List all simulations resources.  # noqa: E501
+        Several filter are available, for instance the creation date of the resource. Some usage examples:  To get all simulation resources that have been created on Guido van Rossum's birthday  ```     ?created__date=1956-01-31 ```  To get all simulation resources that have been created during the 1988 UEFA European Football Championship ```    ?created__date__gte=1988-06-10&created__date__lte=1988-06-25 ```  To get all simulation resources that have been created in the month of the Carnation Revolution ```     ?created__year=1974&created__month=04 ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_list(async_req=True)
@@ -14993,6 +14993,20 @@ class SimulationsApi(object):
         :param str uuid__istartswith:
         :param str uuid__endswith:
         :param str uuid__regex:
+        :param str created__date:
+        :param str created__date__gt:
+        :param str created__date__gte:
+        :param str created__date__lt:
+        :param str created__date__lte:
+        :param float created__year:
+        :param float created__year__gt:
+        :param float created__year__gte:
+        :param float created__year__lt:
+        :param float created__year__lte:
+        :param float created__month:
+        :param float created__month__lte:
+        :param float created__day:
+        :param float created__day__lt:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :return: InlineResponse2008
@@ -15007,9 +15021,9 @@ class SimulationsApi(object):
             return data
 
     def simulations_list_with_http_info(self, **kwargs):  # noqa: E501
-        """simulations_list  # noqa: E501
+        """List all simulations resources.  # noqa: E501
 
-        List all simulations resources.  # noqa: E501
+        Several filter are available, for instance the creation date of the resource. Some usage examples:  To get all simulation resources that have been created on Guido van Rossum's birthday  ```     ?created__date=1956-01-31 ```  To get all simulation resources that have been created during the 1988 UEFA European Football Championship ```    ?created__date__gte=1988-06-10&created__date__lte=1988-06-25 ```  To get all simulation resources that have been created in the month of the Carnation Revolution ```     ?created__year=1974&created__month=04 ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_list_with_http_info(async_req=True)
@@ -15030,6 +15044,20 @@ class SimulationsApi(object):
         :param str uuid__istartswith:
         :param str uuid__endswith:
         :param str uuid__regex:
+        :param str created__date:
+        :param str created__date__gt:
+        :param str created__date__gte:
+        :param str created__date__lt:
+        :param str created__date__lte:
+        :param float created__year:
+        :param float created__year__gt:
+        :param float created__year__gte:
+        :param float created__year__lt:
+        :param float created__year__lte:
+        :param float created__month:
+        :param float created__month__lte:
+        :param float created__day:
+        :param float created__day__lt:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :return: InlineResponse2008
@@ -15039,7 +15067,7 @@ class SimulationsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'uuid', 'uuid__contains', 'uuid__in', 'uuid__startswith', 'uuid__istartswith', 'uuid__endswith', 'uuid__regex', 'limit', 'offset']  # noqa: E501
+        all_params = ['name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'uuid', 'uuid__contains', 'uuid__in', 'uuid__startswith', 'uuid__istartswith', 'uuid__endswith', 'uuid__regex', 'created__date', 'created__date__gt', 'created__date__gte', 'created__date__lt', 'created__date__lte', 'created__year', 'created__year__gt', 'created__year__gte', 'created__year__lt', 'created__year__lte', 'created__month', 'created__month__lte', 'created__day', 'created__day__lt', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -15087,6 +15115,34 @@ class SimulationsApi(object):
             query_params.append(('uuid__endswith', local_var_params['uuid__endswith']))  # noqa: E501
         if 'uuid__regex' in local_var_params:
             query_params.append(('uuid__regex', local_var_params['uuid__regex']))  # noqa: E501
+        if 'created__date' in local_var_params:
+            query_params.append(('created__date', local_var_params['created__date']))  # noqa: E501
+        if 'created__date__gt' in local_var_params:
+            query_params.append(('created__date__gt', local_var_params['created__date__gt']))  # noqa: E501
+        if 'created__date__gte' in local_var_params:
+            query_params.append(('created__date__gte', local_var_params['created__date__gte']))  # noqa: E501
+        if 'created__date__lt' in local_var_params:
+            query_params.append(('created__date__lt', local_var_params['created__date__lt']))  # noqa: E501
+        if 'created__date__lte' in local_var_params:
+            query_params.append(('created__date__lte', local_var_params['created__date__lte']))  # noqa: E501
+        if 'created__year' in local_var_params:
+            query_params.append(('created__year', local_var_params['created__year']))  # noqa: E501
+        if 'created__year__gt' in local_var_params:
+            query_params.append(('created__year__gt', local_var_params['created__year__gt']))  # noqa: E501
+        if 'created__year__gte' in local_var_params:
+            query_params.append(('created__year__gte', local_var_params['created__year__gte']))  # noqa: E501
+        if 'created__year__lt' in local_var_params:
+            query_params.append(('created__year__lt', local_var_params['created__year__lt']))  # noqa: E501
+        if 'created__year__lte' in local_var_params:
+            query_params.append(('created__year__lte', local_var_params['created__year__lte']))  # noqa: E501
+        if 'created__month' in local_var_params:
+            query_params.append(('created__month', local_var_params['created__month']))  # noqa: E501
+        if 'created__month__lte' in local_var_params:
+            query_params.append(('created__month__lte', local_var_params['created__month__lte']))  # noqa: E501
+        if 'created__day' in local_var_params:
+            query_params.append(('created__day', local_var_params['created__day']))  # noqa: E501
+        if 'created__day__lt' in local_var_params:
+            query_params.append(('created__day__lt', local_var_params['created__day__lt']))  # noqa: E501
         if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params:

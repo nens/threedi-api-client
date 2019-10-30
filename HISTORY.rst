@@ -5,7 +5,7 @@ History
 0.1.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added resource `statuses`.
 
 
 0.1.8 (2019-10-17)
