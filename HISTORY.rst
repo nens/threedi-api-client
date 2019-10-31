@@ -2,8 +2,8 @@
 History
 =======
 
-0.0.18 (unreleased)
--------------------
+0.0.17b (2019-10-31)
+--------------------
 
 - Bulk boundary conditions.
 
