@@ -5,7 +5,7 @@ History
 0.0.18 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Bulk boundary conditions.
 
 
 0.0.17a (2019-10-31)
