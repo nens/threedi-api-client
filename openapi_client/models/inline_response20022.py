@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    3DI API
+    3Di API
 
-    3DI simulation API   Framework release: 0.0.17   3Di core release: 2.0.2  deployed on:  10:18AM (UTC) on October 30, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.17   3Di core release: 2.0.2  deployed on:  10:18AM (UTC) on October 30, 2019  # noqa: E501
 
     OpenAPI spec version: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -35,7 +35,7 @@ class InlineResponse20022(object):
         'next': 'str',
         'previous': 'str',
         'count': 'int',
-        'results': 'list[NetCDFRasterSourcesSinks]'
+        'results': 'list[ConstantSourcesSinks]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse20022(object):
 
 
         :return: The results of this InlineResponse20022.  # noqa: E501
-        :rtype: list[NetCDFRasterSourcesSinks]
+        :rtype: list[ConstantSourcesSinks]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse20022(object):
 
 
         :param results: The results of this InlineResponse20022.  # noqa: E501
-        :type: list[NetCDFRasterSourcesSinks]
+        :type: list[ConstantSourcesSinks]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    3DI API
+    3Di API
 
-    3DI simulation API   Framework release: 0.0.17   3Di core release: 2.0.2  deployed on:  10:18AM (UTC) on October 30, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.17   3Di core release: 2.0.2  deployed on:  10:18AM (UTC) on October 30, 2019  # noqa: E501
 
     OpenAPI spec version: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -47,7 +47,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     def __init__(self):
         """Constructor"""
         # Default Base url
-        self.host = "http://api.3di.live/v3.0/swagger/"
+        self.host = "http://localhost:8000/v3.0"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
