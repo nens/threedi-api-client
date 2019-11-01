@@ -237,7 +237,7 @@ class ConstantBoundary(object):
         """
         if units is None:
             raise ValueError("Invalid value for `units`, must not be `None`")  # noqa: E501
-        allowed_values = ["cm/h", "dimensionless", "l/h", "l/s", "m MSL", "m/h", "m/min", "m/s", "m3/h", "m3/s"]  # noqa: E501
+        allowed_values = ["m/s", "m/h", "m/min", "cm/h", "m3/s", "m3/h", "l/s", "l/h", "m MSL", "dimensionless"]  # noqa: E501
         if units not in allowed_values:
             raise ValueError(
                 "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501

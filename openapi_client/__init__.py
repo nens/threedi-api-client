@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = '0.0.18.dev0'
+__version__ = "1.0.0"
 
 # import apis into sdk package
 from openapi_client.api.auth_api import AuthApi
@@ -38,6 +38,7 @@ from openapi_client.configuration import Configuration
 # import models into sdk package
 from openapi_client.models.action import Action
 from openapi_client.models.authenticate import Authenticate
+from openapi_client.models.boundary import Boundary
 from openapi_client.models.boundary_condition import BoundaryCondition
 from openapi_client.models.breach import Breach
 from openapi_client.models.constant_boundary import ConstantBoundary

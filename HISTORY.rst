@@ -5,7 +5,7 @@ History
 0.0.18 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Added boundaries to simulation events and updated docs.
 
 
 0.0.17b (2019-10-31)

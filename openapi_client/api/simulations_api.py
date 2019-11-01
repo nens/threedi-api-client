@@ -1954,9 +1954,9 @@ class SimulationsApi(object):
             collection_formats=collection_formats)
 
     def simulations_events1d_boundary_constant_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_constant_create  # noqa: E501
+        """Create a constant 1D boundary event  # noqa: E501
 
-        A simple ViewSet for viewing 1D ConstantBoundary.  # noqa: E501
+        Implemented boundary types at the moment are  ``` water level = 1 velocity = 2 discharge = 3 riemann = 4 sommerfeld = 5 ```  The only valid input unit for boundaries of type `water level` is:  ``` 'm MSL' ```   Valid input units for boundaries of type `velocity` are:  ``` 'm/s', 'm/min', 'm/h', 'cm/h' ```  Valid input units for boundaries of type `discharge` are:  ``` 'm3/s', 'm3/h', 'l/s', 'l/h' ```  Boundaries of type `riemann` and `sommerfeld` are `'dimensionless'`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events1d_boundary_constant_create(simulation_pk, data, async_req=True)
@@ -1977,9 +1977,9 @@ class SimulationsApi(object):
             return data
 
     def simulations_events1d_boundary_constant_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_constant_create  # noqa: E501
+        """Create a constant 1D boundary event  # noqa: E501
 
-        A simple ViewSet for viewing 1D ConstantBoundary.  # noqa: E501
+        Implemented boundary types at the moment are  ``` water level = 1 velocity = 2 discharge = 3 riemann = 4 sommerfeld = 5 ```  The only valid input unit for boundaries of type `water level` is:  ``` 'm MSL' ```   Valid input units for boundaries of type `velocity` are:  ``` 'm/s', 'm/min', 'm/h', 'cm/h' ```  Valid input units for boundaries of type `discharge` are:  ``` 'm3/s', 'm3/h', 'l/s', 'l/h' ```  Boundaries of type `riemann` and `sommerfeld` are `'dimensionless'`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events1d_boundary_constant_create_with_http_info(simulation_pk, data, async_req=True)
@@ -2602,9 +2602,9 @@ class SimulationsApi(object):
             collection_formats=collection_formats)
 
     def simulations_events1d_boundary_timeseries_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_timeseries_create  # noqa: E501
+        """Create a 1D boundary time series event  # noqa: E501
 
-        A simple ViewSet for viewing 1D TimeseriesBoundary.  # noqa: E501
+        Implemented boundary types at the moment are  ``` water level = 1 velocity = 2 discharge = 3 riemann = 4 sommerfeld = 5  ``` The only valid input unit for boundaries of type `water level` is:  ``` 'm MSL' ```   Valid input units for boundaries of type `velocity` are:  ``` 'm/s', 'm/min', 'm/h', 'cm/h' ```  Valid input units for boundaries of type `discharge` are:  ``` 'm3/s', 'm3/h', 'l/s', 'l/h' ```  Boundaries of type `riemann` and `sommerfeld` are `'dimensionless'`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events1d_boundary_timeseries_create(simulation_pk, data, async_req=True)
@@ -2625,9 +2625,9 @@ class SimulationsApi(object):
             return data
 
     def simulations_events1d_boundary_timeseries_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_timeseries_create  # noqa: E501
+        """Create a 1D boundary time series event  # noqa: E501
 
-        A simple ViewSet for viewing 1D TimeseriesBoundary.  # noqa: E501
+        Implemented boundary types at the moment are  ``` water level = 1 velocity = 2 discharge = 3 riemann = 4 sommerfeld = 5  ``` The only valid input unit for boundaries of type `water level` is:  ``` 'm MSL' ```   Valid input units for boundaries of type `velocity` are:  ``` 'm/s', 'm/min', 'm/h', 'cm/h' ```  Valid input units for boundaries of type `discharge` are:  ``` 'm3/s', 'm3/h', 'l/s', 'l/h' ```  Boundaries of type `riemann` and `sommerfeld` are `'dimensionless'`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events1d_boundary_timeseries_create_with_http_info(simulation_pk, data, async_req=True)
@@ -3250,9 +3250,9 @@ class SimulationsApi(object):
             collection_formats=collection_formats)
 
     def simulations_events2d_boundary_constant_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_constant_create  # noqa: E501
+        """Create a constant 2D boundary event  # noqa: E501
 
-        A simple ViewSet for viewing 2D ConstantBoundary.  # noqa: E501
+        Implemented boundary types at the moment are  ``` water level = 1 velocity = 2 discharge = 3 riemann = 4 sommerfeld = 5  ``` The only valid input unit for boundaries of type `water level` is:  ``` 'm MSL' ```   Valid input units for boundaries of type `velocity` are:  ``` 'm/s', 'm/min', 'm/h', 'cm/h' ```  Valid input units for boundaries of type `discharge` are:  ``` 'm3/s', 'm3/h', 'l/s', 'l/h' ```  Boundaries of type `riemann` and `sommerfeld` are `'dimensionless'`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events2d_boundary_constant_create(simulation_pk, data, async_req=True)
@@ -3273,9 +3273,9 @@ class SimulationsApi(object):
             return data
 
     def simulations_events2d_boundary_constant_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_constant_create  # noqa: E501
+        """Create a constant 2D boundary event  # noqa: E501
 
-        A simple ViewSet for viewing 2D ConstantBoundary.  # noqa: E501
+        Implemented boundary types at the moment are  ``` water level = 1 velocity = 2 discharge = 3 riemann = 4 sommerfeld = 5  ``` The only valid input unit for boundaries of type `water level` is:  ``` 'm MSL' ```   Valid input units for boundaries of type `velocity` are:  ``` 'm/s', 'm/min', 'm/h', 'cm/h' ```  Valid input units for boundaries of type `discharge` are:  ``` 'm3/s', 'm3/h', 'l/s', 'l/h' ```  Boundaries of type `riemann` and `sommerfeld` are `'dimensionless'`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events2d_boundary_constant_create_with_http_info(simulation_pk, data, async_req=True)
@@ -3898,9 +3898,9 @@ class SimulationsApi(object):
             collection_formats=collection_formats)
 
     def simulations_events2d_boundary_timeseries_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_timeseries_create  # noqa: E501
+        """Create a 2D boundary time series event  # noqa: E501
 
-        A simple ViewSet for viewing 2D TimeseriesBoundary.  # noqa: E501
+        Implemented boundary types at the moment are  ``` water level = 1 velocity = 2 discharge = 3 riemann = 4 sommerfeld = 5  ``` The only valid input unit for boundaries of type `water level` is:  ``` 'm MSL' ```   Valid input units for boundaries of type `velocity` are:  ``` 'm/s', 'm/min', 'm/h', 'cm/h' ```  Valid input units for boundaries of type `discharge` are:  ``` 'm3/s', 'm3/h', 'l/s', 'l/h' ```  Boundaries of type `riemann` and `sommerfeld` are `'dimensionless'`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events2d_boundary_timeseries_create(simulation_pk, data, async_req=True)
@@ -3921,9 +3921,9 @@ class SimulationsApi(object):
             return data
 
     def simulations_events2d_boundary_timeseries_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_timeseries_create  # noqa: E501
+        """Create a 2D boundary time series event  # noqa: E501
 
-        A simple ViewSet for viewing 2D TimeseriesBoundary.  # noqa: E501
+        Implemented boundary types at the moment are  ``` water level = 1 velocity = 2 discharge = 3 riemann = 4 sommerfeld = 5  ``` The only valid input unit for boundaries of type `water level` is:  ``` 'm MSL' ```   Valid input units for boundaries of type `velocity` are:  ``` 'm/s', 'm/min', 'm/h', 'cm/h' ```  Valid input units for boundaries of type `discharge` are:  ``` 'm3/s', 'm3/h', 'l/s', 'l/h' ```  Boundaries of type `riemann` and `sommerfeld` are `'dimensionless'`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events2d_boundary_timeseries_create_with_http_info(simulation_pk, data, async_req=True)
