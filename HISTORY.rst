@@ -2,8 +2,8 @@
 History
 =======
 
-0.0.18 (unreleased)
--------------------
+0.0.17c (2019-11-01)
+--------------------
 
 - Added boundaries to simulation events and updated docs.
 
