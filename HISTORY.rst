@@ -5,7 +5,7 @@ History
 0.0.18 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add boundary model.
 
 
 0.0.17c (2019-11-01)
