@@ -40,7 +40,7 @@ Installation
 
 We recommend `pip` to install this package:: 
 
-    pip install --user threedi-openapi-client  
+    pip install --user threedi-api-client  
 
 
 Getting started
