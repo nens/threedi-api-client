@@ -1,5 +1,6 @@
-import jwt
 from os import environ
+
+import jwt
 
 from openapi_client import ApiClient
 from openapi_client import Configuration
@@ -15,7 +16,6 @@ EXPIRE_LEEWAY = -300
 
 
 class ApiAccess:
-
     def __init__(self, env_file=None):
         self._user_config = Config(env_file)
         self._client = None
@@ -36,8 +36,9 @@ class ApiAccess:
         try:
             jwt.decode(
                 self._access_token,
-                options={'verify_signature': False},
-                leeway=EXPIRE_LEEWAY)
+                options={"verify_signature": False},
+                leeway=EXPIRE_LEEWAY,
+            )
         except Exception:
             return False
 
@@ -51,8 +52,9 @@ class ApiAccess:
         # get a new one
         tokens = self._get_api_tokens(
             self._user_config.get("API_USERNAME"),
-            self._user_config.get("API_PASSWORD"))
-        self._access_token = tokens.access 
+            self._user_config.get("API_PASSWORD"),
+        )
+        self._access_token = tokens.access
         return self._access_token
 
     def get_auth_headers(self):
@@ -61,11 +63,11 @@ class ApiAccess:
         """
         api_client = self._api_client
         return {
-            "Authorization":
-                api_client.configuration.api_key_prefix[
-                    'Authorization'] + ' ' +
-                api_client.configuration.api_key[
-                    'Authorization']
+            "Authorization": api_client.configuration.api_key_prefix[
+                "Authorization"
+            ]
+            + " "
+            + api_client.configuration.api_key["Authorization"]
         }
 
     @property
@@ -76,21 +78,20 @@ class ApiAccess:
         """
         configuration = Configuration()
         configuration.host = self._user_config.get("API_HOST")
-        configuration.api_key['Authorization'] = self.access_token
-        configuration.api_key_prefix['Authorization'] = 'Bearer'
+        configuration.api_key["Authorization"] = self.access_token
+        configuration.api_key_prefix["Authorization"] = "Bearer"
         self._client = ApiClient(configuration)
         return self._client
 
 
 class ThreediApiClient:
-
     def __new__(cls, env_file=None):
         cls._ac = ApiAccess(env_file)
         return cls._ac._api_client
 
     @classmethod
     def api_access(cls, env_file=None):
-        if not hasattr(cls, '_ac'):
+        if not hasattr(cls, "_ac"):
             cls.__new__(cls, env_file)
         return cls._ac
         # raise AttributeError("class has to be instantiated first")

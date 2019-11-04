@@ -3,7 +3,7 @@ import os
 
 class Config:
     def __init__(self, env_file=None):
-        self.file_values = {}  
+        self.file_values = {}
         if env_file is not None and os.path.isfile(env_file):
             self.file_values = self._read_file(env_file)
 
@@ -19,7 +19,7 @@ class Config:
         raise KeyError(f"Config '{key}' is missing.")
 
     def _read_file(self, file_name):
-        file_values = {}  
+        file_values = {}
         with open(file_name) as input_file:
             for line in input_file.readlines():
                 line = line.strip()
