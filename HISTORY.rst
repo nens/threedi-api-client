@@ -5,19 +5,19 @@ History
 0.0.17.4 (unreleased)
 ---------------------
 
-- Nothing changed yet.
+- All is working fine.
 
 
 0.0.17.3 (2019-11-04)
 ---------------------
 
-- Nothing changed yet.
+- Test release.
 
 
 0.0.17.2 (2019-11-04)
 ---------------------
 
-- Nothing changed yet.
+- Test release.
 
 
 0.0.17.1 (2019-11-01)
