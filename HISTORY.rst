@@ -2,7 +2,7 @@
 History
 =======
 
-0.0.17.3 (unreleased)
+0.0.17.3 (2019-11-04)
 ---------------------
 
 - Nothing changed yet.
