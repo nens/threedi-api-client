@@ -33,7 +33,7 @@ def find_version(*file_paths):
 
 requirements = [
     'certifi>=2019.3.9', 
-    'urllib3>=1.25.2'
+    'urllib3>=1.25.2',
     'pyjwt>=1.7.1',
 ]
 
