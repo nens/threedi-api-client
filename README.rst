@@ -38,7 +38,9 @@ Features
 Installation
 ------------
 
-pip install threedi-openapi-client
+We recommend `pip` to install this package:: 
+
+    pip install --user threedi-openapi-client  
 
 
 Getting started
