@@ -38,7 +38,9 @@ Features
 Installation
 ------------
 
-pip install threedi-openapi-client
+We recommend `pip` to install this package:: 
+
+    pip install --user threedi-openapi-client  
 
 
 Getting started
@@ -74,6 +76,7 @@ A sample `.env` file could look like this ::
 
 
 To get an instance of the client ::
+
         env_file = <path>/.env
         api_client = ThreediApiClient(env_file)
 
