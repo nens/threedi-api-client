@@ -14,7 +14,7 @@ from threedi_api_client.config import Config
 EXPIRE_LEEWAY = -300
 
 
-class OpenApiClient:
+class ApiAccess:
 
     def __init__(self, env_file=None):
         self._user_config = Config(env_file)
@@ -85,11 +85,12 @@ class OpenApiClient:
 class ThreediApiClient:
 
     def __new__(cls, env_file=None):
-        cls._c = OpenApiClient(env_file)
-        return cls._c._api_client
+        cls._ac = ApiAccess(env_file)
+        return cls._ac._api_client
 
     @classmethod
-    def get_open_api_client(cls):
-        if hasattr(cls, '_c'):
-            return cls._c
-        raise AttributeError("class has to be instantiated first")
+    def api_access(cls, env_file=None):
+        if not hasattr(cls, '_ac'):
+            cls.__new__(cls, env_file)
+        return cls._ac
+        # raise AttributeError("class has to be instantiated first")
