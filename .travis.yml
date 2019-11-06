@@ -23,5 +23,5 @@ deploy:
     secure: PLEASE_REPLACE_ME
   on:
     tags: true
-    repo: larsclaussen/threedi_openapi_client
+    repo: nens/threedi-openapi-client
     python: 3.6
