@@ -5,6 +5,9 @@ History
 0.0.17.4 (unreleased)
 ---------------------
 
+- Automatically get a new JWT token when
+  the current one is valid less than 5 minutes.
+
 - Use `mkdocs` for documentation.
 
 - All is working fine.

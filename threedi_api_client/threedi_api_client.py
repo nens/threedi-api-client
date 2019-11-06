@@ -1,5 +1,3 @@
-from os import environ
-
 import jwt
 
 from openapi_client import ApiClient
@@ -15,18 +13,10 @@ from threedi_api_client.config import Config
 EXPIRE_LEEWAY = -300
 
 
-class ApiAccess:
-    def __init__(self, env_file=None):
-        self._user_config = Config(env_file)
-        self._client = None
+class APIConfiguration(Configuration):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self._access_token = None
-
-    def _get_api_tokens(self, username, password):
-        configuration = Configuration()
-        configuration.host = self._user_config.get("API_HOST")
-        api_client = ApiClient(configuration)
-        auth = AuthApi(api_client)
-        return auth.auth_token_create(Authenticate(username, password))
 
     def _is_token_usable(self):
         if self._access_token is None:
@@ -44,6 +34,13 @@ class ApiAccess:
 
         return True
 
+    def _get_api_tokens(self, username, password):
+        configuration = Configuration()
+        configuration.host = self._user_config.get("API_HOST")
+        api_client = ApiClient(configuration)
+        auth = AuthApi(api_client)
+        return auth.auth_token_create(Authenticate(username, password))
+
     @property
     def access_token(self):
         if self._is_token_usable():
@@ -57,41 +54,21 @@ class ApiAccess:
         self._access_token = tokens.access
         return self._access_token
 
-    def get_auth_headers(self):
-        """
-        Get auth headers usable for requests.
-        """
-        api_client = self._api_client
-        return {
-            "Authorization": api_client.configuration.api_key_prefix[
-                "Authorization"
-            ]
-            + " "
-            + api_client.configuration.api_key["Authorization"]
-        }
-
-    @property
-    def _api_client(self):
-        """
-        Create api client if self._access_token
-        is not usable or return the cached self._client
-        """
-        configuration = Configuration()
-        configuration.host = self._user_config.get("API_HOST")
-        configuration.api_key["Authorization"] = self.access_token
-        configuration.api_key_prefix["Authorization"] = "Bearer"
-        self._client = ApiClient(configuration)
-        return self._client
+    def get_api_key_with_prefix(self, identifier):
+        if identifier == 'Authorization':
+            self.api_key["Authorization"] = self.access_token
+            self.api_key_prefix["Authorization"] = "Bearer"
+        return super().get_api_key_with_prefix(identifier)
 
 
 class ThreediApiClient:
-    def __new__(cls, env_file=None):
-        cls._ac = ApiAccess(env_file)
-        return cls._ac._api_client
+    def __new__(cls, env_file=None, config=None):
+        if env_file is not None:
+            user_config = Config(env_file)
+        elif config is not None:
+            user_config = config
 
-    @classmethod
-    def api_access(cls, env_file=None):
-        if not hasattr(cls, "_ac"):
-            cls.__new__(cls, env_file)
-        return cls._ac
-        # raise AttributeError("class has to be instantiated first")
+        configuration = APIConfiguration()
+        configuration.host = user_config.get("API_HOST")
+        configuration._user_config = user_config
+        return ApiClient(configuration)

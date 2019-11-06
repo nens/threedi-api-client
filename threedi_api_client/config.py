@@ -1,11 +1,17 @@
 import os
 
 
+class ConfigError(Exception):
+    pass
+
+
 class Config:
     def __init__(self, env_file=None):
         self.file_values = {}
         if env_file is not None and os.path.isfile(env_file):
             self.file_values = self._read_file(env_file)
+        else:
+            raise ConfigError("Could not find %s", env_file)
 
     def __call__(self, key):
         return self.get(key)
