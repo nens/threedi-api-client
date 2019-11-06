@@ -4,23 +4,13 @@ threedi-openapi-client
 
 
 .. image:: https://img.shields.io/pypi/v/threedi_openapi_client.svg
-        :target: https://pypi.python.org/pypi/threedi_openapi_client
+        :target: https://pypi.python.org/pypi/threedi-api-client
 
-.. image:: https://img.shields.io/travis/larsclaussen/threedi_openapi_client.svg
-        :target: https://travis-ci.org/larsclaussen/threedi_openapi_client
-
-.. image:: https://readthedocs.org/projects/threedi-openapi-client/badge/?version=latest
-        :target: https://threedi-openapi-client.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
+.. image:: https://img.shields.io/travis/nens/threedi_openapi_client.svg
+        :target: https://travis-ci.com/nens/threedi-openapi-client
 
 
-.. image:: https://pyup.io/repos/github/larsclaussen/threedi_openapi_client/shield.svg
-     :target: https://pyup.io/repos/github/larsclaussen/threedi_openapi_client/
-     :alt: Updates
-
-
-
-* A Python library for the 3Di API 
+* A Python library for the 3Di API
 
 
 * Free software: BSD license
