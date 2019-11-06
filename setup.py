@@ -37,10 +37,6 @@ requirements = [
     'pyjwt>=1.7.1',
 ]
 
-docs_requirements = [
-    'mkdocs>1.0.4'
-]
-
 setup_requirements = ['pytest-runner', ]
 
 test_requirements = ['pytest', ]
