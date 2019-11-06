@@ -24,7 +24,7 @@ threedi-openapi-client
 
 
 * Free software: BSD license
-* Documentation: https://threedi-openapi-client.readthedocs.io.
+* Documentation: https://nens.github.io/threedi-openapi-client
 
 
 Features
