@@ -102,11 +102,12 @@ To create a simulation ::
               'url': 'https://api.3di.live/v3.0/organisations/cde64bc165644be9af023fc4fa18d098/'}]}        
 
 
-        from datetime import datetime
-        openapi_client.models.simulation.Simulation
-
-
         # let's define a Simulation
+        openapi_client.models.simulation.Simulation
+        # start date will be a datetime object
+        from datetime import datetime
+        
+        # we use the Simulation model to pass data to the API
         my_extreme_event_simulation = Simulation(
                 name="my extreme event",   # (optional)
                 threedimodel=1,            # The model schema to use for the simulation by referring to the id of the threedimodel resource
@@ -114,6 +115,8 @@ To create a simulation ::
                 start_datetime=datetime.utcnow(),  # accepts datetime instance
                 duration=7200              # in secs ==> 2 hours 
         )
+        # the SimulationsApi object gives use access to the 
+        # https://api.3di.live/v3.0/simulations/  endpoint
         from openapi_client import SimulationsApi
         simulations_api = SimulationsApi(api_client)
         simulations_api.simulations_create(my_extreme_event_simulation)
@@ -134,7 +137,7 @@ To create a simulation ::
         'uuid': '378f55a5-06df-4021-8fb6-65bbb70519dc'}
 
 
-Next, lets us add a rain event to the simulation ::
+Next, let us add a rain event to the simulation ::
 
         from openapi_client.models import ConstantRain
         const_rain = ConstantRain(
