@@ -70,8 +70,8 @@ data to the API. Some fields are optional but we do need to specify
   parameter in seconds
   
   
-If you do not know the unique ID for your organisation you can make use th the 
-`OrganisationsApi` object grants access to the `/organisations/` endpoint         
+If you do not know the unique ID for your organisation you can make use of the 
+`OrganisationsApi` object that grants access to the `/organisations/` endpoint.         
 
 ```python
       
