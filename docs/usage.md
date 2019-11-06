@@ -7,7 +7,7 @@ The `ThreediApiClient` class is the main entry point to make
 api call to the 3DI API V3.0. It handles the login 
 process for you and can be directly used as client for all API endpoints. 
 
-The `ThreediApiClient` needs three settings to make requests to the 3Di API:
+The `ThreediApiClient` needs the following settings to make requests to the 3Di API:
 
   - the host name
   - the username to login with and 
