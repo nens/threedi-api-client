@@ -33,7 +33,8 @@ def find_version(*file_paths):
 
 requirements = [
     'certifi>=2019.3.9', 
-    'urllib3>=1.25.2'
+    'urllib3>=1.25.2',
+    'pyjwt>=1.7.1',
 ]
 
 setup_requirements = ['pytest-runner', ]
@@ -48,12 +49,9 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
-        "Programming Language :: Python :: 2",
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
     ],
     description="client for the threedi API",
     install_requires=requirements,
@@ -61,8 +59,8 @@ setup(
     long_description=readme + '\n\n' + history,
     include_package_data=True,
     keywords='threedi_openapi_client',
-    name='threedi_openapi_client',
-    packages=find_packages(include=['openapi_client', 'openapi_client.*']),
+    name='threedi_api_client',
+    packages=find_packages(include=['openapi_client', 'openapi_client.*', 'threedi_api_client']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
