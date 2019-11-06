@@ -1,4 +1,9 @@
 site_name: threedi-openapi-client documentation
+
+repo_name: nens/threedi-openapi-client
+repo_url: https://github.com/nens/threedi-openapi-client
+
+
 nav:
     - Home: index.md
     - Usage: usage.md
