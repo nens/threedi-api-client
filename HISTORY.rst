@@ -5,6 +5,8 @@ History
 0.0.17.4 (unreleased)
 ---------------------
 
+- Use `mkdocs` for documentation.
+
 - All is working fine.
 
 
