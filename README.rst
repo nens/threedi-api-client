@@ -20,7 +20,7 @@ threedi-openapi-client
 
 
 
-* A Python library for the 3DI API 
+* A Python library for the 3Di API 
 
 
 * Free software: BSD license
