@@ -1,0 +1,7 @@
+site_name: threedi-openapi-client documentation
+nav:
+    - Home: index.md
+    - Usage: usage.md
+
+theme:
+    name: 'material'
