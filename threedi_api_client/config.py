@@ -17,9 +17,6 @@ class Config:
         return self.get(key)
 
     def get(self, key):
-        if key in os.environ:
-            value = os.environ[key]
-            return value
         if key in self.file_values:
             return self.file_values[key]
         raise KeyError(f"Config '{key}' is missing.")
@@ -35,3 +32,14 @@ class Config:
                     value = value.strip().strip("\"'")
                     file_values[key] = value
         return file_values
+
+
+class EnvironConfig:
+    def __call__(self, key):
+        return self.get(key)
+
+    def get(self, key):
+        if key in os.environ:
+            value = os.environ[key]
+            return value
+        raise KeyError(f"Config '{key}' is missing in environment variables")

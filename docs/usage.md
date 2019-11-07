@@ -7,16 +7,17 @@ The `ThreediApiClient` class is the main entry point to make
 api call to the 3DI API V3.0. It handles the login 
 process for you and can be directly used as client for all API endpoints. 
 
-The `ThreediApiClient` needs three settings to make requests to the 3Di API:
+The following three settings are necessary to make requests to the 3Di API:
 
   - the host name
   - the username to login with and 
   - the user's password
 
 These settings can either be stored in a ".env" file
-that can be passes to the `ThreediApiClient` on initialisation.
+that can be passed to the `ThreediApiClient` on initialisation, supplied
+via environment variables or passed as a config dictionairy.
 
-A sample `.env` file could look like this
+1) A sample `.env` file could look like this
 
 ```
 API_HOST=https://api.3di.live/v3.0
@@ -31,7 +32,15 @@ env_file = "<path>/.env"
 api_client = ThreediApiClient(env_file=env_file)
 ```
 
-or passed directly using the config keyword argument like:
+2) The enviroment variables are the same as in the .env file:
+
+```
+export API_HOST=https://api.3di.live/v3.0
+export API_USERNAME=black.sheep
+export API_PASSWORD=myverysecretmehhh
+```
+
+3) The config keyword argument can be used like:
 
 
 ```python
@@ -45,6 +54,7 @@ config = {
 
 api_client = ThreediApiClient(config=config)
 ```
+
 
 ### Usage examples
 

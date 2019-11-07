@@ -5,7 +5,7 @@ from openapi_client import Configuration
 from openapi_client import AuthApi
 from openapi_client.models import Authenticate
 
-from threedi_api_client.config import Config
+from threedi_api_client.config import Config, EnvironConfig
 
 # Token expires at:
 # jwt_token.exp + EXPIRE_LEEWAY seconds
@@ -63,10 +63,16 @@ class APIConfiguration(Configuration):
 
 class ThreediApiClient:
     def __new__(cls, env_file=None, config=None):
+
+        # First try env_file
         if env_file is not None:
             user_config = Config(env_file)
         elif config is not None:
+            # Try the config param
             user_config = config
+
+        # Use environ when env_file and config are not set
+        user_config = EnvironConfig()
 
         configuration = APIConfiguration()
         configuration.host = user_config.get("API_HOST")
