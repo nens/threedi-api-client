@@ -5,13 +5,12 @@ History
 0.0.17.4 (unreleased)
 ---------------------
 
+- Added `simulation` and `simulation_id` to statuses serializer.
+
 - Automatically get a new JWT token when
   the current one is valid less than 5 minutes.
 
 - Use `mkdocs` for documentation.
-
-- All is working fine.
-
 
 0.0.17.3 (2019-11-04)
 ---------------------

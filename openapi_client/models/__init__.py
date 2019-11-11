@@ -4,7 +4,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.17   3Di core release: 2.0.2  deployed on:  10:18AM (UTC) on October 30, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.19   3Di core release: 2.0.2  deployed on:  03:09PM (UTC) on November 07, 2019  # noqa: E501
 
     OpenAPI spec version: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -17,10 +17,8 @@ from __future__ import absolute_import
 # import models into model package
 from openapi_client.models.action import Action
 from openapi_client.models.authenticate import Authenticate
-from openapi_client.models.boundary import Boundary
 from openapi_client.models.boundary_condition import BoundaryCondition
 from openapi_client.models.breach import Breach
-from openapi_client.models.constant_boundary import ConstantBoundary
 from openapi_client.models.constant_lateral import ConstantLateral
 from openapi_client.models.constant_rain import ConstantRain
 from openapi_client.models.constant_sources_sinks import ConstantSourcesSinks
@@ -74,8 +72,6 @@ from openapi_client.models.inline_response20037 import InlineResponse20037
 from openapi_client.models.inline_response20038 import InlineResponse20038
 from openapi_client.models.inline_response20039 import InlineResponse20039
 from openapi_client.models.inline_response2004 import InlineResponse2004
-from openapi_client.models.inline_response20040 import InlineResponse20040
-from openapi_client.models.inline_response20041 import InlineResponse20041
 from openapi_client.models.inline_response2005 import InlineResponse2005
 from openapi_client.models.inline_response2006 import InlineResponse2006
 from openapi_client.models.inline_response2007 import InlineResponse2007
@@ -114,7 +110,6 @@ from openapi_client.models.threedi_model_saved_state import ThreediModelSavedSta
 from openapi_client.models.threshold import Threshold
 from openapi_client.models.timed_saved_state_update import TimedSavedStateUpdate
 from openapi_client.models.timed_structure_control import TimedStructureControl
-from openapi_client.models.timeseries_boundary import TimeseriesBoundary
 from openapi_client.models.timeseries_lateral import TimeseriesLateral
 from openapi_client.models.timeseries_rain import TimeseriesRain
 from openapi_client.models.timeseries_rain_overview import TimeseriesRainOverview

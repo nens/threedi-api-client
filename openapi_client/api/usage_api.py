@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.17   3Di core release: 2.0.2  deployed on:  10:18AM (UTC) on October 30, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.19   3Di core release: 2.0.2  deployed on:  03:09PM (UTC) on November 07, 2019  # noqa: E501
 
     OpenAPI spec version: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -45,7 +45,7 @@ class UsageApi(object):
         :param async_req bool
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20041
+        :return: InlineResponse20039
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -68,7 +68,7 @@ class UsageApi(object):
         :param async_req bool
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20041
+        :return: InlineResponse20039
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -121,7 +121,7 @@ class UsageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20041',  # noqa: E501
+            response_type='InlineResponse20039',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
