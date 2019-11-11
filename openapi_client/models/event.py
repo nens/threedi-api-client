@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.17   3Di core release: 2.0.2  deployed on:  10:18AM (UTC) on October 30, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.19   3Di core release: 2.0.2  deployed on:  03:09PM (UTC) on November 07, 2019  # noqa: E501
 
     OpenAPI spec version: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -50,8 +50,7 @@ class Event(object):
         'initial_savedstate': 'InitialSavedStateOverview',
         'savedstates': 'list[SavedStateOverview]',
         'laterals': 'list[Lateral]',
-        'timedstructurecontrol': 'list[TimedStructureControl]',
-        'boundaries': 'list[Boundary]'
+        'timedstructurecontrol': 'list[TimedStructureControl]'
     }
 
     attribute_map = {
@@ -73,11 +72,10 @@ class Event(object):
         'initial_savedstate': 'initial_savedstate',
         'savedstates': 'savedstates',
         'laterals': 'laterals',
-        'timedstructurecontrol': 'timedstructurecontrol',
-        'boundaries': 'boundaries'
+        'timedstructurecontrol': 'timedstructurecontrol'
     }
 
-    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_onedwaterlevel=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, timedstructurecontrol=None, boundaries=None):  # noqa: E501
+    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_onedwaterlevel=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, timedstructurecontrol=None):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
 
         self._lizardrasterrain = None
@@ -99,7 +97,6 @@ class Event(object):
         self._savedstates = None
         self._laterals = None
         self._timedstructurecontrol = None
-        self._boundaries = None
         self.discriminator = None
 
         if lizardrasterrain is not None:
@@ -140,8 +137,6 @@ class Event(object):
             self.laterals = laterals
         if timedstructurecontrol is not None:
             self.timedstructurecontrol = timedstructurecontrol
-        if boundaries is not None:
-            self.boundaries = boundaries
 
     @property
     def lizardrasterrain(self):
@@ -541,27 +536,6 @@ class Event(object):
         """
 
         self._timedstructurecontrol = timedstructurecontrol
-
-    @property
-    def boundaries(self):
-        """Gets the boundaries of this Event.  # noqa: E501
-
-
-        :return: The boundaries of this Event.  # noqa: E501
-        :rtype: list[Boundary]
-        """
-        return self._boundaries
-
-    @boundaries.setter
-    def boundaries(self, boundaries):
-        """Sets the boundaries of this Event.
-
-
-        :param boundaries: The boundaries of this Event.  # noqa: E501
-        :type: list[Boundary]
-        """
-
-        self._boundaries = boundaries
 
     def to_dict(self):
         """Returns the model properties as a dict"""

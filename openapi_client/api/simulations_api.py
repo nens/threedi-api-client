@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.17   3Di core release: 2.0.2  deployed on:  10:18AM (UTC) on October 30, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.19   3Di core release: 2.0.2  deployed on:  03:09PM (UTC) on November 07, 2019  # noqa: E501
 
     OpenAPI spec version: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -1953,2598 +1953,6 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_events1d_boundary_constant_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """Create a constant 1D boundary event  # noqa: E501
-
-        Implemented boundary types at the moment are  ``` water level = 1 velocity = 2 discharge = 3 riemann = 4 sommerfeld = 5 ```  The only valid input unit for boundaries of type `water level` is:  ``` 'm MSL' ```   Valid input units for boundaries of type `velocity` are:  ``` 'm/s', 'm/min', 'm/h', 'cm/h' ```  Valid input units for boundaries of type `discharge` are:  ``` 'm3/s', 'm3/h', 'l/s', 'l/h' ```  Boundaries of type `riemann` and `sommerfeld` are `'dimensionless'`  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_constant_create(simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str simulation_pk: (required)
-        :param ConstantBoundary data: (required)
-        :return: ConstantBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events1d_boundary_constant_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events1d_boundary_constant_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events1d_boundary_constant_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """Create a constant 1D boundary event  # noqa: E501
-
-        Implemented boundary types at the moment are  ``` water level = 1 velocity = 2 discharge = 3 riemann = 4 sommerfeld = 5 ```  The only valid input unit for boundaries of type `water level` is:  ``` 'm MSL' ```   Valid input units for boundaries of type `velocity` are:  ``` 'm/s', 'm/min', 'm/h', 'cm/h' ```  Valid input units for boundaries of type `discharge` are:  ``` 'm3/s', 'm3/h', 'l/s', 'l/h' ```  Boundaries of type `riemann` and `sommerfeld` are `'dimensionless'`  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_constant_create_with_http_info(simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str simulation_pk: (required)
-        :param ConstantBoundary data: (required)
-        :return: ConstantBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events1d_boundary_constant_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events1d_boundary_constant_create`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ValueError("Missing the required parameter `data` when calling `simulations_events1d_boundary_constant_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/1d_boundary/constant/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ConstantBoundary',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events1d_boundary_constant_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_constant_delete  # noqa: E501
-
-        A simple ViewSet for viewing 1D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_constant_delete(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events1d_boundary_constant_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events1d_boundary_constant_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events1d_boundary_constant_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_constant_delete  # noqa: E501
-
-        A simple ViewSet for viewing 1D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_constant_delete_with_http_info(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events1d_boundary_constant_delete" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_events1d_boundary_constant_delete`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events1d_boundary_constant_delete`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/1d_boundary/constant/{id}/', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events1d_boundary_constant_list(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_constant_list  # noqa: E501
-
-        A simple ViewSet for viewing 1D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_constant_list(simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str simulation_pk: (required)
-        :param int limit: Number of results to return per page.
-        :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20011
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events1d_boundary_constant_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events1d_boundary_constant_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events1d_boundary_constant_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_constant_list  # noqa: E501
-
-        A simple ViewSet for viewing 1D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_constant_list_with_http_info(simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str simulation_pk: (required)
-        :param int limit: Number of results to return per page.
-        :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20011
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events1d_boundary_constant_list" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events1d_boundary_constant_list`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-        if 'limit' in local_var_params:
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params:
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/1d_boundary/constant/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20011',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events1d_boundary_constant_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_constant_partial_update  # noqa: E501
-
-        A simple ViewSet for viewing 1D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_constant_partial_update(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :param ConstantBoundary data: (required)
-        :return: ConstantBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events1d_boundary_constant_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events1d_boundary_constant_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events1d_boundary_constant_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_constant_partial_update  # noqa: E501
-
-        A simple ViewSet for viewing 1D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_constant_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :param ConstantBoundary data: (required)
-        :return: ConstantBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events1d_boundary_constant_partial_update" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_events1d_boundary_constant_partial_update`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events1d_boundary_constant_partial_update`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ValueError("Missing the required parameter `data` when calling `simulations_events1d_boundary_constant_partial_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/1d_boundary/constant/{id}/', 'PATCH',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ConstantBoundary',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events1d_boundary_constant_read(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_constant_read  # noqa: E501
-
-        A simple ViewSet for viewing 1D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_constant_read(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :return: ConstantBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events1d_boundary_constant_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events1d_boundary_constant_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events1d_boundary_constant_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_constant_read  # noqa: E501
-
-        A simple ViewSet for viewing 1D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_constant_read_with_http_info(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :return: ConstantBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events1d_boundary_constant_read" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_events1d_boundary_constant_read`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events1d_boundary_constant_read`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/1d_boundary/constant/{id}/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ConstantBoundary',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events1d_boundary_constant_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_constant_update  # noqa: E501
-
-        A simple ViewSet for viewing 1D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_constant_update(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :param ConstantBoundary data: (required)
-        :return: ConstantBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events1d_boundary_constant_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events1d_boundary_constant_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events1d_boundary_constant_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_constant_update  # noqa: E501
-
-        A simple ViewSet for viewing 1D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_constant_update_with_http_info(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :param ConstantBoundary data: (required)
-        :return: ConstantBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events1d_boundary_constant_update" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_events1d_boundary_constant_update`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events1d_boundary_constant_update`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ValueError("Missing the required parameter `data` when calling `simulations_events1d_boundary_constant_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/1d_boundary/constant/{id}/', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ConstantBoundary',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events1d_boundary_timeseries_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """Create a 1D boundary time series event  # noqa: E501
-
-        Implemented boundary types at the moment are  ``` water level = 1 velocity = 2 discharge = 3 riemann = 4 sommerfeld = 5  ``` The only valid input unit for boundaries of type `water level` is:  ``` 'm MSL' ```   Valid input units for boundaries of type `velocity` are:  ``` 'm/s', 'm/min', 'm/h', 'cm/h' ```  Valid input units for boundaries of type `discharge` are:  ``` 'm3/s', 'm3/h', 'l/s', 'l/h' ```  Boundaries of type `riemann` and `sommerfeld` are `'dimensionless'`  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_timeseries_create(simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str simulation_pk: (required)
-        :param TimeseriesBoundary data: (required)
-        :return: TimeseriesBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events1d_boundary_timeseries_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events1d_boundary_timeseries_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events1d_boundary_timeseries_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """Create a 1D boundary time series event  # noqa: E501
-
-        Implemented boundary types at the moment are  ``` water level = 1 velocity = 2 discharge = 3 riemann = 4 sommerfeld = 5  ``` The only valid input unit for boundaries of type `water level` is:  ``` 'm MSL' ```   Valid input units for boundaries of type `velocity` are:  ``` 'm/s', 'm/min', 'm/h', 'cm/h' ```  Valid input units for boundaries of type `discharge` are:  ``` 'm3/s', 'm3/h', 'l/s', 'l/h' ```  Boundaries of type `riemann` and `sommerfeld` are `'dimensionless'`  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_timeseries_create_with_http_info(simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str simulation_pk: (required)
-        :param TimeseriesBoundary data: (required)
-        :return: TimeseriesBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events1d_boundary_timeseries_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events1d_boundary_timeseries_create`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ValueError("Missing the required parameter `data` when calling `simulations_events1d_boundary_timeseries_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/1d_boundary/timeseries/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='TimeseriesBoundary',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events1d_boundary_timeseries_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_timeseries_delete  # noqa: E501
-
-        A simple ViewSet for viewing 1D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_timeseries_delete(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events1d_boundary_timeseries_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events1d_boundary_timeseries_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events1d_boundary_timeseries_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_timeseries_delete  # noqa: E501
-
-        A simple ViewSet for viewing 1D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_timeseries_delete_with_http_info(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events1d_boundary_timeseries_delete" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_events1d_boundary_timeseries_delete`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events1d_boundary_timeseries_delete`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/1d_boundary/timeseries/{id}/', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events1d_boundary_timeseries_list(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_timeseries_list  # noqa: E501
-
-        A simple ViewSet for viewing 1D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_timeseries_list(simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str simulation_pk: (required)
-        :param int limit: Number of results to return per page.
-        :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20012
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events1d_boundary_timeseries_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events1d_boundary_timeseries_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events1d_boundary_timeseries_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_timeseries_list  # noqa: E501
-
-        A simple ViewSet for viewing 1D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_timeseries_list_with_http_info(simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str simulation_pk: (required)
-        :param int limit: Number of results to return per page.
-        :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20012
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events1d_boundary_timeseries_list" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events1d_boundary_timeseries_list`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-        if 'limit' in local_var_params:
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params:
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/1d_boundary/timeseries/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20012',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events1d_boundary_timeseries_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_timeseries_partial_update  # noqa: E501
-
-        A simple ViewSet for viewing 1D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_timeseries_partial_update(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :param TimeseriesBoundary data: (required)
-        :return: TimeseriesBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events1d_boundary_timeseries_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events1d_boundary_timeseries_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events1d_boundary_timeseries_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_timeseries_partial_update  # noqa: E501
-
-        A simple ViewSet for viewing 1D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_timeseries_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :param TimeseriesBoundary data: (required)
-        :return: TimeseriesBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events1d_boundary_timeseries_partial_update" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_events1d_boundary_timeseries_partial_update`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events1d_boundary_timeseries_partial_update`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ValueError("Missing the required parameter `data` when calling `simulations_events1d_boundary_timeseries_partial_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/1d_boundary/timeseries/{id}/', 'PATCH',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='TimeseriesBoundary',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events1d_boundary_timeseries_read(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_timeseries_read  # noqa: E501
-
-        A simple ViewSet for viewing 1D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_timeseries_read(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :return: TimeseriesBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events1d_boundary_timeseries_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events1d_boundary_timeseries_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events1d_boundary_timeseries_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_timeseries_read  # noqa: E501
-
-        A simple ViewSet for viewing 1D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_timeseries_read_with_http_info(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :return: TimeseriesBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events1d_boundary_timeseries_read" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_events1d_boundary_timeseries_read`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events1d_boundary_timeseries_read`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/1d_boundary/timeseries/{id}/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='TimeseriesBoundary',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events1d_boundary_timeseries_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_timeseries_update  # noqa: E501
-
-        A simple ViewSet for viewing 1D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_timeseries_update(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :param TimeseriesBoundary data: (required)
-        :return: TimeseriesBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events1d_boundary_timeseries_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events1d_boundary_timeseries_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events1d_boundary_timeseries_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events1d_boundary_timeseries_update  # noqa: E501
-
-        A simple ViewSet for viewing 1D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events1d_boundary_timeseries_update_with_http_info(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :param TimeseriesBoundary data: (required)
-        :return: TimeseriesBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events1d_boundary_timeseries_update" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_events1d_boundary_timeseries_update`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events1d_boundary_timeseries_update`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ValueError("Missing the required parameter `data` when calling `simulations_events1d_boundary_timeseries_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/1d_boundary/timeseries/{id}/', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='TimeseriesBoundary',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events2d_boundary_constant_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """Create a constant 2D boundary event  # noqa: E501
-
-        Implemented boundary types at the moment are  ``` water level = 1 velocity = 2 discharge = 3 riemann = 4 sommerfeld = 5  ``` The only valid input unit for boundaries of type `water level` is:  ``` 'm MSL' ```   Valid input units for boundaries of type `velocity` are:  ``` 'm/s', 'm/min', 'm/h', 'cm/h' ```  Valid input units for boundaries of type `discharge` are:  ``` 'm3/s', 'm3/h', 'l/s', 'l/h' ```  Boundaries of type `riemann` and `sommerfeld` are `'dimensionless'`  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_constant_create(simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str simulation_pk: (required)
-        :param ConstantBoundary data: (required)
-        :return: ConstantBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events2d_boundary_constant_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events2d_boundary_constant_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events2d_boundary_constant_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """Create a constant 2D boundary event  # noqa: E501
-
-        Implemented boundary types at the moment are  ``` water level = 1 velocity = 2 discharge = 3 riemann = 4 sommerfeld = 5  ``` The only valid input unit for boundaries of type `water level` is:  ``` 'm MSL' ```   Valid input units for boundaries of type `velocity` are:  ``` 'm/s', 'm/min', 'm/h', 'cm/h' ```  Valid input units for boundaries of type `discharge` are:  ``` 'm3/s', 'm3/h', 'l/s', 'l/h' ```  Boundaries of type `riemann` and `sommerfeld` are `'dimensionless'`  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_constant_create_with_http_info(simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str simulation_pk: (required)
-        :param ConstantBoundary data: (required)
-        :return: ConstantBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events2d_boundary_constant_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events2d_boundary_constant_create`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ValueError("Missing the required parameter `data` when calling `simulations_events2d_boundary_constant_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/2d_boundary/constant/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ConstantBoundary',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events2d_boundary_constant_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_constant_delete  # noqa: E501
-
-        A simple ViewSet for viewing 2D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_constant_delete(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events2d_boundary_constant_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events2d_boundary_constant_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events2d_boundary_constant_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_constant_delete  # noqa: E501
-
-        A simple ViewSet for viewing 2D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_constant_delete_with_http_info(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events2d_boundary_constant_delete" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_events2d_boundary_constant_delete`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events2d_boundary_constant_delete`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/2d_boundary/constant/{id}/', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events2d_boundary_constant_list(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_constant_list  # noqa: E501
-
-        A simple ViewSet for viewing 2D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_constant_list(simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str simulation_pk: (required)
-        :param int limit: Number of results to return per page.
-        :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20011
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events2d_boundary_constant_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events2d_boundary_constant_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events2d_boundary_constant_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_constant_list  # noqa: E501
-
-        A simple ViewSet for viewing 2D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_constant_list_with_http_info(simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str simulation_pk: (required)
-        :param int limit: Number of results to return per page.
-        :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20011
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events2d_boundary_constant_list" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events2d_boundary_constant_list`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-        if 'limit' in local_var_params:
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params:
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/2d_boundary/constant/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20011',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events2d_boundary_constant_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_constant_partial_update  # noqa: E501
-
-        A simple ViewSet for viewing 2D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_constant_partial_update(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :param ConstantBoundary data: (required)
-        :return: ConstantBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events2d_boundary_constant_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events2d_boundary_constant_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events2d_boundary_constant_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_constant_partial_update  # noqa: E501
-
-        A simple ViewSet for viewing 2D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_constant_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :param ConstantBoundary data: (required)
-        :return: ConstantBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events2d_boundary_constant_partial_update" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_events2d_boundary_constant_partial_update`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events2d_boundary_constant_partial_update`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ValueError("Missing the required parameter `data` when calling `simulations_events2d_boundary_constant_partial_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/2d_boundary/constant/{id}/', 'PATCH',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ConstantBoundary',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events2d_boundary_constant_read(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_constant_read  # noqa: E501
-
-        A simple ViewSet for viewing 2D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_constant_read(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :return: ConstantBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events2d_boundary_constant_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events2d_boundary_constant_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events2d_boundary_constant_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_constant_read  # noqa: E501
-
-        A simple ViewSet for viewing 2D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_constant_read_with_http_info(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :return: ConstantBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events2d_boundary_constant_read" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_events2d_boundary_constant_read`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events2d_boundary_constant_read`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/2d_boundary/constant/{id}/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ConstantBoundary',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events2d_boundary_constant_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_constant_update  # noqa: E501
-
-        A simple ViewSet for viewing 2D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_constant_update(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :param ConstantBoundary data: (required)
-        :return: ConstantBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events2d_boundary_constant_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events2d_boundary_constant_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events2d_boundary_constant_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_constant_update  # noqa: E501
-
-        A simple ViewSet for viewing 2D ConstantBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_constant_update_with_http_info(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :param ConstantBoundary data: (required)
-        :return: ConstantBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events2d_boundary_constant_update" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_events2d_boundary_constant_update`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events2d_boundary_constant_update`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ValueError("Missing the required parameter `data` when calling `simulations_events2d_boundary_constant_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/2d_boundary/constant/{id}/', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ConstantBoundary',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events2d_boundary_timeseries_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """Create a 2D boundary time series event  # noqa: E501
-
-        Implemented boundary types at the moment are  ``` water level = 1 velocity = 2 discharge = 3 riemann = 4 sommerfeld = 5  ``` The only valid input unit for boundaries of type `water level` is:  ``` 'm MSL' ```   Valid input units for boundaries of type `velocity` are:  ``` 'm/s', 'm/min', 'm/h', 'cm/h' ```  Valid input units for boundaries of type `discharge` are:  ``` 'm3/s', 'm3/h', 'l/s', 'l/h' ```  Boundaries of type `riemann` and `sommerfeld` are `'dimensionless'`  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_timeseries_create(simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str simulation_pk: (required)
-        :param TimeseriesBoundary data: (required)
-        :return: TimeseriesBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events2d_boundary_timeseries_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events2d_boundary_timeseries_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events2d_boundary_timeseries_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """Create a 2D boundary time series event  # noqa: E501
-
-        Implemented boundary types at the moment are  ``` water level = 1 velocity = 2 discharge = 3 riemann = 4 sommerfeld = 5  ``` The only valid input unit for boundaries of type `water level` is:  ``` 'm MSL' ```   Valid input units for boundaries of type `velocity` are:  ``` 'm/s', 'm/min', 'm/h', 'cm/h' ```  Valid input units for boundaries of type `discharge` are:  ``` 'm3/s', 'm3/h', 'l/s', 'l/h' ```  Boundaries of type `riemann` and `sommerfeld` are `'dimensionless'`  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_timeseries_create_with_http_info(simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str simulation_pk: (required)
-        :param TimeseriesBoundary data: (required)
-        :return: TimeseriesBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events2d_boundary_timeseries_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events2d_boundary_timeseries_create`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ValueError("Missing the required parameter `data` when calling `simulations_events2d_boundary_timeseries_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/2d_boundary/timeseries/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='TimeseriesBoundary',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events2d_boundary_timeseries_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_timeseries_delete  # noqa: E501
-
-        A simple ViewSet for viewing 2D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_timeseries_delete(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events2d_boundary_timeseries_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events2d_boundary_timeseries_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events2d_boundary_timeseries_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_timeseries_delete  # noqa: E501
-
-        A simple ViewSet for viewing 2D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_timeseries_delete_with_http_info(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events2d_boundary_timeseries_delete" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_events2d_boundary_timeseries_delete`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events2d_boundary_timeseries_delete`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/2d_boundary/timeseries/{id}/', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events2d_boundary_timeseries_list(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_timeseries_list  # noqa: E501
-
-        A simple ViewSet for viewing 2D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_timeseries_list(simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str simulation_pk: (required)
-        :param int limit: Number of results to return per page.
-        :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20012
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events2d_boundary_timeseries_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events2d_boundary_timeseries_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events2d_boundary_timeseries_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_timeseries_list  # noqa: E501
-
-        A simple ViewSet for viewing 2D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_timeseries_list_with_http_info(simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str simulation_pk: (required)
-        :param int limit: Number of results to return per page.
-        :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20012
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events2d_boundary_timeseries_list" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events2d_boundary_timeseries_list`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-        if 'limit' in local_var_params:
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params:
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/2d_boundary/timeseries/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20012',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events2d_boundary_timeseries_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_timeseries_partial_update  # noqa: E501
-
-        A simple ViewSet for viewing 2D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_timeseries_partial_update(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :param TimeseriesBoundary data: (required)
-        :return: TimeseriesBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events2d_boundary_timeseries_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events2d_boundary_timeseries_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events2d_boundary_timeseries_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_timeseries_partial_update  # noqa: E501
-
-        A simple ViewSet for viewing 2D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_timeseries_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :param TimeseriesBoundary data: (required)
-        :return: TimeseriesBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events2d_boundary_timeseries_partial_update" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_events2d_boundary_timeseries_partial_update`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events2d_boundary_timeseries_partial_update`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ValueError("Missing the required parameter `data` when calling `simulations_events2d_boundary_timeseries_partial_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/2d_boundary/timeseries/{id}/', 'PATCH',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='TimeseriesBoundary',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events2d_boundary_timeseries_read(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_timeseries_read  # noqa: E501
-
-        A simple ViewSet for viewing 2D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_timeseries_read(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :return: TimeseriesBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events2d_boundary_timeseries_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events2d_boundary_timeseries_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events2d_boundary_timeseries_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_timeseries_read  # noqa: E501
-
-        A simple ViewSet for viewing 2D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_timeseries_read_with_http_info(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :return: TimeseriesBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events2d_boundary_timeseries_read" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_events2d_boundary_timeseries_read`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events2d_boundary_timeseries_read`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/2d_boundary/timeseries/{id}/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='TimeseriesBoundary',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_events2d_boundary_timeseries_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_timeseries_update  # noqa: E501
-
-        A simple ViewSet for viewing 2D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_timeseries_update(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :param TimeseriesBoundary data: (required)
-        :return: TimeseriesBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.simulations_events2d_boundary_timeseries_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-        else:
-            (data) = self.simulations_events2d_boundary_timeseries_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-            return data
-
-    def simulations_events2d_boundary_timeseries_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_events2d_boundary_timeseries_update  # noqa: E501
-
-        A simple ViewSet for viewing 2D TimeseriesBoundary.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events2d_boundary_timeseries_update_with_http_info(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int id: A unique integer value identifying this boundary. (required)
-        :param str simulation_pk: (required)
-        :param TimeseriesBoundary data: (required)
-        :return: TimeseriesBoundary
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events2d_boundary_timeseries_update" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `simulations_events2d_boundary_timeseries_update`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ValueError("Missing the required parameter `simulation_pk` when calling `simulations_events2d_boundary_timeseries_update`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ValueError("Missing the required parameter `data` when calling `simulations_events2d_boundary_timeseries_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/2d_boundary/timeseries/{id}/', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='TimeseriesBoundary',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def simulations_events_breaches_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_breaches_create  # noqa: E501
 
@@ -4766,7 +2174,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20013
+        :return: InlineResponse20011
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4790,7 +2198,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20013
+        :return: InlineResponse20011
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4849,7 +2257,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20013',  # noqa: E501
+            response_type='InlineResponse20011',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5414,7 +2822,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20014
+        :return: InlineResponse20012
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5438,7 +2846,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20014
+        :return: InlineResponse20012
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5497,7 +2905,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20014',  # noqa: E501
+            response_type='InlineResponse20012',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6174,7 +3582,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20015
+        :return: InlineResponse20013
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6198,7 +3606,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20015
+        :return: InlineResponse20013
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6257,7 +3665,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20015',  # noqa: E501
+            response_type='InlineResponse20013',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6934,7 +4342,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20016
+        :return: InlineResponse20014
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6958,7 +4366,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20016
+        :return: InlineResponse20014
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7017,7 +4425,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20016',  # noqa: E501
+            response_type='InlineResponse20014',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7582,7 +4990,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20017
+        :return: InlineResponse20015
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7606,7 +5014,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20017
+        :return: InlineResponse20015
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7665,7 +5073,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20017',  # noqa: E501
+            response_type='InlineResponse20015',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8230,7 +5638,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20018
+        :return: InlineResponse20016
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8254,7 +5662,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20018
+        :return: InlineResponse20016
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8313,7 +5721,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20018',  # noqa: E501
+            response_type='InlineResponse20016',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8646,7 +6054,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20019
+        :return: InlineResponse20017
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8670,7 +6078,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20019
+        :return: InlineResponse20017
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8729,7 +6137,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20019',  # noqa: E501
+            response_type='InlineResponse20017',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8958,7 +6366,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20020
+        :return: InlineResponse20018
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8982,7 +6390,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20020
+        :return: InlineResponse20018
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9041,7 +6449,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20020',  # noqa: E501
+            response_type='InlineResponse20018',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9606,7 +7014,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20021
+        :return: InlineResponse20019
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9630,7 +7038,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20021
+        :return: InlineResponse20019
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9689,7 +7097,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20021',  # noqa: E501
+            response_type='InlineResponse20019',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10358,7 +7766,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20022
+        :return: InlineResponse20020
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10382,7 +7790,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20022
+        :return: InlineResponse20020
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10441,7 +7849,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20022',  # noqa: E501
+            response_type='InlineResponse20020',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -11006,7 +8414,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20023
+        :return: InlineResponse20021
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11030,7 +8438,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20023
+        :return: InlineResponse20021
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11089,7 +8497,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20023',  # noqa: E501
+            response_type='InlineResponse20021',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -11654,7 +9062,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20024
+        :return: InlineResponse20022
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11678,7 +9086,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20024
+        :return: InlineResponse20022
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11737,7 +9145,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20024',  # noqa: E501
+            response_type='InlineResponse20022',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12070,7 +9478,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20025
+        :return: InlineResponse20023
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12094,7 +9502,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20025
+        :return: InlineResponse20023
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12153,7 +9561,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20025',  # noqa: E501
+            response_type='InlineResponse20023',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12382,7 +9790,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20026
+        :return: InlineResponse20024
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12406,7 +9814,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20026
+        :return: InlineResponse20024
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12465,7 +9873,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20026',  # noqa: E501
+            response_type='InlineResponse20024',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -13030,7 +10438,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20027
+        :return: InlineResponse20025
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13054,7 +10462,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20027
+        :return: InlineResponse20025
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13113,7 +10521,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20027',  # noqa: E501
+            response_type='InlineResponse20025',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -13782,7 +11190,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20028
+        :return: InlineResponse20026
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13806,7 +11214,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20028
+        :return: InlineResponse20026
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13865,7 +11273,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20028',  # noqa: E501
+            response_type='InlineResponse20026',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -14542,7 +11950,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20029
+        :return: InlineResponse20027
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14566,7 +11974,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20029
+        :return: InlineResponse20027
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14625,7 +12033,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20029',  # noqa: E501
+            response_type='InlineResponse20027',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -15190,7 +12598,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20030
+        :return: InlineResponse20028
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -15214,7 +12622,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20030
+        :return: InlineResponse20028
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -15273,7 +12681,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20030',  # noqa: E501
+            response_type='InlineResponse20028',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -15838,7 +13246,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20031
+        :return: InlineResponse20029
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -15862,7 +13270,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20031
+        :return: InlineResponse20029
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -15921,7 +13329,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20031',  # noqa: E501
+            response_type='InlineResponse20029',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -16486,7 +13894,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20032
+        :return: InlineResponse20030
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16510,7 +13918,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20032
+        :return: InlineResponse20030
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16569,7 +13977,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20032',  # noqa: E501
+            response_type='InlineResponse20030',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -17134,7 +14542,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20033
+        :return: InlineResponse20031
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17158,7 +14566,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20033
+        :return: InlineResponse20031
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17217,7 +14625,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20033',  # noqa: E501
+            response_type='InlineResponse20031',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -18398,7 +15806,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20034
+        :return: InlineResponse20032
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -18422,7 +15830,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20034
+        :return: InlineResponse20032
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -18481,7 +15889,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20034',  # noqa: E501
+            response_type='InlineResponse20032',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -19061,7 +16469,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20035
+        :return: InlineResponse20033
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19084,7 +16492,7 @@ class SimulationsApi(object):
         :param str simulation_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20035
+        :return: InlineResponse20033
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19143,7 +16551,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20035',  # noqa: E501
+            response_type='InlineResponse20033',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

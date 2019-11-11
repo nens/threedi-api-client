@@ -5,6 +5,8 @@ History
 0.0.17.4 (unreleased)
 ---------------------
 
+- Added `simulation` and `simulation_id` to statuses serializer.
+
 - Use `mkdocs` for documentation.
 
 - All is working fine.

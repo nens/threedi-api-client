@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.17   3Di core release: 2.0.2  deployed on:  10:18AM (UTC) on October 30, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.19   3Di core release: 2.0.2  deployed on:  03:09PM (UTC) on November 07, 2019  # noqa: E501
 
     OpenAPI spec version: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -78,7 +78,7 @@ class StatusesApi(object):
         :param float id__lt:
         :param float id__lte:
         :param str id__isnull:
-        :param float id__in: Multiple values may be separated by commas.
+        :param float simulation_id__in: Multiple values may be separated by commas.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :return: list[SimulationStatus]
@@ -137,7 +137,7 @@ class StatusesApi(object):
         :param float id__lt:
         :param float id__lte:
         :param str id__isnull:
-        :param float id__in: Multiple values may be separated by commas.
+        :param float simulation_id__in: Multiple values may be separated by commas.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :return: list[SimulationStatus]
@@ -147,7 +147,7 @@ class StatusesApi(object):
 
         local_var_params = locals()
 
-        all_params = ['name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'created', 'created__gt', 'created__gte', 'created__lt', 'created__lte', 'created__date', 'created__date__gt', 'created__date__gte', 'created__date__lt', 'created__date__lte', 'created__year', 'created__year__gt', 'created__year__gte', 'created__year__lt', 'created__year__lte', 'created__month', 'created__month__lte', 'created__day', 'created__day__lt', 'created__week', 'created__week_day', 'id', 'id__range', 'id__gt', 'id__gte', 'id__lt', 'id__lte', 'id__isnull', 'id__in', 'limit', 'offset']  # noqa: E501
+        all_params = ['name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'created', 'created__gt', 'created__gte', 'created__lt', 'created__lte', 'created__date', 'created__date__gt', 'created__date__gte', 'created__date__lt', 'created__date__lte', 'created__year', 'created__year__gt', 'created__year__gte', 'created__year__lt', 'created__year__lte', 'created__month', 'created__month__lte', 'created__day', 'created__day__lt', 'created__week', 'created__week_day', 'id', 'id__range', 'id__gt', 'id__gte', 'id__lt', 'id__lte', 'id__isnull', 'simulation_id__in', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -237,8 +237,8 @@ class StatusesApi(object):
             query_params.append(('id__lte', local_var_params['id__lte']))  # noqa: E501
         if 'id__isnull' in local_var_params:
             query_params.append(('id__isnull', local_var_params['id__isnull']))  # noqa: E501
-        if 'id__in' in local_var_params:
-            query_params.append(('id__in', local_var_params['id__in']))  # noqa: E501
+        if 'simulation_id__in' in local_var_params:
+            query_params.append(('simulation_id__in', local_var_params['simulation_id__in']))  # noqa: E501
         if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params:

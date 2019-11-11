@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.17   3Di core release: 2.0.2  deployed on:  10:18AM (UTC) on October 30, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.19   3Di core release: 2.0.2  deployed on:  03:09PM (UTC) on November 07, 2019  # noqa: E501
 
     OpenAPI spec version: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -32,71 +32,38 @@ class BoundaryCondition(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'threedimodel': 'str',
         'url': 'str',
         'boundary_id': 'int',
+        'threedimodel': 'str',
         'type': 'str',
-        'dimension': 'str',
-        'display_name': 'str',
-        'line': 'str',
-        'point': 'str'
+        'dimension': 'str'
     }
 
     attribute_map = {
-        'threedimodel': 'threedimodel',
         'url': 'url',
         'boundary_id': 'boundary_id',
+        'threedimodel': 'threedimodel',
         'type': 'type',
-        'dimension': 'dimension',
-        'display_name': 'display_name',
-        'line': 'line',
-        'point': 'point'
+        'dimension': 'dimension'
     }
 
-    def __init__(self, threedimodel=None, url=None, boundary_id=None, type=None, dimension=None, display_name=None, line=None, point=None):  # noqa: E501
+    def __init__(self, url=None, boundary_id=None, threedimodel=None, type=None, dimension=None):  # noqa: E501
         """BoundaryCondition - a model defined in OpenAPI"""  # noqa: E501
 
-        self._threedimodel = None
         self._url = None
         self._boundary_id = None
+        self._threedimodel = None
         self._type = None
         self._dimension = None
-        self._display_name = None
-        self._line = None
-        self._point = None
         self.discriminator = None
 
-        if threedimodel is not None:
-            self.threedimodel = threedimodel
         if url is not None:
             self.url = url
         self.boundary_id = boundary_id
+        if threedimodel is not None:
+            self.threedimodel = threedimodel
         self.type = type
         self.dimension = dimension
-        self.display_name = display_name
-        self.line = line
-        self.point = point
-
-    @property
-    def threedimodel(self):
-        """Gets the threedimodel of this BoundaryCondition.  # noqa: E501
-
-
-        :return: The threedimodel of this BoundaryCondition.  # noqa: E501
-        :rtype: str
-        """
-        return self._threedimodel
-
-    @threedimodel.setter
-    def threedimodel(self, threedimodel):
-        """Sets the threedimodel of this BoundaryCondition.
-
-
-        :param threedimodel: The threedimodel of this BoundaryCondition.  # noqa: E501
-        :type: str
-        """
-
-        self._threedimodel = threedimodel
 
     @property
     def url(self):
@@ -123,7 +90,6 @@ class BoundaryCondition(object):
     def boundary_id(self):
         """Gets the boundary_id of this BoundaryCondition.  # noqa: E501
 
-        id in spatialite  # noqa: E501
 
         :return: The boundary_id of this BoundaryCondition.  # noqa: E501
         :rtype: int
@@ -134,7 +100,6 @@ class BoundaryCondition(object):
     def boundary_id(self, boundary_id):
         """Sets the boundary_id of this BoundaryCondition.
 
-        id in spatialite  # noqa: E501
 
         :param boundary_id: The boundary_id of this BoundaryCondition.  # noqa: E501
         :type: int
@@ -147,6 +112,27 @@ class BoundaryCondition(object):
             raise ValueError("Invalid value for `boundary_id`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._boundary_id = boundary_id
+
+    @property
+    def threedimodel(self):
+        """Gets the threedimodel of this BoundaryCondition.  # noqa: E501
+
+
+        :return: The threedimodel of this BoundaryCondition.  # noqa: E501
+        :rtype: str
+        """
+        return self._threedimodel
+
+    @threedimodel.setter
+    def threedimodel(self, threedimodel):
+        """Sets the threedimodel of this BoundaryCondition.
+
+
+        :param threedimodel: The threedimodel of this BoundaryCondition.  # noqa: E501
+        :type: str
+        """
+
+        self._threedimodel = threedimodel
 
     @property
     def type(self):
@@ -205,73 +191,6 @@ class BoundaryCondition(object):
             )
 
         self._dimension = dimension
-
-    @property
-    def display_name(self):
-        """Gets the display_name of this BoundaryCondition.  # noqa: E501
-
-
-        :return: The display_name of this BoundaryCondition.  # noqa: E501
-        :rtype: str
-        """
-        return self._display_name
-
-    @display_name.setter
-    def display_name(self, display_name):
-        """Sets the display_name of this BoundaryCondition.
-
-
-        :param display_name: The display_name of this BoundaryCondition.  # noqa: E501
-        :type: str
-        """
-        if display_name is not None and len(display_name) > 60:
-            raise ValueError("Invalid value for `display_name`, length must be less than or equal to `60`")  # noqa: E501
-        if display_name is not None and len(display_name) < 1:
-            raise ValueError("Invalid value for `display_name`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._display_name = display_name
-
-    @property
-    def line(self):
-        """Gets the line of this BoundaryCondition.  # noqa: E501
-
-
-        :return: The line of this BoundaryCondition.  # noqa: E501
-        :rtype: str
-        """
-        return self._line
-
-    @line.setter
-    def line(self, line):
-        """Sets the line of this BoundaryCondition.
-
-
-        :param line: The line of this BoundaryCondition.  # noqa: E501
-        :type: str
-        """
-
-        self._line = line
-
-    @property
-    def point(self):
-        """Gets the point of this BoundaryCondition.  # noqa: E501
-
-
-        :return: The point of this BoundaryCondition.  # noqa: E501
-        :rtype: str
-        """
-        return self._point
-
-    @point.setter
-    def point(self, point):
-        """Sets the point of this BoundaryCondition.
-
-
-        :param point: The point of this BoundaryCondition.  # noqa: E501
-        :type: str
-        """
-
-        self._point = point
 
     def to_dict(self):
         """Returns the model properties as a dict"""

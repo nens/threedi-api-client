@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.17   3Di core release: 2.0.2  deployed on:  10:18AM (UTC) on October 30, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.19   3Di core release: 2.0.2  deployed on:  03:09PM (UTC) on November 07, 2019  # noqa: E501
 
     OpenAPI spec version: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -36,7 +36,7 @@ class ThreedimodelsApi(object):
     def threedimodels_boundaryconditions_create(self, threedimodel_pk, data, **kwargs):  # noqa: E501
         """threedimodels_boundaryconditions_create  # noqa: E501
 
-        A simple ViewSet for viewing boundary conditions (1d, 2d, all threedimodels.  # noqa: E501
+        A simple ViewSet for viewing boundary conditions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_boundaryconditions_create(threedimodel_pk, data, async_req=True)
@@ -59,7 +59,7 @@ class ThreedimodelsApi(object):
     def threedimodels_boundaryconditions_create_with_http_info(self, threedimodel_pk, data, **kwargs):  # noqa: E501
         """threedimodels_boundaryconditions_create  # noqa: E501
 
-        A simple ViewSet for viewing boundary conditions (1d, 2d, all threedimodels.  # noqa: E501
+        A simple ViewSet for viewing boundary conditions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_boundaryconditions_create_with_http_info(threedimodel_pk, data, async_req=True)
@@ -144,7 +144,7 @@ class ThreedimodelsApi(object):
     def threedimodels_boundaryconditions_delete(self, id, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_boundaryconditions_delete  # noqa: E501
 
-        A simple ViewSet for viewing boundary conditions (1d, 2d, all threedimodels.  # noqa: E501
+        A simple ViewSet for viewing boundary conditions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_boundaryconditions_delete(id, threedimodel_pk, async_req=True)
@@ -167,7 +167,7 @@ class ThreedimodelsApi(object):
     def threedimodels_boundaryconditions_delete_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_boundaryconditions_delete  # noqa: E501
 
-        A simple ViewSet for viewing boundary conditions (1d, 2d, all threedimodels.  # noqa: E501
+        A simple ViewSet for viewing boundary conditions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_boundaryconditions_delete_with_http_info(id, threedimodel_pk, async_req=True)
@@ -244,7 +244,7 @@ class ThreedimodelsApi(object):
     def threedimodels_boundaryconditions_list(self, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_boundaryconditions_list  # noqa: E501
 
-        A simple ViewSet for viewing boundary conditions (1d, 2d, all threedimodels.  # noqa: E501
+        A simple ViewSet for viewing boundary conditions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_boundaryconditions_list(threedimodel_pk, async_req=True)
@@ -254,7 +254,7 @@ class ThreedimodelsApi(object):
         :param str threedimodel_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20037
+        :return: InlineResponse20035
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -268,7 +268,7 @@ class ThreedimodelsApi(object):
     def threedimodels_boundaryconditions_list_with_http_info(self, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_boundaryconditions_list  # noqa: E501
 
-        A simple ViewSet for viewing boundary conditions (1d, 2d, all threedimodels.  # noqa: E501
+        A simple ViewSet for viewing boundary conditions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_boundaryconditions_list_with_http_info(threedimodel_pk, async_req=True)
@@ -278,7 +278,7 @@ class ThreedimodelsApi(object):
         :param str threedimodel_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20037
+        :return: InlineResponse20035
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -337,7 +337,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20037',  # noqa: E501
+            response_type='InlineResponse20035',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -348,7 +348,7 @@ class ThreedimodelsApi(object):
     def threedimodels_boundaryconditions_partial_update(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
         """threedimodels_boundaryconditions_partial_update  # noqa: E501
 
-        A simple ViewSet for viewing boundary conditions (1d, 2d, all threedimodels.  # noqa: E501
+        A simple ViewSet for viewing boundary conditions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_boundaryconditions_partial_update(id, threedimodel_pk, data, async_req=True)
@@ -372,7 +372,7 @@ class ThreedimodelsApi(object):
     def threedimodels_boundaryconditions_partial_update_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
         """threedimodels_boundaryconditions_partial_update  # noqa: E501
 
-        A simple ViewSet for viewing boundary conditions (1d, 2d, all threedimodels.  # noqa: E501
+        A simple ViewSet for viewing boundary conditions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_boundaryconditions_partial_update_with_http_info(id, threedimodel_pk, data, async_req=True)
@@ -464,7 +464,7 @@ class ThreedimodelsApi(object):
     def threedimodels_boundaryconditions_read(self, id, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_boundaryconditions_read  # noqa: E501
 
-        A simple ViewSet for viewing boundary conditions (1d, 2d, all threedimodels.  # noqa: E501
+        A simple ViewSet for viewing boundary conditions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_boundaryconditions_read(id, threedimodel_pk, async_req=True)
@@ -487,7 +487,7 @@ class ThreedimodelsApi(object):
     def threedimodels_boundaryconditions_read_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_boundaryconditions_read  # noqa: E501
 
-        A simple ViewSet for viewing boundary conditions (1d, 2d, all threedimodels.  # noqa: E501
+        A simple ViewSet for viewing boundary conditions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_boundaryconditions_read_with_http_info(id, threedimodel_pk, async_req=True)
@@ -568,7 +568,7 @@ class ThreedimodelsApi(object):
     def threedimodels_boundaryconditions_update(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
         """threedimodels_boundaryconditions_update  # noqa: E501
 
-        A simple ViewSet for viewing boundary conditions (1d, 2d, all threedimodels.  # noqa: E501
+        A simple ViewSet for viewing boundary conditions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_boundaryconditions_update(id, threedimodel_pk, data, async_req=True)
@@ -592,7 +592,7 @@ class ThreedimodelsApi(object):
     def threedimodels_boundaryconditions_update_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
         """threedimodels_boundaryconditions_update  # noqa: E501
 
-        A simple ViewSet for viewing boundary conditions (1d, 2d, all threedimodels.  # noqa: E501
+        A simple ViewSet for viewing boundary conditions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_boundaryconditions_update_with_http_info(id, threedimodel_pk, data, async_req=True)
@@ -674,112 +674,6 @@ class ThreedimodelsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='BoundaryCondition',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def threedimodels_bulk_boundaryconditions_create(self, threedimodel_pk, data, **kwargs):  # noqa: E501
-        """threedimodels_bulk_boundaryconditions_create  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.threedimodels_bulk_boundaryconditions_create(threedimodel_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str threedimodel_pk: (required)
-        :param list[BoundaryCondition] data: (required)
-        :return: list[BoundaryCondition]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.threedimodels_bulk_boundaryconditions_create_with_http_info(threedimodel_pk, data, **kwargs)  # noqa: E501
-        else:
-            (data) = self.threedimodels_bulk_boundaryconditions_create_with_http_info(threedimodel_pk, data, **kwargs)  # noqa: E501
-            return data
-
-    def threedimodels_bulk_boundaryconditions_create_with_http_info(self, threedimodel_pk, data, **kwargs):  # noqa: E501
-        """threedimodels_bulk_boundaryconditions_create  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.threedimodels_bulk_boundaryconditions_create_with_http_info(threedimodel_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str threedimodel_pk: (required)
-        :param list[BoundaryCondition] data: (required)
-        :return: list[BoundaryCondition]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['threedimodel_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method threedimodels_bulk_boundaryconditions_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'threedimodel_pk' is set
-        if ('threedimodel_pk' not in local_var_params or
-                local_var_params['threedimodel_pk'] is None):
-            raise ValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_bulk_boundaryconditions_create`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ValueError("Missing the required parameter `data` when calling `threedimodels_bulk_boundaryconditions_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/bulk_boundaryconditions/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[BoundaryCondition]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1664,7 +1558,7 @@ class ThreedimodelsApi(object):
         :param str inp_success:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20036
+        :return: InlineResponse20034
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1740,7 +1634,7 @@ class ThreedimodelsApi(object):
         :param str inp_success:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20036
+        :return: InlineResponse20034
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1899,7 +1793,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20036',  # noqa: E501
+            response_type='InlineResponse20034',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2250,7 +2144,7 @@ class ThreedimodelsApi(object):
         :param str threedimodel__id__isnull:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20038
+        :return: InlineResponse20036
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2288,7 +2182,7 @@ class ThreedimodelsApi(object):
         :param str threedimodel__id__isnull:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20038
+        :return: InlineResponse20036
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2375,7 +2269,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20038',  # noqa: E501
+            response_type='InlineResponse20036',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3140,7 +3034,7 @@ class ThreedimodelsApi(object):
         :param str threedimodel_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20039
+        :return: InlineResponse20037
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3164,7 +3058,7 @@ class ThreedimodelsApi(object):
         :param str threedimodel_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20039
+        :return: InlineResponse20037
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3223,7 +3117,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20039',  # noqa: E501
+            response_type='InlineResponse20037',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3792,7 +3686,7 @@ class ThreedimodelsApi(object):
         :param str threedimodel_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20040
+        :return: InlineResponse20038
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3816,7 +3710,7 @@ class ThreedimodelsApi(object):
         :param str threedimodel_pk: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
-        :return: InlineResponse20040
+        :return: InlineResponse20038
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3875,7 +3769,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20040',  # noqa: E501
+            response_type='InlineResponse20038',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

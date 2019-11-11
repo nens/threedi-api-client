@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.17   3Di core release: 2.0.2  deployed on:  10:18AM (UTC) on October 30, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.19   3Di core release: 2.0.2  deployed on:  03:09PM (UTC) on November 07, 2019  # noqa: E501
 
     OpenAPI spec version: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -35,6 +35,7 @@ class SimulationStatus(object):
         'url': 'str',
         'name': 'str',
         'simulation': 'str',
+        'simulation_id': 'str',
         'created': 'datetime',
         'time': 'int',
         'crash_report': 'str',
@@ -45,18 +46,20 @@ class SimulationStatus(object):
         'url': 'url',
         'name': 'name',
         'simulation': 'simulation',
+        'simulation_id': 'simulation_id',
         'created': 'created',
         'time': 'time',
         'crash_report': 'crash_report',
         'id': 'id'
     }
 
-    def __init__(self, url=None, name=None, simulation=None, created=None, time=None, crash_report=None, id=None):  # noqa: E501
+    def __init__(self, url=None, name=None, simulation=None, simulation_id=None, created=None, time=None, crash_report=None, id=None):  # noqa: E501
         """SimulationStatus - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
         self._name = None
         self._simulation = None
+        self._simulation_id = None
         self._created = None
         self._time = None
         self._crash_report = None
@@ -68,6 +71,8 @@ class SimulationStatus(object):
         self.name = name
         if simulation is not None:
             self.simulation = simulation
+        if simulation_id is not None:
+            self.simulation_id = simulation_id
         if created is not None:
             self.created = created
         self.time = time
@@ -145,6 +150,27 @@ class SimulationStatus(object):
         """
 
         self._simulation = simulation
+
+    @property
+    def simulation_id(self):
+        """Gets the simulation_id of this SimulationStatus.  # noqa: E501
+
+
+        :return: The simulation_id of this SimulationStatus.  # noqa: E501
+        :rtype: str
+        """
+        return self._simulation_id
+
+    @simulation_id.setter
+    def simulation_id(self, simulation_id):
+        """Sets the simulation_id of this SimulationStatus.
+
+
+        :param simulation_id: The simulation_id of this SimulationStatus.  # noqa: E501
+        :type: str
+        """
+
+        self._simulation_id = simulation_id
 
     @property
     def created(self):
