@@ -1,22 +1,23 @@
 ### ThreediApiClient
 
 
-There are two main entry points to make api calls to the 3Di API V3.0. 
+The main entry point to make api calls to the 3Di API V3.0. 
 
-The first one is the `ThreediApiClient` class that will handle the login 
-process for you and then directly can be used on any API endpoint. 
+The `ThreediApiClient` class is the main entry point to make
+api call to the 3DI API V3.0. It handles the login 
+process for you and can be directly used as client for all API endpoints. 
 
-The `ThreediApiClient` needs three settings to make requests to the 3Di API:
+The following three settings are necessary to make requests to the 3Di API:
 
   - the host name
   - the username to login with and 
   - the user's password
 
+These settings can either be stored in a ".env" file
+that can be passed to the `ThreediApiClient` on initialisation, supplied
+via environment variables or passed as a config dictionairy.
 
-These settings should be stored in environment variables, or in a ".env" file 
-that can be passes to the `ThreediApiClient` on initialisation.
-
-A sample `.env` file could look like this
+1) A sample `.env` file could look like this
 
 ```
 API_HOST=https://api.3di.live/v3.0
@@ -24,27 +25,34 @@ API_USERNAME=black.sheep
 API_PASSWORD=myverysecretmehhh
 ```
 
-### ApiAccess
-
-The second entry point is an object that handles the authentication is therefore 
-is called `ApiAccess`. Actually the `ThreediApiClient` uses this object itself 
-for the authentication process. Using it directly can be useful if you want to 
-retrieve your auth token for example.
-
-
 ```python
-from threedi_api_client import ApiAccess
-envf = "<path>/.env"
-a = ApiAccess(envf)
-a.access_token
-"eyJ0eXAiOiJKV1QiLCJhbGciOi..."
+from threedi_api_client import ThreediApiClient
+
+env_file = "<path>/.env"
+api_client = ThreediApiClient(env_file=env_file)
 ```
 
-If you have an instance of the `ThreediApiClient` already you can also use 
-the `api_access()` shortcut 
+2) The enviroment variables are the same as in the .env file:
+
+```
+export API_HOST=https://api.3di.live/v3.0
+export API_USERNAME=black.sheep
+export API_PASSWORD=myverysecretmehhh
+```
+
+3) The config keyword argument can be used like:
+
 
 ```python
-ThreediApiClient.api_access().access_token()
+from threedi_api_client import ThreediApiClient
+
+config = {
+    "API_HOST": "https://api.3di.live/v3.0"
+    "API_USERNAME": "black.sheep"
+    "API_PASSWORD": "myverysecretmehhh"
+}
+
+api_client = ThreediApiClient(config=config)
 ```
 
 
