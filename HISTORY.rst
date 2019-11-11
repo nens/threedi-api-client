@@ -2,8 +2,8 @@
 History
 =======
 
-0.0.17.4 (unreleased)
----------------------
+0.0.20 (2019-11-11)
+-------------------
 
 - Added `simulation` and `simulation_id` to statuses serializer.
 
