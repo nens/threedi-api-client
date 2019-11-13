@@ -2,8 +2,8 @@
 History
 =======
 
-0.0.21 (unreleased)
--------------------
+0.0.20.1 (2019-11-13)
+---------------------
 
 - PUT/PATCH for status resources.
 
