@@ -5,7 +5,7 @@ History
 0.0.21 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- PUT/PATCH for status resources.
 
 
 0.0.20 (2019-11-11)
