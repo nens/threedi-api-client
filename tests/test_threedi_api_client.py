@@ -7,7 +7,7 @@ def test_init_threedi_api_client_from_env_file(tmpdir):
         f.write("API_HOST=localhost:8000/v3.0")
         f.write("API_USERNAME=username")
         f.write("API_PASSWORD=password")
-    ThreediApiClient(env_file=env_file)
+    ThreediApiClient(env_file=str(env_file))
 
 
 def test_init_threedi_api_client_from_env_vars(monkeypatch):
