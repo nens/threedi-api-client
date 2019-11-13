@@ -47,8 +47,8 @@ export API_PASSWORD=myverysecretmehhh
 from threedi_api_client import ThreediApiClient
 
 config = {
-    "API_HOST": "https://api.3di.live/v3.0"
-    "API_USERNAME": "black.sheep"
+    "API_HOST": "https://api.3di.live/v3.0",
+    "API_USERNAME": "black.sheep",
     "API_PASSWORD": "myverysecretmehhh"
 }
 
