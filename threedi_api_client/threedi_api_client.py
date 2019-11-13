@@ -63,16 +63,12 @@ class APIConfiguration(Configuration):
 
 class ThreediApiClient:
     def __new__(cls, env_file=None, config=None):
-
-        # First try env_file
         if env_file is not None:
             user_config = Config(env_file)
         elif config is not None:
-            # Try the config param
             user_config = config
-
-        # Use environ when env_file and config are not set
-        user_config = EnvironConfig()
+        else:
+            user_config = EnvironConfig()
 
         configuration = APIConfiguration()
         configuration.host = user_config.get("API_HOST")
