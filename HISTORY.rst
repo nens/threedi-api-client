@@ -5,7 +5,8 @@ History
 0.0.21 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fixed ThreediApiClient constructor not working with config keywords and
+  .env file.
 
 
 0.0.20 (2019-11-11)
