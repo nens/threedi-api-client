@@ -11,3 +11,5 @@ pytest==5.2.1
 pytest-runner==2.11.1
 mkdocs==1.0.4
 mkdocs-material
+
+pyjwt>=1.7.1
