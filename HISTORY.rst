@@ -8,6 +8,8 @@ History
 - Fixed ThreediApiClient constructor not working with config keywords and
   .env file.
 
+- Added initial waterlevels
+
 
 0.0.20 (2019-11-11)
 -------------------
