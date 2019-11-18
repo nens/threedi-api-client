@@ -2,7 +2,7 @@
 History
 =======
 
-0.0.21 (unreleased)
+0.0.21 (2019-11-18)
 -------------------
 
 - Fixed ThreediApiClient constructor not working with config keywords and
