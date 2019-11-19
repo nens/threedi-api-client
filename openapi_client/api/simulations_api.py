@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.19   3Di core release: 2.0.2  deployed on:  03:09PM (UTC) on November 07, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.12   3Di core release: 2.0.2  deployed on:  12:03PM (UTC) on October 17, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -521,7 +521,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2009
+        :return: InlineResponse20010
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -550,7 +550,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2009, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20010, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -609,7 +609,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2009',  # noqa: E501
+            response_type='InlineResponse20010',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1369,7 +1369,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20010
+        :return: InlineResponse20011
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1398,7 +1398,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20010, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20011, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1457,7 +1457,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20010',  # noqa: E501
+            response_type='InlineResponse20011',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2425,7 +2425,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20011
+        :return: InlineResponse20012
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2454,7 +2454,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20011, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20012, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2513,7 +2513,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20011',  # noqa: E501
+            response_type='InlineResponse20012',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3145,7 +3145,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20012
+        :return: InlineResponse20013
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3174,7 +3174,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20012, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20013, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3233,7 +3233,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20012',  # noqa: E501
+            response_type='InlineResponse20013',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3989,7 +3989,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20013
+        :return: InlineResponse20014
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4018,7 +4018,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20013, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20014, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4077,7 +4077,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20013',  # noqa: E501
+            response_type='InlineResponse20014',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -4833,7 +4833,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20014
+        :return: InlineResponse20015
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4862,7 +4862,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20014, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20015, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4921,7 +4921,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20014',  # noqa: E501
+            response_type='InlineResponse20015',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5553,7 +5553,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20015
+        :return: InlineResponse20016
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5582,7 +5582,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20015, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20016, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5641,7 +5641,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20015',  # noqa: E501
+            response_type='InlineResponse20016',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6273,7 +6273,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20016
+        :return: InlineResponse20017
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6302,7 +6302,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20016, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20017, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6361,7 +6361,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20016',  # noqa: E501
+            response_type='InlineResponse20017',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6737,7 +6737,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20017
+        :return: InlineResponse20018
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6766,7 +6766,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20017, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20018, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6825,7 +6825,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20017',  # noqa: E501
+            response_type='InlineResponse20018',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7085,7 +7085,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20018
+        :return: InlineResponse20019
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7114,7 +7114,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20018, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20019, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7173,7 +7173,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20018',  # noqa: E501
+            response_type='InlineResponse20019',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7805,7 +7805,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20019
+        :return: InlineResponse20020
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7834,7 +7834,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20019, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20020, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7893,7 +7893,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20019',  # noqa: E501
+            response_type='InlineResponse20020',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8641,7 +8641,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20020
+        :return: InlineResponse20021
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8670,7 +8670,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20020, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20021, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8729,7 +8729,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20020',  # noqa: E501
+            response_type='InlineResponse20021',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9361,7 +9361,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20021
+        :return: InlineResponse20022
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9390,7 +9390,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20021, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20022, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9449,7 +9449,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20021',  # noqa: E501
+            response_type='InlineResponse20022',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10081,7 +10081,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20022
+        :return: InlineResponse20023
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10110,7 +10110,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20022, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20023, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10169,7 +10169,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20022',  # noqa: E501
+            response_type='InlineResponse20023',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10545,7 +10545,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20023
+        :return: InlineResponse20024
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10574,7 +10574,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20023, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20024, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10633,7 +10633,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20023',  # noqa: E501
+            response_type='InlineResponse20024',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10893,7 +10893,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20024
+        :return: InlineResponse20025
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10922,7 +10922,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20024, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20025, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10981,7 +10981,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20024',  # noqa: E501
+            response_type='InlineResponse20025',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -11613,7 +11613,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20025
+        :return: InlineResponse20026
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11642,7 +11642,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20025, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20026, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11701,7 +11701,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20025',  # noqa: E501
+            response_type='InlineResponse20026',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12449,7 +12449,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20026
+        :return: InlineResponse20027
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12478,7 +12478,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20026, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20027, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12537,7 +12537,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20026',  # noqa: E501
+            response_type='InlineResponse20027',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -13041,13 +13041,13 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial1d_water_level_constant_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_constant_create  # noqa: E501
+    def simulations_initial1d_water_level_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial1d_water_level_create  # noqa: E501
 
         Start the simulation with a global 1D water level  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_constant_create(simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial1d_water_level_create(simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -13065,15 +13065,15 @@ class SimulationsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial1d_water_level_constant_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+        return self.simulations_initial1d_water_level_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
 
-    def simulations_initial1d_water_level_constant_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_constant_create  # noqa: E501
+    def simulations_initial1d_water_level_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial1d_water_level_create  # noqa: E501
 
         Start the simulation with a global 1D water level  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_constant_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial1d_water_level_create_with_http_info(simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -13105,18 +13105,18 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial1d_water_level_constant_create" % key
+                    " to method simulations_initial1d_water_level_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_constant_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_create`")  # noqa: E501
         # verify the required parameter 'data' is set
         if ('data' not in local_var_params or
                 local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial1d_water_level_constant_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial1d_water_level_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -13146,7 +13146,7 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/1d_water_level/constant/', 'POST',
+            '/simulations/{simulation_pk}/initial/1d_water_level/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -13161,13 +13161,13 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial1d_water_level_constant_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_constant_delete  # noqa: E501
+    def simulations_initial1d_water_level_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial1d_water_level_delete  # noqa: E501
 
         Initial 1D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_constant_delete(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial1d_water_level_delete(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -13185,15 +13185,15 @@ class SimulationsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial1d_water_level_constant_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.simulations_initial1d_water_level_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def simulations_initial1d_water_level_constant_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_constant_delete  # noqa: E501
+    def simulations_initial1d_water_level_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial1d_water_level_delete  # noqa: E501
 
         Initial 1D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_constant_delete_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial1d_water_level_delete_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -13225,18 +13225,18 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial1d_water_level_constant_delete" % key
+                    " to method simulations_initial1d_water_level_delete" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in local_var_params or
                 local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_constant_delete`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_constant_delete`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_delete`")  # noqa: E501
 
         collection_formats = {}
 
@@ -13258,7 +13258,7 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/1d_water_level/constant/{id}/', 'DELETE',
+            '/simulations/{simulation_pk}/initial/1d_water_level/{id}/', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -13273,733 +13273,13 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial1d_water_level_constant_list(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_constant_list  # noqa: E501
+    def simulations_initial1d_water_level_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial1d_water_level_list  # noqa: E501
 
         Initial 1D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_constant_list(simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str simulation_pk: (required)
-        :param int limit: Number of results to return per page.
-        :param int offset: The initial index from which to return the results.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: InlineResponse20027
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_initial1d_water_level_constant_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
-
-    def simulations_initial1d_water_level_constant_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_constant_list  # noqa: E501
-
-        Initial 1D water levels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_constant_list_with_http_info(simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str simulation_pk: (required)
-        :param int limit: Number of results to return per page.
-        :param int offset: The initial index from which to return the results.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(InlineResponse20027, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial1d_water_level_constant_list" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_constant_list`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-        if 'limit' in local_var_params:
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params:
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/1d_water_level/constant/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20027',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_initial1d_water_level_constant_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_constant_partial_update  # noqa: E501
-
-        Initial 1D water levels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_constant_partial_update(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this one d water level. (required)
-        :param str simulation_pk: (required)
-        :param OneDWaterLevel data: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: OneDWaterLevel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_initial1d_water_level_constant_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-
-    def simulations_initial1d_water_level_constant_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_constant_partial_update  # noqa: E501
-
-        Initial 1D water levels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_constant_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this one d water level. (required)
-        :param str simulation_pk: (required)
-        :param OneDWaterLevel data: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(OneDWaterLevel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial1d_water_level_constant_partial_update" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_constant_partial_update`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_constant_partial_update`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial1d_water_level_constant_partial_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/1d_water_level/constant/{id}/', 'PATCH',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='OneDWaterLevel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_initial1d_water_level_constant_read(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_constant_read  # noqa: E501
-
-        Initial 1D water levels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_constant_read(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this one d water level. (required)
-        :param str simulation_pk: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: OneDWaterLevel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_initial1d_water_level_constant_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-
-    def simulations_initial1d_water_level_constant_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_constant_read  # noqa: E501
-
-        Initial 1D water levels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_constant_read_with_http_info(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this one d water level. (required)
-        :param str simulation_pk: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(OneDWaterLevel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial1d_water_level_constant_read" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_constant_read`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_constant_read`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/1d_water_level/constant/{id}/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='OneDWaterLevel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_initial1d_water_level_constant_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_constant_update  # noqa: E501
-
-        Initial 1D water levels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_constant_update(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this one d water level. (required)
-        :param str simulation_pk: (required)
-        :param OneDWaterLevel data: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: OneDWaterLevel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_initial1d_water_level_constant_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-
-    def simulations_initial1d_water_level_constant_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_constant_update  # noqa: E501
-
-        Initial 1D water levels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_constant_update_with_http_info(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this one d water level. (required)
-        :param str simulation_pk: (required)
-        :param OneDWaterLevel data: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(OneDWaterLevel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial1d_water_level_constant_update" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_constant_update`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_constant_update`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial1d_water_level_constant_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/1d_water_level/constant/{id}/', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='OneDWaterLevel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_initial1d_water_level_predefined_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_predefined_create  # noqa: E501
-
-        Start the simulation with predefined 1D water levels. That is, use the initial water levels that have been specified in the ``v2_connection_nodes`` schema.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_predefined_create(simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str simulation_pk: (required)
-        :param OneDWaterLevelPredefined data: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: OneDWaterLevelPredefined
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_initial1d_water_level_predefined_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
-
-    def simulations_initial1d_water_level_predefined_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_predefined_create  # noqa: E501
-
-        Start the simulation with predefined 1D water levels. That is, use the initial water levels that have been specified in the ``v2_connection_nodes`` schema.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_predefined_create_with_http_info(simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str simulation_pk: (required)
-        :param OneDWaterLevelPredefined data: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(OneDWaterLevelPredefined, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial1d_water_level_predefined_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_predefined_create`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial1d_water_level_predefined_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/1d_water_level/predefined/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='OneDWaterLevelPredefined',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_initial1d_water_level_predefined_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_predefined_delete  # noqa: E501
-
-        A simple ViewSet for initial 2D water levels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_predefined_delete(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this one d water level predefined. (required)
-        :param str simulation_pk: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_initial1d_water_level_predefined_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-
-    def simulations_initial1d_water_level_predefined_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_predefined_delete  # noqa: E501
-
-        A simple ViewSet for initial 2D water levels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_predefined_delete_with_http_info(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this one d water level predefined. (required)
-        :param str simulation_pk: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial1d_water_level_predefined_delete" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_predefined_delete`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_predefined_delete`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/1d_water_level/predefined/{id}/', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_initial1d_water_level_predefined_list(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_predefined_list  # noqa: E501
-
-        A simple ViewSet for initial 2D water levels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_predefined_list(simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial1d_water_level_list(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -14018,15 +13298,15 @@ class SimulationsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial1d_water_level_predefined_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+        return self.simulations_initial1d_water_level_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
 
-    def simulations_initial1d_water_level_predefined_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_predefined_list  # noqa: E501
+    def simulations_initial1d_water_level_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial1d_water_level_list  # noqa: E501
 
-        A simple ViewSet for initial 2D water levels  # noqa: E501
+        Initial 1D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_predefined_list_with_http_info(simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial1d_water_level_list_with_http_info(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -14059,14 +13339,14 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial1d_water_level_predefined_list" % key
+                    " to method simulations_initial1d_water_level_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_predefined_list`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -14094,7 +13374,7 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/1d_water_level/predefined/', 'GET',
+            '/simulations/{simulation_pk}/initial/1d_water_level/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -14109,19 +13389,19 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial1d_water_level_predefined_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_predefined_partial_update  # noqa: E501
+    def simulations_initial1d_water_level_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial1d_water_level_partial_update  # noqa: E501
 
-        A simple ViewSet for initial 2D water levels  # noqa: E501
+        Initial 1D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_predefined_partial_update(id, simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial1d_water_level_partial_update(id, simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this one d water level predefined. (required)
+        :param int id: A unique integer value identifying this one d water level. (required)
         :param str simulation_pk: (required)
-        :param OneDWaterLevelPredefined data: (required)
+        :param OneDWaterLevel data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -14129,26 +13409,26 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: OneDWaterLevelPredefined
+        :return: OneDWaterLevel
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial1d_water_level_predefined_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
+        return self.simulations_initial1d_water_level_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
 
-    def simulations_initial1d_water_level_predefined_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_predefined_partial_update  # noqa: E501
+    def simulations_initial1d_water_level_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial1d_water_level_partial_update  # noqa: E501
 
-        A simple ViewSet for initial 2D water levels  # noqa: E501
+        Initial 1D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_predefined_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial1d_water_level_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this one d water level predefined. (required)
+        :param int id: A unique integer value identifying this one d water level. (required)
         :param str simulation_pk: (required)
-        :param OneDWaterLevelPredefined data: (required)
+        :param OneDWaterLevel data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -14158,7 +13438,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(OneDWaterLevelPredefined, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(OneDWaterLevel, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14175,22 +13455,22 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial1d_water_level_predefined_partial_update" % key
+                    " to method simulations_initial1d_water_level_partial_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in local_var_params or
                 local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_predefined_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_predefined_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
         if ('data' not in local_var_params or
                 local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial1d_water_level_predefined_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial1d_water_level_partial_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -14222,14 +13502,14 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/1d_water_level/predefined/{id}/', 'PATCH',
+            '/simulations/{simulation_pk}/initial/1d_water_level/{id}/', 'PATCH',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OneDWaterLevelPredefined',  # noqa: E501
+            response_type='OneDWaterLevel',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -14237,17 +13517,17 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial1d_water_level_predefined_read(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_predefined_read  # noqa: E501
+    def simulations_initial1d_water_level_read(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial1d_water_level_read  # noqa: E501
 
-        A simple ViewSet for initial 2D water levels  # noqa: E501
+        Initial 1D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_predefined_read(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial1d_water_level_read(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this one d water level predefined. (required)
+        :param int id: A unique integer value identifying this one d water level. (required)
         :param str simulation_pk: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -14256,24 +13536,24 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: OneDWaterLevelPredefined
+        :return: OneDWaterLevel
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial1d_water_level_predefined_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.simulations_initial1d_water_level_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def simulations_initial1d_water_level_predefined_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_predefined_read  # noqa: E501
+    def simulations_initial1d_water_level_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial1d_water_level_read  # noqa: E501
 
-        A simple ViewSet for initial 2D water levels  # noqa: E501
+        Initial 1D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_predefined_read_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial1d_water_level_read_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this one d water level predefined. (required)
+        :param int id: A unique integer value identifying this one d water level. (required)
         :param str simulation_pk: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -14284,7 +13564,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(OneDWaterLevelPredefined, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(OneDWaterLevel, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14301,18 +13581,18 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial1d_water_level_predefined_read" % key
+                    " to method simulations_initial1d_water_level_read" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in local_var_params or
                 local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_predefined_read`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_predefined_read`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_read`")  # noqa: E501
 
         collection_formats = {}
 
@@ -14338,14 +13618,14 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/1d_water_level/predefined/{id}/', 'GET',
+            '/simulations/{simulation_pk}/initial/1d_water_level/{id}/', 'GET',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OneDWaterLevelPredefined',  # noqa: E501
+            response_type='OneDWaterLevel',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -14353,19 +13633,19 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial1d_water_level_predefined_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_predefined_update  # noqa: E501
+    def simulations_initial1d_water_level_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial1d_water_level_update  # noqa: E501
 
-        A simple ViewSet for initial 2D water levels  # noqa: E501
+        Initial 1D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_predefined_update(id, simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial1d_water_level_update(id, simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this one d water level predefined. (required)
+        :param int id: A unique integer value identifying this one d water level. (required)
         :param str simulation_pk: (required)
-        :param OneDWaterLevelPredefined data: (required)
+        :param OneDWaterLevel data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -14373,26 +13653,26 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: OneDWaterLevelPredefined
+        :return: OneDWaterLevel
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial1d_water_level_predefined_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
+        return self.simulations_initial1d_water_level_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
 
-    def simulations_initial1d_water_level_predefined_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial1d_water_level_predefined_update  # noqa: E501
+    def simulations_initial1d_water_level_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial1d_water_level_update  # noqa: E501
 
-        A simple ViewSet for initial 2D water levels  # noqa: E501
+        Initial 1D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial1d_water_level_predefined_update_with_http_info(id, simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial1d_water_level_update_with_http_info(id, simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this one d water level predefined. (required)
+        :param int id: A unique integer value identifying this one d water level. (required)
         :param str simulation_pk: (required)
-        :param OneDWaterLevelPredefined data: (required)
+        :param OneDWaterLevel data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -14402,7 +13682,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(OneDWaterLevelPredefined, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(OneDWaterLevel, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14419,22 +13699,22 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial1d_water_level_predefined_update" % key
+                    " to method simulations_initial1d_water_level_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in local_var_params or
                 local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_predefined_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_predefined_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_update`")  # noqa: E501
         # verify the required parameter 'data' is set
         if ('data' not in local_var_params or
                 local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial1d_water_level_predefined_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial1d_water_level_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -14466,14 +13746,14 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/1d_water_level/predefined/{id}/', 'PUT',
+            '/simulations/{simulation_pk}/initial/1d_water_level/{id}/', 'PUT',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OneDWaterLevelPredefined',  # noqa: E501
+            response_type='OneDWaterLevel',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -14481,13 +13761,13 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial2d_water_level_constant_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_constant_create  # noqa: E501
+    def simulations_initial2d_water_level_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial2d_water_level_create  # noqa: E501
 
         Start the simulation with a global 2D water level. Applies the given value to the predefined nodes subset \"2D_OPEN_WATER\" as described in the [threedigrid documentation] [ref]  [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_constant_create(simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial2d_water_level_create(simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -14505,15 +13785,15 @@ class SimulationsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial2d_water_level_constant_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+        return self.simulations_initial2d_water_level_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
 
-    def simulations_initial2d_water_level_constant_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_constant_create  # noqa: E501
+    def simulations_initial2d_water_level_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial2d_water_level_create  # noqa: E501
 
         Start the simulation with a global 2D water level. Applies the given value to the predefined nodes subset \"2D_OPEN_WATER\" as described in the [threedigrid documentation] [ref]  [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_constant_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial2d_water_level_create_with_http_info(simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -14545,18 +13825,18 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial2d_water_level_constant_create" % key
+                    " to method simulations_initial2d_water_level_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_constant_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_create`")  # noqa: E501
         # verify the required parameter 'data' is set
         if ('data' not in local_var_params or
                 local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial2d_water_level_constant_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial2d_water_level_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -14586,7 +13866,7 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/2d_water_level/constant/', 'POST',
+            '/simulations/{simulation_pk}/initial/2d_water_level/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -14601,13 +13881,13 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial2d_water_level_constant_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_constant_delete  # noqa: E501
+    def simulations_initial2d_water_level_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial2d_water_level_delete  # noqa: E501
 
         Initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_constant_delete(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial2d_water_level_delete(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -14625,15 +13905,15 @@ class SimulationsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial2d_water_level_constant_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.simulations_initial2d_water_level_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def simulations_initial2d_water_level_constant_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_constant_delete  # noqa: E501
+    def simulations_initial2d_water_level_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial2d_water_level_delete  # noqa: E501
 
         Initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_constant_delete_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial2d_water_level_delete_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -14665,18 +13945,18 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial2d_water_level_constant_delete" % key
+                    " to method simulations_initial2d_water_level_delete" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in local_var_params or
                 local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_constant_delete`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_constant_delete`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_delete`")  # noqa: E501
 
         collection_formats = {}
 
@@ -14698,7 +13978,7 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/2d_water_level/constant/{id}/', 'DELETE',
+            '/simulations/{simulation_pk}/initial/2d_water_level/{id}/', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -14713,13 +13993,13 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial2d_water_level_constant_list(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_constant_list  # noqa: E501
+    def simulations_initial2d_water_level_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial2d_water_level_list  # noqa: E501
 
         Initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_constant_list(simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial2d_water_level_list(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -14738,15 +14018,15 @@ class SimulationsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial2d_water_level_constant_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+        return self.simulations_initial2d_water_level_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
 
-    def simulations_initial2d_water_level_constant_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_constant_list  # noqa: E501
+    def simulations_initial2d_water_level_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial2d_water_level_list  # noqa: E501
 
         Initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_constant_list_with_http_info(simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial2d_water_level_list_with_http_info(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -14779,14 +14059,14 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial2d_water_level_constant_list" % key
+                    " to method simulations_initial2d_water_level_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_constant_list`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -14814,7 +14094,7 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/2d_water_level/constant/', 'GET',
+            '/simulations/{simulation_pk}/initial/2d_water_level/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -14829,13 +14109,13 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial2d_water_level_constant_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_constant_partial_update  # noqa: E501
+    def simulations_initial2d_water_level_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial2d_water_level_partial_update  # noqa: E501
 
         Initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_constant_partial_update(id, simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial2d_water_level_partial_update(id, simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -14854,15 +14134,15 @@ class SimulationsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial2d_water_level_constant_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
+        return self.simulations_initial2d_water_level_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
 
-    def simulations_initial2d_water_level_constant_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_constant_partial_update  # noqa: E501
+    def simulations_initial2d_water_level_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial2d_water_level_partial_update  # noqa: E501
 
         Initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_constant_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial2d_water_level_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -14895,22 +14175,22 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial2d_water_level_constant_partial_update" % key
+                    " to method simulations_initial2d_water_level_partial_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in local_var_params or
                 local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_constant_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_constant_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
         if ('data' not in local_var_params or
                 local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial2d_water_level_constant_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial2d_water_level_partial_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -14942,7 +14222,7 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/2d_water_level/constant/{id}/', 'PATCH',
+            '/simulations/{simulation_pk}/initial/2d_water_level/{id}/', 'PATCH',
             path_params,
             query_params,
             header_params,
@@ -14957,13 +14237,13 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial2d_water_level_constant_read(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_constant_read  # noqa: E501
+    def simulations_initial2d_water_level_read(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial2d_water_level_read  # noqa: E501
 
         Initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_constant_read(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial2d_water_level_read(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -14981,15 +14261,15 @@ class SimulationsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial2d_water_level_constant_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.simulations_initial2d_water_level_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def simulations_initial2d_water_level_constant_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_constant_read  # noqa: E501
+    def simulations_initial2d_water_level_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial2d_water_level_read  # noqa: E501
 
         Initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_constant_read_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial2d_water_level_read_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -15021,18 +14301,18 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial2d_water_level_constant_read" % key
+                    " to method simulations_initial2d_water_level_read" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in local_var_params or
                 local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_constant_read`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_constant_read`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_read`")  # noqa: E501
 
         collection_formats = {}
 
@@ -15058,7 +14338,7 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/2d_water_level/constant/{id}/', 'GET',
+            '/simulations/{simulation_pk}/initial/2d_water_level/{id}/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -15073,13 +14353,13 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial2d_water_level_constant_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_constant_update  # noqa: E501
+    def simulations_initial2d_water_level_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial2d_water_level_update  # noqa: E501
 
         Initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_constant_update(id, simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial2d_water_level_update(id, simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -15098,15 +14378,15 @@ class SimulationsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial2d_water_level_constant_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
+        return self.simulations_initial2d_water_level_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
 
-    def simulations_initial2d_water_level_constant_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_constant_update  # noqa: E501
+    def simulations_initial2d_water_level_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial2d_water_level_update  # noqa: E501
 
         Initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_constant_update_with_http_info(id, simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial2d_water_level_update_with_http_info(id, simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -15139,22 +14419,22 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial2d_water_level_constant_update" % key
+                    " to method simulations_initial2d_water_level_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in local_var_params or
                 local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_constant_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_constant_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_update`")  # noqa: E501
         # verify the required parameter 'data' is set
         if ('data' not in local_var_params or
                 local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial2d_water_level_constant_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial2d_water_level_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -15186,7 +14466,7 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/2d_water_level/constant/{id}/', 'PUT',
+            '/simulations/{simulation_pk}/initial/2d_water_level/{id}/', 'PUT',
             path_params,
             query_params,
             header_params,
@@ -15201,18 +14481,18 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial2d_water_level_raster_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_raster_create  # noqa: E501
+    def simulations_initial_groundwater_level_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_groundwater_level_create  # noqa: E501
 
-        Start the simulation with 2D water levels derived from the raster by using the aggregation method. Applies the resulting levels to the predefined nodes subset \"2D_OPEN_WATER\" as described in the [threedigrid documentation] [ref]  [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets  # noqa: E501
+        Start the simulation with a global 2D groundwater level. Applies the given value to the predefined nodes subset \"2D_GROUNDWATER\" as described in the [threedigrid documentation] [ref]  [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_raster_create(simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial_groundwater_level_create(simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str simulation_pk: (required)
-        :param TwoDWaterRaster data: (required)
+        :param GroundWaterLevel data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -15220,25 +14500,25 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: TwoDWaterRaster
+        :return: GroundWaterLevel
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial2d_water_level_raster_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+        return self.simulations_initial_groundwater_level_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
 
-    def simulations_initial2d_water_level_raster_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_raster_create  # noqa: E501
+    def simulations_initial_groundwater_level_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_groundwater_level_create  # noqa: E501
 
-        Start the simulation with 2D water levels derived from the raster by using the aggregation method. Applies the resulting levels to the predefined nodes subset \"2D_OPEN_WATER\" as described in the [threedigrid documentation] [ref]  [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets  # noqa: E501
+        Start the simulation with a global 2D groundwater level. Applies the given value to the predefined nodes subset \"2D_GROUNDWATER\" as described in the [threedigrid documentation] [ref]  [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_raster_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial_groundwater_level_create_with_http_info(simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str simulation_pk: (required)
-        :param TwoDWaterRaster data: (required)
+        :param GroundWaterLevel data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -15248,7 +14528,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(TwoDWaterRaster, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(GroundWaterLevel, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -15265,18 +14545,18 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial2d_water_level_raster_create" % key
+                    " to method simulations_initial_groundwater_level_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_raster_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_create`")  # noqa: E501
         # verify the required parameter 'data' is set
         if ('data' not in local_var_params or
                 local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial2d_water_level_raster_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_groundwater_level_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -15306,14 +14586,14 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/2d_water_level/raster/', 'POST',
+            '/simulations/{simulation_pk}/initial/groundwater_level/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='TwoDWaterRaster',  # noqa: E501
+            response_type='GroundWaterLevel',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -15321,17 +14601,17 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial2d_water_level_raster_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_raster_delete  # noqa: E501
+    def simulations_initial_groundwater_level_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_groundwater_level_delete  # noqa: E501
 
-        Initial 2D water raster  # noqa: E501
+        Initial groundwater levels.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_raster_delete(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial_groundwater_level_delete(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this two d water raster. (required)
+        :param int id: A unique integer value identifying this ground water level. (required)
         :param str simulation_pk: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -15345,19 +14625,19 @@ class SimulationsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial2d_water_level_raster_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.simulations_initial_groundwater_level_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def simulations_initial2d_water_level_raster_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_raster_delete  # noqa: E501
+    def simulations_initial_groundwater_level_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_groundwater_level_delete  # noqa: E501
 
-        Initial 2D water raster  # noqa: E501
+        Initial groundwater levels.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_raster_delete_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial_groundwater_level_delete_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this two d water raster. (required)
+        :param int id: A unique integer value identifying this ground water level. (required)
         :param str simulation_pk: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -15385,18 +14665,18 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial2d_water_level_raster_delete" % key
+                    " to method simulations_initial_groundwater_level_delete" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in local_var_params or
                 local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_raster_delete`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_raster_delete`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_delete`")  # noqa: E501
 
         collection_formats = {}
 
@@ -15418,7 +14698,7 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/2d_water_level/raster/{id}/', 'DELETE',
+            '/simulations/{simulation_pk}/initial/groundwater_level/{id}/', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -15433,13 +14713,13 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial2d_water_level_raster_list(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_raster_list  # noqa: E501
+    def simulations_initial_groundwater_level_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_groundwater_level_list  # noqa: E501
 
-        Initial 2D water raster  # noqa: E501
+        Initial groundwater levels.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_raster_list(simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial_groundwater_level_list(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -15458,15 +14738,15 @@ class SimulationsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial2d_water_level_raster_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+        return self.simulations_initial_groundwater_level_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
 
-    def simulations_initial2d_water_level_raster_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_raster_list  # noqa: E501
+    def simulations_initial_groundwater_level_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_groundwater_level_list  # noqa: E501
 
-        Initial 2D water raster  # noqa: E501
+        Initial groundwater levels.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_raster_list_with_http_info(simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial_groundwater_level_list_with_http_info(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -15499,14 +14779,14 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial2d_water_level_raster_list" % key
+                    " to method simulations_initial_groundwater_level_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_raster_list`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -15534,7 +14814,7 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/2d_water_level/raster/', 'GET',
+            '/simulations/{simulation_pk}/initial/groundwater_level/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -15549,388 +14829,17 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial2d_water_level_raster_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_raster_partial_update  # noqa: E501
+    def simulations_initial_groundwater_level_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_groundwater_level_partial_update  # noqa: E501
 
-        Initial 2D water raster  # noqa: E501
+        Initial groundwater levels.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_raster_partial_update(id, simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial_groundwater_level_partial_update(id, simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this two d water raster. (required)
-        :param str simulation_pk: (required)
-        :param TwoDWaterRaster data: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: TwoDWaterRaster
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_initial2d_water_level_raster_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-
-    def simulations_initial2d_water_level_raster_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_raster_partial_update  # noqa: E501
-
-        Initial 2D water raster  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_raster_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this two d water raster. (required)
-        :param str simulation_pk: (required)
-        :param TwoDWaterRaster data: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(TwoDWaterRaster, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial2d_water_level_raster_partial_update" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_raster_partial_update`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_raster_partial_update`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial2d_water_level_raster_partial_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/2d_water_level/raster/{id}/', 'PATCH',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='TwoDWaterRaster',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_initial2d_water_level_raster_read(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_raster_read  # noqa: E501
-
-        Initial 2D water raster  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_raster_read(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this two d water raster. (required)
-        :param str simulation_pk: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: TwoDWaterRaster
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_initial2d_water_level_raster_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-
-    def simulations_initial2d_water_level_raster_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_raster_read  # noqa: E501
-
-        Initial 2D water raster  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_raster_read_with_http_info(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this two d water raster. (required)
-        :param str simulation_pk: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(TwoDWaterRaster, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial2d_water_level_raster_read" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_raster_read`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_raster_read`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/2d_water_level/raster/{id}/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='TwoDWaterRaster',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_initial2d_water_level_raster_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_raster_update  # noqa: E501
-
-        Initial 2D water raster  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_raster_update(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this two d water raster. (required)
-        :param str simulation_pk: (required)
-        :param TwoDWaterRaster data: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: TwoDWaterRaster
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_initial2d_water_level_raster_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-
-    def simulations_initial2d_water_level_raster_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial2d_water_level_raster_update  # noqa: E501
-
-        Initial 2D water raster  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial2d_water_level_raster_update_with_http_info(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this two d water raster. (required)
-        :param str simulation_pk: (required)
-        :param TwoDWaterRaster data: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(TwoDWaterRaster, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial2d_water_level_raster_update" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_raster_update`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_raster_update`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial2d_water_level_raster_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/2d_water_level/raster/{id}/', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='TwoDWaterRaster',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_initial_groundwater_level_constant_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_constant_create  # noqa: E501
-
-        Start the simulation with a global 2D groundwater level. Applies the given value to the predefined nodes subset \"2D_GROUNDWATER\" as described in the [threedigrid documentation] [ref]  [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_constant_create(simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this ground water level. (required)
         :param str simulation_pk: (required)
         :param GroundWaterLevel data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -15945,18 +14854,19 @@ class SimulationsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial_groundwater_level_constant_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+        return self.simulations_initial_groundwater_level_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
 
-    def simulations_initial_groundwater_level_constant_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_constant_create  # noqa: E501
+    def simulations_initial_groundwater_level_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_groundwater_level_partial_update  # noqa: E501
 
-        Start the simulation with a global 2D groundwater level. Applies the given value to the predefined nodes subset \"2D_GROUNDWATER\" as described in the [threedigrid documentation] [ref]  [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets  # noqa: E501
+        Initial groundwater levels.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_constant_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial_groundwater_level_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this ground water level. (required)
         :param str simulation_pk: (required)
         :param GroundWaterLevel data: (required)
         :param _return_http_data_only: response data without head status code
@@ -15975,6 +14885,376 @@ class SimulationsApi(object):
 
         local_var_params = locals()
 
+        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_initial_groundwater_level_partial_update" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_partial_update`")  # noqa: E501
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_partial_update`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_groundwater_level_partial_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/initial/groundwater_level/{id}/', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GroundWaterLevel',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_initial_groundwater_level_read(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_groundwater_level_read  # noqa: E501
+
+        Initial groundwater levels.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_groundwater_level_read(id, simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this ground water level. (required)
+        :param str simulation_pk: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: GroundWaterLevel
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_initial_groundwater_level_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_initial_groundwater_level_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_groundwater_level_read  # noqa: E501
+
+        Initial groundwater levels.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_groundwater_level_read_with_http_info(id, simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this ground water level. (required)
+        :param str simulation_pk: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(GroundWaterLevel, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'simulation_pk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_initial_groundwater_level_read" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_read`")  # noqa: E501
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_read`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/initial/groundwater_level/{id}/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GroundWaterLevel',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_initial_groundwater_level_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_groundwater_level_update  # noqa: E501
+
+        Initial groundwater levels.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_groundwater_level_update(id, simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this ground water level. (required)
+        :param str simulation_pk: (required)
+        :param GroundWaterLevel data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: GroundWaterLevel
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_initial_groundwater_level_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_initial_groundwater_level_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_groundwater_level_update  # noqa: E501
+
+        Initial groundwater levels.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_groundwater_level_update_with_http_info(id, simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this ground water level. (required)
+        :param str simulation_pk: (required)
+        :param GroundWaterLevel data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(GroundWaterLevel, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_initial_groundwater_level_update" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_update`")  # noqa: E501
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_update`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_groundwater_level_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/initial/groundwater_level/{id}/', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GroundWaterLevel',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_initial_predefined1d_water_level_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_predefined1d_water_level_create  # noqa: E501
+
+        Start the simulation with predefined 1D water levels. That is, use the initial water levels that have been specified in the ``v2_connection_nodes`` schema.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_predefined1d_water_level_create(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param OneDWaterLevelPredefined data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: OneDWaterLevelPredefined
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_initial_predefined1d_water_level_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_initial_predefined1d_water_level_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_predefined1d_water_level_create  # noqa: E501
+
+        Start the simulation with predefined 1D water levels. That is, use the initial water levels that have been specified in the ``v2_connection_nodes`` schema.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_predefined1d_water_level_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param OneDWaterLevelPredefined data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(OneDWaterLevelPredefined, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
         all_params = ['simulation_pk', 'data']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
@@ -15985,18 +15265,18 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial_groundwater_level_constant_create" % key
+                    " to method simulations_initial_predefined1d_water_level_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_constant_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_predefined1d_water_level_create`")  # noqa: E501
         # verify the required parameter 'data' is set
         if ('data' not in local_var_params or
                 local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_groundwater_level_constant_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_predefined1d_water_level_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -16026,14 +15306,14 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/groundwater_level/constant/', 'POST',
+            '/simulations/{simulation_pk}/initial/predefined_1d_water_level/', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GroundWaterLevel',  # noqa: E501
+            response_type='OneDWaterLevelPredefined',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -16041,17 +15321,17 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial_groundwater_level_constant_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_constant_delete  # noqa: E501
+    def simulations_initial_predefined1d_water_level_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_predefined1d_water_level_delete  # noqa: E501
 
-        Initial groundwater levels.  # noqa: E501
+        A simple ViewSet for initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_constant_delete(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial_predefined1d_water_level_delete(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this ground water level. (required)
+        :param int id: A unique integer value identifying this one d water level predefined. (required)
         :param str simulation_pk: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -16065,19 +15345,19 @@ class SimulationsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial_groundwater_level_constant_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.simulations_initial_predefined1d_water_level_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def simulations_initial_groundwater_level_constant_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_constant_delete  # noqa: E501
+    def simulations_initial_predefined1d_water_level_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_predefined1d_water_level_delete  # noqa: E501
 
-        Initial groundwater levels.  # noqa: E501
+        A simple ViewSet for initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_constant_delete_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial_predefined1d_water_level_delete_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this ground water level. (required)
+        :param int id: A unique integer value identifying this one d water level predefined. (required)
         :param str simulation_pk: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -16105,18 +15385,18 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial_groundwater_level_constant_delete" % key
+                    " to method simulations_initial_predefined1d_water_level_delete" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in local_var_params or
                 local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_constant_delete`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_predefined1d_water_level_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_constant_delete`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_predefined1d_water_level_delete`")  # noqa: E501
 
         collection_formats = {}
 
@@ -16138,7 +15418,7 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/groundwater_level/constant/{id}/', 'DELETE',
+            '/simulations/{simulation_pk}/initial/predefined_1d_water_level/{id}/', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -16153,13 +15433,13 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial_groundwater_level_constant_list(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_constant_list  # noqa: E501
+    def simulations_initial_predefined1d_water_level_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_predefined1d_water_level_list  # noqa: E501
 
-        Initial groundwater levels.  # noqa: E501
+        A simple ViewSet for initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_constant_list(simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial_predefined1d_water_level_list(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -16178,15 +15458,15 @@ class SimulationsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial_groundwater_level_constant_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+        return self.simulations_initial_predefined1d_water_level_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
 
-    def simulations_initial_groundwater_level_constant_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_constant_list  # noqa: E501
+    def simulations_initial_predefined1d_water_level_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_predefined1d_water_level_list  # noqa: E501
 
-        Initial groundwater levels.  # noqa: E501
+        A simple ViewSet for initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_constant_list_with_http_info(simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial_predefined1d_water_level_list_with_http_info(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -16219,14 +15499,14 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial_groundwater_level_constant_list" % key
+                    " to method simulations_initial_predefined1d_water_level_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_constant_list`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_predefined1d_water_level_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -16254,7 +15534,7 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/groundwater_level/constant/', 'GET',
+            '/simulations/{simulation_pk}/initial/predefined_1d_water_level/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -16269,19 +15549,19 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial_groundwater_level_constant_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_constant_partial_update  # noqa: E501
+    def simulations_initial_predefined1d_water_level_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_predefined1d_water_level_partial_update  # noqa: E501
 
-        Initial groundwater levels.  # noqa: E501
+        A simple ViewSet for initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_constant_partial_update(id, simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial_predefined1d_water_level_partial_update(id, simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this ground water level. (required)
+        :param int id: A unique integer value identifying this one d water level predefined. (required)
         :param str simulation_pk: (required)
-        :param GroundWaterLevel data: (required)
+        :param OneDWaterLevelPredefined data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -16289,26 +15569,26 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: GroundWaterLevel
+        :return: OneDWaterLevelPredefined
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial_groundwater_level_constant_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
+        return self.simulations_initial_predefined1d_water_level_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
 
-    def simulations_initial_groundwater_level_constant_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_constant_partial_update  # noqa: E501
+    def simulations_initial_predefined1d_water_level_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_predefined1d_water_level_partial_update  # noqa: E501
 
-        Initial groundwater levels.  # noqa: E501
+        A simple ViewSet for initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_constant_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial_predefined1d_water_level_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this ground water level. (required)
+        :param int id: A unique integer value identifying this one d water level predefined. (required)
         :param str simulation_pk: (required)
-        :param GroundWaterLevel data: (required)
+        :param OneDWaterLevelPredefined data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -16318,7 +15598,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(GroundWaterLevel, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(OneDWaterLevelPredefined, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16335,22 +15615,22 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial_groundwater_level_constant_partial_update" % key
+                    " to method simulations_initial_predefined1d_water_level_partial_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in local_var_params or
                 local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_constant_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_predefined1d_water_level_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_constant_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_predefined1d_water_level_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
         if ('data' not in local_var_params or
                 local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_groundwater_level_constant_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_predefined1d_water_level_partial_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -16382,14 +15662,14 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/groundwater_level/constant/{id}/', 'PATCH',
+            '/simulations/{simulation_pk}/initial/predefined_1d_water_level/{id}/', 'PATCH',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GroundWaterLevel',  # noqa: E501
+            response_type='OneDWaterLevelPredefined',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -16397,17 +15677,17 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial_groundwater_level_constant_read(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_constant_read  # noqa: E501
+    def simulations_initial_predefined1d_water_level_read(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_predefined1d_water_level_read  # noqa: E501
 
-        Initial groundwater levels.  # noqa: E501
+        A simple ViewSet for initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_constant_read(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial_predefined1d_water_level_read(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this ground water level. (required)
+        :param int id: A unique integer value identifying this one d water level predefined. (required)
         :param str simulation_pk: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -16416,24 +15696,24 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: GroundWaterLevel
+        :return: OneDWaterLevelPredefined
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial_groundwater_level_constant_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.simulations_initial_predefined1d_water_level_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def simulations_initial_groundwater_level_constant_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_constant_read  # noqa: E501
+    def simulations_initial_predefined1d_water_level_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_predefined1d_water_level_read  # noqa: E501
 
-        Initial groundwater levels.  # noqa: E501
+        A simple ViewSet for initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_constant_read_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.simulations_initial_predefined1d_water_level_read_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this ground water level. (required)
+        :param int id: A unique integer value identifying this one d water level predefined. (required)
         :param str simulation_pk: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -16444,7 +15724,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(GroundWaterLevel, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(OneDWaterLevelPredefined, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16461,18 +15741,18 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial_groundwater_level_constant_read" % key
+                    " to method simulations_initial_predefined1d_water_level_read" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in local_var_params or
                 local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_constant_read`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_predefined1d_water_level_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_constant_read`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_predefined1d_water_level_read`")  # noqa: E501
 
         collection_formats = {}
 
@@ -16498,14 +15778,14 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/groundwater_level/constant/{id}/', 'GET',
+            '/simulations/{simulation_pk}/initial/predefined_1d_water_level/{id}/', 'GET',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GroundWaterLevel',  # noqa: E501
+            response_type='OneDWaterLevelPredefined',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -16513,19 +15793,19 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_initial_groundwater_level_constant_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_constant_update  # noqa: E501
+    def simulations_initial_predefined1d_water_level_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_predefined1d_water_level_update  # noqa: E501
 
-        Initial groundwater levels.  # noqa: E501
+        A simple ViewSet for initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_constant_update(id, simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial_predefined1d_water_level_update(id, simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this ground water level. (required)
+        :param int id: A unique integer value identifying this one d water level predefined. (required)
         :param str simulation_pk: (required)
-        :param GroundWaterLevel data: (required)
+        :param OneDWaterLevelPredefined data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -16533,26 +15813,26 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: GroundWaterLevel
+        :return: OneDWaterLevelPredefined
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.simulations_initial_groundwater_level_constant_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
+        return self.simulations_initial_predefined1d_water_level_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
 
-    def simulations_initial_groundwater_level_constant_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_constant_update  # noqa: E501
+    def simulations_initial_predefined1d_water_level_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_predefined1d_water_level_update  # noqa: E501
 
-        Initial groundwater levels.  # noqa: E501
+        A simple ViewSet for initial 2D water levels  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_constant_update_with_http_info(id, simulation_pk, data, async_req=True)
+        >>> thread = api.simulations_initial_predefined1d_water_level_update_with_http_info(id, simulation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this ground water level. (required)
+        :param int id: A unique integer value identifying this one d water level predefined. (required)
         :param str simulation_pk: (required)
-        :param GroundWaterLevel data: (required)
+        :param OneDWaterLevelPredefined data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -16562,7 +15842,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(GroundWaterLevel, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(OneDWaterLevelPredefined, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16579,22 +15859,22 @@ class SimulationsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial_groundwater_level_constant_update" % key
+                    " to method simulations_initial_predefined1d_water_level_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in local_var_params or
                 local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_constant_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_predefined1d_water_level_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if ('simulation_pk' not in local_var_params or
                 local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_constant_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_predefined1d_water_level_update`")  # noqa: E501
         # verify the required parameter 'data' is set
         if ('data' not in local_var_params or
                 local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_groundwater_level_constant_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_predefined1d_water_level_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -16626,734 +15906,14 @@ class SimulationsApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/groundwater_level/constant/{id}/', 'PUT',
+            '/simulations/{simulation_pk}/initial/predefined_1d_water_level/{id}/', 'PUT',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GroundWaterLevel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_initial_groundwater_level_raster_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_raster_create  # noqa: E501
-
-        Start the simulation with groundwaterlevels derived from the raster by using the aggregation method. Applies the given value to the predefined nodes subset \"2D_GROUNDWATER\" as described in the [threedigrid documentation] [ref]  [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_raster_create(simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str simulation_pk: (required)
-        :param GroundWaterRaster data: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: GroundWaterRaster
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_initial_groundwater_level_raster_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
-
-    def simulations_initial_groundwater_level_raster_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_raster_create  # noqa: E501
-
-        Start the simulation with groundwaterlevels derived from the raster by using the aggregation method. Applies the given value to the predefined nodes subset \"2D_GROUNDWATER\" as described in the [threedigrid documentation] [ref]  [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_raster_create_with_http_info(simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str simulation_pk: (required)
-        :param GroundWaterRaster data: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(GroundWaterRaster, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial_groundwater_level_raster_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_raster_create`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_groundwater_level_raster_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/groundwater_level/raster/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='GroundWaterRaster',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_initial_groundwater_level_raster_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_raster_delete  # noqa: E501
-
-        Initial 2D water raster  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_raster_delete(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this ground water raster. (required)
-        :param str simulation_pk: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_initial_groundwater_level_raster_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-
-    def simulations_initial_groundwater_level_raster_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_raster_delete  # noqa: E501
-
-        Initial 2D water raster  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_raster_delete_with_http_info(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this ground water raster. (required)
-        :param str simulation_pk: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial_groundwater_level_raster_delete" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_raster_delete`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_raster_delete`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/groundwater_level/raster/{id}/', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_initial_groundwater_level_raster_list(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_raster_list  # noqa: E501
-
-        Initial 2D water raster  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_raster_list(simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str simulation_pk: (required)
-        :param int limit: Number of results to return per page.
-        :param int offset: The initial index from which to return the results.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: InlineResponse20032
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_initial_groundwater_level_raster_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
-
-    def simulations_initial_groundwater_level_raster_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_raster_list  # noqa: E501
-
-        Initial 2D water raster  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_raster_list_with_http_info(simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str simulation_pk: (required)
-        :param int limit: Number of results to return per page.
-        :param int offset: The initial index from which to return the results.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(InlineResponse20032, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial_groundwater_level_raster_list" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_raster_list`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-        if 'limit' in local_var_params:
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params:
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/groundwater_level/raster/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20032',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_initial_groundwater_level_raster_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_raster_partial_update  # noqa: E501
-
-        Initial 2D water raster  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_raster_partial_update(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this ground water raster. (required)
-        :param str simulation_pk: (required)
-        :param GroundWaterRaster data: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: GroundWaterRaster
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_initial_groundwater_level_raster_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-
-    def simulations_initial_groundwater_level_raster_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_raster_partial_update  # noqa: E501
-
-        Initial 2D water raster  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_raster_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this ground water raster. (required)
-        :param str simulation_pk: (required)
-        :param GroundWaterRaster data: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(GroundWaterRaster, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial_groundwater_level_raster_partial_update" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_raster_partial_update`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_raster_partial_update`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_groundwater_level_raster_partial_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/groundwater_level/raster/{id}/', 'PATCH',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='GroundWaterRaster',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_initial_groundwater_level_raster_read(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_raster_read  # noqa: E501
-
-        Initial 2D water raster  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_raster_read(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this ground water raster. (required)
-        :param str simulation_pk: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: GroundWaterRaster
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_initial_groundwater_level_raster_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-
-    def simulations_initial_groundwater_level_raster_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_raster_read  # noqa: E501
-
-        Initial 2D water raster  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_raster_read_with_http_info(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this ground water raster. (required)
-        :param str simulation_pk: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(GroundWaterRaster, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial_groundwater_level_raster_read" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_raster_read`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_raster_read`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/groundwater_level/raster/{id}/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='GroundWaterRaster',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def simulations_initial_groundwater_level_raster_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_raster_update  # noqa: E501
-
-        Initial 2D water raster  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_raster_update(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this ground water raster. (required)
-        :param str simulation_pk: (required)
-        :param GroundWaterRaster data: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: GroundWaterRaster
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_initial_groundwater_level_raster_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
-
-    def simulations_initial_groundwater_level_raster_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
-        """simulations_initial_groundwater_level_raster_update  # noqa: E501
-
-        Initial 2D water raster  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_initial_groundwater_level_raster_update_with_http_info(id, simulation_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this ground water raster. (required)
-        :param str simulation_pk: (required)
-        :param GroundWaterRaster data: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(GroundWaterRaster, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_initial_groundwater_level_raster_update" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_raster_update`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if ('simulation_pk' not in local_var_params or
-                local_var_params['simulation_pk'] is None):
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_raster_update`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_groundwater_level_raster_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/initial/groundwater_level/raster/{id}/', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='GroundWaterRaster',  # noqa: E501
+            response_type='OneDWaterLevelPredefined',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -17613,7 +16173,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20033
+        :return: InlineResponse20032
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17642,7 +16202,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20033, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20032, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17701,7 +16261,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20033',  # noqa: E501
+            response_type='InlineResponse20032',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -18082,9 +16642,9 @@ class SimulationsApi(object):
             collection_formats=collection_formats)
 
     def simulations_list(self, **kwargs):  # noqa: E501
-        """List all simulations resources.  # noqa: E501
+        """simulations_list  # noqa: E501
 
-        Several filter are available, for instance the creation date of the resource. Some usage examples:  To get all simulation resources that have been created on Guido van Rossum's birthday  ```     ?created__date=1956-01-31 ```  To get all simulation resources that have been created during the 1988 UEFA European Football Championship ```    ?created__date__gte=1988-06-10&created__date__lte=1988-06-25 ```  To get all simulation resources that have been created in the month of the Carnation Revolution ```     ?created__year=1974&created__month=04 ```  # noqa: E501
+        List all simulations resources.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_list(async_req=True)
@@ -18105,20 +16665,6 @@ class SimulationsApi(object):
         :param str uuid__istartswith:
         :param str uuid__endswith:
         :param str uuid__regex:
-        :param str created__date:
-        :param str created__date__gt:
-        :param str created__date__gte:
-        :param str created__date__lt:
-        :param str created__date__lte:
-        :param float created__year:
-        :param float created__year__gt:
-        :param float created__year__gte:
-        :param float created__year__lt:
-        :param float created__year__lte:
-        :param float created__month:
-        :param float created__month__lte:
-        :param float created__day:
-        :param float created__day__lt:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -18136,9 +16682,9 @@ class SimulationsApi(object):
         return self.simulations_list_with_http_info(**kwargs)  # noqa: E501
 
     def simulations_list_with_http_info(self, **kwargs):  # noqa: E501
-        """List all simulations resources.  # noqa: E501
+        """simulations_list  # noqa: E501
 
-        Several filter are available, for instance the creation date of the resource. Some usage examples:  To get all simulation resources that have been created on Guido van Rossum's birthday  ```     ?created__date=1956-01-31 ```  To get all simulation resources that have been created during the 1988 UEFA European Football Championship ```    ?created__date__gte=1988-06-10&created__date__lte=1988-06-25 ```  To get all simulation resources that have been created in the month of the Carnation Revolution ```     ?created__year=1974&created__month=04 ```  # noqa: E501
+        List all simulations resources.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_list_with_http_info(async_req=True)
@@ -18159,20 +16705,6 @@ class SimulationsApi(object):
         :param str uuid__istartswith:
         :param str uuid__endswith:
         :param str uuid__regex:
-        :param str created__date:
-        :param str created__date__gt:
-        :param str created__date__gte:
-        :param str created__date__lt:
-        :param str created__date__lte:
-        :param float created__year:
-        :param float created__year__gt:
-        :param float created__year__gte:
-        :param float created__year__lt:
-        :param float created__year__lte:
-        :param float created__month:
-        :param float created__month__lte:
-        :param float created__day:
-        :param float created__day__lt:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -18191,7 +16723,7 @@ class SimulationsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'uuid', 'uuid__contains', 'uuid__in', 'uuid__startswith', 'uuid__istartswith', 'uuid__endswith', 'uuid__regex', 'created__date', 'created__date__gt', 'created__date__gte', 'created__date__lt', 'created__date__lte', 'created__year', 'created__year__gt', 'created__year__gte', 'created__year__lt', 'created__year__lte', 'created__month', 'created__month__lte', 'created__day', 'created__day__lt', 'limit', 'offset']  # noqa: E501
+        all_params = ['name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'uuid', 'uuid__contains', 'uuid__in', 'uuid__startswith', 'uuid__istartswith', 'uuid__endswith', 'uuid__regex', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -18239,34 +16771,6 @@ class SimulationsApi(object):
             query_params.append(('uuid__endswith', local_var_params['uuid__endswith']))  # noqa: E501
         if 'uuid__regex' in local_var_params:
             query_params.append(('uuid__regex', local_var_params['uuid__regex']))  # noqa: E501
-        if 'created__date' in local_var_params:
-            query_params.append(('created__date', local_var_params['created__date']))  # noqa: E501
-        if 'created__date__gt' in local_var_params:
-            query_params.append(('created__date__gt', local_var_params['created__date__gt']))  # noqa: E501
-        if 'created__date__gte' in local_var_params:
-            query_params.append(('created__date__gte', local_var_params['created__date__gte']))  # noqa: E501
-        if 'created__date__lt' in local_var_params:
-            query_params.append(('created__date__lt', local_var_params['created__date__lt']))  # noqa: E501
-        if 'created__date__lte' in local_var_params:
-            query_params.append(('created__date__lte', local_var_params['created__date__lte']))  # noqa: E501
-        if 'created__year' in local_var_params:
-            query_params.append(('created__year', local_var_params['created__year']))  # noqa: E501
-        if 'created__year__gt' in local_var_params:
-            query_params.append(('created__year__gt', local_var_params['created__year__gt']))  # noqa: E501
-        if 'created__year__gte' in local_var_params:
-            query_params.append(('created__year__gte', local_var_params['created__year__gte']))  # noqa: E501
-        if 'created__year__lt' in local_var_params:
-            query_params.append(('created__year__lt', local_var_params['created__year__lt']))  # noqa: E501
-        if 'created__year__lte' in local_var_params:
-            query_params.append(('created__year__lte', local_var_params['created__year__lte']))  # noqa: E501
-        if 'created__month' in local_var_params:
-            query_params.append(('created__month', local_var_params['created__month']))  # noqa: E501
-        if 'created__month__lte' in local_var_params:
-            query_params.append(('created__month__lte', local_var_params['created__month__lte']))  # noqa: E501
-        if 'created__day' in local_var_params:
-            query_params.append(('created__day', local_var_params['created__day']))  # noqa: E501
-        if 'created__day__lt' in local_var_params:
-            query_params.append(('created__day__lt', local_var_params['created__day__lt']))  # noqa: E501
         if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params:
@@ -18412,6 +16916,114 @@ class SimulationsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='SimulationUpdate',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_post_processing_lizard_requested_list(self, **kwargs):  # noqa: E501
+        """simulations_post_processing_lizard_requested_list  # noqa: E501
+
+        Read-only API endpoint for viewing simulations that need to be post-processed by Lizard.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_post_processing_lizard_requested_list(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse2009
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_post_processing_lizard_requested_list_with_http_info(**kwargs)  # noqa: E501
+
+    def simulations_post_processing_lizard_requested_list_with_http_info(self, **kwargs):  # noqa: E501
+        """simulations_post_processing_lizard_requested_list  # noqa: E501
+
+        Read-only API endpoint for viewing simulations that need to be post-processed by Lizard.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_post_processing_lizard_requested_list_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse2009, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_post_processing_lizard_requested_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/post_processing/lizard/requested/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2009',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -19009,7 +17621,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20034
+        :return: InlineResponse20033
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19038,7 +17650,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20034, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20033, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19097,7 +17709,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20034',  # noqa: E501
+            response_type='InlineResponse20033',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -19598,6 +18210,1470 @@ class SimulationsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_arrival_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_arrival_create  # noqa: E501
+
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_arrival_create(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param ArrivalTimePostProcessing data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: ArrivalTimePostProcessing
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_arrival_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_arrival_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_arrival_create  # noqa: E501
+
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_arrival_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param ArrivalTimePostProcessing data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(ArrivalTimePostProcessing, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_arrival_create" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_arrival_create`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_post_processing_lizard_arrival_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/arrival/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ArrivalTimePostProcessing',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_arrival_delete(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_arrival_delete  # noqa: E501
+
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_arrival_delete(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_arrival_delete_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_arrival_delete_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_arrival_delete  # noqa: E501
+
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_arrival_delete_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_arrival_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_arrival_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/arrival/delete/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_arrival_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_arrival_list  # noqa: E501
+
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_arrival_list(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: ArrivalTimePostProcessing
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_arrival_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_arrival_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_arrival_list  # noqa: E501
+
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_arrival_list_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(ArrivalTimePostProcessing, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_arrival_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_arrival_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/arrival/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ArrivalTimePostProcessing',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_basic_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_basic_create  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_basic_create(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param BasicPostProcessing data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: BasicPostProcessing
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_basic_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_basic_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_basic_create  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_basic_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param BasicPostProcessing data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(BasicPostProcessing, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_basic_create" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_basic_create`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_post_processing_lizard_basic_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/basic/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='BasicPostProcessing',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_basic_delete(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_basic_delete  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_basic_delete(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_basic_delete_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_basic_delete_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_basic_delete  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_basic_delete_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_basic_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_basic_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/basic/delete/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_basic_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_basic_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_basic_list(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse20034
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_basic_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_basic_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_basic_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_basic_list_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse20034, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_basic_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_basic_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/basic/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20034',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_damage_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_damage_create  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_damage_create(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param DamagePostProcessing data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: DamagePostProcessing
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_damage_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_damage_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_damage_create  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_damage_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param DamagePostProcessing data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(DamagePostProcessing, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_damage_create" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_damage_create`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_post_processing_lizard_damage_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/damage/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DamagePostProcessing',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_damage_delete(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_damage_delete  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_damage_delete(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_damage_delete_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_damage_delete_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_damage_delete  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_damage_delete_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_damage_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_damage_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/damage/delete/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_damage_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_damage_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_damage_list(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: DamagePostProcessing
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_damage_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_damage_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_damage_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_damage_list_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(DamagePostProcessing, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_damage_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_damage_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/damage/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DamagePostProcessing',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_overview_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_overview_list  # noqa: E501
+
+        Custom list that generates a JSON with 3 nested JSONs.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_overview_list(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: PostProcessingOverview
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_overview_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_overview_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_overview_list  # noqa: E501
+
+        Custom list that generates a JSON with 3 nested JSONs.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_overview_list_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(PostProcessingOverview, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_overview_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_overview_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/overview/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='PostProcessingOverview',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_status_delete(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_status_delete  # noqa: E501
+
+        Endpoint to keep track of post-processing status (done by Lizard) per Simulation result. Status is updated internal by 3Di, and once processing starts it is updated by Lizard backend.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_status_delete(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_status_delete_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_status_delete_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_status_delete  # noqa: E501
+
+        Endpoint to keep track of post-processing status (done by Lizard) per Simulation result. Status is updated internal by 3Di, and once processing starts it is updated by Lizard backend.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_status_delete_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_status_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_status_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/status/delete/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_status_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_status_list  # noqa: E501
+
+        Endpoint to keep track of post-processing status (done by Lizard) per Simulation result. Status is updated internal by 3Di, and once processing starts it is updated by Lizard backend.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_status_list(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: PostProcessingStatus
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_status_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_status_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_status_list  # noqa: E501
+
+        Endpoint to keep track of post-processing status (done by Lizard) per Simulation result. Status is updated internal by 3Di, and once processing starts it is updated by Lizard backend.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_status_list_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(PostProcessingStatus, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_status_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_status_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/status/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='PostProcessingStatus',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_status_update_status(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_status_update_status  # noqa: E501
+
+        Endpoint to keep track of post-processing status (done by Lizard) per Simulation result. Status is updated internal by 3Di, and once processing starts it is updated by Lizard backend.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_status_update_status(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param PostProcessingStatus data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: PostProcessingStatus
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_status_update_status_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_status_update_status_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_status_update_status  # noqa: E501
+
+        Endpoint to keep track of post-processing status (done by Lizard) per Simulation result. Status is updated internal by 3Di, and once processing starts it is updated by Lizard backend.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_status_update_status_with_http_info(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param PostProcessingStatus data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(PostProcessingStatus, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_status_update_status" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_status_update_status`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_post_processing_lizard_status_update_status`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/status/update/', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='PostProcessingStatus',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

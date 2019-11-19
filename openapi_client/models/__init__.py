@@ -4,7 +4,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.19   3Di core release: 2.0.2  deployed on:  03:09PM (UTC) on November 07, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.12   3Di core release: 2.0.2  deployed on:  12:03PM (UTC) on October 17, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -16,7 +16,9 @@ from __future__ import absolute_import
 
 # import models into model package
 from openapi_client.models.action import Action
+from openapi_client.models.arrival_time_post_processing import ArrivalTimePostProcessing
 from openapi_client.models.authenticate import Authenticate
+from openapi_client.models.basic_post_processing import BasicPostProcessing
 from openapi_client.models.boundary_condition import BoundaryCondition
 from openapi_client.models.breach import Breach
 from openapi_client.models.constant_lateral import ConstantLateral
@@ -24,6 +26,7 @@ from openapi_client.models.constant_rain import ConstantRain
 from openapi_client.models.constant_sources_sinks import ConstantSourcesSinks
 from openapi_client.models.contract import Contract
 from openapi_client.models.current_status import CurrentStatus
+from openapi_client.models.damage_post_processing import DamagePostProcessing
 from openapi_client.models.download import Download
 from openapi_client.models.event import Event
 from openapi_client.models.file import File
@@ -35,10 +38,8 @@ from openapi_client.models.file_timeseries_rain import FileTimeseriesRain
 from openapi_client.models.file_timeseries_sources_sinks import FileTimeseriesSourcesSinks
 from openapi_client.models.grid_event_state import GridEventState
 from openapi_client.models.ground_water_level import GroundWaterLevel
-from openapi_client.models.ground_water_raster import GroundWaterRaster
 from openapi_client.models.initial_saved_state import InitialSavedState
 from openapi_client.models.initial_saved_state_overview import InitialSavedStateOverview
-from openapi_client.models.initial_waterlevel import InitialWaterlevel
 from openapi_client.models.inline_response200 import InlineResponse200
 from openapi_client.models.inline_response2001 import InlineResponse2001
 from openapi_client.models.inline_response20010 import InlineResponse20010
@@ -76,7 +77,6 @@ from openapi_client.models.inline_response20039 import InlineResponse20039
 from openapi_client.models.inline_response2004 import InlineResponse2004
 from openapi_client.models.inline_response20040 import InlineResponse20040
 from openapi_client.models.inline_response20041 import InlineResponse20041
-from openapi_client.models.inline_response20042 import InlineResponse20042
 from openapi_client.models.inline_response2005 import InlineResponse2005
 from openapi_client.models.inline_response2006 import InlineResponse2006
 from openapi_client.models.inline_response2007 import InlineResponse2007
@@ -96,6 +96,9 @@ from openapi_client.models.one_d_water_level import OneDWaterLevel
 from openapi_client.models.one_d_water_level_predefined import OneDWaterLevelPredefined
 from openapi_client.models.organisation import Organisation
 from openapi_client.models.organisation_role import OrganisationRole
+from openapi_client.models.post_processing_overview import PostProcessingOverview
+from openapi_client.models.post_processing_requested import PostProcessingRequested
+from openapi_client.models.post_processing_status import PostProcessingStatus
 from openapi_client.models.potential_breach import PotentialBreach
 from openapi_client.models.progress import Progress
 from openapi_client.models.raster import Raster
@@ -122,7 +125,6 @@ from openapi_client.models.timeseries_sources_sinks import TimeseriesSourcesSink
 from openapi_client.models.timeseries_sources_sinks_overview import TimeseriesSourcesSinksOverview
 from openapi_client.models.tokens import Tokens
 from openapi_client.models.two_d_water_level import TwoDWaterLevel
-from openapi_client.models.two_d_water_raster import TwoDWaterRaster
 from openapi_client.models.upload import Upload
 from openapi_client.models.usage import Usage
 from openapi_client.models.user import User
