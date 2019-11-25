@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.12   3Di core release: 2.0.2  deployed on:  12:03PM (UTC) on October 17, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -101,8 +101,10 @@ class PostProcessingOverview(object):
             self.model_name = model_name
         if model_revision is not None:
             self.model_revision = model_revision
-        self.arrival = arrival
-        self.damage = damage
+        if arrival is not None:
+            self.arrival = arrival
+        if damage is not None:
+            self.damage = damage
         if damage_sources is not None:
             self.damage_sources = damage_sources
 
@@ -340,8 +342,6 @@ class PostProcessingOverview(object):
         :param arrival: The arrival of this PostProcessingOverview.  # noqa: E501
         :type: ArrivalTimePostProcessing
         """
-        if arrival is None:
-            raise ValueError("Invalid value for `arrival`, must not be `None`")  # noqa: E501
 
         self._arrival = arrival
 
@@ -363,8 +363,6 @@ class PostProcessingOverview(object):
         :param damage: The damage of this PostProcessingOverview.  # noqa: E501
         :type: DamagePostProcessing
         """
-        if damage is None:
-            raise ValueError("Invalid value for `damage`, must not be `None`")  # noqa: E501
 
         self._damage = damage
 

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.12   3Di core release: 2.0.2  deployed on:  12:03PM (UTC) on October 17, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -33,24 +33,29 @@ class PostProcessingStatus(object):
     """
     openapi_types = {
         'simulation': 'str',
-        'status': 'str'
+        'status': 'str',
+        'created': 'datetime'
     }
 
     attribute_map = {
         'simulation': 'simulation',
-        'status': 'status'
+        'status': 'status',
+        'created': 'created'
     }
 
-    def __init__(self, simulation=None, status=None):  # noqa: E501
+    def __init__(self, simulation=None, status=None, created=None):  # noqa: E501
         """PostProcessingStatus - a model defined in OpenAPI"""  # noqa: E501
 
         self._simulation = None
         self._status = None
+        self._created = None
         self.discriminator = None
 
         if simulation is not None:
             self.simulation = simulation
         self.status = status
+        if created is not None:
+            self.created = created
 
     @property
     def simulation(self):
@@ -101,6 +106,27 @@ class PostProcessingStatus(object):
             )
 
         self._status = status
+
+    @property
+    def created(self):
+        """Gets the created of this PostProcessingStatus.  # noqa: E501
+
+
+        :return: The created of this PostProcessingStatus.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """Sets the created of this PostProcessingStatus.
+
+
+        :param created: The created of this PostProcessingStatus.  # noqa: E501
+        :type: datetime
+        """
+
+        self._created = created
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.12   3Di core release: 2.0.2  deployed on:  12:03PM (UTC) on October 17, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -50,7 +50,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     :param password: Password for HTTP basic authentication
     """
 
-    def __init__(self, host="http://localhost:8000/v3.0",
+    def __init__(self, host="https://api.3di.live/v3.0",
                  api_key={}, api_key_prefix={},
                  username="", password=""):
         """Constructor
@@ -274,7 +274,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         """
         return [
             {
-                'url': "http://localhost:8000/v3.0",
+                'url': "https://api.3di.live/v3.0",
                 'description': "No description provided",
             }
         ]

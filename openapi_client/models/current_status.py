@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.12   3Di core release: 2.0.2  deployed on:  12:03PM (UTC) on October 17, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -32,29 +32,56 @@ class CurrentStatus(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'int',
         'name': 'str',
         'created': 'datetime',
         'time': 'float'
     }
 
     attribute_map = {
+        'id': 'id',
         'name': 'name',
         'created': 'created',
         'time': 'time'
     }
 
-    def __init__(self, name=None, created=None, time=None):  # noqa: E501
+    def __init__(self, id=None, name=None, created=None, time=None):  # noqa: E501
         """CurrentStatus - a model defined in OpenAPI"""  # noqa: E501
 
+        self._id = None
         self._name = None
         self._created = None
         self._time = None
         self.discriminator = None
 
+        self.id = id
         self.name = name
         self.created = created
         if time is not None:
             self.time = time
+
+    @property
+    def id(self):
+        """Gets the id of this CurrentStatus.  # noqa: E501
+
+
+        :return: The id of this CurrentStatus.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this CurrentStatus.
+
+
+        :param id: The id of this CurrentStatus.  # noqa: E501
+        :type: int
+        """
+        if id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
 
     @property
     def name(self):
