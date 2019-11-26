@@ -5,7 +5,7 @@ History
 0.0.22 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Added `initialwaterlevel rasters` and `postprocessing`
 
 
 0.0.21 (2019-11-18)
