@@ -5,7 +5,7 @@ History
 0.0.23 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fixing releases
 
 
 0.0.22 (2019-11-26)
