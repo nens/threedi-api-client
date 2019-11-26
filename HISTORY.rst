@@ -2,7 +2,7 @@
 History
 =======
 
-0.0.23 (unreleased)
+0.0.23 (2019-11-26)
 -------------------
 
 - Fixing releases
