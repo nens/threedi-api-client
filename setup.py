@@ -32,9 +32,10 @@ def find_version(*file_paths):
     raise RuntimeError("Unable to find version string.")
 
 requirements = [
-    'certifi>=2019.3.9', 
+    'certifi>=2019.3.9',
     'urllib3>=1.25.2',
     'pyjwt>=1.7.1',
+    'six>=1.13.0'
 ]
 
 setup_requirements = ['pytest-runner', ]
