@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.19   3Di core release: 2.0.2  deployed on:  03:09PM (UTC) on November 07, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -289,7 +289,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20037
+        :return: InlineResponse20040
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -318,7 +318,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20037, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20040, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -377,7 +377,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20037',  # noqa: E501
+            response_type='InlineResponse20040',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2033,7 +2033,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20038
+        :return: InlineResponse20041
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2062,7 +2062,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20038, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20041, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2121,7 +2121,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20038',  # noqa: E501
+            response_type='InlineResponse20041',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2701,7 +2701,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20036
+        :return: InlineResponse20039
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2782,7 +2782,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20036, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20039, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2941,7 +2941,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20036',  # noqa: E501
+            response_type='InlineResponse20039',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3335,7 +3335,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20039
+        :return: InlineResponse20042
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3378,7 +3378,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20039, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20042, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3465,7 +3465,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20039',  # noqa: E501
+            response_type='InlineResponse20042',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -4321,7 +4321,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20040
+        :return: InlineResponse20043
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4350,7 +4350,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20040, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20043, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4409,7 +4409,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20040',  # noqa: E501
+            response_type='InlineResponse20043',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5045,7 +5045,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20041
+        :return: InlineResponse20044
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5074,7 +5074,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20041, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20044, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5133,7 +5133,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20041',  # noqa: E501
+            response_type='InlineResponse20044',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

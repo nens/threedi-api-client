@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.19   3Di core release: 2.0.2  deployed on:  03:09PM (UTC) on November 07, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -521,7 +521,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2009
+        :return: InlineResponse20010
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -550,7 +550,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2009, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20010, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -609,7 +609,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2009',  # noqa: E501
+            response_type='InlineResponse20010',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1369,7 +1369,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20010
+        :return: InlineResponse20011
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1398,7 +1398,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20010, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20011, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1457,7 +1457,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20010',  # noqa: E501
+            response_type='InlineResponse20011',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2425,7 +2425,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20011
+        :return: InlineResponse20012
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2454,7 +2454,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20011, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20012, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2513,7 +2513,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20011',  # noqa: E501
+            response_type='InlineResponse20012',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3145,7 +3145,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20012
+        :return: InlineResponse20013
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3174,7 +3174,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20012, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20013, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3233,7 +3233,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20012',  # noqa: E501
+            response_type='InlineResponse20013',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3989,7 +3989,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20013
+        :return: InlineResponse20014
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4018,7 +4018,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20013, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20014, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4077,7 +4077,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20013',  # noqa: E501
+            response_type='InlineResponse20014',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -4833,7 +4833,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20014
+        :return: InlineResponse20015
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4862,7 +4862,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20014, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20015, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4921,7 +4921,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20014',  # noqa: E501
+            response_type='InlineResponse20015',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5553,7 +5553,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20015
+        :return: InlineResponse20016
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5582,7 +5582,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20015, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20016, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5641,7 +5641,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20015',  # noqa: E501
+            response_type='InlineResponse20016',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6273,7 +6273,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20016
+        :return: InlineResponse20017
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6302,7 +6302,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20016, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20017, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6361,7 +6361,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20016',  # noqa: E501
+            response_type='InlineResponse20017',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6737,7 +6737,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20017
+        :return: InlineResponse20018
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6766,7 +6766,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20017, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20018, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6825,7 +6825,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20017',  # noqa: E501
+            response_type='InlineResponse20018',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7085,7 +7085,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20018
+        :return: InlineResponse20019
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7114,7 +7114,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20018, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20019, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7173,7 +7173,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20018',  # noqa: E501
+            response_type='InlineResponse20019',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7805,7 +7805,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20019
+        :return: InlineResponse20020
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7834,7 +7834,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20019, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20020, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7893,7 +7893,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20019',  # noqa: E501
+            response_type='InlineResponse20020',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8641,7 +8641,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20020
+        :return: InlineResponse20021
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8670,7 +8670,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20020, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20021, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8729,7 +8729,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20020',  # noqa: E501
+            response_type='InlineResponse20021',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9361,7 +9361,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20021
+        :return: InlineResponse20022
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9390,7 +9390,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20021, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20022, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9449,7 +9449,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20021',  # noqa: E501
+            response_type='InlineResponse20022',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10081,7 +10081,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20022
+        :return: InlineResponse20023
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10110,7 +10110,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20022, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20023, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10169,7 +10169,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20022',  # noqa: E501
+            response_type='InlineResponse20023',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10545,7 +10545,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20023
+        :return: InlineResponse20024
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10574,7 +10574,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20023, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20024, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10633,7 +10633,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20023',  # noqa: E501
+            response_type='InlineResponse20024',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10893,7 +10893,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20024
+        :return: InlineResponse20025
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10922,7 +10922,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20024, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20025, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10981,7 +10981,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20024',  # noqa: E501
+            response_type='InlineResponse20025',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -11613,7 +11613,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20025
+        :return: InlineResponse20026
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11642,7 +11642,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20025, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20026, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11701,7 +11701,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20025',  # noqa: E501
+            response_type='InlineResponse20026',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12200,7 +12200,7 @@ class SimulationsApi(object):
     def simulations_events_structure_control_timed_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_structure_control_timed_create  # noqa: E501
 
-        A timed structure control allows for actively altering parameters of structures at a given point in time of the simulation for a given period of time. The ``type`` parameter specifies which action should be applied to the structure. Not all valid action types can be applied to every structure. An overview of valid combinations:     set_discharge_coefficients: v2_orifice, v2_weir, v2_pipe, v2_channel, v2_culvert    set_crest_level: v2_orifice, v2_weir    set_pump_discharge: v2_pumpstation  The value parameter must contain 1 value, except for the ``set_discharge_coefficients``action that expects a value for both flow directions.  Example payload: ```     {       \"offset\": 0,       \"duration\": 100,       \"value\": [         0.4, 0.8       ],       \"type\": \"set_discharge_coefficients\",       \"structure_id\": 21,       \"structure_type\": \"v2_pipe\"     } ```  # noqa: E501
+        A timed structure control allows for actively altering parameters of structures at a given point in time of the simulation for a given period of time. The ``type`` parameter specifies which action should be applied to the structure. Not all valid action types can be applied to every structure. An overview of valid combinations:     set_discharge_coefficients: v2_orifice, v2_weir, v2_pipe,                                v2_channel, v2_culvert    set_crest_level: v2_orifice, v2_weir    set_pump_discharge: v2_pumpstation  The value parameter must contain 1 value, except for the ``set_discharge_coefficients``action that expects a value for both flow directions.  Example payload: ```     {       \"offset\": 0,       \"duration\": 100,       \"value\": [         0.4, 0.8       ],       \"type\": \"set_discharge_coefficients\",       \"structure_id\": 21,       \"structure_type\": \"v2_pipe\"     } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_structure_control_timed_create(simulation_pk, data, async_req=True)
@@ -12226,7 +12226,7 @@ class SimulationsApi(object):
     def simulations_events_structure_control_timed_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_structure_control_timed_create  # noqa: E501
 
-        A timed structure control allows for actively altering parameters of structures at a given point in time of the simulation for a given period of time. The ``type`` parameter specifies which action should be applied to the structure. Not all valid action types can be applied to every structure. An overview of valid combinations:     set_discharge_coefficients: v2_orifice, v2_weir, v2_pipe, v2_channel, v2_culvert    set_crest_level: v2_orifice, v2_weir    set_pump_discharge: v2_pumpstation  The value parameter must contain 1 value, except for the ``set_discharge_coefficients``action that expects a value for both flow directions.  Example payload: ```     {       \"offset\": 0,       \"duration\": 100,       \"value\": [         0.4, 0.8       ],       \"type\": \"set_discharge_coefficients\",       \"structure_id\": 21,       \"structure_type\": \"v2_pipe\"     } ```  # noqa: E501
+        A timed structure control allows for actively altering parameters of structures at a given point in time of the simulation for a given period of time. The ``type`` parameter specifies which action should be applied to the structure. Not all valid action types can be applied to every structure. An overview of valid combinations:     set_discharge_coefficients: v2_orifice, v2_weir, v2_pipe,                                v2_channel, v2_culvert    set_crest_level: v2_orifice, v2_weir    set_pump_discharge: v2_pumpstation  The value parameter must contain 1 value, except for the ``set_discharge_coefficients``action that expects a value for both flow directions.  Example payload: ```     {       \"offset\": 0,       \"duration\": 100,       \"value\": [         0.4, 0.8       ],       \"type\": \"set_discharge_coefficients\",       \"structure_id\": 21,       \"structure_type\": \"v2_pipe\"     } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_structure_control_timed_create_with_http_info(simulation_pk, data, async_req=True)
@@ -12449,7 +12449,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20026
+        :return: InlineResponse20027
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12478,7 +12478,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20026, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20027, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12537,7 +12537,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20026',  # noqa: E501
+            response_type='InlineResponse20027',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -13293,7 +13293,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20027
+        :return: InlineResponse20028
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13322,7 +13322,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20027, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20028, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13381,7 +13381,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20027',  # noqa: E501
+            response_type='InlineResponse20028',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -14013,7 +14013,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20028
+        :return: InlineResponse20029
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14042,7 +14042,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20028, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20029, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14101,7 +14101,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20028',  # noqa: E501
+            response_type='InlineResponse20029',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -14733,7 +14733,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20029
+        :return: InlineResponse20030
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14762,7 +14762,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20029, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20030, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14821,7 +14821,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20029',  # noqa: E501
+            response_type='InlineResponse20030',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -15453,7 +15453,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20030
+        :return: InlineResponse20031
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -15482,7 +15482,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20030, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20031, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -15541,7 +15541,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20030',  # noqa: E501
+            response_type='InlineResponse20031',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -16173,7 +16173,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20031
+        :return: InlineResponse20032
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16202,7 +16202,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20031, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20032, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16261,7 +16261,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20031',  # noqa: E501
+            response_type='InlineResponse20032',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -16893,7 +16893,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20032
+        :return: InlineResponse20033
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16922,7 +16922,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20032, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20033, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16981,7 +16981,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20032',  # noqa: E501
+            response_type='InlineResponse20033',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -17613,7 +17613,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20033
+        :return: InlineResponse20034
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17642,7 +17642,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20033, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20034, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17701,7 +17701,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20033',  # noqa: E501
+            response_type='InlineResponse20034',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -18419,6 +18419,114 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def simulations_post_processing_lizard_queue_list(self, **kwargs):  # noqa: E501
+        """simulations_post_processing_lizard_queue_list  # noqa: E501
+
+        Read-only API endpoint for viewing simulations that need to be post-processed by Lizard (post-processing status is 'requested').  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_post_processing_lizard_queue_list(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse2009
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_post_processing_lizard_queue_list_with_http_info(**kwargs)  # noqa: E501
+
+    def simulations_post_processing_lizard_queue_list_with_http_info(self, **kwargs):  # noqa: E501
+        """simulations_post_processing_lizard_queue_list  # noqa: E501
+
+        Read-only API endpoint for viewing simulations that need to be post-processed by Lizard (post-processing status is 'requested').  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_post_processing_lizard_queue_list_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse2009, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_post_processing_lizard_queue_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/post_processing/lizard/queue/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2009',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def simulations_progress_list(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_progress_list  # noqa: E501
 
@@ -19009,7 +19117,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20034
+        :return: InlineResponse20035
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19038,7 +19146,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20034, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20035, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19097,7 +19205,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20034',  # noqa: E501
+            response_type='InlineResponse20035',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -19605,6 +19713,1704 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def simulations_results_post_processing_lizard_arrival_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_arrival_create  # noqa: E501
+
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_arrival_create(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param ArrivalTimePostProcessing data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: ArrivalTimePostProcessing
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_arrival_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_arrival_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_arrival_create  # noqa: E501
+
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_arrival_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param ArrivalTimePostProcessing data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(ArrivalTimePostProcessing, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_arrival_create" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_arrival_create`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_post_processing_lizard_arrival_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/arrival/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ArrivalTimePostProcessing',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_arrival_delete(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_arrival_delete  # noqa: E501
+
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_arrival_delete(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_arrival_delete_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_arrival_delete_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_arrival_delete  # noqa: E501
+
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_arrival_delete_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_arrival_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_arrival_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/arrival/delete/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_arrival_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_arrival_list  # noqa: E501
+
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_arrival_list(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: ArrivalTimePostProcessing
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_arrival_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_arrival_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_arrival_list  # noqa: E501
+
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_arrival_list_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(ArrivalTimePostProcessing, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_arrival_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_arrival_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/arrival/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ArrivalTimePostProcessing',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_basic_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_basic_create  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_basic_create(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param BasicPostProcessing data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: BasicPostProcessing
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_basic_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_basic_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_basic_create  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_basic_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param BasicPostProcessing data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(BasicPostProcessing, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_basic_create" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_basic_create`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_post_processing_lizard_basic_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/basic/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='BasicPostProcessing',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_basic_delete(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_basic_delete  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_basic_delete(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_basic_delete_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_basic_delete_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_basic_delete  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_basic_delete_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_basic_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_basic_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/basic/delete/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_basic_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_basic_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_basic_list(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse20036
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_basic_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_basic_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_basic_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_basic_list_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse20036, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_basic_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_basic_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/basic/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20036',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_damage_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_damage_create  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_damage_create(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param DamagePostProcessing data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: DamagePostProcessing
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_damage_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_damage_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_damage_create  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_damage_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param DamagePostProcessing data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(DamagePostProcessing, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_damage_create" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_damage_create`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_post_processing_lizard_damage_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/damage/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DamagePostProcessing',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_damage_delete(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_damage_delete  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_damage_delete(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_damage_delete_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_damage_delete_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_damage_delete  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_damage_delete_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_damage_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_damage_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/damage/delete/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_damage_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_damage_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_damage_list(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: DamagePostProcessing
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_damage_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_damage_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_damage_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_damage_list_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(DamagePostProcessing, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_damage_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_damage_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/damage/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DamagePostProcessing',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_overview_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_overview_list  # noqa: E501
+
+        Custom list that generates a JSON with 3 nested JSONs.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_overview_list(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: PostProcessingOverview
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_overview_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_overview_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_overview_list  # noqa: E501
+
+        Custom list that generates a JSON with 3 nested JSONs.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_overview_list_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(PostProcessingOverview, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_overview_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_overview_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/overview/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='PostProcessingOverview',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_start_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_start_create  # noqa: E501
+
+        Empty post to start Lizard post-processing for one Simulation result.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_start_create(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param object data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_start_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_start_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_start_create  # noqa: E501
+
+        Empty post to start Lizard post-processing for one Simulation result.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_start_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param object data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_start_create" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_start_create`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_post_processing_lizard_start_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/start/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_status_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_status_create  # noqa: E501
+
+        Endpoint to keep track of post-processing status (done by Lizard) per Simulation result. Status is updated internal by 3Di, and once processing starts it is updated by Lizard backend.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_status_create(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param PostProcessingStatus data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: PostProcessingStatus
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_status_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_status_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_status_create  # noqa: E501
+
+        Endpoint to keep track of post-processing status (done by Lizard) per Simulation result. Status is updated internal by 3Di, and once processing starts it is updated by Lizard backend.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_status_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param PostProcessingStatus data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(PostProcessingStatus, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_status_create" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_status_create`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_post_processing_lizard_status_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/status/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='PostProcessingStatus',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_status_delete(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_status_delete  # noqa: E501
+
+        Endpoint to keep track of post-processing status (done by Lizard) per Simulation result. Status is updated internal by 3Di, and once processing starts it is updated by Lizard backend.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_status_delete(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_status_delete_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_status_delete_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_status_delete  # noqa: E501
+
+        Endpoint to keep track of post-processing status (done by Lizard) per Simulation result. Status is updated internal by 3Di, and once processing starts it is updated by Lizard backend.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_status_delete_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_status_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_status_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/status/delete/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_status_history_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_status_history_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_status_history_list(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse20037
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_status_history_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_status_history_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_status_history_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_status_history_list_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse20037, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_status_history_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_status_history_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/status/history/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20037',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_status_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_status_list  # noqa: E501
+
+        Show the latest post-processing status of one simulation.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_status_list(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: PostProcessingStatus
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_status_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_status_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_results_post_processing_lizard_status_list  # noqa: E501
+
+        Show the latest post-processing status of one simulation.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_status_list_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(PostProcessingStatus, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_status_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_status_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/status/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='PostProcessingStatus',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def simulations_status_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_status_create  # noqa: E501
 
@@ -19744,7 +21550,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20035
+        :return: InlineResponse20038
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19772,7 +21578,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20035, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20038, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19831,7 +21637,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20035',  # noqa: E501
+            response_type='InlineResponse20038',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

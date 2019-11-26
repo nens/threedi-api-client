@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.19   3Di core release: 2.0.2  deployed on:  03:09PM (UTC) on November 07, 2019  # noqa: E501
+    3Di simulation API   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -35,7 +35,7 @@ class InlineResponse20033(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[InitialSavedState]'
+        'results': 'list[GroundWaterRaster]'
     }
 
     attribute_map = {
@@ -130,7 +130,7 @@ class InlineResponse20033(object):
 
 
         :return: The results of this InlineResponse20033.  # noqa: E501
-        :rtype: list[InitialSavedState]
+        :rtype: list[GroundWaterRaster]
         """
         return self._results
 
@@ -140,7 +140,7 @@ class InlineResponse20033(object):
 
 
         :param results: The results of this InlineResponse20033.  # noqa: E501
-        :type: list[InitialSavedState]
+        :type: list[GroundWaterRaster]
         """
         if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
