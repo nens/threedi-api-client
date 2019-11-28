@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.b1 (unreleased)
+3.0.b1 (2019-11-28)
 -------------------
 
 - Updated API descriptions
