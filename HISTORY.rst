@@ -2,11 +2,13 @@
 History
 =======
 
-0.0.24 (unreleased)
+3.0.b0 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- First 3.0 release candidate
 
+- All swagger schema's are automatically saved in
+  schemas/swagger_xxx.yaml
 
 0.0.23 (2019-11-26)
 -------------------
