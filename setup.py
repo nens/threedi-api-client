@@ -33,9 +33,9 @@ def find_version(*file_paths):
 
 requirements = [
     'certifi>=2019.3.9',
-    'urllib3>=1.25.2',
+    'urllib3',
     'pyjwt>=1.7.1',
-    'six>=1.13.0'
+    'six',
 ]
 
 setup_requirements = ['pytest-runner', ]

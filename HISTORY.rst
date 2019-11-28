@@ -5,7 +5,8 @@ History
 3.0.b2 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Less strict requirement for dependencies 'six' and 'urllib3' to
+  avoid pipenv resolve issues at Lizard
 
 
 3.0.b1 (2019-11-28)
@@ -112,7 +113,7 @@ History
 0.1.7 (2019-09-25)
 ------------------
 
-- Laterals now have id field. 
+- Laterals now have id field.
 
 - Usage integration
 
