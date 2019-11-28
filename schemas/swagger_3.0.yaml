@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
   title: 3Di API
-  description: "3Di simulation API \n Framework release: 0.0.22 \n 3Di core release:\
-    \ 2.0.2 \ndeployed on:  09:48AM (UTC) on November 25, 2019"
+  description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.22\
+    \ \n 3Di core release: 2.0.2 \ndeployed on:  09:48AM (UTC) on November 25, 2019"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -7123,6 +7123,111 @@ paths:
       operationId: threedimodels_rasters_list
       description: View rasters for threedimodel
       parameters:
+        - name: type
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: type__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: type__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: type__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: type__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: type__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: type__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: name
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: name__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: name__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: name__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: name__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: name__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: threedimodel__id
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: threedimodel__id__range
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: number
+        - name: threedimodel__id__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: threedimodel__id__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: threedimodel__id__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: threedimodel__id__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: threedimodel__id__isnull
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: limit
           in: query
           description: Number of results to return per page.

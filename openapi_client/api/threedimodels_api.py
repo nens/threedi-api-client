@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -4312,6 +4312,27 @@ class ThreedimodelsApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str threedimodel_pk: (required)
+        :param str type:
+        :param str type__contains:
+        :param str type__in: Multiple values may be separated by commas.
+        :param str type__startswith:
+        :param str type__istartswith:
+        :param str type__endswith:
+        :param str type__regex:
+        :param str name:
+        :param str name__contains:
+        :param str name__in: Multiple values may be separated by commas.
+        :param str name__startswith:
+        :param str name__istartswith:
+        :param str name__endswith:
+        :param str name__regex:
+        :param float threedimodel__id:
+        :param float threedimodel__id__range: Multiple values may be separated by commas.
+        :param float threedimodel__id__gt:
+        :param float threedimodel__id__gte:
+        :param float threedimodel__id__lt:
+        :param float threedimodel__id__lte:
+        :param str threedimodel__id__isnull:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4339,6 +4360,27 @@ class ThreedimodelsApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str threedimodel_pk: (required)
+        :param str type:
+        :param str type__contains:
+        :param str type__in: Multiple values may be separated by commas.
+        :param str type__startswith:
+        :param str type__istartswith:
+        :param str type__endswith:
+        :param str type__regex:
+        :param str name:
+        :param str name__contains:
+        :param str name__in: Multiple values may be separated by commas.
+        :param str name__startswith:
+        :param str name__istartswith:
+        :param str name__endswith:
+        :param str name__regex:
+        :param float threedimodel__id:
+        :param float threedimodel__id__range: Multiple values may be separated by commas.
+        :param float threedimodel__id__gt:
+        :param float threedimodel__id__gte:
+        :param float threedimodel__id__lt:
+        :param float threedimodel__id__lte:
+        :param str threedimodel__id__isnull:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -4357,7 +4399,7 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['threedimodel_pk', 'limit', 'offset']  # noqa: E501
+        all_params = ['threedimodel_pk', 'type', 'type__contains', 'type__in', 'type__startswith', 'type__istartswith', 'type__endswith', 'type__regex', 'name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'threedimodel__id', 'threedimodel__id__range', 'threedimodel__id__gt', 'threedimodel__id__gte', 'threedimodel__id__lt', 'threedimodel__id__lte', 'threedimodel__id__isnull', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4383,6 +4425,48 @@ class ThreedimodelsApi(object):
             path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
 
         query_params = []
+        if 'type' in local_var_params:
+            query_params.append(('type', local_var_params['type']))  # noqa: E501
+        if 'type__contains' in local_var_params:
+            query_params.append(('type__contains', local_var_params['type__contains']))  # noqa: E501
+        if 'type__in' in local_var_params:
+            query_params.append(('type__in', local_var_params['type__in']))  # noqa: E501
+        if 'type__startswith' in local_var_params:
+            query_params.append(('type__startswith', local_var_params['type__startswith']))  # noqa: E501
+        if 'type__istartswith' in local_var_params:
+            query_params.append(('type__istartswith', local_var_params['type__istartswith']))  # noqa: E501
+        if 'type__endswith' in local_var_params:
+            query_params.append(('type__endswith', local_var_params['type__endswith']))  # noqa: E501
+        if 'type__regex' in local_var_params:
+            query_params.append(('type__regex', local_var_params['type__regex']))  # noqa: E501
+        if 'name' in local_var_params:
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if 'name__contains' in local_var_params:
+            query_params.append(('name__contains', local_var_params['name__contains']))  # noqa: E501
+        if 'name__in' in local_var_params:
+            query_params.append(('name__in', local_var_params['name__in']))  # noqa: E501
+        if 'name__startswith' in local_var_params:
+            query_params.append(('name__startswith', local_var_params['name__startswith']))  # noqa: E501
+        if 'name__istartswith' in local_var_params:
+            query_params.append(('name__istartswith', local_var_params['name__istartswith']))  # noqa: E501
+        if 'name__endswith' in local_var_params:
+            query_params.append(('name__endswith', local_var_params['name__endswith']))  # noqa: E501
+        if 'name__regex' in local_var_params:
+            query_params.append(('name__regex', local_var_params['name__regex']))  # noqa: E501
+        if 'threedimodel__id' in local_var_params:
+            query_params.append(('threedimodel__id', local_var_params['threedimodel__id']))  # noqa: E501
+        if 'threedimodel__id__range' in local_var_params:
+            query_params.append(('threedimodel__id__range', local_var_params['threedimodel__id__range']))  # noqa: E501
+        if 'threedimodel__id__gt' in local_var_params:
+            query_params.append(('threedimodel__id__gt', local_var_params['threedimodel__id__gt']))  # noqa: E501
+        if 'threedimodel__id__gte' in local_var_params:
+            query_params.append(('threedimodel__id__gte', local_var_params['threedimodel__id__gte']))  # noqa: E501
+        if 'threedimodel__id__lt' in local_var_params:
+            query_params.append(('threedimodel__id__lt', local_var_params['threedimodel__id__lt']))  # noqa: E501
+        if 'threedimodel__id__lte' in local_var_params:
+            query_params.append(('threedimodel__id__lte', local_var_params['threedimodel__id__lte']))  # noqa: E501
+        if 'threedimodel__id__isnull' in local_var_params:
+            query_params.append(('threedimodel__id__isnull', local_var_params['threedimodel__id__isnull']))  # noqa: E501
         if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params:
