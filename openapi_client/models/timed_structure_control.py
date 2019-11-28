@@ -94,8 +94,7 @@ class TimedStructureControl(object):
             self.state = state
         if state_detail is not None:
             self.state_detail = state_detail
-        if grid_id is not None:
-            self.grid_id = grid_id
+        self.grid_id = grid_id
 
     @property
     def id(self):
@@ -193,7 +192,6 @@ class TimedStructureControl(object):
     def duration(self):
         """Gets the duration of this TimedStructureControl.  # noqa: E501
 
-        Duration of event in seconds  # noqa: E501
 
         :return: The duration of this TimedStructureControl.  # noqa: E501
         :rtype: int
@@ -204,15 +202,14 @@ class TimedStructureControl(object):
     def duration(self, duration):
         """Sets the duration of this TimedStructureControl.
 
-        Duration of event in seconds  # noqa: E501
 
         :param duration: The duration of this TimedStructureControl.  # noqa: E501
         :type: int
         """
-        if duration is not None and duration > 2147483647:  # noqa: E501
-            raise ValueError("Invalid value for `duration`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if duration is not None and duration < 0:  # noqa: E501
-            raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `0`")  # noqa: E501
+        if duration is None:
+            raise ValueError("Invalid value for `duration`, must not be `None`")  # noqa: E501
+        if duration is not None and duration < 1:  # noqa: E501
+            raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._duration = duration
 
@@ -286,8 +283,6 @@ class TimedStructureControl(object):
         :param structure_id: The structure_id of this TimedStructureControl.  # noqa: E501
         :type: int
         """
-        if structure_id is None:
-            raise ValueError("Invalid value for `structure_id`, must not be `None`")  # noqa: E501
         if structure_id is not None and structure_id > 2147483647:  # noqa: E501
             raise ValueError("Invalid value for `structure_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
         if structure_id is not None and structure_id < -2147483648:  # noqa: E501
@@ -390,6 +385,10 @@ class TimedStructureControl(object):
         :param grid_id: The grid_id of this TimedStructureControl.  # noqa: E501
         :type: int
         """
+        if grid_id is not None and grid_id > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `grid_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if grid_id is not None and grid_id < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `grid_id`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._grid_id = grid_id
 
