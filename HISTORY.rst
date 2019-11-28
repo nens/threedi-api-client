@@ -5,7 +5,9 @@ History
 3.0.b1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Updated API descriptions
+
+- Raster resource filtering
 
 
 3.0.b0 (2019-11-28)
