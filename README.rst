@@ -3,7 +3,7 @@ threedi-openapi-client
 ======================
 
 
-.. image:: https://img.shields.io/pypi/v/threedi_openapi_client.svg
+.. image:: https://img.shields.io/pypi/v/threedi-api-client.svg
         :target: https://pypi.python.org/pypi/threedi-api-client
 
 .. image:: https://img.shields.io/travis/nens/threedi_openapi_client.svg
