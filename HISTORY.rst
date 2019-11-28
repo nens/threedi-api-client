@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.b0 (unreleased)
+3.0.b0 (2019-11-28)
 -------------------
 
 - First 3.0 release candidate
