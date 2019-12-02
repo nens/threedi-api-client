@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.27   3Di core release: 2.0.3  deployed on:  09:45AM (UTC) on December 02, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class Threshold(object):
@@ -41,8 +43,11 @@ class Threshold(object):
         'value': 'value'
     }
 
-    def __init__(self, variable=None, value=None):  # noqa: E501
+    def __init__(self, variable=None, value=None, local_vars_configuration=None):  # noqa: E501
         """Threshold - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._variable = None
         self._value = None
@@ -69,10 +74,10 @@ class Threshold(object):
         :param variable: The variable of this Threshold.  # noqa: E501
         :type: str
         """
-        if variable is None:
+        if self.local_vars_configuration.client_side_validation and variable is None:  # noqa: E501
             raise ValueError("Invalid value for `variable`, must not be `None`")  # noqa: E501
         allowed_values = ["s1", "u1"]  # noqa: E501
-        if variable not in allowed_values:
+        if self.local_vars_configuration.client_side_validation and variable not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `variable` ({0}), must be one of {1}"  # noqa: E501
                 .format(variable, allowed_values)
@@ -98,7 +103,7 @@ class Threshold(object):
         :param value: The value of this Threshold.  # noqa: E501
         :type: float
         """
-        if value is None:
+        if self.local_vars_configuration.client_side_validation and value is None:  # noqa: E501
             raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
@@ -140,8 +145,11 @@ class Threshold(object):
         if not isinstance(other, Threshold):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, Threshold):
+            return True
+
+        return self.to_dict() != other.to_dict()

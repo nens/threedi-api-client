@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.27   3Di core release: 2.0.3  deployed on:  09:45AM (UTC) on December 02, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class Raster(object):
@@ -49,8 +51,11 @@ class Raster(object):
         'id': 'id'
     }
 
-    def __init__(self, url=None, type=None, name=None, threedimodel=None, file=None, id=None):  # noqa: E501
+    def __init__(self, url=None, type=None, name=None, threedimodel=None, file=None, id=None, local_vars_configuration=None):  # noqa: E501
         """Raster - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._type = None
@@ -110,10 +115,10 @@ class Raster(object):
         :param type: The type of this Raster.  # noqa: E501
         :type: str
         """
-        if type is None:
+        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
         allowed_values = ["dem_file", "equilibrium_infiltration_rate_file", "frict_coef_file", "initial_groundwater_level_file", "initial_waterlevel_file", "groundwater_hydro_connectivity_file", "groundwater_impervious_layer_level_file", "infiltration_decay_period_file", "initial_infiltration_rate_file", "leakage_file", "phreatic_storage_capacity_file", "hydraulic_conductivity_file", "porosity_file", "infiltration_rate_file", "max_infiltration_capacity_file", "interception_file"]  # noqa: E501
-        if type not in allowed_values:
+        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
                 .format(type, allowed_values)
@@ -139,11 +144,13 @@ class Raster(object):
         :param name: The name of this Raster.  # noqa: E501
         :type: str
         """
-        if name is None:
+        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 60:
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) > 60):
             raise ValueError("Invalid value for `name`, length must be less than or equal to `60`")  # noqa: E501
-        if name is not None and len(name) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) < 1):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
@@ -248,8 +255,11 @@ class Raster(object):
         if not isinstance(other, Raster):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, Raster):
+            return True
+
+        return self.to_dict() != other.to_dict()

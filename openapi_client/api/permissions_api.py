@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.27   3Di core release: 2.0.3  deployed on:  09:45AM (UTC) on December 02, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -104,8 +104,8 @@ class PermissionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `data` when calling `permissions_create`")  # noqa: E501
 
         collection_formats = {}
@@ -216,8 +216,8 @@ class PermissionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `permissions_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -327,9 +327,9 @@ class PermissionsApi(object):
         path_params = {}
 
         query_params = []
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params:
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -428,8 +428,8 @@ class PermissionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `permissions_read`")  # noqa: E501
 
         collection_formats = {}
