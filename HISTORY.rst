@@ -5,7 +5,7 @@ History
 3.0.b2 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Changed 'set_pump_discharge' to 'set_pump_capacity'.
 
 
 3.0.b1 (2019-11-28)
