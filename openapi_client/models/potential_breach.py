@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.27   3Di core release: 2.0.3  deployed on:  09:45AM (UTC) on December 02, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class PotentialBreach(object):
@@ -43,8 +45,11 @@ class PotentialBreach(object):
         'threedimodel': 'threedimodel'
     }
 
-    def __init__(self, url=None, connected_pnt_id=None, threedimodel=None):  # noqa: E501
+    def __init__(self, url=None, connected_pnt_id=None, threedimodel=None, local_vars_configuration=None):  # noqa: E501
         """PotentialBreach - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._connected_pnt_id = None
@@ -96,11 +101,13 @@ class PotentialBreach(object):
         :param connected_pnt_id: The connected_pnt_id of this PotentialBreach.  # noqa: E501
         :type: int
         """
-        if connected_pnt_id is None:
+        if self.local_vars_configuration.client_side_validation and connected_pnt_id is None:  # noqa: E501
             raise ValueError("Invalid value for `connected_pnt_id`, must not be `None`")  # noqa: E501
-        if connected_pnt_id is not None and connected_pnt_id > 2147483647:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                connected_pnt_id is not None and connected_pnt_id > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `connected_pnt_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if connected_pnt_id is not None and connected_pnt_id < -2147483648:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                connected_pnt_id is not None and connected_pnt_id < -2147483648):  # noqa: E501
             raise ValueError("Invalid value for `connected_pnt_id`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._connected_pnt_id = connected_pnt_id
@@ -163,8 +170,11 @@ class PotentialBreach(object):
         if not isinstance(other, PotentialBreach):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, PotentialBreach):
+            return True
+
+        return self.to_dict() != other.to_dict()

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.27   3Di core release: 2.0.3  deployed on:  09:45AM (UTC) on December 02, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class NetCDFTimeseriesSourcesSinks(object):
@@ -61,8 +63,11 @@ class NetCDFTimeseriesSourcesSinks(object):
         'id': 'id'
     }
 
-    def __init__(self, url=None, multiplier=None, simulation=None, offset=None, duration=None, timestamps=None, interval=None, values_reference=None, units=None, file=None, fill_value=None, id=None):  # noqa: E501
+    def __init__(self, url=None, multiplier=None, simulation=None, offset=None, duration=None, timestamps=None, interval=None, values_reference=None, units=None, file=None, fill_value=None, id=None, local_vars_configuration=None):  # noqa: E501
         """NetCDFTimeseriesSourcesSinks - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._multiplier = None
@@ -180,9 +185,11 @@ class NetCDFTimeseriesSourcesSinks(object):
         :param offset: The offset of this NetCDFTimeseriesSourcesSinks.  # noqa: E501
         :type: int
         """
-        if offset is not None and offset > 2147483647:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                offset is not None and offset > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `offset`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if offset is not None and offset < -2147483648:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                offset is not None and offset < -2147483648):  # noqa: E501
             raise ValueError("Invalid value for `offset`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._offset = offset
@@ -207,9 +214,11 @@ class NetCDFTimeseriesSourcesSinks(object):
         :param duration: The duration of this NetCDFTimeseriesSourcesSinks.  # noqa: E501
         :type: int
         """
-        if duration is not None and duration > 2147483647:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                duration is not None and duration > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `duration`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if duration is not None and duration < -2147483648:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                duration is not None and duration < -2147483648):  # noqa: E501
             raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._duration = duration
@@ -257,9 +266,11 @@ class NetCDFTimeseriesSourcesSinks(object):
         :param interval: The interval of this NetCDFTimeseriesSourcesSinks.  # noqa: E501
         :type: int
         """
-        if interval is not None and interval > 2147483647:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                interval is not None and interval > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `interval`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if interval is not None and interval < 0:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                interval is not None and interval < 0):  # noqa: E501
             raise ValueError("Invalid value for `interval`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._interval = interval
@@ -282,7 +293,8 @@ class NetCDFTimeseriesSourcesSinks(object):
         :param values_reference: The values_reference of this NetCDFTimeseriesSourcesSinks.  # noqa: E501
         :type: str
         """
-        if values_reference is not None and len(values_reference) > 255:
+        if (self.local_vars_configuration.client_side_validation and
+                values_reference is not None and len(values_reference) > 255):
             raise ValueError("Invalid value for `values_reference`, length must be less than or equal to `255`")  # noqa: E501
 
         self._values_reference = values_reference
@@ -305,10 +317,10 @@ class NetCDFTimeseriesSourcesSinks(object):
         :param units: The units of this NetCDFTimeseriesSourcesSinks.  # noqa: E501
         :type: str
         """
-        if units is None:
+        if self.local_vars_configuration.client_side_validation and units is None:  # noqa: E501
             raise ValueError("Invalid value for `units`, must not be `None`")  # noqa: E501
         allowed_values = ["mm", "mm/h"]  # noqa: E501
-        if units not in allowed_values:
+        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
                 .format(units, allowed_values)
@@ -355,9 +367,11 @@ class NetCDFTimeseriesSourcesSinks(object):
         :param fill_value: The fill_value of this NetCDFTimeseriesSourcesSinks.  # noqa: E501
         :type: str
         """
-        if fill_value is not None and len(fill_value) > 128:
+        if (self.local_vars_configuration.client_side_validation and
+                fill_value is not None and len(fill_value) > 128):
             raise ValueError("Invalid value for `fill_value`, length must be less than or equal to `128`")  # noqa: E501
-        if fill_value is not None and len(fill_value) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                fill_value is not None and len(fill_value) < 1):
             raise ValueError("Invalid value for `fill_value`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._fill_value = fill_value
@@ -420,8 +434,11 @@ class NetCDFTimeseriesSourcesSinks(object):
         if not isinstance(other, NetCDFTimeseriesSourcesSinks):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, NetCDFTimeseriesSourcesSinks):
+            return True
+
+        return self.to_dict() != other.to_dict()

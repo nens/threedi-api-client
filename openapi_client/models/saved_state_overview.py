@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.27   3Di core release: 2.0.3  deployed on:  09:45AM (UTC) on December 02, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class SavedStateOverview(object):
@@ -57,8 +59,11 @@ class SavedStateOverview(object):
         'id': 'id'
     }
 
-    def __init__(self, name=None, type=None, created=None, created_time=None, tags=None, expiry=None, time=None, thresholds=None, file=None, id=None):  # noqa: E501
+    def __init__(self, name=None, type=None, created=None, created_time=None, tags=None, expiry=None, time=None, thresholds=None, file=None, id=None, local_vars_configuration=None):  # noqa: E501
         """SavedStateOverview - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._name = None
         self._type = None
@@ -105,9 +110,11 @@ class SavedStateOverview(object):
         :param name: The name of this SavedStateOverview.  # noqa: E501
         :type: str
         """
-        if name is not None and len(name) > 80:
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) > 80):
             raise ValueError("Invalid value for `name`, length must be less than or equal to `80`")  # noqa: E501
-        if name is not None and len(name) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) < 1):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
@@ -130,10 +137,10 @@ class SavedStateOverview(object):
         :param type: The type of this SavedStateOverview.  # noqa: E501
         :type: str
         """
-        if type is None:
+        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
         allowed_values = ["stable_threshold", "timed"]  # noqa: E501
-        if type not in allowed_values:
+        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
                 .format(type, allowed_values)
@@ -182,9 +189,11 @@ class SavedStateOverview(object):
         :param created_time: The created_time of this SavedStateOverview.  # noqa: E501
         :type: int
         """
-        if created_time is not None and created_time > 2147483647:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                created_time is not None and created_time > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `created_time`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if created_time is not None and created_time < 0:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                created_time is not None and created_time < 0):  # noqa: E501
             raise ValueError("Invalid value for `created_time`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._created_time = created_time
@@ -251,9 +260,11 @@ class SavedStateOverview(object):
         :param time: The time of this SavedStateOverview.  # noqa: E501
         :type: int
         """
-        if time is not None and time > 2147483647:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                time is not None and time > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `time`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if time is not None and time < 0:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                time is not None and time < 0):  # noqa: E501
             raise ValueError("Invalid value for `time`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._time = time
@@ -276,7 +287,7 @@ class SavedStateOverview(object):
         :param thresholds: The thresholds of this SavedStateOverview.  # noqa: E501
         :type: list[Threshold]
         """
-        if thresholds is None:
+        if self.local_vars_configuration.client_side_validation and thresholds is None:  # noqa: E501
             raise ValueError("Invalid value for `thresholds`, must not be `None`")  # noqa: E501
 
         self._thresholds = thresholds
@@ -360,8 +371,11 @@ class SavedStateOverview(object):
         if not isinstance(other, SavedStateOverview):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, SavedStateOverview):
+            return True
+
+        return self.to_dict() != other.to_dict()

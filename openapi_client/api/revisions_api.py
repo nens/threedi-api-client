@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.27   3Di core release: 2.0.3  deployed on:  09:45AM (UTC) on December 02, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -104,8 +104,8 @@ class RevisionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `data` when calling `revisions_create`")  # noqa: E501
 
         collection_formats = {}
@@ -216,8 +216,8 @@ class RevisionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `revisions_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -413,95 +413,95 @@ class RevisionsApi(object):
         path_params = {}
 
         query_params = []
-        if 'number' in local_var_params:
+        if 'number' in local_var_params and local_var_params['number'] is not None:  # noqa: E501
             query_params.append(('number', local_var_params['number']))  # noqa: E501
-        if 'number__range' in local_var_params:
+        if 'number__range' in local_var_params and local_var_params['number__range'] is not None:  # noqa: E501
             query_params.append(('number__range', local_var_params['number__range']))  # noqa: E501
-        if 'number__gt' in local_var_params:
+        if 'number__gt' in local_var_params and local_var_params['number__gt'] is not None:  # noqa: E501
             query_params.append(('number__gt', local_var_params['number__gt']))  # noqa: E501
-        if 'number__gte' in local_var_params:
+        if 'number__gte' in local_var_params and local_var_params['number__gte'] is not None:  # noqa: E501
             query_params.append(('number__gte', local_var_params['number__gte']))  # noqa: E501
-        if 'number__lt' in local_var_params:
+        if 'number__lt' in local_var_params and local_var_params['number__lt'] is not None:  # noqa: E501
             query_params.append(('number__lt', local_var_params['number__lt']))  # noqa: E501
-        if 'number__lte' in local_var_params:
+        if 'number__lte' in local_var_params and local_var_params['number__lte'] is not None:  # noqa: E501
             query_params.append(('number__lte', local_var_params['number__lte']))  # noqa: E501
-        if 'number__isnull' in local_var_params:
+        if 'number__isnull' in local_var_params and local_var_params['number__isnull'] is not None:  # noqa: E501
             query_params.append(('number__isnull', local_var_params['number__isnull']))  # noqa: E501
-        if 'hash' in local_var_params:
+        if 'hash' in local_var_params and local_var_params['hash'] is not None:  # noqa: E501
             query_params.append(('hash', local_var_params['hash']))  # noqa: E501
-        if 'hash__contains' in local_var_params:
+        if 'hash__contains' in local_var_params and local_var_params['hash__contains'] is not None:  # noqa: E501
             query_params.append(('hash__contains', local_var_params['hash__contains']))  # noqa: E501
-        if 'hash__in' in local_var_params:
+        if 'hash__in' in local_var_params and local_var_params['hash__in'] is not None:  # noqa: E501
             query_params.append(('hash__in', local_var_params['hash__in']))  # noqa: E501
-        if 'hash__startswith' in local_var_params:
+        if 'hash__startswith' in local_var_params and local_var_params['hash__startswith'] is not None:  # noqa: E501
             query_params.append(('hash__startswith', local_var_params['hash__startswith']))  # noqa: E501
-        if 'hash__istartswith' in local_var_params:
+        if 'hash__istartswith' in local_var_params and local_var_params['hash__istartswith'] is not None:  # noqa: E501
             query_params.append(('hash__istartswith', local_var_params['hash__istartswith']))  # noqa: E501
-        if 'hash__endswith' in local_var_params:
+        if 'hash__endswith' in local_var_params and local_var_params['hash__endswith'] is not None:  # noqa: E501
             query_params.append(('hash__endswith', local_var_params['hash__endswith']))  # noqa: E501
-        if 'hash__regex' in local_var_params:
+        if 'hash__regex' in local_var_params and local_var_params['hash__regex'] is not None:  # noqa: E501
             query_params.append(('hash__regex', local_var_params['hash__regex']))  # noqa: E501
-        if 'repository__id' in local_var_params:
+        if 'repository__id' in local_var_params and local_var_params['repository__id'] is not None:  # noqa: E501
             query_params.append(('repository__id', local_var_params['repository__id']))  # noqa: E501
-        if 'repository__id__range' in local_var_params:
+        if 'repository__id__range' in local_var_params and local_var_params['repository__id__range'] is not None:  # noqa: E501
             query_params.append(('repository__id__range', local_var_params['repository__id__range']))  # noqa: E501
-        if 'repository__id__gt' in local_var_params:
+        if 'repository__id__gt' in local_var_params and local_var_params['repository__id__gt'] is not None:  # noqa: E501
             query_params.append(('repository__id__gt', local_var_params['repository__id__gt']))  # noqa: E501
-        if 'repository__id__gte' in local_var_params:
+        if 'repository__id__gte' in local_var_params and local_var_params['repository__id__gte'] is not None:  # noqa: E501
             query_params.append(('repository__id__gte', local_var_params['repository__id__gte']))  # noqa: E501
-        if 'repository__id__lt' in local_var_params:
+        if 'repository__id__lt' in local_var_params and local_var_params['repository__id__lt'] is not None:  # noqa: E501
             query_params.append(('repository__id__lt', local_var_params['repository__id__lt']))  # noqa: E501
-        if 'repository__id__lte' in local_var_params:
+        if 'repository__id__lte' in local_var_params and local_var_params['repository__id__lte'] is not None:  # noqa: E501
             query_params.append(('repository__id__lte', local_var_params['repository__id__lte']))  # noqa: E501
-        if 'repository__id__isnull' in local_var_params:
+        if 'repository__id__isnull' in local_var_params and local_var_params['repository__id__isnull'] is not None:  # noqa: E501
             query_params.append(('repository__id__isnull', local_var_params['repository__id__isnull']))  # noqa: E501
-        if 'repository__slug' in local_var_params:
+        if 'repository__slug' in local_var_params and local_var_params['repository__slug'] is not None:  # noqa: E501
             query_params.append(('repository__slug', local_var_params['repository__slug']))  # noqa: E501
-        if 'repository__slug__contains' in local_var_params:
+        if 'repository__slug__contains' in local_var_params and local_var_params['repository__slug__contains'] is not None:  # noqa: E501
             query_params.append(('repository__slug__contains', local_var_params['repository__slug__contains']))  # noqa: E501
-        if 'repository__slug__in' in local_var_params:
+        if 'repository__slug__in' in local_var_params and local_var_params['repository__slug__in'] is not None:  # noqa: E501
             query_params.append(('repository__slug__in', local_var_params['repository__slug__in']))  # noqa: E501
-        if 'repository__slug__startswith' in local_var_params:
+        if 'repository__slug__startswith' in local_var_params and local_var_params['repository__slug__startswith'] is not None:  # noqa: E501
             query_params.append(('repository__slug__startswith', local_var_params['repository__slug__startswith']))  # noqa: E501
-        if 'repository__slug__istartswith' in local_var_params:
+        if 'repository__slug__istartswith' in local_var_params and local_var_params['repository__slug__istartswith'] is not None:  # noqa: E501
             query_params.append(('repository__slug__istartswith', local_var_params['repository__slug__istartswith']))  # noqa: E501
-        if 'repository__slug__endswith' in local_var_params:
+        if 'repository__slug__endswith' in local_var_params and local_var_params['repository__slug__endswith'] is not None:  # noqa: E501
             query_params.append(('repository__slug__endswith', local_var_params['repository__slug__endswith']))  # noqa: E501
-        if 'repository__slug__regex' in local_var_params:
+        if 'repository__slug__regex' in local_var_params and local_var_params['repository__slug__regex'] is not None:  # noqa: E501
             query_params.append(('repository__slug__regex', local_var_params['repository__slug__regex']))  # noqa: E501
-        if 'repository__organisation__name' in local_var_params:
+        if 'repository__organisation__name' in local_var_params and local_var_params['repository__organisation__name'] is not None:  # noqa: E501
             query_params.append(('repository__organisation__name', local_var_params['repository__organisation__name']))  # noqa: E501
-        if 'repository__organisation__name__contains' in local_var_params:
+        if 'repository__organisation__name__contains' in local_var_params and local_var_params['repository__organisation__name__contains'] is not None:  # noqa: E501
             query_params.append(('repository__organisation__name__contains', local_var_params['repository__organisation__name__contains']))  # noqa: E501
-        if 'repository__organisation__name__in' in local_var_params:
+        if 'repository__organisation__name__in' in local_var_params and local_var_params['repository__organisation__name__in'] is not None:  # noqa: E501
             query_params.append(('repository__organisation__name__in', local_var_params['repository__organisation__name__in']))  # noqa: E501
-        if 'repository__organisation__name__startswith' in local_var_params:
+        if 'repository__organisation__name__startswith' in local_var_params and local_var_params['repository__organisation__name__startswith'] is not None:  # noqa: E501
             query_params.append(('repository__organisation__name__startswith', local_var_params['repository__organisation__name__startswith']))  # noqa: E501
-        if 'repository__organisation__name__istartswith' in local_var_params:
+        if 'repository__organisation__name__istartswith' in local_var_params and local_var_params['repository__organisation__name__istartswith'] is not None:  # noqa: E501
             query_params.append(('repository__organisation__name__istartswith', local_var_params['repository__organisation__name__istartswith']))  # noqa: E501
-        if 'repository__organisation__name__endswith' in local_var_params:
+        if 'repository__organisation__name__endswith' in local_var_params and local_var_params['repository__organisation__name__endswith'] is not None:  # noqa: E501
             query_params.append(('repository__organisation__name__endswith', local_var_params['repository__organisation__name__endswith']))  # noqa: E501
-        if 'repository__organisation__name__regex' in local_var_params:
+        if 'repository__organisation__name__regex' in local_var_params and local_var_params['repository__organisation__name__regex'] is not None:  # noqa: E501
             query_params.append(('repository__organisation__name__regex', local_var_params['repository__organisation__name__regex']))  # noqa: E501
-        if 'repository__organisation__unique_id' in local_var_params:
+        if 'repository__organisation__unique_id' in local_var_params and local_var_params['repository__organisation__unique_id'] is not None:  # noqa: E501
             query_params.append(('repository__organisation__unique_id', local_var_params['repository__organisation__unique_id']))  # noqa: E501
-        if 'repository__organisation__unique_id__contains' in local_var_params:
+        if 'repository__organisation__unique_id__contains' in local_var_params and local_var_params['repository__organisation__unique_id__contains'] is not None:  # noqa: E501
             query_params.append(('repository__organisation__unique_id__contains', local_var_params['repository__organisation__unique_id__contains']))  # noqa: E501
-        if 'repository__organisation__unique_id__in' in local_var_params:
+        if 'repository__organisation__unique_id__in' in local_var_params and local_var_params['repository__organisation__unique_id__in'] is not None:  # noqa: E501
             query_params.append(('repository__organisation__unique_id__in', local_var_params['repository__organisation__unique_id__in']))  # noqa: E501
-        if 'repository__organisation__unique_id__startswith' in local_var_params:
+        if 'repository__organisation__unique_id__startswith' in local_var_params and local_var_params['repository__organisation__unique_id__startswith'] is not None:  # noqa: E501
             query_params.append(('repository__organisation__unique_id__startswith', local_var_params['repository__organisation__unique_id__startswith']))  # noqa: E501
-        if 'repository__organisation__unique_id__istartswith' in local_var_params:
+        if 'repository__organisation__unique_id__istartswith' in local_var_params and local_var_params['repository__organisation__unique_id__istartswith'] is not None:  # noqa: E501
             query_params.append(('repository__organisation__unique_id__istartswith', local_var_params['repository__organisation__unique_id__istartswith']))  # noqa: E501
-        if 'repository__organisation__unique_id__endswith' in local_var_params:
+        if 'repository__organisation__unique_id__endswith' in local_var_params and local_var_params['repository__organisation__unique_id__endswith'] is not None:  # noqa: E501
             query_params.append(('repository__organisation__unique_id__endswith', local_var_params['repository__organisation__unique_id__endswith']))  # noqa: E501
-        if 'repository__organisation__unique_id__regex' in local_var_params:
+        if 'repository__organisation__unique_id__regex' in local_var_params and local_var_params['repository__organisation__unique_id__regex'] is not None:  # noqa: E501
             query_params.append(('repository__organisation__unique_id__regex', local_var_params['repository__organisation__unique_id__regex']))  # noqa: E501
-        if 'is_pinned' in local_var_params:
+        if 'is_pinned' in local_var_params and local_var_params['is_pinned'] is not None:  # noqa: E501
             query_params.append(('is_pinned', local_var_params['is_pinned']))  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params:
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -602,12 +602,12 @@ class RevisionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `revisions_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `data` when calling `revisions_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -720,8 +720,8 @@ class RevisionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `revisions_read`")  # noqa: E501
 
         collection_formats = {}
@@ -828,8 +828,8 @@ class RevisionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `revisions_threedimodels`")  # noqa: E501
 
         collection_formats = {}
@@ -938,12 +938,12 @@ class RevisionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `revisions_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `data` when calling `revisions_update`")  # noqa: E501
 
         collection_formats = {}

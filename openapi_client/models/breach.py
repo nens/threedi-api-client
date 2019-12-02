@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.27   3Di core release: 2.0.3  deployed on:  09:45AM (UTC) on December 02, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class Breach(object):
@@ -51,8 +53,11 @@ class Breach(object):
         'id': 'id'
     }
 
-    def __init__(self, url=None, potential_breach=None, duration_till_max_depth=None, initial_width=None, simulation=None, offset=None, id=None):  # noqa: E501
+    def __init__(self, url=None, potential_breach=None, duration_till_max_depth=None, initial_width=None, simulation=None, offset=None, id=None, local_vars_configuration=None):  # noqa: E501
         """Breach - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._potential_breach = None
@@ -113,7 +118,7 @@ class Breach(object):
         :param potential_breach: The potential_breach of this Breach.  # noqa: E501
         :type: str
         """
-        if potential_breach is None:
+        if self.local_vars_configuration.client_side_validation and potential_breach is None:  # noqa: E501
             raise ValueError("Invalid value for `potential_breach`, must not be `None`")  # noqa: E501
 
         self._potential_breach = potential_breach
@@ -138,11 +143,13 @@ class Breach(object):
         :param duration_till_max_depth: The duration_till_max_depth of this Breach.  # noqa: E501
         :type: int
         """
-        if duration_till_max_depth is None:
+        if self.local_vars_configuration.client_side_validation and duration_till_max_depth is None:  # noqa: E501
             raise ValueError("Invalid value for `duration_till_max_depth`, must not be `None`")  # noqa: E501
-        if duration_till_max_depth is not None and duration_till_max_depth > 2147483647:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                duration_till_max_depth is not None and duration_till_max_depth > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `duration_till_max_depth`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if duration_till_max_depth is not None and duration_till_max_depth < 0:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                duration_till_max_depth is not None and duration_till_max_depth < 0):  # noqa: E501
             raise ValueError("Invalid value for `duration_till_max_depth`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._duration_till_max_depth = duration_till_max_depth
@@ -167,7 +174,7 @@ class Breach(object):
         :param initial_width: The initial_width of this Breach.  # noqa: E501
         :type: float
         """
-        if initial_width is None:
+        if self.local_vars_configuration.client_side_validation and initial_width is None:  # noqa: E501
             raise ValueError("Invalid value for `initial_width`, must not be `None`")  # noqa: E501
 
         self._initial_width = initial_width
@@ -213,11 +220,13 @@ class Breach(object):
         :param offset: The offset of this Breach.  # noqa: E501
         :type: int
         """
-        if offset is None:
+        if self.local_vars_configuration.client_side_validation and offset is None:  # noqa: E501
             raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
-        if offset is not None and offset > 2147483647:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                offset is not None and offset > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `offset`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if offset is not None and offset < 0:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                offset is not None and offset < 0):  # noqa: E501
             raise ValueError("Invalid value for `offset`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._offset = offset
@@ -280,8 +289,11 @@ class Breach(object):
         if not isinstance(other, Breach):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, Breach):
+            return True
+
+        return self.to_dict() != other.to_dict()
