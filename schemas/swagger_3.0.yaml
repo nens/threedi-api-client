@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
   title: 3Di API
-  description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.22\
-    \ \n 3Di core release: 2.0.2 \ndeployed on:  09:48AM (UTC) on November 25, 2019"
+  description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.27\
+    \ \n 3Di core release: 2.0.3 \ndeployed on:  09:45AM (UTC) on December 02, 2019"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -4140,7 +4140,7 @@ paths:
         \ to\nthe structure. Not all valid action types can be applied to every\n\
         structure. An overview of valid combinations:\n\n   set_discharge_coefficients:\
         \ v2_orifice, v2_weir, v2_pipe,\n                               v2_channel,\
-        \ v2_culvert\n   set_crest_level: v2_orifice, v2_weir\n   set_pump_discharge:\
+        \ v2_culvert\n   set_crest_level: v2_orifice, v2_weir\n   set_pump_capacity:\
         \ v2_pumpstation\n\nThe value parameter must contain 1 value, except for the\n\
         ``set_discharge_coefficients``action that expects a value for\nboth flow directions.\n\
         \nExample payload:\n\n```\n    {\n      \"offset\": 0,\n      \"duration\"\
@@ -9314,7 +9314,7 @@ definitions:
         enum:
           - set_discharge_coefficients
           - set_crest_level
-          - set_pump_discharge
+          - set_pump_capacity
       structure_id:
         title: Structure id
         type: integer

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.27   3Di core release: 2.0.3  deployed on:  09:45AM (UTC) on December 02, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -139,37 +139,37 @@ class OrganisationsApi(object):
         path_params = {}
 
         query_params = []
-        if 'name' in local_var_params:
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
             query_params.append(('name', local_var_params['name']))  # noqa: E501
-        if 'name__contains' in local_var_params:
+        if 'name__contains' in local_var_params and local_var_params['name__contains'] is not None:  # noqa: E501
             query_params.append(('name__contains', local_var_params['name__contains']))  # noqa: E501
-        if 'name__in' in local_var_params:
+        if 'name__in' in local_var_params and local_var_params['name__in'] is not None:  # noqa: E501
             query_params.append(('name__in', local_var_params['name__in']))  # noqa: E501
-        if 'name__startswith' in local_var_params:
+        if 'name__startswith' in local_var_params and local_var_params['name__startswith'] is not None:  # noqa: E501
             query_params.append(('name__startswith', local_var_params['name__startswith']))  # noqa: E501
-        if 'name__istartswith' in local_var_params:
+        if 'name__istartswith' in local_var_params and local_var_params['name__istartswith'] is not None:  # noqa: E501
             query_params.append(('name__istartswith', local_var_params['name__istartswith']))  # noqa: E501
-        if 'name__endswith' in local_var_params:
+        if 'name__endswith' in local_var_params and local_var_params['name__endswith'] is not None:  # noqa: E501
             query_params.append(('name__endswith', local_var_params['name__endswith']))  # noqa: E501
-        if 'name__regex' in local_var_params:
+        if 'name__regex' in local_var_params and local_var_params['name__regex'] is not None:  # noqa: E501
             query_params.append(('name__regex', local_var_params['name__regex']))  # noqa: E501
-        if 'unique_id' in local_var_params:
+        if 'unique_id' in local_var_params and local_var_params['unique_id'] is not None:  # noqa: E501
             query_params.append(('unique_id', local_var_params['unique_id']))  # noqa: E501
-        if 'unique_id__contains' in local_var_params:
+        if 'unique_id__contains' in local_var_params and local_var_params['unique_id__contains'] is not None:  # noqa: E501
             query_params.append(('unique_id__contains', local_var_params['unique_id__contains']))  # noqa: E501
-        if 'unique_id__in' in local_var_params:
+        if 'unique_id__in' in local_var_params and local_var_params['unique_id__in'] is not None:  # noqa: E501
             query_params.append(('unique_id__in', local_var_params['unique_id__in']))  # noqa: E501
-        if 'unique_id__startswith' in local_var_params:
+        if 'unique_id__startswith' in local_var_params and local_var_params['unique_id__startswith'] is not None:  # noqa: E501
             query_params.append(('unique_id__startswith', local_var_params['unique_id__startswith']))  # noqa: E501
-        if 'unique_id__istartswith' in local_var_params:
+        if 'unique_id__istartswith' in local_var_params and local_var_params['unique_id__istartswith'] is not None:  # noqa: E501
             query_params.append(('unique_id__istartswith', local_var_params['unique_id__istartswith']))  # noqa: E501
-        if 'unique_id__endswith' in local_var_params:
+        if 'unique_id__endswith' in local_var_params and local_var_params['unique_id__endswith'] is not None:  # noqa: E501
             query_params.append(('unique_id__endswith', local_var_params['unique_id__endswith']))  # noqa: E501
-        if 'unique_id__regex' in local_var_params:
+        if 'unique_id__regex' in local_var_params and local_var_params['unique_id__regex'] is not None:  # noqa: E501
             query_params.append(('unique_id__regex', local_var_params['unique_id__regex']))  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params:
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -268,8 +268,8 @@ class OrganisationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'unique_id' is set
-        if ('unique_id' not in local_var_params or
-                local_var_params['unique_id'] is None):
+        if self.api_client.client_side_validation and ('unique_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['unique_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `unique_id` when calling `organisations_permissions`")  # noqa: E501
 
         collection_formats = {}
@@ -376,8 +376,8 @@ class OrganisationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'unique_id' is set
-        if ('unique_id' not in local_var_params or
-                local_var_params['unique_id'] is None):
+        if self.api_client.client_side_validation and ('unique_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['unique_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `unique_id` when calling `organisations_read`")  # noqa: E501
 
         collection_formats = {}

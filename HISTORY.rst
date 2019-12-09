@@ -2,11 +2,17 @@
 History
 =======
 
-3.0.b2 (unreleased)
+3.0.b3 (unreleased)
 -------------------
 
 - Less strict requirement for dependencies 'six' and 'urllib3' to
   avoid pipenv resolve issues at Lizard
+
+
+3.0.b2 (2019-12-02)
+-------------------
+
+- Changed 'set_pump_discharge' to 'set_pump_capacity'.
 
 
 3.0.b1 (2019-11-28)

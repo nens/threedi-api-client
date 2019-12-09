@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.27   3Di core release: 2.0.3  deployed on:  09:45AM (UTC) on December 02, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class PostProcessingOverview(object):
@@ -63,8 +65,11 @@ class PostProcessingOverview(object):
         'damage_sources': 'damage_sources'
     }
 
-    def __init__(self, simulation=None, result_uuid=None, process_basic_results=None, start_time_sim=None, end_time_sim=None, organisation=None, username=None, scenario_name=None, model_name=None, model_revision=None, arrival=None, damage=None, damage_sources=None):  # noqa: E501
+    def __init__(self, simulation=None, result_uuid=None, process_basic_results=None, start_time_sim=None, end_time_sim=None, organisation=None, username=None, scenario_name=None, model_name=None, model_revision=None, arrival=None, damage=None, damage_sources=None, local_vars_configuration=None):  # noqa: E501
         """PostProcessingOverview - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._simulation = None
         self._result_uuid = None
@@ -275,9 +280,11 @@ class PostProcessingOverview(object):
         :param scenario_name: The scenario_name of this PostProcessingOverview.  # noqa: E501
         :type: str
         """
-        if scenario_name is not None and len(scenario_name) > 50:
+        if (self.local_vars_configuration.client_side_validation and
+                scenario_name is not None and len(scenario_name) > 50):
             raise ValueError("Invalid value for `scenario_name`, length must be less than or equal to `50`")  # noqa: E501
-        if scenario_name is not None and len(scenario_name) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                scenario_name is not None and len(scenario_name) < 1):
             raise ValueError("Invalid value for `scenario_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._scenario_name = scenario_name
@@ -424,8 +431,11 @@ class PostProcessingOverview(object):
         if not isinstance(other, PostProcessingOverview):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, PostProcessingOverview):
+            return True
+
+        return self.to_dict() != other.to_dict()

@@ -36,6 +36,7 @@ requirements = [
     'urllib3',
     'pyjwt>=1.7.1',
     'six',
+    'python-dateutil',
 ]
 
 setup_requirements = ['pytest-runner', ]

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.22   3Di core release: 2.0.2  deployed on:  09:48AM (UTC) on November 25, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.27   3Di core release: 2.0.3  deployed on:  09:45AM (UTC) on December 02, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class LizardRasterSourcesSinks(object):
@@ -57,8 +59,11 @@ class LizardRasterSourcesSinks(object):
         'id': 'id'
     }
 
-    def __init__(self, url=None, offset=None, duration=None, reference_uuid=None, start_datetime=None, simulation=None, interval=None, origin_offset=None, store_path=None, id=None):  # noqa: E501
+    def __init__(self, url=None, offset=None, duration=None, reference_uuid=None, start_datetime=None, simulation=None, interval=None, origin_offset=None, store_path=None, id=None, local_vars_configuration=None):  # noqa: E501
         """LizardRasterSourcesSinks - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._offset = None
@@ -130,11 +135,13 @@ class LizardRasterSourcesSinks(object):
         :param offset: The offset of this LizardRasterSourcesSinks.  # noqa: E501
         :type: int
         """
-        if offset is None:
+        if self.local_vars_configuration.client_side_validation and offset is None:  # noqa: E501
             raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
-        if offset is not None and offset > 2147483647:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                offset is not None and offset > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `offset`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if offset is not None and offset < 0:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                offset is not None and offset < 0):  # noqa: E501
             raise ValueError("Invalid value for `offset`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._offset = offset
@@ -159,9 +166,11 @@ class LizardRasterSourcesSinks(object):
         :param duration: The duration of this LizardRasterSourcesSinks.  # noqa: E501
         :type: int
         """
-        if duration is not None and duration > 2147483647:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                duration is not None and duration > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `duration`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if duration is not None and duration < 0:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                duration is not None and duration < 0):  # noqa: E501
             raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._duration = duration
@@ -184,11 +193,13 @@ class LizardRasterSourcesSinks(object):
         :param reference_uuid: The reference_uuid of this LizardRasterSourcesSinks.  # noqa: E501
         :type: str
         """
-        if reference_uuid is None:
+        if self.local_vars_configuration.client_side_validation and reference_uuid is None:  # noqa: E501
             raise ValueError("Invalid value for `reference_uuid`, must not be `None`")  # noqa: E501
-        if reference_uuid is not None and len(reference_uuid) > 40:
+        if (self.local_vars_configuration.client_side_validation and
+                reference_uuid is not None and len(reference_uuid) > 40):
             raise ValueError("Invalid value for `reference_uuid`, length must be less than or equal to `40`")  # noqa: E501
-        if reference_uuid is not None and len(reference_uuid) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                reference_uuid is not None and len(reference_uuid) < 1):
             raise ValueError("Invalid value for `reference_uuid`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._reference_uuid = reference_uuid
@@ -211,7 +222,7 @@ class LizardRasterSourcesSinks(object):
         :param start_datetime: The start_datetime of this LizardRasterSourcesSinks.  # noqa: E501
         :type: datetime
         """
-        if start_datetime is None:
+        if self.local_vars_configuration.client_side_validation and start_datetime is None:  # noqa: E501
             raise ValueError("Invalid value for `start_datetime`, must not be `None`")  # noqa: E501
 
         self._start_datetime = start_datetime
@@ -297,7 +308,8 @@ class LizardRasterSourcesSinks(object):
         :param store_path: The store_path of this LizardRasterSourcesSinks.  # noqa: E501
         :type: str
         """
-        if store_path is not None and len(store_path) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                store_path is not None and len(store_path) < 1):
             raise ValueError("Invalid value for `store_path`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._store_path = store_path
@@ -360,8 +372,11 @@ class LizardRasterSourcesSinks(object):
         if not isinstance(other, LizardRasterSourcesSinks):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, LizardRasterSourcesSinks):
+            return True
+
+        return self.to_dict() != other.to_dict()
