@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.b3 (unreleased)
+3.0.b3 (2019-12-09)
 -------------------
 
 - Less strict requirement for dependencies 'six' and 'urllib3' to
