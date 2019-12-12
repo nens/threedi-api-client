@@ -2,10 +2,17 @@
 History
 =======
 
-3.0.b3 (unreleased)
+3.0.b4 (unreleased)
 -------------------
 
 - Local rain events.
+
+
+3.0.b3 (2019-12-09)
+-------------------
+
+- Less strict requirement for dependencies 'six' and 'urllib3' to
+  avoid pipenv resolve issues at Lizard
 
 
 3.0.b2 (2019-12-02)
@@ -118,7 +125,7 @@ History
 0.1.7 (2019-09-25)
 ------------------
 
-- Laterals now have id field. 
+- Laterals now have id field.
 
 - Usage integration
 
