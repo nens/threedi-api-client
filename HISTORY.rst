@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.b4 (unreleased)
+3.0.b4 (2019-12-12)
 -------------------
 
 - Local rain events.
