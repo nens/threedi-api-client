@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.27   3Di core release: 2.0.3  deployed on:  09:45AM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,6 @@ class TimeseriesLateral(object):
         'interpolate': 'bool',
         'values': 'list[list[float]]',
         'units': 'str',
-        'epsg': 'int',
         'point': 'str',
         'connection_node': 'int',
         'state': 'str',
@@ -56,7 +55,6 @@ class TimeseriesLateral(object):
         'interpolate': 'interpolate',
         'values': 'values',
         'units': 'units',
-        'epsg': 'epsg',
         'point': 'point',
         'connection_node': 'connection_node',
         'state': 'state',
@@ -65,7 +63,7 @@ class TimeseriesLateral(object):
         'id': 'id'
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, interpolate=None, values=None, units=None, epsg=None, point=None, connection_node=None, state=None, state_detail=None, grid_id=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, offset=None, interpolate=None, values=None, units=None, point=None, connection_node=None, state=None, state_detail=None, grid_id=None, id=None, local_vars_configuration=None):  # noqa: E501
         """TimeseriesLateral - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -77,7 +75,6 @@ class TimeseriesLateral(object):
         self._interpolate = None
         self._values = None
         self._units = None
-        self._epsg = None
         self._point = None
         self._connection_node = None
         self._state = None
@@ -95,7 +92,6 @@ class TimeseriesLateral(object):
             self.interpolate = interpolate
         self.values = values
         self.units = units
-        self.epsg = epsg
         self.point = point
         self.connection_node = connection_node
         if state is not None:
@@ -254,33 +250,6 @@ class TimeseriesLateral(object):
             )
 
         self._units = units
-
-    @property
-    def epsg(self):
-        """Gets the epsg of this TimeseriesLateral.  # noqa: E501
-
-
-        :return: The epsg of this TimeseriesLateral.  # noqa: E501
-        :rtype: int
-        """
-        return self._epsg
-
-    @epsg.setter
-    def epsg(self, epsg):
-        """Sets the epsg of this TimeseriesLateral.
-
-
-        :param epsg: The epsg of this TimeseriesLateral.  # noqa: E501
-        :type: int
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                epsg is not None and epsg > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `epsg`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                epsg is not None and epsg < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `epsg`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
-
-        self._epsg = epsg
 
     @property
     def point(self):

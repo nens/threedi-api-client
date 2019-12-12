@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.27   3Di core release: 2.0.3  deployed on:  09:45AM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -37,7 +37,7 @@ class InlineResponse20027(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[TimedStructureControl]'
+        'results': 'list[LizardTimeseriesSourcesSinks]'
     }
 
     attribute_map = {
@@ -135,7 +135,7 @@ class InlineResponse20027(object):
 
 
         :return: The results of this InlineResponse20027.  # noqa: E501
-        :rtype: list[TimedStructureControl]
+        :rtype: list[LizardTimeseriesSourcesSinks]
         """
         return self._results
 
@@ -145,7 +145,7 @@ class InlineResponse20027(object):
 
 
         :param results: The results of this InlineResponse20027.  # noqa: E501
-        :type: list[TimedStructureControl]
+        :type: list[LizardTimeseriesSourcesSinks]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

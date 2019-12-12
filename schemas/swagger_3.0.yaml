@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
   title: 3Di API
-  description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.27\
-    \ \n 3Di core release: 2.0.3 \ndeployed on:  09:45AM (UTC) on December 02, 2019"
+  description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.29\
+    \ \n 3Di core release: 2.0.3 \ndeployed on:  02:21PM (UTC) on December 02, 2019"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -2844,6 +2844,254 @@ paths:
       - name: id
         in: path
         description: A unique integer value identifying this timeseries rain.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/rain/local/constant/:
+    get:
+      operationId: simulations_events_rain_local_constant_list
+      description: A simple ViewSet for viewing TimeseriesRain
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ConstantLocalRain'
+      tags:
+        - simulations
+    post:
+      operationId: simulations_events_rain_local_constant_create
+      description: A simple ViewSet for viewing TimeseriesRain
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ConstantLocalRain'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/ConstantLocalRain'
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/rain/local/constant/{id}/:
+    get:
+      operationId: simulations_events_rain_local_constant_read
+      description: A simple ViewSet for viewing TimeseriesRain
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ConstantLocalRain'
+      tags:
+        - simulations
+    put:
+      operationId: simulations_events_rain_local_constant_update
+      description: A simple ViewSet for viewing TimeseriesRain
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ConstantLocalRain'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ConstantLocalRain'
+      tags:
+        - simulations
+    patch:
+      operationId: simulations_events_rain_local_constant_partial_update
+      description: A simple ViewSet for viewing TimeseriesRain
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ConstantLocalRain'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ConstantLocalRain'
+      tags:
+        - simulations
+    delete:
+      operationId: simulations_events_rain_local_constant_delete
+      description: A simple ViewSet for viewing TimeseriesRain
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - simulations
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this local rain.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/rain/local/timeseries/:
+    get:
+      operationId: simulations_events_rain_local_timeseries_list
+      description: A simple ViewSet for viewing TimeseriesLateral
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/TimeseriesLocalRain'
+      tags:
+        - simulations
+    post:
+      operationId: simulations_events_rain_local_timeseries_create
+      description: A simple ViewSet for viewing TimeseriesLateral
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/TimeseriesLocalRain'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/TimeseriesLocalRain'
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/rain/local/timeseries/{id}/:
+    get:
+      operationId: simulations_events_rain_local_timeseries_read
+      description: A simple ViewSet for viewing TimeseriesLateral
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/TimeseriesLocalRain'
+      tags:
+        - simulations
+    put:
+      operationId: simulations_events_rain_local_timeseries_update
+      description: A simple ViewSet for viewing TimeseriesLateral
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/TimeseriesLocalRain'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/TimeseriesLocalRain'
+      tags:
+        - simulations
+    patch:
+      operationId: simulations_events_rain_local_timeseries_partial_update
+      description: A simple ViewSet for viewing TimeseriesLateral
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/TimeseriesLocalRain'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/TimeseriesLocalRain'
+      tags:
+        - simulations
+    delete:
+      operationId: simulations_events_rain_local_timeseries_delete
+      description: A simple ViewSet for viewing TimeseriesLateral
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - simulations
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this local rain.
         required: true
         type: integer
       - name: simulation_pk
@@ -9237,12 +9485,6 @@ definitions:
       constant:
         title: Constant
         type: boolean
-      epsg:
-        title: Epsg
-        type: integer
-        maximum: 2147483647
-        minimum: -2147483648
-        x-nullable: true
       point:
         title: Point
         type: string
@@ -9349,6 +9591,67 @@ definitions:
         maximum: 2147483647
         minimum: -2147483648
         x-nullable: true
+  LocalRain:
+    required:
+      - offset
+      - values
+      - point
+      - diameter
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+        readOnly: true
+      offset:
+        title: Offset
+        description: offset of event in simulation in seconds
+        type: integer
+        maximum: 2147483647
+        minimum: 0
+      duration:
+        title: Duration
+        description: Duration of event in seconds
+        type: integer
+        maximum: 2147483647
+        minimum: 0
+        x-nullable: true
+      interpolate:
+        title: Interpolate
+        type: boolean
+      values:
+        type: array
+        items:
+          type: array
+          items:
+            title: Values
+            type: number
+          maxItems: 300
+      units:
+        title: Units
+        description: m/s is only option for now
+        type: string
+        enum:
+          - m/s
+          - mm/h
+          - mm/min
+      constant:
+        title: Constant
+        type: boolean
+      point:
+        title: Point
+        type: string
+      diameter:
+        title: Diameter
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
   Event:
     type: object
     properties:
@@ -9435,6 +9738,11 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/TimedStructureControl'
+        readOnly: true
+      localrain:
+        type: array
+        items:
+          $ref: '#/definitions/LocalRain'
         readOnly: true
   Action:
     required:
@@ -9607,12 +9915,6 @@ definitions:
         type: string
         enum:
           - m3/s
-      epsg:
-        title: Epsg
-        type: integer
-        maximum: 2147483647
-        minimum: -2147483648
-        x-nullable: true
       point:
         title: Point
         type: string
@@ -9699,12 +10001,6 @@ definitions:
         type: string
         enum:
           - m3/s
-      epsg:
-        title: Epsg
-        type: integer
-        maximum: 2147483647
-        minimum: -2147483648
-        x-nullable: true
       point:
         title: Point
         type: string
@@ -9775,6 +10071,110 @@ definitions:
         type: string
         enum:
           - m/s
+  ConstantLocalRain:
+    required:
+      - offset
+      - value
+      - diameter
+      - point
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+        readOnly: true
+      offset:
+        title: Offset
+        description: offset of event in simulation in seconds
+        type: integer
+        maximum: 2147483647
+        minimum: 0
+      value:
+        title: Value
+        type: number
+      units:
+        title: Units
+        description: m/s is only option for now
+        type: string
+        enum:
+          - m/s
+          - mm/h
+          - mm/min
+      duration:
+        title: Duration
+        description: Duration of event in seconds
+        type: integer
+        maximum: 2147483647
+        minimum: 0
+        x-nullable: true
+      interpolate:
+        title: Interpolate
+        type: boolean
+      diameter:
+        title: Diameter
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      point:
+        title: Point
+        type: string
+  TimeseriesLocalRain:
+    required:
+      - offset
+      - values
+      - diameter
+      - point
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+        readOnly: true
+      offset:
+        title: Offset
+        description: offset of event in simulation in seconds
+        type: integer
+        maximum: 2147483647
+        minimum: 0
+      values:
+        type: array
+        items:
+          type: array
+          items:
+            title: Values
+            type: number
+          maxItems: 300
+      interpolate:
+        title: Interpolate
+        type: boolean
+      units:
+        title: Units
+        description: m/s is only option for now
+        type: string
+        enum:
+          - m/s
+          - mm/h
+          - mm/min
+      diameter:
+        title: Diameter
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      point:
+        title: Point
+        type: string
   NetCDFRasterRain:
     type: object
     properties:
