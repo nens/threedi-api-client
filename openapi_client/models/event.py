@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.27   3Di core release: 2.0.3  deployed on:  09:45AM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -54,7 +54,8 @@ class Event(object):
         'initial_savedstate': 'InitialSavedStateOverview',
         'savedstates': 'list[SavedStateOverview]',
         'laterals': 'list[Lateral]',
-        'timedstructurecontrol': 'list[TimedStructureControl]'
+        'timedstructurecontrol': 'list[TimedStructureControl]',
+        'localrain': 'list[LocalRain]'
     }
 
     attribute_map = {
@@ -78,10 +79,11 @@ class Event(object):
         'initial_savedstate': 'initial_savedstate',
         'savedstates': 'savedstates',
         'laterals': 'laterals',
-        'timedstructurecontrol': 'timedstructurecontrol'
+        'timedstructurecontrol': 'timedstructurecontrol',
+        'localrain': 'localrain'
     }
 
-    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, timedstructurecontrol=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, timedstructurecontrol=None, localrain=None, local_vars_configuration=None):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -108,6 +110,7 @@ class Event(object):
         self._savedstates = None
         self._laterals = None
         self._timedstructurecontrol = None
+        self._localrain = None
         self.discriminator = None
 
         if lizardrasterrain is not None:
@@ -152,6 +155,8 @@ class Event(object):
             self.laterals = laterals
         if timedstructurecontrol is not None:
             self.timedstructurecontrol = timedstructurecontrol
+        if localrain is not None:
+            self.localrain = localrain
 
     @property
     def lizardrasterrain(self):
@@ -593,6 +598,27 @@ class Event(object):
         """
 
         self._timedstructurecontrol = timedstructurecontrol
+
+    @property
+    def localrain(self):
+        """Gets the localrain of this Event.  # noqa: E501
+
+
+        :return: The localrain of this Event.  # noqa: E501
+        :rtype: list[LocalRain]
+        """
+        return self._localrain
+
+    @localrain.setter
+    def localrain(self, localrain):
+        """Sets the localrain of this Event.
+
+
+        :param localrain: The localrain of this Event.  # noqa: E501
+        :type: list[LocalRain]
+        """
+
+        self._localrain = localrain
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -5,7 +5,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.27   3Di core release: 2.0.3  deployed on:  09:45AM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = '3.0.b3.dev0'
+__version__ = "1.0.0"
 
 # import apis into sdk package
 from openapi_client.api.auth_api import AuthApi
@@ -48,6 +48,7 @@ from openapi_client.models.basic_post_processing import BasicPostProcessing
 from openapi_client.models.boundary_condition import BoundaryCondition
 from openapi_client.models.breach import Breach
 from openapi_client.models.constant_lateral import ConstantLateral
+from openapi_client.models.constant_local_rain import ConstantLocalRain
 from openapi_client.models.constant_rain import ConstantRain
 from openapi_client.models.constant_sources_sinks import ConstantSourcesSinks
 from openapi_client.models.contract import Contract
@@ -109,6 +110,8 @@ from openapi_client.models.inline_response20042 import InlineResponse20042
 from openapi_client.models.inline_response20043 import InlineResponse20043
 from openapi_client.models.inline_response20044 import InlineResponse20044
 from openapi_client.models.inline_response20045 import InlineResponse20045
+from openapi_client.models.inline_response20046 import InlineResponse20046
+from openapi_client.models.inline_response20047 import InlineResponse20047
 from openapi_client.models.inline_response2005 import InlineResponse2005
 from openapi_client.models.inline_response2006 import InlineResponse2006
 from openapi_client.models.inline_response2007 import InlineResponse2007
@@ -120,6 +123,7 @@ from openapi_client.models.lizard_raster_rain import LizardRasterRain
 from openapi_client.models.lizard_raster_sources_sinks import LizardRasterSourcesSinks
 from openapi_client.models.lizard_timeseries_rain import LizardTimeseriesRain
 from openapi_client.models.lizard_timeseries_sources_sinks import LizardTimeseriesSourcesSinks
+from openapi_client.models.local_rain import LocalRain
 from openapi_client.models.net_cdf_raster_rain import NetCDFRasterRain
 from openapi_client.models.net_cdf_raster_sources_sinks import NetCDFRasterSourcesSinks
 from openapi_client.models.net_cdf_timeseries_rain import NetCDFTimeseriesRain
@@ -151,6 +155,7 @@ from openapi_client.models.threshold import Threshold
 from openapi_client.models.timed_saved_state_update import TimedSavedStateUpdate
 from openapi_client.models.timed_structure_control import TimedStructureControl
 from openapi_client.models.timeseries_lateral import TimeseriesLateral
+from openapi_client.models.timeseries_local_rain import TimeseriesLocalRain
 from openapi_client.models.timeseries_rain import TimeseriesRain
 from openapi_client.models.timeseries_rain_overview import TimeseriesRainOverview
 from openapi_client.models.timeseries_sources_sinks import TimeseriesSourcesSinks

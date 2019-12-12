@@ -5,7 +5,7 @@ History
 3.0.b3 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Local rain events.
 
 
 3.0.b2 (2019-12-02)
