@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,8 @@ class Breach(object):
         'initial_width': 'float',
         'simulation': 'str',
         'offset': 'int',
-        'id': 'int'
+        'id': 'int',
+        'uid': 'str'
     }
 
     attribute_map = {
@@ -50,10 +51,11 @@ class Breach(object):
         'initial_width': 'initial_width',
         'simulation': 'simulation',
         'offset': 'offset',
-        'id': 'id'
+        'id': 'id',
+        'uid': 'uid'
     }
 
-    def __init__(self, url=None, potential_breach=None, duration_till_max_depth=None, initial_width=None, simulation=None, offset=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, potential_breach=None, duration_till_max_depth=None, initial_width=None, simulation=None, offset=None, id=None, uid=None, local_vars_configuration=None):  # noqa: E501
         """Breach - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +68,7 @@ class Breach(object):
         self._simulation = None
         self._offset = None
         self._id = None
+        self._uid = None
         self.discriminator = None
 
         if url is not None:
@@ -78,6 +81,8 @@ class Breach(object):
         self.offset = offset
         if id is not None:
             self.id = id
+        if uid is not None:
+            self.uid = uid
 
     @property
     def url(self):
@@ -251,6 +256,27 @@ class Breach(object):
         """
 
         self._id = id
+
+    @property
+    def uid(self):
+        """Gets the uid of this Breach.  # noqa: E501
+
+
+        :return: The uid of this Breach.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this Breach.
+
+
+        :param uid: The uid of this Breach.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -38,7 +38,8 @@ class TwoDWaterRaster(object):
         'simulation': 'str',
         'aggregation_method': 'str',
         'initial_waterlevel': 'str',
-        'initial_waterlevel_id': 'str'
+        'initial_waterlevel_id': 'str',
+        'uid': 'str'
     }
 
     attribute_map = {
@@ -46,10 +47,11 @@ class TwoDWaterRaster(object):
         'simulation': 'simulation',
         'aggregation_method': 'aggregation_method',
         'initial_waterlevel': 'initial_waterlevel',
-        'initial_waterlevel_id': 'initial_waterlevel_id'
+        'initial_waterlevel_id': 'initial_waterlevel_id',
+        'uid': 'uid'
     }
 
-    def __init__(self, url=None, simulation=None, aggregation_method=None, initial_waterlevel=None, initial_waterlevel_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, aggregation_method=None, initial_waterlevel=None, initial_waterlevel_id=None, uid=None, local_vars_configuration=None):  # noqa: E501
         """TwoDWaterRaster - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,6 +62,7 @@ class TwoDWaterRaster(object):
         self._aggregation_method = None
         self._initial_waterlevel = None
         self._initial_waterlevel_id = None
+        self._uid = None
         self.discriminator = None
 
         if url is not None:
@@ -70,6 +73,8 @@ class TwoDWaterRaster(object):
         self.initial_waterlevel = initial_waterlevel
         if initial_waterlevel_id is not None:
             self.initial_waterlevel_id = initial_waterlevel_id
+        if uid is not None:
+            self.uid = uid
 
     @property
     def url(self):
@@ -185,6 +190,27 @@ class TwoDWaterRaster(object):
         """
 
         self._initial_waterlevel_id = initial_waterlevel_id
+
+    @property
+    def uid(self):
+        """Gets the uid of this TwoDWaterRaster.  # noqa: E501
+
+
+        :return: The uid of this TwoDWaterRaster.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this TwoDWaterRaster.
+
+
+        :param uid: The uid of this TwoDWaterRaster.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

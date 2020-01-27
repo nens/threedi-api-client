@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -43,7 +43,8 @@ class LizardTimeseriesRain(object):
         'interpolate': 'bool',
         'values': 'list[list[float]]',
         'units': 'str',
-        'id': 'int'
+        'id': 'int',
+        'uid': 'str'
     }
 
     attribute_map = {
@@ -56,10 +57,11 @@ class LizardTimeseriesRain(object):
         'interpolate': 'interpolate',
         'values': 'values',
         'units': 'units',
-        'id': 'id'
+        'id': 'id',
+        'uid': 'uid'
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, duration=None, reference_uuid=None, start_datetime=None, interpolate=None, values=None, units=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, offset=None, duration=None, reference_uuid=None, start_datetime=None, interpolate=None, values=None, units=None, id=None, uid=None, local_vars_configuration=None):  # noqa: E501
         """LizardTimeseriesRain - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,6 +77,7 @@ class LizardTimeseriesRain(object):
         self._values = None
         self._units = None
         self._id = None
+        self._uid = None
         self.discriminator = None
 
         if url is not None:
@@ -93,6 +96,8 @@ class LizardTimeseriesRain(object):
             self.units = units
         if id is not None:
             self.id = id
+        if uid is not None:
+            self.uid = uid
 
     @property
     def url(self):
@@ -337,6 +342,27 @@ class LizardTimeseriesRain(object):
         """
 
         self._id = id
+
+    @property
+    def uid(self):
+        """Gets the uid of this LizardTimeseriesRain.  # noqa: E501
+
+
+        :return: The uid of this LizardTimeseriesRain.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this LizardTimeseriesRain.
+
+
+        :param uid: The uid of this LizardTimeseriesRain.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

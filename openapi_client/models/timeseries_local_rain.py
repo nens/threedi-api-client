@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -41,7 +41,8 @@ class TimeseriesLocalRain(object):
         'interpolate': 'bool',
         'units': 'str',
         'diameter': 'int',
-        'point': 'str'
+        'point': 'str',
+        'uid': 'str'
     }
 
     attribute_map = {
@@ -52,10 +53,11 @@ class TimeseriesLocalRain(object):
         'interpolate': 'interpolate',
         'units': 'units',
         'diameter': 'diameter',
-        'point': 'point'
+        'point': 'point',
+        'uid': 'uid'
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, values=None, interpolate=None, units=None, diameter=None, point=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, offset=None, values=None, interpolate=None, units=None, diameter=None, point=None, uid=None, local_vars_configuration=None):  # noqa: E501
         """TimeseriesLocalRain - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class TimeseriesLocalRain(object):
         self._units = None
         self._diameter = None
         self._point = None
+        self._uid = None
         self.discriminator = None
 
         if url is not None:
@@ -83,6 +86,8 @@ class TimeseriesLocalRain(object):
             self.units = units
         self.diameter = diameter
         self.point = point
+        if uid is not None:
+            self.uid = uid
 
     @property
     def url(self):
@@ -281,6 +286,27 @@ class TimeseriesLocalRain(object):
             raise ValueError("Invalid value for `point`, must not be `None`")  # noqa: E501
 
         self._point = point
+
+    @property
+    def uid(self):
+        """Gets the uid of this TimeseriesLocalRain.  # noqa: E501
+
+
+        :return: The uid of this TimeseriesLocalRain.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this TimeseriesLocalRain.
+
+
+        :param uid: The uid of this TimeseriesLocalRain.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

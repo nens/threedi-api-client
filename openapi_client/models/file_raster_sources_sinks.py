@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -47,7 +47,8 @@ class FileRasterSourcesSinks(object):
         'geotransform': 'list[float]',
         'epsg_code': 'int',
         'file': 'FileReadOnly',
-        'type': 'str'
+        'type': 'str',
+        'uid': 'str'
     }
 
     attribute_map = {
@@ -64,10 +65,11 @@ class FileRasterSourcesSinks(object):
         'geotransform': 'geotransform',
         'epsg_code': 'epsg_code',
         'file': 'file',
-        'type': 'type'
+        'type': 'type',
+        'uid': 'uid'
     }
 
-    def __init__(self, url=None, multiplier=None, simulation=None, offset=None, duration=None, timestamps=None, interval=None, values_reference=None, fill_value=None, units=None, geotransform=None, epsg_code=None, file=None, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, multiplier=None, simulation=None, offset=None, duration=None, timestamps=None, interval=None, values_reference=None, fill_value=None, units=None, geotransform=None, epsg_code=None, file=None, type=None, uid=None, local_vars_configuration=None):  # noqa: E501
         """FileRasterSourcesSinks - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -87,6 +89,7 @@ class FileRasterSourcesSinks(object):
         self._epsg_code = None
         self._file = None
         self._type = None
+        self._uid = None
         self.discriminator = None
 
         if url is not None:
@@ -111,6 +114,8 @@ class FileRasterSourcesSinks(object):
             self.file = file
         if type is not None:
             self.type = type
+        if uid is not None:
+            self.uid = uid
 
     @property
     def url(self):
@@ -458,6 +463,27 @@ class FileRasterSourcesSinks(object):
             )
 
         self._type = type
+
+    @property
+    def uid(self):
+        """Gets the uid of this FileRasterSourcesSinks.  # noqa: E501
+
+
+        :return: The uid of this FileRasterSourcesSinks.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this FileRasterSourcesSinks.
+
+
+        :param uid: The uid of this FileRasterSourcesSinks.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

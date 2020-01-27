@@ -4,7 +4,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -28,6 +28,7 @@ from openapi_client.models.constant_sources_sinks import ConstantSourcesSinks
 from openapi_client.models.contract import Contract
 from openapi_client.models.current_status import CurrentStatus
 from openapi_client.models.damage_post_processing import DamagePostProcessing
+from openapi_client.models.damage_seconds import DamageSeconds
 from openapi_client.models.download import Download
 from openapi_client.models.event import Event
 from openapi_client.models.file import File
@@ -86,6 +87,7 @@ from openapi_client.models.inline_response20044 import InlineResponse20044
 from openapi_client.models.inline_response20045 import InlineResponse20045
 from openapi_client.models.inline_response20046 import InlineResponse20046
 from openapi_client.models.inline_response20047 import InlineResponse20047
+from openapi_client.models.inline_response20048 import InlineResponse20048
 from openapi_client.models.inline_response2005 import InlineResponse2005
 from openapi_client.models.inline_response2006 import InlineResponse2006
 from openapi_client.models.inline_response2007 import InlineResponse2007
@@ -112,6 +114,7 @@ from openapi_client.models.post_processing_status import PostProcessingStatus
 from openapi_client.models.potential_breach import PotentialBreach
 from openapi_client.models.progress import Progress
 from openapi_client.models.raster import Raster
+from openapi_client.models.raster_edit import RasterEdit
 from openapi_client.models.raster_options import RasterOptions
 from openapi_client.models.refresh import Refresh
 from openapi_client.models.repository import Repository

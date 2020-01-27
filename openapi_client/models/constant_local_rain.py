@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -42,7 +42,8 @@ class ConstantLocalRain(object):
         'duration': 'int',
         'interpolate': 'bool',
         'diameter': 'int',
-        'point': 'str'
+        'point': 'str',
+        'uid': 'str'
     }
 
     attribute_map = {
@@ -54,10 +55,11 @@ class ConstantLocalRain(object):
         'duration': 'duration',
         'interpolate': 'interpolate',
         'diameter': 'diameter',
-        'point': 'point'
+        'point': 'point',
+        'uid': 'uid'
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, value=None, units=None, duration=None, interpolate=None, diameter=None, point=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, offset=None, value=None, units=None, duration=None, interpolate=None, diameter=None, point=None, uid=None, local_vars_configuration=None):  # noqa: E501
         """ConstantLocalRain - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,6 +74,7 @@ class ConstantLocalRain(object):
         self._interpolate = None
         self._diameter = None
         self._point = None
+        self._uid = None
         self.discriminator = None
 
         if url is not None:
@@ -87,6 +90,8 @@ class ConstantLocalRain(object):
             self.interpolate = interpolate
         self.diameter = diameter
         self.point = point
+        if uid is not None:
+            self.uid = uid
 
     @property
     def url(self):
@@ -314,6 +319,27 @@ class ConstantLocalRain(object):
             raise ValueError("Invalid value for `point`, must not be `None`")  # noqa: E501
 
         self._point = point
+
+    @property
+    def uid(self):
+        """Gets the uid of this ConstantLocalRain.  # noqa: E501
+
+
+        :return: The uid of this ConstantLocalRain.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this ConstantLocalRain.
+
+
+        :param uid: The uid of this ConstantLocalRain.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""
