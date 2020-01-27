@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.b5 (unreleased)
+3.0.b5 (2020-01-27)
 -------------------
 
 - Raster edits, event uuids.
