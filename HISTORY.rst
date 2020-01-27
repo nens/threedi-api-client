@@ -5,7 +5,7 @@ History
 3.0.b5 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Raster edits, event uuids.
 
 
 3.0.b4 (2019-12-12)
