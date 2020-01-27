@@ -44,7 +44,8 @@ class ConstantLateral(object):
         'connection_node': 'int',
         'state': 'str',
         'state_detail': 'object',
-        'grid_id': 'int'
+        'grid_id': 'int',
+        'uid': 'str'
     }
 
     attribute_map = {
@@ -58,10 +59,11 @@ class ConstantLateral(object):
         'connection_node': 'connection_node',
         'state': 'state',
         'state_detail': 'state_detail',
-        'grid_id': 'grid_id'
+        'grid_id': 'grid_id',
+        'uid': 'uid'
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, duration=None, value=None, units=None, point=None, connection_node=None, state=None, state_detail=None, grid_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, offset=None, duration=None, value=None, units=None, point=None, connection_node=None, state=None, state_detail=None, grid_id=None, uid=None, local_vars_configuration=None):  # noqa: E501
         """ConstantLateral - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -78,6 +80,7 @@ class ConstantLateral(object):
         self._state = None
         self._state_detail = None
         self._grid_id = None
+        self._uid = None
         self.discriminator = None
 
         if url is not None:
@@ -96,6 +99,8 @@ class ConstantLateral(object):
             self.state_detail = state_detail
         if grid_id is not None:
             self.grid_id = grid_id
+        if uid is not None:
+            self.uid = uid
 
     @property
     def url(self):
@@ -369,6 +374,27 @@ class ConstantLateral(object):
         """
 
         self._grid_id = grid_id
+
+    @property
+    def uid(self):
+        """Gets the uid of this ConstantLateral.  # noqa: E501
+
+
+        :return: The uid of this ConstantLateral.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this ConstantLateral.
+
+
+        :param uid: The uid of this ConstantLateral.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

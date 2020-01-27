@@ -8482,11 +8482,8 @@ definitions:
         type: string
         format: date-time
       duration:
-        title: Duration (in seconds)
-        description: simulation time in seconds
+        title: Duration
         type: integer
-        maximum: 2147483647
-        minimum: 0
       duration_humanized:
         title: Duration humanized
         type: string
@@ -8581,11 +8578,8 @@ definitions:
         type: string
         format: date-time
       duration:
-        title: Duration (in seconds)
-        description: simulation time in seconds
+        title: Duration
         type: integer
-        maximum: 2147483647
-        minimum: 0
       duration_humanized:
         title: Duration humanized
         type: string
@@ -9618,6 +9612,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uuid:
+        title: Uuid
+        type: string
+        format: uuid
   InitialSavedStateOverview:
     title: Initial savedstate
     type: object
@@ -10075,6 +10073,10 @@ definitions:
           $ref: '#/definitions/Threshold'
       file:
         $ref: '#/definitions/FileReadOnly'
+      uuid:
+        title: Uuid
+        type: string
+        format: uuid
   Upload:
     required:
       - filename
@@ -10143,6 +10145,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uuid:
+        title: Uuid
+        type: string
+        format: uuid
   ConstantLateral:
     required:
       - offset
@@ -10208,6 +10214,10 @@ definitions:
         title: Grid id
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   GridEventState:
     required:
       - state
@@ -10298,6 +10308,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   ConstantRain:
     required:
       - offset

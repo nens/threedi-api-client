@@ -374,7 +374,6 @@ class SimulationUpdate(object):
     def duration(self):
         """Gets the duration of this SimulationUpdate.  # noqa: E501
 
-        simulation time in seconds  # noqa: E501
 
         :return: The duration of this SimulationUpdate.  # noqa: E501
         :rtype: int
@@ -385,17 +384,10 @@ class SimulationUpdate(object):
     def duration(self, duration):
         """Sets the duration of this SimulationUpdate.
 
-        simulation time in seconds  # noqa: E501
 
         :param duration: The duration of this SimulationUpdate.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                duration is not None and duration > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `duration`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                duration is not None and duration < 0):  # noqa: E501
-            raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._duration = duration
 

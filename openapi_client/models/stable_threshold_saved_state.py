@@ -41,7 +41,8 @@ class StableThresholdSavedState(object):
         'tags': 'str',
         'expiry': 'datetime',
         'thresholds': 'list[Threshold]',
-        'file': 'FileReadOnly'
+        'file': 'FileReadOnly',
+        'uuid': 'str'
     }
 
     attribute_map = {
@@ -52,10 +53,11 @@ class StableThresholdSavedState(object):
         'tags': 'tags',
         'expiry': 'expiry',
         'thresholds': 'thresholds',
-        'file': 'file'
+        'file': 'file',
+        'uuid': 'uuid'
     }
 
-    def __init__(self, url=None, name=None, simulation=None, created=None, tags=None, expiry=None, thresholds=None, file=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, name=None, simulation=None, created=None, tags=None, expiry=None, thresholds=None, file=None, uuid=None, local_vars_configuration=None):  # noqa: E501
         """StableThresholdSavedState - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class StableThresholdSavedState(object):
         self._expiry = None
         self._thresholds = None
         self._file = None
+        self._uuid = None
         self.discriminator = None
 
         if url is not None:
@@ -85,6 +88,8 @@ class StableThresholdSavedState(object):
         self.thresholds = thresholds
         if file is not None:
             self.file = file
+        if uuid is not None:
+            self.uuid = uuid
 
     @property
     def url(self):
@@ -261,6 +266,27 @@ class StableThresholdSavedState(object):
         """
 
         self._file = file
+
+    @property
+    def uuid(self):
+        """Gets the uuid of this StableThresholdSavedState.  # noqa: E501
+
+
+        :return: The uuid of this StableThresholdSavedState.  # noqa: E501
+        :rtype: str
+        """
+        return self._uuid
+
+    @uuid.setter
+    def uuid(self, uuid):
+        """Sets the uuid of this StableThresholdSavedState.
+
+
+        :param uuid: The uuid of this StableThresholdSavedState.  # noqa: E501
+        :type: str
+        """
+
+        self._uuid = uuid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

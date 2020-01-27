@@ -43,7 +43,8 @@ class TimedSavedStateUpdate(object):
         'expiry': 'datetime',
         'time': 'int',
         'file': 'FileReadOnly',
-        'id': 'int'
+        'id': 'int',
+        'uuid': 'str'
     }
 
     attribute_map = {
@@ -56,10 +57,11 @@ class TimedSavedStateUpdate(object):
         'expiry': 'expiry',
         'time': 'time',
         'file': 'file',
-        'id': 'id'
+        'id': 'id',
+        'uuid': 'uuid'
     }
 
-    def __init__(self, url=None, name=None, simulation=None, created=None, created_time=None, tags=None, expiry=None, time=None, file=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, name=None, simulation=None, created=None, created_time=None, tags=None, expiry=None, time=None, file=None, id=None, uuid=None, local_vars_configuration=None):  # noqa: E501
         """TimedSavedStateUpdate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,6 +77,7 @@ class TimedSavedStateUpdate(object):
         self._time = None
         self._file = None
         self._id = None
+        self._uuid = None
         self.discriminator = None
 
         if url is not None:
@@ -93,6 +96,8 @@ class TimedSavedStateUpdate(object):
             self.file = file
         if id is not None:
             self.id = id
+        if uuid is not None:
+            self.uuid = uuid
 
     @property
     def url(self):
@@ -327,6 +332,27 @@ class TimedSavedStateUpdate(object):
         """
 
         self._id = id
+
+    @property
+    def uuid(self):
+        """Gets the uuid of this TimedSavedStateUpdate.  # noqa: E501
+
+
+        :return: The uuid of this TimedSavedStateUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._uuid
+
+    @uuid.setter
+    def uuid(self, uuid):
+        """Sets the uuid of this TimedSavedStateUpdate.
+
+
+        :param uuid: The uuid of this TimedSavedStateUpdate.  # noqa: E501
+        :type: str
+        """
+
+        self._uuid = uuid
 
     def to_dict(self):
         """Returns the model properties as a dict"""
