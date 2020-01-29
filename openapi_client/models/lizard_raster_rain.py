@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -35,6 +35,7 @@ class LizardRasterRain(object):
     """
     openapi_types = {
         'url': 'str',
+        'uid': 'str',
         'offset': 'int',
         'duration': 'int',
         'units': 'str',
@@ -50,6 +51,7 @@ class LizardRasterRain(object):
 
     attribute_map = {
         'url': 'url',
+        'uid': 'uid',
         'offset': 'offset',
         'duration': 'duration',
         'units': 'units',
@@ -63,13 +65,14 @@ class LizardRasterRain(object):
         'id': 'id'
     }
 
-    def __init__(self, url=None, offset=None, duration=None, units=None, reference_uuid=None, start_datetime=None, simulation=None, multiplier=None, interval=None, origin_offset=None, store_path=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, uid=None, offset=None, duration=None, units=None, reference_uuid=None, start_datetime=None, simulation=None, multiplier=None, interval=None, origin_offset=None, store_path=None, id=None, local_vars_configuration=None):  # noqa: E501
         """LizardRasterRain - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._url = None
+        self._uid = None
         self._offset = None
         self._duration = None
         self._units = None
@@ -85,6 +88,8 @@ class LizardRasterRain(object):
 
         if url is not None:
             self.url = url
+        if uid is not None:
+            self.uid = uid
         self.offset = offset
         self.duration = duration
         if units is not None:
@@ -124,6 +129,27 @@ class LizardRasterRain(object):
         """
 
         self._url = url
+
+    @property
+    def uid(self):
+        """Gets the uid of this LizardRasterRain.  # noqa: E501
+
+
+        :return: The uid of this LizardRasterRain.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this LizardRasterRain.
+
+
+        :param uid: The uid of this LizardRasterRain.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
 
     @property
     def offset(self):

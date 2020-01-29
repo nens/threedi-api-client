@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -34,78 +34,93 @@ class PostProcessingOverview(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'simulation': 'int',
-        'result_uuid': 'str',
-        'process_basic_results': 'bool',
+        'username': 'str',
+        'metadata_version': 'str',
         'start_time_sim': 'str',
         'end_time_sim': 'str',
-        'organisation': 'str',
-        'username': 'str',
+        'results': 'str',
         'scenario_name': 'str',
+        'model_revision_id': 'str',
+        'email': 'str',
+        'result_uuid': 'str',
+        'organisation_uuid': 'str',
+        'model_type': 'str',
         'model_name': 'str',
-        'model_revision': 'str',
+        'simulation': 'int',
         'arrival': 'ArrivalTimePostProcessing',
-        'damage': 'DamagePostProcessing',
+        'damage': 'DamageSeconds',
         'damage_sources': 'str'
     }
 
     attribute_map = {
-        'simulation': 'simulation',
-        'result_uuid': 'result_uuid',
-        'process_basic_results': 'process_basic_results',
+        'username': 'username',
+        'metadata_version': 'metadata_version',
         'start_time_sim': 'start_time_sim',
         'end_time_sim': 'end_time_sim',
-        'organisation': 'organisation',
-        'username': 'username',
+        'results': 'results',
         'scenario_name': 'scenario_name',
+        'model_revision_id': 'model_revision_id',
+        'email': 'email',
+        'result_uuid': 'result_uuid',
+        'organisation_uuid': 'organisation_uuid',
+        'model_type': 'model_type',
         'model_name': 'model_name',
-        'model_revision': 'model_revision',
+        'simulation': 'simulation',
         'arrival': 'arrival',
         'damage': 'damage',
         'damage_sources': 'damage_sources'
     }
 
-    def __init__(self, simulation=None, result_uuid=None, process_basic_results=None, start_time_sim=None, end_time_sim=None, organisation=None, username=None, scenario_name=None, model_name=None, model_revision=None, arrival=None, damage=None, damage_sources=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, username=None, metadata_version=None, start_time_sim=None, end_time_sim=None, results=None, scenario_name=None, model_revision_id=None, email=None, result_uuid=None, organisation_uuid=None, model_type=None, model_name=None, simulation=None, arrival=None, damage=None, damage_sources=None, local_vars_configuration=None):  # noqa: E501
         """PostProcessingOverview - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._simulation = None
-        self._result_uuid = None
-        self._process_basic_results = None
+        self._username = None
+        self._metadata_version = None
         self._start_time_sim = None
         self._end_time_sim = None
-        self._organisation = None
-        self._username = None
+        self._results = None
         self._scenario_name = None
+        self._model_revision_id = None
+        self._email = None
+        self._result_uuid = None
+        self._organisation_uuid = None
+        self._model_type = None
         self._model_name = None
-        self._model_revision = None
+        self._simulation = None
         self._arrival = None
         self._damage = None
         self._damage_sources = None
         self.discriminator = None
 
-        if simulation is not None:
-            self.simulation = simulation
-        if result_uuid is not None:
-            self.result_uuid = result_uuid
-        if process_basic_results is not None:
-            self.process_basic_results = process_basic_results
+        if username is not None:
+            self.username = username
+        if metadata_version is not None:
+            self.metadata_version = metadata_version
         if start_time_sim is not None:
             self.start_time_sim = start_time_sim
         if end_time_sim is not None:
             self.end_time_sim = end_time_sim
-        if organisation is not None:
-            self.organisation = organisation
-        if username is not None:
-            self.username = username
+        if results is not None:
+            self.results = results
         if scenario_name is not None:
             self.scenario_name = scenario_name
+        if model_revision_id is not None:
+            self.model_revision_id = model_revision_id
+        if email is not None:
+            self.email = email
+        if result_uuid is not None:
+            self.result_uuid = result_uuid
+        if organisation_uuid is not None:
+            self.organisation_uuid = organisation_uuid
+        if model_type is not None:
+            self.model_type = model_type
         if model_name is not None:
             self.model_name = model_name
-        if model_revision is not None:
-            self.model_revision = model_revision
+        if simulation is not None:
+            self.simulation = simulation
         if arrival is not None:
             self.arrival = arrival
         if damage is not None:
@@ -114,67 +129,46 @@ class PostProcessingOverview(object):
             self.damage_sources = damage_sources
 
     @property
-    def simulation(self):
-        """Gets the simulation of this PostProcessingOverview.  # noqa: E501
+    def username(self):
+        """Gets the username of this PostProcessingOverview.  # noqa: E501
 
 
-        :return: The simulation of this PostProcessingOverview.  # noqa: E501
-        :rtype: int
-        """
-        return self._simulation
-
-    @simulation.setter
-    def simulation(self, simulation):
-        """Sets the simulation of this PostProcessingOverview.
-
-
-        :param simulation: The simulation of this PostProcessingOverview.  # noqa: E501
-        :type: int
-        """
-
-        self._simulation = simulation
-
-    @property
-    def result_uuid(self):
-        """Gets the result_uuid of this PostProcessingOverview.  # noqa: E501
-
-
-        :return: The result_uuid of this PostProcessingOverview.  # noqa: E501
+        :return: The username of this PostProcessingOverview.  # noqa: E501
         :rtype: str
         """
-        return self._result_uuid
+        return self._username
 
-    @result_uuid.setter
-    def result_uuid(self, result_uuid):
-        """Sets the result_uuid of this PostProcessingOverview.
+    @username.setter
+    def username(self, username):
+        """Sets the username of this PostProcessingOverview.
 
 
-        :param result_uuid: The result_uuid of this PostProcessingOverview.  # noqa: E501
+        :param username: The username of this PostProcessingOverview.  # noqa: E501
         :type: str
         """
 
-        self._result_uuid = result_uuid
+        self._username = username
 
     @property
-    def process_basic_results(self):
-        """Gets the process_basic_results of this PostProcessingOverview.  # noqa: E501
+    def metadata_version(self):
+        """Gets the metadata_version of this PostProcessingOverview.  # noqa: E501
 
 
-        :return: The process_basic_results of this PostProcessingOverview.  # noqa: E501
-        :rtype: bool
+        :return: The metadata_version of this PostProcessingOverview.  # noqa: E501
+        :rtype: str
         """
-        return self._process_basic_results
+        return self._metadata_version
 
-    @process_basic_results.setter
-    def process_basic_results(self, process_basic_results):
-        """Sets the process_basic_results of this PostProcessingOverview.
+    @metadata_version.setter
+    def metadata_version(self, metadata_version):
+        """Sets the metadata_version of this PostProcessingOverview.
 
 
-        :param process_basic_results: The process_basic_results of this PostProcessingOverview.  # noqa: E501
-        :type: bool
+        :param metadata_version: The metadata_version of this PostProcessingOverview.  # noqa: E501
+        :type: str
         """
 
-        self._process_basic_results = process_basic_results
+        self._metadata_version = metadata_version
 
     @property
     def start_time_sim(self):
@@ -219,46 +213,25 @@ class PostProcessingOverview(object):
         self._end_time_sim = end_time_sim
 
     @property
-    def organisation(self):
-        """Gets the organisation of this PostProcessingOverview.  # noqa: E501
+    def results(self):
+        """Gets the results of this PostProcessingOverview.  # noqa: E501
 
 
-        :return: The organisation of this PostProcessingOverview.  # noqa: E501
+        :return: The results of this PostProcessingOverview.  # noqa: E501
         :rtype: str
         """
-        return self._organisation
+        return self._results
 
-    @organisation.setter
-    def organisation(self, organisation):
-        """Sets the organisation of this PostProcessingOverview.
+    @results.setter
+    def results(self, results):
+        """Sets the results of this PostProcessingOverview.
 
 
-        :param organisation: The organisation of this PostProcessingOverview.  # noqa: E501
+        :param results: The results of this PostProcessingOverview.  # noqa: E501
         :type: str
         """
 
-        self._organisation = organisation
-
-    @property
-    def username(self):
-        """Gets the username of this PostProcessingOverview.  # noqa: E501
-
-
-        :return: The username of this PostProcessingOverview.  # noqa: E501
-        :rtype: str
-        """
-        return self._username
-
-    @username.setter
-    def username(self, username):
-        """Sets the username of this PostProcessingOverview.
-
-
-        :param username: The username of this PostProcessingOverview.  # noqa: E501
-        :type: str
-        """
-
-        self._username = username
+        self._results = results
 
     @property
     def scenario_name(self):
@@ -290,6 +263,111 @@ class PostProcessingOverview(object):
         self._scenario_name = scenario_name
 
     @property
+    def model_revision_id(self):
+        """Gets the model_revision_id of this PostProcessingOverview.  # noqa: E501
+
+
+        :return: The model_revision_id of this PostProcessingOverview.  # noqa: E501
+        :rtype: str
+        """
+        return self._model_revision_id
+
+    @model_revision_id.setter
+    def model_revision_id(self, model_revision_id):
+        """Sets the model_revision_id of this PostProcessingOverview.
+
+
+        :param model_revision_id: The model_revision_id of this PostProcessingOverview.  # noqa: E501
+        :type: str
+        """
+
+        self._model_revision_id = model_revision_id
+
+    @property
+    def email(self):
+        """Gets the email of this PostProcessingOverview.  # noqa: E501
+
+
+        :return: The email of this PostProcessingOverview.  # noqa: E501
+        :rtype: str
+        """
+        return self._email
+
+    @email.setter
+    def email(self, email):
+        """Sets the email of this PostProcessingOverview.
+
+
+        :param email: The email of this PostProcessingOverview.  # noqa: E501
+        :type: str
+        """
+
+        self._email = email
+
+    @property
+    def result_uuid(self):
+        """Gets the result_uuid of this PostProcessingOverview.  # noqa: E501
+
+
+        :return: The result_uuid of this PostProcessingOverview.  # noqa: E501
+        :rtype: str
+        """
+        return self._result_uuid
+
+    @result_uuid.setter
+    def result_uuid(self, result_uuid):
+        """Sets the result_uuid of this PostProcessingOverview.
+
+
+        :param result_uuid: The result_uuid of this PostProcessingOverview.  # noqa: E501
+        :type: str
+        """
+
+        self._result_uuid = result_uuid
+
+    @property
+    def organisation_uuid(self):
+        """Gets the organisation_uuid of this PostProcessingOverview.  # noqa: E501
+
+
+        :return: The organisation_uuid of this PostProcessingOverview.  # noqa: E501
+        :rtype: str
+        """
+        return self._organisation_uuid
+
+    @organisation_uuid.setter
+    def organisation_uuid(self, organisation_uuid):
+        """Sets the organisation_uuid of this PostProcessingOverview.
+
+
+        :param organisation_uuid: The organisation_uuid of this PostProcessingOverview.  # noqa: E501
+        :type: str
+        """
+
+        self._organisation_uuid = organisation_uuid
+
+    @property
+    def model_type(self):
+        """Gets the model_type of this PostProcessingOverview.  # noqa: E501
+
+
+        :return: The model_type of this PostProcessingOverview.  # noqa: E501
+        :rtype: str
+        """
+        return self._model_type
+
+    @model_type.setter
+    def model_type(self, model_type):
+        """Sets the model_type of this PostProcessingOverview.
+
+
+        :param model_type: The model_type of this PostProcessingOverview.  # noqa: E501
+        :type: str
+        """
+
+        self._model_type = model_type
+
+    @property
     def model_name(self):
         """Gets the model_name of this PostProcessingOverview.  # noqa: E501
 
@@ -311,25 +389,25 @@ class PostProcessingOverview(object):
         self._model_name = model_name
 
     @property
-    def model_revision(self):
-        """Gets the model_revision of this PostProcessingOverview.  # noqa: E501
+    def simulation(self):
+        """Gets the simulation of this PostProcessingOverview.  # noqa: E501
 
 
-        :return: The model_revision of this PostProcessingOverview.  # noqa: E501
-        :rtype: str
+        :return: The simulation of this PostProcessingOverview.  # noqa: E501
+        :rtype: int
         """
-        return self._model_revision
+        return self._simulation
 
-    @model_revision.setter
-    def model_revision(self, model_revision):
-        """Sets the model_revision of this PostProcessingOverview.
+    @simulation.setter
+    def simulation(self, simulation):
+        """Sets the simulation of this PostProcessingOverview.
 
 
-        :param model_revision: The model_revision of this PostProcessingOverview.  # noqa: E501
-        :type: str
+        :param simulation: The simulation of this PostProcessingOverview.  # noqa: E501
+        :type: int
         """
 
-        self._model_revision = model_revision
+        self._simulation = simulation
 
     @property
     def arrival(self):
@@ -358,7 +436,7 @@ class PostProcessingOverview(object):
 
 
         :return: The damage of this PostProcessingOverview.  # noqa: E501
-        :rtype: DamagePostProcessing
+        :rtype: DamageSeconds
         """
         return self._damage
 
@@ -368,7 +446,7 @@ class PostProcessingOverview(object):
 
 
         :param damage: The damage of this PostProcessingOverview.  # noqa: E501
-        :type: DamagePostProcessing
+        :type: DamageSeconds
         """
 
         self._damage = damage

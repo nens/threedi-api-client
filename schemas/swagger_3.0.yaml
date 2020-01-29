@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
   title: 3Di API
-  description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.29\
-    \ \n 3Di core release: 2.0.3 \ndeployed on:  02:21PM (UTC) on December 02, 2019"
+  description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.32\
+    \ \n 3Di core release: 2.0.4 \ndeployed on:  01:25PM (UTC) on January 17, 2020"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -1961,9 +1961,14 @@ paths:
       summary: Post an action to the simulation to start, pause or end it.
       description: "Example usage:\n\nTo initialize a simulation (and pause)\n```\n\
         {\"name\": \"initialize\"}\n```\n\nTo initialize and directly run a simulation\n\
-        ```\n{\"name\": \"start\"}\n```\n\nTo pause a simulation\n```\n{\"name\":\
-        \ \"pause\"}\n```\n\nTo end a simulation\n```\n{\"name\": \"shutdown\"}\n\
-        ```"
+        ```\n{\"name\": \"start\"}\n```\nAlso use \"start\" to resume a paused simulation.\n\
+        \nIf you want to pause the simulation automatically after a given duration\n\
+        use the duration parameter\n```\n{\n  \"name\": \"start\",\n  \"duration\"\
+        : 2500\n}\n```\n\nTo pause a simulation\n```\n{\"name\": \"pause\"}\n```\n\
+        Please note: The simulation will automatically be shut down after the\ndefault\
+        \ timeout of 300 seconds has been reached. You can customize\nthis value by\
+        \ specifying the timeout parameter\n```\n{\n  \"name\": \"pause\",\n  \"timeout\"\
+        : 999\n}\n```\n\nTo end a simulation\n```\n{\"name\": \"shutdown\"}\n```"
       parameters:
         - name: data
           in: body
@@ -3648,6 +3653,130 @@ paths:
       - name: id
         in: path
         description: A unique integer value identifying this timeseries rain.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/raster-edits/:
+    get:
+      operationId: simulations_events_raster-edits_list
+      description: A simple ViewSet for viewing raster edits
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/RasterEdit'
+      tags:
+        - simulations
+    post:
+      operationId: simulations_events_raster-edits_create
+      description: A simple ViewSet for viewing raster edits
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RasterEdit'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/RasterEdit'
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/raster-edits/{id}/:
+    get:
+      operationId: simulations_events_raster-edits_read
+      description: A simple ViewSet for viewing raster edits
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/RasterEdit'
+      tags:
+        - simulations
+    put:
+      operationId: simulations_events_raster-edits_update
+      description: A simple ViewSet for viewing raster edits
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RasterEdit'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/RasterEdit'
+      tags:
+        - simulations
+    patch:
+      operationId: simulations_events_raster-edits_partial_update
+      description: A simple ViewSet for viewing raster edits
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RasterEdit'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/RasterEdit'
+      tags:
+        - simulations
+    delete:
+      operationId: simulations_events_raster-edits_delete
+      description: A simple ViewSet for viewing raster edits
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - simulations
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this raster edit.
         required: true
         type: integer
       - name: simulation_pk
@@ -8353,11 +8482,8 @@ definitions:
         type: string
         format: date-time
       duration:
-        title: Duration (in seconds)
-        description: simulation time in seconds
+        title: Duration
         type: integer
-        maximum: 2147483647
-        minimum: 0
       duration_humanized:
         title: Duration humanized
         type: string
@@ -8384,9 +8510,9 @@ definitions:
         type: string
         enum:
           - created
-          - to_be_archived
           - requested
           - archiving
+          - archiving_failed
           - archived
       created:
         title: Created
@@ -8452,11 +8578,8 @@ definitions:
         type: string
         format: date-time
       duration:
-        title: Duration (in seconds)
-        description: simulation time in seconds
+        title: Duration
         type: integer
-        maximum: 2147483647
-        minimum: 0
       duration_humanized:
         title: Duration humanized
         type: string
@@ -8480,6 +8603,11 @@ definitions:
         title: Url
         type: string
         format: uri
+        readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
         readOnly: true
       offset:
         title: Offset
@@ -8598,6 +8726,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   TimeseriesRainOverview:
     required:
       - offset
@@ -8647,6 +8779,10 @@ definitions:
         title: Constant
         type: boolean
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   Breach:
     required:
       - potential_breach
@@ -8689,6 +8825,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   LizardRasterSourcesSinks:
     required:
       - offset
@@ -8745,6 +8885,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   LizardTimeseriesSourcesSinks:
     required:
       - offset
@@ -8796,6 +8940,10 @@ definitions:
             type: number
           maxItems: 300
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   FileReadOnly:
     title: File
     type: object
@@ -8942,6 +9090,10 @@ definitions:
         enum:
           - netcdf4
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   FileTimeseriesSourcesSinks:
     required:
       - units
@@ -9014,6 +9166,10 @@ definitions:
           - mm/h
       file:
         $ref: '#/definitions/FileReadOnly'
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   TimeseriesSourcesSinksOverview:
     required:
       - offset
@@ -9059,6 +9215,10 @@ definitions:
         title: Constant
         type: boolean
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   TwoDWaterLevel:
     title: Initial twodwaterlevel
     required:
@@ -9078,6 +9238,10 @@ definitions:
       value:
         title: Value
         type: number
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   OneDWaterLevelPredefined:
     title: Initial onedwaterlevelpredefined
     type: object
@@ -9092,6 +9256,10 @@ definitions:
         type: string
         format: uri
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   GroundWaterLevel:
     title: Initial groundwaterlevel
     required:
@@ -9111,6 +9279,10 @@ definitions:
       value:
         title: Value
         type: number
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   GroundWaterRaster:
     title: Initial groundwaterraster
     required:
@@ -9143,6 +9315,10 @@ definitions:
         title: Initial waterlevel id
         type: string
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   OneDWaterLevel:
     title: Initial onedwaterlevel
     required:
@@ -9162,6 +9338,10 @@ definitions:
       value:
         title: Value
         type: number
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   TwoDWaterRaster:
     title: Initial twodwaterraster
     required:
@@ -9194,6 +9374,10 @@ definitions:
         title: Initial waterlevel id
         type: string
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   FileRasterRain:
     type: object
     properties:
@@ -9278,6 +9462,10 @@ definitions:
         enum:
           - netcdf4
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   FileTimeseriesRain:
     required:
       - units
@@ -9350,6 +9538,10 @@ definitions:
           - mm/h
       file:
         $ref: '#/definitions/FileReadOnly'
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   Threshold:
     required:
       - variable
@@ -9420,6 +9612,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uuid:
+        title: Uuid
+        type: string
+        format: uuid
   InitialSavedStateOverview:
     title: Initial savedstate
     type: object
@@ -9511,6 +9707,10 @@ definitions:
         title: Grid id
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   TimedStructureControl:
     required:
       - offset
@@ -9591,6 +9791,55 @@ definitions:
         maximum: 2147483647
         minimum: -2147483648
         x-nullable: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
+  RasterEdit:
+    required:
+      - raster
+      - offset
+      - value
+      - polygon
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+        readOnly: true
+      raster:
+        title: Raster
+        type: string
+        format: uri
+      offset:
+        title: Offset
+        description: offset of event in simulation in seconds
+        type: integer
+        maximum: 2147483647
+        minimum: 0
+      value:
+        title: Value
+        description: Absolute or relative height (in meters)  to use for the polygon
+        type: number
+      polygon:
+        title: Polygon
+        description: The polygon to use for the raster editin WKT format, must be
+          WGS84
+        type: string
+      relative:
+        title: Relative
+        description: Process the value as a relative height, default is absolute
+        type: boolean
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   LocalRain:
     required:
       - offset
@@ -9652,6 +9901,10 @@ definitions:
         type: integer
         maximum: 2147483647
         minimum: -2147483648
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   Event:
     type: object
     properties:
@@ -9739,6 +9992,11 @@ definitions:
         items:
           $ref: '#/definitions/TimedStructureControl'
         readOnly: true
+      rasteredit:
+        type: array
+        items:
+          $ref: '#/definitions/RasterEdit'
+        readOnly: true
       localrain:
         type: array
         items:
@@ -9763,6 +10021,13 @@ definitions:
           (in seconds) and pause
         type: integer
         minimum: 1
+      timeout:
+        title: Timeout
+        description: Only valid for name='pause'. Remove simulation after given timeout
+          (in seconds). Defaults to 300 seconds
+        type: integer
+        default: 300
+        minimum: 30
       rate_limit:
         title: Rate limit
         description: "Only valid for name='start'. Maximum simulation time in seconds\
@@ -9808,6 +10073,10 @@ definitions:
           $ref: '#/definitions/Threshold'
       file:
         $ref: '#/definitions/FileReadOnly'
+      uuid:
+        title: Uuid
+        type: string
+        format: uuid
   Upload:
     required:
       - filename
@@ -9876,6 +10145,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uuid:
+        title: Uuid
+        type: string
+        format: uuid
   ConstantLateral:
     required:
       - offset
@@ -9941,6 +10214,10 @@ definitions:
         title: Grid id
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   GridEventState:
     required:
       - state
@@ -10031,6 +10308,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   ConstantRain:
     required:
       - offset
@@ -10071,6 +10352,10 @@ definitions:
         type: string
         enum:
           - m/s
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   ConstantLocalRain:
     required:
       - offset
@@ -10124,6 +10409,10 @@ definitions:
       point:
         title: Point
         type: string
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   TimeseriesLocalRain:
     required:
       - offset
@@ -10175,6 +10464,10 @@ definitions:
       point:
         title: Point
         type: string
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   NetCDFRasterRain:
     type: object
     properties:
@@ -10298,6 +10591,10 @@ definitions:
         type: string
         enum:
           - m/s
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   NetCDFTimeseriesRain:
     required:
       - units
@@ -10400,6 +10697,10 @@ definitions:
         type: string
         enum:
           - m/s
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   NetCDFRasterSourcesSinks:
     type: object
     properties:
@@ -10739,20 +11040,61 @@ definitions:
         type: integer
         maximum: 240
         minimum: 1
+  DamageSeconds:
+    title: Damage
+    type: object
+    properties:
+      basic_post_processing:
+        title: Basic post processing
+        type: integer
+        readOnly: true
+      cost_type:
+        title: Cost type
+        description: "'min', 'avg', or 'max'"
+        type: string
+        enum:
+          - min
+          - avg
+          - max
+      flood_month:
+        title: Flood month
+        type: string
+        enum:
+          - jan
+          - feb
+          - mar
+          - apr
+          - may
+          - jun
+          - jul
+          - aug
+          - sep
+          - oct
+          - nov
+          - dec
+      inundation_period:
+        title: Inundation period
+        type: string
+        readOnly: true
+      repair_time_infrastructure:
+        title: Repair time infrastructure
+        type: string
+        readOnly: true
+      repair_time_buildings:
+        title: Repair time buildings
+        type: string
+        readOnly: true
   PostProcessingOverview:
     type: object
     properties:
-      simulation:
-        title: Simulation
-        type: integer
-        readOnly: true
-      result_uuid:
-        title: Result uuid
+      username:
+        title: Username
         type: string
-        format: uuid
-      process_basic_results:
-        title: Process basic results
-        type: boolean
+        readOnly: true
+      metadata_version:
+        title: Metadata version
+        type: string
+        readOnly: true
       start_time_sim:
         title: Start time sim
         type: string
@@ -10761,12 +11103,8 @@ definitions:
         title: End time sim
         type: string
         readOnly: true
-      organisation:
-        title: Organisation
-        type: string
-        readOnly: true
-      username:
-        title: Username
+      results:
+        title: Results
         type: string
         readOnly: true
       scenario_name:
@@ -10775,18 +11113,38 @@ definitions:
         type: string
         maxLength: 50
         minLength: 1
+      model_revision_id:
+        title: Model revision id
+        type: string
+        readOnly: true
+      email:
+        title: Email
+        type: string
+        readOnly: true
+      result_uuid:
+        title: Result uuid
+        type: string
+        format: uuid
+      organisation_uuid:
+        title: Organisation uuid
+        type: string
+        readOnly: true
+      model_type:
+        title: Model type
+        type: string
+        readOnly: true
       model_name:
         title: Model name
         type: string
         readOnly: true
-      model_revision:
-        title: Model revision
-        type: string
+      simulation:
+        title: Simulation
+        type: integer
         readOnly: true
       arrival:
         $ref: '#/definitions/ArrivalTimePostProcessing'
       damage:
-        $ref: '#/definitions/DamagePostProcessing'
+        $ref: '#/definitions/DamageSeconds'
       damage_sources:
         title: Damage sources
         type: string
@@ -10809,9 +11167,9 @@ definitions:
         type: string
         enum:
           - created
-          - to_be_archived
           - requested
           - archiving
+          - archiving_failed
           - archived
       created:
         title: Created

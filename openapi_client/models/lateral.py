@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -46,7 +46,8 @@ class Lateral(object):
         'connection_node': 'int',
         'state': 'str',
         'state_detail': 'object',
-        'grid_id': 'int'
+        'grid_id': 'int',
+        'uid': 'str'
     }
 
     attribute_map = {
@@ -62,10 +63,11 @@ class Lateral(object):
         'connection_node': 'connection_node',
         'state': 'state',
         'state_detail': 'state_detail',
-        'grid_id': 'grid_id'
+        'grid_id': 'grid_id',
+        'uid': 'uid'
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, duration=None, interpolate=None, values=None, units=None, constant=None, point=None, connection_node=None, state=None, state_detail=None, grid_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, offset=None, duration=None, interpolate=None, values=None, units=None, constant=None, point=None, connection_node=None, state=None, state_detail=None, grid_id=None, uid=None, local_vars_configuration=None):  # noqa: E501
         """Lateral - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -84,6 +86,7 @@ class Lateral(object):
         self._state = None
         self._state_detail = None
         self._grid_id = None
+        self._uid = None
         self.discriminator = None
 
         if url is not None:
@@ -106,6 +109,8 @@ class Lateral(object):
             self.state_detail = state_detail
         if grid_id is not None:
             self.grid_id = grid_id
+        if uid is not None:
+            self.uid = uid
 
     @property
     def url(self):
@@ -421,6 +426,27 @@ class Lateral(object):
         """
 
         self._grid_id = grid_id
+
+    @property
+    def uid(self):
+        """Gets the uid of this Lateral.  # noqa: E501
+
+
+        :return: The uid of this Lateral.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this Lateral.
+
+
+        :param uid: The uid of this Lateral.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

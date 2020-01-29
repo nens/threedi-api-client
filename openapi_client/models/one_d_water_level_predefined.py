@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -35,15 +35,17 @@ class OneDWaterLevelPredefined(object):
     """
     openapi_types = {
         'url': 'str',
-        'simulation': 'str'
+        'simulation': 'str',
+        'uid': 'str'
     }
 
     attribute_map = {
         'url': 'url',
-        'simulation': 'simulation'
+        'simulation': 'simulation',
+        'uid': 'uid'
     }
 
-    def __init__(self, url=None, simulation=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, uid=None, local_vars_configuration=None):  # noqa: E501
         """OneDWaterLevelPredefined - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -51,12 +53,15 @@ class OneDWaterLevelPredefined(object):
 
         self._url = None
         self._simulation = None
+        self._uid = None
         self.discriminator = None
 
         if url is not None:
             self.url = url
         if simulation is not None:
             self.simulation = simulation
+        if uid is not None:
+            self.uid = uid
 
     @property
     def url(self):
@@ -99,6 +104,27 @@ class OneDWaterLevelPredefined(object):
         """
 
         self._simulation = simulation
+
+    @property
+    def uid(self):
+        """Gets the uid of this OneDWaterLevelPredefined.  # noqa: E501
+
+
+        :return: The uid of this OneDWaterLevelPredefined.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this OneDWaterLevelPredefined.
+
+
+        :param uid: The uid of this OneDWaterLevelPredefined.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -36,16 +36,18 @@ class Action(object):
     openapi_types = {
         'name': 'str',
         'duration': 'int',
+        'timeout': 'int',
         'rate_limit': 'int'
     }
 
     attribute_map = {
         'name': 'name',
         'duration': 'duration',
+        'timeout': 'timeout',
         'rate_limit': 'rate_limit'
     }
 
-    def __init__(self, name=None, duration=None, rate_limit=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, duration=None, timeout=None, rate_limit=None, local_vars_configuration=None):  # noqa: E501
         """Action - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,12 +55,15 @@ class Action(object):
 
         self._name = None
         self._duration = None
+        self._timeout = None
         self._rate_limit = None
         self.discriminator = None
 
         self.name = name
         if duration is not None:
             self.duration = duration
+        if timeout is not None:
+            self.timeout = timeout
         if rate_limit is not None:
             self.rate_limit = rate_limit
 
@@ -116,6 +121,32 @@ class Action(object):
             raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._duration = duration
+
+    @property
+    def timeout(self):
+        """Gets the timeout of this Action.  # noqa: E501
+
+        Only valid for name='pause'. Remove simulation after given timeout (in seconds). Defaults to 300 seconds  # noqa: E501
+
+        :return: The timeout of this Action.  # noqa: E501
+        :rtype: int
+        """
+        return self._timeout
+
+    @timeout.setter
+    def timeout(self, timeout):
+        """Sets the timeout of this Action.
+
+        Only valid for name='pause'. Remove simulation after given timeout (in seconds). Defaults to 300 seconds  # noqa: E501
+
+        :param timeout: The timeout of this Action.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                timeout is not None and timeout < 30):  # noqa: E501
+            raise ValueError("Invalid value for `timeout`, must be a value greater than or equal to `30`")  # noqa: E501
+
+        self._timeout = timeout
 
     @property
     def rate_limit(self):

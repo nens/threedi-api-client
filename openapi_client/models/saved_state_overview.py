@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -43,7 +43,8 @@ class SavedStateOverview(object):
         'time': 'int',
         'thresholds': 'list[Threshold]',
         'file': 'FileReadOnly',
-        'id': 'int'
+        'id': 'int',
+        'uuid': 'str'
     }
 
     attribute_map = {
@@ -56,10 +57,11 @@ class SavedStateOverview(object):
         'time': 'time',
         'thresholds': 'thresholds',
         'file': 'file',
-        'id': 'id'
+        'id': 'id',
+        'uuid': 'uuid'
     }
 
-    def __init__(self, name=None, type=None, created=None, created_time=None, tags=None, expiry=None, time=None, thresholds=None, file=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, type=None, created=None, created_time=None, tags=None, expiry=None, time=None, thresholds=None, file=None, id=None, uuid=None, local_vars_configuration=None):  # noqa: E501
         """SavedStateOverview - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,6 +77,7 @@ class SavedStateOverview(object):
         self._thresholds = None
         self._file = None
         self._id = None
+        self._uuid = None
         self.discriminator = None
 
         if name is not None:
@@ -91,6 +94,8 @@ class SavedStateOverview(object):
             self.file = file
         if id is not None:
             self.id = id
+        if uuid is not None:
+            self.uuid = uuid
 
     @property
     def name(self):
@@ -333,6 +338,27 @@ class SavedStateOverview(object):
         """
 
         self._id = id
+
+    @property
+    def uuid(self):
+        """Gets the uuid of this SavedStateOverview.  # noqa: E501
+
+
+        :return: The uuid of this SavedStateOverview.  # noqa: E501
+        :rtype: str
+        """
+        return self._uuid
+
+    @uuid.setter
+    def uuid(self, uuid):
+        """Sets the uuid of this SavedStateOverview.
+
+
+        :param uuid: The uuid of this SavedStateOverview.  # noqa: E501
+        :type: str
+        """
+
+        self._uuid = uuid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

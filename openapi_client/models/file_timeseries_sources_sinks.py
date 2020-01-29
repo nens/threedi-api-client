@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.29   3Di core release: 2.0.3  deployed on:  02:21PM (UTC) on December 02, 2019  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -45,7 +45,8 @@ class FileTimeseriesSourcesSinks(object):
         'fill_value': 'str',
         'type': 'str',
         'units': 'str',
-        'file': 'FileReadOnly'
+        'file': 'FileReadOnly',
+        'uid': 'str'
     }
 
     attribute_map = {
@@ -60,10 +61,11 @@ class FileTimeseriesSourcesSinks(object):
         'fill_value': 'fill_value',
         'type': 'type',
         'units': 'units',
-        'file': 'file'
+        'file': 'file',
+        'uid': 'uid'
     }
 
-    def __init__(self, url=None, multiplier=None, simulation=None, offset=None, duration=None, timestamps=None, interval=None, values_reference=None, fill_value=None, type=None, units=None, file=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, multiplier=None, simulation=None, offset=None, duration=None, timestamps=None, interval=None, values_reference=None, fill_value=None, type=None, units=None, file=None, uid=None, local_vars_configuration=None):  # noqa: E501
         """FileTimeseriesSourcesSinks - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -81,6 +83,7 @@ class FileTimeseriesSourcesSinks(object):
         self._type = None
         self._units = None
         self._file = None
+        self._uid = None
         self.discriminator = None
 
         if url is not None:
@@ -101,6 +104,8 @@ class FileTimeseriesSourcesSinks(object):
         self.units = units
         if file is not None:
             self.file = file
+        if uid is not None:
+            self.uid = uid
 
     @property
     def url(self):
@@ -402,6 +407,27 @@ class FileTimeseriesSourcesSinks(object):
         """
 
         self._file = file
+
+    @property
+    def uid(self):
+        """Gets the uid of this FileTimeseriesSourcesSinks.  # noqa: E501
+
+
+        :return: The uid of this FileTimeseriesSourcesSinks.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this FileTimeseriesSourcesSinks.
+
+
+        :param uid: The uid of this FileTimeseriesSourcesSinks.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""
