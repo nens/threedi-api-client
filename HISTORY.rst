@@ -5,7 +5,7 @@ History
 3.0.b6 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Something went wrong with the 3.0.b5 release, next rty.
 
 
 3.0.b5 (2020-01-27)
