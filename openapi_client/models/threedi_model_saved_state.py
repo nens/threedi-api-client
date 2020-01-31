@@ -277,7 +277,7 @@ class ThreediModelSavedState(object):
         """
         allowed_values = [None,"s1", "u1"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                not set(variables).issubset(set(allowed_values))):  # noqa: E501
+                not set(variables).issubset(set(allowed_values))):
             raise ValueError(
                 "Invalid values for `variables` [{0}], must be a subset of [{1}]"  # noqa: E501
                 .format(", ".join(map(str, set(variables) - set(allowed_values))),  # noqa: E501

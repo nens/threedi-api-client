@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = '3.0.b7.dev0'
+__version__ = "1.0.0"
 
 # import apis into sdk package
 from openapi_client.api.auth_api import AuthApi
@@ -51,6 +51,7 @@ from openapi_client.models.constant_lateral import ConstantLateral
 from openapi_client.models.constant_local_rain import ConstantLocalRain
 from openapi_client.models.constant_rain import ConstantRain
 from openapi_client.models.constant_sources_sinks import ConstantSourcesSinks
+from openapi_client.models.constant_wind import ConstantWind
 from openapi_client.models.contract import Contract
 from openapi_client.models.current_status import CurrentStatus
 from openapi_client.models.damage_post_processing import DamagePostProcessing
@@ -114,7 +115,9 @@ from openapi_client.models.inline_response20045 import InlineResponse20045
 from openapi_client.models.inline_response20046 import InlineResponse20046
 from openapi_client.models.inline_response20047 import InlineResponse20047
 from openapi_client.models.inline_response20048 import InlineResponse20048
+from openapi_client.models.inline_response20049 import InlineResponse20049
 from openapi_client.models.inline_response2005 import InlineResponse2005
+from openapi_client.models.inline_response20050 import InlineResponse20050
 from openapi_client.models.inline_response2006 import InlineResponse2006
 from openapi_client.models.inline_response2007 import InlineResponse2007
 from openapi_client.models.inline_response2008 import InlineResponse2008
@@ -163,10 +166,12 @@ from openapi_client.models.timeseries_rain import TimeseriesRain
 from openapi_client.models.timeseries_rain_overview import TimeseriesRainOverview
 from openapi_client.models.timeseries_sources_sinks import TimeseriesSourcesSinks
 from openapi_client.models.timeseries_sources_sinks_overview import TimeseriesSourcesSinksOverview
+from openapi_client.models.timeseries_wind import TimeseriesWind
 from openapi_client.models.tokens import Tokens
 from openapi_client.models.two_d_water_level import TwoDWaterLevel
 from openapi_client.models.two_d_water_raster import TwoDWaterRaster
 from openapi_client.models.upload import Upload
 from openapi_client.models.usage import Usage
 from openapi_client.models.user import User
+from openapi_client.models.wind import Wind
 

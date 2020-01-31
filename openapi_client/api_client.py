@@ -12,7 +12,6 @@
 from __future__ import absolute_import
 
 import datetime
-from dateutil.parser import parse
 import json
 import mimetypes
 from multiprocessing.pool import ThreadPool
@@ -289,7 +288,7 @@ class ApiClient(object):
         elif klass == datetime.date:
             return self.__deserialize_date(data)
         elif klass == datetime.datetime:
-            return self.__deserialize_datetime(data)
+            return self.__deserialize_datatime(data)
         else:
             return self.__deserialize_model(data, klass)
 
@@ -342,19 +341,18 @@ class ApiClient(object):
                                    response_type, auth_settings,
                                    _return_http_data_only, collection_formats,
                                    _preload_content, _request_timeout, _host)
-
-        return self.pool.apply_async(self.__call_api, (resource_path,
-                                                       method, path_params,
-                                                       query_params,
-                                                       header_params, body,
-                                                       post_params, files,
-                                                       response_type,
-                                                       auth_settings,
-                                                       _return_http_data_only,
-                                                       collection_formats,
-                                                       _preload_content,
-                                                       _request_timeout,
-                                                       _host))
+        else:
+            thread = self.pool.apply_async(self.__call_api, (resource_path,
+                                           method, path_params, query_params,
+                                           header_params, body,
+                                           post_params, files,
+                                           response_type, auth_settings,
+                                           _return_http_data_only,
+                                           collection_formats,
+                                           _preload_content,
+                                           _request_timeout,
+                                           _host))
+        return thread
 
     def request(self, method, url, query_params=None, headers=None,
                 post_params=None, body=None, _preload_content=True,
@@ -580,6 +578,7 @@ class ApiClient(object):
         :return: date.
         """
         try:
+            from dateutil.parser import parse
             return parse(string).date()
         except ImportError:
             return string
@@ -589,7 +588,7 @@ class ApiClient(object):
                 reason="Failed to parse `{0}` as date object".format(string)
             )
 
-    def __deserialize_datetime(self, string):
+    def __deserialize_datatime(self, string):
         """Deserializes string to datetime.
 
         The string should be in iso8601 datetime format.
@@ -598,6 +597,7 @@ class ApiClient(object):
         :return: datetime.
         """
         try:
+            from dateutil.parser import parse
             return parse(string)
         except ImportError:
             return string
@@ -623,11 +623,11 @@ class ApiClient(object):
             return data
 
         kwargs = {}
-        if (data is not None and
-                klass.openapi_types is not None and
-                isinstance(data, (list, dict))):
+        if klass.openapi_types is not None:
             for attr, attr_type in six.iteritems(klass.openapi_types):
-                if klass.attribute_map[attr] in data:
+                if (data is not None and
+                        klass.attribute_map[attr] in data and
+                        isinstance(data, (list, dict))):
                     value = data[klass.attribute_map[attr]]
                     kwargs[attr] = self.__deserialize(value, attr_type)
 
