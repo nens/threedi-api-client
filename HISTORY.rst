@@ -5,7 +5,9 @@ History
 3.0.b7 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Added wind
+
+- Added visualization endpoints
 
 
 3.0.b6 (2020-01-29)

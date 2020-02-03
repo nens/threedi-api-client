@@ -37,7 +37,7 @@ class InlineResponse20045(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[PotentialBreach]'
+        'results': 'list[BoundaryCondition]'
     }
 
     attribute_map = {
@@ -135,7 +135,7 @@ class InlineResponse20045(object):
 
 
         :return: The results of this InlineResponse20045.  # noqa: E501
-        :rtype: list[PotentialBreach]
+        :rtype: list[BoundaryCondition]
         """
         return self._results
 
@@ -145,7 +145,7 @@ class InlineResponse20045(object):
 
 
         :param results: The results of this InlineResponse20045.  # noqa: E501
-        :type: list[PotentialBreach]
+        :type: list[BoundaryCondition]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

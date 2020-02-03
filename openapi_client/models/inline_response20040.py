@@ -37,7 +37,7 @@ class InlineResponse20040(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[PostProcessingStatus]'
+        'results': 'list[ResultFile]'
     }
 
     attribute_map = {
@@ -135,7 +135,7 @@ class InlineResponse20040(object):
 
 
         :return: The results of this InlineResponse20040.  # noqa: E501
-        :rtype: list[PostProcessingStatus]
+        :rtype: list[ResultFile]
         """
         return self._results
 
@@ -145,7 +145,7 @@ class InlineResponse20040(object):
 
 
         :param results: The results of this InlineResponse20040.  # noqa: E501
-        :type: list[PostProcessingStatus]
+        :type: list[ResultFile]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
