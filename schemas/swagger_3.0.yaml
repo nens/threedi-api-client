@@ -11310,6 +11310,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
       url:
         title: Url
         type: string
@@ -11396,6 +11400,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
       url:
         title: Url
         type: string

@@ -35,6 +35,7 @@ class TimeseriesWind(object):
     """
     openapi_types = {
         'id': 'int',
+        'uid': 'str',
         'url': 'str',
         'simulation': 'str',
         'offset': 'int',
@@ -49,6 +50,7 @@ class TimeseriesWind(object):
 
     attribute_map = {
         'id': 'id',
+        'uid': 'uid',
         'url': 'url',
         'simulation': 'simulation',
         'offset': 'offset',
@@ -61,13 +63,14 @@ class TimeseriesWind(object):
         'direction_constant': 'direction_constant'
     }
 
-    def __init__(self, id=None, url=None, simulation=None, offset=None, values=None, units=None, drag_coefficient=None, speed_interpolate=None, speed_constant=None, direction_interpolate=None, direction_constant=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, uid=None, url=None, simulation=None, offset=None, values=None, units=None, drag_coefficient=None, speed_interpolate=None, speed_constant=None, direction_interpolate=None, direction_constant=None, local_vars_configuration=None):  # noqa: E501
         """TimeseriesWind - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
+        self._uid = None
         self._url = None
         self._simulation = None
         self._offset = None
@@ -82,6 +85,8 @@ class TimeseriesWind(object):
 
         if id is not None:
             self.id = id
+        if uid is not None:
+            self.uid = uid
         if url is not None:
             self.url = url
         if simulation is not None:
@@ -122,6 +127,27 @@ class TimeseriesWind(object):
         """
 
         self._id = id
+
+    @property
+    def uid(self):
+        """Gets the uid of this TimeseriesWind.  # noqa: E501
+
+
+        :return: The uid of this TimeseriesWind.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this TimeseriesWind.
+
+
+        :param uid: The uid of this TimeseriesWind.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
 
     @property
     def url(self):
