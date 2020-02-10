@@ -5,7 +5,7 @@ History
 3.0.b8 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Edit Constant and Timeseries Wind events
 
 
 3.0.b7 (2020-02-03)

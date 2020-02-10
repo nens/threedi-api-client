@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.33   3Di core release: 2.0.4  deployed on:  03:28PM (UTC) on February 03, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -35,6 +35,7 @@ class ConstantWind(object):
     """
     openapi_types = {
         'id': 'int',
+        'uid': 'str',
         'url': 'str',
         'simulation': 'str',
         'offset': 'int',
@@ -52,6 +53,7 @@ class ConstantWind(object):
 
     attribute_map = {
         'id': 'id',
+        'uid': 'uid',
         'url': 'url',
         'simulation': 'simulation',
         'offset': 'offset',
@@ -67,13 +69,14 @@ class ConstantWind(object):
         'direction_value': 'direction_value'
     }
 
-    def __init__(self, id=None, url=None, simulation=None, offset=None, duration=None, values=None, units=None, drag_coefficient=None, speed_interpolate=None, speed_constant=None, direction_interpolate=None, direction_constant=None, speed_value=None, direction_value=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, uid=None, url=None, simulation=None, offset=None, duration=None, values=None, units=None, drag_coefficient=None, speed_interpolate=None, speed_constant=None, direction_interpolate=None, direction_constant=None, speed_value=None, direction_value=None, local_vars_configuration=None):  # noqa: E501
         """ConstantWind - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
+        self._uid = None
         self._url = None
         self._simulation = None
         self._offset = None
@@ -91,6 +94,8 @@ class ConstantWind(object):
 
         if id is not None:
             self.id = id
+        if uid is not None:
+            self.uid = uid
         if url is not None:
             self.url = url
         if simulation is not None:
@@ -136,6 +141,27 @@ class ConstantWind(object):
         """
 
         self._id = id
+
+    @property
+    def uid(self):
+        """Gets the uid of this ConstantWind.  # noqa: E501
+
+
+        :return: The uid of this ConstantWind.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this ConstantWind.
+
+
+        :param uid: The uid of this ConstantWind.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
 
     @property
     def url(self):
