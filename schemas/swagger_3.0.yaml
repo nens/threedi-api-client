@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
   title: 3Di API
-  description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.32\
-    \ \n 3Di core release: 2.0.4 \ndeployed on:  01:25PM (UTC) on January 17, 2020"
+  description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.33\
+    \ \n 3Di core release: 2.0.4 \ndeployed on:  03:28PM (UTC) on February 03, 2020"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -7234,7 +7234,7 @@ paths:
         description: A unique integer value identifying this threedi model.
         required: true
         type: integer
-  /threedimodels/{id}/geojson/download/:
+  /threedimodels/{id}/geojson/all/download/:
     get:
       operationId: threedimodels_geojson_download
       description: Endpoint for downloading geojson file.
@@ -7256,11 +7256,416 @@ paths:
         description: A unique integer value identifying this threedi model.
         required: true
         type: integer
-  /threedimodels/{id}/geojson/upload/:
+  /threedimodels/{id}/geojson/all/upload/:
     post:
       operationId: threedimodels_geojson_upload
       description: "Endpoint for uploading the geojson file\nReplaces the geojson\
         \ file if there already exists one."
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Upload'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Upload'
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/breaches/download/:
+    get:
+      operationId: threedimodels_geojson_breaches_download
+      description: A simple ViewSet for viewing threedimodels
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Download'
+        '400':
+          description: File is not uploaded yet or has been removed
+        '404':
+          description: File not found
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/breaches/upload/:
+    post:
+      operationId: threedimodels_breaches_geojson_upload
+      description: A simple ViewSet for viewing threedimodels
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Upload'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Upload'
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/channels/download/:
+    get:
+      operationId: threedimodels_geojson_channels_download
+      description: A simple ViewSet for viewing threedimodels
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Download'
+        '400':
+          description: File is not uploaded yet or has been removed
+        '404':
+          description: File not found
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/channels/upload/:
+    post:
+      operationId: threedimodels_channels_geojson_upload
+      description: A simple ViewSet for viewing threedimodels
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Upload'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Upload'
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/culverts/download/:
+    get:
+      operationId: threedimodels_geojson_culverts_download
+      description: A simple ViewSet for viewing threedimodels
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Download'
+        '400':
+          description: File is not uploaded yet or has been removed
+        '404':
+          description: File not found
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/culverts/upload/:
+    post:
+      operationId: threedimodels_culverts_geojson_upload
+      description: A simple ViewSet for viewing threedimodels
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Upload'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Upload'
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/levees/download/:
+    get:
+      operationId: threedimodels_geojson_levees_download
+      description: A simple ViewSet for viewing threedimodels
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Download'
+        '400':
+          description: File is not uploaded yet or has been removed
+        '404':
+          description: File not found
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/levees/upload/:
+    post:
+      operationId: threedimodels_levees_geojson_upload
+      description: A simple ViewSet for viewing threedimodels
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Upload'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Upload'
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/manholes/download/:
+    get:
+      operationId: threedimodels_geojson_manholes_download
+      description: A simple ViewSet for viewing threedimodels
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Download'
+        '400':
+          description: File is not uploaded yet or has been removed
+        '404':
+          description: File not found
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/manholes/upload/:
+    post:
+      operationId: threedimodels_manholes_geojson_upload
+      description: A simple ViewSet for viewing threedimodels
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Upload'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Upload'
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/orifices/download/:
+    get:
+      operationId: threedimodels_geojson_orifices_download
+      description: A simple ViewSet for viewing threedimodels
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Download'
+        '400':
+          description: File is not uploaded yet or has been removed
+        '404':
+          description: File not found
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/orifices/upload/:
+    post:
+      operationId: threedimodels_orifices_geojson_upload
+      description: A simple ViewSet for viewing threedimodels
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Upload'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Upload'
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/pipes/download/:
+    get:
+      operationId: threedimodels_geojson_pipes_download
+      description: A simple ViewSet for viewing threedimodels
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Download'
+        '400':
+          description: File is not uploaded yet or has been removed
+        '404':
+          description: File not found
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/pipes/upload/:
+    post:
+      operationId: threedimodels_pipes_geojson_upload
+      description: A simple ViewSet for viewing threedimodels
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Upload'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Upload'
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/pumps/download/:
+    get:
+      operationId: threedimodels_geojson_pumps_download
+      description: A simple ViewSet for viewing threedimodels
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Download'
+        '400':
+          description: File is not uploaded yet or has been removed
+        '404':
+          description: File not found
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/pumps/upload/:
+    post:
+      operationId: threedimodels_pumps_geojson_upload
+      description: A simple ViewSet for viewing threedimodels
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Upload'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Upload'
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/weirs/download/:
+    get:
+      operationId: threedimodels_geojson_weirs_download
+      description: A simple ViewSet for viewing threedimodels
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Download'
+        '400':
+          description: File is not uploaded yet or has been removed
+        '404':
+          description: File not found
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/weirs/upload/:
+    post:
+      operationId: threedimodels_weirs_geojson_upload
+      description: A simple ViewSet for viewing threedimodels
       parameters:
         - name: data
           in: body
@@ -10338,6 +10743,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
       url:
         title: Url
         type: string
@@ -11399,6 +11808,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
       url:
         title: Url
         type: string
@@ -11485,6 +11898,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
       url:
         title: Url
         type: string
