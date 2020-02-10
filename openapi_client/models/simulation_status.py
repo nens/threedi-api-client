@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.33   3Di core release: 2.0.4  deployed on:  03:28PM (UTC) on February 03, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -40,6 +40,7 @@ class SimulationStatus(object):
         'simulation_id': 'str',
         'created': 'datetime',
         'time': 'int',
+        'paused': 'bool',
         'crash_report': 'str',
         'id': 'int'
     }
@@ -51,11 +52,12 @@ class SimulationStatus(object):
         'simulation_id': 'simulation_id',
         'created': 'created',
         'time': 'time',
+        'paused': 'paused',
         'crash_report': 'crash_report',
         'id': 'id'
     }
 
-    def __init__(self, url=None, name=None, simulation=None, simulation_id=None, created=None, time=None, crash_report=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, name=None, simulation=None, simulation_id=None, created=None, time=None, paused=None, crash_report=None, id=None, local_vars_configuration=None):  # noqa: E501
         """SimulationStatus - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,6 +69,7 @@ class SimulationStatus(object):
         self._simulation_id = None
         self._created = None
         self._time = None
+        self._paused = None
         self._crash_report = None
         self._id = None
         self.discriminator = None
@@ -81,6 +84,7 @@ class SimulationStatus(object):
         if created is not None:
             self.created = created
         self.time = time
+        self.paused = paused
         self.crash_report = crash_report
         if id is not None:
             self.id = id
@@ -226,6 +230,27 @@ class SimulationStatus(object):
             raise ValueError("Invalid value for `time`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._time = time
+
+    @property
+    def paused(self):
+        """Gets the paused of this SimulationStatus.  # noqa: E501
+
+
+        :return: The paused of this SimulationStatus.  # noqa: E501
+        :rtype: bool
+        """
+        return self._paused
+
+    @paused.setter
+    def paused(self, paused):
+        """Sets the paused of this SimulationStatus.
+
+
+        :param paused: The paused of this SimulationStatus.  # noqa: E501
+        :type: bool
+        """
+
+        self._paused = paused
 
     @property
     def crash_report(self):

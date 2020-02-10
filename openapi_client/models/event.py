@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.32   3Di core release: 2.0.4  deployed on:  01:25PM (UTC) on January 17, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.33   3Di core release: 2.0.4  deployed on:  03:28PM (UTC) on February 03, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -55,8 +55,9 @@ class Event(object):
         'savedstates': 'list[SavedStateOverview]',
         'laterals': 'list[Lateral]',
         'timedstructurecontrol': 'list[TimedStructureControl]',
-        'rasteredit': 'list[RasterEdit]',
-        'localrain': 'list[LocalRain]'
+        'rasteredits': 'list[RasterEdit]',
+        'localrain': 'list[LocalRain]',
+        'wind': 'list[Wind]'
     }
 
     attribute_map = {
@@ -81,11 +82,12 @@ class Event(object):
         'savedstates': 'savedstates',
         'laterals': 'laterals',
         'timedstructurecontrol': 'timedstructurecontrol',
-        'rasteredit': 'rasteredit',
-        'localrain': 'localrain'
+        'rasteredits': 'rasteredits',
+        'localrain': 'localrain',
+        'wind': 'wind'
     }
 
-    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, timedstructurecontrol=None, rasteredit=None, localrain=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, timedstructurecontrol=None, rasteredits=None, localrain=None, wind=None, local_vars_configuration=None):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -112,8 +114,9 @@ class Event(object):
         self._savedstates = None
         self._laterals = None
         self._timedstructurecontrol = None
-        self._rasteredit = None
+        self._rasteredits = None
         self._localrain = None
+        self._wind = None
         self.discriminator = None
 
         if lizardrasterrain is not None:
@@ -158,10 +161,12 @@ class Event(object):
             self.laterals = laterals
         if timedstructurecontrol is not None:
             self.timedstructurecontrol = timedstructurecontrol
-        if rasteredit is not None:
-            self.rasteredit = rasteredit
+        if rasteredits is not None:
+            self.rasteredits = rasteredits
         if localrain is not None:
             self.localrain = localrain
+        if wind is not None:
+            self.wind = wind
 
     @property
     def lizardrasterrain(self):
@@ -605,25 +610,25 @@ class Event(object):
         self._timedstructurecontrol = timedstructurecontrol
 
     @property
-    def rasteredit(self):
-        """Gets the rasteredit of this Event.  # noqa: E501
+    def rasteredits(self):
+        """Gets the rasteredits of this Event.  # noqa: E501
 
 
-        :return: The rasteredit of this Event.  # noqa: E501
+        :return: The rasteredits of this Event.  # noqa: E501
         :rtype: list[RasterEdit]
         """
-        return self._rasteredit
+        return self._rasteredits
 
-    @rasteredit.setter
-    def rasteredit(self, rasteredit):
-        """Sets the rasteredit of this Event.
+    @rasteredits.setter
+    def rasteredits(self, rasteredits):
+        """Sets the rasteredits of this Event.
 
 
-        :param rasteredit: The rasteredit of this Event.  # noqa: E501
+        :param rasteredits: The rasteredits of this Event.  # noqa: E501
         :type: list[RasterEdit]
         """
 
-        self._rasteredit = rasteredit
+        self._rasteredits = rasteredits
 
     @property
     def localrain(self):
@@ -645,6 +650,27 @@ class Event(object):
         """
 
         self._localrain = localrain
+
+    @property
+    def wind(self):
+        """Gets the wind of this Event.  # noqa: E501
+
+
+        :return: The wind of this Event.  # noqa: E501
+        :rtype: list[Wind]
+        """
+        return self._wind
+
+    @wind.setter
+    def wind(self, wind):
+        """Sets the wind of this Event.
+
+
+        :param wind: The wind of this Event.  # noqa: E501
+        :type: list[Wind]
+        """
+
+        self._wind = wind
 
     def to_dict(self):
         """Returns the model properties as a dict"""
