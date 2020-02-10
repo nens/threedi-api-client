@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.b8 (unreleased)
+3.0.b8 (2020-02-10)
 -------------------
 
 - Edit Constant and Timeseries Wind events
