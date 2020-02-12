@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.b9 (unreleased)
+3.0.b9 (2020-02-12)
 -------------------
 
 - Support for interactive simulations.
