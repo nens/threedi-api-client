@@ -5,7 +5,11 @@ History
 3.0.b7 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Changes to support interactive simulations.
+
+- Wind events.
+
+- Results API models: water depth, tms, profile.
 
 
 3.0.b6 (2020-01-29)

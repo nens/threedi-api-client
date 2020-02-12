@@ -2842,7 +2842,9 @@ paths:
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -2966,7 +2968,9 @@ paths:
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -3090,7 +3094,9 @@ paths:
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -3678,7 +3684,9 @@ paths:
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -9469,11 +9477,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       units:
         title: Units
@@ -9541,11 +9550,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       reference_uuid:
         title: Reference uuid
@@ -9606,8 +9616,9 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
         readOnly: true
       interpolate:
@@ -9700,11 +9711,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       reference_uuid:
         title: Reference uuid
@@ -9765,11 +9777,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       reference_uuid:
         title: Reference uuid
@@ -10506,11 +10519,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       interpolate:
         title: Interpolate
@@ -10716,11 +10730,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       interpolate:
         title: Interpolate
@@ -10765,6 +10780,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
       url:
         title: Url
         type: string
@@ -11096,11 +11115,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       value:
         title: Value
@@ -11259,11 +11279,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       value:
         title: Value
@@ -11315,11 +11336,12 @@ definitions:
           - mm/h
           - mm/min
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       interpolate:
         title: Interpolate
@@ -11493,8 +11515,9 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
         readOnly: true
       interpolate:
@@ -11826,6 +11849,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
       url:
         title: Url
         type: string
@@ -11843,11 +11870,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       values:
         description: '[time, speed, direction]'
@@ -11912,6 +11940,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
       url:
         title: Url
         type: string
@@ -12375,6 +12407,11 @@ definitions:
         type: string
         maxLength: 80
         minLength: 1
+      dem_raw_file:
+        title: Dem raw file
+        type: string
+        maxLength: 80
+        minLength: 1
       equilibrium_infiltration_rate_file:
         title: Equilibrium infiltration rate file
         type: string
@@ -12523,6 +12560,7 @@ definitions:
         type: string
         enum:
           - dem_file
+          - dem_raw_file
           - equilibrium_infiltration_rate_file
           - frict_coef_file
           - initial_groundwater_level_file

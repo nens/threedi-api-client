@@ -35,6 +35,7 @@ class RasterOptions(object):
     """
     openapi_types = {
         'dem_file': 'str',
+        'dem_raw_file': 'str',
         'equilibrium_infiltration_rate_file': 'str',
         'frict_coef_file': 'str',
         'initial_groundwater_level_file': 'str',
@@ -54,6 +55,7 @@ class RasterOptions(object):
 
     attribute_map = {
         'dem_file': 'dem_file',
+        'dem_raw_file': 'dem_raw_file',
         'equilibrium_infiltration_rate_file': 'equilibrium_infiltration_rate_file',
         'frict_coef_file': 'frict_coef_file',
         'initial_groundwater_level_file': 'initial_groundwater_level_file',
@@ -71,13 +73,14 @@ class RasterOptions(object):
         'interception_file': 'interception_file'
     }
 
-    def __init__(self, dem_file=None, equilibrium_infiltration_rate_file=None, frict_coef_file=None, initial_groundwater_level_file=None, initial_waterlevel_file=None, groundwater_hydro_connectivity_file=None, groundwater_impervious_layer_level_file=None, infiltration_decay_period_file=None, initial_infiltration_rate_file=None, leakage_file=None, phreatic_storage_capacity_file=None, hydraulic_conductivity_file=None, porosity_file=None, infiltration_rate_file=None, max_infiltration_capacity_file=None, interception_file=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, dem_file=None, dem_raw_file=None, equilibrium_infiltration_rate_file=None, frict_coef_file=None, initial_groundwater_level_file=None, initial_waterlevel_file=None, groundwater_hydro_connectivity_file=None, groundwater_impervious_layer_level_file=None, infiltration_decay_period_file=None, initial_infiltration_rate_file=None, leakage_file=None, phreatic_storage_capacity_file=None, hydraulic_conductivity_file=None, porosity_file=None, infiltration_rate_file=None, max_infiltration_capacity_file=None, interception_file=None, local_vars_configuration=None):  # noqa: E501
         """RasterOptions - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._dem_file = None
+        self._dem_raw_file = None
         self._equilibrium_infiltration_rate_file = None
         self._frict_coef_file = None
         self._initial_groundwater_level_file = None
@@ -97,6 +100,8 @@ class RasterOptions(object):
 
         if dem_file is not None:
             self.dem_file = dem_file
+        if dem_raw_file is not None:
+            self.dem_raw_file = dem_raw_file
         if equilibrium_infiltration_rate_file is not None:
             self.equilibrium_infiltration_rate_file = equilibrium_infiltration_rate_file
         if frict_coef_file is not None:
@@ -154,6 +159,33 @@ class RasterOptions(object):
             raise ValueError("Invalid value for `dem_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._dem_file = dem_file
+
+    @property
+    def dem_raw_file(self):
+        """Gets the dem_raw_file of this RasterOptions.  # noqa: E501
+
+
+        :return: The dem_raw_file of this RasterOptions.  # noqa: E501
+        :rtype: str
+        """
+        return self._dem_raw_file
+
+    @dem_raw_file.setter
+    def dem_raw_file(self, dem_raw_file):
+        """Sets the dem_raw_file of this RasterOptions.
+
+
+        :param dem_raw_file: The dem_raw_file of this RasterOptions.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                dem_raw_file is not None and len(dem_raw_file) > 80):
+            raise ValueError("Invalid value for `dem_raw_file`, length must be less than or equal to `80`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                dem_raw_file is not None and len(dem_raw_file) < 1):
+            raise ValueError("Invalid value for `dem_raw_file`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._dem_raw_file = dem_raw_file
 
     @property
     def equilibrium_infiltration_rate_file(self):
