@@ -2842,7 +2842,9 @@ paths:
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -2966,7 +2968,9 @@ paths:
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -3090,7 +3094,9 @@ paths:
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -3678,7 +3684,9 @@ paths:
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -6534,6 +6542,28 @@ paths:
         in: path
         required: true
         type: string
+  /simulations/{simulation_pk}/status/patch/:
+    patch:
+      operationId: simulations_status_patch
+      description: A simple ViewSet for viewing simulations
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/SimulationStatus'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/SimulationStatus'
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
   /simulations/{simulation_pk}/visualisations/waterdepth/:
     get:
       operationId: simulations_visualisations_waterdepth_list
@@ -6553,7 +6583,7 @@ paths:
         '200':
           description: ''
           schema:
-            $ref: '#/definitions/Progress'
+            $ref: '#/definitions/Waterdepth'
       tags:
         - simulations
     parameters:
@@ -6580,7 +6610,7 @@ paths:
         '200':
           description: ''
           schema:
-            $ref: '#/definitions/Progress'
+            $ref: '#/definitions/Profile'
       tags:
         - simulations
     parameters:
@@ -6611,7 +6641,7 @@ paths:
         '200':
           description: ''
           schema:
-            $ref: '#/definitions/Progress'
+            $ref: '#/definitions/TMS'
       tags:
         - simulations
     parameters:
@@ -9447,11 +9477,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       units:
         title: Units
@@ -9519,11 +9550,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       reference_uuid:
         title: Reference uuid
@@ -9584,8 +9616,9 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
         readOnly: true
       interpolate:
@@ -9678,11 +9711,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       reference_uuid:
         title: Reference uuid
@@ -9743,11 +9777,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       reference_uuid:
         title: Reference uuid
@@ -10484,11 +10519,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       interpolate:
         title: Interpolate
@@ -10694,11 +10730,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       interpolate:
         title: Interpolate
@@ -11078,11 +11115,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       value:
         title: Value
@@ -11241,11 +11279,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       value:
         title: Value
@@ -11297,11 +11336,12 @@ definitions:
           - mm/h
           - mm/min
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       interpolate:
         title: Interpolate
@@ -11475,8 +11515,9 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
         readOnly: true
       interpolate:
@@ -11829,11 +11870,12 @@ definitions:
         maximum: 2147483647
         minimum: 0
       duration:
-        title: Duration
-        description: Duration of event in seconds
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
         type: integer
-        maximum: 2147483647
-        minimum: 0
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
         x-nullable: true
       values:
         description: '[time, speed, direction]'
@@ -12263,6 +12305,9 @@ definitions:
       time:
         title: Time
         type: number
+      paused:
+        title: Paused
+        type: boolean
   SimulationStatus:
     required:
       - name
@@ -12306,6 +12351,10 @@ definitions:
         maximum: 2147483647
         minimum: 0
         x-nullable: true
+      paused:
+        title: True if simulation is paused, only valid in initialized state
+        type: boolean
+        x-nullable: true
       crash_report:
         title: Crash report
         type: string
@@ -12314,11 +12363,52 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+  Waterdepth:
+    required:
+      - websocket_url
+    type: object
+    properties:
+      websocket_url:
+        title: Websocket url
+        type: string
+        format: uri
+        minLength: 1
+  Profile:
+    required:
+      - url
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        minLength: 1
+  TMS:
+    required:
+      - tms_url
+      - minmax_url
+    type: object
+    properties:
+      tms_url:
+        title: Tms url
+        type: string
+        format: uri
+        minLength: 1
+      minmax_url:
+        title: Minmax url
+        type: string
+        format: uri
+        minLength: 1
   RasterOptions:
     type: object
     properties:
       dem_file:
         title: Dem file
+        type: string
+        maxLength: 80
+        minLength: 1
+      dem_raw_file:
+        title: Dem raw file
         type: string
         maxLength: 80
         minLength: 1
@@ -12470,6 +12560,7 @@ definitions:
         type: string
         enum:
           - dem_file
+          - dem_raw_file
           - equilibrium_infiltration_rate_file
           - frict_coef_file
           - initial_groundwater_level_file

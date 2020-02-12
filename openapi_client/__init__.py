@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = '3.0.b9.dev0'
+__version__ = "1.0.0"
 
 # import apis into sdk package
 from openapi_client.api.auth_api import AuthApi
@@ -141,6 +141,7 @@ from openapi_client.models.post_processing_overview import PostProcessingOvervie
 from openapi_client.models.post_processing_queue import PostProcessingQueue
 from openapi_client.models.post_processing_status import PostProcessingStatus
 from openapi_client.models.potential_breach import PotentialBreach
+from openapi_client.models.profile import Profile
 from openapi_client.models.progress import Progress
 from openapi_client.models.raster import Raster
 from openapi_client.models.raster_edit import RasterEdit
@@ -155,6 +156,7 @@ from openapi_client.models.simulation import Simulation
 from openapi_client.models.simulation_status import SimulationStatus
 from openapi_client.models.simulation_update import SimulationUpdate
 from openapi_client.models.stable_threshold_saved_state import StableThresholdSavedState
+from openapi_client.models.tms import TMS
 from openapi_client.models.threedi_model import ThreediModel
 from openapi_client.models.threedi_model_saved_state import ThreediModelSavedState
 from openapi_client.models.threshold import Threshold
@@ -173,5 +175,6 @@ from openapi_client.models.two_d_water_raster import TwoDWaterRaster
 from openapi_client.models.upload import Upload
 from openapi_client.models.usage import Usage
 from openapi_client.models.user import User
+from openapi_client.models.waterdepth import Waterdepth
 from openapi_client.models.wind import Wind
 

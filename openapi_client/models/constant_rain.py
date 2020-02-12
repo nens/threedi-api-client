@@ -156,7 +156,7 @@ class ConstantRain(object):
     def duration(self):
         """Gets the duration of this ConstantRain.  # noqa: E501
 
-        Duration of event in seconds  # noqa: E501
+        event duration in seconds. -9999 is the 'infinite duration' value (only allowed in conjunction with infinite simulations  # noqa: E501
 
         :return: The duration of this ConstantRain.  # noqa: E501
         :rtype: int
@@ -167,17 +167,17 @@ class ConstantRain(object):
     def duration(self, duration):
         """Sets the duration of this ConstantRain.
 
-        Duration of event in seconds  # noqa: E501
+        event duration in seconds. -9999 is the 'infinite duration' value (only allowed in conjunction with infinite simulations  # noqa: E501
 
         :param duration: The duration of this ConstantRain.  # noqa: E501
         :type: int
         """
         if (self.local_vars_configuration.client_side_validation and
-                duration is not None and duration > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `duration`, must be a value less than or equal to `2147483647`")  # noqa: E501
+                duration is not None and duration > 9223372036854775807):  # noqa: E501
+            raise ValueError("Invalid value for `duration`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                duration is not None and duration < 0):  # noqa: E501
-            raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `0`")  # noqa: E501
+                duration is not None and duration < -9223372036854775808):  # noqa: E501
+            raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
 
         self._duration = duration
 

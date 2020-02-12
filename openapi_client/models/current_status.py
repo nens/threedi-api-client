@@ -37,17 +37,19 @@ class CurrentStatus(object):
         'id': 'int',
         'name': 'str',
         'created': 'datetime',
-        'time': 'float'
+        'time': 'float',
+        'paused': 'bool'
     }
 
     attribute_map = {
         'id': 'id',
         'name': 'name',
         'created': 'created',
-        'time': 'time'
+        'time': 'time',
+        'paused': 'paused'
     }
 
-    def __init__(self, id=None, name=None, created=None, time=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, created=None, time=None, paused=None, local_vars_configuration=None):  # noqa: E501
         """CurrentStatus - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,6 +59,7 @@ class CurrentStatus(object):
         self._name = None
         self._created = None
         self._time = None
+        self._paused = None
         self.discriminator = None
 
         self.id = id
@@ -64,6 +67,8 @@ class CurrentStatus(object):
         self.created = created
         if time is not None:
             self.time = time
+        if paused is not None:
+            self.paused = paused
 
     @property
     def id(self):
@@ -157,6 +162,27 @@ class CurrentStatus(object):
         """
 
         self._time = time
+
+    @property
+    def paused(self):
+        """Gets the paused of this CurrentStatus.  # noqa: E501
+
+
+        :return: The paused of this CurrentStatus.  # noqa: E501
+        :rtype: bool
+        """
+        return self._paused
+
+    @paused.setter
+    def paused(self, paused):
+        """Sets the paused of this CurrentStatus.
+
+
+        :param paused: The paused of this CurrentStatus.  # noqa: E501
+        :type: bool
+        """
+
+        self._paused = paused
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -5,7 +5,9 @@ History
 3.0.b9 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Support for interactive simulations.
+
+- Result API endpoints.
 
 
 3.0.b8 (2020-02-10)

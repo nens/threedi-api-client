@@ -167,7 +167,7 @@ class TimeseriesRainOverview(object):
     def duration(self):
         """Gets the duration of this TimeseriesRainOverview.  # noqa: E501
 
-        Duration of event in seconds  # noqa: E501
+        event duration in seconds. -9999 is the 'infinite duration' value (only allowed in conjunction with infinite simulations  # noqa: E501
 
         :return: The duration of this TimeseriesRainOverview.  # noqa: E501
         :rtype: int
@@ -178,7 +178,7 @@ class TimeseriesRainOverview(object):
     def duration(self, duration):
         """Sets the duration of this TimeseriesRainOverview.
 
-        Duration of event in seconds  # noqa: E501
+        event duration in seconds. -9999 is the 'infinite duration' value (only allowed in conjunction with infinite simulations  # noqa: E501
 
         :param duration: The duration of this TimeseriesRainOverview.  # noqa: E501
         :type: int
