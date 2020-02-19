@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = '3.0.b10.dev0'
+__version__ = "3.0b10"
 
 # import apis into sdk package
 from openapi_client.api.auth_api import AuthApi

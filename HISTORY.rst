@@ -5,7 +5,7 @@ History
 3.0.b10 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Simulation model now has a 'tags' field.
 
 
 3.0.b9 (2020-02-12)
