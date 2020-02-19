@@ -38,6 +38,7 @@ class Simulation(object):
         'slug': 'str',
         'uuid': 'str',
         'name': 'str',
+        'tags': 'str',
         'created': 'str',
         'threedimodel': 'str',
         'organisation': 'str',
@@ -56,6 +57,7 @@ class Simulation(object):
         'slug': 'slug',
         'uuid': 'uuid',
         'name': 'name',
+        'tags': 'tags',
         'created': 'created',
         'threedimodel': 'threedimodel',
         'organisation': 'organisation',
@@ -69,7 +71,7 @@ class Simulation(object):
         'id': 'id'
     }
 
-    def __init__(self, url=None, slug=None, uuid=None, name=None, created=None, threedimodel=None, organisation=None, organisation_name=None, user=None, start_datetime=None, end_datetime=None, duration=None, duration_humanized=None, threedimodel_id=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, slug=None, uuid=None, name=None, tags=None, created=None, threedimodel=None, organisation=None, organisation_name=None, user=None, start_datetime=None, end_datetime=None, duration=None, duration_humanized=None, threedimodel_id=None, id=None, local_vars_configuration=None):  # noqa: E501
         """Simulation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -79,6 +81,7 @@ class Simulation(object):
         self._slug = None
         self._uuid = None
         self._name = None
+        self._tags = None
         self._created = None
         self._threedimodel = None
         self._organisation = None
@@ -99,6 +102,8 @@ class Simulation(object):
         if uuid is not None:
             self.uuid = uuid
         self.name = name
+        if tags is not None:
+            self.tags = tags
         if created is not None:
             self.created = created
         self.threedimodel = threedimodel
@@ -216,6 +221,27 @@ class Simulation(object):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def tags(self):
+        """Gets the tags of this Simulation.  # noqa: E501
+
+
+        :return: The tags of this Simulation.  # noqa: E501
+        :rtype: str
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this Simulation.
+
+
+        :param tags: The tags of this Simulation.  # noqa: E501
+        :type: str
+        """
+
+        self._tags = tags
 
     @property
     def created(self):

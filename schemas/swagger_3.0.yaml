@@ -2412,11 +2412,14 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_breaches_delete
-      description: A simple ViewSet for viewing Breaches
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -2536,11 +2539,14 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_lateral_constant_delete
-      description: A simple ViewSet for viewing ConstantLateral
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -2687,11 +2693,14 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_lateral_timeseries_delete
-      description: A simple ViewSet for viewing TimeseriesLateral
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -2838,7 +2847,8 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_rain_constant_delete
-      description: A simple ViewSet for viewing TimeseriesRain
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
@@ -2964,7 +2974,8 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_rain_local_constant_delete
-      description: A simple ViewSet for viewing TimeseriesRain
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
@@ -3090,7 +3101,8 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_rain_local_timeseries_delete
-      description: A simple ViewSet for viewing TimeseriesLateral
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
@@ -3216,11 +3228,14 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_rain_rasters_lizard_delete
-      description: A simple ViewSet for viewing lizardRasterRain
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -3324,11 +3339,14 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_rain_rasters_netcdf_delete
-      description: NetCDF 4 raster rain
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -3509,11 +3527,14 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_rain_timeseries_lizard_delete
-      description: A simple ViewSet for viewing LizardTimeseriesRain
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -3617,11 +3638,14 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_rain_timeseries_netcdf_delete
-      description: NetCDF 4 timeseries rain
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -3680,7 +3704,8 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_rain_timeseries_delete
-      description: A simple ViewSet for viewing TimeseriesRain
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
@@ -3806,11 +3831,14 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_raster-edits_delete
-      description: A simple ViewSet for viewing raster edits
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -3930,11 +3958,14 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_sources-sinks_constant_delete
-      description: A simple ViewSet for viewing ConstantSourcesSinks
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -4054,11 +4085,14 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_sources-sinks_rasters_lizard_delete
-      description: A simple ViewSet for viewing lizardRasterRain
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -4163,11 +4197,14 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_sources-sinks_rasters_netcdf_delete
-      description: NetCDF 4 raster sources & sinks
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -4351,11 +4388,14 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_sources-sinks_timeseries_lizard_delete
-      description: A simple ViewSet for viewing LizardTimeseriesRain
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -4460,11 +4500,14 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_sources-sinks_timeseries_netcdf_delete
-      description: NetCDF 4 timeseries sources & sinks
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -4524,11 +4567,14 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_sources-sinks_timeseries_delete
-      description: A simple ViewSet for viewing TimeseriesSourcesSinks
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -4661,11 +4707,14 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_structure-control_timed_delete
-      description: A simple ViewSet for viewing TimedStructureControls
+      description: "destroy resource only if the event has not yet been applied to\n\
+        the associated simulation"
       parameters: []
       responses:
         '204':
-          description: ''
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     parameters:
@@ -6560,6 +6609,42 @@ paths:
       tags:
         - simulations
     parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/status/{id}/:
+    put:
+      operationId: simulations_status_update
+      description: A simple ViewSet for viewing simulations
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/SimulationStatus'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/SimulationStatus'
+      tags:
+        - simulations
+    delete:
+      operationId: simulations_status_delete
+      description: A simple ViewSet for viewing simulations
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - simulations
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this simulation status.
+        required: true
+        type: integer
       - name: simulation_pk
         in: path
         required: true
@@ -9314,6 +9399,9 @@ definitions:
         type: string
         maxLength: 80
         minLength: 1
+      tags:
+        title: Tags
+        type: string
       created:
         title: Created
         type: string
@@ -9407,6 +9495,9 @@ definitions:
         type: string
         maxLength: 80
         minLength: 1
+      tags:
+        title: Tags
+        type: string
       created:
         title: Created
         type: string
