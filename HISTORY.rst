@@ -2,10 +2,10 @@
 History
 =======
 
-3.0b11 (unreleased)
--------------------
+3.0b11a (unreleased)
+--------------------
 
-- Nothing changed yet.
+- dev changes for user/permission/revision
 
 
 3.0b10 (2020-02-19)
