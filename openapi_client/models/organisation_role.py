@@ -35,38 +35,41 @@ class OrganisationRole(object):
     """
     openapi_types = {
         'url': 'str',
-        'user': 'str',
-        'role': 'str',
-        'organisation': 'str',
+        'user_name': 'str',
+        'role_name': 'str',
+        'organisation_unique_id': 'str',
         'organisation_name': 'str'
     }
 
     attribute_map = {
         'url': 'url',
-        'user': 'user',
-        'role': 'role',
-        'organisation': 'organisation',
+        'user_name': 'user_name',
+        'role_name': 'role_name',
+        'organisation_unique_id': 'organisation_unique_id',
         'organisation_name': 'organisation_name'
     }
 
-    def __init__(self, url=None, user=None, role=None, organisation=None, organisation_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, user_name=None, role_name=None, organisation_unique_id=None, organisation_name=None, local_vars_configuration=None):  # noqa: E501
         """OrganisationRole - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._url = None
-        self._user = None
-        self._role = None
-        self._organisation = None
+        self._user_name = None
+        self._role_name = None
+        self._organisation_unique_id = None
         self._organisation_name = None
         self.discriminator = None
 
         if url is not None:
             self.url = url
-        self.user = user
-        self.role = role
-        self.organisation = organisation
+        if user_name is not None:
+            self.user_name = user_name
+        if role_name is not None:
+            self.role_name = role_name
+        if organisation_unique_id is not None:
+            self.organisation_unique_id = organisation_unique_id
         if organisation_name is not None:
             self.organisation_name = organisation_name
 
@@ -92,76 +95,67 @@ class OrganisationRole(object):
         self._url = url
 
     @property
-    def user(self):
-        """Gets the user of this OrganisationRole.  # noqa: E501
+    def user_name(self):
+        """Gets the user_name of this OrganisationRole.  # noqa: E501
 
 
-        :return: The user of this OrganisationRole.  # noqa: E501
+        :return: The user_name of this OrganisationRole.  # noqa: E501
         :rtype: str
         """
-        return self._user
+        return self._user_name
 
-    @user.setter
-    def user(self, user):
-        """Sets the user of this OrganisationRole.
+    @user_name.setter
+    def user_name(self, user_name):
+        """Sets the user_name of this OrganisationRole.
 
 
-        :param user: The user of this OrganisationRole.  # noqa: E501
+        :param user_name: The user_name of this OrganisationRole.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and user is None:  # noqa: E501
-            raise ValueError("Invalid value for `user`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                user is not None and not re.search(r'^[\w.@+-]+$', user)):  # noqa: E501
-            raise ValueError(r"Invalid value for `user`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
 
-        self._user = user
+        self._user_name = user_name
 
     @property
-    def role(self):
-        """Gets the role of this OrganisationRole.  # noqa: E501
+    def role_name(self):
+        """Gets the role_name of this OrganisationRole.  # noqa: E501
 
 
-        :return: The role of this OrganisationRole.  # noqa: E501
+        :return: The role_name of this OrganisationRole.  # noqa: E501
         :rtype: str
         """
-        return self._role
+        return self._role_name
 
-    @role.setter
-    def role(self, role):
-        """Sets the role of this OrganisationRole.
+    @role_name.setter
+    def role_name(self, role_name):
+        """Sets the role_name of this OrganisationRole.
 
 
-        :param role: The role of this OrganisationRole.  # noqa: E501
+        :param role_name: The role_name of this OrganisationRole.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and role is None:  # noqa: E501
-            raise ValueError("Invalid value for `role`, must not be `None`")  # noqa: E501
 
-        self._role = role
+        self._role_name = role_name
 
     @property
-    def organisation(self):
-        """Gets the organisation of this OrganisationRole.  # noqa: E501
+    def organisation_unique_id(self):
+        """Gets the organisation_unique_id of this OrganisationRole.  # noqa: E501
 
 
-        :return: The organisation of this OrganisationRole.  # noqa: E501
+        :return: The organisation_unique_id of this OrganisationRole.  # noqa: E501
         :rtype: str
         """
-        return self._organisation
+        return self._organisation_unique_id
 
-    @organisation.setter
-    def organisation(self, organisation):
-        """Sets the organisation of this OrganisationRole.
+    @organisation_unique_id.setter
+    def organisation_unique_id(self, organisation_unique_id):
+        """Sets the organisation_unique_id of this OrganisationRole.
 
 
-        :param organisation: The organisation of this OrganisationRole.  # noqa: E501
+        :param organisation_unique_id: The organisation_unique_id of this OrganisationRole.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and organisation is None:  # noqa: E501
-            raise ValueError("Invalid value for `organisation`, must not be `None`")  # noqa: E501
 
-        self._organisation = organisation
+        self._organisation_unique_id = organisation_unique_id
 
     @property
     def organisation_name(self):

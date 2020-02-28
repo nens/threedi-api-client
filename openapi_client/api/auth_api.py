@@ -261,16 +261,30 @@ class AuthApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def auth_user_list(self, **kwargs):  # noqa: E501
-        """auth_user_list  # noqa: E501
+    def auth_users_list(self, **kwargs):  # noqa: E501
+        """Read-only API endpoint for viewing user details.  # noqa: E501
 
-        Read-only API endpoint for viewing user details for current user  # noqa: E501
+        - superusers and staff users might view all users - user with a manage role might view all users for the   organisations they have the manage role for - regular users might view their user details  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.auth_user_list(async_req=True)
+        >>> thread = api.auth_users_list(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str username:
+        :param str username__contains:
+        :param str username__in: Multiple values may be separated by commas.
+        :param str username__startswith:
+        :param str username__istartswith:
+        :param str username__endswith:
+        :param str username__regex:
+        :param str email:
+        :param str email__contains:
+        :param str email__in: Multiple values may be separated by commas.
+        :param str email__startswith:
+        :param str email__istartswith:
+        :param str email__endswith:
+        :param str email__regex:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -280,23 +294,37 @@ class AuthApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: User
+        :return: list[User]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.auth_user_list_with_http_info(**kwargs)  # noqa: E501
+        return self.auth_users_list_with_http_info(**kwargs)  # noqa: E501
 
-    def auth_user_list_with_http_info(self, **kwargs):  # noqa: E501
-        """auth_user_list  # noqa: E501
+    def auth_users_list_with_http_info(self, **kwargs):  # noqa: E501
+        """Read-only API endpoint for viewing user details.  # noqa: E501
 
-        Read-only API endpoint for viewing user details for current user  # noqa: E501
+        - superusers and staff users might view all users - user with a manage role might view all users for the   organisations they have the manage role for - regular users might view their user details  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.auth_user_list_with_http_info(async_req=True)
+        >>> thread = api.auth_users_list_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str username:
+        :param str username__contains:
+        :param str username__in: Multiple values may be separated by commas.
+        :param str username__startswith:
+        :param str username__istartswith:
+        :param str username__endswith:
+        :param str username__regex:
+        :param str email:
+        :param str email__contains:
+        :param str email__in: Multiple values may be separated by commas.
+        :param str email__startswith:
+        :param str email__istartswith:
+        :param str email__endswith:
+        :param str email__regex:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -308,14 +336,14 @@ class AuthApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(User, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(list[User], status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['limit', 'offset']  # noqa: E501
+        all_params = ['username', 'username__contains', 'username__in', 'username__startswith', 'username__istartswith', 'username__endswith', 'username__regex', 'email', 'email__contains', 'email__in', 'email__startswith', 'email__istartswith', 'email__endswith', 'email__regex', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -325,7 +353,7 @@ class AuthApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method auth_user_list" % key
+                    " to method auth_users_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
@@ -335,6 +363,34 @@ class AuthApi(object):
         path_params = {}
 
         query_params = []
+        if 'username' in local_var_params and local_var_params['username'] is not None:  # noqa: E501
+            query_params.append(('username', local_var_params['username']))  # noqa: E501
+        if 'username__contains' in local_var_params and local_var_params['username__contains'] is not None:  # noqa: E501
+            query_params.append(('username__contains', local_var_params['username__contains']))  # noqa: E501
+        if 'username__in' in local_var_params and local_var_params['username__in'] is not None:  # noqa: E501
+            query_params.append(('username__in', local_var_params['username__in']))  # noqa: E501
+        if 'username__startswith' in local_var_params and local_var_params['username__startswith'] is not None:  # noqa: E501
+            query_params.append(('username__startswith', local_var_params['username__startswith']))  # noqa: E501
+        if 'username__istartswith' in local_var_params and local_var_params['username__istartswith'] is not None:  # noqa: E501
+            query_params.append(('username__istartswith', local_var_params['username__istartswith']))  # noqa: E501
+        if 'username__endswith' in local_var_params and local_var_params['username__endswith'] is not None:  # noqa: E501
+            query_params.append(('username__endswith', local_var_params['username__endswith']))  # noqa: E501
+        if 'username__regex' in local_var_params and local_var_params['username__regex'] is not None:  # noqa: E501
+            query_params.append(('username__regex', local_var_params['username__regex']))  # noqa: E501
+        if 'email' in local_var_params and local_var_params['email'] is not None:  # noqa: E501
+            query_params.append(('email', local_var_params['email']))  # noqa: E501
+        if 'email__contains' in local_var_params and local_var_params['email__contains'] is not None:  # noqa: E501
+            query_params.append(('email__contains', local_var_params['email__contains']))  # noqa: E501
+        if 'email__in' in local_var_params and local_var_params['email__in'] is not None:  # noqa: E501
+            query_params.append(('email__in', local_var_params['email__in']))  # noqa: E501
+        if 'email__startswith' in local_var_params and local_var_params['email__startswith'] is not None:  # noqa: E501
+            query_params.append(('email__startswith', local_var_params['email__startswith']))  # noqa: E501
+        if 'email__istartswith' in local_var_params and local_var_params['email__istartswith'] is not None:  # noqa: E501
+            query_params.append(('email__istartswith', local_var_params['email__istartswith']))  # noqa: E501
+        if 'email__endswith' in local_var_params and local_var_params['email__endswith'] is not None:  # noqa: E501
+            query_params.append(('email__endswith', local_var_params['email__endswith']))  # noqa: E501
+        if 'email__regex' in local_var_params and local_var_params['email__regex'] is not None:  # noqa: E501
+            query_params.append(('email__regex', local_var_params['email__regex']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
@@ -354,7 +410,115 @@ class AuthApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/auth/user/', 'GET',
+            '/auth/users/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[User]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def auth_users_read(self, id, **kwargs):  # noqa: E501
+        """auth_users_read  # noqa: E501
+
+        view user details  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_users_read(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this user. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: User
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.auth_users_read_with_http_info(id, **kwargs)  # noqa: E501
+
+    def auth_users_read_with_http_info(self, id, **kwargs):  # noqa: E501
+        """auth_users_read  # noqa: E501
+
+        view user details  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_users_read_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this user. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(User, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method auth_users_read" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `auth_users_read`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/auth/users/{id}/', 'GET',
             path_params,
             query_params,
             header_params,

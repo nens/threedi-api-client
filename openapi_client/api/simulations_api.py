@@ -22231,6 +22231,7 @@ class SimulationsApi(object):
         :param float created__month__lte:
         :param float created__day:
         :param float created__day__lt:
+        :param str tags__in:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -22285,6 +22286,7 @@ class SimulationsApi(object):
         :param float created__month__lte:
         :param float created__day:
         :param float created__day__lt:
+        :param str tags__in:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -22303,7 +22305,7 @@ class SimulationsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'uuid', 'uuid__contains', 'uuid__in', 'uuid__startswith', 'uuid__istartswith', 'uuid__endswith', 'uuid__regex', 'created__date', 'created__date__gt', 'created__date__gte', 'created__date__lt', 'created__date__lte', 'created__year', 'created__year__gt', 'created__year__gte', 'created__year__lt', 'created__year__lte', 'created__month', 'created__month__lte', 'created__day', 'created__day__lt', 'limit', 'offset']  # noqa: E501
+        all_params = ['name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'uuid', 'uuid__contains', 'uuid__in', 'uuid__startswith', 'uuid__istartswith', 'uuid__endswith', 'uuid__regex', 'created__date', 'created__date__gt', 'created__date__gte', 'created__date__lt', 'created__date__lte', 'created__year', 'created__year__gt', 'created__year__gte', 'created__year__lt', 'created__year__lte', 'created__month', 'created__month__lte', 'created__day', 'created__day__lt', 'tags__in', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -22379,6 +22381,8 @@ class SimulationsApi(object):
             query_params.append(('created__day', local_var_params['created__day']))  # noqa: E501
         if 'created__day__lt' in local_var_params and local_var_params['created__day__lt'] is not None:  # noqa: E501
             query_params.append(('created__day__lt', local_var_params['created__day__lt']))  # noqa: E501
+        if 'tags__in' in local_var_params and local_var_params['tags__in'] is not None:  # noqa: E501
+            query_params.append(('tags__in', local_var_params['tags__in']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501

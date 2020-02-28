@@ -69,11 +69,84 @@ paths:
       tags:
         - auth
     parameters: []
-  /auth/user/:
+  /auth/users/:
     get:
-      operationId: auth_user_list
-      description: Read-only API endpoint for viewing user details for current user
+      operationId: auth_users_list
+      summary: Read-only API endpoint for viewing user details.
+      description: "- superusers and staff users might view all users\n- user with\
+        \ a manage role might view all users for the\n  organisations they have the\
+        \ manage role for\n- regular users might view their user details"
       parameters:
+        - name: username
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: username__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: username__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: username__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: username__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: username__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: username__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: email
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: email__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: email__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: email__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: email__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: email__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: email__regex
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: limit
           in: query
           description: Number of results to return per page.
@@ -88,10 +161,30 @@ paths:
         '200':
           description: ''
           schema:
-            $ref: '#/definitions/User'
+            type: array
+            items:
+              $ref: '#/definitions/User'
       tags:
         - auth
     parameters: []
+  /auth/users/{id}/:
+    get:
+      operationId: auth_users_read
+      description: view user details
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - auth
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this user.
+        required: true
+        type: integer
   /contracts/:
     get:
       operationId: contracts_list
@@ -835,6 +928,111 @@ paths:
       operationId: permissions_list
       description: Permissions management endpoints.
       parameters:
+        - name: user__username
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: user__username__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: user__username__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: user__username__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: user__username__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: user__username__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: user__username__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: role__name
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: role__name__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: role__name__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: role__name__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: role__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: role__name__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: role__name__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: organisation__name__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name__regex
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: limit
           in: query
           description: Number of results to return per page.
@@ -872,7 +1070,10 @@ paths:
         - permissions
     post:
       operationId: permissions_create
-      description: Permissions management endpoints.
+      summary: create a role for an existing user in an existing organisation
+      description: "Example payload:\n\n    {\n      \"user_name\": \"chuck.norris\"\
+        ,\n      \"role_name\": \"follow_simulation\",\n      \"organisation_unique_id\"\
+        : \"48dac75bef8a42ebbb52e8f89bbdb9f2\"\n    }"
       parameters:
         - name: data
           in: body
@@ -1773,6 +1974,11 @@ paths:
           description: ''
           required: false
           type: number
+        - name: tags__in
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: limit
           in: query
           description: Number of results to return per page.
@@ -9160,10 +9366,6 @@ definitions:
         maxLength: 255
         minLength: 1
   OrganisationRole:
-    required:
-      - user
-      - role
-      - organisation
     type: object
     properties:
       url:
@@ -9171,16 +9373,18 @@ definitions:
         type: string
         format: uri
         readOnly: true
-      user:
-        title: User
+      user_name:
+        title: User name
         type: string
-        pattern: ^[\w.@+-]+$
-      role:
-        title: Role
+        readOnly: true
+      role_name:
+        title: Role name
         type: string
-      organisation:
-        title: Organisation
+        readOnly: true
+      organisation_unique_id:
+        title: Organisation unique id
         type: string
+        readOnly: true
       organisation_name:
         title: Organisation name
         type: string
@@ -9245,6 +9449,15 @@ definitions:
         type: string
         maxLength: 200
         minLength: 1
+      commit_date:
+        title: Commit date
+        type: string
+        format: date-time
+      user:
+        title: User
+        type: string
+        pattern: ^[\w.@+-]+$
+        readOnly: true
       is_pinned:
         title: Is pinned
         type: boolean
@@ -9266,6 +9479,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      user:
+        title: User
+        type: string
+        readOnly: true
       inpy_version:
         title: Inpy version
         type: string
@@ -9275,6 +9492,10 @@ definitions:
         format: uri
       revision_hash:
         title: Revision hash
+        type: string
+        readOnly: true
+      revision_commit_date:
+        title: Revision commit date
         type: string
         readOnly: true
       repository_slug:

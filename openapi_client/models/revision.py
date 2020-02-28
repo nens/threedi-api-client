@@ -39,6 +39,8 @@ class Revision(object):
         'repository': 'str',
         'number': 'int',
         'hash': 'str',
+        'commit_date': 'datetime',
+        'user': 'str',
         'is_pinned': 'bool'
     }
 
@@ -48,10 +50,12 @@ class Revision(object):
         'repository': 'repository',
         'number': 'number',
         'hash': 'hash',
+        'commit_date': 'commit_date',
+        'user': 'user',
         'is_pinned': 'is_pinned'
     }
 
-    def __init__(self, url=None, id=None, repository=None, number=None, hash=None, is_pinned=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, id=None, repository=None, number=None, hash=None, commit_date=None, user=None, is_pinned=None, local_vars_configuration=None):  # noqa: E501
         """Revision - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,6 +66,8 @@ class Revision(object):
         self._repository = None
         self._number = None
         self._hash = None
+        self._commit_date = None
+        self._user = None
         self._is_pinned = None
         self.discriminator = None
 
@@ -74,6 +80,10 @@ class Revision(object):
             self.number = number
         if hash is not None:
             self.hash = hash
+        if commit_date is not None:
+            self.commit_date = commit_date
+        if user is not None:
+            self.user = user
         if is_pinned is not None:
             self.is_pinned = is_pinned
 
@@ -197,6 +207,51 @@ class Revision(object):
             raise ValueError("Invalid value for `hash`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._hash = hash
+
+    @property
+    def commit_date(self):
+        """Gets the commit_date of this Revision.  # noqa: E501
+
+
+        :return: The commit_date of this Revision.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._commit_date
+
+    @commit_date.setter
+    def commit_date(self, commit_date):
+        """Sets the commit_date of this Revision.
+
+
+        :param commit_date: The commit_date of this Revision.  # noqa: E501
+        :type: datetime
+        """
+
+        self._commit_date = commit_date
+
+    @property
+    def user(self):
+        """Gets the user of this Revision.  # noqa: E501
+
+
+        :return: The user of this Revision.  # noqa: E501
+        :rtype: str
+        """
+        return self._user
+
+    @user.setter
+    def user(self, user):
+        """Sets the user of this Revision.
+
+
+        :param user: The user of this Revision.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                user is not None and not re.search(r'^[\w.@+-]+$', user)):  # noqa: E501
+            raise ValueError(r"Invalid value for `user`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
+
+        self._user = user
 
     @property
     def is_pinned(self):
