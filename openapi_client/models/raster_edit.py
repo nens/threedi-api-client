@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.33   3Di core release: 2.0.4  deployed on:  03:28PM (UTC) on February 03, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.34   3Di core release: 2.0.6.dev2  deployed on:  02:51PM (UTC) on February 26, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -41,7 +41,8 @@ class RasterEdit(object):
         'value': 'float',
         'polygon': 'str',
         'relative': 'bool',
-        'uid': 'str'
+        'uid': 'str',
+        'id': 'int'
     }
 
     attribute_map = {
@@ -52,10 +53,11 @@ class RasterEdit(object):
         'value': 'value',
         'polygon': 'polygon',
         'relative': 'relative',
-        'uid': 'uid'
+        'uid': 'uid',
+        'id': 'id'
     }
 
-    def __init__(self, url=None, simulation=None, raster=None, offset=None, value=None, polygon=None, relative=None, uid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, raster=None, offset=None, value=None, polygon=None, relative=None, uid=None, id=None, local_vars_configuration=None):  # noqa: E501
         """RasterEdit - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class RasterEdit(object):
         self._polygon = None
         self._relative = None
         self._uid = None
+        self._id = None
         self.discriminator = None
 
         if url is not None:
@@ -83,6 +86,8 @@ class RasterEdit(object):
             self.relative = relative
         if uid is not None:
             self.uid = uid
+        if id is not None:
+            self.id = id
 
     @property
     def url(self):
@@ -273,6 +278,27 @@ class RasterEdit(object):
         """
 
         self._uid = uid
+
+    @property
+    def id(self):
+        """Gets the id of this RasterEdit.  # noqa: E501
+
+
+        :return: The id of this RasterEdit.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this RasterEdit.
+
+
+        :param id: The id of this RasterEdit.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

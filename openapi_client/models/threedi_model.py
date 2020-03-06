@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.33   3Di core release: 2.0.4  deployed on:  03:28PM (UTC) on February 03, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.34   3Di core release: 2.0.6.dev2  deployed on:  02:51PM (UTC) on February 26, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -36,9 +36,11 @@ class ThreediModel(object):
     openapi_types = {
         'url': 'str',
         'id': 'int',
+        'user': 'str',
         'inpy_version': 'str',
         'revision': 'str',
         'revision_hash': 'str',
+        'revision_commit_date': 'str',
         'repository_slug': 'str',
         'name': 'str',
         'slug': 'str',
@@ -60,9 +62,11 @@ class ThreediModel(object):
     attribute_map = {
         'url': 'url',
         'id': 'id',
+        'user': 'user',
         'inpy_version': 'inpy_version',
         'revision': 'revision',
         'revision_hash': 'revision_hash',
+        'revision_commit_date': 'revision_commit_date',
         'repository_slug': 'repository_slug',
         'name': 'name',
         'slug': 'slug',
@@ -81,7 +85,7 @@ class ThreediModel(object):
         'lines_count': 'lines_count'
     }
 
-    def __init__(self, url=None, id=None, inpy_version=None, revision=None, revision_hash=None, repository_slug=None, name=None, slug=None, disabled=None, epsg=None, inp_success=None, description=None, storage_space=None, storage_space_humanized=None, model_ini=None, breach_count=None, extent_two_d=None, extent_one_d=None, extent_zero_d=None, nodes_count=None, lines_count=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, id=None, user=None, inpy_version=None, revision=None, revision_hash=None, revision_commit_date=None, repository_slug=None, name=None, slug=None, disabled=None, epsg=None, inp_success=None, description=None, storage_space=None, storage_space_humanized=None, model_ini=None, breach_count=None, extent_two_d=None, extent_one_d=None, extent_zero_d=None, nodes_count=None, lines_count=None, local_vars_configuration=None):  # noqa: E501
         """ThreediModel - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -89,9 +93,11 @@ class ThreediModel(object):
 
         self._url = None
         self._id = None
+        self._user = None
         self._inpy_version = None
         self._revision = None
         self._revision_hash = None
+        self._revision_commit_date = None
         self._repository_slug = None
         self._name = None
         self._slug = None
@@ -114,10 +120,14 @@ class ThreediModel(object):
             self.url = url
         if id is not None:
             self.id = id
+        if user is not None:
+            self.user = user
         self.inpy_version = inpy_version
         self.revision = revision
         if revision_hash is not None:
             self.revision_hash = revision_hash
+        if revision_commit_date is not None:
+            self.revision_commit_date = revision_commit_date
         if repository_slug is not None:
             self.repository_slug = repository_slug
         if name is not None:
@@ -182,6 +192,27 @@ class ThreediModel(object):
         """
 
         self._id = id
+
+    @property
+    def user(self):
+        """Gets the user of this ThreediModel.  # noqa: E501
+
+
+        :return: The user of this ThreediModel.  # noqa: E501
+        :rtype: str
+        """
+        return self._user
+
+    @user.setter
+    def user(self, user):
+        """Sets the user of this ThreediModel.
+
+
+        :param user: The user of this ThreediModel.  # noqa: E501
+        :type: str
+        """
+
+        self._user = user
 
     @property
     def inpy_version(self):
@@ -249,6 +280,27 @@ class ThreediModel(object):
         """
 
         self._revision_hash = revision_hash
+
+    @property
+    def revision_commit_date(self):
+        """Gets the revision_commit_date of this ThreediModel.  # noqa: E501
+
+
+        :return: The revision_commit_date of this ThreediModel.  # noqa: E501
+        :rtype: str
+        """
+        return self._revision_commit_date
+
+    @revision_commit_date.setter
+    def revision_commit_date(self, revision_commit_date):
+        """Sets the revision_commit_date of this ThreediModel.
+
+
+        :param revision_commit_date: The revision_commit_date of this ThreediModel.  # noqa: E501
+        :type: str
+        """
+
+        self._revision_commit_date = revision_commit_date
 
     @property
     def repository_slug(self):

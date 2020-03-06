@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.33   3Di core release: 2.0.4  deployed on:  03:28PM (UTC) on February 03, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.34   3Di core release: 2.0.6.dev2  deployed on:  02:51PM (UTC) on February 26, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -54,6 +54,13 @@ class StatusesApi(object):
         :param str name__istartswith:
         :param str name__endswith:
         :param str name__regex:
+        :param str simulation__name:
+        :param str simulation__name__contains:
+        :param str simulation__name__in: Multiple values may be separated by commas.
+        :param str simulation__name__startswith:
+        :param str simulation__name__istartswith:
+        :param str simulation__name__endswith:
+        :param str simulation__name__regex:
         :param str created:
         :param str created__gt:
         :param str created__gte:
@@ -92,7 +99,7 @@ class StatusesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: list[SimulationStatus]
+        :return: InlineResponse20043
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -116,6 +123,13 @@ class StatusesApi(object):
         :param str name__istartswith:
         :param str name__endswith:
         :param str name__regex:
+        :param str simulation__name:
+        :param str simulation__name__contains:
+        :param str simulation__name__in: Multiple values may be separated by commas.
+        :param str simulation__name__startswith:
+        :param str simulation__name__istartswith:
+        :param str simulation__name__endswith:
+        :param str simulation__name__regex:
         :param str created:
         :param str created__gt:
         :param str created__gte:
@@ -156,14 +170,14 @@ class StatusesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(list[SimulationStatus], status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20043, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'created', 'created__gt', 'created__gte', 'created__lt', 'created__lte', 'created__date', 'created__date__gt', 'created__date__gte', 'created__date__lt', 'created__date__lte', 'created__year', 'created__year__gt', 'created__year__gte', 'created__year__lt', 'created__year__lte', 'created__month', 'created__month__lte', 'created__day', 'created__day__lt', 'created__week', 'created__week_day', 'id', 'id__range', 'id__gt', 'id__gte', 'id__lt', 'id__lte', 'id__isnull', 'simulation_id__in', 'limit', 'offset']  # noqa: E501
+        all_params = ['name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'simulation__name', 'simulation__name__contains', 'simulation__name__in', 'simulation__name__startswith', 'simulation__name__istartswith', 'simulation__name__endswith', 'simulation__name__regex', 'created', 'created__gt', 'created__gte', 'created__lt', 'created__lte', 'created__date', 'created__date__gt', 'created__date__gte', 'created__date__lt', 'created__date__lte', 'created__year', 'created__year__gt', 'created__year__gte', 'created__year__lt', 'created__year__lte', 'created__month', 'created__month__lte', 'created__day', 'created__day__lt', 'created__week', 'created__week_day', 'id', 'id__range', 'id__gt', 'id__gte', 'id__lt', 'id__lte', 'id__isnull', 'simulation_id__in', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -197,6 +211,20 @@ class StatusesApi(object):
             query_params.append(('name__endswith', local_var_params['name__endswith']))  # noqa: E501
         if 'name__regex' in local_var_params and local_var_params['name__regex'] is not None:  # noqa: E501
             query_params.append(('name__regex', local_var_params['name__regex']))  # noqa: E501
+        if 'simulation__name' in local_var_params and local_var_params['simulation__name'] is not None:  # noqa: E501
+            query_params.append(('simulation__name', local_var_params['simulation__name']))  # noqa: E501
+        if 'simulation__name__contains' in local_var_params and local_var_params['simulation__name__contains'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__contains', local_var_params['simulation__name__contains']))  # noqa: E501
+        if 'simulation__name__in' in local_var_params and local_var_params['simulation__name__in'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__in', local_var_params['simulation__name__in']))  # noqa: E501
+        if 'simulation__name__startswith' in local_var_params and local_var_params['simulation__name__startswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__startswith', local_var_params['simulation__name__startswith']))  # noqa: E501
+        if 'simulation__name__istartswith' in local_var_params and local_var_params['simulation__name__istartswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__istartswith', local_var_params['simulation__name__istartswith']))  # noqa: E501
+        if 'simulation__name__endswith' in local_var_params and local_var_params['simulation__name__endswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__endswith', local_var_params['simulation__name__endswith']))  # noqa: E501
+        if 'simulation__name__regex' in local_var_params and local_var_params['simulation__name__regex'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__regex', local_var_params['simulation__name__regex']))  # noqa: E501
         if 'created' in local_var_params and local_var_params['created'] is not None:  # noqa: E501
             query_params.append(('created', local_var_params['created']))  # noqa: E501
         if 'created__gt' in local_var_params and local_var_params['created__gt'] is not None:  # noqa: E501
@@ -281,7 +309,7 @@ class StatusesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[SimulationStatus]',  # noqa: E501
+            response_type='InlineResponse20043',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

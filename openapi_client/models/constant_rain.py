@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.33   3Di core release: 2.0.4  deployed on:  03:28PM (UTC) on February 03, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.34   3Di core release: 2.0.6.dev2  deployed on:  02:51PM (UTC) on February 26, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -172,6 +172,8 @@ class ConstantRain(object):
         :param duration: The duration of this ConstantRain.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and duration is None:  # noqa: E501
+            raise ValueError("Invalid value for `duration`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 duration is not None and duration > 9223372036854775807):  # noqa: E501
             raise ValueError("Invalid value for `duration`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501

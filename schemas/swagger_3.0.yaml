@@ -1,8 +1,9 @@
 swagger: '2.0'
 info:
   title: 3Di API
-  description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.33\
-    \ \n 3Di core release: 2.0.4 \ndeployed on:  03:28PM (UTC) on February 03, 2020"
+  description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.34\
+    \ \n 3Di core release: 2.0.6.dev2 \ndeployed on:  02:51PM (UTC) on February 26,\
+    \ 2020"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -69,11 +70,84 @@ paths:
       tags:
         - auth
     parameters: []
-  /auth/user/:
+  /auth/users/:
     get:
-      operationId: auth_user_list
-      description: Read-only API endpoint for viewing user details for current user
+      operationId: auth_users_list
+      summary: Read-only API endpoint for viewing user details.
+      description: "- superusers and staff users might view all users\n- user with\
+        \ a manage role might view all users for the\n  organisations they have the\
+        \ manage role for\n- regular users might view their user details"
       parameters:
+        - name: username
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: username__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: username__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: username__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: username__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: username__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: username__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: email
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: email__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: email__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: email__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: email__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: email__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: email__regex
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: limit
           in: query
           description: Number of results to return per page.
@@ -88,10 +162,46 @@ paths:
         '200':
           description: ''
           schema:
-            $ref: '#/definitions/User'
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/User'
       tags:
         - auth
     parameters: []
+  /auth/users/{id}/:
+    get:
+      operationId: auth_users_read
+      description: view user details
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - auth
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this user.
+        required: true
+        type: integer
   /contracts/:
     get:
       operationId: contracts_list
@@ -835,6 +945,111 @@ paths:
       operationId: permissions_list
       description: Permissions management endpoints.
       parameters:
+        - name: user__username
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: user__username__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: user__username__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: user__username__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: user__username__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: user__username__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: user__username__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: role__name
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: role__name__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: role__name__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: role__name__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: role__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: role__name__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: role__name__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: organisation__name__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name__regex
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: limit
           in: query
           description: Number of results to return per page.
@@ -872,7 +1087,11 @@ paths:
         - permissions
     post:
       operationId: permissions_create
-      description: Permissions management endpoints.
+      summary: create a role for an existing user in an existing organisation
+      description: "Example payload:\n\n    {\n      \"user\": \"chuck.norris\", \
+        \ # user name\n      \"role\": \"follow_simulation\",  # role name\n     \
+        \ \"organisation\": \"48dac75bef8a42ebbb52e8f89bbdb9f2\"  # unique id\n  \
+        \  }"
       parameters:
         - name: data
           in: body
@@ -1773,6 +1992,11 @@ paths:
           description: ''
           required: false
           type: number
+        - name: tags__in
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: limit
           in: query
           description: Number of results to return per page.
@@ -6132,7 +6356,7 @@ paths:
           type: integer
       responses:
         '404':
-          description: resource damage_estimation not found
+          description: resource arrival time not found
         '200':
           description: ''
           schema:
@@ -6172,8 +6396,10 @@ paths:
       responses:
         '404':
           description: resource arrival_time not found
+        '401':
+          description: not allowed, Lizard already started post-processing
         '204':
-          description: ''
+          description: deleted resource arrival_time
       tags:
         - simulations
     parameters:
@@ -6197,28 +6423,12 @@ paths:
           required: false
           type: integer
       responses:
+        '404':
+          description: resource basic postprocessing not found
         '200':
           description: ''
           schema:
-            required:
-              - count
-              - results
-            type: object
-            properties:
-              count:
-                type: integer
-              next:
-                type: string
-                format: uri
-                x-nullable: true
-              previous:
-                type: string
-                format: uri
-                x-nullable: true
-              results:
-                type: array
-                items:
-                  $ref: '#/definitions/BasicPostProcessing'
+            $ref: '#/definitions/BasicPostProcessing'
       tags:
         - simulations
     post:
@@ -6250,8 +6460,10 @@ paths:
       responses:
         '404':
           description: resource basic_post_processing not found
+        '401':
+          description: not allowed, Lizard already started post-processing
         '204':
-          description: ''
+          description: deleted resource basic_post_processing
       tags:
         - simulations
     parameters:
@@ -6312,8 +6524,10 @@ paths:
       responses:
         '404':
           description: resource damage_estimation not found
+        '401':
+          description: not allowed, Lizard already started post-processing
         '204':
-          description: ''
+          description: deleted resource damage_estimation
       tags:
         - simulations
     parameters:
@@ -6341,6 +6555,8 @@ paths:
           description: ''
           schema:
             $ref: '#/definitions/PostProcessingOverview'
+        '404':
+          description: No basic post-processing resource found
       tags:
         - simulations
     parameters:
@@ -6785,6 +7001,41 @@ paths:
           description: ''
           required: false
           type: string
+        - name: simulation__name
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: simulation__name__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__regex
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: created
           in: query
           description: ''
@@ -6944,9 +7195,25 @@ paths:
         '200':
           description: ''
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/SimulationStatus'
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/SimulationStatus'
       tags:
         - statuses
     parameters: []
@@ -9219,6 +9486,7 @@ definitions:
   Revision:
     required:
       - repository
+      - user
     type: object
     properties:
       url:
@@ -9245,6 +9513,14 @@ definitions:
         type: string
         maxLength: 200
         minLength: 1
+      commit_date:
+        title: Commit date
+        type: string
+        format: date-time
+      user:
+        title: User
+        type: string
+        pattern: ^[\w.@+-]+$
       is_pinned:
         title: Is pinned
         type: boolean
@@ -9266,6 +9542,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      user:
+        title: User
+        type: string
+        readOnly: true
       inpy_version:
         title: Inpy version
         type: string
@@ -9275,6 +9555,10 @@ definitions:
         format: uri
       revision_hash:
         title: Revision hash
+        type: string
+        readOnly: true
+      revision_commit_date:
+        title: Revision commit date
         type: string
         readOnly: true
       repository_slug:
@@ -10796,6 +11080,10 @@ definitions:
         title: Uid
         type: string
         format: uuid
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   LocalRain:
     required:
       - offset
@@ -11349,6 +11637,7 @@ definitions:
   ConstantRain:
     required:
       - offset
+      - duration
       - value
       - units
     type: object
@@ -11376,7 +11665,6 @@ definitions:
         type: integer
         maximum: 9223372036854775807
         minimum: -9223372036854775808
-        x-nullable: true
       value:
         title: Value
         description: Rain intensity
@@ -12428,6 +12716,10 @@ definitions:
         readOnly: true
       simulation_id:
         title: Simulation id
+        type: string
+        readOnly: true
+      simulation_name:
+        title: Simulation name
         type: string
         readOnly: true
       created:
