@@ -26,6 +26,29 @@ securityDefinitions:
 security:
   - Bearer: []
 paths:
+  /auth/profile/:
+    get:
+      operationId: auth_profile_list
+      description: Read-only API endpoint for viewing user details for current user
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - auth
+    parameters: []
   /auth/refresh-token/:
     post:
       operationId: auth_refresh-token_create
@@ -187,7 +210,7 @@ paths:
   /auth/users/{id}/:
     get:
       operationId: auth_users_read
-      description: view user details
+      description: ''
       parameters: []
       responses:
         '200':
@@ -9119,6 +9142,36 @@ paths:
         required: true
         type: integer
 definitions:
+  User:
+    required:
+      - username
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      username:
+        title: Username
+        description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+          only.
+        type: string
+        pattern: ^[\w.@+-]+$
+        maxLength: 150
+        minLength: 1
+      first_name:
+        title: First name
+        type: string
+        maxLength: 30
+      last_name:
+        title: Last name
+        type: string
+        maxLength: 150
+      email:
+        title: Email address
+        type: string
+        format: email
+        maxLength: 254
   Refresh:
     required:
       - refresh
@@ -9153,36 +9206,6 @@ definitions:
         title: Password
         type: string
         minLength: 1
-  User:
-    required:
-      - username
-    type: object
-    properties:
-      id:
-        title: ID
-        type: integer
-        readOnly: true
-      username:
-        title: Username
-        description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
-          only.
-        type: string
-        pattern: ^[\w.@+-]+$
-        maxLength: 150
-        minLength: 1
-      first_name:
-        title: First name
-        type: string
-        maxLength: 30
-      last_name:
-        title: Last name
-        type: string
-        maxLength: 150
-      email:
-        title: Email address
-        type: string
-        format: email
-        maxLength: 254
   Contract:
     required:
       - organisation

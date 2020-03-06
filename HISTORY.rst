@@ -5,7 +5,11 @@ History
 3.0b11 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Added users endpoint
+
+- Changed user endpoint to profile endpoint
+
+- Added more filters
 
 
 3.0b10 (2020-02-19)
