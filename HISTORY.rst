@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.b12 (unreleased)
+3.0.b12 (2020-03-10)
 --------------------
 
 - Added waterlevel graph endpoint
