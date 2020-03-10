@@ -5,7 +5,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.34   3Di core release: 2.0.6.dev2  deployed on:  02:51PM (UTC) on February 26, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = '3.0.b12.dev0'
+__version__ = "1.0.0"
 
 # import apis into sdk package
 from openapi_client.api.auth_api import AuthApi
@@ -175,6 +175,8 @@ from openapi_client.models.two_d_water_raster import TwoDWaterRaster
 from openapi_client.models.upload import Upload
 from openapi_client.models.usage import Usage
 from openapi_client.models.user import User
+from openapi_client.models.water_level_graph import WaterLevelGraph
+from openapi_client.models.water_level_graph_request import WaterLevelGraphRequest
 from openapi_client.models.waterdepth import Waterdepth
 from openapi_client.models.wind import Wind
 

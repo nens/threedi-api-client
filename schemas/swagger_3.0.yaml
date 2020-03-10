@@ -1,9 +1,8 @@
 swagger: '2.0'
 info:
   title: 3Di API
-  description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.34\
-    \ \n 3Di core release: 2.0.6.dev2 \ndeployed on:  02:51PM (UTC) on February 26,\
-    \ 2020"
+  description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.35\
+    \ \n 3Di core release: 2.0.5 \ndeployed on:  12:39PM (UTC) on March 06, 2020"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -6888,6 +6887,31 @@ paths:
         in: path
         required: true
         type: string
+  /simulations/{simulation_pk}/visualisations/water_level_graph/:
+    post:
+      operationId: simulations_visualisations_water_level_graph_create
+      summary: Get a websocket URL returning waterlevel (graph) data.
+      description: "The websocket returns binary data messages consisting of alternating\n\
+        timestep and waterlevel float32 values in one message like:\ntimestep, waterlevel,\
+        \ timestep, waterlevel... etc"
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WaterLevelGraphRequest'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/WaterLevelGraph'
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
   /simulations/{simulation_pk}/visualisations/waterdepth/:
     get:
       operationId: simulations_visualisations_waterdepth_list
@@ -12769,6 +12793,53 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+  WaterLevelGraphRequest:
+    required:
+      - start_time
+      - subscribe
+    type: object
+    properties:
+      node_id:
+        title: Node id
+        type: integer
+        minimum: 1
+      line_id:
+        title: Line id
+        type: integer
+        minimum: 1
+      start_time:
+        title: Start time
+        description: simulation time in seconds
+        type: integer
+        minimum: 0
+      history_points_limit:
+        title: History points limit
+        description: Maximum number of points of history to return
+        type: integer
+        default: 200
+        maximum: 500
+        minimum: 1
+      subscribe:
+        title: Subscribe
+        description: Subscribe for new results during simulation
+        type: boolean
+      subscribe_rate_limit:
+        title: Subscribe rate limit
+        description: Max number of items per second for subscription
+        type: number
+        default: 0.5
+        maximum: 2
+        minimum: 0.25
+  WaterLevelGraph:
+    required:
+      - url
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        minLength: 1
   Waterdepth:
     required:
       - websocket_url
