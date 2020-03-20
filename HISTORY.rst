@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.b13 (unreleased)
+3.0.b13 (2020-03-20)
 --------------------
 
 - Split up waterlevel graph endpoint in 
