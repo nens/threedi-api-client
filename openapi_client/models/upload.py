@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,8 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from openapi_client.configuration import Configuration
 
 
 class Upload(object):
@@ -43,11 +41,8 @@ class Upload(object):
         'put_url': 'put_url'
     }
 
-    def __init__(self, filename=None, put_url=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, filename=None, put_url=None):  # noqa: E501
         """Upload - a model defined in OpenAPI"""  # noqa: E501
-        if local_vars_configuration is None:
-            local_vars_configuration = Configuration()
-        self.local_vars_configuration = local_vars_configuration
 
         self._filename = None
         self._put_url = None
@@ -75,13 +70,11 @@ class Upload(object):
         :param filename: The filename of this Upload.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and filename is None:  # noqa: E501
+        if filename is None:
             raise ValueError("Invalid value for `filename`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                filename is not None and len(filename) > 255):
+        if filename is not None and len(filename) > 255:
             raise ValueError("Invalid value for `filename`, length must be less than or equal to `255`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                filename is not None and len(filename) < 1):
+        if filename is not None and len(filename) < 1:
             raise ValueError("Invalid value for `filename`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._filename = filename
@@ -104,8 +97,7 @@ class Upload(object):
         :param put_url: The put_url of this Upload.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                put_url is not None and len(put_url) < 1):
+        if put_url is not None and len(put_url) < 1:
             raise ValueError("Invalid value for `put_url`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._put_url = put_url
@@ -147,11 +139,8 @@ class Upload(object):
         if not isinstance(other, Upload):
             return False
 
-        return self.to_dict() == other.to_dict()
+        return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        if not isinstance(other, Upload):
-            return True
-
-        return self.to_dict() != other.to_dict()
+        return not self == other

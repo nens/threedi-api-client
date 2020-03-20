@@ -2,7 +2,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -12,7 +12,6 @@
 from __future__ import absolute_import
 
 import datetime
-from dateutil.parser import parse
 import json
 import mimetypes
 from multiprocessing.pool import ThreadPool
@@ -79,7 +78,6 @@ class ApiClient(object):
         self.cookie = cookie
         # Set default User-Agent.
         self.user_agent = 'OpenAPI-Generator/1.0.0/python'
-        self.client_side_validation = configuration.client_side_validation
 
     def __del__(self):
         if self._pool:
@@ -289,7 +287,7 @@ class ApiClient(object):
         elif klass == datetime.date:
             return self.__deserialize_date(data)
         elif klass == datetime.datetime:
-            return self.__deserialize_datetime(data)
+            return self.__deserialize_datatime(data)
         else:
             return self.__deserialize_model(data, klass)
 
@@ -342,19 +340,18 @@ class ApiClient(object):
                                    response_type, auth_settings,
                                    _return_http_data_only, collection_formats,
                                    _preload_content, _request_timeout, _host)
-
-        return self.pool.apply_async(self.__call_api, (resource_path,
-                                                       method, path_params,
-                                                       query_params,
-                                                       header_params, body,
-                                                       post_params, files,
-                                                       response_type,
-                                                       auth_settings,
-                                                       _return_http_data_only,
-                                                       collection_formats,
-                                                       _preload_content,
-                                                       _request_timeout,
-                                                       _host))
+        else:
+            thread = self.pool.apply_async(self.__call_api, (resource_path,
+                                           method, path_params, query_params,
+                                           header_params, body,
+                                           post_params, files,
+                                           response_type, auth_settings,
+                                           _return_http_data_only,
+                                           collection_formats,
+                                           _preload_content,
+                                           _request_timeout,
+                                           _host))
+        return thread
 
     def request(self, method, url, query_params=None, headers=None,
                 post_params=None, body=None, _preload_content=True,
@@ -376,8 +373,10 @@ class ApiClient(object):
             return self.rest_client.OPTIONS(url,
                                             query_params=query_params,
                                             headers=headers,
+                                            post_params=post_params,
                                             _preload_content=_preload_content,
-                                            _request_timeout=_request_timeout)
+                                            _request_timeout=_request_timeout,
+                                            body=body)
         elif method == "POST":
             return self.rest_client.POST(url,
                                          query_params=query_params,
@@ -580,6 +579,7 @@ class ApiClient(object):
         :return: date.
         """
         try:
+            from dateutil.parser import parse
             return parse(string).date()
         except ImportError:
             return string
@@ -589,7 +589,7 @@ class ApiClient(object):
                 reason="Failed to parse `{0}` as date object".format(string)
             )
 
-    def __deserialize_datetime(self, string):
+    def __deserialize_datatime(self, string):
         """Deserializes string to datetime.
 
         The string should be in iso8601 datetime format.
@@ -598,6 +598,7 @@ class ApiClient(object):
         :return: datetime.
         """
         try:
+            from dateutil.parser import parse
             return parse(string)
         except ImportError:
             return string
@@ -623,11 +624,11 @@ class ApiClient(object):
             return data
 
         kwargs = {}
-        if (data is not None and
-                klass.openapi_types is not None and
-                isinstance(data, (list, dict))):
+        if klass.openapi_types is not None:
             for attr, attr_type in six.iteritems(klass.openapi_types):
-                if klass.attribute_map[attr] in data:
+                if (data is not None and
+                        klass.attribute_map[attr] in data and
+                        isinstance(data, (list, dict))):
                     value = data[klass.attribute_map[attr]]
                     kwargs[attr] = self.__deserialize(value, attr_type)
 

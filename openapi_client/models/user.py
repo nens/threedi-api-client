@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,8 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from openapi_client.configuration import Configuration
 
 
 class User(object):
@@ -49,11 +47,8 @@ class User(object):
         'email': 'email'
     }
 
-    def __init__(self, id=None, username=None, first_name=None, last_name=None, email=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, username=None, first_name=None, last_name=None, email=None):  # noqa: E501
         """User - a model defined in OpenAPI"""  # noqa: E501
-        if local_vars_configuration is None:
-            local_vars_configuration = Configuration()
-        self.local_vars_configuration = local_vars_configuration
 
         self._id = None
         self._username = None
@@ -113,16 +108,13 @@ class User(object):
         :param username: The username of this User.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and username is None:  # noqa: E501
+        if username is None:
             raise ValueError("Invalid value for `username`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                username is not None and len(username) > 150):
+        if username is not None and len(username) > 150:
             raise ValueError("Invalid value for `username`, length must be less than or equal to `150`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                username is not None and len(username) < 1):
+        if username is not None and len(username) < 1:
             raise ValueError("Invalid value for `username`, length must be greater than or equal to `1`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                username is not None and not re.search(r'^[\w.@+-]+$', username)):  # noqa: E501
+        if username is not None and not re.search(r'^[\w.@+-]+$', username):  # noqa: E501
             raise ValueError(r"Invalid value for `username`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
 
         self._username = username
@@ -145,8 +137,7 @@ class User(object):
         :param first_name: The first_name of this User.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                first_name is not None and len(first_name) > 30):
+        if first_name is not None and len(first_name) > 30:
             raise ValueError("Invalid value for `first_name`, length must be less than or equal to `30`")  # noqa: E501
 
         self._first_name = first_name
@@ -169,8 +160,7 @@ class User(object):
         :param last_name: The last_name of this User.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                last_name is not None and len(last_name) > 150):
+        if last_name is not None and len(last_name) > 150:
             raise ValueError("Invalid value for `last_name`, length must be less than or equal to `150`")  # noqa: E501
 
         self._last_name = last_name
@@ -193,8 +183,7 @@ class User(object):
         :param email: The email of this User.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                email is not None and len(email) > 254):
+        if email is not None and len(email) > 254:
             raise ValueError("Invalid value for `email`, length must be less than or equal to `254`")  # noqa: E501
 
         self._email = email
@@ -236,11 +225,8 @@ class User(object):
         if not isinstance(other, User):
             return False
 
-        return self.to_dict() == other.to_dict()
+        return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        if not isinstance(other, User):
-            return True
-
-        return self.to_dict() != other.to_dict()
+        return not self == other

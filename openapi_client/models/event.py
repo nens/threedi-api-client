@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,8 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from openapi_client.configuration import Configuration
 
 
 class Event(object):
@@ -87,11 +85,8 @@ class Event(object):
         'wind': 'wind'
     }
 
-    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, timedstructurecontrol=None, rasteredits=None, localrain=None, wind=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, timedstructurecontrol=None, rasteredits=None, localrain=None, wind=None):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
-        if local_vars_configuration is None:
-            local_vars_configuration = Configuration()
-        self.local_vars_configuration = local_vars_configuration
 
         self._lizardrasterrain = None
         self._lizardtimeseriesrain = None
@@ -709,11 +704,8 @@ class Event(object):
         if not isinstance(other, Event):
             return False
 
-        return self.to_dict() == other.to_dict()
+        return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        if not isinstance(other, Event):
-            return True
-
-        return self.to_dict() != other.to_dict()
+        return not self == other

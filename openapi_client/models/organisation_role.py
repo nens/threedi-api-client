@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,8 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from openapi_client.configuration import Configuration
 
 
 class OrganisationRole(object):
@@ -49,11 +47,8 @@ class OrganisationRole(object):
         'organisation_name': 'organisation_name'
     }
 
-    def __init__(self, url=None, user=None, role=None, organisation=None, organisation_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, user=None, role=None, organisation=None, organisation_name=None):  # noqa: E501
         """OrganisationRole - a model defined in OpenAPI"""  # noqa: E501
-        if local_vars_configuration is None:
-            local_vars_configuration = Configuration()
-        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._user = None
@@ -109,10 +104,9 @@ class OrganisationRole(object):
         :param user: The user of this OrganisationRole.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and user is None:  # noqa: E501
+        if user is None:
             raise ValueError("Invalid value for `user`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                user is not None and not re.search(r'^[\w.@+-]+$', user)):  # noqa: E501
+        if user is not None and not re.search(r'^[\w.@+-]+$', user):  # noqa: E501
             raise ValueError(r"Invalid value for `user`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
 
         self._user = user
@@ -135,7 +129,7 @@ class OrganisationRole(object):
         :param role: The role of this OrganisationRole.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and role is None:  # noqa: E501
+        if role is None:
             raise ValueError("Invalid value for `role`, must not be `None`")  # noqa: E501
 
         self._role = role
@@ -158,7 +152,7 @@ class OrganisationRole(object):
         :param organisation: The organisation of this OrganisationRole.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and organisation is None:  # noqa: E501
+        if organisation is None:
             raise ValueError("Invalid value for `organisation`, must not be `None`")  # noqa: E501
 
         self._organisation = organisation
@@ -221,11 +215,8 @@ class OrganisationRole(object):
         if not isinstance(other, OrganisationRole):
             return False
 
-        return self.to_dict() == other.to_dict()
+        return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        if not isinstance(other, OrganisationRole):
-            return True
-
-        return self.to_dict() != other.to_dict()
+        return not self == other

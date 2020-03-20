@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
   title: 3Di API
-  description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.35\
-    \ \n 3Di core release: 2.0.5 \ndeployed on:  12:39PM (UTC) on March 06, 2020"
+  description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.37\
+    \ \n 3Di core release: 2.0.6 \ndeployed on:  02:00PM (UTC) on March 17, 2020"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -6887,13 +6887,40 @@ paths:
         in: path
         required: true
         type: string
+  /simulations/{simulation_pk}/visualisations/water_flow_graph/:
+    post:
+      operationId: simulations_visualisations_water_flow_graph_create
+      summary: Get a websocket URL returning line flow (graph) data.
+      description: "The websocket-url in the response returns binary data\nmessages\
+        \ consisting of timestamp, u1 (velocity), q (discharge)\nfloat32 data. Split\
+        \ the message up in thirds, the first contains\none or more timestamps, the\
+        \ second one or more u1 values and the\nlast the q values."
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WaterFlowGraphRequest'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/WaterGraph'
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
   /simulations/{simulation_pk}/visualisations/water_level_graph/:
     post:
       operationId: simulations_visualisations_water_level_graph_create
-      summary: Get a websocket URL returning waterlevel (graph) data.
-      description: "The websocket returns binary data messages consisting of alternating\n\
-        timestep and waterlevel float32 values in one message like:\ntimestep, waterlevel,\
-        \ timestep, waterlevel... etc"
+      summary: Get a websocket URL returning node waterlevel (graph) data.
+      description: "The websocket-url in the response returns binary data\nmessages\
+        \ consisting of timestamp and waterlevel float32 data.\nSplit the message\
+        \ up in half and the first half contains of one\nor more timestamps and the\
+        \ second half one or more waterlevels."
       parameters:
         - name: data
           in: body
@@ -6904,7 +6931,34 @@ paths:
         '200':
           description: ''
           schema:
-            $ref: '#/definitions/WaterLevelGraph'
+            $ref: '#/definitions/WaterGraph'
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/visualisations/water_level_profile/:
+    post:
+      operationId: simulations_visualisations_water_level_profile_create
+      summary: Get a websocket URL returning waterlevel profile data.
+      description: "The websocket returns binary data messages consisting of\ntimestep\
+        \ and waterlevel float32 values in one message like:\ntimestep, waterlevel,\
+        \ waterlevel, waterlevel, waterlevel\n\nGroundwater waterlevel values are\
+        \ automatically added\n(after open water) if groundwater is present. The returned\n\
+        waterlevel values have length 'points_limit' * 2 in this case."
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WaterLevelProfileRequest'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/WaterLevelProfile'
       tags:
         - simulations
     parameters:
@@ -12793,20 +12847,13 @@ definitions:
         title: ID
         type: integer
         readOnly: true
-  WaterLevelGraphRequest:
+  WaterFlowGraphRequest:
     required:
       - start_time
       - subscribe
+      - line_id
     type: object
     properties:
-      node_id:
-        title: Node id
-        type: integer
-        minimum: 1
-      line_id:
-        title: Line id
-        type: integer
-        minimum: 1
       start_time:
         title: Start time
         description: simulation time in seconds
@@ -12830,7 +12877,100 @@ definitions:
         default: 0.5
         maximum: 2
         minimum: 0.25
-  WaterLevelGraph:
+      line_id:
+        title: Line id
+        type: integer
+        minimum: 1
+  WaterGraph:
+    required:
+      - url
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        minLength: 1
+  WaterLevelGraphRequest:
+    required:
+      - start_time
+      - subscribe
+      - node_id
+    type: object
+    properties:
+      start_time:
+        title: Start time
+        description: simulation time in seconds
+        type: integer
+        minimum: 0
+      history_points_limit:
+        title: History points limit
+        description: Maximum number of points of history to return
+        type: integer
+        default: 200
+        maximum: 500
+        minimum: 1
+      subscribe:
+        title: Subscribe
+        description: Subscribe for new results during simulation
+        type: boolean
+      subscribe_rate_limit:
+        title: Subscribe rate limit
+        description: Max number of items per second for subscription
+        type: number
+        default: 0.5
+        maximum: 2
+        minimum: 0.25
+      node_id:
+        title: Node id
+        type: integer
+        minimum: 1
+  WaterLevelProfileRequest:
+    required:
+      - geometry
+      - subscribe
+    type: object
+    properties:
+      geometry:
+        title: Linestring
+        description: Linestring (epsg:4326) specified in wkt or geojson
+        type: object
+        required:
+          - type
+          - coordinates
+        properties:
+          type:
+            title: type
+            description: Type should always be 'linestring' or 'LINESTRING'
+            type: string
+            default: Linestring
+          coordinates:
+            title: coordinates
+            description: List of coordinates
+            type: array
+            items:
+              type: array
+              items:
+                type: number
+      points_limit:
+        title: Points limit
+        description: Maximum number of points to return
+        type: integer
+        default: 100
+        maximum: 200
+        minimum: 1
+      subscribe:
+        title: Subscribe
+        description: Subscribe for new results during simulation
+        type: boolean
+      subscribe_rate_limit:
+        title: Subscribe rate limit
+        description: Max number of items per second for subscription
+        type: number
+        default: 0.5
+        maximum: 1
+        minimum: 0.25
+  WaterLevelProfile:
     required:
       - url
     type: object

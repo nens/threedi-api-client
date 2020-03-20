@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,8 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from openapi_client.configuration import Configuration
 
 
 class RasterEdit(object):
@@ -57,11 +55,8 @@ class RasterEdit(object):
         'id': 'id'
     }
 
-    def __init__(self, url=None, simulation=None, raster=None, offset=None, value=None, polygon=None, relative=None, uid=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, raster=None, offset=None, value=None, polygon=None, relative=None, uid=None, id=None):  # noqa: E501
         """RasterEdit - a model defined in OpenAPI"""  # noqa: E501
-        if local_vars_configuration is None:
-            local_vars_configuration = Configuration()
-        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._simulation = None
@@ -149,7 +144,7 @@ class RasterEdit(object):
         :param raster: The raster of this RasterEdit.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and raster is None:  # noqa: E501
+        if raster is None:
             raise ValueError("Invalid value for `raster`, must not be `None`")  # noqa: E501
 
         self._raster = raster
@@ -174,13 +169,11 @@ class RasterEdit(object):
         :param offset: The offset of this RasterEdit.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and offset is None:  # noqa: E501
+        if offset is None:
             raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                offset is not None and offset > 2147483647):  # noqa: E501
+        if offset is not None and offset > 2147483647:  # noqa: E501
             raise ValueError("Invalid value for `offset`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                offset is not None and offset < 0):  # noqa: E501
+        if offset is not None and offset < 0:  # noqa: E501
             raise ValueError("Invalid value for `offset`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._offset = offset
@@ -205,7 +198,7 @@ class RasterEdit(object):
         :param value: The value of this RasterEdit.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and value is None:  # noqa: E501
+        if value is None:
             raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
@@ -230,7 +223,7 @@ class RasterEdit(object):
         :param polygon: The polygon of this RasterEdit.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and polygon is None:  # noqa: E501
+        if polygon is None:
             raise ValueError("Invalid value for `polygon`, must not be `None`")  # noqa: E501
 
         self._polygon = polygon
@@ -337,11 +330,8 @@ class RasterEdit(object):
         if not isinstance(other, RasterEdit):
             return False
 
-        return self.to_dict() == other.to_dict()
+        return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        if not isinstance(other, RasterEdit):
-            return True
-
-        return self.to_dict() != other.to_dict()
+        return not self == other

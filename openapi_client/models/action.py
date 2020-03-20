@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,8 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from openapi_client.configuration import Configuration
 
 
 class Action(object):
@@ -47,11 +45,8 @@ class Action(object):
         'rate_limit': 'rate_limit'
     }
 
-    def __init__(self, name=None, duration=None, timeout=None, rate_limit=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, duration=None, timeout=None, rate_limit=None):  # noqa: E501
         """Action - a model defined in OpenAPI"""  # noqa: E501
-        if local_vars_configuration is None:
-            local_vars_configuration = Configuration()
-        self.local_vars_configuration = local_vars_configuration
 
         self._name = None
         self._duration = None
@@ -85,10 +80,10 @@ class Action(object):
         :param name: The name of this Action.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
+        if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
         allowed_values = ["initialize", "start", "pause", "shutdown"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and name not in allowed_values:  # noqa: E501
+        if name not in allowed_values:
             raise ValueError(
                 "Invalid value for `name` ({0}), must be one of {1}"  # noqa: E501
                 .format(name, allowed_values)
@@ -116,8 +111,7 @@ class Action(object):
         :param duration: The duration of this Action.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                duration is not None and duration < 1):  # noqa: E501
+        if duration is not None and duration < 1:  # noqa: E501
             raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._duration = duration
@@ -142,8 +136,7 @@ class Action(object):
         :param timeout: The timeout of this Action.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                timeout is not None and timeout < 30):  # noqa: E501
+        if timeout is not None and timeout < 30:  # noqa: E501
             raise ValueError("Invalid value for `timeout`, must be a value greater than or equal to `30`")  # noqa: E501
 
         self._timeout = timeout
@@ -168,8 +161,7 @@ class Action(object):
         :param rate_limit: The rate_limit of this Action.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                rate_limit is not None and rate_limit < 1):  # noqa: E501
+        if rate_limit is not None and rate_limit < 1:  # noqa: E501
             raise ValueError("Invalid value for `rate_limit`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._rate_limit = rate_limit
@@ -211,11 +203,8 @@ class Action(object):
         if not isinstance(other, Action):
             return False
 
-        return self.to_dict() == other.to_dict()
+        return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        if not isinstance(other, Action):
-            return True
-
-        return self.to_dict() != other.to_dict()
+        return not self == other

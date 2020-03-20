@@ -5,7 +5,10 @@ History
 3.0.b13 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Split up waterlevel graph endpoint in 
+  waterflow and waterlevel graph endpoint
+
+- Added waterprofile graph endpoint
 
 
 3.0.b12 (2020-03-10)

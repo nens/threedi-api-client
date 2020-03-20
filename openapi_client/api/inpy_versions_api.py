@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -104,8 +104,8 @@ class InpyVersionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `inpy_versions_create`")  # noqa: E501
 
         collection_formats = {}
@@ -216,8 +216,8 @@ class InpyVersionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `inpy_versions_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -369,51 +369,51 @@ class InpyVersionsApi(object):
         path_params = {}
 
         query_params = []
-        if 'threedi_version' in local_var_params and local_var_params['threedi_version'] is not None:  # noqa: E501
+        if 'threedi_version' in local_var_params:
             query_params.append(('threedi_version', local_var_params['threedi_version']))  # noqa: E501
-        if 'threedi_version__contains' in local_var_params and local_var_params['threedi_version__contains'] is not None:  # noqa: E501
+        if 'threedi_version__contains' in local_var_params:
             query_params.append(('threedi_version__contains', local_var_params['threedi_version__contains']))  # noqa: E501
-        if 'threedi_version__in' in local_var_params and local_var_params['threedi_version__in'] is not None:  # noqa: E501
+        if 'threedi_version__in' in local_var_params:
             query_params.append(('threedi_version__in', local_var_params['threedi_version__in']))  # noqa: E501
-        if 'threedi_version__startswith' in local_var_params and local_var_params['threedi_version__startswith'] is not None:  # noqa: E501
+        if 'threedi_version__startswith' in local_var_params:
             query_params.append(('threedi_version__startswith', local_var_params['threedi_version__startswith']))  # noqa: E501
-        if 'threedi_version__istartswith' in local_var_params and local_var_params['threedi_version__istartswith'] is not None:  # noqa: E501
+        if 'threedi_version__istartswith' in local_var_params:
             query_params.append(('threedi_version__istartswith', local_var_params['threedi_version__istartswith']))  # noqa: E501
-        if 'threedi_version__endswith' in local_var_params and local_var_params['threedi_version__endswith'] is not None:  # noqa: E501
+        if 'threedi_version__endswith' in local_var_params:
             query_params.append(('threedi_version__endswith', local_var_params['threedi_version__endswith']))  # noqa: E501
-        if 'threedi_version__regex' in local_var_params and local_var_params['threedi_version__regex'] is not None:  # noqa: E501
+        if 'threedi_version__regex' in local_var_params:
             query_params.append(('threedi_version__regex', local_var_params['threedi_version__regex']))  # noqa: E501
-        if 'threedicore_version' in local_var_params and local_var_params['threedicore_version'] is not None:  # noqa: E501
+        if 'threedicore_version' in local_var_params:
             query_params.append(('threedicore_version', local_var_params['threedicore_version']))  # noqa: E501
-        if 'threedicore_version__contains' in local_var_params and local_var_params['threedicore_version__contains'] is not None:  # noqa: E501
+        if 'threedicore_version__contains' in local_var_params:
             query_params.append(('threedicore_version__contains', local_var_params['threedicore_version__contains']))  # noqa: E501
-        if 'threedicore_version__in' in local_var_params and local_var_params['threedicore_version__in'] is not None:  # noqa: E501
+        if 'threedicore_version__in' in local_var_params:
             query_params.append(('threedicore_version__in', local_var_params['threedicore_version__in']))  # noqa: E501
-        if 'threedicore_version__startswith' in local_var_params and local_var_params['threedicore_version__startswith'] is not None:  # noqa: E501
+        if 'threedicore_version__startswith' in local_var_params:
             query_params.append(('threedicore_version__startswith', local_var_params['threedicore_version__startswith']))  # noqa: E501
-        if 'threedicore_version__istartswith' in local_var_params and local_var_params['threedicore_version__istartswith'] is not None:  # noqa: E501
+        if 'threedicore_version__istartswith' in local_var_params:
             query_params.append(('threedicore_version__istartswith', local_var_params['threedicore_version__istartswith']))  # noqa: E501
-        if 'threedicore_version__endswith' in local_var_params and local_var_params['threedicore_version__endswith'] is not None:  # noqa: E501
+        if 'threedicore_version__endswith' in local_var_params:
             query_params.append(('threedicore_version__endswith', local_var_params['threedicore_version__endswith']))  # noqa: E501
-        if 'threedicore_version__regex' in local_var_params and local_var_params['threedicore_version__regex'] is not None:  # noqa: E501
+        if 'threedicore_version__regex' in local_var_params:
             query_params.append(('threedicore_version__regex', local_var_params['threedicore_version__regex']))  # noqa: E501
-        if 'slug' in local_var_params and local_var_params['slug'] is not None:  # noqa: E501
+        if 'slug' in local_var_params:
             query_params.append(('slug', local_var_params['slug']))  # noqa: E501
-        if 'slug__contains' in local_var_params and local_var_params['slug__contains'] is not None:  # noqa: E501
+        if 'slug__contains' in local_var_params:
             query_params.append(('slug__contains', local_var_params['slug__contains']))  # noqa: E501
-        if 'slug__in' in local_var_params and local_var_params['slug__in'] is not None:  # noqa: E501
+        if 'slug__in' in local_var_params:
             query_params.append(('slug__in', local_var_params['slug__in']))  # noqa: E501
-        if 'slug__startswith' in local_var_params and local_var_params['slug__startswith'] is not None:  # noqa: E501
+        if 'slug__startswith' in local_var_params:
             query_params.append(('slug__startswith', local_var_params['slug__startswith']))  # noqa: E501
-        if 'slug__istartswith' in local_var_params and local_var_params['slug__istartswith'] is not None:  # noqa: E501
+        if 'slug__istartswith' in local_var_params:
             query_params.append(('slug__istartswith', local_var_params['slug__istartswith']))  # noqa: E501
-        if 'slug__endswith' in local_var_params and local_var_params['slug__endswith'] is not None:  # noqa: E501
+        if 'slug__endswith' in local_var_params:
             query_params.append(('slug__endswith', local_var_params['slug__endswith']))  # noqa: E501
-        if 'slug__regex' in local_var_params and local_var_params['slug__regex'] is not None:  # noqa: E501
+        if 'slug__regex' in local_var_params:
             query_params.append(('slug__regex', local_var_params['slug__regex']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -514,12 +514,12 @@ class InpyVersionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `inpy_versions_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `inpy_versions_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -632,8 +632,8 @@ class InpyVersionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `inpy_versions_read`")  # noqa: E501
 
         collection_formats = {}
@@ -742,12 +742,12 @@ class InpyVersionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `inpy_versions_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `inpy_versions_update`")  # noqa: E501
 
         collection_formats = {}

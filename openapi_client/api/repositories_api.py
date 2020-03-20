@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -104,8 +104,8 @@ class RepositoriesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `repositories_create`")  # noqa: E501
 
         collection_formats = {}
@@ -216,8 +216,8 @@ class RepositoriesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `repositories_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -383,65 +383,65 @@ class RepositoriesApi(object):
         path_params = {}
 
         query_params = []
-        if 'slug' in local_var_params and local_var_params['slug'] is not None:  # noqa: E501
+        if 'slug' in local_var_params:
             query_params.append(('slug', local_var_params['slug']))  # noqa: E501
-        if 'slug__contains' in local_var_params and local_var_params['slug__contains'] is not None:  # noqa: E501
+        if 'slug__contains' in local_var_params:
             query_params.append(('slug__contains', local_var_params['slug__contains']))  # noqa: E501
-        if 'slug__in' in local_var_params and local_var_params['slug__in'] is not None:  # noqa: E501
+        if 'slug__in' in local_var_params:
             query_params.append(('slug__in', local_var_params['slug__in']))  # noqa: E501
-        if 'slug__startswith' in local_var_params and local_var_params['slug__startswith'] is not None:  # noqa: E501
+        if 'slug__startswith' in local_var_params:
             query_params.append(('slug__startswith', local_var_params['slug__startswith']))  # noqa: E501
-        if 'slug__istartswith' in local_var_params and local_var_params['slug__istartswith'] is not None:  # noqa: E501
+        if 'slug__istartswith' in local_var_params:
             query_params.append(('slug__istartswith', local_var_params['slug__istartswith']))  # noqa: E501
-        if 'slug__endswith' in local_var_params and local_var_params['slug__endswith'] is not None:  # noqa: E501
+        if 'slug__endswith' in local_var_params:
             query_params.append(('slug__endswith', local_var_params['slug__endswith']))  # noqa: E501
-        if 'slug__regex' in local_var_params and local_var_params['slug__regex'] is not None:  # noqa: E501
+        if 'slug__regex' in local_var_params:
             query_params.append(('slug__regex', local_var_params['slug__regex']))  # noqa: E501
-        if 'organisation__id' in local_var_params and local_var_params['organisation__id'] is not None:  # noqa: E501
+        if 'organisation__id' in local_var_params:
             query_params.append(('organisation__id', local_var_params['organisation__id']))  # noqa: E501
-        if 'organisation__id__range' in local_var_params and local_var_params['organisation__id__range'] is not None:  # noqa: E501
+        if 'organisation__id__range' in local_var_params:
             query_params.append(('organisation__id__range', local_var_params['organisation__id__range']))  # noqa: E501
-        if 'organisation__id__gt' in local_var_params and local_var_params['organisation__id__gt'] is not None:  # noqa: E501
+        if 'organisation__id__gt' in local_var_params:
             query_params.append(('organisation__id__gt', local_var_params['organisation__id__gt']))  # noqa: E501
-        if 'organisation__id__gte' in local_var_params and local_var_params['organisation__id__gte'] is not None:  # noqa: E501
+        if 'organisation__id__gte' in local_var_params:
             query_params.append(('organisation__id__gte', local_var_params['organisation__id__gte']))  # noqa: E501
-        if 'organisation__id__lt' in local_var_params and local_var_params['organisation__id__lt'] is not None:  # noqa: E501
+        if 'organisation__id__lt' in local_var_params:
             query_params.append(('organisation__id__lt', local_var_params['organisation__id__lt']))  # noqa: E501
-        if 'organisation__id__lte' in local_var_params and local_var_params['organisation__id__lte'] is not None:  # noqa: E501
+        if 'organisation__id__lte' in local_var_params:
             query_params.append(('organisation__id__lte', local_var_params['organisation__id__lte']))  # noqa: E501
-        if 'organisation__id__isnull' in local_var_params and local_var_params['organisation__id__isnull'] is not None:  # noqa: E501
+        if 'organisation__id__isnull' in local_var_params:
             query_params.append(('organisation__id__isnull', local_var_params['organisation__id__isnull']))  # noqa: E501
-        if 'organisation__name' in local_var_params and local_var_params['organisation__name'] is not None:  # noqa: E501
+        if 'organisation__name' in local_var_params:
             query_params.append(('organisation__name', local_var_params['organisation__name']))  # noqa: E501
-        if 'organisation__name__contains' in local_var_params and local_var_params['organisation__name__contains'] is not None:  # noqa: E501
+        if 'organisation__name__contains' in local_var_params:
             query_params.append(('organisation__name__contains', local_var_params['organisation__name__contains']))  # noqa: E501
-        if 'organisation__name__in' in local_var_params and local_var_params['organisation__name__in'] is not None:  # noqa: E501
+        if 'organisation__name__in' in local_var_params:
             query_params.append(('organisation__name__in', local_var_params['organisation__name__in']))  # noqa: E501
-        if 'organisation__name__startswith' in local_var_params and local_var_params['organisation__name__startswith'] is not None:  # noqa: E501
+        if 'organisation__name__startswith' in local_var_params:
             query_params.append(('organisation__name__startswith', local_var_params['organisation__name__startswith']))  # noqa: E501
-        if 'organisation__name__istartswith' in local_var_params and local_var_params['organisation__name__istartswith'] is not None:  # noqa: E501
+        if 'organisation__name__istartswith' in local_var_params:
             query_params.append(('organisation__name__istartswith', local_var_params['organisation__name__istartswith']))  # noqa: E501
-        if 'organisation__name__endswith' in local_var_params and local_var_params['organisation__name__endswith'] is not None:  # noqa: E501
+        if 'organisation__name__endswith' in local_var_params:
             query_params.append(('organisation__name__endswith', local_var_params['organisation__name__endswith']))  # noqa: E501
-        if 'organisation__name__regex' in local_var_params and local_var_params['organisation__name__regex'] is not None:  # noqa: E501
+        if 'organisation__name__regex' in local_var_params:
             query_params.append(('organisation__name__regex', local_var_params['organisation__name__regex']))  # noqa: E501
-        if 'organisation__unique_id' in local_var_params and local_var_params['organisation__unique_id'] is not None:  # noqa: E501
+        if 'organisation__unique_id' in local_var_params:
             query_params.append(('organisation__unique_id', local_var_params['organisation__unique_id']))  # noqa: E501
-        if 'organisation__unique_id__contains' in local_var_params and local_var_params['organisation__unique_id__contains'] is not None:  # noqa: E501
+        if 'organisation__unique_id__contains' in local_var_params:
             query_params.append(('organisation__unique_id__contains', local_var_params['organisation__unique_id__contains']))  # noqa: E501
-        if 'organisation__unique_id__in' in local_var_params and local_var_params['organisation__unique_id__in'] is not None:  # noqa: E501
+        if 'organisation__unique_id__in' in local_var_params:
             query_params.append(('organisation__unique_id__in', local_var_params['organisation__unique_id__in']))  # noqa: E501
-        if 'organisation__unique_id__startswith' in local_var_params and local_var_params['organisation__unique_id__startswith'] is not None:  # noqa: E501
+        if 'organisation__unique_id__startswith' in local_var_params:
             query_params.append(('organisation__unique_id__startswith', local_var_params['organisation__unique_id__startswith']))  # noqa: E501
-        if 'organisation__unique_id__istartswith' in local_var_params and local_var_params['organisation__unique_id__istartswith'] is not None:  # noqa: E501
+        if 'organisation__unique_id__istartswith' in local_var_params:
             query_params.append(('organisation__unique_id__istartswith', local_var_params['organisation__unique_id__istartswith']))  # noqa: E501
-        if 'organisation__unique_id__endswith' in local_var_params and local_var_params['organisation__unique_id__endswith'] is not None:  # noqa: E501
+        if 'organisation__unique_id__endswith' in local_var_params:
             query_params.append(('organisation__unique_id__endswith', local_var_params['organisation__unique_id__endswith']))  # noqa: E501
-        if 'organisation__unique_id__regex' in local_var_params and local_var_params['organisation__unique_id__regex'] is not None:  # noqa: E501
+        if 'organisation__unique_id__regex' in local_var_params:
             query_params.append(('organisation__unique_id__regex', local_var_params['organisation__unique_id__regex']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -542,12 +542,12 @@ class RepositoriesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `repositories_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `repositories_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -660,8 +660,8 @@ class RepositoriesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `repositories_read`")  # noqa: E501
 
         collection_formats = {}
@@ -768,8 +768,8 @@ class RepositoriesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `repositories_revisions`")  # noqa: E501
 
         collection_formats = {}
@@ -876,8 +876,8 @@ class RepositoriesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `repositories_threedimodels`")  # noqa: E501
 
         collection_formats = {}
@@ -986,12 +986,12 @@ class RepositoriesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `repositories_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `repositories_update`")  # noqa: E501
 
         collection_formats = {}

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -104,8 +104,8 @@ class FilesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `files_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -208,8 +208,8 @@ class FilesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `files_destroy_file`")  # noqa: E501
 
         collection_formats = {}
@@ -316,8 +316,8 @@ class FilesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `files_download`")  # noqa: E501
 
         collection_formats = {}
@@ -457,35 +457,35 @@ class FilesApi(object):
         path_params = {}
 
         query_params = []
-        if 'filename' in local_var_params and local_var_params['filename'] is not None:  # noqa: E501
+        if 'filename' in local_var_params:
             query_params.append(('filename', local_var_params['filename']))  # noqa: E501
-        if 'filename__icontains' in local_var_params and local_var_params['filename__icontains'] is not None:  # noqa: E501
+        if 'filename__icontains' in local_var_params:
             query_params.append(('filename__icontains', local_var_params['filename__icontains']))  # noqa: E501
-        if 'etag' in local_var_params and local_var_params['etag'] is not None:  # noqa: E501
+        if 'etag' in local_var_params:
             query_params.append(('etag', local_var_params['etag']))  # noqa: E501
-        if 'expiry_date' in local_var_params and local_var_params['expiry_date'] is not None:  # noqa: E501
+        if 'expiry_date' in local_var_params:
             query_params.append(('expiry_date', local_var_params['expiry_date']))  # noqa: E501
-        if 'expiry_date__lte' in local_var_params and local_var_params['expiry_date__lte'] is not None:  # noqa: E501
+        if 'expiry_date__lte' in local_var_params:
             query_params.append(('expiry_date__lte', local_var_params['expiry_date__lte']))  # noqa: E501
-        if 'expiry_date__lt' in local_var_params and local_var_params['expiry_date__lt'] is not None:  # noqa: E501
+        if 'expiry_date__lt' in local_var_params:
             query_params.append(('expiry_date__lt', local_var_params['expiry_date__lt']))  # noqa: E501
-        if 'expiry_date__gte' in local_var_params and local_var_params['expiry_date__gte'] is not None:  # noqa: E501
+        if 'expiry_date__gte' in local_var_params:
             query_params.append(('expiry_date__gte', local_var_params['expiry_date__gte']))  # noqa: E501
-        if 'expiry_date__gt' in local_var_params and local_var_params['expiry_date__gt'] is not None:  # noqa: E501
+        if 'expiry_date__gt' in local_var_params:
             query_params.append(('expiry_date__gt', local_var_params['expiry_date__gt']))  # noqa: E501
-        if 'state' in local_var_params and local_var_params['state'] is not None:  # noqa: E501
+        if 'state' in local_var_params:
             query_params.append(('state', local_var_params['state']))  # noqa: E501
-        if 'state__in' in local_var_params and local_var_params['state__in'] is not None:  # noqa: E501
+        if 'state__in' in local_var_params:
             query_params.append(('state__in', local_var_params['state__in']))  # noqa: E501
-        if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
+        if 'type' in local_var_params:
             query_params.append(('type', local_var_params['type']))  # noqa: E501
-        if 'type__in' in local_var_params and local_var_params['type__in'] is not None:  # noqa: E501
+        if 'type__in' in local_var_params:
             query_params.append(('type__in', local_var_params['type__in']))  # noqa: E501
-        if 'meta' in local_var_params and local_var_params['meta'] is not None:  # noqa: E501
+        if 'meta' in local_var_params:
             query_params.append(('meta', local_var_params['meta']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -586,12 +586,12 @@ class FilesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `files_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `files_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -706,12 +706,12 @@ class FilesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `files_processed`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `files_processed`")  # noqa: E501
 
         collection_formats = {}
@@ -820,8 +820,8 @@ class FilesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `files_read`")  # noqa: E501
 
         collection_formats = {}
@@ -930,12 +930,12 @@ class FilesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `files_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `files_update`")  # noqa: E501
 
         collection_formats = {}

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,8 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from openapi_client.configuration import Configuration
 
 
 class DamageSeconds(object):
@@ -51,11 +49,8 @@ class DamageSeconds(object):
         'repair_time_buildings': 'repair_time_buildings'
     }
 
-    def __init__(self, basic_post_processing=None, cost_type=None, flood_month=None, inundation_period=None, repair_time_infrastructure=None, repair_time_buildings=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, basic_post_processing=None, cost_type=None, flood_month=None, inundation_period=None, repair_time_infrastructure=None, repair_time_buildings=None):  # noqa: E501
         """DamageSeconds - a model defined in OpenAPI"""  # noqa: E501
-        if local_vars_configuration is None:
-            local_vars_configuration = Configuration()
-        self.local_vars_configuration = local_vars_configuration
 
         self._basic_post_processing = None
         self._cost_type = None
@@ -120,7 +115,7 @@ class DamageSeconds(object):
         :type: str
         """
         allowed_values = ["min", "avg", "max"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and cost_type not in allowed_values:  # noqa: E501
+        if cost_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `cost_type` ({0}), must be one of {1}"  # noqa: E501
                 .format(cost_type, allowed_values)
@@ -147,7 +142,7 @@ class DamageSeconds(object):
         :type: str
         """
         allowed_values = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and flood_month not in allowed_values:  # noqa: E501
+        if flood_month not in allowed_values:
             raise ValueError(
                 "Invalid value for `flood_month` ({0}), must be one of {1}"  # noqa: E501
                 .format(flood_month, allowed_values)
@@ -255,11 +250,8 @@ class DamageSeconds(object):
         if not isinstance(other, DamageSeconds):
             return False
 
-        return self.to_dict() == other.to_dict()
+        return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        if not isinstance(other, DamageSeconds):
-            return True
-
-        return self.to_dict() != other.to_dict()
+        return not self == other

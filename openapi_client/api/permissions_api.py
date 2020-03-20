@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -104,8 +104,8 @@ class PermissionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `permissions_create`")  # noqa: E501
 
         collection_formats = {}
@@ -216,8 +216,8 @@ class PermissionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `permissions_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -369,51 +369,51 @@ class PermissionsApi(object):
         path_params = {}
 
         query_params = []
-        if 'user__username' in local_var_params and local_var_params['user__username'] is not None:  # noqa: E501
+        if 'user__username' in local_var_params:
             query_params.append(('user__username', local_var_params['user__username']))  # noqa: E501
-        if 'user__username__contains' in local_var_params and local_var_params['user__username__contains'] is not None:  # noqa: E501
+        if 'user__username__contains' in local_var_params:
             query_params.append(('user__username__contains', local_var_params['user__username__contains']))  # noqa: E501
-        if 'user__username__in' in local_var_params and local_var_params['user__username__in'] is not None:  # noqa: E501
+        if 'user__username__in' in local_var_params:
             query_params.append(('user__username__in', local_var_params['user__username__in']))  # noqa: E501
-        if 'user__username__startswith' in local_var_params and local_var_params['user__username__startswith'] is not None:  # noqa: E501
+        if 'user__username__startswith' in local_var_params:
             query_params.append(('user__username__startswith', local_var_params['user__username__startswith']))  # noqa: E501
-        if 'user__username__istartswith' in local_var_params and local_var_params['user__username__istartswith'] is not None:  # noqa: E501
+        if 'user__username__istartswith' in local_var_params:
             query_params.append(('user__username__istartswith', local_var_params['user__username__istartswith']))  # noqa: E501
-        if 'user__username__endswith' in local_var_params and local_var_params['user__username__endswith'] is not None:  # noqa: E501
+        if 'user__username__endswith' in local_var_params:
             query_params.append(('user__username__endswith', local_var_params['user__username__endswith']))  # noqa: E501
-        if 'user__username__regex' in local_var_params and local_var_params['user__username__regex'] is not None:  # noqa: E501
+        if 'user__username__regex' in local_var_params:
             query_params.append(('user__username__regex', local_var_params['user__username__regex']))  # noqa: E501
-        if 'role__name' in local_var_params and local_var_params['role__name'] is not None:  # noqa: E501
+        if 'role__name' in local_var_params:
             query_params.append(('role__name', local_var_params['role__name']))  # noqa: E501
-        if 'role__name__contains' in local_var_params and local_var_params['role__name__contains'] is not None:  # noqa: E501
+        if 'role__name__contains' in local_var_params:
             query_params.append(('role__name__contains', local_var_params['role__name__contains']))  # noqa: E501
-        if 'role__name__in' in local_var_params and local_var_params['role__name__in'] is not None:  # noqa: E501
+        if 'role__name__in' in local_var_params:
             query_params.append(('role__name__in', local_var_params['role__name__in']))  # noqa: E501
-        if 'role__name__startswith' in local_var_params and local_var_params['role__name__startswith'] is not None:  # noqa: E501
+        if 'role__name__startswith' in local_var_params:
             query_params.append(('role__name__startswith', local_var_params['role__name__startswith']))  # noqa: E501
-        if 'role__name__istartswith' in local_var_params and local_var_params['role__name__istartswith'] is not None:  # noqa: E501
+        if 'role__name__istartswith' in local_var_params:
             query_params.append(('role__name__istartswith', local_var_params['role__name__istartswith']))  # noqa: E501
-        if 'role__name__endswith' in local_var_params and local_var_params['role__name__endswith'] is not None:  # noqa: E501
+        if 'role__name__endswith' in local_var_params:
             query_params.append(('role__name__endswith', local_var_params['role__name__endswith']))  # noqa: E501
-        if 'role__name__regex' in local_var_params and local_var_params['role__name__regex'] is not None:  # noqa: E501
+        if 'role__name__regex' in local_var_params:
             query_params.append(('role__name__regex', local_var_params['role__name__regex']))  # noqa: E501
-        if 'organisation__name' in local_var_params and local_var_params['organisation__name'] is not None:  # noqa: E501
+        if 'organisation__name' in local_var_params:
             query_params.append(('organisation__name', local_var_params['organisation__name']))  # noqa: E501
-        if 'organisation__name__contains' in local_var_params and local_var_params['organisation__name__contains'] is not None:  # noqa: E501
+        if 'organisation__name__contains' in local_var_params:
             query_params.append(('organisation__name__contains', local_var_params['organisation__name__contains']))  # noqa: E501
-        if 'organisation__name__in' in local_var_params and local_var_params['organisation__name__in'] is not None:  # noqa: E501
+        if 'organisation__name__in' in local_var_params:
             query_params.append(('organisation__name__in', local_var_params['organisation__name__in']))  # noqa: E501
-        if 'organisation__name__startswith' in local_var_params and local_var_params['organisation__name__startswith'] is not None:  # noqa: E501
+        if 'organisation__name__startswith' in local_var_params:
             query_params.append(('organisation__name__startswith', local_var_params['organisation__name__startswith']))  # noqa: E501
-        if 'organisation__name__istartswith' in local_var_params and local_var_params['organisation__name__istartswith'] is not None:  # noqa: E501
+        if 'organisation__name__istartswith' in local_var_params:
             query_params.append(('organisation__name__istartswith', local_var_params['organisation__name__istartswith']))  # noqa: E501
-        if 'organisation__name__endswith' in local_var_params and local_var_params['organisation__name__endswith'] is not None:  # noqa: E501
+        if 'organisation__name__endswith' in local_var_params:
             query_params.append(('organisation__name__endswith', local_var_params['organisation__name__endswith']))  # noqa: E501
-        if 'organisation__name__regex' in local_var_params and local_var_params['organisation__name__regex'] is not None:  # noqa: E501
+        if 'organisation__name__regex' in local_var_params:
             query_params.append(('organisation__name__regex', local_var_params['organisation__name__regex']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -512,8 +512,8 @@ class PermissionsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `permissions_read`")  # noqa: E501
 
         collection_formats = {}

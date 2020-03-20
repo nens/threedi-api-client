@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -106,12 +106,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_actions_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_actions_create`")  # noqa: E501
 
         collection_formats = {}
@@ -224,8 +224,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_create`")  # noqa: E501
 
         collection_formats = {}
@@ -338,12 +338,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_create_saved_states_stable_threshold_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_create_saved_states_stable_threshold_create`")  # noqa: E501
 
         collection_formats = {}
@@ -458,12 +458,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_create_saved_states_stable_threshold_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_create_saved_states_stable_threshold_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -572,8 +572,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_create_saved_states_stable_threshold_list`")  # noqa: E501
 
         collection_formats = {}
@@ -583,9 +583,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -688,16 +688,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_create_saved_states_stable_threshold_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_create_saved_states_stable_threshold_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_create_saved_states_stable_threshold_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -814,12 +814,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_create_saved_states_stable_threshold_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_create_saved_states_stable_threshold_read`")  # noqa: E501
 
         collection_formats = {}
@@ -932,16 +932,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_create_saved_states_stable_threshold_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_create_saved_states_stable_threshold_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_create_saved_states_stable_threshold_update`")  # noqa: E501
 
         collection_formats = {}
@@ -1060,16 +1060,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_create_saved_states_stable_threshold_upload`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_create_saved_states_stable_threshold_upload`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_create_saved_states_stable_threshold_upload`")  # noqa: E501
 
         collection_formats = {}
@@ -1186,12 +1186,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_create_saved_states_timed_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_create_saved_states_timed_create`")  # noqa: E501
 
         collection_formats = {}
@@ -1306,12 +1306,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_create_saved_states_timed_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_create_saved_states_timed_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -1420,8 +1420,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_create_saved_states_timed_list`")  # noqa: E501
 
         collection_formats = {}
@@ -1431,9 +1431,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -1536,16 +1536,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_create_saved_states_timed_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_create_saved_states_timed_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_create_saved_states_timed_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -1662,12 +1662,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_create_saved_states_timed_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_create_saved_states_timed_read`")  # noqa: E501
 
         collection_formats = {}
@@ -1780,16 +1780,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_create_saved_states_timed_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_create_saved_states_timed_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_create_saved_states_timed_update`")  # noqa: E501
 
         collection_formats = {}
@@ -1908,16 +1908,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_create_saved_states_timed_upload`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_create_saved_states_timed_upload`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_create_saved_states_timed_upload`")  # noqa: E501
 
         collection_formats = {}
@@ -2030,8 +2030,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -2132,8 +2132,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events`")  # noqa: E501
 
         collection_formats = {}
@@ -2242,12 +2242,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_breaches_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_breaches_create`")  # noqa: E501
 
         collection_formats = {}
@@ -2362,12 +2362,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_breaches_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_breaches_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -2476,8 +2476,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_breaches_list`")  # noqa: E501
 
         collection_formats = {}
@@ -2487,9 +2487,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -2592,16 +2592,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_breaches_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_breaches_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_breaches_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -2718,12 +2718,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_breaches_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_breaches_read`")  # noqa: E501
 
         collection_formats = {}
@@ -2836,16 +2836,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_breaches_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_breaches_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_breaches_update`")  # noqa: E501
 
         collection_formats = {}
@@ -2962,12 +2962,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_lateral_constant_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_lateral_constant_create`")  # noqa: E501
 
         collection_formats = {}
@@ -3082,12 +3082,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_lateral_constant_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_lateral_constant_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -3196,8 +3196,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_lateral_constant_list`")  # noqa: E501
 
         collection_formats = {}
@@ -3207,9 +3207,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -3312,16 +3312,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_lateral_constant_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_lateral_constant_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_lateral_constant_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -3440,16 +3440,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_lateral_constant_processed`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_lateral_constant_processed`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_lateral_constant_processed`")  # noqa: E501
 
         collection_formats = {}
@@ -3562,12 +3562,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_lateral_constant_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_lateral_constant_read`")  # noqa: E501
 
         collection_formats = {}
@@ -3680,16 +3680,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_lateral_constant_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_lateral_constant_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_lateral_constant_update`")  # noqa: E501
 
         collection_formats = {}
@@ -3806,12 +3806,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_lateral_timeseries_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_lateral_timeseries_create`")  # noqa: E501
 
         collection_formats = {}
@@ -3926,12 +3926,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_lateral_timeseries_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_lateral_timeseries_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -4040,8 +4040,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_lateral_timeseries_list`")  # noqa: E501
 
         collection_formats = {}
@@ -4051,9 +4051,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -4156,16 +4156,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_lateral_timeseries_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_lateral_timeseries_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_lateral_timeseries_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -4284,16 +4284,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_lateral_timeseries_processed`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_lateral_timeseries_processed`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_lateral_timeseries_processed`")  # noqa: E501
 
         collection_formats = {}
@@ -4406,12 +4406,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_lateral_timeseries_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_lateral_timeseries_read`")  # noqa: E501
 
         collection_formats = {}
@@ -4524,16 +4524,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_lateral_timeseries_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_lateral_timeseries_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_lateral_timeseries_update`")  # noqa: E501
 
         collection_formats = {}
@@ -4650,12 +4650,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_constant_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_constant_create`")  # noqa: E501
 
         collection_formats = {}
@@ -4770,12 +4770,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_constant_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_constant_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -4884,8 +4884,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_constant_list`")  # noqa: E501
 
         collection_formats = {}
@@ -4895,9 +4895,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -5000,16 +5000,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_constant_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_constant_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_constant_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -5126,12 +5126,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_constant_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_constant_read`")  # noqa: E501
 
         collection_formats = {}
@@ -5244,16 +5244,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_constant_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_constant_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_constant_update`")  # noqa: E501
 
         collection_formats = {}
@@ -5370,12 +5370,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_local_constant_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_local_constant_create`")  # noqa: E501
 
         collection_formats = {}
@@ -5490,12 +5490,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_local_constant_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_local_constant_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -5604,8 +5604,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_local_constant_list`")  # noqa: E501
 
         collection_formats = {}
@@ -5615,9 +5615,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -5720,16 +5720,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_local_constant_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_local_constant_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_local_constant_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -5846,12 +5846,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_local_constant_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_local_constant_read`")  # noqa: E501
 
         collection_formats = {}
@@ -5964,16 +5964,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_local_constant_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_local_constant_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_local_constant_update`")  # noqa: E501
 
         collection_formats = {}
@@ -6090,12 +6090,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_local_timeseries_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_local_timeseries_create`")  # noqa: E501
 
         collection_formats = {}
@@ -6210,12 +6210,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_local_timeseries_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_local_timeseries_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -6324,8 +6324,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_local_timeseries_list`")  # noqa: E501
 
         collection_formats = {}
@@ -6335,9 +6335,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -6440,16 +6440,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_local_timeseries_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_local_timeseries_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_local_timeseries_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -6566,12 +6566,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_local_timeseries_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_local_timeseries_read`")  # noqa: E501
 
         collection_formats = {}
@@ -6684,16 +6684,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_local_timeseries_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_local_timeseries_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_local_timeseries_update`")  # noqa: E501
 
         collection_formats = {}
@@ -6810,12 +6810,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_rasters_lizard_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_rasters_lizard_create`")  # noqa: E501
 
         collection_formats = {}
@@ -6930,12 +6930,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_rasters_lizard_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_rasters_lizard_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -7044,8 +7044,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_rasters_lizard_list`")  # noqa: E501
 
         collection_formats = {}
@@ -7055,9 +7055,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -7160,16 +7160,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_rasters_lizard_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_rasters_lizard_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_rasters_lizard_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -7286,12 +7286,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_rasters_lizard_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_rasters_lizard_read`")  # noqa: E501
 
         collection_formats = {}
@@ -7404,16 +7404,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_rasters_lizard_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_rasters_lizard_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_rasters_lizard_update`")  # noqa: E501
 
         collection_formats = {}
@@ -7530,12 +7530,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_rasters_netcdf_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_rasters_netcdf_create`")  # noqa: E501
 
         collection_formats = {}
@@ -7650,12 +7650,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_rasters_netcdf_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_rasters_netcdf_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -7764,8 +7764,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_rasters_netcdf_list`")  # noqa: E501
 
         collection_formats = {}
@@ -7775,9 +7775,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -7878,12 +7878,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_rasters_netcdf_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_rasters_netcdf_read`")  # noqa: E501
 
         collection_formats = {}
@@ -7996,16 +7996,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_rasters_netcdf_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_rasters_netcdf_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_rasters_netcdf_update`")  # noqa: E501
 
         collection_formats = {}
@@ -8122,12 +8122,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_timeseries_create`")  # noqa: E501
 
         collection_formats = {}
@@ -8242,12 +8242,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_timeseries_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -8356,8 +8356,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_list`")  # noqa: E501
 
         collection_formats = {}
@@ -8367,9 +8367,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -8470,12 +8470,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_lizard_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_timeseries_lizard_create`")  # noqa: E501
 
         collection_formats = {}
@@ -8590,12 +8590,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_timeseries_lizard_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_lizard_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -8704,8 +8704,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_lizard_list`")  # noqa: E501
 
         collection_formats = {}
@@ -8715,9 +8715,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -8820,16 +8820,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_timeseries_lizard_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_lizard_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_timeseries_lizard_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -8946,12 +8946,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_timeseries_lizard_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_lizard_read`")  # noqa: E501
 
         collection_formats = {}
@@ -9064,16 +9064,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_timeseries_lizard_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_lizard_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_timeseries_lizard_update`")  # noqa: E501
 
         collection_formats = {}
@@ -9190,12 +9190,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_netcdf_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_timeseries_netcdf_create`")  # noqa: E501
 
         collection_formats = {}
@@ -9310,12 +9310,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_timeseries_netcdf_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_netcdf_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -9424,8 +9424,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_netcdf_list`")  # noqa: E501
 
         collection_formats = {}
@@ -9435,9 +9435,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -9538,12 +9538,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_timeseries_netcdf_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_netcdf_read`")  # noqa: E501
 
         collection_formats = {}
@@ -9656,16 +9656,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_timeseries_netcdf_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_netcdf_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_timeseries_netcdf_update`")  # noqa: E501
 
         collection_formats = {}
@@ -9784,16 +9784,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_timeseries_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_timeseries_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -9910,12 +9910,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_timeseries_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_read`")  # noqa: E501
 
         collection_formats = {}
@@ -10028,16 +10028,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_rain_timeseries_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_rain_timeseries_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_rain_timeseries_update`")  # noqa: E501
 
         collection_formats = {}
@@ -10154,12 +10154,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_raster_edits_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_raster_edits_create`")  # noqa: E501
 
         collection_formats = {}
@@ -10274,12 +10274,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_raster_edits_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_raster_edits_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -10388,8 +10388,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_raster_edits_list`")  # noqa: E501
 
         collection_formats = {}
@@ -10399,9 +10399,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -10504,16 +10504,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_raster_edits_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_raster_edits_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_raster_edits_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -10630,12 +10630,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_raster_edits_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_raster_edits_read`")  # noqa: E501
 
         collection_formats = {}
@@ -10748,16 +10748,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_raster_edits_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_raster_edits_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_raster_edits_update`")  # noqa: E501
 
         collection_formats = {}
@@ -10874,12 +10874,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_constant_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_sources_sinks_constant_create`")  # noqa: E501
 
         collection_formats = {}
@@ -10994,12 +10994,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_constant_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_constant_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -11108,8 +11108,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_constant_list`")  # noqa: E501
 
         collection_formats = {}
@@ -11119,9 +11119,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -11224,16 +11224,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_constant_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_constant_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_sources_sinks_constant_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -11350,12 +11350,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_constant_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_constant_read`")  # noqa: E501
 
         collection_formats = {}
@@ -11468,16 +11468,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_constant_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_constant_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_sources_sinks_constant_update`")  # noqa: E501
 
         collection_formats = {}
@@ -11594,12 +11594,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_rasters_lizard_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_sources_sinks_rasters_lizard_create`")  # noqa: E501
 
         collection_formats = {}
@@ -11714,12 +11714,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_rasters_lizard_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_rasters_lizard_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -11828,8 +11828,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_rasters_lizard_list`")  # noqa: E501
 
         collection_formats = {}
@@ -11839,9 +11839,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -11944,16 +11944,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_rasters_lizard_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_rasters_lizard_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_sources_sinks_rasters_lizard_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -12070,12 +12070,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_rasters_lizard_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_rasters_lizard_read`")  # noqa: E501
 
         collection_formats = {}
@@ -12188,16 +12188,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_rasters_lizard_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_rasters_lizard_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_sources_sinks_rasters_lizard_update`")  # noqa: E501
 
         collection_formats = {}
@@ -12314,12 +12314,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_rasters_netcdf_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_sources_sinks_rasters_netcdf_create`")  # noqa: E501
 
         collection_formats = {}
@@ -12434,12 +12434,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_rasters_netcdf_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_rasters_netcdf_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -12548,8 +12548,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_rasters_netcdf_list`")  # noqa: E501
 
         collection_formats = {}
@@ -12559,9 +12559,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -12662,12 +12662,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_rasters_netcdf_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_rasters_netcdf_read`")  # noqa: E501
 
         collection_formats = {}
@@ -12780,16 +12780,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_rasters_netcdf_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_rasters_netcdf_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_sources_sinks_rasters_netcdf_update`")  # noqa: E501
 
         collection_formats = {}
@@ -12906,12 +12906,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_sources_sinks_timeseries_create`")  # noqa: E501
 
         collection_formats = {}
@@ -13026,12 +13026,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_timeseries_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -13140,8 +13140,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_list`")  # noqa: E501
 
         collection_formats = {}
@@ -13151,9 +13151,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -13254,12 +13254,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_lizard_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_sources_sinks_timeseries_lizard_create`")  # noqa: E501
 
         collection_formats = {}
@@ -13374,12 +13374,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_timeseries_lizard_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_lizard_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -13488,8 +13488,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_lizard_list`")  # noqa: E501
 
         collection_formats = {}
@@ -13499,9 +13499,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -13604,16 +13604,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_timeseries_lizard_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_lizard_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_sources_sinks_timeseries_lizard_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -13730,12 +13730,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_timeseries_lizard_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_lizard_read`")  # noqa: E501
 
         collection_formats = {}
@@ -13848,16 +13848,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_timeseries_lizard_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_lizard_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_sources_sinks_timeseries_lizard_update`")  # noqa: E501
 
         collection_formats = {}
@@ -13974,12 +13974,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_netcdf_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_sources_sinks_timeseries_netcdf_create`")  # noqa: E501
 
         collection_formats = {}
@@ -14094,12 +14094,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_timeseries_netcdf_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_netcdf_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -14208,8 +14208,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_netcdf_list`")  # noqa: E501
 
         collection_formats = {}
@@ -14219,9 +14219,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -14322,12 +14322,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_timeseries_netcdf_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_netcdf_read`")  # noqa: E501
 
         collection_formats = {}
@@ -14440,16 +14440,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_timeseries_netcdf_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_netcdf_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_sources_sinks_timeseries_netcdf_update`")  # noqa: E501
 
         collection_formats = {}
@@ -14568,16 +14568,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_timeseries_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_sources_sinks_timeseries_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -14694,12 +14694,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_timeseries_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_read`")  # noqa: E501
 
         collection_formats = {}
@@ -14812,16 +14812,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_sources_sinks_timeseries_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_sources_sinks_timeseries_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_sources_sinks_timeseries_update`")  # noqa: E501
 
         collection_formats = {}
@@ -14938,12 +14938,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_structure_control_timed_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_structure_control_timed_create`")  # noqa: E501
 
         collection_formats = {}
@@ -15058,12 +15058,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_structure_control_timed_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_structure_control_timed_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -15172,8 +15172,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_structure_control_timed_list`")  # noqa: E501
 
         collection_formats = {}
@@ -15183,9 +15183,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -15288,16 +15288,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_structure_control_timed_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_structure_control_timed_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_structure_control_timed_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -15416,16 +15416,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_structure_control_timed_processed`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_structure_control_timed_processed`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_structure_control_timed_processed`")  # noqa: E501
 
         collection_formats = {}
@@ -15538,12 +15538,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_structure_control_timed_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_structure_control_timed_read`")  # noqa: E501
 
         collection_formats = {}
@@ -15656,16 +15656,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_structure_control_timed_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_structure_control_timed_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_structure_control_timed_update`")  # noqa: E501
 
         collection_formats = {}
@@ -15782,12 +15782,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_wind_constant_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_wind_constant_create`")  # noqa: E501
 
         collection_formats = {}
@@ -15902,12 +15902,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_wind_constant_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_wind_constant_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -16016,8 +16016,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_wind_constant_list`")  # noqa: E501
 
         collection_formats = {}
@@ -16027,9 +16027,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -16132,16 +16132,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_wind_constant_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_wind_constant_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_wind_constant_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -16258,12 +16258,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_wind_constant_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_wind_constant_read`")  # noqa: E501
 
         collection_formats = {}
@@ -16376,16 +16376,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_wind_constant_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_wind_constant_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_wind_constant_update`")  # noqa: E501
 
         collection_formats = {}
@@ -16502,12 +16502,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_wind_timeseries_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_wind_timeseries_create`")  # noqa: E501
 
         collection_formats = {}
@@ -16622,12 +16622,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_wind_timeseries_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_wind_timeseries_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -16736,8 +16736,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_wind_timeseries_list`")  # noqa: E501
 
         collection_formats = {}
@@ -16747,9 +16747,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -16852,16 +16852,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_wind_timeseries_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_wind_timeseries_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_wind_timeseries_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -16978,12 +16978,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_wind_timeseries_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_wind_timeseries_read`")  # noqa: E501
 
         collection_formats = {}
@@ -17096,16 +17096,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_wind_timeseries_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_wind_timeseries_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_events_wind_timeseries_update`")  # noqa: E501
 
         collection_formats = {}
@@ -17222,12 +17222,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_constant_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial1d_water_level_constant_create`")  # noqa: E501
 
         collection_formats = {}
@@ -17342,12 +17342,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_constant_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_constant_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -17456,8 +17456,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_constant_list`")  # noqa: E501
 
         collection_formats = {}
@@ -17467,9 +17467,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -17572,16 +17572,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_constant_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_constant_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial1d_water_level_constant_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -17698,12 +17698,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_constant_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_constant_read`")  # noqa: E501
 
         collection_formats = {}
@@ -17816,16 +17816,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_constant_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_constant_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial1d_water_level_constant_update`")  # noqa: E501
 
         collection_formats = {}
@@ -17942,12 +17942,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_predefined_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial1d_water_level_predefined_create`")  # noqa: E501
 
         collection_formats = {}
@@ -18062,12 +18062,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_predefined_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_predefined_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -18176,8 +18176,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_predefined_list`")  # noqa: E501
 
         collection_formats = {}
@@ -18187,9 +18187,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -18292,16 +18292,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_predefined_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_predefined_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial1d_water_level_predefined_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -18418,12 +18418,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_predefined_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_predefined_read`")  # noqa: E501
 
         collection_formats = {}
@@ -18536,16 +18536,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial1d_water_level_predefined_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial1d_water_level_predefined_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial1d_water_level_predefined_update`")  # noqa: E501
 
         collection_formats = {}
@@ -18662,12 +18662,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_constant_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial2d_water_level_constant_create`")  # noqa: E501
 
         collection_formats = {}
@@ -18782,12 +18782,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_constant_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_constant_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -18896,8 +18896,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_constant_list`")  # noqa: E501
 
         collection_formats = {}
@@ -18907,9 +18907,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -19012,16 +19012,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_constant_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_constant_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial2d_water_level_constant_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -19138,12 +19138,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_constant_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_constant_read`")  # noqa: E501
 
         collection_formats = {}
@@ -19256,16 +19256,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_constant_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_constant_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial2d_water_level_constant_update`")  # noqa: E501
 
         collection_formats = {}
@@ -19382,12 +19382,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_raster_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial2d_water_level_raster_create`")  # noqa: E501
 
         collection_formats = {}
@@ -19502,12 +19502,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_raster_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_raster_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -19616,8 +19616,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_raster_list`")  # noqa: E501
 
         collection_formats = {}
@@ -19627,9 +19627,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -19732,16 +19732,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_raster_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_raster_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial2d_water_level_raster_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -19858,12 +19858,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_raster_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_raster_read`")  # noqa: E501
 
         collection_formats = {}
@@ -19976,16 +19976,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial2d_water_level_raster_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial2d_water_level_raster_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial2d_water_level_raster_update`")  # noqa: E501
 
         collection_formats = {}
@@ -20102,12 +20102,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_constant_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_groundwater_level_constant_create`")  # noqa: E501
 
         collection_formats = {}
@@ -20222,12 +20222,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_constant_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_constant_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -20336,8 +20336,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_constant_list`")  # noqa: E501
 
         collection_formats = {}
@@ -20347,9 +20347,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -20452,16 +20452,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_constant_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_constant_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_groundwater_level_constant_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -20578,12 +20578,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_constant_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_constant_read`")  # noqa: E501
 
         collection_formats = {}
@@ -20696,16 +20696,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_constant_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_constant_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_groundwater_level_constant_update`")  # noqa: E501
 
         collection_formats = {}
@@ -20822,12 +20822,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_raster_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_groundwater_level_raster_create`")  # noqa: E501
 
         collection_formats = {}
@@ -20942,12 +20942,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_raster_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_raster_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -21056,8 +21056,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_raster_list`")  # noqa: E501
 
         collection_formats = {}
@@ -21067,9 +21067,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -21172,16 +21172,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_raster_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_raster_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_groundwater_level_raster_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -21298,12 +21298,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_raster_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_raster_read`")  # noqa: E501
 
         collection_formats = {}
@@ -21416,16 +21416,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_groundwater_level_raster_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_groundwater_level_raster_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_groundwater_level_raster_update`")  # noqa: E501
 
         collection_formats = {}
@@ -21542,12 +21542,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_saved_state_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_saved_state_create`")  # noqa: E501
 
         collection_formats = {}
@@ -21662,12 +21662,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_saved_state_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_saved_state_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -21776,8 +21776,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_saved_state_list`")  # noqa: E501
 
         collection_formats = {}
@@ -21787,9 +21787,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -21892,16 +21892,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_saved_state_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_saved_state_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_saved_state_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -22018,12 +22018,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_saved_state_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_saved_state_read`")  # noqa: E501
 
         collection_formats = {}
@@ -22136,16 +22136,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_saved_state_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_saved_state_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_saved_state_update`")  # noqa: E501
 
         collection_formats = {}
@@ -22325,67 +22325,67 @@ class SimulationsApi(object):
         path_params = {}
 
         query_params = []
-        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+        if 'name' in local_var_params:
             query_params.append(('name', local_var_params['name']))  # noqa: E501
-        if 'name__contains' in local_var_params and local_var_params['name__contains'] is not None:  # noqa: E501
+        if 'name__contains' in local_var_params:
             query_params.append(('name__contains', local_var_params['name__contains']))  # noqa: E501
-        if 'name__in' in local_var_params and local_var_params['name__in'] is not None:  # noqa: E501
+        if 'name__in' in local_var_params:
             query_params.append(('name__in', local_var_params['name__in']))  # noqa: E501
-        if 'name__startswith' in local_var_params and local_var_params['name__startswith'] is not None:  # noqa: E501
+        if 'name__startswith' in local_var_params:
             query_params.append(('name__startswith', local_var_params['name__startswith']))  # noqa: E501
-        if 'name__istartswith' in local_var_params and local_var_params['name__istartswith'] is not None:  # noqa: E501
+        if 'name__istartswith' in local_var_params:
             query_params.append(('name__istartswith', local_var_params['name__istartswith']))  # noqa: E501
-        if 'name__endswith' in local_var_params and local_var_params['name__endswith'] is not None:  # noqa: E501
+        if 'name__endswith' in local_var_params:
             query_params.append(('name__endswith', local_var_params['name__endswith']))  # noqa: E501
-        if 'name__regex' in local_var_params and local_var_params['name__regex'] is not None:  # noqa: E501
+        if 'name__regex' in local_var_params:
             query_params.append(('name__regex', local_var_params['name__regex']))  # noqa: E501
-        if 'uuid' in local_var_params and local_var_params['uuid'] is not None:  # noqa: E501
+        if 'uuid' in local_var_params:
             query_params.append(('uuid', local_var_params['uuid']))  # noqa: E501
-        if 'uuid__contains' in local_var_params and local_var_params['uuid__contains'] is not None:  # noqa: E501
+        if 'uuid__contains' in local_var_params:
             query_params.append(('uuid__contains', local_var_params['uuid__contains']))  # noqa: E501
-        if 'uuid__in' in local_var_params and local_var_params['uuid__in'] is not None:  # noqa: E501
+        if 'uuid__in' in local_var_params:
             query_params.append(('uuid__in', local_var_params['uuid__in']))  # noqa: E501
-        if 'uuid__startswith' in local_var_params and local_var_params['uuid__startswith'] is not None:  # noqa: E501
+        if 'uuid__startswith' in local_var_params:
             query_params.append(('uuid__startswith', local_var_params['uuid__startswith']))  # noqa: E501
-        if 'uuid__istartswith' in local_var_params and local_var_params['uuid__istartswith'] is not None:  # noqa: E501
+        if 'uuid__istartswith' in local_var_params:
             query_params.append(('uuid__istartswith', local_var_params['uuid__istartswith']))  # noqa: E501
-        if 'uuid__endswith' in local_var_params and local_var_params['uuid__endswith'] is not None:  # noqa: E501
+        if 'uuid__endswith' in local_var_params:
             query_params.append(('uuid__endswith', local_var_params['uuid__endswith']))  # noqa: E501
-        if 'uuid__regex' in local_var_params and local_var_params['uuid__regex'] is not None:  # noqa: E501
+        if 'uuid__regex' in local_var_params:
             query_params.append(('uuid__regex', local_var_params['uuid__regex']))  # noqa: E501
-        if 'created__date' in local_var_params and local_var_params['created__date'] is not None:  # noqa: E501
+        if 'created__date' in local_var_params:
             query_params.append(('created__date', local_var_params['created__date']))  # noqa: E501
-        if 'created__date__gt' in local_var_params and local_var_params['created__date__gt'] is not None:  # noqa: E501
+        if 'created__date__gt' in local_var_params:
             query_params.append(('created__date__gt', local_var_params['created__date__gt']))  # noqa: E501
-        if 'created__date__gte' in local_var_params and local_var_params['created__date__gte'] is not None:  # noqa: E501
+        if 'created__date__gte' in local_var_params:
             query_params.append(('created__date__gte', local_var_params['created__date__gte']))  # noqa: E501
-        if 'created__date__lt' in local_var_params and local_var_params['created__date__lt'] is not None:  # noqa: E501
+        if 'created__date__lt' in local_var_params:
             query_params.append(('created__date__lt', local_var_params['created__date__lt']))  # noqa: E501
-        if 'created__date__lte' in local_var_params and local_var_params['created__date__lte'] is not None:  # noqa: E501
+        if 'created__date__lte' in local_var_params:
             query_params.append(('created__date__lte', local_var_params['created__date__lte']))  # noqa: E501
-        if 'created__year' in local_var_params and local_var_params['created__year'] is not None:  # noqa: E501
+        if 'created__year' in local_var_params:
             query_params.append(('created__year', local_var_params['created__year']))  # noqa: E501
-        if 'created__year__gt' in local_var_params and local_var_params['created__year__gt'] is not None:  # noqa: E501
+        if 'created__year__gt' in local_var_params:
             query_params.append(('created__year__gt', local_var_params['created__year__gt']))  # noqa: E501
-        if 'created__year__gte' in local_var_params and local_var_params['created__year__gte'] is not None:  # noqa: E501
+        if 'created__year__gte' in local_var_params:
             query_params.append(('created__year__gte', local_var_params['created__year__gte']))  # noqa: E501
-        if 'created__year__lt' in local_var_params and local_var_params['created__year__lt'] is not None:  # noqa: E501
+        if 'created__year__lt' in local_var_params:
             query_params.append(('created__year__lt', local_var_params['created__year__lt']))  # noqa: E501
-        if 'created__year__lte' in local_var_params and local_var_params['created__year__lte'] is not None:  # noqa: E501
+        if 'created__year__lte' in local_var_params:
             query_params.append(('created__year__lte', local_var_params['created__year__lte']))  # noqa: E501
-        if 'created__month' in local_var_params and local_var_params['created__month'] is not None:  # noqa: E501
+        if 'created__month' in local_var_params:
             query_params.append(('created__month', local_var_params['created__month']))  # noqa: E501
-        if 'created__month__lte' in local_var_params and local_var_params['created__month__lte'] is not None:  # noqa: E501
+        if 'created__month__lte' in local_var_params:
             query_params.append(('created__month__lte', local_var_params['created__month__lte']))  # noqa: E501
-        if 'created__day' in local_var_params and local_var_params['created__day'] is not None:  # noqa: E501
+        if 'created__day' in local_var_params:
             query_params.append(('created__day', local_var_params['created__day']))  # noqa: E501
-        if 'created__day__lt' in local_var_params and local_var_params['created__day__lt'] is not None:  # noqa: E501
+        if 'created__day__lt' in local_var_params:
             query_params.append(('created__day__lt', local_var_params['created__day__lt']))  # noqa: E501
-        if 'tags__in' in local_var_params and local_var_params['tags__in'] is not None:  # noqa: E501
+        if 'tags__in' in local_var_params:
             query_params.append(('tags__in', local_var_params['tags__in']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -22484,12 +22484,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -22609,9 +22609,9 @@ class SimulationsApi(object):
         path_params = {}
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -22714,8 +22714,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_progress_list`")  # noqa: E501
 
         collection_formats = {}
@@ -22725,9 +22725,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -22824,8 +22824,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_read`")  # noqa: E501
 
         collection_formats = {}
@@ -22934,12 +22934,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_files_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_files_create`")  # noqa: E501
 
         collection_formats = {}
@@ -23054,12 +23054,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_results_files_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_files_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -23166,12 +23166,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_results_files_download`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_files_download`")  # noqa: E501
 
         collection_formats = {}
@@ -23284,8 +23284,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_files_list`")  # noqa: E501
 
         collection_formats = {}
@@ -23295,9 +23295,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -23400,16 +23400,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_results_files_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_files_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_files_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -23526,12 +23526,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_results_files_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_files_read`")  # noqa: E501
 
         collection_formats = {}
@@ -23644,16 +23644,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_results_files_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_files_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_files_update`")  # noqa: E501
 
         collection_formats = {}
@@ -23772,16 +23772,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_results_files_upload`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_files_upload`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_files_upload`")  # noqa: E501
 
         collection_formats = {}
@@ -23898,12 +23898,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_arrival_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_post_processing_lizard_arrival_create`")  # noqa: E501
 
         collection_formats = {}
@@ -24016,8 +24016,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_arrival_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -24124,8 +24124,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_arrival_list`")  # noqa: E501
 
         collection_formats = {}
@@ -24135,9 +24135,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -24236,12 +24236,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_basic_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_post_processing_lizard_basic_create`")  # noqa: E501
 
         collection_formats = {}
@@ -24352,8 +24352,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_basic_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -24458,8 +24458,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_basic_list`")  # noqa: E501
 
         collection_formats = {}
@@ -24469,9 +24469,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -24570,12 +24570,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_damage_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_post_processing_lizard_damage_create`")  # noqa: E501
 
         collection_formats = {}
@@ -24686,8 +24686,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_damage_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -24792,8 +24792,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_damage_list`")  # noqa: E501
 
         collection_formats = {}
@@ -24803,9 +24803,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -24908,8 +24908,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_overview_list`")  # noqa: E501
 
         collection_formats = {}
@@ -24919,9 +24919,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -25022,12 +25022,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_start_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_post_processing_lizard_start_create`")  # noqa: E501
 
         collection_formats = {}
@@ -25142,12 +25142,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_status_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_post_processing_lizard_status_create`")  # noqa: E501
 
         collection_formats = {}
@@ -25260,8 +25260,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_status_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -25366,8 +25366,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_status_history_list`")  # noqa: E501
 
         collection_formats = {}
@@ -25377,9 +25377,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -25482,8 +25482,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_status_list`")  # noqa: E501
 
         collection_formats = {}
@@ -25493,9 +25493,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -25596,12 +25596,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_status_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_status_create`")  # noqa: E501
 
         collection_formats = {}
@@ -25716,12 +25716,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_status_delete`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_status_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -25828,8 +25828,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_status_history_list`")  # noqa: E501
 
         collection_formats = {}
@@ -25839,9 +25839,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -25940,12 +25940,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_status_history_read`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_status_history_read`")  # noqa: E501
 
         collection_formats = {}
@@ -26058,8 +26058,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_status_list`")  # noqa: E501
 
         collection_formats = {}
@@ -26069,9 +26069,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -26172,12 +26172,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_status_patch`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_status_patch`")  # noqa: E501
 
         collection_formats = {}
@@ -26294,16 +26294,16 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_status_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_status_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_status_update`")  # noqa: E501
 
         collection_formats = {}
@@ -26418,12 +26418,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `simulations_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_update`")  # noqa: E501
 
         collection_formats = {}
@@ -26540,12 +26540,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'layer' is set
-        if self.api_client.client_side_validation and ('layer' not in local_var_params or  # noqa: E501
-                                                        local_var_params['layer'] is None):  # noqa: E501
+        if ('layer' not in local_var_params or
+                local_var_params['layer'] is None):
             raise ApiValueError("Missing the required parameter `layer` when calling `simulations_visualisations_profile_list`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_visualisations_profile_list`")  # noqa: E501
 
         collection_formats = {}
@@ -26557,9 +26557,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -26662,12 +26662,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'layer' is set
-        if self.api_client.client_side_validation and ('layer' not in local_var_params or  # noqa: E501
-                                                        local_var_params['layer'] is None):  # noqa: E501
+        if ('layer' not in local_var_params or
+                local_var_params['layer'] is None):
             raise ApiValueError("Missing the required parameter `layer` when calling `simulations_visualisations_tms_list`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_visualisations_tms_list`")  # noqa: E501
 
         collection_formats = {}
@@ -26679,9 +26679,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -26713,10 +26713,130 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_visualisations_water_level_graph_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """Get a websocket URL returning waterlevel (graph) data.  # noqa: E501
+    def simulations_visualisations_water_flow_graph_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """Get a websocket URL returning line flow (graph) data.  # noqa: E501
 
-        The websocket returns binary data messages consisting of alternating timestep and waterlevel float32 values in one message like: timestep, waterlevel, timestep, waterlevel... etc  # noqa: E501
+        The websocket-url in the response returns binary data messages consisting of timestamp, u1 (velocity), q (discharge) float32 data. Split the message up in thirds, the first contains one or more timestamps, the second one or more u1 values and the last the q values.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_visualisations_water_flow_graph_create(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param WaterFlowGraphRequest data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: WaterGraph
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_visualisations_water_flow_graph_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_visualisations_water_flow_graph_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """Get a websocket URL returning line flow (graph) data.  # noqa: E501
+
+        The websocket-url in the response returns binary data messages consisting of timestamp, u1 (velocity), q (discharge) float32 data. Split the message up in thirds, the first contains one or more timestamps, the second one or more u1 values and the last the q values.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_visualisations_water_flow_graph_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param WaterFlowGraphRequest data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(WaterGraph, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_visualisations_water_flow_graph_create" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_visualisations_water_flow_graph_create`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_visualisations_water_flow_graph_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/visualisations/water_flow_graph/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='WaterGraph',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_visualisations_water_level_graph_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """Get a websocket URL returning node waterlevel (graph) data.  # noqa: E501
+
+        The websocket-url in the response returns binary data messages consisting of timestamp and waterlevel float32 data. Split the message up in half and the first half contains of one or more timestamps and the second half one or more waterlevels.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_visualisations_water_level_graph_create(simulation_pk, data, async_req=True)
@@ -26732,7 +26852,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: WaterLevelGraph
+        :return: WaterGraph
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -26740,9 +26860,9 @@ class SimulationsApi(object):
         return self.simulations_visualisations_water_level_graph_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
 
     def simulations_visualisations_water_level_graph_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """Get a websocket URL returning waterlevel (graph) data.  # noqa: E501
+        """Get a websocket URL returning node waterlevel (graph) data.  # noqa: E501
 
-        The websocket returns binary data messages consisting of alternating timestep and waterlevel float32 values in one message like: timestep, waterlevel, timestep, waterlevel... etc  # noqa: E501
+        The websocket-url in the response returns binary data messages consisting of timestamp and waterlevel float32 data. Split the message up in half and the first half contains of one or more timestamps and the second half one or more waterlevels.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_visualisations_water_level_graph_create_with_http_info(simulation_pk, data, async_req=True)
@@ -26760,7 +26880,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(WaterLevelGraph, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(WaterGraph, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -26782,12 +26902,12 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_visualisations_water_level_graph_create`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
             raise ApiValueError("Missing the required parameter `data` when calling `simulations_visualisations_water_level_graph_create`")  # noqa: E501
 
         collection_formats = {}
@@ -26825,7 +26945,127 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='WaterLevelGraph',  # noqa: E501
+            response_type='WaterGraph',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_visualisations_water_level_profile_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """Get a websocket URL returning waterlevel profile data.  # noqa: E501
+
+        The websocket returns binary data messages consisting of timestep and waterlevel float32 values in one message like: timestep, waterlevel, waterlevel, waterlevel, waterlevel  Groundwater waterlevel values are automatically added (after open water) if groundwater is present. The returned waterlevel values have length 'points_limit' * 2 in this case.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_visualisations_water_level_profile_create(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param WaterLevelProfileRequest data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: WaterLevelProfile
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_visualisations_water_level_profile_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_visualisations_water_level_profile_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """Get a websocket URL returning waterlevel profile data.  # noqa: E501
+
+        The websocket returns binary data messages consisting of timestep and waterlevel float32 values in one message like: timestep, waterlevel, waterlevel, waterlevel, waterlevel  Groundwater waterlevel values are automatically added (after open water) if groundwater is present. The returned waterlevel values have length 'points_limit' * 2 in this case.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_visualisations_water_level_profile_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param WaterLevelProfileRequest data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(WaterLevelProfile, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_visualisations_water_level_profile_create" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_visualisations_water_level_profile_create`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_visualisations_water_level_profile_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/visualisations/water_level_profile/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='WaterLevelProfile',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -26902,8 +27142,8 @@ class SimulationsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_visualisations_waterdepth_list`")  # noqa: E501
 
         collection_formats = {}
@@ -26913,9 +27153,9 @@ class SimulationsApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}

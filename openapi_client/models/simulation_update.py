@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,8 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from openapi_client.configuration import Configuration
 
 
 class SimulationUpdate(object):
@@ -71,11 +69,8 @@ class SimulationUpdate(object):
         'id': 'id'
     }
 
-    def __init__(self, url=None, slug=None, uuid=None, name=None, tags=None, created=None, threedimodel=None, organisation=None, organisation_name=None, user=None, start_datetime=None, end_datetime=None, duration=None, duration_humanized=None, threedimodel_id=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, slug=None, uuid=None, name=None, tags=None, created=None, threedimodel=None, organisation=None, organisation_name=None, user=None, start_datetime=None, end_datetime=None, duration=None, duration_humanized=None, threedimodel_id=None, id=None):  # noqa: E501
         """SimulationUpdate - a model defined in OpenAPI"""  # noqa: E501
-        if local_vars_configuration is None:
-            local_vars_configuration = Configuration()
-        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._slug = None
@@ -166,11 +161,9 @@ class SimulationUpdate(object):
         :param slug: The slug of this SimulationUpdate.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and len(slug) < 1):
+        if slug is not None and len(slug) < 1:
             raise ValueError("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and not re.search(r'^[-a-zA-Z0-9_]+$', slug)):  # noqa: E501
+        if slug is not None and not re.search(r'^[-a-zA-Z0-9_]+$', slug):  # noqa: E501
             raise ValueError(r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug = slug
@@ -214,13 +207,11 @@ class SimulationUpdate(object):
         :param name: The name of this SimulationUpdate.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
+        if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) > 80):
+        if name is not None and len(name) > 80:
             raise ValueError("Invalid value for `name`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
+        if name is not None and len(name) < 1:
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
@@ -348,8 +339,7 @@ class SimulationUpdate(object):
         :param user: The user of this SimulationUpdate.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                user is not None and not re.search(r'^[\w.@+-]+$', user)):  # noqa: E501
+        if user is not None and not re.search(r'^[\w.@+-]+$', user):  # noqa: E501
             raise ValueError(r"Invalid value for `user`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
 
         self._user = user
@@ -517,11 +507,8 @@ class SimulationUpdate(object):
         if not isinstance(other, SimulationUpdate):
             return False
 
-        return self.to_dict() == other.to_dict()
+        return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        if not isinstance(other, SimulationUpdate):
-            return True
-
-        return self.to_dict() != other.to_dict()
+        return not self == other

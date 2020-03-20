@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,8 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from openapi_client.configuration import Configuration
 
 
 class InlineResponse20020(object):
@@ -47,11 +45,8 @@ class InlineResponse20020(object):
         'results': 'results'
     }
 
-    def __init__(self, count=None, next=None, previous=None, results=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, count=None, next=None, previous=None, results=None):  # noqa: E501
         """InlineResponse20020 - a model defined in OpenAPI"""  # noqa: E501
-        if local_vars_configuration is None:
-            local_vars_configuration = Configuration()
-        self.local_vars_configuration = local_vars_configuration
 
         self._count = None
         self._next = None
@@ -82,7 +77,7 @@ class InlineResponse20020(object):
         :param count: The count of this InlineResponse20020.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
+        if count is None:
             raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
@@ -147,7 +142,7 @@ class InlineResponse20020(object):
         :param results: The results of this InlineResponse20020.  # noqa: E501
         :type: list[NetCDFRasterRain]
         """
-        if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
+        if results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
 
         self._results = results
@@ -189,11 +184,8 @@ class InlineResponse20020(object):
         if not isinstance(other, InlineResponse20020):
             return False
 
-        return self.to_dict() == other.to_dict()
+        return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        if not isinstance(other, InlineResponse20020):
-            return True
-
-        return self.to_dict() != other.to_dict()
+        return not self == other

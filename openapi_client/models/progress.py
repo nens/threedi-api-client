@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,8 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from openapi_client.configuration import Configuration
 
 
 class Progress(object):
@@ -43,11 +41,8 @@ class Progress(object):
         'percentage': 'percentage'
     }
 
-    def __init__(self, time=None, percentage=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, time=None, percentage=None):  # noqa: E501
         """Progress - a model defined in OpenAPI"""  # noqa: E501
-        if local_vars_configuration is None:
-            local_vars_configuration = Configuration()
-        self.local_vars_configuration = local_vars_configuration
 
         self._time = None
         self._percentage = None
@@ -74,7 +69,7 @@ class Progress(object):
         :param time: The time of this Progress.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and time is None:  # noqa: E501
+        if time is None:
             raise ValueError("Invalid value for `time`, must not be `None`")  # noqa: E501
 
         self._time = time
@@ -97,7 +92,7 @@ class Progress(object):
         :param percentage: The percentage of this Progress.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and percentage is None:  # noqa: E501
+        if percentage is None:
             raise ValueError("Invalid value for `percentage`, must not be `None`")  # noqa: E501
 
         self._percentage = percentage
@@ -139,11 +134,8 @@ class Progress(object):
         if not isinstance(other, Progress):
             return False
 
-        return self.to_dict() == other.to_dict()
+        return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        if not isinstance(other, Progress):
-            return True
-
-        return self.to_dict() != other.to_dict()
+        return not self == other

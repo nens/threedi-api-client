@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,8 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from openapi_client.configuration import Configuration
 
 
 class LizardTimeseriesSourcesSinks(object):
@@ -57,11 +55,8 @@ class LizardTimeseriesSourcesSinks(object):
         'uid': 'uid'
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, duration=None, reference_uuid=None, start_datetime=None, interpolate=None, values=None, uid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, offset=None, duration=None, reference_uuid=None, start_datetime=None, interpolate=None, values=None, uid=None):  # noqa: E501
         """LizardTimeseriesSourcesSinks - a model defined in OpenAPI"""  # noqa: E501
-        if local_vars_configuration is None:
-            local_vars_configuration = Configuration()
-        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._simulation = None
@@ -151,13 +146,11 @@ class LizardTimeseriesSourcesSinks(object):
         :param offset: The offset of this LizardTimeseriesSourcesSinks.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and offset is None:  # noqa: E501
+        if offset is None:
             raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                offset is not None and offset > 2147483647):  # noqa: E501
+        if offset is not None and offset > 2147483647:  # noqa: E501
             raise ValueError("Invalid value for `offset`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                offset is not None and offset < 0):  # noqa: E501
+        if offset is not None and offset < 0:  # noqa: E501
             raise ValueError("Invalid value for `offset`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._offset = offset
@@ -182,11 +175,9 @@ class LizardTimeseriesSourcesSinks(object):
         :param duration: The duration of this LizardTimeseriesSourcesSinks.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                duration is not None and duration > 9223372036854775807):  # noqa: E501
+        if duration is not None and duration > 9223372036854775807:  # noqa: E501
             raise ValueError("Invalid value for `duration`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                duration is not None and duration < -9223372036854775808):  # noqa: E501
+        if duration is not None and duration < -9223372036854775808:  # noqa: E501
             raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
 
         self._duration = duration
@@ -209,13 +200,11 @@ class LizardTimeseriesSourcesSinks(object):
         :param reference_uuid: The reference_uuid of this LizardTimeseriesSourcesSinks.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and reference_uuid is None:  # noqa: E501
+        if reference_uuid is None:
             raise ValueError("Invalid value for `reference_uuid`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                reference_uuid is not None and len(reference_uuid) > 40):
+        if reference_uuid is not None and len(reference_uuid) > 40:
             raise ValueError("Invalid value for `reference_uuid`, length must be less than or equal to `40`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                reference_uuid is not None and len(reference_uuid) < 1):
+        if reference_uuid is not None and len(reference_uuid) < 1:
             raise ValueError("Invalid value for `reference_uuid`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._reference_uuid = reference_uuid
@@ -238,7 +227,7 @@ class LizardTimeseriesSourcesSinks(object):
         :param start_datetime: The start_datetime of this LizardTimeseriesSourcesSinks.  # noqa: E501
         :type: datetime
         """
-        if self.local_vars_configuration.client_side_validation and start_datetime is None:  # noqa: E501
+        if start_datetime is None:
             raise ValueError("Invalid value for `start_datetime`, must not be `None`")  # noqa: E501
 
         self._start_datetime = start_datetime
@@ -343,11 +332,8 @@ class LizardTimeseriesSourcesSinks(object):
         if not isinstance(other, LizardTimeseriesSourcesSinks):
             return False
 
-        return self.to_dict() == other.to_dict()
+        return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        if not isinstance(other, LizardTimeseriesSourcesSinks):
-            return True
-
-        return self.to_dict() != other.to_dict()
+        return not self == other

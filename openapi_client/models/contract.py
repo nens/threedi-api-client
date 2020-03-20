@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,8 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from openapi_client.configuration import Configuration
 
 
 class Contract(object):
@@ -53,11 +51,8 @@ class Contract(object):
         'current_sessions': 'current_sessions'
     }
 
-    def __init__(self, url=None, id=None, organisation=None, hours_bought=None, hours_used=None, session_limit=None, current_sessions=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, id=None, organisation=None, hours_bought=None, hours_used=None, session_limit=None, current_sessions=None):  # noqa: E501
         """Contract - a model defined in OpenAPI"""  # noqa: E501
-        if local_vars_configuration is None:
-            local_vars_configuration = Configuration()
-        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._id = None
@@ -140,7 +135,7 @@ class Contract(object):
         :param organisation: The organisation of this Contract.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and organisation is None:  # noqa: E501
+        if organisation is None:
             raise ValueError("Invalid value for `organisation`, must not be `None`")  # noqa: E501
 
         self._organisation = organisation
@@ -163,7 +158,7 @@ class Contract(object):
         :param hours_bought: The hours_bought of this Contract.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and hours_bought is None:  # noqa: E501
+        if hours_bought is None:
             raise ValueError("Invalid value for `hours_bought`, must not be `None`")  # noqa: E501
 
         self._hours_bought = hours_bought
@@ -207,13 +202,11 @@ class Contract(object):
         :param session_limit: The session_limit of this Contract.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and session_limit is None:  # noqa: E501
+        if session_limit is None:
             raise ValueError("Invalid value for `session_limit`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                session_limit is not None and session_limit > 2147483647):  # noqa: E501
+        if session_limit is not None and session_limit > 2147483647:  # noqa: E501
             raise ValueError("Invalid value for `session_limit`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                session_limit is not None and session_limit < -2147483648):  # noqa: E501
+        if session_limit is not None and session_limit < -2147483648:  # noqa: E501
             raise ValueError("Invalid value for `session_limit`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._session_limit = session_limit
@@ -276,11 +269,8 @@ class Contract(object):
         if not isinstance(other, Contract):
             return False
 
-        return self.to_dict() == other.to_dict()
+        return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        if not isinstance(other, Contract):
-            return True
-
-        return self.to_dict() != other.to_dict()
+        return not self == other

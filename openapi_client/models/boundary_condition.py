@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,8 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from openapi_client.configuration import Configuration
 
 
 class BoundaryCondition(object):
@@ -49,11 +47,8 @@ class BoundaryCondition(object):
         'dimension': 'dimension'
     }
 
-    def __init__(self, url=None, boundary_id=None, threedimodel=None, type=None, dimension=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, boundary_id=None, threedimodel=None, type=None, dimension=None):  # noqa: E501
         """BoundaryCondition - a model defined in OpenAPI"""  # noqa: E501
-        if local_vars_configuration is None:
-            local_vars_configuration = Configuration()
-        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._boundary_id = None
@@ -109,13 +104,11 @@ class BoundaryCondition(object):
         :param boundary_id: The boundary_id of this BoundaryCondition.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and boundary_id is None:  # noqa: E501
+        if boundary_id is None:
             raise ValueError("Invalid value for `boundary_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                boundary_id is not None and boundary_id > 2147483647):  # noqa: E501
+        if boundary_id is not None and boundary_id > 2147483647:  # noqa: E501
             raise ValueError("Invalid value for `boundary_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                boundary_id is not None and boundary_id < -2147483648):  # noqa: E501
+        if boundary_id is not None and boundary_id < -2147483648:  # noqa: E501
             raise ValueError("Invalid value for `boundary_id`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._boundary_id = boundary_id
@@ -159,10 +152,10 @@ class BoundaryCondition(object):
         :param type: The type of this BoundaryCondition.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
+        if type is None:
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
         allowed_values = ["velocity", "sommerfeldt", "riemann", "water_level", "discharge"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+        if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
                 .format(type, allowed_values)
@@ -188,10 +181,10 @@ class BoundaryCondition(object):
         :param dimension: The dimension of this BoundaryCondition.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and dimension is None:  # noqa: E501
+        if dimension is None:
             raise ValueError("Invalid value for `dimension`, must not be `None`")  # noqa: E501
         allowed_values = ["one_d", "two_d"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and dimension not in allowed_values:  # noqa: E501
+        if dimension not in allowed_values:
             raise ValueError(
                 "Invalid value for `dimension` ({0}), must be one of {1}"  # noqa: E501
                 .format(dimension, allowed_values)
@@ -236,11 +229,8 @@ class BoundaryCondition(object):
         if not isinstance(other, BoundaryCondition):
             return False
 
-        return self.to_dict() == other.to_dict()
+        return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        if not isinstance(other, BoundaryCondition):
-            return True
-
-        return self.to_dict() != other.to_dict()
+        return not self == other

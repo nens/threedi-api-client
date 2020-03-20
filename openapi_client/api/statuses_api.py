@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -197,95 +197,95 @@ class StatusesApi(object):
         path_params = {}
 
         query_params = []
-        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+        if 'name' in local_var_params:
             query_params.append(('name', local_var_params['name']))  # noqa: E501
-        if 'name__contains' in local_var_params and local_var_params['name__contains'] is not None:  # noqa: E501
+        if 'name__contains' in local_var_params:
             query_params.append(('name__contains', local_var_params['name__contains']))  # noqa: E501
-        if 'name__in' in local_var_params and local_var_params['name__in'] is not None:  # noqa: E501
+        if 'name__in' in local_var_params:
             query_params.append(('name__in', local_var_params['name__in']))  # noqa: E501
-        if 'name__startswith' in local_var_params and local_var_params['name__startswith'] is not None:  # noqa: E501
+        if 'name__startswith' in local_var_params:
             query_params.append(('name__startswith', local_var_params['name__startswith']))  # noqa: E501
-        if 'name__istartswith' in local_var_params and local_var_params['name__istartswith'] is not None:  # noqa: E501
+        if 'name__istartswith' in local_var_params:
             query_params.append(('name__istartswith', local_var_params['name__istartswith']))  # noqa: E501
-        if 'name__endswith' in local_var_params and local_var_params['name__endswith'] is not None:  # noqa: E501
+        if 'name__endswith' in local_var_params:
             query_params.append(('name__endswith', local_var_params['name__endswith']))  # noqa: E501
-        if 'name__regex' in local_var_params and local_var_params['name__regex'] is not None:  # noqa: E501
+        if 'name__regex' in local_var_params:
             query_params.append(('name__regex', local_var_params['name__regex']))  # noqa: E501
-        if 'simulation__name' in local_var_params and local_var_params['simulation__name'] is not None:  # noqa: E501
+        if 'simulation__name' in local_var_params:
             query_params.append(('simulation__name', local_var_params['simulation__name']))  # noqa: E501
-        if 'simulation__name__contains' in local_var_params and local_var_params['simulation__name__contains'] is not None:  # noqa: E501
+        if 'simulation__name__contains' in local_var_params:
             query_params.append(('simulation__name__contains', local_var_params['simulation__name__contains']))  # noqa: E501
-        if 'simulation__name__in' in local_var_params and local_var_params['simulation__name__in'] is not None:  # noqa: E501
+        if 'simulation__name__in' in local_var_params:
             query_params.append(('simulation__name__in', local_var_params['simulation__name__in']))  # noqa: E501
-        if 'simulation__name__startswith' in local_var_params and local_var_params['simulation__name__startswith'] is not None:  # noqa: E501
+        if 'simulation__name__startswith' in local_var_params:
             query_params.append(('simulation__name__startswith', local_var_params['simulation__name__startswith']))  # noqa: E501
-        if 'simulation__name__istartswith' in local_var_params and local_var_params['simulation__name__istartswith'] is not None:  # noqa: E501
+        if 'simulation__name__istartswith' in local_var_params:
             query_params.append(('simulation__name__istartswith', local_var_params['simulation__name__istartswith']))  # noqa: E501
-        if 'simulation__name__endswith' in local_var_params and local_var_params['simulation__name__endswith'] is not None:  # noqa: E501
+        if 'simulation__name__endswith' in local_var_params:
             query_params.append(('simulation__name__endswith', local_var_params['simulation__name__endswith']))  # noqa: E501
-        if 'simulation__name__regex' in local_var_params and local_var_params['simulation__name__regex'] is not None:  # noqa: E501
+        if 'simulation__name__regex' in local_var_params:
             query_params.append(('simulation__name__regex', local_var_params['simulation__name__regex']))  # noqa: E501
-        if 'created' in local_var_params and local_var_params['created'] is not None:  # noqa: E501
+        if 'created' in local_var_params:
             query_params.append(('created', local_var_params['created']))  # noqa: E501
-        if 'created__gt' in local_var_params and local_var_params['created__gt'] is not None:  # noqa: E501
+        if 'created__gt' in local_var_params:
             query_params.append(('created__gt', local_var_params['created__gt']))  # noqa: E501
-        if 'created__gte' in local_var_params and local_var_params['created__gte'] is not None:  # noqa: E501
+        if 'created__gte' in local_var_params:
             query_params.append(('created__gte', local_var_params['created__gte']))  # noqa: E501
-        if 'created__lt' in local_var_params and local_var_params['created__lt'] is not None:  # noqa: E501
+        if 'created__lt' in local_var_params:
             query_params.append(('created__lt', local_var_params['created__lt']))  # noqa: E501
-        if 'created__lte' in local_var_params and local_var_params['created__lte'] is not None:  # noqa: E501
+        if 'created__lte' in local_var_params:
             query_params.append(('created__lte', local_var_params['created__lte']))  # noqa: E501
-        if 'created__date' in local_var_params and local_var_params['created__date'] is not None:  # noqa: E501
+        if 'created__date' in local_var_params:
             query_params.append(('created__date', local_var_params['created__date']))  # noqa: E501
-        if 'created__date__gt' in local_var_params and local_var_params['created__date__gt'] is not None:  # noqa: E501
+        if 'created__date__gt' in local_var_params:
             query_params.append(('created__date__gt', local_var_params['created__date__gt']))  # noqa: E501
-        if 'created__date__gte' in local_var_params and local_var_params['created__date__gte'] is not None:  # noqa: E501
+        if 'created__date__gte' in local_var_params:
             query_params.append(('created__date__gte', local_var_params['created__date__gte']))  # noqa: E501
-        if 'created__date__lt' in local_var_params and local_var_params['created__date__lt'] is not None:  # noqa: E501
+        if 'created__date__lt' in local_var_params:
             query_params.append(('created__date__lt', local_var_params['created__date__lt']))  # noqa: E501
-        if 'created__date__lte' in local_var_params and local_var_params['created__date__lte'] is not None:  # noqa: E501
+        if 'created__date__lte' in local_var_params:
             query_params.append(('created__date__lte', local_var_params['created__date__lte']))  # noqa: E501
-        if 'created__year' in local_var_params and local_var_params['created__year'] is not None:  # noqa: E501
+        if 'created__year' in local_var_params:
             query_params.append(('created__year', local_var_params['created__year']))  # noqa: E501
-        if 'created__year__gt' in local_var_params and local_var_params['created__year__gt'] is not None:  # noqa: E501
+        if 'created__year__gt' in local_var_params:
             query_params.append(('created__year__gt', local_var_params['created__year__gt']))  # noqa: E501
-        if 'created__year__gte' in local_var_params and local_var_params['created__year__gte'] is not None:  # noqa: E501
+        if 'created__year__gte' in local_var_params:
             query_params.append(('created__year__gte', local_var_params['created__year__gte']))  # noqa: E501
-        if 'created__year__lt' in local_var_params and local_var_params['created__year__lt'] is not None:  # noqa: E501
+        if 'created__year__lt' in local_var_params:
             query_params.append(('created__year__lt', local_var_params['created__year__lt']))  # noqa: E501
-        if 'created__year__lte' in local_var_params and local_var_params['created__year__lte'] is not None:  # noqa: E501
+        if 'created__year__lte' in local_var_params:
             query_params.append(('created__year__lte', local_var_params['created__year__lte']))  # noqa: E501
-        if 'created__month' in local_var_params and local_var_params['created__month'] is not None:  # noqa: E501
+        if 'created__month' in local_var_params:
             query_params.append(('created__month', local_var_params['created__month']))  # noqa: E501
-        if 'created__month__lte' in local_var_params and local_var_params['created__month__lte'] is not None:  # noqa: E501
+        if 'created__month__lte' in local_var_params:
             query_params.append(('created__month__lte', local_var_params['created__month__lte']))  # noqa: E501
-        if 'created__day' in local_var_params and local_var_params['created__day'] is not None:  # noqa: E501
+        if 'created__day' in local_var_params:
             query_params.append(('created__day', local_var_params['created__day']))  # noqa: E501
-        if 'created__day__lt' in local_var_params and local_var_params['created__day__lt'] is not None:  # noqa: E501
+        if 'created__day__lt' in local_var_params:
             query_params.append(('created__day__lt', local_var_params['created__day__lt']))  # noqa: E501
-        if 'created__week' in local_var_params and local_var_params['created__week'] is not None:  # noqa: E501
+        if 'created__week' in local_var_params:
             query_params.append(('created__week', local_var_params['created__week']))  # noqa: E501
-        if 'created__week_day' in local_var_params and local_var_params['created__week_day'] is not None:  # noqa: E501
+        if 'created__week_day' in local_var_params:
             query_params.append(('created__week_day', local_var_params['created__week_day']))  # noqa: E501
-        if 'id' in local_var_params and local_var_params['id'] is not None:  # noqa: E501
+        if 'id' in local_var_params:
             query_params.append(('id', local_var_params['id']))  # noqa: E501
-        if 'id__range' in local_var_params and local_var_params['id__range'] is not None:  # noqa: E501
+        if 'id__range' in local_var_params:
             query_params.append(('id__range', local_var_params['id__range']))  # noqa: E501
-        if 'id__gt' in local_var_params and local_var_params['id__gt'] is not None:  # noqa: E501
+        if 'id__gt' in local_var_params:
             query_params.append(('id__gt', local_var_params['id__gt']))  # noqa: E501
-        if 'id__gte' in local_var_params and local_var_params['id__gte'] is not None:  # noqa: E501
+        if 'id__gte' in local_var_params:
             query_params.append(('id__gte', local_var_params['id__gte']))  # noqa: E501
-        if 'id__lt' in local_var_params and local_var_params['id__lt'] is not None:  # noqa: E501
+        if 'id__lt' in local_var_params:
             query_params.append(('id__lt', local_var_params['id__lt']))  # noqa: E501
-        if 'id__lte' in local_var_params and local_var_params['id__lte'] is not None:  # noqa: E501
+        if 'id__lte' in local_var_params:
             query_params.append(('id__lte', local_var_params['id__lte']))  # noqa: E501
-        if 'id__isnull' in local_var_params and local_var_params['id__isnull'] is not None:  # noqa: E501
+        if 'id__isnull' in local_var_params:
             query_params.append(('id__isnull', local_var_params['id__isnull']))  # noqa: E501
-        if 'simulation_id__in' in local_var_params and local_var_params['simulation_id__in'] is not None:  # noqa: E501
+        if 'simulation_id__in' in local_var_params:
             query_params.append(('simulation_id__in', local_var_params['simulation_id__in']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+        if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+        if 'offset' in local_var_params:
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -382,8 +382,8 @@ class StatusesApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
             raise ApiValueError("Missing the required parameter `id` when calling `statuses_read`")  # noqa: E501
 
         collection_formats = {}

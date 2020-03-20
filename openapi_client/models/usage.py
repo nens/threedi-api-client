@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.35   3Di core release: 2.0.5  deployed on:  12:39PM (UTC) on March 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,8 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from openapi_client.configuration import Configuration
 
 
 class Usage(object):
@@ -51,11 +49,8 @@ class Usage(object):
         'status': 'status'
     }
 
-    def __init__(self, id=None, simulation=None, started=None, finished=None, total_time=None, status=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, simulation=None, started=None, finished=None, total_time=None, status=None):  # noqa: E501
         """Usage - a model defined in OpenAPI"""  # noqa: E501
-        if local_vars_configuration is None:
-            local_vars_configuration = Configuration()
-        self.local_vars_configuration = local_vars_configuration
 
         self._id = None
         self._simulation = None
@@ -177,11 +172,9 @@ class Usage(object):
         :param total_time: The total_time of this Usage.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                total_time is not None and total_time > 2147483647):  # noqa: E501
+        if total_time is not None and total_time > 2147483647:  # noqa: E501
             raise ValueError("Invalid value for `total_time`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                total_time is not None and total_time < 0):  # noqa: E501
+        if total_time is not None and total_time < 0:  # noqa: E501
             raise ValueError("Invalid value for `total_time`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._total_time = total_time
@@ -244,11 +237,8 @@ class Usage(object):
         if not isinstance(other, Usage):
             return False
 
-        return self.to_dict() == other.to_dict()
+        return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        if not isinstance(other, Usage):
-            return True
-
-        return self.to_dict() != other.to_dict()
+        return not self == other
