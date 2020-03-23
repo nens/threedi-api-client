@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:54PM (UTC) on March 20, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -37,7 +37,10 @@ class Raster(object):
         'name': 'str',
         'threedimodel': 'str',
         'file': 'FileReadOnly',
-        'id': 'int'
+        'id': 'int',
+        'extent': 'str',
+        'geotransform': 'list[float]',
+        'unit': 'str'
     }
 
     attribute_map = {
@@ -46,10 +49,13 @@ class Raster(object):
         'name': 'name',
         'threedimodel': 'threedimodel',
         'file': 'file',
-        'id': 'id'
+        'id': 'id',
+        'extent': 'extent',
+        'geotransform': 'geotransform',
+        'unit': 'unit'
     }
 
-    def __init__(self, url=None, type=None, name=None, threedimodel=None, file=None, id=None):  # noqa: E501
+    def __init__(self, url=None, type=None, name=None, threedimodel=None, file=None, id=None, extent=None, geotransform=None, unit=None):  # noqa: E501
         """Raster - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
@@ -58,6 +64,9 @@ class Raster(object):
         self._threedimodel = None
         self._file = None
         self._id = None
+        self._extent = None
+        self._geotransform = None
+        self._unit = None
         self.discriminator = None
 
         if url is not None:
@@ -70,6 +79,9 @@ class Raster(object):
             self.file = file
         if id is not None:
             self.id = id
+        self.extent = extent
+        self.geotransform = geotransform
+        self.unit = unit
 
     @property
     def url(self):
@@ -210,6 +222,75 @@ class Raster(object):
         """
 
         self._id = id
+
+    @property
+    def extent(self):
+        """Gets the extent of this Raster.  # noqa: E501
+
+
+        :return: The extent of this Raster.  # noqa: E501
+        :rtype: str
+        """
+        return self._extent
+
+    @extent.setter
+    def extent(self, extent):
+        """Sets the extent of this Raster.
+
+
+        :param extent: The extent of this Raster.  # noqa: E501
+        :type: str
+        """
+
+        self._extent = extent
+
+    @property
+    def geotransform(self):
+        """Gets the geotransform of this Raster.  # noqa: E501
+
+
+        :return: The geotransform of this Raster.  # noqa: E501
+        :rtype: list[float]
+        """
+        return self._geotransform
+
+    @geotransform.setter
+    def geotransform(self, geotransform):
+        """Sets the geotransform of this Raster.
+
+
+        :param geotransform: The geotransform of this Raster.  # noqa: E501
+        :type: list[float]
+        """
+
+        self._geotransform = geotransform
+
+    @property
+    def unit(self):
+        """Gets the unit of this Raster.  # noqa: E501
+
+
+        :return: The unit of this Raster.  # noqa: E501
+        :rtype: str
+        """
+        return self._unit
+
+    @unit.setter
+    def unit(self, unit):
+        """Sets the unit of this Raster.
+
+
+        :param unit: The unit of this Raster.  # noqa: E501
+        :type: str
+        """
+        allowed_values = [None,"meters"]  # noqa: E501
+        if unit not in allowed_values:
+            raise ValueError(
+                "Invalid value for `unit` ({0}), must be one of {1}"  # noqa: E501
+                .format(unit, allowed_values)
+            )
+
+        self._unit = unit
 
     def to_dict(self):
         """Returns the model properties as a dict"""

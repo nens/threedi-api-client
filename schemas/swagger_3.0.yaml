@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   title: 3Di API
   description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.37\
-    \ \n 3Di core release: 2.0.6 \ndeployed on:  02:00PM (UTC) on March 17, 2020"
+    \ \n 3Di core release: 2.0.6 \ndeployed on:  02:54PM (UTC) on March 20, 2020"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -551,7 +551,9 @@ paths:
   /files/{id}/processed/:
     put:
       operationId: files_processed
-      description: A simple ViewSet for viewing simulations
+      summary: "Endpoint to which the upload-processor can enrich file objects\n(and\
+        \ their related objects) with metadata."
+      description: For example the geotransform of raster files.
       parameters:
         - name: data
           in: body
@@ -4085,6 +4087,34 @@ paths:
           description: Successfully deleted the resource
         '409':
           description: Conflict with the current simulation status
+      tags:
+        - simulations
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this raster edit.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/raster-edits/{id}/register_related_rasters/:
+    get:
+      operationId: simulations_events_raster-edits_register_related_rasters
+      summary: "Register all related rasters in the results-api and return\nread_bbox\
+        \ urls of the registered rasters"
+      description: "Skips registering of related rasters when the simulation is not\
+        \ in the\nstate 'starting' or 'initialized'. In this case the urls will be\
+        \ empty"
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RasterEditUrls'
       tags:
         - simulations
     parameters:
@@ -11170,9 +11200,23 @@ definitions:
         type: number
       polygon:
         title: Polygon
-        description: The polygon to use for the raster editin WKT format, must be
-          WGS84
-        type: string
+        type: object
+        description: Polygon specified in wkt or geojson
+        required:
+          - type
+          - coordinates
+        properties:
+          type:
+            title: type
+            description: Type should always be 'Polygon'
+            type: string
+            default: Polygon
+          coordinates:
+            title: coordinates
+            description: List of coordinates
+            type: array
+            items:
+              type: number
       relative:
         title: Relative
         description: Process the value as a relative height, default is absolute
@@ -12087,6 +12131,19 @@ definitions:
           - mm/h
       file:
         $ref: '#/definitions/FileReadOnly'
+  RasterEditUrls:
+    required:
+      - raster_type
+      - url
+    type: object
+    properties:
+      raster_type:
+        title: Raster type
+        type: string
+        minLength: 1
+      url:
+        title: Url
+        type: string
   ConstantSourcesSinks:
     required:
       - offset
@@ -13209,6 +13266,23 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      extent:
+        title: Extent
+        type: string
+        x-nullable: true
+      geotransform:
+        type: array
+        items:
+          title: Geotransform
+          type: number
+        maxItems: 6
+        x-nullable: true
+      unit:
+        title: Unit
+        type: string
+        enum:
+          - meters
+        x-nullable: true
   InitialWaterlevel:
     required:
       - source_raster

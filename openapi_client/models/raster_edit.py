@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:54PM (UTC) on March 20, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -37,7 +37,7 @@ class RasterEdit(object):
         'raster': 'str',
         'offset': 'int',
         'value': 'float',
-        'polygon': 'str',
+        'polygon': 'Polygon',
         'relative': 'bool',
         'uid': 'str',
         'id': 'int'
@@ -207,10 +207,9 @@ class RasterEdit(object):
     def polygon(self):
         """Gets the polygon of this RasterEdit.  # noqa: E501
 
-        The polygon to use for the raster editin WKT format, must be WGS84  # noqa: E501
 
         :return: The polygon of this RasterEdit.  # noqa: E501
-        :rtype: str
+        :rtype: Polygon
         """
         return self._polygon
 
@@ -218,10 +217,9 @@ class RasterEdit(object):
     def polygon(self, polygon):
         """Sets the polygon of this RasterEdit.
 
-        The polygon to use for the raster editin WKT format, must be WGS84  # noqa: E501
 
         :param polygon: The polygon of this RasterEdit.  # noqa: E501
-        :type: str
+        :type: Polygon
         """
         if polygon is None:
             raise ValueError("Invalid value for `polygon`, must not be `None`")  # noqa: E501

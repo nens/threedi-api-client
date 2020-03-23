@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:00PM (UTC) on March 17, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:54PM (UTC) on March 20, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -638,9 +638,9 @@ class FilesApi(object):
             collection_formats=collection_formats)
 
     def files_processed(self, id, data, **kwargs):  # noqa: E501
-        """files_processed  # noqa: E501
+        """Endpoint to which the upload-processor can enrich file objects (and their related objects) with metadata.  # noqa: E501
 
-        A simple ViewSet for viewing simulations  # noqa: E501
+        For example the geotransform of raster files.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.files_processed(id, data, async_req=True)
@@ -664,9 +664,9 @@ class FilesApi(object):
         return self.files_processed_with_http_info(id, data, **kwargs)  # noqa: E501
 
     def files_processed_with_http_info(self, id, data, **kwargs):  # noqa: E501
-        """files_processed  # noqa: E501
+        """Endpoint to which the upload-processor can enrich file objects (and their related objects) with metadata.  # noqa: E501
 
-        A simple ViewSet for viewing simulations  # noqa: E501
+        For example the geotransform of raster files.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.files_processed_with_http_info(id, data, async_req=True)
