@@ -5,7 +5,7 @@ History
 3.0.b14 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Added raster-edits processing endpoints
 
 
 3.0.b13 (2020-03-20)
