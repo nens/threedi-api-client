@@ -38,6 +38,7 @@ class ThreediModel(object):
         'inpy_version': 'str',
         'revision': 'str',
         'revision_hash': 'str',
+        'revision_number': 'str',
         'revision_commit_date': 'str',
         'repository_slug': 'str',
         'name': 'str',
@@ -64,6 +65,7 @@ class ThreediModel(object):
         'inpy_version': 'inpy_version',
         'revision': 'revision',
         'revision_hash': 'revision_hash',
+        'revision_number': 'revision_number',
         'revision_commit_date': 'revision_commit_date',
         'repository_slug': 'repository_slug',
         'name': 'name',
@@ -83,7 +85,7 @@ class ThreediModel(object):
         'lines_count': 'lines_count'
     }
 
-    def __init__(self, url=None, id=None, user=None, inpy_version=None, revision=None, revision_hash=None, revision_commit_date=None, repository_slug=None, name=None, slug=None, disabled=None, epsg=None, inp_success=None, description=None, storage_space=None, storage_space_humanized=None, model_ini=None, breach_count=None, extent_two_d=None, extent_one_d=None, extent_zero_d=None, nodes_count=None, lines_count=None):  # noqa: E501
+    def __init__(self, url=None, id=None, user=None, inpy_version=None, revision=None, revision_hash=None, revision_number=None, revision_commit_date=None, repository_slug=None, name=None, slug=None, disabled=None, epsg=None, inp_success=None, description=None, storage_space=None, storage_space_humanized=None, model_ini=None, breach_count=None, extent_two_d=None, extent_one_d=None, extent_zero_d=None, nodes_count=None, lines_count=None):  # noqa: E501
         """ThreediModel - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
@@ -92,6 +94,7 @@ class ThreediModel(object):
         self._inpy_version = None
         self._revision = None
         self._revision_hash = None
+        self._revision_number = None
         self._revision_commit_date = None
         self._repository_slug = None
         self._name = None
@@ -121,6 +124,8 @@ class ThreediModel(object):
         self.revision = revision
         if revision_hash is not None:
             self.revision_hash = revision_hash
+        if revision_number is not None:
+            self.revision_number = revision_number
         if revision_commit_date is not None:
             self.revision_commit_date = revision_commit_date
         if repository_slug is not None:
@@ -275,6 +280,27 @@ class ThreediModel(object):
         """
 
         self._revision_hash = revision_hash
+
+    @property
+    def revision_number(self):
+        """Gets the revision_number of this ThreediModel.  # noqa: E501
+
+
+        :return: The revision_number of this ThreediModel.  # noqa: E501
+        :rtype: str
+        """
+        return self._revision_number
+
+    @revision_number.setter
+    def revision_number(self, revision_number):
+        """Sets the revision_number of this ThreediModel.
+
+
+        :param revision_number: The revision_number of this ThreediModel.  # noqa: E501
+        :type: str
+        """
+
+        self._revision_number = revision_number
 
     @property
     def revision_commit_date(self):

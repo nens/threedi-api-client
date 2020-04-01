@@ -38,6 +38,7 @@ class Raster(object):
         'threedimodel': 'str',
         'file': 'FileReadOnly',
         'id': 'int',
+        'epsg_code': 'int',
         'extent': 'str',
         'geotransform': 'list[float]',
         'unit': 'str'
@@ -50,12 +51,13 @@ class Raster(object):
         'threedimodel': 'threedimodel',
         'file': 'file',
         'id': 'id',
+        'epsg_code': 'epsg_code',
         'extent': 'extent',
         'geotransform': 'geotransform',
         'unit': 'unit'
     }
 
-    def __init__(self, url=None, type=None, name=None, threedimodel=None, file=None, id=None, extent=None, geotransform=None, unit=None):  # noqa: E501
+    def __init__(self, url=None, type=None, name=None, threedimodel=None, file=None, id=None, epsg_code=None, extent=None, geotransform=None, unit=None):  # noqa: E501
         """Raster - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
@@ -64,6 +66,7 @@ class Raster(object):
         self._threedimodel = None
         self._file = None
         self._id = None
+        self._epsg_code = None
         self._extent = None
         self._geotransform = None
         self._unit = None
@@ -79,6 +82,7 @@ class Raster(object):
             self.file = file
         if id is not None:
             self.id = id
+        self.epsg_code = epsg_code
         self.extent = extent
         self.geotransform = geotransform
         self.unit = unit
@@ -222,6 +226,31 @@ class Raster(object):
         """
 
         self._id = id
+
+    @property
+    def epsg_code(self):
+        """Gets the epsg_code of this Raster.  # noqa: E501
+
+
+        :return: The epsg_code of this Raster.  # noqa: E501
+        :rtype: int
+        """
+        return self._epsg_code
+
+    @epsg_code.setter
+    def epsg_code(self, epsg_code):
+        """Sets the epsg_code of this Raster.
+
+
+        :param epsg_code: The epsg_code of this Raster.  # noqa: E501
+        :type: int
+        """
+        if epsg_code is not None and epsg_code > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `epsg_code`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if epsg_code is not None and epsg_code < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `epsg_code`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+
+        self._epsg_code = epsg_code
 
     @property
     def extent(self):

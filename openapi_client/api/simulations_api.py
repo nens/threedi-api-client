@@ -26832,7 +26832,7 @@ class SimulationsApi(object):
     def simulations_visualisations_water_flow_graph_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """Get a websocket URL returning line flow (graph) data.  # noqa: E501
 
-        The websocket-url in the response returns binary data messages consisting of timestamp, u1 (velocity), q (discharge) float32 data. Split the message up in thirds, the first contains one or more timestamps, the second one or more u1 values and the last the q values.  # noqa: E501
+        The websocket-url in the response returns binary data messages consisting of timestamp, u1 (velocity), q (discharge) float32 data. The values are alternated like: [timestamp, u1, q, timestamp_2, u1_2, q_2... timestamp_N, u1_N, q_N]  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_visualisations_water_flow_graph_create(simulation_pk, data, async_req=True)
@@ -26858,7 +26858,7 @@ class SimulationsApi(object):
     def simulations_visualisations_water_flow_graph_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """Get a websocket URL returning line flow (graph) data.  # noqa: E501
 
-        The websocket-url in the response returns binary data messages consisting of timestamp, u1 (velocity), q (discharge) float32 data. Split the message up in thirds, the first contains one or more timestamps, the second one or more u1 values and the last the q values.  # noqa: E501
+        The websocket-url in the response returns binary data messages consisting of timestamp, u1 (velocity), q (discharge) float32 data. The values are alternated like: [timestamp, u1, q, timestamp_2, u1_2, q_2... timestamp_N, u1_N, q_N]  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_visualisations_water_flow_graph_create_with_http_info(simulation_pk, data, async_req=True)
@@ -26952,7 +26952,7 @@ class SimulationsApi(object):
     def simulations_visualisations_water_level_graph_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """Get a websocket URL returning node waterlevel (graph) data.  # noqa: E501
 
-        The websocket-url in the response returns binary data messages consisting of timestamp and waterlevel float32 data. Split the message up in half and the first half contains of one or more timestamps and the second half one or more waterlevels.  # noqa: E501
+        The websocket-url in the response returns binary data messages consisting of timestamp and waterlevel float32 data. The values are alternated like: [timestamp, s1, timestamp_2, s1_2... timestamp_N, s1_N]  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_visualisations_water_level_graph_create(simulation_pk, data, async_req=True)
@@ -26978,7 +26978,7 @@ class SimulationsApi(object):
     def simulations_visualisations_water_level_graph_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """Get a websocket URL returning node waterlevel (graph) data.  # noqa: E501
 
-        The websocket-url in the response returns binary data messages consisting of timestamp and waterlevel float32 data. Split the message up in half and the first half contains of one or more timestamps and the second half one or more waterlevels.  # noqa: E501
+        The websocket-url in the response returns binary data messages consisting of timestamp and waterlevel float32 data. The values are alternated like: [timestamp, s1, timestamp_2, s1_2... timestamp_N, s1_N]  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_visualisations_water_level_graph_create_with_http_info(simulation_pk, data, async_req=True)
@@ -27296,6 +27296,122 @@ class SimulationsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='Waterdepth',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_websockets_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_websockets_list  # noqa: E501
+
+        List active websocket connections for a given simulation  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_websockets_list(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse20044
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_websockets_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_websockets_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_websockets_list  # noqa: E501
+
+        List active websocket connections for a given simulation  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_websockets_list_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse20044, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_websockets_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_websockets_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/websockets/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20044',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

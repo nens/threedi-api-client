@@ -890,6 +890,11 @@ paths:
           description: ''
           required: false
           type: string
+        - name: valid_contracts_only
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: limit
           in: query
           description: Number of results to return per page.
@@ -6922,9 +6927,9 @@ paths:
       operationId: simulations_visualisations_water_flow_graph_create
       summary: Get a websocket URL returning line flow (graph) data.
       description: "The websocket-url in the response returns binary data\nmessages\
-        \ consisting of timestamp, u1 (velocity), q (discharge)\nfloat32 data. Split\
-        \ the message up in thirds, the first contains\none or more timestamps, the\
-        \ second one or more u1 values and the\nlast the q values."
+        \ consisting of timestamp, u1 (velocity), q (discharge)\nfloat32 data. The\
+        \ values are alternated like:\n[timestamp, u1, q, timestamp_2, u1_2, q_2...\
+        \ timestamp_N, u1_N, q_N]"
       parameters:
         - name: data
           in: body
@@ -6948,9 +6953,8 @@ paths:
       operationId: simulations_visualisations_water_level_graph_create
       summary: Get a websocket URL returning node waterlevel (graph) data.
       description: "The websocket-url in the response returns binary data\nmessages\
-        \ consisting of timestamp and waterlevel float32 data.\nSplit the message\
-        \ up in half and the first half contains of one\nor more timestamps and the\
-        \ second half one or more waterlevels."
+        \ consisting of timestamp and waterlevel float32 data.\nThe values are alternated\
+        \ like:\n[timestamp, s1, timestamp_2, s1_2... timestamp_N, s1_N]"
       parameters:
         - name: data
           in: body
@@ -7081,6 +7085,51 @@ paths:
         in: path
         required: true
         type: string
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/websockets/:
+    get:
+      operationId: simulations_websockets_list
+      description: List active websocket connections for a given simulation
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/SimulationChannel'
+      tags:
+        - simulations
+    parameters:
       - name: simulation_pk
         in: path
         required: true
@@ -7818,6 +7867,51 @@ paths:
   /threedimodels/{id}/geojson/breaches/upload/:
     post:
       operationId: threedimodels_breaches_geojson_upload
+      description: A simple ViewSet for viewing threedimodels
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Upload'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Upload'
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/cells/download/:
+    get:
+      operationId: threedimodels_geojson_cells_download
+      description: Note that this is the subset of 2d open_water cells
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Download'
+        '400':
+          description: File is not uploaded yet or has been removed
+        '404':
+          description: File not found
+      tags:
+        - threedimodels
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /threedimodels/{id}/geojson/cells/upload/:
+    post:
+      operationId: threedimodels_cells_geojson_upload
       description: A simple ViewSet for viewing threedimodels
       parameters:
         - name: data
@@ -9617,7 +9711,6 @@ definitions:
   Revision:
     required:
       - repository
-      - user
     type: object
     properties:
       url:
@@ -9650,8 +9743,10 @@ definitions:
         format: date-time
       user:
         title: User
+        description: user that committed the changeset for this revision
         type: string
-        pattern: ^[\w.@+-]+$
+        maxLength: 128
+        minLength: 1
       is_pinned:
         title: Is pinned
         type: boolean
@@ -9686,6 +9781,10 @@ definitions:
         format: uri
       revision_hash:
         title: Revision hash
+        type: string
+        readOnly: true
+      revision_number:
+        title: Revision number
         type: string
         readOnly: true
       revision_commit_date:
@@ -13073,6 +13172,36 @@ definitions:
         type: string
         format: uri
         minLength: 1
+  SimulationChannel:
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+        readOnly: true
+      channel_name:
+        title: Channel name
+        type: string
+        readOnly: true
+        minLength: 1
+      created:
+        title: Created
+        type: string
+        format: date-time
+        readOnly: true
+      state:
+        title: State
+        type: string
+        enum:
+          - pending
+          - confirmed
+          - timeout
+        readOnly: true
   RasterOptions:
     type: object
     properties:
@@ -13266,6 +13395,12 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      epsg_code:
+        title: Epsg code
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+        x-nullable: true
       extent:
         title: Extent
         type: string

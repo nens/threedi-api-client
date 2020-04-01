@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = '3.0.b15.dev0'
+__version__ = "1.0.0"
 
 # import apis into sdk package
 from openapi_client.api.auth_api import AuthApi
@@ -118,6 +118,7 @@ from openapi_client.models.inline_response20048 import InlineResponse20048
 from openapi_client.models.inline_response20049 import InlineResponse20049
 from openapi_client.models.inline_response2005 import InlineResponse2005
 from openapi_client.models.inline_response20050 import InlineResponse20050
+from openapi_client.models.inline_response20051 import InlineResponse20051
 from openapi_client.models.inline_response2006 import InlineResponse2006
 from openapi_client.models.inline_response2007 import InlineResponse2007
 from openapi_client.models.inline_response2008 import InlineResponse2008
@@ -156,6 +157,7 @@ from openapi_client.models.revision import Revision
 from openapi_client.models.role import Role
 from openapi_client.models.saved_state_overview import SavedStateOverview
 from openapi_client.models.simulation import Simulation
+from openapi_client.models.simulation_channel import SimulationChannel
 from openapi_client.models.simulation_status import SimulationStatus
 from openapi_client.models.simulation_update import SimulationUpdate
 from openapi_client.models.stable_threshold_saved_state import StableThresholdSavedState

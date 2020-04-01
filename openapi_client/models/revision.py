@@ -77,7 +77,8 @@ class Revision(object):
             self.hash = hash
         if commit_date is not None:
             self.commit_date = commit_date
-        self.user = user
+        if user is not None:
+            self.user = user
         if is_pinned is not None:
             self.is_pinned = is_pinned
 
@@ -223,6 +224,7 @@ class Revision(object):
     def user(self):
         """Gets the user of this Revision.  # noqa: E501
 
+        user that committed the changeset for this revision  # noqa: E501
 
         :return: The user of this Revision.  # noqa: E501
         :rtype: str
@@ -233,14 +235,15 @@ class Revision(object):
     def user(self, user):
         """Sets the user of this Revision.
 
+        user that committed the changeset for this revision  # noqa: E501
 
         :param user: The user of this Revision.  # noqa: E501
         :type: str
         """
-        if user is None:
-            raise ValueError("Invalid value for `user`, must not be `None`")  # noqa: E501
-        if user is not None and not re.search(r'^[\w.@+-]+$', user):  # noqa: E501
-            raise ValueError(r"Invalid value for `user`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
+        if user is not None and len(user) > 128:
+            raise ValueError("Invalid value for `user`, length must be less than or equal to `128`")  # noqa: E501
+        if user is not None and len(user) < 1:
+            raise ValueError("Invalid value for `user`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._user = user
 

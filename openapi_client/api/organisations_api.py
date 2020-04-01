@@ -61,6 +61,7 @@ class OrganisationsApi(object):
         :param str unique_id__istartswith:
         :param str unique_id__endswith:
         :param str unique_id__regex:
+        :param str valid_contracts_only:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -101,6 +102,7 @@ class OrganisationsApi(object):
         :param str unique_id__istartswith:
         :param str unique_id__endswith:
         :param str unique_id__regex:
+        :param str valid_contracts_only:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -119,7 +121,7 @@ class OrganisationsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'unique_id', 'unique_id__contains', 'unique_id__in', 'unique_id__startswith', 'unique_id__istartswith', 'unique_id__endswith', 'unique_id__regex', 'limit', 'offset']  # noqa: E501
+        all_params = ['name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'unique_id', 'unique_id__contains', 'unique_id__in', 'unique_id__startswith', 'unique_id__istartswith', 'unique_id__endswith', 'unique_id__regex', 'valid_contracts_only', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -167,6 +169,8 @@ class OrganisationsApi(object):
             query_params.append(('unique_id__endswith', local_var_params['unique_id__endswith']))  # noqa: E501
         if 'unique_id__regex' in local_var_params:
             query_params.append(('unique_id__regex', local_var_params['unique_id__regex']))  # noqa: E501
+        if 'valid_contracts_only' in local_var_params:
+            query_params.append(('valid_contracts_only', local_var_params['valid_contracts_only']))  # noqa: E501
         if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params:

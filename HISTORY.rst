@@ -5,7 +5,7 @@ History
 3.0.b15 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Added simulation websocket channels overview endpoints
 
 
 3.0.b14 (2020-03-23)
