@@ -4,7 +4,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:54PM (UTC) on March 20, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.39   3Di core release: 2.0.7  deployed on:  09:37AM (UTC) on April 08, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -126,6 +126,7 @@ from openapi_client.models.raster_edit_urls import RasterEditUrls
 from openapi_client.models.raster_options import RasterOptions
 from openapi_client.models.refresh import Refresh
 from openapi_client.models.repository import Repository
+from openapi_client.models.result import Result
 from openapi_client.models.result_file import ResultFile
 from openapi_client.models.revision import Revision
 from openapi_client.models.role import Role

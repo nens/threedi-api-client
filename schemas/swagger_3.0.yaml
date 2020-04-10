@@ -1,8 +1,11 @@
 swagger: '2.0'
 info:
   title: 3Di API
-  description: "3Di simulation API (latest version: 3.0) \n Framework release: 0.0.37\
-    \ \n 3Di core release: 2.0.6 \ndeployed on:  02:54PM (UTC) on March 20, 2020"
+  description: |-
+    3Di simulation API (latest version: 3.0) 
+     Framework release: 0.0.39 
+     3Di core release: 2.0.7 
+    deployed on:  09:37AM (UTC) on April 08, 2020
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -52,9 +55,11 @@ paths:
     post:
       operationId: auth_refresh-token_create
       summary: Refresh API authentication token by refresh_token.
-      description: "Post \"refresh\" token as \"refresh\".\n\nThe return \"access\"\
-        \ token needs to be sent as HTTP authentication header\nwith every request\
-        \ with 'Bearer ' prefix (case-sensitive)."
+      description: |-
+        Post "refresh" token as "refresh".
+
+        The return "access" token needs to be sent as HTTP authentication header
+        with every request with 'Bearer ' prefix (case-sensitive).
       parameters:
         - name: data
           in: body
@@ -73,11 +78,16 @@ paths:
     post:
       operationId: auth_token_create
       summary: Get an API authentication JWT token.
-      description: "Post your username & password to get an \"access\" and \"refresh\"\
-        \ JWT token.\n\nThe \"access\" token needs to be sent as HTTP authentication\
-        \ header\nwith every request with a 'Bearer ' prefix (case-sensitive).\n\n\
-        Note that the \"access\" token expires after some time.\n\nThe \"refresh\"\
-        \ token can be used to get a new access token\nvia the \"refresh\" endpoint."
+      description: |-
+        Post your username & password to get an "access" and "refresh" JWT token.
+
+        The "access" token needs to be sent as HTTP authentication header
+        with every request with a 'Bearer ' prefix (case-sensitive).
+
+        Note that the "access" token expires after some time.
+
+        The "refresh" token can be used to get a new access token
+        via the "refresh" endpoint.
       parameters:
         - name: data
           in: body
@@ -96,9 +106,11 @@ paths:
     get:
       operationId: auth_users_list
       summary: Read-only API endpoint for viewing user details.
-      description: "- superusers and staff users might view all users\n- user with\
-        \ a manage role might view all users for the\n  organisations they have the\
-        \ manage role for\n- regular users might view their user details"
+      description: |-
+        - superusers and staff users might view all users
+        - user with a manage role might view all users for the
+          organisations they have the manage role for
+        - regular users might view their user details
       parameters:
         - name: username
           in: query
@@ -551,8 +563,9 @@ paths:
   /files/{id}/processed/:
     put:
       operationId: files_processed
-      summary: "Endpoint to which the upload-processor can enrich file objects\n(and\
-        \ their related objects) with metadata."
+      summary: |-
+        Endpoint to which the upload-processor can enrich file objects
+        (and their related objects) with metadata.
       description: For example the geotransform of raster files.
       parameters:
         - name: data
@@ -578,10 +591,12 @@ paths:
   /inpy-versions/:
     get:
       operationId: inpy-versions_list
-      description: "Inpy is the service for preparing models to become\nusable by\
-        \ the Threedi calculation core. Updates in Inpy often\nresult in updates in\
-        \ the calculation core.\n\nThis resource keeps track of updates to the Inpy\
-        \ service."
+      description: |-
+        Inpy is the service for preparing models to become
+        usable by the Threedi calculation core. Updates in Inpy often
+        result in updates in the calculation core.
+
+        This resource keeps track of updates to the Inpy service.
       parameters:
         - name: threedi_version
           in: query
@@ -725,10 +740,12 @@ paths:
         - inpy-versions
     post:
       operationId: inpy-versions_create
-      description: "Inpy is the service for preparing models to become\nusable by\
-        \ the Threedi calculation core. Updates in Inpy often\nresult in updates in\
-        \ the calculation core.\n\nThis resource keeps track of updates to the Inpy\
-        \ service."
+      description: |-
+        Inpy is the service for preparing models to become
+        usable by the Threedi calculation core. Updates in Inpy often
+        result in updates in the calculation core.
+
+        This resource keeps track of updates to the Inpy service.
       parameters:
         - name: data
           in: body
@@ -746,10 +763,12 @@ paths:
   /inpy-versions/{id}/:
     get:
       operationId: inpy-versions_read
-      description: "Inpy is the service for preparing models to become\nusable by\
-        \ the Threedi calculation core. Updates in Inpy often\nresult in updates in\
-        \ the calculation core.\n\nThis resource keeps track of updates to the Inpy\
-        \ service."
+      description: |-
+        Inpy is the service for preparing models to become
+        usable by the Threedi calculation core. Updates in Inpy often
+        result in updates in the calculation core.
+
+        This resource keeps track of updates to the Inpy service.
       parameters: []
       responses:
         '200':
@@ -760,10 +779,12 @@ paths:
         - inpy-versions
     put:
       operationId: inpy-versions_update
-      description: "Inpy is the service for preparing models to become\nusable by\
-        \ the Threedi calculation core. Updates in Inpy often\nresult in updates in\
-        \ the calculation core.\n\nThis resource keeps track of updates to the Inpy\
-        \ service."
+      description: |-
+        Inpy is the service for preparing models to become
+        usable by the Threedi calculation core. Updates in Inpy often
+        result in updates in the calculation core.
+
+        This resource keeps track of updates to the Inpy service.
       parameters:
         - name: data
           in: body
@@ -779,10 +800,12 @@ paths:
         - inpy-versions
     patch:
       operationId: inpy-versions_partial_update
-      description: "Inpy is the service for preparing models to become\nusable by\
-        \ the Threedi calculation core. Updates in Inpy often\nresult in updates in\
-        \ the calculation core.\n\nThis resource keeps track of updates to the Inpy\
-        \ service."
+      description: |-
+        Inpy is the service for preparing models to become
+        usable by the Threedi calculation core. Updates in Inpy often
+        result in updates in the calculation core.
+
+        This resource keeps track of updates to the Inpy service.
       parameters:
         - name: data
           in: body
@@ -798,10 +821,12 @@ paths:
         - inpy-versions
     delete:
       operationId: inpy-versions_delete
-      description: "Inpy is the service for preparing models to become\nusable by\
-        \ the Threedi calculation core. Updates in Inpy often\nresult in updates in\
-        \ the calculation core.\n\nThis resource keeps track of updates to the Inpy\
-        \ service."
+      description: |-
+        Inpy is the service for preparing models to become
+        usable by the Threedi calculation core. Updates in Inpy often
+        result in updates in the calculation core.
+
+        This resource keeps track of updates to the Inpy service.
       parameters: []
       responses:
         '204':
@@ -1117,10 +1142,14 @@ paths:
     post:
       operationId: permissions_create
       summary: create a role for an existing user in an existing organisation
-      description: "Example payload:\n\n    {\n      \"user\": \"chuck.norris\", \
-        \ # user name\n      \"role\": \"follow_simulation\",  # role name\n     \
-        \ \"organisation\": \"48dac75bef8a42ebbb52e8f89bbdb9f2\"  # unique id\n  \
-        \  }"
+      description: |-
+        Example payload:
+
+            {
+              "user": "chuck.norris",  # user name
+              "role": "follow_simulation",  # role name
+              "organisation": "48dac75bef8a42ebbb52e8f89bbdb9f2"  # unique id
+            }
       parameters:
         - name: data
           in: body
@@ -1872,14 +1901,28 @@ paths:
     get:
       operationId: simulations_list
       summary: List all simulations resources.
-      description: "Several filter are available, for instance the creation date of\n\
-        the resource. Some usage examples:\n\nTo get all simulation resources that\
-        \ have been created on\nGuido van Rossum's birthday\n\n```\n    ?created__date=1956-01-31\n\
-        ```\n\nTo get all simulation resources that have been created during the\n\
-        1988 UEFA European Football Championship\n```\n   ?created__date__gte=1988-06-10&created__date__lte=1988-06-25\n\
-        ```\n\nTo get all simulation resources that have been created in the month\
-        \ of\nthe Carnation Revolution\n```\n    ?created__year=1974&created__month=04\n\
-        ```"
+      description: |-
+        Several filter are available, for instance the creation date of
+        the resource. Some usage examples:
+
+        To get all simulation resources that have been created on
+        Guido van Rossum's birthday
+
+        ```
+            ?created__date=1956-01-31
+        ```
+
+        To get all simulation resources that have been created during the
+        1988 UEFA European Football Championship
+        ```
+           ?created__date__gte=1988-06-10&created__date__lte=1988-06-25
+        ```
+
+        To get all simulation resources that have been created in the month of
+        the Carnation Revolution
+        ```
+            ?created__year=1974&created__month=04
+        ```
       parameters:
         - name: name
           in: query
@@ -2064,17 +2107,25 @@ paths:
     post:
       operationId: simulations_create
       summary: Create a simulation resource
-      description: "There are two options to specify the desired duration for the\n\
-        simulation, either by using the ``end_datetime`` **or** the\n``duration``\
-        \ parameter.\n\n```\n{\n  \"name\":           # give the simualtion a name\
-        \ (optional)\n  \"threedimodel\":   # The model schema to use for the simulation\
-        \ by\n                    referring to the id of the threedimodel resource\n\
-        \  \"organisation\":   # uuid of the organisation for which the\n        \
-        \            simulation is run\n  \"start_datetime\": # datetime (in ISO 8601\
-        \ (UTC) format) for the\n                    simulation start, e.g. \"YYYY-MM-DDThh:mm:ss\"\
-        \n  \"end_datetime\":   # datetime (in ISO 8601 (UTC) format) for the\n  \
-        \                  simulation end, e.g. \"YYYY-MM-DDThh:mm:ss\"\n  \"duration\"\
-        :       # in seconds, can be used instead of end_datetime\n}\n```"
+      description: |-
+        There are two options to specify the desired duration for the
+        simulation, either by using the ``end_datetime`` **or** the
+        ``duration`` parameter.
+
+        ```
+        {
+          "name":           # give the simualtion a name (optional)
+          "threedimodel":   # The model schema to use for the simulation by
+                            referring to the id of the threedimodel resource
+          "organisation":   # uuid of the organisation for which the
+                            simulation is run
+          "start_datetime": # datetime (in ISO 8601 (UTC) format) for the
+                            simulation start, e.g. "YYYY-MM-DDThh:mm:ss"
+          "end_datetime":   # datetime (in ISO 8601 (UTC) format) for the
+                            simulation end, e.g. "YYYY-MM-DDThh:mm:ss"
+          "duration":       # in seconds, can be used instead of end_datetime
+        }
+        ```
       parameters:
         - name: data
           in: body
@@ -2092,8 +2143,9 @@ paths:
   /simulations/post_processing/lizard/queue/:
     get:
       operationId: simulations_post_processing_lizard_queue_list
-      description: "Read-only API endpoint for viewing simulations that need to be\n\
-        post-processed by Lizard (post-processing status is 'requested')."
+      description: |-
+        Read-only API endpoint for viewing simulations that need to be
+        post-processed by Lizard (post-processing status is 'requested').
       parameters:
         - name: limit
           in: query
@@ -2212,16 +2264,47 @@ paths:
     post:
       operationId: simulations_actions_create
       summary: Post an action to the simulation to start, pause or end it.
-      description: "Example usage:\n\nTo initialize a simulation (and pause)\n```\n\
-        {\"name\": \"initialize\"}\n```\n\nTo initialize and directly run a simulation\n\
-        ```\n{\"name\": \"start\"}\n```\nAlso use \"start\" to resume a paused simulation.\n\
-        \nIf you want to pause the simulation automatically after a given duration\n\
-        use the duration parameter\n```\n{\n  \"name\": \"start\",\n  \"duration\"\
-        : 2500\n}\n```\n\nTo pause a simulation\n```\n{\"name\": \"pause\"}\n```\n\
-        Please note: The simulation will automatically be shut down after the\ndefault\
-        \ timeout of 300 seconds has been reached. You can customize\nthis value by\
-        \ specifying the timeout parameter\n```\n{\n  \"name\": \"pause\",\n  \"timeout\"\
-        : 999\n}\n```\n\nTo end a simulation\n```\n{\"name\": \"shutdown\"}\n```"
+      description: |-
+        Example usage:
+
+        To initialize a simulation (and pause)
+        ```
+        {"name": "initialize"}
+        ```
+
+        To initialize and directly run a simulation
+        ```
+        {"name": "start"}
+        ```
+        Also use "start" to resume a paused simulation.
+
+        If you want to pause the simulation automatically after a given duration
+        use the duration parameter
+        ```
+        {
+          "name": "start",
+          "duration": 2500
+        }
+        ```
+
+        To pause a simulation
+        ```
+        {"name": "pause"}
+        ```
+        Please note: The simulation will automatically be shut down after the
+        default timeout of 300 seconds has been reached. You can customize
+        this value by specifying the timeout parameter
+        ```
+        {
+          "name": "pause",
+          "timeout": 999
+        }
+        ```
+
+        To end a simulation
+        ```
+        {"name": "shutdown"}
+        ```
       parameters:
         - name: data
           in: body
@@ -2284,11 +2367,22 @@ paths:
         - simulations
     post:
       operationId: simulations_create-saved-states_stable-threshold_create
-      summary: "Save the state of the simulation to file when a given (set of)\nvariable(s)\
-        \ becomes stable"
-      description: "Example\n```\n{\n  \"expiry\": \"2020-08-15T13:02:30.317Z\",\n\
-        \  \"thresholds\": [\n    {\n      \"variable\": \"s1\",\n      \"value\"\
-        : 0.005\n    }\n  ]\n}\n```"
+      summary: |-
+        Save the state of the simulation to file when a given (set of)
+        variable(s) becomes stable
+      description: |-
+        Example
+        ```
+        {
+          "expiry": "2020-08-15T13:02:30.317Z",
+          "thresholds": [
+            {
+              "variable": "s1",
+              "value": 0.005
+            }
+          ]
+        }
+        ```
       parameters:
         - name: data
           in: body
@@ -2442,12 +2536,18 @@ paths:
     post:
       operationId: simulations_create-saved-states_timed_create
       summary: Save the state at a given time of the simulation to file
-      description: "```\n    {\n      \"name\":   # custom name for the saved state\
-        \ (optional)\n      \"tags\":   # add tags to the resource. Either space or\
-        \ comma\n                separated (optional)\n      \"expiry\": # datetime\
-        \ (in ISO 8601 (UTC) format) until the saved\n                state file will\
-        \ be kept\n      \"time\":   # the state at this given time of the simulation\
-        \ will\n                 be saved to file\n    }\n```"
+      description: |-
+        ```
+            {
+              "name":   # custom name for the saved state (optional)
+              "tags":   # add tags to the resource. Either space or comma
+                        separated (optional)
+              "expiry": # datetime (in ISO 8601 (UTC) format) until the saved
+                        state file will be kept
+              "time":   # the state at this given time of the simulation will
+                         be saved to file
+            }
+        ```
       parameters:
         - name: data
           in: body
@@ -2665,8 +2765,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_breaches_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -2792,8 +2893,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_lateral_constant_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -2946,8 +3048,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_lateral_timeseries_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -3100,8 +3203,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_rain_constant_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -3227,8 +3331,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_rain_local_constant_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -3354,8 +3459,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_rain_local_timeseries_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -3481,8 +3587,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_rain_rasters_lizard_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -3592,8 +3699,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_rain_rasters_netcdf_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -3780,8 +3888,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_rain_timeseries_lizard_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -3891,8 +4000,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_rain_timeseries_netcdf_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -3957,8 +4067,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_rain_timeseries_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -4084,8 +4195,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_raster-edits_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -4107,11 +4219,12 @@ paths:
   /simulations/{simulation_pk}/events/raster-edits/{id}/register_related_rasters/:
     get:
       operationId: simulations_events_raster-edits_register_related_rasters
-      summary: "Register all related rasters in the results-api and return\nread_bbox\
-        \ urls of the registered rasters"
-      description: "Skips registering of related rasters when the simulation is not\
-        \ in the\nstate 'starting' or 'initialized'. In this case the urls will be\
-        \ empty"
+      summary: |-
+        Register all related rasters in the results-api and return
+        read_bbox urls of the registered rasters
+      description: |-
+        Skips registering of related rasters when the simulation is not in the
+        state 'starting' or 'initialized'. In this case the urls will be empty
       parameters: []
       responses:
         '200':
@@ -4239,8 +4352,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_sources-sinks_constant_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -4366,8 +4480,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_sources-sinks_rasters_lizard_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -4478,8 +4593,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_sources-sinks_rasters_netcdf_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -4540,10 +4656,24 @@ paths:
         - simulations
     post:
       operationId: simulations_events_sources-sinks_timeseries_create
-      description: "Example payload:\n```\n    {\n      \"offset\": 0,\n      \"values\"\
-        : [\n        [\n          0,\n          0.0005\n        ],\n        [\n  \
-        \        300,\n          0.0002\n        ]\n      ],\n      \"units\": \"\
-        m/s\"\n    }\n```"
+      description: |-
+        Example payload:
+        ```
+            {
+              "offset": 0,
+              "values": [
+                [
+                  0,
+                  0.0005
+                ],
+                [
+                  300,
+                  0.0002
+                ]
+              ],
+              "units": "m/s"
+            }
+        ```
       parameters:
         - name: data
           in: body
@@ -4669,8 +4799,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_sources-sinks_timeseries_lizard_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -4781,8 +4912,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_sources-sinks_timeseries_netcdf_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -4848,8 +4980,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_sources-sinks_timeseries_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -4910,20 +5043,40 @@ paths:
         - simulations
     post:
       operationId: simulations_events_structure-control_timed_create
-      description: "A timed structure control allows for actively altering parameters\
-        \ of\nstructures at a given point in time of the simulation for a given\n\
-        period of time.\nThe ``type`` parameter specifies which action should be applied\
-        \ to\nthe structure. Not all valid action types can be applied to every\n\
-        structure. An overview of valid combinations:\n\n   set_discharge_coefficients:\
-        \ v2_orifice, v2_weir, v2_pipe,\n                               v2_channel,\
-        \ v2_culvert\n   set_crest_level: v2_orifice, v2_weir\n   set_pump_capacity:\
-        \ v2_pumpstation\n\nThe value parameter must contain 1 value, except for the\n\
-        ``set_discharge_coefficients``action that expects a value for\nboth flow directions.\n\
-        \nExample payload:\n\n```\n    {\n      \"offset\": 0,\n      \"duration\"\
-        : 100,\n      \"value\": [\n        0.4, 0.8\n      ],\n      \"type\": \"\
-        set_discharge_coefficients\",\n      \"structure_id\": 21,\n      \"structure_type\"\
-        : \"v2_weir\"\n    }\n```\n\n**v2_channel and v2_pipe are for internal use\
-        \ only. They expect a\ngrid_id instead of a structure_id!**"
+      description: |-
+        A timed structure control allows for actively altering parameters of
+        structures at a given point in time of the simulation for a given
+        period of time.
+        The ``type`` parameter specifies which action should be applied to
+        the structure. Not all valid action types can be applied to every
+        structure. An overview of valid combinations:
+
+           set_discharge_coefficients: v2_orifice, v2_weir, v2_pipe,
+                                       v2_channel, v2_culvert
+           set_crest_level: v2_orifice, v2_weir
+           set_pump_capacity: v2_pumpstation
+
+        The value parameter must contain 1 value, except for the
+        ``set_discharge_coefficients``action that expects a value for
+        both flow directions.
+
+        Example payload:
+
+        ```
+            {
+              "offset": 0,
+              "duration": 100,
+              "value": [
+                0.4, 0.8
+              ],
+              "type": "set_discharge_coefficients",
+              "structure_id": 21,
+              "structure_type": "v2_weir"
+            }
+        ```
+
+        **v2_channel and v2_pipe are for internal use only. They expect a
+        grid_id instead of a structure_id!**
       parameters:
         - name: data
           in: body
@@ -4988,8 +5141,9 @@ paths:
         - simulations
     delete:
       operationId: simulations_events_structure-control_timed_delete
-      description: "destroy resource only if the event has not yet been applied to\n\
-        the associated simulation"
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
       parameters: []
       responses:
         '204':
@@ -5077,24 +5231,49 @@ paths:
         - simulations
     post:
       operationId: simulations_events_wind_constant_create
-      description: "A constant wind event allows for wind forcing at a given point\
-        \ in\ntime of the simulation for a given period of time.\nNo distinction is\
-        \ made (yet) between the 1D and 2D model domain.\n\nThe (dimensionless) ``drag-coefficient``\
-        \ translates the wind speed\non a 10 m elevation to the speed on the ground\
-        \ (default=0.005).\nCurrently the drag-coefficient works as a global factor\
-        \ for\nthe entire model.\n\nThe ``units`` parameter is the wind speed unit\
-        \ ('m/s' or 'km/h').\n\nThe ``direction_value`` parameter is the wind direction\
-        \ in\ndegrees (0-360) from the north - meteorological standard.\nThus, a direction_value\
-        \ of 180 represents a south wind (which\ncomes from the south and blows your\
-        \ hat towards the north.\n\nThe ``speed_value`` parameter as well as the ``direction_value``\n\
-        must contain 1 value. Behind the the scenes these are converted\ninto nested\
-        \ array [time, speed_value, direction_value].\nThis means that this payload\
-        \ (example):\n\n```\n{\n    \"offset\": 100,\n    \"duration\": 400,\n   \
-        \ \"units\": \"m/s\",\n    \"drag_coefficient\": 0.002,\n    \"speed_value\"\
-        : 80,\n    \"direction_value\": 220\n}\n```\n\nbecomes an Timeseries object\
-        \ with values:\n\n```\n{\n    \"values\": [\n        [ 0, 80, 220],    # time,\
-        \ speed, direction\n        [ 400, 0, 0]      # time, speed, direction\n \
-        \   ],\n}\n```"
+      description: |-
+        A constant wind event allows for wind forcing at a given point in
+        time of the simulation for a given period of time.
+        No distinction is made (yet) between the 1D and 2D model domain.
+
+        The (dimensionless) ``drag-coefficient`` translates the wind speed
+        on a 10 m elevation to the speed on the ground (default=0.005).
+        Currently the drag-coefficient works as a global factor for
+        the entire model.
+
+        The ``units`` parameter is the wind speed unit ('m/s' or 'km/h').
+
+        The ``direction_value`` parameter is the wind direction in
+        degrees (0-360) from the north - meteorological standard.
+        Thus, a direction_value of 180 represents a south wind (which
+        comes from the south and blows your hat towards the north.
+
+        The ``speed_value`` parameter as well as the ``direction_value``
+        must contain 1 value. Behind the the scenes these are converted
+        into nested array [time, speed_value, direction_value].
+        This means that this payload (example):
+
+        ```
+        {
+            "offset": 100,
+            "duration": 400,
+            "units": "m/s",
+            "drag_coefficient": 0.002,
+            "speed_value": 80,
+            "direction_value": 220
+        }
+        ```
+
+        becomes an Timeseries object with values:
+
+        ```
+        {
+            "values": [
+                [ 0, 80, 220],    # time, speed, direction
+                [ 400, 0, 0]      # time, speed, direction
+            ],
+        }
+        ```
       parameters:
         - name: data
           in: body
@@ -5218,15 +5397,40 @@ paths:
         - simulations
     post:
       operationId: simulations_events_wind_timeseries_create
-      description: "Same as constant wind event but now without separate fields\n\
-        for ``speed_value`` and ``direction_value``.\nInstead - to avoid time-mapping\
-        \ issues - the field ``values``\nholds the speed and direction values:\n```\n\
-        [\n    [time, speed1, direction1],\n    [time, speed2, direction2],\n]\n```\n\
-        \nexample payload:\n```\n{\n    \"offset\": 2,\n    \"values\": [\n      \
-        \  [0, 40, 180],\n        [60, 35, 181]\n    ],\n    \"units\": \"m/s\",\n\
-        \    \"drag_coefficient\": 0.003\n}\n```\n\nbecomes an Timeseries object with\
-        \ values:\n```\n{\n    \"values\": [\n        [ 0, 40, 180 ],\n        [60,\
-        \ 35, 181 ]\n    ]\n}\n```"
+      description: |-
+        Same as constant wind event but now without separate fields
+        for ``speed_value`` and ``direction_value``.
+        Instead - to avoid time-mapping issues - the field ``values``
+        holds the speed and direction values:
+        ```
+        [
+            [time, speed1, direction1],
+            [time, speed2, direction2],
+        ]
+        ```
+
+        example payload:
+        ```
+        {
+            "offset": 2,
+            "values": [
+                [0, 40, 180],
+                [60, 35, 181]
+            ],
+            "units": "m/s",
+            "drag_coefficient": 0.003
+        }
+        ```
+
+        becomes an Timeseries object with values:
+        ```
+        {
+            "values": [
+                [ 0, 40, 180 ],
+                [60, 35, 181 ]
+            ]
+        }
+        ```
       parameters:
         - name: data
           in: body
@@ -5474,9 +5678,10 @@ paths:
         - simulations
     post:
       operationId: simulations_initial_1d_water_level_predefined_create
-      description: "Start the simulation with predefined 1D water levels. That is,\n\
-        use the initial water levels that have been specified in the\n``v2_connection_nodes``\
-        \ schema."
+      description: |-
+        Start the simulation with predefined 1D water levels. That is,
+        use the initial water levels that have been specified in the
+        ``v2_connection_nodes`` schema.
       parameters:
         - name: data
           in: body
@@ -5600,9 +5805,12 @@ paths:
         - simulations
     post:
       operationId: simulations_initial_2d_water_level_constant_create
-      description: "Start the simulation with a global 2D water level. Applies the\n\
-        given value to the predefined nodes subset \"2D_OPEN_WATER\"\nas described\
-        \ in the [threedigrid documentation] [ref]\n\n[ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets"
+      description: |-
+        Start the simulation with a global 2D water level. Applies the
+        given value to the predefined nodes subset "2D_OPEN_WATER"
+        as described in the [threedigrid documentation] [ref]
+
+        [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets
       parameters:
         - name: data
           in: body
@@ -5726,10 +5934,13 @@ paths:
         - simulations
     post:
       operationId: simulations_initial_2d_water_level_raster_create
-      description: "Start the simulation with 2D water levels derived from the raster\
-        \ by\nusing the aggregation method. Applies the resulting levels\nto the predefined\
-        \ nodes subset \"2D_OPEN_WATER\"\nas described in the [threedigrid documentation]\
-        \ [ref]\n\n[ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets"
+      description: |-
+        Start the simulation with 2D water levels derived from the raster by
+        using the aggregation method. Applies the resulting levels
+        to the predefined nodes subset "2D_OPEN_WATER"
+        as described in the [threedigrid documentation] [ref]
+
+        [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets
       parameters:
         - name: data
           in: body
@@ -5853,9 +6064,12 @@ paths:
         - simulations
     post:
       operationId: simulations_initial_groundwater_level_constant_create
-      description: "Start the simulation with a global 2D groundwater level. Applies\
-        \ the\ngiven value to the predefined nodes subset \"2D_GROUNDWATER\"\nas described\
-        \ in the [threedigrid documentation] [ref]\n\n[ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets"
+      description: |-
+        Start the simulation with a global 2D groundwater level. Applies the
+        given value to the predefined nodes subset "2D_GROUNDWATER"
+        as described in the [threedigrid documentation] [ref]
+
+        [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets
       parameters:
         - name: data
           in: body
@@ -5979,10 +6193,13 @@ paths:
         - simulations
     post:
       operationId: simulations_initial_groundwater_level_raster_create
-      description: "Start the simulation with groundwaterlevels derived from the raster\
-        \ by\nusing the aggregation method. Applies the\ngiven value to the predefined\
-        \ nodes subset \"2D_GROUNDWATER\"\nas described in the [threedigrid documentation]\
-        \ [ref]\n\n[ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets"
+      description: |-
+        Start the simulation with groundwaterlevels derived from the raster by
+        using the aggregation method. Applies the
+        given value to the predefined nodes subset "2D_GROUNDWATER"
+        as described in the [threedigrid documentation] [ref]
+
+        [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets
       parameters:
         - name: data
           in: body
@@ -6397,9 +6614,11 @@ paths:
   /simulations/{simulation_pk}/results/post_processing/lizard/arrival/:
     get:
       operationId: simulations_results_post_processing_lizard_arrival_list
-      description: "A Custom ViewSet for creating, listing or deleting\nan ArrivalTimePostProcessing\
-        \ object. It includes a custom\ndestroy action (with detail=False) as a BasicPostProcessing\n\
-        object can have only one ArrivalTimePostProcessing object."
+      description: |-
+        A Custom ViewSet for creating, listing or deleting
+        an ArrivalTimePostProcessing object. It includes a custom
+        destroy action (with detail=False) as a BasicPostProcessing
+        object can have only one ArrivalTimePostProcessing object.
       parameters:
         - name: limit
           in: query
@@ -6422,9 +6641,11 @@ paths:
         - simulations
     post:
       operationId: simulations_results_post_processing_lizard_arrival_create
-      description: "A Custom ViewSet for creating, listing or deleting\nan ArrivalTimePostProcessing\
-        \ object. It includes a custom\ndestroy action (with detail=False) as a BasicPostProcessing\n\
-        object can have only one ArrivalTimePostProcessing object."
+      description: |-
+        A Custom ViewSet for creating, listing or deleting
+        an ArrivalTimePostProcessing object. It includes a custom
+        destroy action (with detail=False) as a BasicPostProcessing
+        object can have only one ArrivalTimePostProcessing object.
       parameters:
         - name: data
           in: body
@@ -6446,9 +6667,11 @@ paths:
   /simulations/{simulation_pk}/results/post_processing/lizard/arrival/delete/:
     delete:
       operationId: simulations_results_post_processing_lizard_arrival_delete
-      description: "A Custom ViewSet for creating, listing or deleting\nan ArrivalTimePostProcessing\
-        \ object. It includes a custom\ndestroy action (with detail=False) as a BasicPostProcessing\n\
-        object can have only one ArrivalTimePostProcessing object."
+      description: |-
+        A Custom ViewSet for creating, listing or deleting
+        an ArrivalTimePostProcessing object. It includes a custom
+        destroy action (with detail=False) as a BasicPostProcessing
+        object can have only one ArrivalTimePostProcessing object.
       parameters: []
       responses:
         '404':
@@ -6669,9 +6892,10 @@ paths:
         - simulations
     post:
       operationId: simulations_results_post_processing_lizard_status_create
-      description: "Endpoint to keep track of post-processing status (done by Lizard)\n\
-        per Simulation result. Status is updated internal by 3Di, and once\nprocessing\
-        \ starts it is updated by Lizard backend."
+      description: |-
+        Endpoint to keep track of post-processing status (done by Lizard)
+        per Simulation result. Status is updated internal by 3Di, and once
+        processing starts it is updated by Lizard backend.
       parameters:
         - name: data
           in: body
@@ -6693,9 +6917,10 @@ paths:
   /simulations/{simulation_pk}/results/post_processing/lizard/status/delete/:
     delete:
       operationId: simulations_results_post_processing_lizard_status_delete
-      description: "Endpoint to keep track of post-processing status (done by Lizard)\n\
-        per Simulation result. Status is updated internal by 3Di, and once\nprocessing\
-        \ starts it is updated by Lizard backend."
+      description: |-
+        Endpoint to keep track of post-processing status (done by Lizard)
+        per Simulation result. Status is updated internal by 3Di, and once
+        processing starts it is updated by Lizard backend.
       parameters: []
       responses:
         '404':
@@ -6926,10 +7151,11 @@ paths:
     post:
       operationId: simulations_visualisations_water_flow_graph_create
       summary: Get a websocket URL returning line flow (graph) data.
-      description: "The websocket-url in the response returns binary data\nmessages\
-        \ consisting of timestamp, u1 (velocity), q (discharge)\nfloat32 data. The\
-        \ values are alternated like:\n[timestamp, u1, q, timestamp_2, u1_2, q_2...\
-        \ timestamp_N, u1_N, q_N]"
+      description: |-
+        The websocket-url in the response returns binary data
+        messages consisting of timestamp, u1 (velocity), q (discharge)
+        float32 data. The values are alternated like:
+        [timestamp, u1, q, timestamp_2, u1_2, q_2... timestamp_N, u1_N, q_N]
       parameters:
         - name: data
           in: body
@@ -6952,9 +7178,11 @@ paths:
     post:
       operationId: simulations_visualisations_water_level_graph_create
       summary: Get a websocket URL returning node waterlevel (graph) data.
-      description: "The websocket-url in the response returns binary data\nmessages\
-        \ consisting of timestamp and waterlevel float32 data.\nThe values are alternated\
-        \ like:\n[timestamp, s1, timestamp_2, s1_2... timestamp_N, s1_N]"
+      description: |-
+        The websocket-url in the response returns binary data
+        messages consisting of timestamp and waterlevel float32 data.
+        The values are alternated like:
+        [timestamp, s1, timestamp_2, s1_2... timestamp_N, s1_N]
       parameters:
         - name: data
           in: body
@@ -6977,11 +7205,14 @@ paths:
     post:
       operationId: simulations_visualisations_water_level_profile_create
       summary: Get a websocket URL returning waterlevel profile data.
-      description: "The websocket returns binary data messages consisting of\ntimestep\
-        \ and waterlevel float32 values in one message like:\ntimestep, waterlevel,\
-        \ waterlevel, waterlevel, waterlevel\n\nGroundwater waterlevel values are\
-        \ automatically added\n(after open water) if groundwater is present. The returned\n\
-        waterlevel values have length 'points_limit' * 2 in this case."
+      description: |-
+        The websocket returns binary data messages consisting of
+        timestep and waterlevel float32 values in one message like:
+        timestep, waterlevel, waterlevel, waterlevel, waterlevel
+
+        Groundwater waterlevel values are automatically added
+        (after open water) if groundwater is present. The returned
+        waterlevel values have length 'points_limit' * 2 in this case.
       parameters:
         - name: data
           in: body
@@ -7138,13 +7369,25 @@ paths:
     get:
       operationId: statuses_list
       summary: Show the latest status off all simulations.
-      description: "List all simulations that ever have finished successfully\n\n\
-        ```\n?name=finished\n```\n\nList all simulations that have finished successfully\
-        \ during the week\nof the 1988 UEFA European Football Championship\n```\n\
-        ?name=finished&created__date__gte=1988-06-10&created__date__lte=1988-06-25\n\
-        ```\n\nThe `created` field is of type date-time in ISO 8601 (UTC) format.\
-        \ To\nget all crashed simulations since St Nicolas 2018\n\n```\n?name=crashed&created__gte=2018-12-05T00:00:00Z\n\
-        ```"
+      description: |-
+        List all simulations that ever have finished successfully
+
+        ```
+        ?name=finished
+        ```
+
+        List all simulations that have finished successfully during the week
+        of the 1988 UEFA European Football Championship
+        ```
+        ?name=finished&created__date__gte=1988-06-10&created__date__lte=1988-06-25
+        ```
+
+        The `created` field is of type date-time in ISO 8601 (UTC) format. To
+        get all crashed simulations since St Nicolas 2018
+
+        ```
+        ?name=crashed&created__gte=2018-12-05T00:00:00Z
+        ```
       parameters:
         - name: name
           in: query
@@ -7821,8 +8064,9 @@ paths:
   /threedimodels/{id}/geojson/all/upload/:
     post:
       operationId: threedimodels_geojson_upload
-      description: "Endpoint for uploading the geojson file\nReplaces the geojson\
-        \ file if there already exists one."
+      description: |-
+        Endpoint for uploading the geojson file
+        Replaces the geojson file if there already exists one.
       parameters:
         - name: data
           in: body
@@ -8535,12 +8779,17 @@ paths:
   /threedimodels/{threedimodel_pk}/initial_waterlevels/:
     get:
       operationId: threedimodels_initial_waterlevels_list
-      description: "Initial waterlevels are determined for all nodes by aggregating\n\
-        the values in `source_raster` per node using max, min and mean\noperators.\
-        \ The resulting values are stored in a file linked under\n`file`.\n\nThis\
-        \ file can be inspected using Python (3.7 or higher) using\nthe serializer\
-        \ in the asyncio_rpc package.(pip install asyncio_rpc)\n\n     from asyncio_rpc.serialization.msgpack\
-        \ import loadb\n     data = loadb(binary_file_data)"
+      description: |-
+        Initial waterlevels are determined for all nodes by aggregating
+        the values in `source_raster` per node using max, min and mean
+        operators. The resulting values are stored in a file linked under
+        `file`.
+
+        This file can be inspected using Python (3.7 or higher) using
+        the serializer in the asyncio_rpc package.(pip install asyncio_rpc)
+
+             from asyncio_rpc.serialization.msgpack import loadb
+             data = loadb(binary_file_data)
       parameters:
         - name: limit
           in: query
@@ -8579,12 +8828,17 @@ paths:
         - threedimodels
     post:
       operationId: threedimodels_initial_waterlevels_create
-      description: "Initial waterlevels are determined for all nodes by aggregating\n\
-        the values in `source_raster` per node using max, min and mean\noperators.\
-        \ The resulting values are stored in a file linked under\n`file`.\n\nThis\
-        \ file can be inspected using Python (3.7 or higher) using\nthe serializer\
-        \ in the asyncio_rpc package.(pip install asyncio_rpc)\n\n     from asyncio_rpc.serialization.msgpack\
-        \ import loadb\n     data = loadb(binary_file_data)"
+      description: |-
+        Initial waterlevels are determined for all nodes by aggregating
+        the values in `source_raster` per node using max, min and mean
+        operators. The resulting values are stored in a file linked under
+        `file`.
+
+        This file can be inspected using Python (3.7 or higher) using
+        the serializer in the asyncio_rpc package.(pip install asyncio_rpc)
+
+             from asyncio_rpc.serialization.msgpack import loadb
+             data = loadb(binary_file_data)
       parameters:
         - name: data
           in: body
@@ -8606,12 +8860,17 @@ paths:
   /threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/:
     get:
       operationId: threedimodels_initial_waterlevels_read
-      description: "Initial waterlevels are determined for all nodes by aggregating\n\
-        the values in `source_raster` per node using max, min and mean\noperators.\
-        \ The resulting values are stored in a file linked under\n`file`.\n\nThis\
-        \ file can be inspected using Python (3.7 or higher) using\nthe serializer\
-        \ in the asyncio_rpc package.(pip install asyncio_rpc)\n\n     from asyncio_rpc.serialization.msgpack\
-        \ import loadb\n     data = loadb(binary_file_data)"
+      description: |-
+        Initial waterlevels are determined for all nodes by aggregating
+        the values in `source_raster` per node using max, min and mean
+        operators. The resulting values are stored in a file linked under
+        `file`.
+
+        This file can be inspected using Python (3.7 or higher) using
+        the serializer in the asyncio_rpc package.(pip install asyncio_rpc)
+
+             from asyncio_rpc.serialization.msgpack import loadb
+             data = loadb(binary_file_data)
       parameters: []
       responses:
         '200':
@@ -8622,12 +8881,17 @@ paths:
         - threedimodels
     put:
       operationId: threedimodels_initial_waterlevels_update
-      description: "Initial waterlevels are determined for all nodes by aggregating\n\
-        the values in `source_raster` per node using max, min and mean\noperators.\
-        \ The resulting values are stored in a file linked under\n`file`.\n\nThis\
-        \ file can be inspected using Python (3.7 or higher) using\nthe serializer\
-        \ in the asyncio_rpc package.(pip install asyncio_rpc)\n\n     from asyncio_rpc.serialization.msgpack\
-        \ import loadb\n     data = loadb(binary_file_data)"
+      description: |-
+        Initial waterlevels are determined for all nodes by aggregating
+        the values in `source_raster` per node using max, min and mean
+        operators. The resulting values are stored in a file linked under
+        `file`.
+
+        This file can be inspected using Python (3.7 or higher) using
+        the serializer in the asyncio_rpc package.(pip install asyncio_rpc)
+
+             from asyncio_rpc.serialization.msgpack import loadb
+             data = loadb(binary_file_data)
       parameters:
         - name: data
           in: body
@@ -8643,12 +8907,17 @@ paths:
         - threedimodels
     patch:
       operationId: threedimodels_initial_waterlevels_partial_update
-      description: "Initial waterlevels are determined for all nodes by aggregating\n\
-        the values in `source_raster` per node using max, min and mean\noperators.\
-        \ The resulting values are stored in a file linked under\n`file`.\n\nThis\
-        \ file can be inspected using Python (3.7 or higher) using\nthe serializer\
-        \ in the asyncio_rpc package.(pip install asyncio_rpc)\n\n     from asyncio_rpc.serialization.msgpack\
-        \ import loadb\n     data = loadb(binary_file_data)"
+      description: |-
+        Initial waterlevels are determined for all nodes by aggregating
+        the values in `source_raster` per node using max, min and mean
+        operators. The resulting values are stored in a file linked under
+        `file`.
+
+        This file can be inspected using Python (3.7 or higher) using
+        the serializer in the asyncio_rpc package.(pip install asyncio_rpc)
+
+             from asyncio_rpc.serialization.msgpack import loadb
+             data = loadb(binary_file_data)
       parameters:
         - name: data
           in: body
@@ -8664,12 +8933,17 @@ paths:
         - threedimodels
     delete:
       operationId: threedimodels_initial_waterlevels_delete
-      description: "Initial waterlevels are determined for all nodes by aggregating\n\
-        the values in `source_raster` per node using max, min and mean\noperators.\
-        \ The resulting values are stored in a file linked under\n`file`.\n\nThis\
-        \ file can be inspected using Python (3.7 or higher) using\nthe serializer\
-        \ in the asyncio_rpc package.(pip install asyncio_rpc)\n\n     from asyncio_rpc.serialization.msgpack\
-        \ import loadb\n     data = loadb(binary_file_data)"
+      description: |-
+        Initial waterlevels are determined for all nodes by aggregating
+        the values in `source_raster` per node using max, min and mean
+        operators. The resulting values are stored in a file linked under
+        `file`.
+
+        This file can be inspected using Python (3.7 or higher) using
+        the serializer in the asyncio_rpc package.(pip install asyncio_rpc)
+
+             from asyncio_rpc.serialization.msgpack import loadb
+             data = loadb(binary_file_data)
       parameters: []
       responses:
         '204':
@@ -11100,6 +11374,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uuid:
+        title: Uuid
+        type: string
+        readOnly: true
   Lateral:
     required:
       - offset
@@ -12661,6 +12939,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uuid:
+        title: Uuid
+        type: string
+        readOnly: true
   Progress:
     required:
       - time
@@ -12784,6 +13066,23 @@ definitions:
         type: integer
         maximum: 240
         minimum: 1
+  Result:
+    title: Results
+    required:
+      - basic
+      - damage_estimate
+      - arrival_time
+    type: object
+    properties:
+      basic:
+        title: Basic
+        type: boolean
+      damage_estimate:
+        title: Damage estimate
+        type: boolean
+      arrival_time:
+        title: Arrival time
+        type: boolean
   DamageSeconds:
     title: Damage
     type: object
@@ -12829,6 +13128,8 @@ definitions:
         type: string
         readOnly: true
   PostProcessingOverview:
+    required:
+      - results
     type: object
     properties:
       username:
@@ -12848,17 +13149,23 @@ definitions:
         type: string
         readOnly: true
       results:
-        title: Results
-        type: string
-        readOnly: true
+        $ref: '#/definitions/Result'
       scenario_name:
         title: Scenario name
         description: Scenario name for saving the results
         type: string
         maxLength: 50
         minLength: 1
+      model_id:
+        title: Model id
+        type: string
+        readOnly: true
       model_revision_id:
         title: Model revision id
+        type: string
+        readOnly: true
+      model_name:
+        title: Model name
         type: string
         readOnly: true
       email:
@@ -12873,14 +13180,6 @@ definitions:
         title: Organisation uuid
         type: string
         readOnly: true
-      model_type:
-        title: Model type
-        type: string
-        readOnly: true
-      model_name:
-        title: Model name
-        type: string
-        readOnly: true
       simulation:
         title: Simulation
         type: integer
@@ -12891,7 +13190,7 @@ definitions:
         $ref: '#/definitions/DamageSeconds'
       damage_sources:
         title: Damage sources
-        type: string
+        type: object
         readOnly: true
   PostProcessingStart:
     type: object
