@@ -5,7 +5,7 @@ History
 3.0.b16 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Added uuid field to initial saved state serializer.
 
 
 3.0.b15 (2020-04-01)
