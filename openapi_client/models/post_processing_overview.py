@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:54PM (UTC) on March 20, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.39   3Di core release: 2.0.7  deployed on:  09:37AM (UTC) on April 08, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -36,18 +36,18 @@ class PostProcessingOverview(object):
         'metadata_version': 'str',
         'start_time_sim': 'str',
         'end_time_sim': 'str',
-        'results': 'str',
+        'results': 'Result',
         'scenario_name': 'str',
+        'model_id': 'str',
         'model_revision_id': 'str',
+        'model_name': 'str',
         'email': 'str',
         'result_uuid': 'str',
         'organisation_uuid': 'str',
-        'model_type': 'str',
-        'model_name': 'str',
         'simulation': 'int',
         'arrival': 'ArrivalTimePostProcessing',
         'damage': 'DamageSeconds',
-        'damage_sources': 'str'
+        'damage_sources': 'object'
     }
 
     attribute_map = {
@@ -57,19 +57,19 @@ class PostProcessingOverview(object):
         'end_time_sim': 'end_time_sim',
         'results': 'results',
         'scenario_name': 'scenario_name',
+        'model_id': 'model_id',
         'model_revision_id': 'model_revision_id',
+        'model_name': 'model_name',
         'email': 'email',
         'result_uuid': 'result_uuid',
         'organisation_uuid': 'organisation_uuid',
-        'model_type': 'model_type',
-        'model_name': 'model_name',
         'simulation': 'simulation',
         'arrival': 'arrival',
         'damage': 'damage',
         'damage_sources': 'damage_sources'
     }
 
-    def __init__(self, username=None, metadata_version=None, start_time_sim=None, end_time_sim=None, results=None, scenario_name=None, model_revision_id=None, email=None, result_uuid=None, organisation_uuid=None, model_type=None, model_name=None, simulation=None, arrival=None, damage=None, damage_sources=None):  # noqa: E501
+    def __init__(self, username=None, metadata_version=None, start_time_sim=None, end_time_sim=None, results=None, scenario_name=None, model_id=None, model_revision_id=None, model_name=None, email=None, result_uuid=None, organisation_uuid=None, simulation=None, arrival=None, damage=None, damage_sources=None):  # noqa: E501
         """PostProcessingOverview - a model defined in OpenAPI"""  # noqa: E501
 
         self._username = None
@@ -78,12 +78,12 @@ class PostProcessingOverview(object):
         self._end_time_sim = None
         self._results = None
         self._scenario_name = None
+        self._model_id = None
         self._model_revision_id = None
+        self._model_name = None
         self._email = None
         self._result_uuid = None
         self._organisation_uuid = None
-        self._model_type = None
-        self._model_name = None
         self._simulation = None
         self._arrival = None
         self._damage = None
@@ -98,22 +98,21 @@ class PostProcessingOverview(object):
             self.start_time_sim = start_time_sim
         if end_time_sim is not None:
             self.end_time_sim = end_time_sim
-        if results is not None:
-            self.results = results
+        self.results = results
         if scenario_name is not None:
             self.scenario_name = scenario_name
+        if model_id is not None:
+            self.model_id = model_id
         if model_revision_id is not None:
             self.model_revision_id = model_revision_id
+        if model_name is not None:
+            self.model_name = model_name
         if email is not None:
             self.email = email
         if result_uuid is not None:
             self.result_uuid = result_uuid
         if organisation_uuid is not None:
             self.organisation_uuid = organisation_uuid
-        if model_type is not None:
-            self.model_type = model_type
-        if model_name is not None:
-            self.model_name = model_name
         if simulation is not None:
             self.simulation = simulation
         if arrival is not None:
@@ -213,7 +212,7 @@ class PostProcessingOverview(object):
 
 
         :return: The results of this PostProcessingOverview.  # noqa: E501
-        :rtype: str
+        :rtype: Result
         """
         return self._results
 
@@ -223,8 +222,10 @@ class PostProcessingOverview(object):
 
 
         :param results: The results of this PostProcessingOverview.  # noqa: E501
-        :type: str
+        :type: Result
         """
+        if results is None:
+            raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
 
         self._results = results
 
@@ -256,6 +257,27 @@ class PostProcessingOverview(object):
         self._scenario_name = scenario_name
 
     @property
+    def model_id(self):
+        """Gets the model_id of this PostProcessingOverview.  # noqa: E501
+
+
+        :return: The model_id of this PostProcessingOverview.  # noqa: E501
+        :rtype: str
+        """
+        return self._model_id
+
+    @model_id.setter
+    def model_id(self, model_id):
+        """Sets the model_id of this PostProcessingOverview.
+
+
+        :param model_id: The model_id of this PostProcessingOverview.  # noqa: E501
+        :type: str
+        """
+
+        self._model_id = model_id
+
+    @property
     def model_revision_id(self):
         """Gets the model_revision_id of this PostProcessingOverview.  # noqa: E501
 
@@ -275,6 +297,27 @@ class PostProcessingOverview(object):
         """
 
         self._model_revision_id = model_revision_id
+
+    @property
+    def model_name(self):
+        """Gets the model_name of this PostProcessingOverview.  # noqa: E501
+
+
+        :return: The model_name of this PostProcessingOverview.  # noqa: E501
+        :rtype: str
+        """
+        return self._model_name
+
+    @model_name.setter
+    def model_name(self, model_name):
+        """Sets the model_name of this PostProcessingOverview.
+
+
+        :param model_name: The model_name of this PostProcessingOverview.  # noqa: E501
+        :type: str
+        """
+
+        self._model_name = model_name
 
     @property
     def email(self):
@@ -338,48 +381,6 @@ class PostProcessingOverview(object):
         """
 
         self._organisation_uuid = organisation_uuid
-
-    @property
-    def model_type(self):
-        """Gets the model_type of this PostProcessingOverview.  # noqa: E501
-
-
-        :return: The model_type of this PostProcessingOverview.  # noqa: E501
-        :rtype: str
-        """
-        return self._model_type
-
-    @model_type.setter
-    def model_type(self, model_type):
-        """Sets the model_type of this PostProcessingOverview.
-
-
-        :param model_type: The model_type of this PostProcessingOverview.  # noqa: E501
-        :type: str
-        """
-
-        self._model_type = model_type
-
-    @property
-    def model_name(self):
-        """Gets the model_name of this PostProcessingOverview.  # noqa: E501
-
-
-        :return: The model_name of this PostProcessingOverview.  # noqa: E501
-        :rtype: str
-        """
-        return self._model_name
-
-    @model_name.setter
-    def model_name(self, model_name):
-        """Sets the model_name of this PostProcessingOverview.
-
-
-        :param model_name: The model_name of this PostProcessingOverview.  # noqa: E501
-        :type: str
-        """
-
-        self._model_name = model_name
 
     @property
     def simulation(self):
@@ -450,7 +451,7 @@ class PostProcessingOverview(object):
 
 
         :return: The damage_sources of this PostProcessingOverview.  # noqa: E501
-        :rtype: str
+        :rtype: object
         """
         return self._damage_sources
 
@@ -460,7 +461,7 @@ class PostProcessingOverview(object):
 
 
         :param damage_sources: The damage_sources of this PostProcessingOverview.  # noqa: E501
-        :type: str
+        :type: object
         """
 
         self._damage_sources = damage_sources

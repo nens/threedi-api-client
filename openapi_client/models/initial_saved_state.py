@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.37   3Di core release: 2.0.6  deployed on:  02:54PM (UTC) on March 20, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.39   3Di core release: 2.0.7  deployed on:  09:37AM (UTC) on April 08, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -35,23 +35,26 @@ class InitialSavedState(object):
         'url': 'str',
         'simulation': 'str',
         'saved_state': 'str',
-        'id': 'int'
+        'id': 'int',
+        'uuid': 'str'
     }
 
     attribute_map = {
         'url': 'url',
         'simulation': 'simulation',
         'saved_state': 'saved_state',
-        'id': 'id'
+        'id': 'id',
+        'uuid': 'uuid'
     }
 
-    def __init__(self, url=None, simulation=None, saved_state=None, id=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, saved_state=None, id=None, uuid=None):  # noqa: E501
         """InitialSavedState - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
         self._simulation = None
         self._saved_state = None
         self._id = None
+        self._uuid = None
         self.discriminator = None
 
         if url is not None:
@@ -61,6 +64,8 @@ class InitialSavedState(object):
         self.saved_state = saved_state
         if id is not None:
             self.id = id
+        if uuid is not None:
+            self.uuid = uuid
 
     @property
     def url(self):
@@ -147,6 +152,27 @@ class InitialSavedState(object):
         """
 
         self._id = id
+
+    @property
+    def uuid(self):
+        """Gets the uuid of this InitialSavedState.  # noqa: E501
+
+
+        :return: The uuid of this InitialSavedState.  # noqa: E501
+        :rtype: str
+        """
+        return self._uuid
+
+    @uuid.setter
+    def uuid(self, uuid):
+        """Sets the uuid of this InitialSavedState.
+
+
+        :param uuid: The uuid of this InitialSavedState.  # noqa: E501
+        :type: str
+        """
+
+        self._uuid = uuid
 
     def to_dict(self):
         """Returns the model properties as a dict"""
