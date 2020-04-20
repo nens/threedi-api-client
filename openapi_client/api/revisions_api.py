@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.39   3Di core release: 2.0.7  deployed on:  09:37AM (UTC) on April 08, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.42   3Di core release: 2.0.7  deployed on:  02:00PM (UTC) on April 20, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -272,6 +272,7 @@ class RevisionsApi(object):
         :param str number__isnull:
         :param str hash:
         :param str hash__contains:
+        :param str hash__icontains:
         :param str hash__in: Multiple values may be separated by commas.
         :param str hash__startswith:
         :param str hash__istartswith:
@@ -286,6 +287,7 @@ class RevisionsApi(object):
         :param str repository__id__isnull:
         :param str repository__slug:
         :param str repository__slug__contains:
+        :param str repository__slug__icontains:
         :param str repository__slug__in: Multiple values may be separated by commas.
         :param str repository__slug__startswith:
         :param str repository__slug__istartswith:
@@ -293,6 +295,7 @@ class RevisionsApi(object):
         :param str repository__slug__regex:
         :param str repository__organisation__name:
         :param str repository__organisation__name__contains:
+        :param str repository__organisation__name__icontains:
         :param str repository__organisation__name__in: Multiple values may be separated by commas.
         :param str repository__organisation__name__startswith:
         :param str repository__organisation__name__istartswith:
@@ -300,6 +303,7 @@ class RevisionsApi(object):
         :param str repository__organisation__name__regex:
         :param str repository__organisation__unique_id:
         :param str repository__organisation__unique_id__contains:
+        :param str repository__organisation__unique_id__icontains:
         :param str repository__organisation__unique_id__in: Multiple values may be separated by commas.
         :param str repository__organisation__unique_id__startswith:
         :param str repository__organisation__unique_id__istartswith:
@@ -341,6 +345,7 @@ class RevisionsApi(object):
         :param str number__isnull:
         :param str hash:
         :param str hash__contains:
+        :param str hash__icontains:
         :param str hash__in: Multiple values may be separated by commas.
         :param str hash__startswith:
         :param str hash__istartswith:
@@ -355,6 +360,7 @@ class RevisionsApi(object):
         :param str repository__id__isnull:
         :param str repository__slug:
         :param str repository__slug__contains:
+        :param str repository__slug__icontains:
         :param str repository__slug__in: Multiple values may be separated by commas.
         :param str repository__slug__startswith:
         :param str repository__slug__istartswith:
@@ -362,6 +368,7 @@ class RevisionsApi(object):
         :param str repository__slug__regex:
         :param str repository__organisation__name:
         :param str repository__organisation__name__contains:
+        :param str repository__organisation__name__icontains:
         :param str repository__organisation__name__in: Multiple values may be separated by commas.
         :param str repository__organisation__name__startswith:
         :param str repository__organisation__name__istartswith:
@@ -369,6 +376,7 @@ class RevisionsApi(object):
         :param str repository__organisation__name__regex:
         :param str repository__organisation__unique_id:
         :param str repository__organisation__unique_id__contains:
+        :param str repository__organisation__unique_id__icontains:
         :param str repository__organisation__unique_id__in: Multiple values may be separated by commas.
         :param str repository__organisation__unique_id__startswith:
         :param str repository__organisation__unique_id__istartswith:
@@ -393,7 +401,7 @@ class RevisionsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['number', 'number__range', 'number__gt', 'number__gte', 'number__lt', 'number__lte', 'number__isnull', 'hash', 'hash__contains', 'hash__in', 'hash__startswith', 'hash__istartswith', 'hash__endswith', 'hash__regex', 'repository__id', 'repository__id__range', 'repository__id__gt', 'repository__id__gte', 'repository__id__lt', 'repository__id__lte', 'repository__id__isnull', 'repository__slug', 'repository__slug__contains', 'repository__slug__in', 'repository__slug__startswith', 'repository__slug__istartswith', 'repository__slug__endswith', 'repository__slug__regex', 'repository__organisation__name', 'repository__organisation__name__contains', 'repository__organisation__name__in', 'repository__organisation__name__startswith', 'repository__organisation__name__istartswith', 'repository__organisation__name__endswith', 'repository__organisation__name__regex', 'repository__organisation__unique_id', 'repository__organisation__unique_id__contains', 'repository__organisation__unique_id__in', 'repository__organisation__unique_id__startswith', 'repository__organisation__unique_id__istartswith', 'repository__organisation__unique_id__endswith', 'repository__organisation__unique_id__regex', 'is_pinned', 'limit', 'offset']  # noqa: E501
+        all_params = ['number', 'number__range', 'number__gt', 'number__gte', 'number__lt', 'number__lte', 'number__isnull', 'hash', 'hash__contains', 'hash__icontains', 'hash__in', 'hash__startswith', 'hash__istartswith', 'hash__endswith', 'hash__regex', 'repository__id', 'repository__id__range', 'repository__id__gt', 'repository__id__gte', 'repository__id__lt', 'repository__id__lte', 'repository__id__isnull', 'repository__slug', 'repository__slug__contains', 'repository__slug__icontains', 'repository__slug__in', 'repository__slug__startswith', 'repository__slug__istartswith', 'repository__slug__endswith', 'repository__slug__regex', 'repository__organisation__name', 'repository__organisation__name__contains', 'repository__organisation__name__icontains', 'repository__organisation__name__in', 'repository__organisation__name__startswith', 'repository__organisation__name__istartswith', 'repository__organisation__name__endswith', 'repository__organisation__name__regex', 'repository__organisation__unique_id', 'repository__organisation__unique_id__contains', 'repository__organisation__unique_id__icontains', 'repository__organisation__unique_id__in', 'repository__organisation__unique_id__startswith', 'repository__organisation__unique_id__istartswith', 'repository__organisation__unique_id__endswith', 'repository__organisation__unique_id__regex', 'is_pinned', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -431,6 +439,8 @@ class RevisionsApi(object):
             query_params.append(('hash', local_var_params['hash']))  # noqa: E501
         if 'hash__contains' in local_var_params:
             query_params.append(('hash__contains', local_var_params['hash__contains']))  # noqa: E501
+        if 'hash__icontains' in local_var_params:
+            query_params.append(('hash__icontains', local_var_params['hash__icontains']))  # noqa: E501
         if 'hash__in' in local_var_params:
             query_params.append(('hash__in', local_var_params['hash__in']))  # noqa: E501
         if 'hash__startswith' in local_var_params:
@@ -459,6 +469,8 @@ class RevisionsApi(object):
             query_params.append(('repository__slug', local_var_params['repository__slug']))  # noqa: E501
         if 'repository__slug__contains' in local_var_params:
             query_params.append(('repository__slug__contains', local_var_params['repository__slug__contains']))  # noqa: E501
+        if 'repository__slug__icontains' in local_var_params:
+            query_params.append(('repository__slug__icontains', local_var_params['repository__slug__icontains']))  # noqa: E501
         if 'repository__slug__in' in local_var_params:
             query_params.append(('repository__slug__in', local_var_params['repository__slug__in']))  # noqa: E501
         if 'repository__slug__startswith' in local_var_params:
@@ -473,6 +485,8 @@ class RevisionsApi(object):
             query_params.append(('repository__organisation__name', local_var_params['repository__organisation__name']))  # noqa: E501
         if 'repository__organisation__name__contains' in local_var_params:
             query_params.append(('repository__organisation__name__contains', local_var_params['repository__organisation__name__contains']))  # noqa: E501
+        if 'repository__organisation__name__icontains' in local_var_params:
+            query_params.append(('repository__organisation__name__icontains', local_var_params['repository__organisation__name__icontains']))  # noqa: E501
         if 'repository__organisation__name__in' in local_var_params:
             query_params.append(('repository__organisation__name__in', local_var_params['repository__organisation__name__in']))  # noqa: E501
         if 'repository__organisation__name__startswith' in local_var_params:
@@ -487,6 +501,8 @@ class RevisionsApi(object):
             query_params.append(('repository__organisation__unique_id', local_var_params['repository__organisation__unique_id']))  # noqa: E501
         if 'repository__organisation__unique_id__contains' in local_var_params:
             query_params.append(('repository__organisation__unique_id__contains', local_var_params['repository__organisation__unique_id__contains']))  # noqa: E501
+        if 'repository__organisation__unique_id__icontains' in local_var_params:
+            query_params.append(('repository__organisation__unique_id__icontains', local_var_params['repository__organisation__unique_id__icontains']))  # noqa: E501
         if 'repository__organisation__unique_id__in' in local_var_params:
             query_params.append(('repository__organisation__unique_id__in', local_var_params['repository__organisation__unique_id__in']))  # noqa: E501
         if 'repository__organisation__unique_id__startswith' in local_var_params:

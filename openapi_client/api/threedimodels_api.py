@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.39   3Di core release: 2.0.7  deployed on:  09:37AM (UTC) on April 08, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.42   3Di core release: 2.0.7  deployed on:  02:00PM (UTC) on April 20, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -4321,6 +4321,7 @@ class ThreedimodelsApi(object):
         :param async_req bool: execute request asynchronously
         :param str name:
         :param str name__contains:
+        :param str name__icontains:
         :param str name__in: Multiple values may be separated by commas.
         :param str name__startswith:
         :param str name__istartswith:
@@ -4328,6 +4329,7 @@ class ThreedimodelsApi(object):
         :param str name__regex:
         :param str slug:
         :param str slug__contains:
+        :param str slug__icontains:
         :param str slug__in: Multiple values may be separated by commas.
         :param str slug__startswith:
         :param str slug__istartswith:
@@ -4336,6 +4338,7 @@ class ThreedimodelsApi(object):
         :param float epsg:
         :param str inpy_version__slug:
         :param str inpy_version__slug__contains:
+        :param str inpy_version__slug__icontains:
         :param str inpy_version__slug__in: Multiple values may be separated by commas.
         :param str inpy_version__slug__startswith:
         :param str inpy_version__slug__istartswith:
@@ -4343,6 +4346,7 @@ class ThreedimodelsApi(object):
         :param str inpy_version__slug__regex:
         :param str inpy_version__threedi_version:
         :param str inpy_version__threedi_version__contains:
+        :param str inpy_version__threedi_version__icontains:
         :param str inpy_version__threedi_version__in: Multiple values may be separated by commas.
         :param str inpy_version__threedi_version__startswith:
         :param str inpy_version__threedi_version__istartswith:
@@ -4350,6 +4354,7 @@ class ThreedimodelsApi(object):
         :param str inpy_version__threedi_version__regex:
         :param str inpy_version__threedicore_version:
         :param str inpy_version__threedicore_version__contains:
+        :param str inpy_version__threedicore_version__icontains:
         :param str inpy_version__threedicore_version__in: Multiple values may be separated by commas.
         :param str inpy_version__threedicore_version__startswith:
         :param str inpy_version__threedicore_version__istartswith:
@@ -4364,6 +4369,7 @@ class ThreedimodelsApi(object):
         :param str revision__number__isnull:
         :param str revision__hash:
         :param str revision__hash__contains:
+        :param str revision__hash__icontains:
         :param str revision__hash__in: Multiple values may be separated by commas.
         :param str revision__hash__startswith:
         :param str revision__hash__istartswith:
@@ -4400,6 +4406,7 @@ class ThreedimodelsApi(object):
         :param async_req bool: execute request asynchronously
         :param str name:
         :param str name__contains:
+        :param str name__icontains:
         :param str name__in: Multiple values may be separated by commas.
         :param str name__startswith:
         :param str name__istartswith:
@@ -4407,6 +4414,7 @@ class ThreedimodelsApi(object):
         :param str name__regex:
         :param str slug:
         :param str slug__contains:
+        :param str slug__icontains:
         :param str slug__in: Multiple values may be separated by commas.
         :param str slug__startswith:
         :param str slug__istartswith:
@@ -4415,6 +4423,7 @@ class ThreedimodelsApi(object):
         :param float epsg:
         :param str inpy_version__slug:
         :param str inpy_version__slug__contains:
+        :param str inpy_version__slug__icontains:
         :param str inpy_version__slug__in: Multiple values may be separated by commas.
         :param str inpy_version__slug__startswith:
         :param str inpy_version__slug__istartswith:
@@ -4422,6 +4431,7 @@ class ThreedimodelsApi(object):
         :param str inpy_version__slug__regex:
         :param str inpy_version__threedi_version:
         :param str inpy_version__threedi_version__contains:
+        :param str inpy_version__threedi_version__icontains:
         :param str inpy_version__threedi_version__in: Multiple values may be separated by commas.
         :param str inpy_version__threedi_version__startswith:
         :param str inpy_version__threedi_version__istartswith:
@@ -4429,6 +4439,7 @@ class ThreedimodelsApi(object):
         :param str inpy_version__threedi_version__regex:
         :param str inpy_version__threedicore_version:
         :param str inpy_version__threedicore_version__contains:
+        :param str inpy_version__threedicore_version__icontains:
         :param str inpy_version__threedicore_version__in: Multiple values may be separated by commas.
         :param str inpy_version__threedicore_version__startswith:
         :param str inpy_version__threedicore_version__istartswith:
@@ -4443,6 +4454,7 @@ class ThreedimodelsApi(object):
         :param str revision__number__isnull:
         :param str revision__hash:
         :param str revision__hash__contains:
+        :param str revision__hash__icontains:
         :param str revision__hash__in: Multiple values may be separated by commas.
         :param str revision__hash__startswith:
         :param str revision__hash__istartswith:
@@ -4469,7 +4481,7 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'slug', 'slug__contains', 'slug__in', 'slug__startswith', 'slug__istartswith', 'slug__endswith', 'slug__regex', 'epsg', 'inpy_version__slug', 'inpy_version__slug__contains', 'inpy_version__slug__in', 'inpy_version__slug__startswith', 'inpy_version__slug__istartswith', 'inpy_version__slug__endswith', 'inpy_version__slug__regex', 'inpy_version__threedi_version', 'inpy_version__threedi_version__contains', 'inpy_version__threedi_version__in', 'inpy_version__threedi_version__startswith', 'inpy_version__threedi_version__istartswith', 'inpy_version__threedi_version__endswith', 'inpy_version__threedi_version__regex', 'inpy_version__threedicore_version', 'inpy_version__threedicore_version__contains', 'inpy_version__threedicore_version__in', 'inpy_version__threedicore_version__startswith', 'inpy_version__threedicore_version__istartswith', 'inpy_version__threedicore_version__endswith', 'inpy_version__threedicore_version__regex', 'revision__number', 'revision__number__range', 'revision__number__gt', 'revision__number__gte', 'revision__number__lt', 'revision__number__lte', 'revision__number__isnull', 'revision__hash', 'revision__hash__contains', 'revision__hash__in', 'revision__hash__startswith', 'revision__hash__istartswith', 'revision__hash__endswith', 'revision__hash__regex', 'revision__is_pinned', 'disabled', 'inp_success', 'limit', 'offset']  # noqa: E501
+        all_params = ['name', 'name__contains', 'name__icontains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'slug', 'slug__contains', 'slug__icontains', 'slug__in', 'slug__startswith', 'slug__istartswith', 'slug__endswith', 'slug__regex', 'epsg', 'inpy_version__slug', 'inpy_version__slug__contains', 'inpy_version__slug__icontains', 'inpy_version__slug__in', 'inpy_version__slug__startswith', 'inpy_version__slug__istartswith', 'inpy_version__slug__endswith', 'inpy_version__slug__regex', 'inpy_version__threedi_version', 'inpy_version__threedi_version__contains', 'inpy_version__threedi_version__icontains', 'inpy_version__threedi_version__in', 'inpy_version__threedi_version__startswith', 'inpy_version__threedi_version__istartswith', 'inpy_version__threedi_version__endswith', 'inpy_version__threedi_version__regex', 'inpy_version__threedicore_version', 'inpy_version__threedicore_version__contains', 'inpy_version__threedicore_version__icontains', 'inpy_version__threedicore_version__in', 'inpy_version__threedicore_version__startswith', 'inpy_version__threedicore_version__istartswith', 'inpy_version__threedicore_version__endswith', 'inpy_version__threedicore_version__regex', 'revision__number', 'revision__number__range', 'revision__number__gt', 'revision__number__gte', 'revision__number__lt', 'revision__number__lte', 'revision__number__isnull', 'revision__hash', 'revision__hash__contains', 'revision__hash__icontains', 'revision__hash__in', 'revision__hash__startswith', 'revision__hash__istartswith', 'revision__hash__endswith', 'revision__hash__regex', 'revision__is_pinned', 'disabled', 'inp_success', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4493,6 +4505,8 @@ class ThreedimodelsApi(object):
             query_params.append(('name', local_var_params['name']))  # noqa: E501
         if 'name__contains' in local_var_params:
             query_params.append(('name__contains', local_var_params['name__contains']))  # noqa: E501
+        if 'name__icontains' in local_var_params:
+            query_params.append(('name__icontains', local_var_params['name__icontains']))  # noqa: E501
         if 'name__in' in local_var_params:
             query_params.append(('name__in', local_var_params['name__in']))  # noqa: E501
         if 'name__startswith' in local_var_params:
@@ -4507,6 +4521,8 @@ class ThreedimodelsApi(object):
             query_params.append(('slug', local_var_params['slug']))  # noqa: E501
         if 'slug__contains' in local_var_params:
             query_params.append(('slug__contains', local_var_params['slug__contains']))  # noqa: E501
+        if 'slug__icontains' in local_var_params:
+            query_params.append(('slug__icontains', local_var_params['slug__icontains']))  # noqa: E501
         if 'slug__in' in local_var_params:
             query_params.append(('slug__in', local_var_params['slug__in']))  # noqa: E501
         if 'slug__startswith' in local_var_params:
@@ -4523,6 +4539,8 @@ class ThreedimodelsApi(object):
             query_params.append(('inpy_version__slug', local_var_params['inpy_version__slug']))  # noqa: E501
         if 'inpy_version__slug__contains' in local_var_params:
             query_params.append(('inpy_version__slug__contains', local_var_params['inpy_version__slug__contains']))  # noqa: E501
+        if 'inpy_version__slug__icontains' in local_var_params:
+            query_params.append(('inpy_version__slug__icontains', local_var_params['inpy_version__slug__icontains']))  # noqa: E501
         if 'inpy_version__slug__in' in local_var_params:
             query_params.append(('inpy_version__slug__in', local_var_params['inpy_version__slug__in']))  # noqa: E501
         if 'inpy_version__slug__startswith' in local_var_params:
@@ -4537,6 +4555,8 @@ class ThreedimodelsApi(object):
             query_params.append(('inpy_version__threedi_version', local_var_params['inpy_version__threedi_version']))  # noqa: E501
         if 'inpy_version__threedi_version__contains' in local_var_params:
             query_params.append(('inpy_version__threedi_version__contains', local_var_params['inpy_version__threedi_version__contains']))  # noqa: E501
+        if 'inpy_version__threedi_version__icontains' in local_var_params:
+            query_params.append(('inpy_version__threedi_version__icontains', local_var_params['inpy_version__threedi_version__icontains']))  # noqa: E501
         if 'inpy_version__threedi_version__in' in local_var_params:
             query_params.append(('inpy_version__threedi_version__in', local_var_params['inpy_version__threedi_version__in']))  # noqa: E501
         if 'inpy_version__threedi_version__startswith' in local_var_params:
@@ -4551,6 +4571,8 @@ class ThreedimodelsApi(object):
             query_params.append(('inpy_version__threedicore_version', local_var_params['inpy_version__threedicore_version']))  # noqa: E501
         if 'inpy_version__threedicore_version__contains' in local_var_params:
             query_params.append(('inpy_version__threedicore_version__contains', local_var_params['inpy_version__threedicore_version__contains']))  # noqa: E501
+        if 'inpy_version__threedicore_version__icontains' in local_var_params:
+            query_params.append(('inpy_version__threedicore_version__icontains', local_var_params['inpy_version__threedicore_version__icontains']))  # noqa: E501
         if 'inpy_version__threedicore_version__in' in local_var_params:
             query_params.append(('inpy_version__threedicore_version__in', local_var_params['inpy_version__threedicore_version__in']))  # noqa: E501
         if 'inpy_version__threedicore_version__startswith' in local_var_params:
@@ -4579,6 +4601,8 @@ class ThreedimodelsApi(object):
             query_params.append(('revision__hash', local_var_params['revision__hash']))  # noqa: E501
         if 'revision__hash__contains' in local_var_params:
             query_params.append(('revision__hash__contains', local_var_params['revision__hash__contains']))  # noqa: E501
+        if 'revision__hash__icontains' in local_var_params:
+            query_params.append(('revision__hash__icontains', local_var_params['revision__hash__icontains']))  # noqa: E501
         if 'revision__hash__in' in local_var_params:
             query_params.append(('revision__hash__in', local_var_params['revision__hash__in']))  # noqa: E501
         if 'revision__hash__startswith' in local_var_params:
@@ -6474,6 +6498,7 @@ class ThreedimodelsApi(object):
         :param str threedimodel_pk: (required)
         :param str type:
         :param str type__contains:
+        :param str type__icontains:
         :param str type__in: Multiple values may be separated by commas.
         :param str type__startswith:
         :param str type__istartswith:
@@ -6481,6 +6506,7 @@ class ThreedimodelsApi(object):
         :param str type__regex:
         :param str name:
         :param str name__contains:
+        :param str name__icontains:
         :param str name__in: Multiple values may be separated by commas.
         :param str name__startswith:
         :param str name__istartswith:
@@ -6522,6 +6548,7 @@ class ThreedimodelsApi(object):
         :param str threedimodel_pk: (required)
         :param str type:
         :param str type__contains:
+        :param str type__icontains:
         :param str type__in: Multiple values may be separated by commas.
         :param str type__startswith:
         :param str type__istartswith:
@@ -6529,6 +6556,7 @@ class ThreedimodelsApi(object):
         :param str type__regex:
         :param str name:
         :param str name__contains:
+        :param str name__icontains:
         :param str name__in: Multiple values may be separated by commas.
         :param str name__startswith:
         :param str name__istartswith:
@@ -6559,7 +6587,7 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['threedimodel_pk', 'type', 'type__contains', 'type__in', 'type__startswith', 'type__istartswith', 'type__endswith', 'type__regex', 'name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'threedimodel__id', 'threedimodel__id__range', 'threedimodel__id__gt', 'threedimodel__id__gte', 'threedimodel__id__lt', 'threedimodel__id__lte', 'threedimodel__id__isnull', 'limit', 'offset']  # noqa: E501
+        all_params = ['threedimodel_pk', 'type', 'type__contains', 'type__icontains', 'type__in', 'type__startswith', 'type__istartswith', 'type__endswith', 'type__regex', 'name', 'name__contains', 'name__icontains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'threedimodel__id', 'threedimodel__id__range', 'threedimodel__id__gt', 'threedimodel__id__gte', 'threedimodel__id__lt', 'threedimodel__id__lte', 'threedimodel__id__isnull', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6589,6 +6617,8 @@ class ThreedimodelsApi(object):
             query_params.append(('type', local_var_params['type']))  # noqa: E501
         if 'type__contains' in local_var_params:
             query_params.append(('type__contains', local_var_params['type__contains']))  # noqa: E501
+        if 'type__icontains' in local_var_params:
+            query_params.append(('type__icontains', local_var_params['type__icontains']))  # noqa: E501
         if 'type__in' in local_var_params:
             query_params.append(('type__in', local_var_params['type__in']))  # noqa: E501
         if 'type__startswith' in local_var_params:
@@ -6603,6 +6633,8 @@ class ThreedimodelsApi(object):
             query_params.append(('name', local_var_params['name']))  # noqa: E501
         if 'name__contains' in local_var_params:
             query_params.append(('name__contains', local_var_params['name__contains']))  # noqa: E501
+        if 'name__icontains' in local_var_params:
+            query_params.append(('name__icontains', local_var_params['name__icontains']))  # noqa: E501
         if 'name__in' in local_var_params:
             query_params.append(('name__in', local_var_params['name__in']))  # noqa: E501
         if 'name__startswith' in local_var_params:

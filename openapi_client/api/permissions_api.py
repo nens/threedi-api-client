@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.39   3Di core release: 2.0.7  deployed on:  09:37AM (UTC) on April 08, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.42   3Di core release: 2.0.7  deployed on:  02:00PM (UTC) on April 20, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -265,6 +265,7 @@ class PermissionsApi(object):
         :param async_req bool: execute request asynchronously
         :param str user__username:
         :param str user__username__contains:
+        :param str user__username__icontains:
         :param str user__username__in: Multiple values may be separated by commas.
         :param str user__username__startswith:
         :param str user__username__istartswith:
@@ -272,6 +273,7 @@ class PermissionsApi(object):
         :param str user__username__regex:
         :param str role__name:
         :param str role__name__contains:
+        :param str role__name__icontains:
         :param str role__name__in: Multiple values may be separated by commas.
         :param str role__name__startswith:
         :param str role__name__istartswith:
@@ -279,6 +281,7 @@ class PermissionsApi(object):
         :param str role__name__regex:
         :param str organisation__name:
         :param str organisation__name__contains:
+        :param str organisation__name__icontains:
         :param str organisation__name__in: Multiple values may be separated by commas.
         :param str organisation__name__startswith:
         :param str organisation__name__istartswith:
@@ -312,6 +315,7 @@ class PermissionsApi(object):
         :param async_req bool: execute request asynchronously
         :param str user__username:
         :param str user__username__contains:
+        :param str user__username__icontains:
         :param str user__username__in: Multiple values may be separated by commas.
         :param str user__username__startswith:
         :param str user__username__istartswith:
@@ -319,6 +323,7 @@ class PermissionsApi(object):
         :param str user__username__regex:
         :param str role__name:
         :param str role__name__contains:
+        :param str role__name__icontains:
         :param str role__name__in: Multiple values may be separated by commas.
         :param str role__name__startswith:
         :param str role__name__istartswith:
@@ -326,6 +331,7 @@ class PermissionsApi(object):
         :param str role__name__regex:
         :param str organisation__name:
         :param str organisation__name__contains:
+        :param str organisation__name__icontains:
         :param str organisation__name__in: Multiple values may be separated by commas.
         :param str organisation__name__startswith:
         :param str organisation__name__istartswith:
@@ -349,7 +355,7 @@ class PermissionsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['user__username', 'user__username__contains', 'user__username__in', 'user__username__startswith', 'user__username__istartswith', 'user__username__endswith', 'user__username__regex', 'role__name', 'role__name__contains', 'role__name__in', 'role__name__startswith', 'role__name__istartswith', 'role__name__endswith', 'role__name__regex', 'organisation__name', 'organisation__name__contains', 'organisation__name__in', 'organisation__name__startswith', 'organisation__name__istartswith', 'organisation__name__endswith', 'organisation__name__regex', 'limit', 'offset']  # noqa: E501
+        all_params = ['user__username', 'user__username__contains', 'user__username__icontains', 'user__username__in', 'user__username__startswith', 'user__username__istartswith', 'user__username__endswith', 'user__username__regex', 'role__name', 'role__name__contains', 'role__name__icontains', 'role__name__in', 'role__name__startswith', 'role__name__istartswith', 'role__name__endswith', 'role__name__regex', 'organisation__name', 'organisation__name__contains', 'organisation__name__icontains', 'organisation__name__in', 'organisation__name__startswith', 'organisation__name__istartswith', 'organisation__name__endswith', 'organisation__name__regex', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -373,6 +379,8 @@ class PermissionsApi(object):
             query_params.append(('user__username', local_var_params['user__username']))  # noqa: E501
         if 'user__username__contains' in local_var_params:
             query_params.append(('user__username__contains', local_var_params['user__username__contains']))  # noqa: E501
+        if 'user__username__icontains' in local_var_params:
+            query_params.append(('user__username__icontains', local_var_params['user__username__icontains']))  # noqa: E501
         if 'user__username__in' in local_var_params:
             query_params.append(('user__username__in', local_var_params['user__username__in']))  # noqa: E501
         if 'user__username__startswith' in local_var_params:
@@ -387,6 +395,8 @@ class PermissionsApi(object):
             query_params.append(('role__name', local_var_params['role__name']))  # noqa: E501
         if 'role__name__contains' in local_var_params:
             query_params.append(('role__name__contains', local_var_params['role__name__contains']))  # noqa: E501
+        if 'role__name__icontains' in local_var_params:
+            query_params.append(('role__name__icontains', local_var_params['role__name__icontains']))  # noqa: E501
         if 'role__name__in' in local_var_params:
             query_params.append(('role__name__in', local_var_params['role__name__in']))  # noqa: E501
         if 'role__name__startswith' in local_var_params:
@@ -401,6 +411,8 @@ class PermissionsApi(object):
             query_params.append(('organisation__name', local_var_params['organisation__name']))  # noqa: E501
         if 'organisation__name__contains' in local_var_params:
             query_params.append(('organisation__name__contains', local_var_params['organisation__name__contains']))  # noqa: E501
+        if 'organisation__name__icontains' in local_var_params:
+            query_params.append(('organisation__name__icontains', local_var_params['organisation__name__icontains']))  # noqa: E501
         if 'organisation__name__in' in local_var_params:
             query_params.append(('organisation__name__in', local_var_params['organisation__name__in']))  # noqa: E501
         if 'organisation__name__startswith' in local_var_params:

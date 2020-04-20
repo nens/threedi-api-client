@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.39   3Di core release: 2.0.7  deployed on:  09:37AM (UTC) on April 08, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.42   3Di core release: 2.0.7  deployed on:  02:00PM (UTC) on April 20, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -49,6 +49,7 @@ class OrganisationsApi(object):
         :param async_req bool: execute request asynchronously
         :param str name:
         :param str name__contains:
+        :param str name__icontains:
         :param str name__in: Multiple values may be separated by commas.
         :param str name__startswith:
         :param str name__istartswith:
@@ -56,6 +57,7 @@ class OrganisationsApi(object):
         :param str name__regex:
         :param str unique_id:
         :param str unique_id__contains:
+        :param str unique_id__icontains:
         :param str unique_id__in: Multiple values may be separated by commas.
         :param str unique_id__startswith:
         :param str unique_id__istartswith:
@@ -90,6 +92,7 @@ class OrganisationsApi(object):
         :param async_req bool: execute request asynchronously
         :param str name:
         :param str name__contains:
+        :param str name__icontains:
         :param str name__in: Multiple values may be separated by commas.
         :param str name__startswith:
         :param str name__istartswith:
@@ -97,6 +100,7 @@ class OrganisationsApi(object):
         :param str name__regex:
         :param str unique_id:
         :param str unique_id__contains:
+        :param str unique_id__icontains:
         :param str unique_id__in: Multiple values may be separated by commas.
         :param str unique_id__startswith:
         :param str unique_id__istartswith:
@@ -121,7 +125,7 @@ class OrganisationsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'unique_id', 'unique_id__contains', 'unique_id__in', 'unique_id__startswith', 'unique_id__istartswith', 'unique_id__endswith', 'unique_id__regex', 'valid_contracts_only', 'limit', 'offset']  # noqa: E501
+        all_params = ['name', 'name__contains', 'name__icontains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'unique_id', 'unique_id__contains', 'unique_id__icontains', 'unique_id__in', 'unique_id__startswith', 'unique_id__istartswith', 'unique_id__endswith', 'unique_id__regex', 'valid_contracts_only', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -145,6 +149,8 @@ class OrganisationsApi(object):
             query_params.append(('name', local_var_params['name']))  # noqa: E501
         if 'name__contains' in local_var_params:
             query_params.append(('name__contains', local_var_params['name__contains']))  # noqa: E501
+        if 'name__icontains' in local_var_params:
+            query_params.append(('name__icontains', local_var_params['name__icontains']))  # noqa: E501
         if 'name__in' in local_var_params:
             query_params.append(('name__in', local_var_params['name__in']))  # noqa: E501
         if 'name__startswith' in local_var_params:
@@ -159,6 +165,8 @@ class OrganisationsApi(object):
             query_params.append(('unique_id', local_var_params['unique_id']))  # noqa: E501
         if 'unique_id__contains' in local_var_params:
             query_params.append(('unique_id__contains', local_var_params['unique_id__contains']))  # noqa: E501
+        if 'unique_id__icontains' in local_var_params:
+            query_params.append(('unique_id__icontains', local_var_params['unique_id__icontains']))  # noqa: E501
         if 'unique_id__in' in local_var_params:
             query_params.append(('unique_id__in', local_var_params['unique_id__in']))  # noqa: E501
         if 'unique_id__startswith' in local_var_params:

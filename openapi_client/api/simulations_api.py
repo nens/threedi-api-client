@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.39   3Di core release: 2.0.7  deployed on:  09:37AM (UTC) on April 08, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.42   3Di core release: 2.0.7  deployed on:  02:00PM (UTC) on April 20, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -22321,6 +22321,7 @@ class SimulationsApi(object):
         :param async_req bool: execute request asynchronously
         :param str name:
         :param str name__contains:
+        :param str name__icontains:
         :param str name__in: Multiple values may be separated by commas.
         :param str name__startswith:
         :param str name__istartswith:
@@ -22328,6 +22329,7 @@ class SimulationsApi(object):
         :param str name__regex:
         :param str uuid:
         :param str uuid__contains:
+        :param str uuid__icontains:
         :param str uuid__in: Multiple values may be separated by commas.
         :param str uuid__startswith:
         :param str uuid__istartswith:
@@ -22376,6 +22378,7 @@ class SimulationsApi(object):
         :param async_req bool: execute request asynchronously
         :param str name:
         :param str name__contains:
+        :param str name__icontains:
         :param str name__in: Multiple values may be separated by commas.
         :param str name__startswith:
         :param str name__istartswith:
@@ -22383,6 +22386,7 @@ class SimulationsApi(object):
         :param str name__regex:
         :param str uuid:
         :param str uuid__contains:
+        :param str uuid__icontains:
         :param str uuid__in: Multiple values may be separated by commas.
         :param str uuid__startswith:
         :param str uuid__istartswith:
@@ -22421,7 +22425,7 @@ class SimulationsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['name', 'name__contains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'uuid', 'uuid__contains', 'uuid__in', 'uuid__startswith', 'uuid__istartswith', 'uuid__endswith', 'uuid__regex', 'created__date', 'created__date__gt', 'created__date__gte', 'created__date__lt', 'created__date__lte', 'created__year', 'created__year__gt', 'created__year__gte', 'created__year__lt', 'created__year__lte', 'created__month', 'created__month__lte', 'created__day', 'created__day__lt', 'tags__in', 'limit', 'offset']  # noqa: E501
+        all_params = ['name', 'name__contains', 'name__icontains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'uuid', 'uuid__contains', 'uuid__icontains', 'uuid__in', 'uuid__startswith', 'uuid__istartswith', 'uuid__endswith', 'uuid__regex', 'created__date', 'created__date__gt', 'created__date__gte', 'created__date__lt', 'created__date__lte', 'created__year', 'created__year__gt', 'created__year__gte', 'created__year__lt', 'created__year__lte', 'created__month', 'created__month__lte', 'created__day', 'created__day__lt', 'tags__in', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -22445,6 +22449,8 @@ class SimulationsApi(object):
             query_params.append(('name', local_var_params['name']))  # noqa: E501
         if 'name__contains' in local_var_params:
             query_params.append(('name__contains', local_var_params['name__contains']))  # noqa: E501
+        if 'name__icontains' in local_var_params:
+            query_params.append(('name__icontains', local_var_params['name__icontains']))  # noqa: E501
         if 'name__in' in local_var_params:
             query_params.append(('name__in', local_var_params['name__in']))  # noqa: E501
         if 'name__startswith' in local_var_params:
@@ -22459,6 +22465,8 @@ class SimulationsApi(object):
             query_params.append(('uuid', local_var_params['uuid']))  # noqa: E501
         if 'uuid__contains' in local_var_params:
             query_params.append(('uuid__contains', local_var_params['uuid__contains']))  # noqa: E501
+        if 'uuid__icontains' in local_var_params:
+            query_params.append(('uuid__icontains', local_var_params['uuid__icontains']))  # noqa: E501
         if 'uuid__in' in local_var_params:
             query_params.append(('uuid__in', local_var_params['uuid__in']))  # noqa: E501
         if 'uuid__startswith' in local_var_params:

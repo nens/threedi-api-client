@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.39   3Di core release: 2.0.7  deployed on:  09:37AM (UTC) on April 08, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.42   3Di core release: 2.0.7  deployed on:  02:00PM (UTC) on April 20, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -265,6 +265,7 @@ class RepositoriesApi(object):
         :param async_req bool: execute request asynchronously
         :param str slug:
         :param str slug__contains:
+        :param str slug__icontains:
         :param str slug__in: Multiple values may be separated by commas.
         :param str slug__startswith:
         :param str slug__istartswith:
@@ -279,6 +280,7 @@ class RepositoriesApi(object):
         :param str organisation__id__isnull:
         :param str organisation__name:
         :param str organisation__name__contains:
+        :param str organisation__name__icontains:
         :param str organisation__name__in: Multiple values may be separated by commas.
         :param str organisation__name__startswith:
         :param str organisation__name__istartswith:
@@ -286,6 +288,7 @@ class RepositoriesApi(object):
         :param str organisation__name__regex:
         :param str organisation__unique_id:
         :param str organisation__unique_id__contains:
+        :param str organisation__unique_id__icontains:
         :param str organisation__unique_id__in: Multiple values may be separated by commas.
         :param str organisation__unique_id__startswith:
         :param str organisation__unique_id__istartswith:
@@ -319,6 +322,7 @@ class RepositoriesApi(object):
         :param async_req bool: execute request asynchronously
         :param str slug:
         :param str slug__contains:
+        :param str slug__icontains:
         :param str slug__in: Multiple values may be separated by commas.
         :param str slug__startswith:
         :param str slug__istartswith:
@@ -333,6 +337,7 @@ class RepositoriesApi(object):
         :param str organisation__id__isnull:
         :param str organisation__name:
         :param str organisation__name__contains:
+        :param str organisation__name__icontains:
         :param str organisation__name__in: Multiple values may be separated by commas.
         :param str organisation__name__startswith:
         :param str organisation__name__istartswith:
@@ -340,6 +345,7 @@ class RepositoriesApi(object):
         :param str organisation__name__regex:
         :param str organisation__unique_id:
         :param str organisation__unique_id__contains:
+        :param str organisation__unique_id__icontains:
         :param str organisation__unique_id__in: Multiple values may be separated by commas.
         :param str organisation__unique_id__startswith:
         :param str organisation__unique_id__istartswith:
@@ -363,7 +369,7 @@ class RepositoriesApi(object):
 
         local_var_params = locals()
 
-        all_params = ['slug', 'slug__contains', 'slug__in', 'slug__startswith', 'slug__istartswith', 'slug__endswith', 'slug__regex', 'organisation__id', 'organisation__id__range', 'organisation__id__gt', 'organisation__id__gte', 'organisation__id__lt', 'organisation__id__lte', 'organisation__id__isnull', 'organisation__name', 'organisation__name__contains', 'organisation__name__in', 'organisation__name__startswith', 'organisation__name__istartswith', 'organisation__name__endswith', 'organisation__name__regex', 'organisation__unique_id', 'organisation__unique_id__contains', 'organisation__unique_id__in', 'organisation__unique_id__startswith', 'organisation__unique_id__istartswith', 'organisation__unique_id__endswith', 'organisation__unique_id__regex', 'limit', 'offset']  # noqa: E501
+        all_params = ['slug', 'slug__contains', 'slug__icontains', 'slug__in', 'slug__startswith', 'slug__istartswith', 'slug__endswith', 'slug__regex', 'organisation__id', 'organisation__id__range', 'organisation__id__gt', 'organisation__id__gte', 'organisation__id__lt', 'organisation__id__lte', 'organisation__id__isnull', 'organisation__name', 'organisation__name__contains', 'organisation__name__icontains', 'organisation__name__in', 'organisation__name__startswith', 'organisation__name__istartswith', 'organisation__name__endswith', 'organisation__name__regex', 'organisation__unique_id', 'organisation__unique_id__contains', 'organisation__unique_id__icontains', 'organisation__unique_id__in', 'organisation__unique_id__startswith', 'organisation__unique_id__istartswith', 'organisation__unique_id__endswith', 'organisation__unique_id__regex', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -387,6 +393,8 @@ class RepositoriesApi(object):
             query_params.append(('slug', local_var_params['slug']))  # noqa: E501
         if 'slug__contains' in local_var_params:
             query_params.append(('slug__contains', local_var_params['slug__contains']))  # noqa: E501
+        if 'slug__icontains' in local_var_params:
+            query_params.append(('slug__icontains', local_var_params['slug__icontains']))  # noqa: E501
         if 'slug__in' in local_var_params:
             query_params.append(('slug__in', local_var_params['slug__in']))  # noqa: E501
         if 'slug__startswith' in local_var_params:
@@ -415,6 +423,8 @@ class RepositoriesApi(object):
             query_params.append(('organisation__name', local_var_params['organisation__name']))  # noqa: E501
         if 'organisation__name__contains' in local_var_params:
             query_params.append(('organisation__name__contains', local_var_params['organisation__name__contains']))  # noqa: E501
+        if 'organisation__name__icontains' in local_var_params:
+            query_params.append(('organisation__name__icontains', local_var_params['organisation__name__icontains']))  # noqa: E501
         if 'organisation__name__in' in local_var_params:
             query_params.append(('organisation__name__in', local_var_params['organisation__name__in']))  # noqa: E501
         if 'organisation__name__startswith' in local_var_params:
@@ -429,6 +439,8 @@ class RepositoriesApi(object):
             query_params.append(('organisation__unique_id', local_var_params['organisation__unique_id']))  # noqa: E501
         if 'organisation__unique_id__contains' in local_var_params:
             query_params.append(('organisation__unique_id__contains', local_var_params['organisation__unique_id__contains']))  # noqa: E501
+        if 'organisation__unique_id__icontains' in local_var_params:
+            query_params.append(('organisation__unique_id__icontains', local_var_params['organisation__unique_id__icontains']))  # noqa: E501
         if 'organisation__unique_id__in' in local_var_params:
             query_params.append(('organisation__unique_id__in', local_var_params['organisation__unique_id__in']))  # noqa: E501
         if 'organisation__unique_id__startswith' in local_var_params:

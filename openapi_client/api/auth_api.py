@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.39   3Di core release: 2.0.7  deployed on:  09:37AM (UTC) on April 08, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.42   3Di core release: 2.0.7  deployed on:  02:00PM (UTC) on April 20, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -381,6 +381,7 @@ class AuthApi(object):
         :param async_req bool: execute request asynchronously
         :param str username:
         :param str username__contains:
+        :param str username__icontains:
         :param str username__in: Multiple values may be separated by commas.
         :param str username__startswith:
         :param str username__istartswith:
@@ -388,6 +389,7 @@ class AuthApi(object):
         :param str username__regex:
         :param str email:
         :param str email__contains:
+        :param str email__icontains:
         :param str email__in: Multiple values may be separated by commas.
         :param str email__startswith:
         :param str email__istartswith:
@@ -421,6 +423,7 @@ class AuthApi(object):
         :param async_req bool: execute request asynchronously
         :param str username:
         :param str username__contains:
+        :param str username__icontains:
         :param str username__in: Multiple values may be separated by commas.
         :param str username__startswith:
         :param str username__istartswith:
@@ -428,6 +431,7 @@ class AuthApi(object):
         :param str username__regex:
         :param str email:
         :param str email__contains:
+        :param str email__icontains:
         :param str email__in: Multiple values may be separated by commas.
         :param str email__startswith:
         :param str email__istartswith:
@@ -451,7 +455,7 @@ class AuthApi(object):
 
         local_var_params = locals()
 
-        all_params = ['username', 'username__contains', 'username__in', 'username__startswith', 'username__istartswith', 'username__endswith', 'username__regex', 'email', 'email__contains', 'email__in', 'email__startswith', 'email__istartswith', 'email__endswith', 'email__regex', 'limit', 'offset']  # noqa: E501
+        all_params = ['username', 'username__contains', 'username__icontains', 'username__in', 'username__startswith', 'username__istartswith', 'username__endswith', 'username__regex', 'email', 'email__contains', 'email__icontains', 'email__in', 'email__startswith', 'email__istartswith', 'email__endswith', 'email__regex', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -475,6 +479,8 @@ class AuthApi(object):
             query_params.append(('username', local_var_params['username']))  # noqa: E501
         if 'username__contains' in local_var_params:
             query_params.append(('username__contains', local_var_params['username__contains']))  # noqa: E501
+        if 'username__icontains' in local_var_params:
+            query_params.append(('username__icontains', local_var_params['username__icontains']))  # noqa: E501
         if 'username__in' in local_var_params:
             query_params.append(('username__in', local_var_params['username__in']))  # noqa: E501
         if 'username__startswith' in local_var_params:
@@ -489,6 +495,8 @@ class AuthApi(object):
             query_params.append(('email', local_var_params['email']))  # noqa: E501
         if 'email__contains' in local_var_params:
             query_params.append(('email__contains', local_var_params['email__contains']))  # noqa: E501
+        if 'email__icontains' in local_var_params:
+            query_params.append(('email__icontains', local_var_params['email__icontains']))  # noqa: E501
         if 'email__in' in local_var_params:
             query_params.append(('email__in', local_var_params['email__in']))  # noqa: E501
         if 'email__startswith' in local_var_params:
