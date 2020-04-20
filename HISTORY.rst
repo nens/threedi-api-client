@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.b17 (unreleased)
+3.0.b17 (2020-04-20)
 --------------------
 
 - Added icontains filters
