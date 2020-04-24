@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.42   3Di core release: 2.0.7  deployed on:  02:00PM (UTC) on April 20, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.43   3Di core release: 2.0.7  deployed on:  10:00AM (UTC) on April 24, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -380,6 +380,8 @@ class FilesApi(object):
         :param str type:
         :param str type__in: Multiple values may be separated by commas.
         :param str meta:
+        :param str simulation__status__in:
+        :param str simulation__status__exclude:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -419,6 +421,8 @@ class FilesApi(object):
         :param str type:
         :param str type__in: Multiple values may be separated by commas.
         :param str meta:
+        :param str simulation__status__in:
+        :param str simulation__status__exclude:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -437,7 +441,7 @@ class FilesApi(object):
 
         local_var_params = locals()
 
-        all_params = ['filename', 'filename__icontains', 'etag', 'expiry_date', 'expiry_date__lte', 'expiry_date__lt', 'expiry_date__gte', 'expiry_date__gt', 'state', 'state__in', 'type', 'type__in', 'meta', 'limit', 'offset']  # noqa: E501
+        all_params = ['filename', 'filename__icontains', 'etag', 'expiry_date', 'expiry_date__lte', 'expiry_date__lt', 'expiry_date__gte', 'expiry_date__gt', 'state', 'state__in', 'type', 'type__in', 'meta', 'simulation__status__in', 'simulation__status__exclude', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -483,6 +487,10 @@ class FilesApi(object):
             query_params.append(('type__in', local_var_params['type__in']))  # noqa: E501
         if 'meta' in local_var_params:
             query_params.append(('meta', local_var_params['meta']))  # noqa: E501
+        if 'simulation__status__in' in local_var_params:
+            query_params.append(('simulation__status__in', local_var_params['simulation__status__in']))  # noqa: E501
+        if 'simulation__status__exclude' in local_var_params:
+            query_params.append(('simulation__status__exclude', local_var_params['simulation__status__exclude']))  # noqa: E501
         if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params:

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.42   3Di core release: 2.0.7  deployed on:  02:00PM (UTC) on April 20, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.43   3Di core release: 2.0.7  deployed on:  10:00AM (UTC) on April 24, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,7 @@ class SimulationsApi(object):
     def simulations_actions_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """Post an action to the simulation to start, pause or end it.  # noqa: E501
 
-        Example usage:  To initialize a simulation (and pause) ``` {\"name\": \"initialize\"} ```  To initialize and directly run a simulation ``` {\"name\": \"start\"} ``` Also use \"start\" to resume a paused simulation.  If you want to pause the simulation automatically after a given duration use the duration parameter ``` {   \"name\": \"start\",   \"duration\": 2500 } ```  To pause a simulation ``` {\"name\": \"pause\"} ``` Please note: The simulation will automatically be shut down after the default timeout of 300 seconds has been reached. You can customize this value by specifying the timeout parameter ``` {   \"name\": \"pause\",   \"timeout\": 999 } ```  To end a simulation ``` {\"name\": \"shutdown\"} ```  # noqa: E501
+        Example usage:  To initialize a simulation (and pause) ``` {\"name\": \"initialize\"} ```  To initialize and directly run a simulation ``` {\"name\": \"start\"} ``` Also use \"start\" to resume a paused simulation.  If you want to pause the simulation automatically after a given duration use the duration parameter ``` {   \"name\": \"start\",   \"duration\": 2500 } ```  To pause a simulation ``` {\"name\": \"pause\"} ``` Please note: The simulation will automatically be shut down after the default timeout of 300 seconds has been reached. You can customize this value by specifying the timeout parameter ``` {   \"name\": \"pause\",   \"timeout\": 999 } ```  To end a simulation ``` {\"name\": \"shutdown\"} ```  To queue a simulation ``` {\"name\": \"queue\"}  Queued simulations will be started as soon as a session spot becomes available. ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_actions_create(simulation_pk, data, async_req=True)
@@ -66,7 +66,7 @@ class SimulationsApi(object):
     def simulations_actions_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """Post an action to the simulation to start, pause or end it.  # noqa: E501
 
-        Example usage:  To initialize a simulation (and pause) ``` {\"name\": \"initialize\"} ```  To initialize and directly run a simulation ``` {\"name\": \"start\"} ``` Also use \"start\" to resume a paused simulation.  If you want to pause the simulation automatically after a given duration use the duration parameter ``` {   \"name\": \"start\",   \"duration\": 2500 } ```  To pause a simulation ``` {\"name\": \"pause\"} ``` Please note: The simulation will automatically be shut down after the default timeout of 300 seconds has been reached. You can customize this value by specifying the timeout parameter ``` {   \"name\": \"pause\",   \"timeout\": 999 } ```  To end a simulation ``` {\"name\": \"shutdown\"} ```  # noqa: E501
+        Example usage:  To initialize a simulation (and pause) ``` {\"name\": \"initialize\"} ```  To initialize and directly run a simulation ``` {\"name\": \"start\"} ``` Also use \"start\" to resume a paused simulation.  If you want to pause the simulation automatically after a given duration use the duration parameter ``` {   \"name\": \"start\",   \"duration\": 2500 } ```  To pause a simulation ``` {\"name\": \"pause\"} ``` Please note: The simulation will automatically be shut down after the default timeout of 300 seconds has been reached. You can customize this value by specifying the timeout parameter ``` {   \"name\": \"pause\",   \"timeout\": 999 } ```  To end a simulation ``` {\"name\": \"shutdown\"} ```  To queue a simulation ``` {\"name\": \"queue\"}  Queued simulations will be started as soon as a session spot becomes available. ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_actions_create_with_http_info(simulation_pk, data, async_req=True)
