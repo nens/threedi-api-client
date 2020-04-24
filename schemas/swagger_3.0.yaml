@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest version: 3.0) 
-     Framework release: 0.0.42 
+     Framework release: 0.0.43 
      3Di core release: 2.0.7 
-    deployed on:  02:00PM (UTC) on April 20, 2020
+    deployed on:  10:00AM (UTC) on April 24, 2020
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -428,6 +428,16 @@ paths:
           required: false
           type: string
         - name: meta
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__status__in
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__status__exclude
           in: query
           description: ''
           required: false
@@ -2400,6 +2410,14 @@ paths:
         ```
         {"name": "shutdown"}
         ```
+
+        To queue a simulation
+        ```
+        {"name": "queue"}
+
+        Queued simulations will be started as soon as a session spot becomes
+        available.
+        ```
       parameters:
         - name: data
           in: body
@@ -2408,6 +2426,10 @@ paths:
             $ref: '#/definitions/Action'
       responses:
         '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Action'
+        '202':
           description: ''
           schema:
             $ref: '#/definitions/Action'
@@ -12006,6 +12028,7 @@ definitions:
           - start
           - pause
           - shutdown
+          - queue
       duration:
         title: Duration
         description: Only valid for name='start'. Run simulation for given duration
