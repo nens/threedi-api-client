@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.b18 (unreleased)
+3.0.b18 (2020-04-24)
 --------------------
 
 - Added 'active' to inpy-version resource
