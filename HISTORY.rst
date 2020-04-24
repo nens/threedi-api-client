@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.b19 (unreleased)
+3.0.b19 (2020-04-24)
 --------------------
 
 - File filter exclude/include simulation status.
