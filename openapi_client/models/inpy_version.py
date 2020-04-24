@@ -36,7 +36,8 @@ class InpyVersion(object):
         'threedi_version': 'str',
         'threedicore_version': 'str',
         'slug': 'str',
-        'id': 'int'
+        'id': 'int',
+        'active': 'bool'
     }
 
     attribute_map = {
@@ -44,10 +45,11 @@ class InpyVersion(object):
         'threedi_version': 'threedi_version',
         'threedicore_version': 'threedicore_version',
         'slug': 'slug',
-        'id': 'id'
+        'id': 'id',
+        'active': 'active'
     }
 
-    def __init__(self, url=None, threedi_version=None, threedicore_version=None, slug=None, id=None):  # noqa: E501
+    def __init__(self, url=None, threedi_version=None, threedicore_version=None, slug=None, id=None, active=None):  # noqa: E501
         """InpyVersion - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
@@ -55,6 +57,7 @@ class InpyVersion(object):
         self._threedicore_version = None
         self._slug = None
         self._id = None
+        self._active = None
         self.discriminator = None
 
         if url is not None:
@@ -65,6 +68,8 @@ class InpyVersion(object):
             self.slug = slug
         if id is not None:
             self.id = id
+        if active is not None:
+            self.active = active
 
     @property
     def url(self):
@@ -184,6 +189,27 @@ class InpyVersion(object):
         """
 
         self._id = id
+
+    @property
+    def active(self):
+        """Gets the active of this InpyVersion.  # noqa: E501
+
+
+        :return: The active of this InpyVersion.  # noqa: E501
+        :rtype: bool
+        """
+        return self._active
+
+    @active.setter
+    def active(self, active):
+        """Sets the active of this InpyVersion.
+
+
+        :param active: The active of this InpyVersion.  # noqa: E501
+        :type: bool
+        """
+
+        self._active = active
 
     def to_dict(self):
         """Returns the model properties as a dict"""

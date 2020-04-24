@@ -10049,6 +10049,9 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      active:
+        title: Active
+        type: boolean
   Organisation:
     required:
       - unique_id
