@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest version: 3.0) 
-     Framework release: 0.0.43 
+     Framework release: 0.0.48 
      3Di core release: 2.0.7 
-    deployed on:  10:00AM (UTC) on April 24, 2020
+    deployed on:  02:54PM (UTC) on May 06, 2020
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -251,6 +251,121 @@ paths:
       operationId: contracts_list
       description: API endpoint for interacting with contracts.
       parameters:
+        - name: organisation__id
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: organisation__id__range
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: number
+        - name: organisation__id__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: organisation__id__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: organisation__id__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: organisation__id__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: organisation__id__isnull
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: organisation__name__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__name__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__unique_id
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__unique_id__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__unique_id__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__unique_id__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: organisation__unique_id__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__unique_id__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__unique_id__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: organisation__unique_id__regex
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: limit
           in: query
           description: Number of results to return per page.
@@ -2414,9 +2529,11 @@ paths:
         To queue a simulation
         ```
         {"name": "queue"}
-
+        ```
         Queued simulations will be started as soon as a session spot becomes
-        available.
+        available. If a session spot is directly is available the simulation
+        will also be started immediately. The response body will then contain
+        `{"name": "start"}`
         ```
       parameters:
         - name: data
@@ -10712,16 +10829,41 @@ definitions:
         title: Potential breach
         type: string
         format: uri
+      line_id:
+        title: Line id
+        type: integer
+        readOnly: true
       duration_till_max_depth:
         title: Duration till max depth
         description: duration till maximum depth in seconds
         type: integer
         maximum: 2147483647
         minimum: 0
+      maximum_breach_depth:
+        title: Maximum breach depth
+        description: Override the maximum_breach_depth of the potential breach
+        type: number
+        x-nullable: true
+      levee_material:
+        title: Levee material
+        description: Override the levee_material of the potential breach
+        type: string
+        enum:
+          - sand
+          - clay
+        x-nullable: true
       initial_width:
         title: Initial width
         description: initial width in meters
         type: number
+      discharge_coefficient_positive:
+        title: Discharge coefficient positive
+        type: number
+        x-nullable: true
+      discharge_coefficient_negative:
+        title: Discharge coefficient negative
+        type: number
+        x-nullable: true
       simulation:
         title: Simulation
         type: string
@@ -13800,6 +13942,9 @@ definitions:
   PotentialBreach:
     required:
       - connected_pnt_id
+      - levee_material
+      - line_id
+      - maximum_breach_depth
     type: object
     properties:
       url:
@@ -13812,10 +13957,28 @@ definitions:
         type: integer
         maximum: 2147483647
         minimum: -2147483648
+      levee_material:
+        title: Levee material
+        type: string
+        enum:
+          - sand
+          - clay
+      line_id:
+        title: Line id
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      maximum_breach_depth:
+        title: Maximum breach depth
+        type: number
       threedimodel:
         title: Threedimodel
         type: string
         format: uri
+        readOnly: true
+      id:
+        title: ID
+        type: integer
         readOnly: true
   Raster:
     required:

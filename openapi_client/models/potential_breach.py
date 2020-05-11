@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.43   3Di core release: 2.0.7  deployed on:  10:00AM (UTC) on April 24, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.48   3Di core release: 2.0.7  deployed on:  02:54PM (UTC) on May 06, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -34,28 +34,45 @@ class PotentialBreach(object):
     openapi_types = {
         'url': 'str',
         'connected_pnt_id': 'int',
-        'threedimodel': 'str'
+        'levee_material': 'str',
+        'line_id': 'int',
+        'maximum_breach_depth': 'float',
+        'threedimodel': 'str',
+        'id': 'int'
     }
 
     attribute_map = {
         'url': 'url',
         'connected_pnt_id': 'connected_pnt_id',
-        'threedimodel': 'threedimodel'
+        'levee_material': 'levee_material',
+        'line_id': 'line_id',
+        'maximum_breach_depth': 'maximum_breach_depth',
+        'threedimodel': 'threedimodel',
+        'id': 'id'
     }
 
-    def __init__(self, url=None, connected_pnt_id=None, threedimodel=None):  # noqa: E501
+    def __init__(self, url=None, connected_pnt_id=None, levee_material=None, line_id=None, maximum_breach_depth=None, threedimodel=None, id=None):  # noqa: E501
         """PotentialBreach - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
         self._connected_pnt_id = None
+        self._levee_material = None
+        self._line_id = None
+        self._maximum_breach_depth = None
         self._threedimodel = None
+        self._id = None
         self.discriminator = None
 
         if url is not None:
             self.url = url
         self.connected_pnt_id = connected_pnt_id
+        self.levee_material = levee_material
+        self.line_id = line_id
+        self.maximum_breach_depth = maximum_breach_depth
         if threedimodel is not None:
             self.threedimodel = threedimodel
+        if id is not None:
+            self.id = id
 
     @property
     def url(self):
@@ -106,6 +123,85 @@ class PotentialBreach(object):
         self._connected_pnt_id = connected_pnt_id
 
     @property
+    def levee_material(self):
+        """Gets the levee_material of this PotentialBreach.  # noqa: E501
+
+
+        :return: The levee_material of this PotentialBreach.  # noqa: E501
+        :rtype: str
+        """
+        return self._levee_material
+
+    @levee_material.setter
+    def levee_material(self, levee_material):
+        """Sets the levee_material of this PotentialBreach.
+
+
+        :param levee_material: The levee_material of this PotentialBreach.  # noqa: E501
+        :type: str
+        """
+        if levee_material is None:
+            raise ValueError("Invalid value for `levee_material`, must not be `None`")  # noqa: E501
+        allowed_values = ["sand", "clay"]  # noqa: E501
+        if levee_material not in allowed_values:
+            raise ValueError(
+                "Invalid value for `levee_material` ({0}), must be one of {1}"  # noqa: E501
+                .format(levee_material, allowed_values)
+            )
+
+        self._levee_material = levee_material
+
+    @property
+    def line_id(self):
+        """Gets the line_id of this PotentialBreach.  # noqa: E501
+
+
+        :return: The line_id of this PotentialBreach.  # noqa: E501
+        :rtype: int
+        """
+        return self._line_id
+
+    @line_id.setter
+    def line_id(self, line_id):
+        """Sets the line_id of this PotentialBreach.
+
+
+        :param line_id: The line_id of this PotentialBreach.  # noqa: E501
+        :type: int
+        """
+        if line_id is None:
+            raise ValueError("Invalid value for `line_id`, must not be `None`")  # noqa: E501
+        if line_id is not None and line_id > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `line_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if line_id is not None and line_id < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `line_id`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+
+        self._line_id = line_id
+
+    @property
+    def maximum_breach_depth(self):
+        """Gets the maximum_breach_depth of this PotentialBreach.  # noqa: E501
+
+
+        :return: The maximum_breach_depth of this PotentialBreach.  # noqa: E501
+        :rtype: float
+        """
+        return self._maximum_breach_depth
+
+    @maximum_breach_depth.setter
+    def maximum_breach_depth(self, maximum_breach_depth):
+        """Sets the maximum_breach_depth of this PotentialBreach.
+
+
+        :param maximum_breach_depth: The maximum_breach_depth of this PotentialBreach.  # noqa: E501
+        :type: float
+        """
+        if maximum_breach_depth is None:
+            raise ValueError("Invalid value for `maximum_breach_depth`, must not be `None`")  # noqa: E501
+
+        self._maximum_breach_depth = maximum_breach_depth
+
+    @property
     def threedimodel(self):
         """Gets the threedimodel of this PotentialBreach.  # noqa: E501
 
@@ -125,6 +221,27 @@ class PotentialBreach(object):
         """
 
         self._threedimodel = threedimodel
+
+    @property
+    def id(self):
+        """Gets the id of this PotentialBreach.  # noqa: E501
+
+
+        :return: The id of this PotentialBreach.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this PotentialBreach.
+
+
+        :param id: The id of this PotentialBreach.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

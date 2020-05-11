@@ -5,7 +5,7 @@ History
 [3.0.b20 (unreleased)
 ---------------------
 
-- Nothing changed yet.
+- Added breaches and more fields to potentialbreaches
 
 
 3.0.b19 (2020-04-24)

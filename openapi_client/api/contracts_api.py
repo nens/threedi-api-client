@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.43   3Di core release: 2.0.7  deployed on:  10:00AM (UTC) on April 24, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.48   3Di core release: 2.0.7  deployed on:  02:54PM (UTC) on May 06, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -263,6 +263,29 @@ class ContractsApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param float organisation__id:
+        :param float organisation__id__range: Multiple values may be separated by commas.
+        :param float organisation__id__gt:
+        :param float organisation__id__gte:
+        :param float organisation__id__lt:
+        :param float organisation__id__lte:
+        :param str organisation__id__isnull:
+        :param str organisation__name:
+        :param str organisation__name__contains:
+        :param str organisation__name__icontains:
+        :param str organisation__name__in: Multiple values may be separated by commas.
+        :param str organisation__name__startswith:
+        :param str organisation__name__istartswith:
+        :param str organisation__name__endswith:
+        :param str organisation__name__regex:
+        :param str organisation__unique_id:
+        :param str organisation__unique_id__contains:
+        :param str organisation__unique_id__icontains:
+        :param str organisation__unique_id__in: Multiple values may be separated by commas.
+        :param str organisation__unique_id__startswith:
+        :param str organisation__unique_id__istartswith:
+        :param str organisation__unique_id__endswith:
+        :param str organisation__unique_id__regex:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -289,6 +312,29 @@ class ContractsApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param float organisation__id:
+        :param float organisation__id__range: Multiple values may be separated by commas.
+        :param float organisation__id__gt:
+        :param float organisation__id__gte:
+        :param float organisation__id__lt:
+        :param float organisation__id__lte:
+        :param str organisation__id__isnull:
+        :param str organisation__name:
+        :param str organisation__name__contains:
+        :param str organisation__name__icontains:
+        :param str organisation__name__in: Multiple values may be separated by commas.
+        :param str organisation__name__startswith:
+        :param str organisation__name__istartswith:
+        :param str organisation__name__endswith:
+        :param str organisation__name__regex:
+        :param str organisation__unique_id:
+        :param str organisation__unique_id__contains:
+        :param str organisation__unique_id__icontains:
+        :param str organisation__unique_id__in: Multiple values may be separated by commas.
+        :param str organisation__unique_id__startswith:
+        :param str organisation__unique_id__istartswith:
+        :param str organisation__unique_id__endswith:
+        :param str organisation__unique_id__regex:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -307,7 +353,7 @@ class ContractsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['limit', 'offset']  # noqa: E501
+        all_params = ['organisation__id', 'organisation__id__range', 'organisation__id__gt', 'organisation__id__gte', 'organisation__id__lt', 'organisation__id__lte', 'organisation__id__isnull', 'organisation__name', 'organisation__name__contains', 'organisation__name__icontains', 'organisation__name__in', 'organisation__name__startswith', 'organisation__name__istartswith', 'organisation__name__endswith', 'organisation__name__regex', 'organisation__unique_id', 'organisation__unique_id__contains', 'organisation__unique_id__icontains', 'organisation__unique_id__in', 'organisation__unique_id__startswith', 'organisation__unique_id__istartswith', 'organisation__unique_id__endswith', 'organisation__unique_id__regex', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -327,6 +373,52 @@ class ContractsApi(object):
         path_params = {}
 
         query_params = []
+        if 'organisation__id' in local_var_params:
+            query_params.append(('organisation__id', local_var_params['organisation__id']))  # noqa: E501
+        if 'organisation__id__range' in local_var_params:
+            query_params.append(('organisation__id__range', local_var_params['organisation__id__range']))  # noqa: E501
+        if 'organisation__id__gt' in local_var_params:
+            query_params.append(('organisation__id__gt', local_var_params['organisation__id__gt']))  # noqa: E501
+        if 'organisation__id__gte' in local_var_params:
+            query_params.append(('organisation__id__gte', local_var_params['organisation__id__gte']))  # noqa: E501
+        if 'organisation__id__lt' in local_var_params:
+            query_params.append(('organisation__id__lt', local_var_params['organisation__id__lt']))  # noqa: E501
+        if 'organisation__id__lte' in local_var_params:
+            query_params.append(('organisation__id__lte', local_var_params['organisation__id__lte']))  # noqa: E501
+        if 'organisation__id__isnull' in local_var_params:
+            query_params.append(('organisation__id__isnull', local_var_params['organisation__id__isnull']))  # noqa: E501
+        if 'organisation__name' in local_var_params:
+            query_params.append(('organisation__name', local_var_params['organisation__name']))  # noqa: E501
+        if 'organisation__name__contains' in local_var_params:
+            query_params.append(('organisation__name__contains', local_var_params['organisation__name__contains']))  # noqa: E501
+        if 'organisation__name__icontains' in local_var_params:
+            query_params.append(('organisation__name__icontains', local_var_params['organisation__name__icontains']))  # noqa: E501
+        if 'organisation__name__in' in local_var_params:
+            query_params.append(('organisation__name__in', local_var_params['organisation__name__in']))  # noqa: E501
+        if 'organisation__name__startswith' in local_var_params:
+            query_params.append(('organisation__name__startswith', local_var_params['organisation__name__startswith']))  # noqa: E501
+        if 'organisation__name__istartswith' in local_var_params:
+            query_params.append(('organisation__name__istartswith', local_var_params['organisation__name__istartswith']))  # noqa: E501
+        if 'organisation__name__endswith' in local_var_params:
+            query_params.append(('organisation__name__endswith', local_var_params['organisation__name__endswith']))  # noqa: E501
+        if 'organisation__name__regex' in local_var_params:
+            query_params.append(('organisation__name__regex', local_var_params['organisation__name__regex']))  # noqa: E501
+        if 'organisation__unique_id' in local_var_params:
+            query_params.append(('organisation__unique_id', local_var_params['organisation__unique_id']))  # noqa: E501
+        if 'organisation__unique_id__contains' in local_var_params:
+            query_params.append(('organisation__unique_id__contains', local_var_params['organisation__unique_id__contains']))  # noqa: E501
+        if 'organisation__unique_id__icontains' in local_var_params:
+            query_params.append(('organisation__unique_id__icontains', local_var_params['organisation__unique_id__icontains']))  # noqa: E501
+        if 'organisation__unique_id__in' in local_var_params:
+            query_params.append(('organisation__unique_id__in', local_var_params['organisation__unique_id__in']))  # noqa: E501
+        if 'organisation__unique_id__startswith' in local_var_params:
+            query_params.append(('organisation__unique_id__startswith', local_var_params['organisation__unique_id__startswith']))  # noqa: E501
+        if 'organisation__unique_id__istartswith' in local_var_params:
+            query_params.append(('organisation__unique_id__istartswith', local_var_params['organisation__unique_id__istartswith']))  # noqa: E501
+        if 'organisation__unique_id__endswith' in local_var_params:
+            query_params.append(('organisation__unique_id__endswith', local_var_params['organisation__unique_id__endswith']))  # noqa: E501
+        if 'organisation__unique_id__regex' in local_var_params:
+            query_params.append(('organisation__unique_id__regex', local_var_params['organisation__unique_id__regex']))  # noqa: E501
         if 'limit' in local_var_params:
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params:
