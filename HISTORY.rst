@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.b21 (unreleased)
+3.0.b21 (2020-05-15)
 --------------------
 
 - Status field crash_report has become detail.
