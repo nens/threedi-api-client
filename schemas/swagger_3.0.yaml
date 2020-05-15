@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest version: 3.0) 
-     Framework release: 0.0.48 
-     3Di core release: 2.0.7 
-    deployed on:  02:54PM (UTC) on May 06, 2020
+     Framework release: 0.0.49 
+     3Di core release: 2.0.8.dev2 
+    deployed on:  01:18PM (UTC) on May 11, 2020
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -2665,7 +2665,7 @@ paths:
         - simulations
     patch:
       operationId: simulations_create-saved-states_stable-threshold_partial_update
-      description: Stable threshold SavedState
+      description: When the simulation has started this resource can not be patched.
       parameters:
         - name: data
           in: body
@@ -2674,9 +2674,9 @@ paths:
             $ref: '#/definitions/StableThresholdSavedState'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/StableThresholdSavedState'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -2839,9 +2839,9 @@ paths:
             $ref: '#/definitions/TimedSavedStateUpdate'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/TimedSavedStateUpdate'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -2983,7 +2983,9 @@ paths:
         - simulations
     patch:
       operationId: simulations_events_breaches_partial_update
-      description: A simple ViewSet for viewing Breaches
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
       parameters:
         - name: data
           in: body
@@ -2992,9 +2994,9 @@ paths:
             $ref: '#/definitions/Breach'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/Breach'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -3111,7 +3113,9 @@ paths:
         - simulations
     patch:
       operationId: simulations_events_lateral_constant_partial_update
-      description: A simple ViewSet for viewing ConstantLateral
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
       parameters:
         - name: data
           in: body
@@ -3120,9 +3124,9 @@ paths:
             $ref: '#/definitions/ConstantLateral'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/ConstantLateral'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -3266,7 +3270,9 @@ paths:
         - simulations
     patch:
       operationId: simulations_events_lateral_timeseries_partial_update
-      description: A simple ViewSet for viewing TimeseriesLateral
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
       parameters:
         - name: data
           in: body
@@ -3275,9 +3281,9 @@ paths:
             $ref: '#/definitions/TimeseriesLateral'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/TimeseriesLateral'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -3421,7 +3427,9 @@ paths:
         - simulations
     patch:
       operationId: simulations_events_rain_constant_partial_update
-      description: A simple ViewSet for viewing TimeseriesRain
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
       parameters:
         - name: data
           in: body
@@ -3430,9 +3438,9 @@ paths:
             $ref: '#/definitions/ConstantRain'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/ConstantRain'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -3549,7 +3557,9 @@ paths:
         - simulations
     patch:
       operationId: simulations_events_rain_local_constant_partial_update
-      description: A simple ViewSet for viewing TimeseriesRain
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
       parameters:
         - name: data
           in: body
@@ -3558,9 +3568,9 @@ paths:
             $ref: '#/definitions/ConstantLocalRain'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/ConstantLocalRain'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -3677,7 +3687,9 @@ paths:
         - simulations
     patch:
       operationId: simulations_events_rain_local_timeseries_partial_update
-      description: A simple ViewSet for viewing TimeseriesLateral
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
       parameters:
         - name: data
           in: body
@@ -3686,9 +3698,9 @@ paths:
             $ref: '#/definitions/TimeseriesLocalRain'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/TimeseriesLocalRain'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -3805,7 +3817,9 @@ paths:
         - simulations
     patch:
       operationId: simulations_events_rain_rasters_lizard_partial_update
-      description: A simple ViewSet for viewing lizardRasterRain
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
       parameters:
         - name: data
           in: body
@@ -3814,9 +3828,9 @@ paths:
             $ref: '#/definitions/LizardRasterRain'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/LizardRasterRain'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -3929,6 +3943,24 @@ paths:
           description: ''
           schema:
             $ref: '#/definitions/NetCDFRasterRain'
+      tags:
+        - simulations
+    patch:
+      operationId: simulations_events_rain_rasters_netcdf_partial_update
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/NetCDFRasterRain'
+      responses:
+        '200':
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -4106,7 +4138,9 @@ paths:
         - simulations
     patch:
       operationId: simulations_events_rain_timeseries_lizard_partial_update
-      description: A simple ViewSet for viewing LizardTimeseriesRain
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
       parameters:
         - name: data
           in: body
@@ -4115,9 +4149,9 @@ paths:
             $ref: '#/definitions/LizardTimeseriesRain'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/LizardTimeseriesRain'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -4232,6 +4266,24 @@ paths:
             $ref: '#/definitions/NetCDFTimeseriesRain'
       tags:
         - simulations
+    patch:
+      operationId: simulations_events_rain_timeseries_netcdf_partial_update
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/NetCDFTimeseriesRain'
+      responses:
+        '200':
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
+      tags:
+        - simulations
     delete:
       operationId: simulations_events_rain_timeseries_netcdf_delete
       description: |-
@@ -4285,7 +4337,9 @@ paths:
         - simulations
     patch:
       operationId: simulations_events_rain_timeseries_partial_update
-      description: A simple ViewSet for viewing TimeseriesRain
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
       parameters:
         - name: data
           in: body
@@ -4294,9 +4348,9 @@ paths:
             $ref: '#/definitions/TimeseriesRain'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/TimeseriesRain'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -4413,7 +4467,9 @@ paths:
         - simulations
     patch:
       operationId: simulations_events_raster-edits_partial_update
-      description: A simple ViewSet for viewing raster edits
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
       parameters:
         - name: data
           in: body
@@ -4422,9 +4478,9 @@ paths:
             $ref: '#/definitions/RasterEdit'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/RasterEdit'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -4570,7 +4626,9 @@ paths:
         - simulations
     patch:
       operationId: simulations_events_sources-sinks_constant_partial_update
-      description: A simple ViewSet for viewing ConstantSourcesSinks
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
       parameters:
         - name: data
           in: body
@@ -4579,9 +4637,9 @@ paths:
             $ref: '#/definitions/ConstantSourcesSinks'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/ConstantSourcesSinks'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -4698,7 +4756,9 @@ paths:
         - simulations
     patch:
       operationId: simulations_events_sources-sinks_rasters_lizard_partial_update
-      description: A simple ViewSet for viewing lizardRasterRain
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
       parameters:
         - name: data
           in: body
@@ -4707,9 +4767,9 @@ paths:
             $ref: '#/definitions/LizardRasterSourcesSinks'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/LizardRasterSourcesSinks'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -4823,6 +4883,24 @@ paths:
           description: ''
           schema:
             $ref: '#/definitions/NetCDFRasterSourcesSinks'
+      tags:
+        - simulations
+    patch:
+      operationId: simulations_events_sources-sinks_rasters_netcdf_partial_update
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/NetCDFRasterSourcesSinks'
+      responses:
+        '200':
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -5017,7 +5095,9 @@ paths:
         - simulations
     patch:
       operationId: simulations_events_sources-sinks_timeseries_lizard_partial_update
-      description: A simple ViewSet for viewing LizardTimeseriesRain
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
       parameters:
         - name: data
           in: body
@@ -5026,9 +5106,9 @@ paths:
             $ref: '#/definitions/LizardTimeseriesSourcesSinks'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/LizardTimeseriesSourcesSinks'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -5144,6 +5224,24 @@ paths:
             $ref: '#/definitions/NetCDFTimeseriesSourcesSinks'
       tags:
         - simulations
+    patch:
+      operationId: simulations_events_sources-sinks_timeseries_netcdf_partial_update
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/NetCDFTimeseriesSourcesSinks'
+      responses:
+        '200':
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
+      tags:
+        - simulations
     delete:
       operationId: simulations_events_sources-sinks_timeseries_netcdf_delete
       description: |-
@@ -5198,7 +5296,9 @@ paths:
         - simulations
     patch:
       operationId: simulations_events_sources-sinks_timeseries_partial_update
-      description: A simple ViewSet for viewing TimeseriesSourcesSinks
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
       parameters:
         - name: data
           in: body
@@ -5207,9 +5307,9 @@ paths:
             $ref: '#/definitions/TimeseriesSourcesSinks'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/TimeseriesSourcesSinks'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -5359,7 +5459,9 @@ paths:
         - simulations
     patch:
       operationId: simulations_events_structure-control_timed_partial_update
-      description: A simple ViewSet for viewing TimedStructureControls
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
       parameters:
         - name: data
           in: body
@@ -5368,9 +5470,9 @@ paths:
             $ref: '#/definitions/TimedStructureControl'
       responses:
         '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/TimedStructureControl'
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
       tags:
         - simulations
     delete:
@@ -13607,8 +13709,8 @@ definitions:
         title: True if simulation is paused, only valid in initialized state
         type: boolean
         x-nullable: true
-      crash_report:
-        title: Crash report
+      detail:
+        title: Detail
         type: string
         x-nullable: true
       id:
