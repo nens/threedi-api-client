@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.48   3Di core release: 2.0.7  deployed on:  02:54PM (UTC) on May 06, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.49   3Di core release: 2.0.8.dev2  deployed on:  01:18PM (UTC) on May 11, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,7 @@ class SimulationStatus(object):
         'created': 'datetime',
         'time': 'int',
         'paused': 'bool',
-        'crash_report': 'str',
+        'detail': 'str',
         'id': 'int'
     }
 
@@ -53,11 +53,11 @@ class SimulationStatus(object):
         'created': 'created',
         'time': 'time',
         'paused': 'paused',
-        'crash_report': 'crash_report',
+        'detail': 'detail',
         'id': 'id'
     }
 
-    def __init__(self, url=None, name=None, simulation=None, simulation_id=None, simulation_name=None, created=None, time=None, paused=None, crash_report=None, id=None):  # noqa: E501
+    def __init__(self, url=None, name=None, simulation=None, simulation_id=None, simulation_name=None, created=None, time=None, paused=None, detail=None, id=None):  # noqa: E501
         """SimulationStatus - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
@@ -68,7 +68,7 @@ class SimulationStatus(object):
         self._created = None
         self._time = None
         self._paused = None
-        self._crash_report = None
+        self._detail = None
         self._id = None
         self.discriminator = None
 
@@ -85,7 +85,7 @@ class SimulationStatus(object):
             self.created = created
         self.time = time
         self.paused = paused
-        self.crash_report = crash_report
+        self.detail = detail
         if id is not None:
             self.id = id
 
@@ -272,25 +272,25 @@ class SimulationStatus(object):
         self._paused = paused
 
     @property
-    def crash_report(self):
-        """Gets the crash_report of this SimulationStatus.  # noqa: E501
+    def detail(self):
+        """Gets the detail of this SimulationStatus.  # noqa: E501
 
 
-        :return: The crash_report of this SimulationStatus.  # noqa: E501
+        :return: The detail of this SimulationStatus.  # noqa: E501
         :rtype: str
         """
-        return self._crash_report
+        return self._detail
 
-    @crash_report.setter
-    def crash_report(self, crash_report):
-        """Sets the crash_report of this SimulationStatus.
+    @detail.setter
+    def detail(self, detail):
+        """Sets the detail of this SimulationStatus.
 
 
-        :param crash_report: The crash_report of this SimulationStatus.  # noqa: E501
+        :param detail: The detail of this SimulationStatus.  # noqa: E501
         :type: str
         """
 
-        self._crash_report = crash_report
+        self._detail = detail
 
     @property
     def id(self):
