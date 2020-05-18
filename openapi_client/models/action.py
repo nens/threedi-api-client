@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.49   3Di core release: 2.0.8.dev2  deployed on:  01:18PM (UTC) on May 11, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.50   3Di core release: 2.0.9  deployed on:  07:12AM (UTC) on May 18, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -35,23 +35,23 @@ class Action(object):
         'name': 'str',
         'duration': 'int',
         'timeout': 'int',
-        'rate_limit': 'int'
+        'max_rate': 'float'
     }
 
     attribute_map = {
         'name': 'name',
         'duration': 'duration',
         'timeout': 'timeout',
-        'rate_limit': 'rate_limit'
+        'max_rate': 'max_rate'
     }
 
-    def __init__(self, name=None, duration=None, timeout=None, rate_limit=None):  # noqa: E501
+    def __init__(self, name=None, duration=None, timeout=None, max_rate=None):  # noqa: E501
         """Action - a model defined in OpenAPI"""  # noqa: E501
 
         self._name = None
         self._duration = None
         self._timeout = None
-        self._rate_limit = None
+        self._max_rate = None
         self.discriminator = None
 
         self.name = name
@@ -59,8 +59,8 @@ class Action(object):
             self.duration = duration
         if timeout is not None:
             self.timeout = timeout
-        if rate_limit is not None:
-            self.rate_limit = rate_limit
+        if max_rate is not None:
+            self.max_rate = max_rate
 
     @property
     def name(self):
@@ -142,29 +142,29 @@ class Action(object):
         self._timeout = timeout
 
     @property
-    def rate_limit(self):
-        """Gets the rate_limit of this Action.  # noqa: E501
+    def max_rate(self):
+        """Gets the max_rate of this Action.  # noqa: E501
 
-        Only valid for name='start'. Maximum simulation time in seconds per 1 second real time.   # noqa: E501
+        Only valid for name='start'. Limit maximum speed of the simulation. The max_rate is a multiplier relative to real time For example max_rate '60' means max 60 simulation seconds in 1 real second   # noqa: E501
 
-        :return: The rate_limit of this Action.  # noqa: E501
-        :rtype: int
+        :return: The max_rate of this Action.  # noqa: E501
+        :rtype: float
         """
-        return self._rate_limit
+        return self._max_rate
 
-    @rate_limit.setter
-    def rate_limit(self, rate_limit):
-        """Sets the rate_limit of this Action.
+    @max_rate.setter
+    def max_rate(self, max_rate):
+        """Sets the max_rate of this Action.
 
-        Only valid for name='start'. Maximum simulation time in seconds per 1 second real time.   # noqa: E501
+        Only valid for name='start'. Limit maximum speed of the simulation. The max_rate is a multiplier relative to real time For example max_rate '60' means max 60 simulation seconds in 1 real second   # noqa: E501
 
-        :param rate_limit: The rate_limit of this Action.  # noqa: E501
-        :type: int
+        :param max_rate: The max_rate of this Action.  # noqa: E501
+        :type: float
         """
-        if rate_limit is not None and rate_limit < 1:  # noqa: E501
-            raise ValueError("Invalid value for `rate_limit`, must be a value greater than or equal to `1`")  # noqa: E501
+        if max_rate is not None and max_rate < 1:  # noqa: E501
+            raise ValueError("Invalid value for `max_rate`, must be a value greater than or equal to `1`")  # noqa: E501
 
-        self._rate_limit = rate_limit
+        self._max_rate = max_rate
 
     def to_dict(self):
         """Returns the model properties as a dict"""

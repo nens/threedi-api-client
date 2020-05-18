@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest version: 3.0) 
-     Framework release: 0.0.49 
-     3Di core release: 2.0.8.dev2 
-    deployed on:  01:18PM (UTC) on May 11, 2020
+     Framework release: 0.0.50 
+     3Di core release: 2.0.9 
+    deployed on:  07:12AM (UTC) on May 18, 2020
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -2498,8 +2498,8 @@ paths:
         ```
         Also use "start" to resume a paused simulation.
 
-        If you want to pause the simulation automatically after a given duration
-        use the duration parameter
+        If you want to pause the simulation automatically after a given
+        duration use the duration parameter
         ```
         {
           "name": "start",
@@ -12286,11 +12286,12 @@ definitions:
         type: integer
         default: 300
         minimum: 30
-      rate_limit:
-        title: Rate limit
-        description: "Only valid for name='start'. Maximum simulation time in seconds\
-          \ per 1 second real time. "
-        type: integer
+      max_rate:
+        title: Max rate
+        description: "Only valid for name='start'. Limit maximum speed of the simulation.\
+          \ The max_rate is a multiplier relative to real time For example max_rate\
+          \ '60' means max 60 simulation seconds in 1 real second "
+        type: number
         minimum: 1
   StableThresholdSavedState:
     required:
