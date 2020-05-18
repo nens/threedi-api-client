@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.b22 (unreleased)
+3.0.b22 (2020-05-18)
 --------------------
 
 - Added max_rate to actions
