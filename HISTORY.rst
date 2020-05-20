@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.b23 (unreleased)
+3.0.b23 (2020-05-20)
 --------------------
 
 - Added wind global drag coefficient
