@@ -5,7 +5,7 @@ History
 3.0.b23 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Added wind global drag coefficient
 
 
 3.0.b22 (2020-05-18)

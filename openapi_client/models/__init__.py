@@ -4,7 +4,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.50   3Di core release: 2.0.9  deployed on:  07:12AM (UTC) on May 18, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.51   3Di core release: 2.0.9  deployed on:  11:00AM (UTC) on May 20, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -93,6 +93,7 @@ from openapi_client.models.inline_response20049 import InlineResponse20049
 from openapi_client.models.inline_response2005 import InlineResponse2005
 from openapi_client.models.inline_response20050 import InlineResponse20050
 from openapi_client.models.inline_response20051 import InlineResponse20051
+from openapi_client.models.inline_response20052 import InlineResponse20052
 from openapi_client.models.inline_response2006 import InlineResponse2006
 from openapi_client.models.inline_response2007 import InlineResponse2007
 from openapi_client.models.inline_response2008 import InlineResponse2008
@@ -162,3 +163,4 @@ from openapi_client.models.water_level_profile import WaterLevelProfile
 from openapi_client.models.water_level_profile_request import WaterLevelProfileRequest
 from openapi_client.models.waterdepth import Waterdepth
 from openapi_client.models.wind import Wind
+from openapi_client.models.wind_drag_coefficient import WindDragCoefficient

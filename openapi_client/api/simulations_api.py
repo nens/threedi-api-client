@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.50   3Di core release: 2.0.9  deployed on:  07:12AM (UTC) on May 18, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.51   3Di core release: 2.0.9  deployed on:  11:00AM (UTC) on May 20, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -16260,7 +16260,7 @@ class SimulationsApi(object):
     def simulations_events_wind_constant_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_wind_constant_create  # noqa: E501
 
-        A constant wind event allows for wind forcing at a given point in time of the simulation for a given period of time. No distinction is made (yet) between the 1D and 2D model domain.  The (dimensionless) ``drag-coefficient`` translates the wind speed on a 10 m elevation to the speed on the ground (default=0.005). Currently the drag-coefficient works as a global factor for the entire model.  The ``units`` parameter is the wind speed unit ('m/s' or 'km/h').  The ``direction_value`` parameter is the wind direction in degrees (0-360) from the north - meteorological standard. Thus, a direction_value of 180 represents a south wind (which comes from the south and blows your hat towards the north.  The ``speed_value`` parameter as well as the ``direction_value`` must contain 1 value. Behind the the scenes these are converted into nested array [time, speed_value, direction_value]. This means that this payload (example):  ``` {     \"offset\": 100,     \"duration\": 400,     \"units\": \"m/s\",     \"drag_coefficient\": 0.002,     \"speed_value\": 80,     \"direction_value\": 220 } ```  becomes an Timeseries object with values:  ``` {     \"values\": [         [ 0, 80, 220],    # time, speed, direction         [ 400, 0, 0]      # time, speed, direction     ], } ```  # noqa: E501
+        A constant wind event allows for wind forcing at a given point in time of the simulation for a given period of time. No distinction is made (yet) between the 1D and 2D model domain.  The ``units`` parameter is the wind speed unit ('m/s' or 'km/h').  The ``direction_value`` parameter is the wind direction in degrees (0-360) from the north - meteorological standard. Thus, a direction_value of 180 represents a south wind (which comes from the south and blows your hat towards the north.  The ``speed_value`` parameter as well as the ``direction_value`` must contain 1 value. Behind the the scenes these are converted into nested array [time, speed_value, direction_value]. This means that this payload (example):  ``` {     \"offset\": 100,     \"duration\": 400,     \"units\": \"m/s\",     \"speed_value\": 80,     \"direction_value\": 220 } ```  becomes an Timeseries object with values:  ``` {     \"values\": [         [ 0, 80, 220],    # time, speed, direction         [ 400, 0, 0]      # time, speed, direction     ], } ```  Note that the (dimensionless) ``drag-coefficient`` is not part of a simulation event, but part of simulation initial condition.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_wind_constant_create(simulation_pk, data, async_req=True)
@@ -16286,7 +16286,7 @@ class SimulationsApi(object):
     def simulations_events_wind_constant_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_wind_constant_create  # noqa: E501
 
-        A constant wind event allows for wind forcing at a given point in time of the simulation for a given period of time. No distinction is made (yet) between the 1D and 2D model domain.  The (dimensionless) ``drag-coefficient`` translates the wind speed on a 10 m elevation to the speed on the ground (default=0.005). Currently the drag-coefficient works as a global factor for the entire model.  The ``units`` parameter is the wind speed unit ('m/s' or 'km/h').  The ``direction_value`` parameter is the wind direction in degrees (0-360) from the north - meteorological standard. Thus, a direction_value of 180 represents a south wind (which comes from the south and blows your hat towards the north.  The ``speed_value`` parameter as well as the ``direction_value`` must contain 1 value. Behind the the scenes these are converted into nested array [time, speed_value, direction_value]. This means that this payload (example):  ``` {     \"offset\": 100,     \"duration\": 400,     \"units\": \"m/s\",     \"drag_coefficient\": 0.002,     \"speed_value\": 80,     \"direction_value\": 220 } ```  becomes an Timeseries object with values:  ``` {     \"values\": [         [ 0, 80, 220],    # time, speed, direction         [ 400, 0, 0]      # time, speed, direction     ], } ```  # noqa: E501
+        A constant wind event allows for wind forcing at a given point in time of the simulation for a given period of time. No distinction is made (yet) between the 1D and 2D model domain.  The ``units`` parameter is the wind speed unit ('m/s' or 'km/h').  The ``direction_value`` parameter is the wind direction in degrees (0-360) from the north - meteorological standard. Thus, a direction_value of 180 represents a south wind (which comes from the south and blows your hat towards the north.  The ``speed_value`` parameter as well as the ``direction_value`` must contain 1 value. Behind the the scenes these are converted into nested array [time, speed_value, direction_value]. This means that this payload (example):  ``` {     \"offset\": 100,     \"duration\": 400,     \"units\": \"m/s\",     \"speed_value\": 80,     \"direction_value\": 220 } ```  becomes an Timeseries object with values:  ``` {     \"values\": [         [ 0, 80, 220],    # time, speed, direction         [ 400, 0, 0]      # time, speed, direction     ], } ```  Note that the (dimensionless) ``drag-coefficient`` is not part of a simulation event, but part of simulation initial condition.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_wind_constant_create_with_http_info(simulation_pk, data, async_req=True)
@@ -16980,7 +16980,7 @@ class SimulationsApi(object):
     def simulations_events_wind_timeseries_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_wind_timeseries_create  # noqa: E501
 
-        Same as constant wind event but now without separate fields for ``speed_value`` and ``direction_value``. Instead - to avoid time-mapping issues - the field ``values`` holds the speed and direction values: ``` [     [time, speed1, direction1],     [time, speed2, direction2], ] ```  example payload: ``` {     \"offset\": 2,     \"values\": [         [0, 40, 180],         [60, 35, 181]     ],     \"units\": \"m/s\",     \"drag_coefficient\": 0.003 } ```  becomes an Timeseries object with values: ``` {     \"values\": [         [ 0, 40, 180 ],         [60, 35, 181 ]     ] } ```  # noqa: E501
+        Same as constant wind event but now without separate fields for ``speed_value`` and ``direction_value``. Instead - to avoid time-mapping issues - the field ``values`` holds the speed and direction values: ``` [     [time, speed1, direction1],     [time, speed2, direction2], ] ```  example payload: ``` {     \"offset\": 2,     \"values\": [         [0, 40, 180],         [60, 35, 181]     ],     \"units\": \"m/s\", } ```  becomes an Timeseries object with values: ``` {     \"values\": [         [ 0, 40, 180 ],         [60, 35, 181 ]     ] } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_wind_timeseries_create(simulation_pk, data, async_req=True)
@@ -17006,7 +17006,7 @@ class SimulationsApi(object):
     def simulations_events_wind_timeseries_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_wind_timeseries_create  # noqa: E501
 
-        Same as constant wind event but now without separate fields for ``speed_value`` and ``direction_value``. Instead - to avoid time-mapping issues - the field ``values`` holds the speed and direction values: ``` [     [time, speed1, direction1],     [time, speed2, direction2], ] ```  example payload: ``` {     \"offset\": 2,     \"values\": [         [0, 40, 180],         [60, 35, 181]     ],     \"units\": \"m/s\",     \"drag_coefficient\": 0.003 } ```  becomes an Timeseries object with values: ``` {     \"values\": [         [ 0, 40, 180 ],         [60, 35, 181 ]     ] } ```  # noqa: E501
+        Same as constant wind event but now without separate fields for ``speed_value`` and ``direction_value``. Instead - to avoid time-mapping issues - the field ``values`` holds the speed and direction values: ``` [     [time, speed1, direction1],     [time, speed2, direction2], ] ```  example payload: ``` {     \"offset\": 2,     \"values\": [         [0, 40, 180],         [60, 35, 181]     ],     \"units\": \"m/s\", } ```  becomes an Timeseries object with values: ``` {     \"values\": [         [ 0, 40, 180 ],         [60, 35, 181 ]     ] } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_wind_timeseries_create_with_http_info(simulation_pk, data, async_req=True)
@@ -22737,6 +22737,726 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def simulations_initial_wind_drag_coefficient_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_wind_drag_coefficient_create  # noqa: E501
+
+        Start the simulation with a global wind drag-coefficient. This (dimensionless) ``drag-coefficient`` translates the wind speed on a 10 m elevation to the speed on the ground (default=0.005). Currently the drag-coefficient works as a global factor for the entire model: 1D lines and 2D lines if exists  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_wind_drag_coefficient_create(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param WindDragCoefficient data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: WindDragCoefficient
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_initial_wind_drag_coefficient_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_initial_wind_drag_coefficient_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_wind_drag_coefficient_create  # noqa: E501
+
+        Start the simulation with a global wind drag-coefficient. This (dimensionless) ``drag-coefficient`` translates the wind speed on a 10 m elevation to the speed on the ground (default=0.005). Currently the drag-coefficient works as a global factor for the entire model: 1D lines and 2D lines if exists  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_wind_drag_coefficient_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param WindDragCoefficient data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(WindDragCoefficient, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_initial_wind_drag_coefficient_create" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_wind_drag_coefficient_create`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_wind_drag_coefficient_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/initial/wind_drag-coefficient/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='WindDragCoefficient',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_initial_wind_drag_coefficient_delete(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_wind_drag_coefficient_delete  # noqa: E501
+
+        A simple ViewSet for initial Wind drag coefficient  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_wind_drag_coefficient_delete(id, simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this wind drag coefficient. (required)
+        :param str simulation_pk: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_initial_wind_drag_coefficient_delete_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_initial_wind_drag_coefficient_delete_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_wind_drag_coefficient_delete  # noqa: E501
+
+        A simple ViewSet for initial Wind drag coefficient  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_wind_drag_coefficient_delete_with_http_info(id, simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this wind drag coefficient. (required)
+        :param str simulation_pk: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'simulation_pk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_initial_wind_drag_coefficient_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_wind_drag_coefficient_delete`")  # noqa: E501
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_wind_drag_coefficient_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/initial/wind_drag-coefficient/{id}/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_initial_wind_drag_coefficient_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_wind_drag_coefficient_list  # noqa: E501
+
+        A simple ViewSet for initial Wind drag coefficient  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_wind_drag_coefficient_list(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse20041
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_initial_wind_drag_coefficient_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_initial_wind_drag_coefficient_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_wind_drag_coefficient_list  # noqa: E501
+
+        A simple ViewSet for initial Wind drag coefficient  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_wind_drag_coefficient_list_with_http_info(simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse20041, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['simulation_pk', 'limit', 'offset']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_initial_wind_drag_coefficient_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_wind_drag_coefficient_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params:
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/initial/wind_drag-coefficient/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20041',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_initial_wind_drag_coefficient_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_wind_drag_coefficient_partial_update  # noqa: E501
+
+        A simple ViewSet for initial Wind drag coefficient  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_wind_drag_coefficient_partial_update(id, simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this wind drag coefficient. (required)
+        :param str simulation_pk: (required)
+        :param WindDragCoefficient data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: WindDragCoefficient
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_initial_wind_drag_coefficient_partial_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_initial_wind_drag_coefficient_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_wind_drag_coefficient_partial_update  # noqa: E501
+
+        A simple ViewSet for initial Wind drag coefficient  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_wind_drag_coefficient_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this wind drag coefficient. (required)
+        :param str simulation_pk: (required)
+        :param WindDragCoefficient data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(WindDragCoefficient, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_initial_wind_drag_coefficient_partial_update" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_wind_drag_coefficient_partial_update`")  # noqa: E501
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_wind_drag_coefficient_partial_update`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_wind_drag_coefficient_partial_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/initial/wind_drag-coefficient/{id}/', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='WindDragCoefficient',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_initial_wind_drag_coefficient_read(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_wind_drag_coefficient_read  # noqa: E501
+
+        A simple ViewSet for initial Wind drag coefficient  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_wind_drag_coefficient_read(id, simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this wind drag coefficient. (required)
+        :param str simulation_pk: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: WindDragCoefficient
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_initial_wind_drag_coefficient_read_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+
+    def simulations_initial_wind_drag_coefficient_read_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """simulations_initial_wind_drag_coefficient_read  # noqa: E501
+
+        A simple ViewSet for initial Wind drag coefficient  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_wind_drag_coefficient_read_with_http_info(id, simulation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this wind drag coefficient. (required)
+        :param str simulation_pk: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(WindDragCoefficient, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'simulation_pk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_initial_wind_drag_coefficient_read" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_wind_drag_coefficient_read`")  # noqa: E501
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_wind_drag_coefficient_read`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/initial/wind_drag-coefficient/{id}/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='WindDragCoefficient',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_initial_wind_drag_coefficient_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_wind_drag_coefficient_update  # noqa: E501
+
+        A simple ViewSet for initial Wind drag coefficient  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_wind_drag_coefficient_update(id, simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this wind drag coefficient. (required)
+        :param str simulation_pk: (required)
+        :param WindDragCoefficient data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: WindDragCoefficient
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_initial_wind_drag_coefficient_update_with_http_info(id, simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_initial_wind_drag_coefficient_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
+        """simulations_initial_wind_drag_coefficient_update  # noqa: E501
+
+        A simple ViewSet for initial Wind drag coefficient  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_initial_wind_drag_coefficient_update_with_http_info(id, simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this wind drag coefficient. (required)
+        :param str simulation_pk: (required)
+        :param WindDragCoefficient data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(WindDragCoefficient, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['id', 'simulation_pk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_initial_wind_drag_coefficient_update" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in local_var_params or
+                local_var_params['id'] is None):
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_initial_wind_drag_coefficient_update`")  # noqa: E501
+        # verify the required parameter 'simulation_pk' is set
+        if ('simulation_pk' not in local_var_params or
+                local_var_params['simulation_pk'] is None):
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_initial_wind_drag_coefficient_update`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if ('data' not in local_var_params or
+                local_var_params['data'] is None):
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_initial_wind_drag_coefficient_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/initial/wind_drag-coefficient/{id}/', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='WindDragCoefficient',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def simulations_list(self, **kwargs):  # noqa: E501
         """List all simulations resources.  # noqa: E501
 
@@ -23785,7 +24505,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20041
+        :return: InlineResponse20042
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -23814,7 +24534,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20041, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20042, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -23873,7 +24593,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20041',  # noqa: E501
+            response_type='InlineResponse20042',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -25868,7 +26588,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20042
+        :return: InlineResponse20043
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -25896,7 +26616,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20042, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20043, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -25955,7 +26675,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20042',  # noqa: E501
+            response_type='InlineResponse20043',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -26330,7 +27050,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20043
+        :return: InlineResponse20044
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -26358,7 +27078,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20043, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20044, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -26417,7 +27137,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20043',  # noqa: E501
+            response_type='InlineResponse20044',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -27759,7 +28479,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20044
+        :return: InlineResponse20045
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -27788,7 +28508,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20044, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20045, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -27847,7 +28567,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20044',  # noqa: E501
+            response_type='InlineResponse20045',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

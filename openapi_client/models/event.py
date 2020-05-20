@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.50   3Di core release: 2.0.9  deployed on:  07:12AM (UTC) on May 18, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.51   3Di core release: 2.0.9  deployed on:  11:00AM (UTC) on May 20, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -55,7 +55,8 @@ class Event(object):
         'timedstructurecontrol': 'list[TimedStructureControl]',
         'rasteredits': 'list[RasterEdit]',
         'localrain': 'list[LocalRain]',
-        'wind': 'list[Wind]'
+        'wind': 'list[Wind]',
+        'initial_winddragcoefficient': 'WindDragCoefficient'
     }
 
     attribute_map = {
@@ -82,10 +83,11 @@ class Event(object):
         'timedstructurecontrol': 'timedstructurecontrol',
         'rasteredits': 'rasteredits',
         'localrain': 'localrain',
-        'wind': 'wind'
+        'wind': 'wind',
+        'initial_winddragcoefficient': 'initial_winddragcoefficient'
     }
 
-    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, timedstructurecontrol=None, rasteredits=None, localrain=None, wind=None):  # noqa: E501
+    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, timedstructurecontrol=None, rasteredits=None, localrain=None, wind=None, initial_winddragcoefficient=None):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
 
         self._lizardrasterrain = None
@@ -112,6 +114,7 @@ class Event(object):
         self._rasteredits = None
         self._localrain = None
         self._wind = None
+        self._initial_winddragcoefficient = None
         self.discriminator = None
 
         if lizardrasterrain is not None:
@@ -162,6 +165,8 @@ class Event(object):
             self.localrain = localrain
         if wind is not None:
             self.wind = wind
+        if initial_winddragcoefficient is not None:
+            self.initial_winddragcoefficient = initial_winddragcoefficient
 
     @property
     def lizardrasterrain(self):
@@ -666,6 +671,27 @@ class Event(object):
         """
 
         self._wind = wind
+
+    @property
+    def initial_winddragcoefficient(self):
+        """Gets the initial_winddragcoefficient of this Event.  # noqa: E501
+
+
+        :return: The initial_winddragcoefficient of this Event.  # noqa: E501
+        :rtype: WindDragCoefficient
+        """
+        return self._initial_winddragcoefficient
+
+    @initial_winddragcoefficient.setter
+    def initial_winddragcoefficient(self, initial_winddragcoefficient):
+        """Sets the initial_winddragcoefficient of this Event.
+
+
+        :param initial_winddragcoefficient: The initial_winddragcoefficient of this Event.  # noqa: E501
+        :type: WindDragCoefficient
+        """
+
+        self._initial_winddragcoefficient = initial_winddragcoefficient
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.50   3Di core release: 2.0.9  deployed on:  07:12AM (UTC) on May 18, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.51   3Di core release: 2.0.9  deployed on:  11:00AM (UTC) on May 20, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -39,7 +39,6 @@ class Wind(object):
         'offset': 'int',
         'values': 'list[list[float]]',
         'units': 'str',
-        'drag_coefficient': 'float',
         'speed_interpolate': 'bool',
         'speed_constant': 'bool',
         'direction_interpolate': 'bool',
@@ -54,14 +53,13 @@ class Wind(object):
         'offset': 'offset',
         'values': 'values',
         'units': 'units',
-        'drag_coefficient': 'drag_coefficient',
         'speed_interpolate': 'speed_interpolate',
         'speed_constant': 'speed_constant',
         'direction_interpolate': 'direction_interpolate',
         'direction_constant': 'direction_constant'
     }
 
-    def __init__(self, id=None, uid=None, url=None, simulation=None, offset=None, values=None, units=None, drag_coefficient=None, speed_interpolate=None, speed_constant=None, direction_interpolate=None, direction_constant=None):  # noqa: E501
+    def __init__(self, id=None, uid=None, url=None, simulation=None, offset=None, values=None, units=None, speed_interpolate=None, speed_constant=None, direction_interpolate=None, direction_constant=None):  # noqa: E501
         """Wind - a model defined in OpenAPI"""  # noqa: E501
 
         self._id = None
@@ -71,7 +69,6 @@ class Wind(object):
         self._offset = None
         self._values = None
         self._units = None
-        self._drag_coefficient = None
         self._speed_interpolate = None
         self._speed_constant = None
         self._direction_interpolate = None
@@ -91,8 +88,6 @@ class Wind(object):
             self.values = values
         if units is not None:
             self.units = units
-        if drag_coefficient is not None:
-            self.drag_coefficient = drag_coefficient
         if speed_interpolate is not None:
             self.speed_interpolate = speed_interpolate
         if speed_constant is not None:
@@ -266,33 +261,6 @@ class Wind(object):
             )
 
         self._units = units
-
-    @property
-    def drag_coefficient(self):
-        """Gets the drag_coefficient of this Wind.  # noqa: E501
-
-        global drag coefficient (0-100)  # noqa: E501
-
-        :return: The drag_coefficient of this Wind.  # noqa: E501
-        :rtype: float
-        """
-        return self._drag_coefficient
-
-    @drag_coefficient.setter
-    def drag_coefficient(self, drag_coefficient):
-        """Sets the drag_coefficient of this Wind.
-
-        global drag coefficient (0-100)  # noqa: E501
-
-        :param drag_coefficient: The drag_coefficient of this Wind.  # noqa: E501
-        :type: float
-        """
-        if drag_coefficient is not None and drag_coefficient > 1E+2:  # noqa: E501
-            raise ValueError("Invalid value for `drag_coefficient`, must be a value less than or equal to `1E+2`")  # noqa: E501
-        if drag_coefficient is not None and drag_coefficient < 0:  # noqa: E501
-            raise ValueError("Invalid value for `drag_coefficient`, must be a value greater than or equal to `0`")  # noqa: E501
-
-        self._drag_coefficient = drag_coefficient
 
     @property
     def speed_interpolate(self):

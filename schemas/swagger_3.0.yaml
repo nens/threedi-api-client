@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest version: 3.0) 
-     Framework release: 0.0.50 
+     Framework release: 0.0.51 
      3Di core release: 2.0.9 
-    deployed on:  07:12AM (UTC) on May 18, 2020
+    deployed on:  11:00AM (UTC) on May 20, 2020
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -5572,11 +5572,6 @@ paths:
         time of the simulation for a given period of time.
         No distinction is made (yet) between the 1D and 2D model domain.
 
-        The (dimensionless) ``drag-coefficient`` translates the wind speed
-        on a 10 m elevation to the speed on the ground (default=0.005).
-        Currently the drag-coefficient works as a global factor for
-        the entire model.
-
         The ``units`` parameter is the wind speed unit ('m/s' or 'km/h').
 
         The ``direction_value`` parameter is the wind direction in
@@ -5594,7 +5589,6 @@ paths:
             "offset": 100,
             "duration": 400,
             "units": "m/s",
-            "drag_coefficient": 0.002,
             "speed_value": 80,
             "direction_value": 220
         }
@@ -5610,6 +5604,9 @@ paths:
             ],
         }
         ```
+
+        Note that the (dimensionless) ``drag-coefficient`` is not part
+        of a simulation event, but part of simulation initial condition.
       parameters:
         - name: data
           in: body
@@ -5754,7 +5751,6 @@ paths:
                 [60, 35, 181]
             ],
             "units": "m/s",
-            "drag_coefficient": 0.003
         }
         ```
 
@@ -6735,6 +6731,135 @@ paths:
       - name: id
         in: path
         description: A unique integer value identifying this initial saved state.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/initial/wind_drag-coefficient/:
+    get:
+      operationId: simulations_initial_wind_drag-coefficient_list
+      description: A simple ViewSet for initial Wind drag coefficient
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/WindDragCoefficient'
+      tags:
+        - simulations
+    post:
+      operationId: simulations_initial_wind_drag-coefficient_create
+      description: |-
+        Start the simulation with a global wind drag-coefficient. This
+        (dimensionless) ``drag-coefficient`` translates the wind speed
+        on a 10 m elevation to the speed on the ground (default=0.005).
+        Currently the drag-coefficient works as a global factor for
+        the entire model: 1D lines and 2D lines if exists
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WindDragCoefficient'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/WindDragCoefficient'
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/initial/wind_drag-coefficient/{id}/:
+    get:
+      operationId: simulations_initial_wind_drag-coefficient_read
+      description: A simple ViewSet for initial Wind drag coefficient
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/WindDragCoefficient'
+      tags:
+        - simulations
+    put:
+      operationId: simulations_initial_wind_drag-coefficient_update
+      description: A simple ViewSet for initial Wind drag coefficient
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WindDragCoefficient'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/WindDragCoefficient'
+      tags:
+        - simulations
+    patch:
+      operationId: simulations_initial_wind_drag-coefficient_partial_update
+      description: A simple ViewSet for initial Wind drag coefficient
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WindDragCoefficient'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/WindDragCoefficient'
+      tags:
+        - simulations
+    delete:
+      operationId: simulations_initial_wind_drag-coefficient_delete
+      description: A simple ViewSet for initial Wind drag coefficient
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - simulations
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this wind drag coefficient.
         required: true
         type: integer
       - name: simulation_pk
@@ -12131,12 +12256,6 @@ definitions:
         enum:
           - m/s
           - km/h
-      drag_coefficient:
-        title: Drag coefficient
-        description: global drag coefficient (0-100)
-        type: number
-        maximum: 100
-        minimum: 0
       speed_interpolate:
         title: Speed interpolate
         description: interpolate wind speed
@@ -12157,6 +12276,30 @@ definitions:
         description: constant wind direction
         type: boolean
         readOnly: true
+  WindDragCoefficient:
+    title: Initial winddragcoefficient
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+        readOnly: true
+      value:
+        title: Value
+        description: global drag coefficient (0-100)
+        type: number
+        maximum: 100
+        minimum: 0
+      uid:
+        title: Uid
+        type: string
+        format: uuid
   Event:
     type: object
     properties:
@@ -12259,6 +12402,8 @@ definitions:
         items:
           $ref: '#/definitions/Wind'
         readOnly: true
+      initial_winddragcoefficient:
+        $ref: '#/definitions/WindDragCoefficient'
   Action:
     required:
       - name
@@ -13223,12 +13368,6 @@ definitions:
         enum:
           - m/s
           - km/h
-      drag_coefficient:
-        title: Drag coefficient
-        description: global drag coefficient (0-100)
-        type: number
-        maximum: 100
-        minimum: 0
       speed_interpolate:
         title: Speed interpolate
         description: interpolate wind speed
@@ -13306,12 +13445,6 @@ definitions:
         enum:
           - m/s
           - km/h
-      drag_coefficient:
-        title: Drag coefficient
-        description: global drag coefficient (0-100)
-        type: number
-        maximum: 100
-        minimum: 0
       speed_interpolate:
         title: Speed interpolate
         description: interpolate wind speed
