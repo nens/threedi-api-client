@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.b24 (unreleased)
+3.0.b24 (2020-05-22)
 --------------------
 
 - All uid fields on events should be read-only
