@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.51   3Di core release: 2.0.9  deployed on:  11:00AM (UTC) on May 20, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.52   3Di core release: 2.0.9  deployed on:  13:20PM (UTC) on May 22, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -45,7 +45,8 @@ class NetCDFRasterSourcesSinks(object):
         'epsg_code': 'int',
         'file': 'FileReadOnly',
         'fill_value': 'str',
-        'id': 'int'
+        'id': 'int',
+        'uid': 'str'
     }
 
     attribute_map = {
@@ -62,10 +63,11 @@ class NetCDFRasterSourcesSinks(object):
         'epsg_code': 'epsg_code',
         'file': 'file',
         'fill_value': 'fill_value',
-        'id': 'id'
+        'id': 'id',
+        'uid': 'uid'
     }
 
-    def __init__(self, url=None, multiplier=None, simulation=None, offset=None, duration=None, timestamps=None, interval=None, values_reference=None, units=None, geotransform=None, epsg_code=None, file=None, fill_value=None, id=None):  # noqa: E501
+    def __init__(self, url=None, multiplier=None, simulation=None, offset=None, duration=None, timestamps=None, interval=None, values_reference=None, units=None, geotransform=None, epsg_code=None, file=None, fill_value=None, id=None, uid=None):  # noqa: E501
         """NetCDFRasterSourcesSinks - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
@@ -82,6 +84,7 @@ class NetCDFRasterSourcesSinks(object):
         self._file = None
         self._fill_value = None
         self._id = None
+        self._uid = None
         self.discriminator = None
 
         if url is not None:
@@ -106,6 +109,8 @@ class NetCDFRasterSourcesSinks(object):
             self.fill_value = fill_value
         if id is not None:
             self.id = id
+        if uid is not None:
+            self.uid = uid
 
     @property
     def url(self):
@@ -436,6 +441,27 @@ class NetCDFRasterSourcesSinks(object):
         """
 
         self._id = id
+
+    @property
+    def uid(self):
+        """Gets the uid of this NetCDFRasterSourcesSinks.  # noqa: E501
+
+
+        :return: The uid of this NetCDFRasterSourcesSinks.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this NetCDFRasterSourcesSinks.
+
+
+        :param uid: The uid of this NetCDFRasterSourcesSinks.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

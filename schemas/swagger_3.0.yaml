@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest version: 3.0) 
-     Framework release: 0.0.51 
+     Framework release: 0.0.52 
      3Di core release: 2.0.9 
-    deployed on:  11:00AM (UTC) on May 20, 2020
+    deployed on:  13:20PM (UTC) on May 22, 2020
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -10985,6 +10985,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   TimeseriesRainOverview:
     required:
       - offset
@@ -11039,6 +11040,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   Breach:
     required:
       - potential_breach
@@ -11110,6 +11112,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   LizardRasterSourcesSinks:
     required:
       - offset
@@ -11171,6 +11174,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   LizardTimeseriesSourcesSinks:
     required:
       - offset
@@ -11226,6 +11230,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   FileReadOnly:
     title: File
     type: object
@@ -11376,6 +11381,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   FileTimeseriesSourcesSinks:
     required:
       - units
@@ -11452,6 +11458,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   TimeseriesSourcesSinksOverview:
     required:
       - offset
@@ -11501,6 +11508,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   TwoDWaterLevel:
     title: Initial twodwaterlevel
     required:
@@ -11524,6 +11532,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   OneDWaterLevelPredefined:
     title: Initial onedwaterlevelpredefined
     type: object
@@ -11542,6 +11551,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   GroundWaterLevel:
     title: Initial groundwaterlevel
     required:
@@ -11565,6 +11575,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   GroundWaterRaster:
     title: Initial groundwaterraster
     required:
@@ -11601,6 +11612,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   OneDWaterLevel:
     title: Initial onedwaterlevel
     required:
@@ -11624,6 +11636,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   TwoDWaterRaster:
     title: Initial twodwaterraster
     required:
@@ -11660,6 +11673,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   FileRasterRain:
     type: object
     properties:
@@ -11748,6 +11762,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   FileTimeseriesRain:
     required:
       - units
@@ -11824,6 +11839,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   Threshold:
     required:
       - variable
@@ -11998,6 +12014,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   TimedStructureControl:
     required:
       - offset
@@ -12082,6 +12099,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   RasterEdit:
     required:
       - raster
@@ -12141,6 +12159,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
       id:
         title: ID
         type: integer
@@ -12211,6 +12230,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   Wind:
     required:
       - offset
@@ -12224,6 +12244,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
       url:
         title: Url
         type: string
@@ -12300,6 +12321,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   Event:
     type: object
     properties:
@@ -12623,6 +12645,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   GridEventState:
     required:
       - state
@@ -12717,6 +12740,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   ConstantRain:
     required:
       - offset
@@ -12762,6 +12786,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   ConstantLocalRain:
     required:
       - offset
@@ -12820,6 +12845,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   TimeseriesLocalRain:
     required:
       - offset
@@ -12875,6 +12901,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   NetCDFRasterRain:
     type: object
     properties:
@@ -12953,6 +12980,11 @@ definitions:
         minimum: -2147483648
       file:
         $ref: '#/definitions/FileReadOnly'
+      uid:
+        title: Uid
+        type: string
+        format: uuid
+        readOnly: true
   TimeseriesRain:
     required:
       - offset
@@ -13003,6 +13035,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   NetCDFTimeseriesRain:
     required:
       - units
@@ -13069,6 +13102,11 @@ definitions:
           - mm/h
       file:
         $ref: '#/definitions/FileReadOnly'
+      uid:
+        title: Uid
+        type: string
+        format: uuid
+        readOnly: true
   RasterEditUrls:
     required:
       - raster_type
@@ -13122,6 +13160,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
   NetCDFRasterSourcesSinks:
     type: object
     properties:
@@ -13204,6 +13243,11 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
+        readOnly: true
   TimeseriesSourcesSinks:
     required:
       - offset
@@ -13245,6 +13289,11 @@ definitions:
         type: string
         enum:
           - m/s
+      uid:
+        title: Uid
+        type: string
+        format: uuid
+        readOnly: true
   NetCDFTimeseriesSourcesSinks:
     required:
       - units
@@ -13315,6 +13364,11 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
+        readOnly: true
   ConstantWind:
     required:
       - offset
@@ -13328,6 +13382,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
       url:
         title: Url
         type: string
@@ -13413,6 +13468,7 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
       url:
         title: Url
         type: string

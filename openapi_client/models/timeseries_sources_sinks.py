@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 0.0.51   3Di core release: 2.0.9  deployed on:  11:00AM (UTC) on May 20, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 0.0.52   3Di core release: 2.0.9  deployed on:  13:20PM (UTC) on May 22, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -37,7 +37,8 @@ class TimeseriesSourcesSinks(object):
         'offset': 'int',
         'interpolate': 'bool',
         'values': 'list[list[float]]',
-        'units': 'str'
+        'units': 'str',
+        'uid': 'str'
     }
 
     attribute_map = {
@@ -46,10 +47,11 @@ class TimeseriesSourcesSinks(object):
         'offset': 'offset',
         'interpolate': 'interpolate',
         'values': 'values',
-        'units': 'units'
+        'units': 'units',
+        'uid': 'uid'
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, interpolate=None, values=None, units=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, offset=None, interpolate=None, values=None, units=None, uid=None):  # noqa: E501
         """TimeseriesSourcesSinks - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
@@ -58,6 +60,7 @@ class TimeseriesSourcesSinks(object):
         self._interpolate = None
         self._values = None
         self._units = None
+        self._uid = None
         self.discriminator = None
 
         if url is not None:
@@ -69,6 +72,8 @@ class TimeseriesSourcesSinks(object):
             self.interpolate = interpolate
         self.values = values
         self.units = units
+        if uid is not None:
+            self.uid = uid
 
     @property
     def url(self):
@@ -215,6 +220,27 @@ class TimeseriesSourcesSinks(object):
             )
 
         self._units = units
+
+    @property
+    def uid(self):
+        """Gets the uid of this TimeseriesSourcesSinks.  # noqa: E501
+
+
+        :return: The uid of this TimeseriesSourcesSinks.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this TimeseriesSourcesSinks.
+
+
+        :param uid: The uid of this TimeseriesSourcesSinks.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

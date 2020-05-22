@@ -5,7 +5,7 @@ History
 3.0.b24 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- All uid fields on events should be read-only
 
 
 3.0.b23 (2020-05-20)
