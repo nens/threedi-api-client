@@ -2,10 +2,10 @@
 History
 =======
 
-3.0.b25 (unreleased)
---------------------
+3.0 (unreleased)
+----------------
 
-- Nothing changed yet.
+- Official production release
 
 
 3.0.b24 (2020-05-22)
