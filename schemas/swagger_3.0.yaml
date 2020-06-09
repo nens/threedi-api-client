@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest version: 3.0) 
-     Framework release: 1.0.0 
+     Framework release: 1.0.5 
      3Di core release: 2.0.9 
-    deployed on:  07:43AM (UTC) on May 25, 2020
+    deployed on:  10:00AM (UTC) on June 9, 2020
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -7076,10 +7076,16 @@ paths:
     get:
       operationId: simulations_results_post_processing_lizard_arrival_list
       description: |-
-        A Custom ViewSet for creating, listing or deleting
-        an ArrivalTimePostProcessing object. It includes a custom
-        destroy action (with detail=False) as a BasicPostProcessing
-        object can have only one ArrivalTimePostProcessing object.
+        A Custom ViewSet for creating, listing or deleting an
+        ArrivalTimePostProcessing resource. It includes a custom destroy
+        action (with detail=False) as a BasicPostProcessing object can
+        have only one ArrivalTimePostProcessing object. An
+        ArrivalTimePostProcessing resource is created with an empty POST.
+
+        Three conditions are validated when creating an resource:
+        - The simulation may not already have an ArrivalTimePostProcessing resource.
+        - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True.
+        - Lizard may not already have been triggered to processing this simulation.
       parameters:
         - name: limit
           in: query
@@ -7103,10 +7109,16 @@ paths:
     post:
       operationId: simulations_results_post_processing_lizard_arrival_create
       description: |-
-        A Custom ViewSet for creating, listing or deleting
-        an ArrivalTimePostProcessing object. It includes a custom
-        destroy action (with detail=False) as a BasicPostProcessing
-        object can have only one ArrivalTimePostProcessing object.
+        A Custom ViewSet for creating, listing or deleting an
+        ArrivalTimePostProcessing resource. It includes a custom destroy
+        action (with detail=False) as a BasicPostProcessing object can
+        have only one ArrivalTimePostProcessing object. An
+        ArrivalTimePostProcessing resource is created with an empty POST.
+
+        Three conditions are validated when creating an resource:
+        - The simulation may not already have an ArrivalTimePostProcessing resource.
+        - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True.
+        - Lizard may not already have been triggered to processing this simulation.
       parameters:
         - name: data
           in: body
@@ -7129,10 +7141,16 @@ paths:
     delete:
       operationId: simulations_results_post_processing_lizard_arrival_delete
       description: |-
-        A Custom ViewSet for creating, listing or deleting
-        an ArrivalTimePostProcessing object. It includes a custom
-        destroy action (with detail=False) as a BasicPostProcessing
-        object can have only one ArrivalTimePostProcessing object.
+        A Custom ViewSet for creating, listing or deleting an
+        ArrivalTimePostProcessing resource. It includes a custom destroy
+        action (with detail=False) as a BasicPostProcessing object can
+        have only one ArrivalTimePostProcessing object. An
+        ArrivalTimePostProcessing resource is created with an empty POST.
+
+        Three conditions are validated when creating an resource:
+        - The simulation may not already have an ArrivalTimePostProcessing resource.
+        - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True.
+        - Lizard may not already have been triggered to processing this simulation.
       parameters: []
       responses:
         '404':
@@ -7151,7 +7169,37 @@ paths:
   /simulations/{simulation_pk}/results/post_processing/lizard/basic/:
     get:
       operationId: simulations_results_post_processing_lizard_basic_list
-      description: ''
+      description: |-
+        A Custom ViewSet for creating, listing or deleting
+        a BasicPostProcessing resource. It includes a custom
+        destroy action (with detail=False) as a BasicPostProcessing
+        object can have only one DamagePostProcessing object.
+
+        Three conditions are validated when creating an resource:
+        - The simulation may not already have a BasicPostProcessing resource.
+        - Lizard may not already have been triggered to processing this simulation.
+        - The Simulation must hold a 'dem_raw_file' in case parameter 'process_basic_results' is True.
+
+        The ``scenario_name`` parameter is optional (max 50 chars). If not
+        provided it becomes an empty string.
+
+        THe ``result_uuid`` can be defined for e.g. operational models.
+
+        If ``process_basic_results`` (boolean) is False then:
+        - It is not possible to have ArrivalTimePostProcessing and DamagePostProcessing.
+        - Only raw_results (.nc, .log, etc) are uploaded to Lizard.
+
+        If ``process_basic_results`` (boolean) is True then:
+        - It is possible to have ArrivalTimePostProcessing and DamagePostProcessing.
+        - raw_results are uploaded to Lizard and additional WMS layers are available on Lizard.
+
+        Payload example
+        ```
+        {
+            "scenario_name": "my_scenario_name",
+            "process_basic_results": True,
+        }
+        ```
       parameters:
         - name: limit
           in: query
@@ -7174,7 +7222,37 @@ paths:
         - simulations
     post:
       operationId: simulations_results_post_processing_lizard_basic_create
-      description: ''
+      description: |-
+        A Custom ViewSet for creating, listing or deleting
+        a BasicPostProcessing resource. It includes a custom
+        destroy action (with detail=False) as a BasicPostProcessing
+        object can have only one DamagePostProcessing object.
+
+        Three conditions are validated when creating an resource:
+        - The simulation may not already have a BasicPostProcessing resource.
+        - Lizard may not already have been triggered to processing this simulation.
+        - The Simulation must hold a 'dem_raw_file' in case parameter 'process_basic_results' is True.
+
+        The ``scenario_name`` parameter is optional (max 50 chars). If not
+        provided it becomes an empty string.
+
+        THe ``result_uuid`` can be defined for e.g. operational models.
+
+        If ``process_basic_results`` (boolean) is False then:
+        - It is not possible to have ArrivalTimePostProcessing and DamagePostProcessing.
+        - Only raw_results (.nc, .log, etc) are uploaded to Lizard.
+
+        If ``process_basic_results`` (boolean) is True then:
+        - It is possible to have ArrivalTimePostProcessing and DamagePostProcessing.
+        - raw_results are uploaded to Lizard and additional WMS layers are available on Lizard.
+
+        Payload example
+        ```
+        {
+            "scenario_name": "my_scenario_name",
+            "process_basic_results": True,
+        }
+        ```
       parameters:
         - name: data
           in: body
@@ -7196,7 +7274,37 @@ paths:
   /simulations/{simulation_pk}/results/post_processing/lizard/basic/delete/:
     delete:
       operationId: simulations_results_post_processing_lizard_basic_delete
-      description: ''
+      description: |-
+        A Custom ViewSet for creating, listing or deleting
+        a BasicPostProcessing resource. It includes a custom
+        destroy action (with detail=False) as a BasicPostProcessing
+        object can have only one DamagePostProcessing object.
+
+        Three conditions are validated when creating an resource:
+        - The simulation may not already have a BasicPostProcessing resource.
+        - Lizard may not already have been triggered to processing this simulation.
+        - The Simulation must hold a 'dem_raw_file' in case parameter 'process_basic_results' is True.
+
+        The ``scenario_name`` parameter is optional (max 50 chars). If not
+        provided it becomes an empty string.
+
+        THe ``result_uuid`` can be defined for e.g. operational models.
+
+        If ``process_basic_results`` (boolean) is False then:
+        - It is not possible to have ArrivalTimePostProcessing and DamagePostProcessing.
+        - Only raw_results (.nc, .log, etc) are uploaded to Lizard.
+
+        If ``process_basic_results`` (boolean) is True then:
+        - It is possible to have ArrivalTimePostProcessing and DamagePostProcessing.
+        - raw_results are uploaded to Lizard and additional WMS layers are available on Lizard.
+
+        Payload example
+        ```
+        {
+            "scenario_name": "my_scenario_name",
+            "process_basic_results": True,
+        }
+        ```
       parameters: []
       responses:
         '404':
@@ -7215,7 +7323,40 @@ paths:
   /simulations/{simulation_pk}/results/post_processing/lizard/damage/:
     get:
       operationId: simulations_results_post_processing_lizard_damage_list
-      description: ''
+      description: |-
+        A Custom ViewSet for creating, listing or deleting
+        a DamagePostProcessing resource. It includes a custom
+        destroy action (with detail=False) as a BasicPostProcessing
+        object can have only one DamagePostProcessing object.
+
+        Three conditions are validated when creating an resource:
+        - The simulation may not already have a DamagePostProcessing resource.
+        - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True.
+        - Lizard may not already have been triggered to processing this simulation.
+
+        The ``cost_type`` parameter choices are: 'min', 'avg', 'max'.
+
+        The ``flood_month`` parameter choices are: 'jan', 'feb', etc
+
+        The ``inundation_period`` parameter is ime in hours (float),
+        min_value=1.0
+
+        The ``repair_time_infrastructure`` parameter is time in
+        hours (integer), min_value=1, max_value=240
+
+        The ``repair_time_buildings`` parameter is time in hours (integer),
+        min_value=1, max_value=240
+
+        Payload example
+        ```
+        {
+            "cost_type": "min",
+            "flood_month": "jan",
+            "inundation_period": 12.0,
+            "repair_time_infrastructure": 120,
+            "repair_time_buildings": 240
+        }
+        ```
       parameters:
         - name: limit
           in: query
@@ -7238,7 +7379,40 @@ paths:
         - simulations
     post:
       operationId: simulations_results_post_processing_lizard_damage_create
-      description: ''
+      description: |-
+        A Custom ViewSet for creating, listing or deleting
+        a DamagePostProcessing resource. It includes a custom
+        destroy action (with detail=False) as a BasicPostProcessing
+        object can have only one DamagePostProcessing object.
+
+        Three conditions are validated when creating an resource:
+        - The simulation may not already have a DamagePostProcessing resource.
+        - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True.
+        - Lizard may not already have been triggered to processing this simulation.
+
+        The ``cost_type`` parameter choices are: 'min', 'avg', 'max'.
+
+        The ``flood_month`` parameter choices are: 'jan', 'feb', etc
+
+        The ``inundation_period`` parameter is ime in hours (float),
+        min_value=1.0
+
+        The ``repair_time_infrastructure`` parameter is time in
+        hours (integer), min_value=1, max_value=240
+
+        The ``repair_time_buildings`` parameter is time in hours (integer),
+        min_value=1, max_value=240
+
+        Payload example
+        ```
+        {
+            "cost_type": "min",
+            "flood_month": "jan",
+            "inundation_period": 12.0,
+            "repair_time_infrastructure": 120,
+            "repair_time_buildings": 240
+        }
+        ```
       parameters:
         - name: data
           in: body
@@ -7260,7 +7434,40 @@ paths:
   /simulations/{simulation_pk}/results/post_processing/lizard/damage/delete/:
     delete:
       operationId: simulations_results_post_processing_lizard_damage_delete
-      description: ''
+      description: |-
+        A Custom ViewSet for creating, listing or deleting
+        a DamagePostProcessing resource. It includes a custom
+        destroy action (with detail=False) as a BasicPostProcessing
+        object can have only one DamagePostProcessing object.
+
+        Three conditions are validated when creating an resource:
+        - The simulation may not already have a DamagePostProcessing resource.
+        - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True.
+        - Lizard may not already have been triggered to processing this simulation.
+
+        The ``cost_type`` parameter choices are: 'min', 'avg', 'max'.
+
+        The ``flood_month`` parameter choices are: 'jan', 'feb', etc
+
+        The ``inundation_period`` parameter is ime in hours (float),
+        min_value=1.0
+
+        The ``repair_time_infrastructure`` parameter is time in
+        hours (integer), min_value=1, max_value=240
+
+        The ``repair_time_buildings`` parameter is time in hours (integer),
+        min_value=1, max_value=240
+
+        Payload example
+        ```
+        {
+            "cost_type": "min",
+            "flood_month": "jan",
+            "inundation_period": 12.0,
+            "repair_time_infrastructure": 120,
+            "repair_time_buildings": 240
+        }
+        ```
       parameters: []
       responses:
         '404':
@@ -7279,7 +7486,43 @@ paths:
   /simulations/{simulation_pk}/results/post_processing/lizard/overview/:
     get:
       operationId: simulations_results_post_processing_lizard_overview_list
-      description: Custom list that generates a JSON with 3 nested JSONs.
+      description: |-
+        Custom list that provides overview of post-processing configuration.
+        Below a format specification is provided. All keys always exists,
+        regardless post-processing config:
+
+        ```
+        {
+          "username": str,
+          "metadata_version": float,
+          "start_time_sim": datetime (UTC),
+          "end_time_sim": datetime (UTC),
+          "results": {
+            "basic": bool,
+            "damage_estimation": bool,
+            "arrival_time": bool
+          },
+          "model_name": str,
+          "settings": {  # empty dict if damage_estimation=False
+            "damage_table": str,
+            "elevation_raster_uuid": str,
+            "landcover_raster_uuid": str,
+            "road_rail_raster_uuid": str,
+            "cost_type": int,
+            "flood_month": int,
+            "inundation_period": int,
+            "repair_time_infrastructure": int,
+            "repair_time_buildings": int
+          },
+          "scenario_name": str,
+          "model_id": int,
+          "model_revision_id": str,
+          "email": str,
+          "result_uuid": str,
+          "organisation_uuid": str,
+          "simulation": int
+        }
+        ```
       parameters:
         - name: limit
           in: query
@@ -8075,6 +8318,21 @@ paths:
           description: Multiple values may be separated by commas.
           required: false
           type: number
+        - name: simulation__user__username
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__organisation__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__organisation__unique_id
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: limit
           in: query
           description: Number of results to return per page.
@@ -8108,6 +8366,278 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/SimulationStatus'
+      tags:
+        - statuses
+    parameters: []
+  /statuses/statistics/:
+    get:
+      operationId: statuses_overview
+      summary: |-
+        Count of (latest/final) simulation statuses. Combine with filters to
+        get your weekly/monthly etc statistics
+      description: |-
+        For example, to get a count of finished simulations in 2020
+
+        ```
+        ?name=finished&created__year=2020
+      parameters:
+        - name: name
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: name__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: name__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: name__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: name__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: name__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: name__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: simulation__name__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created__lte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created__date
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created__date__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created__date__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created__date__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created__date__lte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created__year
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__year__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__year__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__year__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__year__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__month
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__month__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__day
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__day__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__week
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__week_day
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: id
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: id__range
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: number
+        - name: id__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: id__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: id__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: id__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: id__isnull
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation_id__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: number
+        - name: simulation__user__username
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__organisation__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__organisation__unique_id
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SimulationStatusStatistics'
       tags:
         - statuses
     parameters: []
@@ -13623,7 +14153,6 @@ definitions:
         title: Result uuid
         type: string
         format: uuid
-        readOnly: true
   DamagePostProcessing:
     type: object
     properties:
@@ -13659,6 +14188,7 @@ definitions:
         title: Inundation period
         description: time in hours
         type: number
+        minimum: 1.0
       repair_time_infrastructure:
         title: Repair time infrastructure
         description: time in hours
@@ -13675,63 +14205,19 @@ definitions:
     title: Results
     required:
       - basic
-      - damage_estimate
+      - damage_estimation
       - arrival_time
     type: object
     properties:
       basic:
         title: Basic
         type: boolean
-      damage_estimate:
-        title: Damage estimate
+      damage_estimation:
+        title: Damage estimation
         type: boolean
       arrival_time:
         title: Arrival time
         type: boolean
-  DamageSeconds:
-    title: Damage
-    type: object
-    properties:
-      basic_post_processing:
-        title: Basic post processing
-        type: integer
-        readOnly: true
-      cost_type:
-        title: Cost type
-        description: "'min', 'avg', or 'max'"
-        type: string
-        enum:
-          - min
-          - avg
-          - max
-      flood_month:
-        title: Flood month
-        type: string
-        enum:
-          - jan
-          - feb
-          - mar
-          - apr
-          - may
-          - jun
-          - jul
-          - aug
-          - sep
-          - oct
-          - nov
-          - dec
-      inundation_period:
-        title: Inundation period
-        type: string
-        readOnly: true
-      repair_time_infrastructure:
-        title: Repair time infrastructure
-        type: string
-        readOnly: true
-      repair_time_buildings:
-        title: Repair time buildings
-        type: string
-        readOnly: true
   PostProcessingOverview:
     required:
       - results
@@ -13745,6 +14231,7 @@ definitions:
         title: Metadata version
         type: string
         readOnly: true
+        default: 1.2
       start_time_sim:
         title: Start time sim
         type: string
@@ -13755,22 +14242,26 @@ definitions:
         readOnly: true
       results:
         $ref: '#/definitions/Result'
+      model_name:
+        title: Model name
+        type: string
+        readOnly: true
+      settings:
+        title: Settings
+        type: string
+        readOnly: true
       scenario_name:
         title: Scenario name
         description: Scenario name for saving the results
         type: string
-        maxLength: 50
+        readOnly: true
         minLength: 1
       model_id:
         title: Model id
-        type: string
+        type: integer
         readOnly: true
       model_revision_id:
         title: Model revision id
-        type: string
-        readOnly: true
-      model_name:
-        title: Model name
         type: string
         readOnly: true
       email:
@@ -13781,6 +14272,7 @@ definitions:
         title: Result uuid
         type: string
         format: uuid
+        readOnly: true
       organisation_uuid:
         title: Organisation uuid
         type: string
@@ -13788,14 +14280,6 @@ definitions:
       simulation:
         title: Simulation
         type: integer
-        readOnly: true
-      arrival:
-        $ref: '#/definitions/ArrivalTimePostProcessing'
-      damage:
-        $ref: '#/definitions/DamageSeconds'
-      damage_sources:
-        title: Damage sources
-        type: object
         readOnly: true
   PostProcessingStart:
     type: object
@@ -14106,6 +14590,19 @@ definitions:
           - confirmed
           - timeout
         readOnly: true
+  SimulationStatusStatistics:
+    required:
+      - name
+      - total
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        minLength: 1
+      total:
+        title: Total
+        type: integer
   RasterOptions:
     type: object
     properties:

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.0   3Di core release: 2.0.9  deployed on:  07:43AM (UTC) on May 25, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.5   3Di core release: 2.0.9  deployed on:  10:00AM (UTC) on June 9, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -25104,7 +25104,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_arrival_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_arrival_create  # noqa: E501
 
-        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object. An ArrivalTimePostProcessing resource is created with an empty POST.  Three conditions are validated when creating an resource: - The simulation may not already have an ArrivalTimePostProcessing resource. - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True. - Lizard may not already have been triggered to processing this simulation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_arrival_create(simulation_pk, data, async_req=True)
@@ -25130,7 +25130,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_arrival_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_arrival_create  # noqa: E501
 
-        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object. An ArrivalTimePostProcessing resource is created with an empty POST.  Three conditions are validated when creating an resource: - The simulation may not already have an ArrivalTimePostProcessing resource. - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True. - Lizard may not already have been triggered to processing this simulation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_arrival_create_with_http_info(simulation_pk, data, async_req=True)
@@ -25224,7 +25224,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_arrival_delete(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_arrival_delete  # noqa: E501
 
-        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object. An ArrivalTimePostProcessing resource is created with an empty POST.  Three conditions are validated when creating an resource: - The simulation may not already have an ArrivalTimePostProcessing resource. - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True. - Lizard may not already have been triggered to processing this simulation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_arrival_delete(simulation_pk, async_req=True)
@@ -25249,7 +25249,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_arrival_delete_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_arrival_delete  # noqa: E501
 
-        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object. An ArrivalTimePostProcessing resource is created with an empty POST.  Three conditions are validated when creating an resource: - The simulation may not already have an ArrivalTimePostProcessing resource. - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True. - Lizard may not already have been triggered to processing this simulation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_arrival_delete_with_http_info(simulation_pk, async_req=True)
@@ -25328,7 +25328,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_arrival_list(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_arrival_list  # noqa: E501
 
-        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object. An ArrivalTimePostProcessing resource is created with an empty POST.  Three conditions are validated when creating an resource: - The simulation may not already have an ArrivalTimePostProcessing resource. - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True. - Lizard may not already have been triggered to processing this simulation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_arrival_list(simulation_pk, async_req=True)
@@ -25355,7 +25355,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_arrival_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_arrival_list  # noqa: E501
 
-        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing object. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object.  # noqa: E501
+        A Custom ViewSet for creating, listing or deleting an ArrivalTimePostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one ArrivalTimePostProcessing object. An ArrivalTimePostProcessing resource is created with an empty POST.  Three conditions are validated when creating an resource: - The simulation may not already have an ArrivalTimePostProcessing resource. - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True. - Lizard may not already have been triggered to processing this simulation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_arrival_list_with_http_info(simulation_pk, async_req=True)
@@ -25444,6 +25444,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_basic_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_basic_create  # noqa: E501
 
+        A Custom ViewSet for creating, listing or deleting a BasicPostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one DamagePostProcessing object.  Three conditions are validated when creating an resource: - The simulation may not already have a BasicPostProcessing resource. - Lizard may not already have been triggered to processing this simulation. - The Simulation must hold a 'dem_raw_file' in case parameter 'process_basic_results' is True.  The ``scenario_name`` parameter is optional (max 50 chars). If not provided it becomes an empty string.  THe ``result_uuid`` can be defined for e.g. operational models.  If ``process_basic_results`` (boolean) is False then: - It is not possible to have ArrivalTimePostProcessing and DamagePostProcessing. - Only raw_results (.nc, .log, etc) are uploaded to Lizard.  If ``process_basic_results`` (boolean) is True then: - It is possible to have ArrivalTimePostProcessing and DamagePostProcessing. - raw_results are uploaded to Lizard and additional WMS layers are available on Lizard.  Payload example ``` {     \"scenario_name\": \"my_scenario_name\",     \"process_basic_results\": True, } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_basic_create(simulation_pk, data, async_req=True)
@@ -25469,6 +25470,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_basic_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_basic_create  # noqa: E501
 
+        A Custom ViewSet for creating, listing or deleting a BasicPostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one DamagePostProcessing object.  Three conditions are validated when creating an resource: - The simulation may not already have a BasicPostProcessing resource. - Lizard may not already have been triggered to processing this simulation. - The Simulation must hold a 'dem_raw_file' in case parameter 'process_basic_results' is True.  The ``scenario_name`` parameter is optional (max 50 chars). If not provided it becomes an empty string.  THe ``result_uuid`` can be defined for e.g. operational models.  If ``process_basic_results`` (boolean) is False then: - It is not possible to have ArrivalTimePostProcessing and DamagePostProcessing. - Only raw_results (.nc, .log, etc) are uploaded to Lizard.  If ``process_basic_results`` (boolean) is True then: - It is possible to have ArrivalTimePostProcessing and DamagePostProcessing. - raw_results are uploaded to Lizard and additional WMS layers are available on Lizard.  Payload example ``` {     \"scenario_name\": \"my_scenario_name\",     \"process_basic_results\": True, } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_basic_create_with_http_info(simulation_pk, data, async_req=True)
@@ -25562,6 +25564,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_basic_delete(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_basic_delete  # noqa: E501
 
+        A Custom ViewSet for creating, listing or deleting a BasicPostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one DamagePostProcessing object.  Three conditions are validated when creating an resource: - The simulation may not already have a BasicPostProcessing resource. - Lizard may not already have been triggered to processing this simulation. - The Simulation must hold a 'dem_raw_file' in case parameter 'process_basic_results' is True.  The ``scenario_name`` parameter is optional (max 50 chars). If not provided it becomes an empty string.  THe ``result_uuid`` can be defined for e.g. operational models.  If ``process_basic_results`` (boolean) is False then: - It is not possible to have ArrivalTimePostProcessing and DamagePostProcessing. - Only raw_results (.nc, .log, etc) are uploaded to Lizard.  If ``process_basic_results`` (boolean) is True then: - It is possible to have ArrivalTimePostProcessing and DamagePostProcessing. - raw_results are uploaded to Lizard and additional WMS layers are available on Lizard.  Payload example ``` {     \"scenario_name\": \"my_scenario_name\",     \"process_basic_results\": True, } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_basic_delete(simulation_pk, async_req=True)
@@ -25586,6 +25589,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_basic_delete_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_basic_delete  # noqa: E501
 
+        A Custom ViewSet for creating, listing or deleting a BasicPostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one DamagePostProcessing object.  Three conditions are validated when creating an resource: - The simulation may not already have a BasicPostProcessing resource. - Lizard may not already have been triggered to processing this simulation. - The Simulation must hold a 'dem_raw_file' in case parameter 'process_basic_results' is True.  The ``scenario_name`` parameter is optional (max 50 chars). If not provided it becomes an empty string.  THe ``result_uuid`` can be defined for e.g. operational models.  If ``process_basic_results`` (boolean) is False then: - It is not possible to have ArrivalTimePostProcessing and DamagePostProcessing. - Only raw_results (.nc, .log, etc) are uploaded to Lizard.  If ``process_basic_results`` (boolean) is True then: - It is possible to have ArrivalTimePostProcessing and DamagePostProcessing. - raw_results are uploaded to Lizard and additional WMS layers are available on Lizard.  Payload example ``` {     \"scenario_name\": \"my_scenario_name\",     \"process_basic_results\": True, } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_basic_delete_with_http_info(simulation_pk, async_req=True)
@@ -25664,6 +25668,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_basic_list(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_basic_list  # noqa: E501
 
+        A Custom ViewSet for creating, listing or deleting a BasicPostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one DamagePostProcessing object.  Three conditions are validated when creating an resource: - The simulation may not already have a BasicPostProcessing resource. - Lizard may not already have been triggered to processing this simulation. - The Simulation must hold a 'dem_raw_file' in case parameter 'process_basic_results' is True.  The ``scenario_name`` parameter is optional (max 50 chars). If not provided it becomes an empty string.  THe ``result_uuid`` can be defined for e.g. operational models.  If ``process_basic_results`` (boolean) is False then: - It is not possible to have ArrivalTimePostProcessing and DamagePostProcessing. - Only raw_results (.nc, .log, etc) are uploaded to Lizard.  If ``process_basic_results`` (boolean) is True then: - It is possible to have ArrivalTimePostProcessing and DamagePostProcessing. - raw_results are uploaded to Lizard and additional WMS layers are available on Lizard.  Payload example ``` {     \"scenario_name\": \"my_scenario_name\",     \"process_basic_results\": True, } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_basic_list(simulation_pk, async_req=True)
@@ -25690,6 +25695,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_basic_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_basic_list  # noqa: E501
 
+        A Custom ViewSet for creating, listing or deleting a BasicPostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one DamagePostProcessing object.  Three conditions are validated when creating an resource: - The simulation may not already have a BasicPostProcessing resource. - Lizard may not already have been triggered to processing this simulation. - The Simulation must hold a 'dem_raw_file' in case parameter 'process_basic_results' is True.  The ``scenario_name`` parameter is optional (max 50 chars). If not provided it becomes an empty string.  THe ``result_uuid`` can be defined for e.g. operational models.  If ``process_basic_results`` (boolean) is False then: - It is not possible to have ArrivalTimePostProcessing and DamagePostProcessing. - Only raw_results (.nc, .log, etc) are uploaded to Lizard.  If ``process_basic_results`` (boolean) is True then: - It is possible to have ArrivalTimePostProcessing and DamagePostProcessing. - raw_results are uploaded to Lizard and additional WMS layers are available on Lizard.  Payload example ``` {     \"scenario_name\": \"my_scenario_name\",     \"process_basic_results\": True, } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_basic_list_with_http_info(simulation_pk, async_req=True)
@@ -25778,6 +25784,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_damage_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_damage_create  # noqa: E501
 
+        A Custom ViewSet for creating, listing or deleting a DamagePostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one DamagePostProcessing object.  Three conditions are validated when creating an resource: - The simulation may not already have a DamagePostProcessing resource. - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True. - Lizard may not already have been triggered to processing this simulation.  The ``cost_type`` parameter choices are: 'min', 'avg', 'max'.  The ``flood_month`` parameter choices are: 'jan', 'feb', etc  The ``inundation_period`` parameter is ime in hours (float), min_value=1.0  The ``repair_time_infrastructure`` parameter is time in hours (integer), min_value=1, max_value=240  The ``repair_time_buildings`` parameter is time in hours (integer), min_value=1, max_value=240  Payload example ``` {     \"cost_type\": \"min\",     \"flood_month\": \"jan\",     \"inundation_period\": 12.0,     \"repair_time_infrastructure\": 120,     \"repair_time_buildings\": 240 } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_damage_create(simulation_pk, data, async_req=True)
@@ -25803,6 +25810,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_damage_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_damage_create  # noqa: E501
 
+        A Custom ViewSet for creating, listing or deleting a DamagePostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one DamagePostProcessing object.  Three conditions are validated when creating an resource: - The simulation may not already have a DamagePostProcessing resource. - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True. - Lizard may not already have been triggered to processing this simulation.  The ``cost_type`` parameter choices are: 'min', 'avg', 'max'.  The ``flood_month`` parameter choices are: 'jan', 'feb', etc  The ``inundation_period`` parameter is ime in hours (float), min_value=1.0  The ``repair_time_infrastructure`` parameter is time in hours (integer), min_value=1, max_value=240  The ``repair_time_buildings`` parameter is time in hours (integer), min_value=1, max_value=240  Payload example ``` {     \"cost_type\": \"min\",     \"flood_month\": \"jan\",     \"inundation_period\": 12.0,     \"repair_time_infrastructure\": 120,     \"repair_time_buildings\": 240 } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_damage_create_with_http_info(simulation_pk, data, async_req=True)
@@ -25896,6 +25904,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_damage_delete(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_damage_delete  # noqa: E501
 
+        A Custom ViewSet for creating, listing or deleting a DamagePostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one DamagePostProcessing object.  Three conditions are validated when creating an resource: - The simulation may not already have a DamagePostProcessing resource. - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True. - Lizard may not already have been triggered to processing this simulation.  The ``cost_type`` parameter choices are: 'min', 'avg', 'max'.  The ``flood_month`` parameter choices are: 'jan', 'feb', etc  The ``inundation_period`` parameter is ime in hours (float), min_value=1.0  The ``repair_time_infrastructure`` parameter is time in hours (integer), min_value=1, max_value=240  The ``repair_time_buildings`` parameter is time in hours (integer), min_value=1, max_value=240  Payload example ``` {     \"cost_type\": \"min\",     \"flood_month\": \"jan\",     \"inundation_period\": 12.0,     \"repair_time_infrastructure\": 120,     \"repair_time_buildings\": 240 } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_damage_delete(simulation_pk, async_req=True)
@@ -25920,6 +25929,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_damage_delete_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_damage_delete  # noqa: E501
 
+        A Custom ViewSet for creating, listing or deleting a DamagePostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one DamagePostProcessing object.  Three conditions are validated when creating an resource: - The simulation may not already have a DamagePostProcessing resource. - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True. - Lizard may not already have been triggered to processing this simulation.  The ``cost_type`` parameter choices are: 'min', 'avg', 'max'.  The ``flood_month`` parameter choices are: 'jan', 'feb', etc  The ``inundation_period`` parameter is ime in hours (float), min_value=1.0  The ``repair_time_infrastructure`` parameter is time in hours (integer), min_value=1, max_value=240  The ``repair_time_buildings`` parameter is time in hours (integer), min_value=1, max_value=240  Payload example ``` {     \"cost_type\": \"min\",     \"flood_month\": \"jan\",     \"inundation_period\": 12.0,     \"repair_time_infrastructure\": 120,     \"repair_time_buildings\": 240 } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_damage_delete_with_http_info(simulation_pk, async_req=True)
@@ -25998,6 +26008,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_damage_list(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_damage_list  # noqa: E501
 
+        A Custom ViewSet for creating, listing or deleting a DamagePostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one DamagePostProcessing object.  Three conditions are validated when creating an resource: - The simulation may not already have a DamagePostProcessing resource. - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True. - Lizard may not already have been triggered to processing this simulation.  The ``cost_type`` parameter choices are: 'min', 'avg', 'max'.  The ``flood_month`` parameter choices are: 'jan', 'feb', etc  The ``inundation_period`` parameter is ime in hours (float), min_value=1.0  The ``repair_time_infrastructure`` parameter is time in hours (integer), min_value=1, max_value=240  The ``repair_time_buildings`` parameter is time in hours (integer), min_value=1, max_value=240  Payload example ``` {     \"cost_type\": \"min\",     \"flood_month\": \"jan\",     \"inundation_period\": 12.0,     \"repair_time_infrastructure\": 120,     \"repair_time_buildings\": 240 } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_damage_list(simulation_pk, async_req=True)
@@ -26024,6 +26035,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_damage_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_damage_list  # noqa: E501
 
+        A Custom ViewSet for creating, listing or deleting a DamagePostProcessing resource. It includes a custom destroy action (with detail=False) as a BasicPostProcessing object can have only one DamagePostProcessing object.  Three conditions are validated when creating an resource: - The simulation may not already have a DamagePostProcessing resource. - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True. - Lizard may not already have been triggered to processing this simulation.  The ``cost_type`` parameter choices are: 'min', 'avg', 'max'.  The ``flood_month`` parameter choices are: 'jan', 'feb', etc  The ``inundation_period`` parameter is ime in hours (float), min_value=1.0  The ``repair_time_infrastructure`` parameter is time in hours (integer), min_value=1, max_value=240  The ``repair_time_buildings`` parameter is time in hours (integer), min_value=1, max_value=240  Payload example ``` {     \"cost_type\": \"min\",     \"flood_month\": \"jan\",     \"inundation_period\": 12.0,     \"repair_time_infrastructure\": 120,     \"repair_time_buildings\": 240 } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_damage_list_with_http_info(simulation_pk, async_req=True)
@@ -26112,7 +26124,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_overview_list(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_overview_list  # noqa: E501
 
-        Custom list that generates a JSON with 3 nested JSONs.  # noqa: E501
+        Custom list that provides overview of post-processing configuration. Below a format specification is provided. All keys always exists, regardless post-processing config:  ``` {   \"username\": str,   \"metadata_version\": float,   \"start_time_sim\": datetime (UTC),   \"end_time_sim\": datetime (UTC),   \"results\": {     \"basic\": bool,     \"damage_estimation\": bool,     \"arrival_time\": bool   },   \"model_name\": str,   \"settings\": {  # empty dict if damage_estimation=False     \"damage_table\": str,     \"elevation_raster_uuid\": str,     \"landcover_raster_uuid\": str,     \"road_rail_raster_uuid\": str,     \"cost_type\": int,     \"flood_month\": int,     \"inundation_period\": int,     \"repair_time_infrastructure\": int,     \"repair_time_buildings\": int   },   \"scenario_name\": str,   \"model_id\": int,   \"model_revision_id\": str,   \"email\": str,   \"result_uuid\": str,   \"organisation_uuid\": str,   \"simulation\": int } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_overview_list(simulation_pk, async_req=True)
@@ -26139,7 +26151,7 @@ class SimulationsApi(object):
     def simulations_results_post_processing_lizard_overview_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
         """simulations_results_post_processing_lizard_overview_list  # noqa: E501
 
-        Custom list that generates a JSON with 3 nested JSONs.  # noqa: E501
+        Custom list that provides overview of post-processing configuration. Below a format specification is provided. All keys always exists, regardless post-processing config:  ``` {   \"username\": str,   \"metadata_version\": float,   \"start_time_sim\": datetime (UTC),   \"end_time_sim\": datetime (UTC),   \"results\": {     \"basic\": bool,     \"damage_estimation\": bool,     \"arrival_time\": bool   },   \"model_name\": str,   \"settings\": {  # empty dict if damage_estimation=False     \"damage_table\": str,     \"elevation_raster_uuid\": str,     \"landcover_raster_uuid\": str,     \"road_rail_raster_uuid\": str,     \"cost_type\": int,     \"flood_month\": int,     \"inundation_period\": int,     \"repair_time_infrastructure\": int,     \"repair_time_buildings\": int   },   \"scenario_name\": str,   \"model_id\": int,   \"model_revision_id\": str,   \"email\": str,   \"result_uuid\": str,   \"organisation_uuid\": str,   \"simulation\": int } ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_results_post_processing_lizard_overview_list_with_http_info(simulation_pk, async_req=True)

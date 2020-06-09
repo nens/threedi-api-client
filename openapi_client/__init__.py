@@ -5,7 +5,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.0   3Di core release: 2.0.9  deployed on:  07:43AM (UTC) on May 25, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.5   3Di core release: 2.0.9  deployed on:  10:00AM (UTC) on June 9, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = '3.1.dev0'
+__version__ = "1.0.0"
 
 # import apis into sdk package
 from openapi_client.api.auth_api import AuthApi
@@ -55,7 +55,6 @@ from openapi_client.models.constant_wind import ConstantWind
 from openapi_client.models.contract import Contract
 from openapi_client.models.current_status import CurrentStatus
 from openapi_client.models.damage_post_processing import DamagePostProcessing
-from openapi_client.models.damage_seconds import DamageSeconds
 from openapi_client.models.download import Download
 from openapi_client.models.event import Event
 from openapi_client.models.file import File
@@ -161,6 +160,7 @@ from openapi_client.models.saved_state_overview import SavedStateOverview
 from openapi_client.models.simulation import Simulation
 from openapi_client.models.simulation_channel import SimulationChannel
 from openapi_client.models.simulation_status import SimulationStatus
+from openapi_client.models.simulation_status_statistics import SimulationStatusStatistics
 from openapi_client.models.simulation_update import SimulationUpdate
 from openapi_client.models.stable_threshold_saved_state import StableThresholdSavedState
 from openapi_client.models.tms import TMS

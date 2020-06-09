@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.0   3Di core release: 2.0.9  deployed on:  07:43AM (UTC) on May 25, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.5   3Di core release: 2.0.9  deployed on:  10:00AM (UTC) on June 9, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -170,6 +170,8 @@ class DamagePostProcessing(object):
         :param inundation_period: The inundation_period of this DamagePostProcessing.  # noqa: E501
         :type: float
         """
+        if inundation_period is not None and inundation_period < 1:  # noqa: E501
+            raise ValueError("Invalid value for `inundation_period`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._inundation_period = inundation_period
 

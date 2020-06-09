@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.0   3Di core release: 2.0.9  deployed on:  07:43AM (UTC) on May 25, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.5   3Di core release: 2.0.9  deployed on:  10:00AM (UTC) on June 9, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -33,26 +33,26 @@ class Result(object):
     """
     openapi_types = {
         'basic': 'bool',
-        'damage_estimate': 'bool',
+        'damage_estimation': 'bool',
         'arrival_time': 'bool'
     }
 
     attribute_map = {
         'basic': 'basic',
-        'damage_estimate': 'damage_estimate',
+        'damage_estimation': 'damage_estimation',
         'arrival_time': 'arrival_time'
     }
 
-    def __init__(self, basic=None, damage_estimate=None, arrival_time=None):  # noqa: E501
+    def __init__(self, basic=None, damage_estimation=None, arrival_time=None):  # noqa: E501
         """Result - a model defined in OpenAPI"""  # noqa: E501
 
         self._basic = None
-        self._damage_estimate = None
+        self._damage_estimation = None
         self._arrival_time = None
         self.discriminator = None
 
         self.basic = basic
-        self.damage_estimate = damage_estimate
+        self.damage_estimation = damage_estimation
         self.arrival_time = arrival_time
 
     @property
@@ -79,27 +79,27 @@ class Result(object):
         self._basic = basic
 
     @property
-    def damage_estimate(self):
-        """Gets the damage_estimate of this Result.  # noqa: E501
+    def damage_estimation(self):
+        """Gets the damage_estimation of this Result.  # noqa: E501
 
 
-        :return: The damage_estimate of this Result.  # noqa: E501
+        :return: The damage_estimation of this Result.  # noqa: E501
         :rtype: bool
         """
-        return self._damage_estimate
+        return self._damage_estimation
 
-    @damage_estimate.setter
-    def damage_estimate(self, damage_estimate):
-        """Sets the damage_estimate of this Result.
+    @damage_estimation.setter
+    def damage_estimation(self, damage_estimation):
+        """Sets the damage_estimation of this Result.
 
 
-        :param damage_estimate: The damage_estimate of this Result.  # noqa: E501
+        :param damage_estimation: The damage_estimation of this Result.  # noqa: E501
         :type: bool
         """
-        if damage_estimate is None:
-            raise ValueError("Invalid value for `damage_estimate`, must not be `None`")  # noqa: E501
+        if damage_estimation is None:
+            raise ValueError("Invalid value for `damage_estimation`, must not be `None`")  # noqa: E501
 
-        self._damage_estimate = damage_estimate
+        self._damage_estimation = damage_estimation
 
     @property
     def arrival_time(self):

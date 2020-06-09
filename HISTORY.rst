@@ -2,10 +2,13 @@
 History
 =======
 
-3.1 (unreleased)
-----------------
+3.0.1 (unreleased)
+------------------
 
-- Nothing changed yet.
+- Added statistics endpoint
+ 
+- Changed Lizard post-processing endpoint 
+  (not backwards compatible, however intended to be used only by Lizard)
 
 
 3.0 (2020-05-25)
