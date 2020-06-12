@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.2 (unreleased)
+3.0.2 (2020-06-12)
 ------------------
 
 - Username filters for simulations endpoint.
