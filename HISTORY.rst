@@ -5,7 +5,7 @@ History
 3.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Username filters for simulations endpoint.
 
 
 3.0.1 (2020-06-09)

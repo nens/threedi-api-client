@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest version: 3.0) 
-     Framework release: 1.0.5 
+     Framework release: 1.0.6 
      3Di core release: 2.0.9 
-    deployed on:  10:00AM (UTC) on June 9, 2020
+    deployed on:  07:40AM (UTC) on June 12, 2020
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -2284,6 +2284,16 @@ paths:
           description: ''
           required: false
           type: number
+        - name: user__username
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: user__username__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: tags__in
           in: query
           description: ''

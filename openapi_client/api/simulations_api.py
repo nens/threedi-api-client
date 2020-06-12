@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.5   3Di core release: 2.0.9  deployed on:  10:00AM (UTC) on June 9, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  07:40AM (UTC) on June 12, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -23497,6 +23497,8 @@ class SimulationsApi(object):
         :param float created__month__lte:
         :param float created__day:
         :param float created__day__lt:
+        :param str user__username:
+        :param str user__username__istartswith:
         :param str tags__in:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -23554,6 +23556,8 @@ class SimulationsApi(object):
         :param float created__month__lte:
         :param float created__day:
         :param float created__day__lt:
+        :param str user__username:
+        :param str user__username__istartswith:
         :param str tags__in:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -23573,7 +23577,7 @@ class SimulationsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['name', 'name__contains', 'name__icontains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'uuid', 'uuid__contains', 'uuid__icontains', 'uuid__in', 'uuid__startswith', 'uuid__istartswith', 'uuid__endswith', 'uuid__regex', 'created__date', 'created__date__gt', 'created__date__gte', 'created__date__lt', 'created__date__lte', 'created__year', 'created__year__gt', 'created__year__gte', 'created__year__lt', 'created__year__lte', 'created__month', 'created__month__lte', 'created__day', 'created__day__lt', 'tags__in', 'limit', 'offset']  # noqa: E501
+        all_params = ['name', 'name__contains', 'name__icontains', 'name__in', 'name__startswith', 'name__istartswith', 'name__endswith', 'name__regex', 'uuid', 'uuid__contains', 'uuid__icontains', 'uuid__in', 'uuid__startswith', 'uuid__istartswith', 'uuid__endswith', 'uuid__regex', 'created__date', 'created__date__gt', 'created__date__gte', 'created__date__lt', 'created__date__lte', 'created__year', 'created__year__gt', 'created__year__gte', 'created__year__lt', 'created__year__lte', 'created__month', 'created__month__lte', 'created__day', 'created__day__lt', 'user__username', 'user__username__istartswith', 'tags__in', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -23653,6 +23657,10 @@ class SimulationsApi(object):
             query_params.append(('created__day', local_var_params['created__day']))  # noqa: E501
         if 'created__day__lt' in local_var_params:
             query_params.append(('created__day__lt', local_var_params['created__day__lt']))  # noqa: E501
+        if 'user__username' in local_var_params:
+            query_params.append(('user__username', local_var_params['user__username']))  # noqa: E501
+        if 'user__username__istartswith' in local_var_params:
+            query_params.append(('user__username__istartswith', local_var_params['user__username__istartswith']))  # noqa: E501
         if 'tags__in' in local_var_params:
             query_params.append(('tags__in', local_var_params['tags__in']))  # noqa: E501
         if 'limit' in local_var_params:
