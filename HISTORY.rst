@@ -5,7 +5,7 @@ History
 3.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Changed Lizard postprocessing overview endpoint
 
 
 3.0.2 (2020-06-12)
