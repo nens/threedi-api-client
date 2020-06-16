@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.3 (unreleased)
+3.0.3 (2020-06-16)
 ------------------
 
 - Changed Lizard postprocessing overview endpoint
