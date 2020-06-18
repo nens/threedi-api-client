@@ -43,6 +43,7 @@ def is_token_usable(token: str) -> bool:
 
 
 def refresh_api_key(config: Configuration):
+    """Refreshes the access key if its expired"""
     api_key = config.api_key.get("Authorization")
     if is_token_usable(api_key):
         return
