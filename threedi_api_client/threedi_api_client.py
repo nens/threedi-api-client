@@ -13,7 +13,7 @@ from threedi_api_client.config import Config, EnvironConfig
 EXPIRE_LEEWAY = -300
 
 
-def get_api_key(username: str, password: str, api_host: str):
+def get_auth_token(username: str, password: str, api_host: str):
     api_client = ApiClient(
         Configuration(
             username=username,
@@ -47,14 +47,18 @@ def refresh_api_key(config: Configuration):
     if is_token_usable(api_key):
         return
 
-    api_client = ApiClient(Configuration(config.host))
-    auth = AuthApi(api_client)
-    new_api_key = auth.auth_refresh_token_create(
-        {"refresh": config.api_key['refresh']}
-    )
+    refresh_key = config.api_key['refresh']
+    if is_token_usable(refresh_key):
+        api_client = ApiClient(Configuration(config.host))
+        auth = AuthApi(api_client)
+        token = auth.auth_refresh_token_create(
+            {"refresh": config.api_key['refresh']}
+        )
+    else:
+        token = get_auth_token(config.username, config.password, config.host)
     config.api_key = {
-        'Authorization': new_api_key.access,
-        'refresh': new_api_key.refresh
+        'Authorization': token.access,
+        'refresh': token.refresh
     }
 
 
@@ -67,16 +71,11 @@ class ThreediApiClient:
         else:
             user_config = EnvironConfig()
 
-        api_key = get_api_key(
-            username=user_config.get("API_USERNAME"),
-            password=user_config.get("API_PASSWORD"),
-            api_host=user_config.get("API_HOST")
-        )
         configuration = Configuration(
             host=user_config.get("API_HOST"),
             username=user_config.get("API_USERNAME"),
             password=user_config.get("API_PASSWORD"),
-            api_key={"Authorization": api_key.access, "refresh": api_key.refresh},
+            api_key={"Authorization": '', "refresh": ''},
             api_key_prefix={"Authorization": "Bearer"}
         )
         configuration.refresh_api_key_hook = refresh_api_key
