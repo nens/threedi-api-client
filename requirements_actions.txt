@@ -1,0 +1,13 @@
+bumpversion
+wheel
+watchdog
+flake8
+coverage
+Sphinx
+
+pytest
+pytest-runner
+mkdocs
+mkdocs-material
+
+pyjwt>=1.7.1
