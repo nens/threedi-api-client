@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.7   3Di core release: 2.0.9  deployed on:  13:41PM (UTC) on June 16, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  03:53PM (UTC) on June 12, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -266,6 +266,8 @@ class ThreediModelSavedState(object):
         :param variables: The variables of this ThreediModelSavedState.  # noqa: E501
         :type: list[str]
         """
+        if variables is None or not isinstance(variables, (list, tuple)):
+            variables = [variables]
         allowed_values = [None,"s1", "u1"]  # noqa: E501
         if not set(variables).issubset(set(allowed_values)):
             raise ValueError(

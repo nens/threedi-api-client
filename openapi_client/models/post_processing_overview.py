@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.7   3Di core release: 2.0.9  deployed on:  13:41PM (UTC) on June 16, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  03:53PM (UTC) on June 12, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -38,7 +38,7 @@ class PostProcessingOverview(object):
         'end_time_sim': 'str',
         'results': 'Result',
         'model_name': 'str',
-        'settings': 'Settings',
+        'settings': 'str',
         'scenario_name': 'str',
         'model_id': 'int',
         'model_revision_id': 'str',
@@ -95,7 +95,8 @@ class PostProcessingOverview(object):
         self.results = results
         if model_name is not None:
             self.model_name = model_name
-        self.settings = settings
+        if settings is not None:
+            self.settings = settings
         if scenario_name is not None:
             self.scenario_name = scenario_name
         if model_id is not None:
@@ -245,7 +246,7 @@ class PostProcessingOverview(object):
 
 
         :return: The settings of this PostProcessingOverview.  # noqa: E501
-        :rtype: Settings
+        :rtype: str
         """
         return self._settings
 
@@ -255,10 +256,8 @@ class PostProcessingOverview(object):
 
 
         :param settings: The settings of this PostProcessingOverview.  # noqa: E501
-        :type: Settings
+        :type: str
         """
-        if settings is None:
-            raise ValueError("Invalid value for `settings`, must not be `None`")  # noqa: E501
 
         self._settings = settings
 
