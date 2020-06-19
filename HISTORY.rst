@@ -2,8 +2,8 @@
 History
 =======
 
-3.0.4 (unreleased)
-------------------
+3.0.4b (2020-06-19)
+-------------------
 
 -  Bug fix threedi_model_saved_state variables setter.
 
