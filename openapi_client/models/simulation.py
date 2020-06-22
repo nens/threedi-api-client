@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  07:40AM (UTC) on June 12, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.8   3Di core release: 2.0.9  deployed on:  12:56PM (UTC) on June 22, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class Simulation(object):
@@ -38,7 +40,7 @@ class Simulation(object):
         'name': 'str',
         'tags': 'str',
         'created': 'str',
-        'threedimodel': 'str',
+        'threedimodel': 'int',
         'organisation': 'str',
         'organisation_name': 'str',
         'user': 'str',
@@ -69,8 +71,11 @@ class Simulation(object):
         'id': 'id'
     }
 
-    def __init__(self, url=None, slug=None, uuid=None, name=None, tags=None, created=None, threedimodel=None, organisation=None, organisation_name=None, user=None, start_datetime=None, end_datetime=None, duration=None, duration_humanized=None, threedimodel_id=None, id=None):  # noqa: E501
+    def __init__(self, url=None, slug=None, uuid=None, name=None, tags=None, created=None, threedimodel=None, organisation=None, organisation_name=None, user=None, start_datetime=None, end_datetime=None, duration=None, duration_humanized=None, threedimodel_id=None, id=None, local_vars_configuration=None):  # noqa: E501
         """Simulation - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._slug = None
@@ -158,9 +163,11 @@ class Simulation(object):
         :param slug: The slug of this Simulation.  # noqa: E501
         :type: str
         """
-        if slug is not None and len(slug) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                slug is not None and len(slug) < 1):
             raise ValueError("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
-        if slug is not None and not re.search(r'^[-a-zA-Z0-9_]+$', slug):  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                slug is not None and not re.search(r'^[-a-zA-Z0-9_]+$', slug)):  # noqa: E501
             raise ValueError(r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug = slug
@@ -204,11 +211,13 @@ class Simulation(object):
         :param name: The name of this Simulation.  # noqa: E501
         :type: str
         """
-        if name is None:
+        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 80:
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) > 80):
             raise ValueError("Invalid value for `name`, length must be less than or equal to `80`")  # noqa: E501
-        if name is not None and len(name) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) < 1):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
@@ -259,9 +268,10 @@ class Simulation(object):
     def threedimodel(self):
         """Gets the threedimodel of this Simulation.  # noqa: E501
 
+        The id of a threedimodel  # noqa: E501
 
         :return: The threedimodel of this Simulation.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._threedimodel
 
@@ -269,11 +279,12 @@ class Simulation(object):
     def threedimodel(self, threedimodel):
         """Sets the threedimodel of this Simulation.
 
+        The id of a threedimodel  # noqa: E501
 
         :param threedimodel: The threedimodel of this Simulation.  # noqa: E501
-        :type: str
+        :type: int
         """
-        if threedimodel is None:
+        if self.local_vars_configuration.client_side_validation and threedimodel is None:  # noqa: E501
             raise ValueError("Invalid value for `threedimodel`, must not be `None`")  # noqa: E501
 
         self._threedimodel = threedimodel
@@ -282,6 +293,7 @@ class Simulation(object):
     def organisation(self):
         """Gets the organisation of this Simulation.  # noqa: E501
 
+        The unique_id of an organisation  # noqa: E501
 
         :return: The organisation of this Simulation.  # noqa: E501
         :rtype: str
@@ -292,11 +304,12 @@ class Simulation(object):
     def organisation(self, organisation):
         """Sets the organisation of this Simulation.
 
+        The unique_id of an organisation  # noqa: E501
 
         :param organisation: The organisation of this Simulation.  # noqa: E501
         :type: str
         """
-        if organisation is None:
+        if self.local_vars_configuration.client_side_validation and organisation is None:  # noqa: E501
             raise ValueError("Invalid value for `organisation`, must not be `None`")  # noqa: E501
 
         self._organisation = organisation
@@ -326,6 +339,7 @@ class Simulation(object):
     def user(self):
         """Gets the user of this Simulation.  # noqa: E501
 
+        The username of a user  # noqa: E501
 
         :return: The user of this Simulation.  # noqa: E501
         :rtype: str
@@ -336,11 +350,13 @@ class Simulation(object):
     def user(self, user):
         """Sets the user of this Simulation.
 
+        The username of a user  # noqa: E501
 
         :param user: The user of this Simulation.  # noqa: E501
         :type: str
         """
-        if user is not None and not re.search(r'^[\w.@+-]+$', user):  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                user is not None and not re.search(r'^[\w.@+-]+$', user)):  # noqa: E501
             raise ValueError(r"Invalid value for `user`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
 
         self._user = user
@@ -363,7 +379,7 @@ class Simulation(object):
         :param start_datetime: The start_datetime of this Simulation.  # noqa: E501
         :type: datetime
         """
-        if start_datetime is None:
+        if self.local_vars_configuration.client_side_validation and start_datetime is None:  # noqa: E501
             raise ValueError("Invalid value for `start_datetime`, must not be `None`")  # noqa: E501
 
         self._start_datetime = start_datetime
@@ -510,8 +526,11 @@ class Simulation(object):
         if not isinstance(other, Simulation):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, Simulation):
+            return True
+
+        return self.to_dict() != other.to_dict()

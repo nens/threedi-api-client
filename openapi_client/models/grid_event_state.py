@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  07:40AM (UTC) on June 12, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.8   3Di core release: 2.0.9  deployed on:  12:56PM (UTC) on June 22, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class GridEventState(object):
@@ -43,8 +45,11 @@ class GridEventState(object):
         'grid_id': 'grid_id'
     }
 
-    def __init__(self, state=None, state_detail=None, grid_id=None):  # noqa: E501
+    def __init__(self, state=None, state_detail=None, grid_id=None, local_vars_configuration=None):  # noqa: E501
         """GridEventState - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._state = None
         self._state_detail = None
@@ -73,10 +78,10 @@ class GridEventState(object):
         :param state: The state of this GridEventState.  # noqa: E501
         :type: str
         """
-        if state is None:
+        if self.local_vars_configuration.client_side_validation and state is None:  # noqa: E501
             raise ValueError("Invalid value for `state`, must not be `None`")  # noqa: E501
         allowed_values = ["processing", "valid", "invalid"]  # noqa: E501
-        if state not in allowed_values:
+        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
                 .format(state, allowed_values)
@@ -102,7 +107,7 @@ class GridEventState(object):
         :param state_detail: The state_detail of this GridEventState.  # noqa: E501
         :type: object
         """
-        if state_detail is None:
+        if self.local_vars_configuration.client_side_validation and state_detail is None:  # noqa: E501
             raise ValueError("Invalid value for `state_detail`, must not be `None`")  # noqa: E501
 
         self._state_detail = state_detail
@@ -165,8 +170,11 @@ class GridEventState(object):
         if not isinstance(other, GridEventState):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, GridEventState):
+            return True
+
+        return self.to_dict() != other.to_dict()

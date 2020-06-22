@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  07:40AM (UTC) on June 12, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.8   3Di core release: 2.0.9  deployed on:  12:56PM (UTC) on June 22, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class FileMeta(object):
@@ -57,8 +59,11 @@ class FileMeta(object):
         'fill_value': 'fill_value'
     }
 
-    def __init__(self, values_reference=None, units=None, timestamps=None, offset=None, duration=None, geotransform=None, epsg_code=None, interval=None, error=None, fill_value=None):  # noqa: E501
+    def __init__(self, values_reference=None, units=None, timestamps=None, offset=None, duration=None, geotransform=None, epsg_code=None, interval=None, error=None, fill_value=None, local_vars_configuration=None):  # noqa: E501
         """FileMeta - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._values_reference = None
         self._units = None
@@ -111,9 +116,11 @@ class FileMeta(object):
         :param values_reference: The values_reference of this FileMeta.  # noqa: E501
         :type: str
         """
-        if values_reference is not None and len(values_reference) > 255:
+        if (self.local_vars_configuration.client_side_validation and
+                values_reference is not None and len(values_reference) > 255):
             raise ValueError("Invalid value for `values_reference`, length must be less than or equal to `255`")  # noqa: E501
-        if values_reference is not None and len(values_reference) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                values_reference is not None and len(values_reference) < 1):
             raise ValueError("Invalid value for `values_reference`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._values_reference = values_reference
@@ -136,9 +143,11 @@ class FileMeta(object):
         :param units: The units of this FileMeta.  # noqa: E501
         :type: str
         """
-        if units is not None and len(units) > 64:
+        if (self.local_vars_configuration.client_side_validation and
+                units is not None and len(units) > 64):
             raise ValueError("Invalid value for `units`, length must be less than or equal to `64`")  # noqa: E501
-        if units is not None and len(units) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                units is not None and len(units) < 1):
             raise ValueError("Invalid value for `units`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._units = units
@@ -186,7 +195,8 @@ class FileMeta(object):
         :param offset: The offset of this FileMeta.  # noqa: E501
         :type: int
         """
-        if offset is not None and offset < 0:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                offset is not None and offset < 0):  # noqa: E501
             raise ValueError("Invalid value for `offset`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._offset = offset
@@ -211,7 +221,8 @@ class FileMeta(object):
         :param duration: The duration of this FileMeta.  # noqa: E501
         :type: int
         """
-        if duration is not None and duration < 0:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                duration is not None and duration < 0):  # noqa: E501
             raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._duration = duration
@@ -297,9 +308,11 @@ class FileMeta(object):
         :param error: The error of this FileMeta.  # noqa: E501
         :type: str
         """
-        if error is not None and len(error) > 512:
+        if (self.local_vars_configuration.client_side_validation and
+                error is not None and len(error) > 512):
             raise ValueError("Invalid value for `error`, length must be less than or equal to `512`")  # noqa: E501
-        if error is not None and len(error) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                error is not None and len(error) < 1):
             raise ValueError("Invalid value for `error`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._error = error
@@ -322,9 +335,11 @@ class FileMeta(object):
         :param fill_value: The fill_value of this FileMeta.  # noqa: E501
         :type: str
         """
-        if fill_value is not None and len(fill_value) > 128:
+        if (self.local_vars_configuration.client_side_validation and
+                fill_value is not None and len(fill_value) > 128):
             raise ValueError("Invalid value for `fill_value`, length must be less than or equal to `128`")  # noqa: E501
-        if fill_value is not None and len(fill_value) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                fill_value is not None and len(fill_value) < 1):
             raise ValueError("Invalid value for `fill_value`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._fill_value = fill_value
@@ -366,8 +381,11 @@ class FileMeta(object):
         if not isinstance(other, FileMeta):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, FileMeta):
+            return True
+
+        return self.to_dict() != other.to_dict()

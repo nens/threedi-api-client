@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  07:40AM (UTC) on June 12, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.8   3Di core release: 2.0.9  deployed on:  12:56PM (UTC) on June 22, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class PostProcessingOverview(object):
@@ -38,7 +40,7 @@ class PostProcessingOverview(object):
         'end_time_sim': 'str',
         'results': 'Result',
         'model_name': 'str',
-        'settings': 'str',
+        'settings': 'Settings',
         'scenario_name': 'str',
         'model_id': 'int',
         'model_revision_id': 'str',
@@ -65,8 +67,11 @@ class PostProcessingOverview(object):
         'simulation': 'simulation'
     }
 
-    def __init__(self, username=None, metadata_version='1.2', start_time_sim=None, end_time_sim=None, results=None, model_name=None, settings=None, scenario_name=None, model_id=None, model_revision_id=None, email=None, result_uuid=None, organisation_uuid=None, simulation=None):  # noqa: E501
+    def __init__(self, username=None, metadata_version='1.2', start_time_sim=None, end_time_sim=None, results=None, model_name=None, settings=None, scenario_name=None, model_id=None, model_revision_id=None, email=None, result_uuid=None, organisation_uuid=None, simulation=None, local_vars_configuration=None):  # noqa: E501
         """PostProcessingOverview - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._username = None
         self._metadata_version = None
@@ -95,8 +100,7 @@ class PostProcessingOverview(object):
         self.results = results
         if model_name is not None:
             self.model_name = model_name
-        if settings is not None:
-            self.settings = settings
+        self.settings = settings
         if scenario_name is not None:
             self.scenario_name = scenario_name
         if model_id is not None:
@@ -214,7 +218,7 @@ class PostProcessingOverview(object):
         :param results: The results of this PostProcessingOverview.  # noqa: E501
         :type: Result
         """
-        if results is None:
+        if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
 
         self._results = results
@@ -246,7 +250,7 @@ class PostProcessingOverview(object):
 
 
         :return: The settings of this PostProcessingOverview.  # noqa: E501
-        :rtype: str
+        :rtype: Settings
         """
         return self._settings
 
@@ -256,8 +260,10 @@ class PostProcessingOverview(object):
 
 
         :param settings: The settings of this PostProcessingOverview.  # noqa: E501
-        :type: str
+        :type: Settings
         """
+        if self.local_vars_configuration.client_side_validation and settings is None:  # noqa: E501
+            raise ValueError("Invalid value for `settings`, must not be `None`")  # noqa: E501
 
         self._settings = settings
 
@@ -281,7 +287,8 @@ class PostProcessingOverview(object):
         :param scenario_name: The scenario_name of this PostProcessingOverview.  # noqa: E501
         :type: str
         """
-        if scenario_name is not None and len(scenario_name) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                scenario_name is not None and len(scenario_name) < 1):
             raise ValueError("Invalid value for `scenario_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._scenario_name = scenario_name
@@ -449,8 +456,11 @@ class PostProcessingOverview(object):
         if not isinstance(other, PostProcessingOverview):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, PostProcessingOverview):
+            return True
+
+        return self.to_dict() != other.to_dict()

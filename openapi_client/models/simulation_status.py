@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  07:40AM (UTC) on June 12, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.8   3Di core release: 2.0.9  deployed on:  12:56PM (UTC) on June 22, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class SimulationStatus(object):
@@ -57,8 +59,11 @@ class SimulationStatus(object):
         'id': 'id'
     }
 
-    def __init__(self, url=None, name=None, simulation=None, simulation_id=None, simulation_name=None, created=None, time=None, paused=None, detail=None, id=None):  # noqa: E501
+    def __init__(self, url=None, name=None, simulation=None, simulation_id=None, simulation_name=None, created=None, time=None, paused=None, detail=None, id=None, local_vars_configuration=None):  # noqa: E501
         """SimulationStatus - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._name = None
@@ -128,10 +133,10 @@ class SimulationStatus(object):
         :param name: The name of this SimulationStatus.  # noqa: E501
         :type: str
         """
-        if name is None:
+        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
         allowed_values = ["created", "starting", "initialized", "queued", "ended", "postprocessing", "finished", "crashed"]  # noqa: E501
-        if name not in allowed_values:
+        if self.local_vars_configuration.client_side_validation and name not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `name` ({0}), must be one of {1}"  # noqa: E501
                 .format(name, allowed_values)
@@ -243,9 +248,11 @@ class SimulationStatus(object):
         :param time: The time of this SimulationStatus.  # noqa: E501
         :type: int
         """
-        if time is not None and time > 2147483647:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                time is not None and time > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `time`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if time is not None and time < 0:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                time is not None and time < 0):  # noqa: E501
             raise ValueError("Invalid value for `time`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._time = time
@@ -350,8 +357,11 @@ class SimulationStatus(object):
         if not isinstance(other, SimulationStatus):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, SimulationStatus):
+            return True
+
+        return self.to_dict() != other.to_dict()

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  07:40AM (UTC) on June 12, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.8   3Di core release: 2.0.9  deployed on:  12:56PM (UTC) on June 22, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class StableThresholdSavedState(object):
@@ -55,8 +57,11 @@ class StableThresholdSavedState(object):
         'uuid': 'uuid'
     }
 
-    def __init__(self, url=None, name=None, simulation=None, created=None, tags=None, expiry=None, thresholds=None, file=None, uuid=None):  # noqa: E501
+    def __init__(self, url=None, name=None, simulation=None, created=None, tags=None, expiry=None, thresholds=None, file=None, uuid=None, local_vars_configuration=None):  # noqa: E501
         """StableThresholdSavedState - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._name = None
@@ -125,9 +130,11 @@ class StableThresholdSavedState(object):
         :param name: The name of this StableThresholdSavedState.  # noqa: E501
         :type: str
         """
-        if name is not None and len(name) > 80:
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) > 80):
             raise ValueError("Invalid value for `name`, length must be less than or equal to `80`")  # noqa: E501
-        if name is not None and len(name) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) < 1):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
@@ -234,7 +241,7 @@ class StableThresholdSavedState(object):
         :param thresholds: The thresholds of this StableThresholdSavedState.  # noqa: E501
         :type: list[Threshold]
         """
-        if thresholds is None:
+        if self.local_vars_configuration.client_side_validation and thresholds is None:  # noqa: E501
             raise ValueError("Invalid value for `thresholds`, must not be `None`")  # noqa: E501
 
         self._thresholds = thresholds
@@ -318,8 +325,11 @@ class StableThresholdSavedState(object):
         if not isinstance(other, StableThresholdSavedState):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, StableThresholdSavedState):
+            return True
+
+        return self.to_dict() != other.to_dict()

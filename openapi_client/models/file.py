@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  07:40AM (UTC) on June 12, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.8   3Di core release: 2.0.9  deployed on:  12:56PM (UTC) on June 22, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class File(object):
@@ -65,8 +67,11 @@ class File(object):
         'id': 'id'
     }
 
-    def __init__(self, url=None, storage_name=None, filename=None, bucket=None, prefix=None, etag=None, size=None, expiry_date=None, related_object=None, type=None, state=None, state_description=None, meta=None, id=None):  # noqa: E501
+    def __init__(self, url=None, storage_name=None, filename=None, bucket=None, prefix=None, etag=None, size=None, expiry_date=None, related_object=None, type=None, state=None, state_description=None, meta=None, id=None, local_vars_configuration=None):  # noqa: E501
         """File - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._storage_name = None
@@ -143,7 +148,8 @@ class File(object):
         :param storage_name: The storage_name of this File.  # noqa: E501
         :type: str
         """
-        if storage_name is not None and len(storage_name) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                storage_name is not None and len(storage_name) < 1):
             raise ValueError("Invalid value for `storage_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._storage_name = storage_name
@@ -166,11 +172,13 @@ class File(object):
         :param filename: The filename of this File.  # noqa: E501
         :type: str
         """
-        if filename is None:
+        if self.local_vars_configuration.client_side_validation and filename is None:  # noqa: E501
             raise ValueError("Invalid value for `filename`, must not be `None`")  # noqa: E501
-        if filename is not None and len(filename) > 256:
+        if (self.local_vars_configuration.client_side_validation and
+                filename is not None and len(filename) > 256):
             raise ValueError("Invalid value for `filename`, length must be less than or equal to `256`")  # noqa: E501
-        if filename is not None and len(filename) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                filename is not None and len(filename) < 1):
             raise ValueError("Invalid value for `filename`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._filename = filename
@@ -193,11 +201,13 @@ class File(object):
         :param bucket: The bucket of this File.  # noqa: E501
         :type: str
         """
-        if bucket is None:
+        if self.local_vars_configuration.client_side_validation and bucket is None:  # noqa: E501
             raise ValueError("Invalid value for `bucket`, must not be `None`")  # noqa: E501
-        if bucket is not None and len(bucket) > 256:
+        if (self.local_vars_configuration.client_side_validation and
+                bucket is not None and len(bucket) > 256):
             raise ValueError("Invalid value for `bucket`, length must be less than or equal to `256`")  # noqa: E501
-        if bucket is not None and len(bucket) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                bucket is not None and len(bucket) < 1):
             raise ValueError("Invalid value for `bucket`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._bucket = bucket
@@ -220,7 +230,8 @@ class File(object):
         :param prefix: The prefix of this File.  # noqa: E501
         :type: str
         """
-        if prefix is not None and len(prefix) > 256:
+        if (self.local_vars_configuration.client_side_validation and
+                prefix is not None and len(prefix) > 256):
             raise ValueError("Invalid value for `prefix`, length must be less than or equal to `256`")  # noqa: E501
 
         self._prefix = prefix
@@ -245,7 +256,8 @@ class File(object):
         :param etag: The etag of this File.  # noqa: E501
         :type: str
         """
-        if etag is not None and len(etag) > 256:
+        if (self.local_vars_configuration.client_side_validation and
+                etag is not None and len(etag) > 256):
             raise ValueError("Invalid value for `etag`, length must be less than or equal to `256`")  # noqa: E501
 
         self._etag = etag
@@ -270,9 +282,11 @@ class File(object):
         :param size: The size of this File.  # noqa: E501
         :type: int
         """
-        if size is not None and size > 9223372036854775807:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                size is not None and size > 9223372036854775807):  # noqa: E501
             raise ValueError("Invalid value for `size`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
-        if size is not None and size < -9223372036854775808:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                size is not None and size < -9223372036854775808):  # noqa: E501
             raise ValueError("Invalid value for `size`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
 
         self._size = size
@@ -337,10 +351,10 @@ class File(object):
         :param type: The type of this File.  # noqa: E501
         :type: str
         """
-        if type is None:
+        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
         allowed_values = ["timeseries", "rastertimeseries", "savedstate", "results", "rasters", "gridadmin", "geojson", "initialwaterlevel"]  # noqa: E501
-        if type not in allowed_values:
+        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
                 .format(type, allowed_values)
@@ -366,10 +380,10 @@ class File(object):
         :param state: The state of this File.  # noqa: E501
         :type: str
         """
-        if state is None:
+        if self.local_vars_configuration.client_side_validation and state is None:  # noqa: E501
             raise ValueError("Invalid value for `state`, must not be `None`")  # noqa: E501
         allowed_values = ["created", "uploaded", "processed", "error", "removed"]  # noqa: E501
-        if state not in allowed_values:
+        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
                 .format(state, allowed_values)
@@ -395,7 +409,8 @@ class File(object):
         :param state_description: The state_description of this File.  # noqa: E501
         :type: str
         """
-        if state_description is not None and len(state_description) > 512:
+        if (self.local_vars_configuration.client_side_validation and
+                state_description is not None and len(state_description) > 512):
             raise ValueError("Invalid value for `state_description`, length must be less than or equal to `512`")  # noqa: E501
 
         self._state_description = state_description
@@ -479,8 +494,11 @@ class File(object):
         if not isinstance(other, File):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, File):
+            return True
+
+        return self.to_dict() != other.to_dict()

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  07:40AM (UTC) on June 12, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.8   3Di core release: 2.0.9  deployed on:  12:56PM (UTC) on June 22, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -19,7 +19,7 @@ import re  # noqa: F401
 import six
 
 from openapi_client.api_client import ApiClient
-from openapi_client.exceptions import (
+from openapi_client.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -89,11 +89,17 @@ class ContractsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -104,8 +110,8 @@ class ContractsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `data` when calling `contracts_create`")  # noqa: E501
 
         collection_formats = {}
@@ -201,11 +207,17 @@ class ContractsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -216,8 +228,8 @@ class ContractsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `contracts_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -353,11 +365,41 @@ class ContractsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['organisation__id', 'organisation__id__range', 'organisation__id__gt', 'organisation__id__gte', 'organisation__id__lt', 'organisation__id__lte', 'organisation__id__isnull', 'organisation__name', 'organisation__name__contains', 'organisation__name__icontains', 'organisation__name__in', 'organisation__name__startswith', 'organisation__name__istartswith', 'organisation__name__endswith', 'organisation__name__regex', 'organisation__unique_id', 'organisation__unique_id__contains', 'organisation__unique_id__icontains', 'organisation__unique_id__in', 'organisation__unique_id__startswith', 'organisation__unique_id__istartswith', 'organisation__unique_id__endswith', 'organisation__unique_id__regex', 'limit', 'offset']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'organisation__id',
+            'organisation__id__range',
+            'organisation__id__gt',
+            'organisation__id__gte',
+            'organisation__id__lt',
+            'organisation__id__lte',
+            'organisation__id__isnull',
+            'organisation__name',
+            'organisation__name__contains',
+            'organisation__name__icontains',
+            'organisation__name__in',
+            'organisation__name__startswith',
+            'organisation__name__istartswith',
+            'organisation__name__endswith',
+            'organisation__name__regex',
+            'organisation__unique_id',
+            'organisation__unique_id__contains',
+            'organisation__unique_id__icontains',
+            'organisation__unique_id__in',
+            'organisation__unique_id__startswith',
+            'organisation__unique_id__istartswith',
+            'organisation__unique_id__endswith',
+            'organisation__unique_id__regex',
+            'limit',
+            'offset'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -373,55 +415,55 @@ class ContractsApi(object):
         path_params = {}
 
         query_params = []
-        if 'organisation__id' in local_var_params:
+        if 'organisation__id' in local_var_params and local_var_params['organisation__id'] is not None:  # noqa: E501
             query_params.append(('organisation__id', local_var_params['organisation__id']))  # noqa: E501
-        if 'organisation__id__range' in local_var_params:
+        if 'organisation__id__range' in local_var_params and local_var_params['organisation__id__range'] is not None:  # noqa: E501
             query_params.append(('organisation__id__range', local_var_params['organisation__id__range']))  # noqa: E501
-        if 'organisation__id__gt' in local_var_params:
+        if 'organisation__id__gt' in local_var_params and local_var_params['organisation__id__gt'] is not None:  # noqa: E501
             query_params.append(('organisation__id__gt', local_var_params['organisation__id__gt']))  # noqa: E501
-        if 'organisation__id__gte' in local_var_params:
+        if 'organisation__id__gte' in local_var_params and local_var_params['organisation__id__gte'] is not None:  # noqa: E501
             query_params.append(('organisation__id__gte', local_var_params['organisation__id__gte']))  # noqa: E501
-        if 'organisation__id__lt' in local_var_params:
+        if 'organisation__id__lt' in local_var_params and local_var_params['organisation__id__lt'] is not None:  # noqa: E501
             query_params.append(('organisation__id__lt', local_var_params['organisation__id__lt']))  # noqa: E501
-        if 'organisation__id__lte' in local_var_params:
+        if 'organisation__id__lte' in local_var_params and local_var_params['organisation__id__lte'] is not None:  # noqa: E501
             query_params.append(('organisation__id__lte', local_var_params['organisation__id__lte']))  # noqa: E501
-        if 'organisation__id__isnull' in local_var_params:
+        if 'organisation__id__isnull' in local_var_params and local_var_params['organisation__id__isnull'] is not None:  # noqa: E501
             query_params.append(('organisation__id__isnull', local_var_params['organisation__id__isnull']))  # noqa: E501
-        if 'organisation__name' in local_var_params:
+        if 'organisation__name' in local_var_params and local_var_params['organisation__name'] is not None:  # noqa: E501
             query_params.append(('organisation__name', local_var_params['organisation__name']))  # noqa: E501
-        if 'organisation__name__contains' in local_var_params:
+        if 'organisation__name__contains' in local_var_params and local_var_params['organisation__name__contains'] is not None:  # noqa: E501
             query_params.append(('organisation__name__contains', local_var_params['organisation__name__contains']))  # noqa: E501
-        if 'organisation__name__icontains' in local_var_params:
+        if 'organisation__name__icontains' in local_var_params and local_var_params['organisation__name__icontains'] is not None:  # noqa: E501
             query_params.append(('organisation__name__icontains', local_var_params['organisation__name__icontains']))  # noqa: E501
-        if 'organisation__name__in' in local_var_params:
+        if 'organisation__name__in' in local_var_params and local_var_params['organisation__name__in'] is not None:  # noqa: E501
             query_params.append(('organisation__name__in', local_var_params['organisation__name__in']))  # noqa: E501
-        if 'organisation__name__startswith' in local_var_params:
+        if 'organisation__name__startswith' in local_var_params and local_var_params['organisation__name__startswith'] is not None:  # noqa: E501
             query_params.append(('organisation__name__startswith', local_var_params['organisation__name__startswith']))  # noqa: E501
-        if 'organisation__name__istartswith' in local_var_params:
+        if 'organisation__name__istartswith' in local_var_params and local_var_params['organisation__name__istartswith'] is not None:  # noqa: E501
             query_params.append(('organisation__name__istartswith', local_var_params['organisation__name__istartswith']))  # noqa: E501
-        if 'organisation__name__endswith' in local_var_params:
+        if 'organisation__name__endswith' in local_var_params and local_var_params['organisation__name__endswith'] is not None:  # noqa: E501
             query_params.append(('organisation__name__endswith', local_var_params['organisation__name__endswith']))  # noqa: E501
-        if 'organisation__name__regex' in local_var_params:
+        if 'organisation__name__regex' in local_var_params and local_var_params['organisation__name__regex'] is not None:  # noqa: E501
             query_params.append(('organisation__name__regex', local_var_params['organisation__name__regex']))  # noqa: E501
-        if 'organisation__unique_id' in local_var_params:
+        if 'organisation__unique_id' in local_var_params and local_var_params['organisation__unique_id'] is not None:  # noqa: E501
             query_params.append(('organisation__unique_id', local_var_params['organisation__unique_id']))  # noqa: E501
-        if 'organisation__unique_id__contains' in local_var_params:
+        if 'organisation__unique_id__contains' in local_var_params and local_var_params['organisation__unique_id__contains'] is not None:  # noqa: E501
             query_params.append(('organisation__unique_id__contains', local_var_params['organisation__unique_id__contains']))  # noqa: E501
-        if 'organisation__unique_id__icontains' in local_var_params:
+        if 'organisation__unique_id__icontains' in local_var_params and local_var_params['organisation__unique_id__icontains'] is not None:  # noqa: E501
             query_params.append(('organisation__unique_id__icontains', local_var_params['organisation__unique_id__icontains']))  # noqa: E501
-        if 'organisation__unique_id__in' in local_var_params:
+        if 'organisation__unique_id__in' in local_var_params and local_var_params['organisation__unique_id__in'] is not None:  # noqa: E501
             query_params.append(('organisation__unique_id__in', local_var_params['organisation__unique_id__in']))  # noqa: E501
-        if 'organisation__unique_id__startswith' in local_var_params:
+        if 'organisation__unique_id__startswith' in local_var_params and local_var_params['organisation__unique_id__startswith'] is not None:  # noqa: E501
             query_params.append(('organisation__unique_id__startswith', local_var_params['organisation__unique_id__startswith']))  # noqa: E501
-        if 'organisation__unique_id__istartswith' in local_var_params:
+        if 'organisation__unique_id__istartswith' in local_var_params and local_var_params['organisation__unique_id__istartswith'] is not None:  # noqa: E501
             query_params.append(('organisation__unique_id__istartswith', local_var_params['organisation__unique_id__istartswith']))  # noqa: E501
-        if 'organisation__unique_id__endswith' in local_var_params:
+        if 'organisation__unique_id__endswith' in local_var_params and local_var_params['organisation__unique_id__endswith'] is not None:  # noqa: E501
             query_params.append(('organisation__unique_id__endswith', local_var_params['organisation__unique_id__endswith']))  # noqa: E501
-        if 'organisation__unique_id__regex' in local_var_params:
+        if 'organisation__unique_id__regex' in local_var_params and local_var_params['organisation__unique_id__regex'] is not None:  # noqa: E501
             query_params.append(('organisation__unique_id__regex', local_var_params['organisation__unique_id__regex']))  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params:
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -507,11 +549,18 @@ class ContractsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'id',
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -522,12 +571,12 @@ class ContractsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `contracts_partial_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `data` when calling `contracts_partial_update`")  # noqa: E501
 
         collection_formats = {}
@@ -625,11 +674,17 @@ class ContractsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -640,8 +695,8 @@ class ContractsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `contracts_read`")  # noqa: E501
 
         collection_formats = {}
@@ -735,11 +790,18 @@ class ContractsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'id',
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -750,12 +812,12 @@ class ContractsApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `contracts_update`")  # noqa: E501
         # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `data` when calling `contracts_update`")  # noqa: E501
 
         collection_formats = {}

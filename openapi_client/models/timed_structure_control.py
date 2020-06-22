@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  07:40AM (UTC) on June 12, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.8   3Di core release: 2.0.9  deployed on:  12:56PM (UTC) on June 22, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class TimedStructureControl(object):
@@ -63,8 +65,11 @@ class TimedStructureControl(object):
         'uid': 'uid'
     }
 
-    def __init__(self, id=None, url=None, simulation=None, offset=None, duration=None, value=None, type=None, structure_id=None, structure_type=None, state=None, state_detail=None, grid_id=None, uid=None):  # noqa: E501
+    def __init__(self, id=None, url=None, simulation=None, offset=None, duration=None, value=None, type=None, structure_id=None, structure_type=None, state=None, state_detail=None, grid_id=None, uid=None, local_vars_configuration=None):  # noqa: E501
         """TimedStructureControl - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._id = None
         self._url = None
@@ -184,11 +189,13 @@ class TimedStructureControl(object):
         :param offset: The offset of this TimedStructureControl.  # noqa: E501
         :type: int
         """
-        if offset is None:
+        if self.local_vars_configuration.client_side_validation and offset is None:  # noqa: E501
             raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
-        if offset is not None and offset > 2147483647:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                offset is not None and offset > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `offset`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if offset is not None and offset < 0:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                offset is not None and offset < 0):  # noqa: E501
             raise ValueError("Invalid value for `offset`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._offset = offset
@@ -211,9 +218,10 @@ class TimedStructureControl(object):
         :param duration: The duration of this TimedStructureControl.  # noqa: E501
         :type: int
         """
-        if duration is None:
+        if self.local_vars_configuration.client_side_validation and duration is None:  # noqa: E501
             raise ValueError("Invalid value for `duration`, must not be `None`")  # noqa: E501
-        if duration is not None and duration < 1:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                duration is not None and duration < 1):  # noqa: E501
             raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._duration = duration
@@ -236,7 +244,7 @@ class TimedStructureControl(object):
         :param value: The value of this TimedStructureControl.  # noqa: E501
         :type: list[float]
         """
-        if value is None:
+        if self.local_vars_configuration.client_side_validation and value is None:  # noqa: E501
             raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
@@ -259,10 +267,10 @@ class TimedStructureControl(object):
         :param type: The type of this TimedStructureControl.  # noqa: E501
         :type: str
         """
-        if type is None:
+        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
         allowed_values = ["set_discharge_coefficients", "set_crest_level", "set_pump_capacity"]  # noqa: E501
-        if type not in allowed_values:
+        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
                 .format(type, allowed_values)
@@ -288,9 +296,11 @@ class TimedStructureControl(object):
         :param structure_id: The structure_id of this TimedStructureControl.  # noqa: E501
         :type: int
         """
-        if structure_id is not None and structure_id > 2147483647:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                structure_id is not None and structure_id > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `structure_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if structure_id is not None and structure_id < -2147483648:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                structure_id is not None and structure_id < -2147483648):  # noqa: E501
             raise ValueError("Invalid value for `structure_id`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._structure_id = structure_id
@@ -313,10 +323,10 @@ class TimedStructureControl(object):
         :param structure_type: The structure_type of this TimedStructureControl.  # noqa: E501
         :type: str
         """
-        if structure_type is None:
+        if self.local_vars_configuration.client_side_validation and structure_type is None:  # noqa: E501
             raise ValueError("Invalid value for `structure_type`, must not be `None`")  # noqa: E501
         allowed_values = ["v2_pumpstation", "v2_pipe", "v2_orifice", "v2_culvert", "v2_weir", "v2_channel"]  # noqa: E501
-        if structure_type not in allowed_values:
+        if self.local_vars_configuration.client_side_validation and structure_type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `structure_type` ({0}), must be one of {1}"  # noqa: E501
                 .format(structure_type, allowed_values)
@@ -343,7 +353,7 @@ class TimedStructureControl(object):
         :type: str
         """
         allowed_values = ["processing", "valid", "invalid"]  # noqa: E501
-        if state not in allowed_values:
+        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
                 .format(state, allowed_values)
@@ -390,9 +400,11 @@ class TimedStructureControl(object):
         :param grid_id: The grid_id of this TimedStructureControl.  # noqa: E501
         :type: int
         """
-        if grid_id is not None and grid_id > 2147483647:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                grid_id is not None and grid_id > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `grid_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if grid_id is not None and grid_id < -2147483648:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                grid_id is not None and grid_id < -2147483648):  # noqa: E501
             raise ValueError("Invalid value for `grid_id`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._grid_id = grid_id
@@ -455,8 +467,11 @@ class TimedStructureControl(object):
         if not isinstance(other, TimedStructureControl):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, TimedStructureControl):
+            return True
+
+        return self.to_dict() != other.to_dict()

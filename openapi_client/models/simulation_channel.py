@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  07:40AM (UTC) on June 12, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.8   3Di core release: 2.0.9  deployed on:  12:56PM (UTC) on June 22, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class SimulationChannel(object):
@@ -47,8 +49,11 @@ class SimulationChannel(object):
         'state': 'state'
     }
 
-    def __init__(self, id=None, simulation=None, channel_name=None, created=None, state=None):  # noqa: E501
+    def __init__(self, id=None, simulation=None, channel_name=None, created=None, state=None, local_vars_configuration=None):  # noqa: E501
         """SimulationChannel - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._id = None
         self._simulation = None
@@ -128,7 +133,8 @@ class SimulationChannel(object):
         :param channel_name: The channel_name of this SimulationChannel.  # noqa: E501
         :type: str
         """
-        if channel_name is not None and len(channel_name) < 1:
+        if (self.local_vars_configuration.client_side_validation and
+                channel_name is not None and len(channel_name) < 1):
             raise ValueError("Invalid value for `channel_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._channel_name = channel_name
@@ -173,7 +179,7 @@ class SimulationChannel(object):
         :type: str
         """
         allowed_values = ["pending", "confirmed", "timeout"]  # noqa: E501
-        if state not in allowed_values:
+        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
                 .format(state, allowed_values)
@@ -218,8 +224,11 @@ class SimulationChannel(object):
         if not isinstance(other, SimulationChannel):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, SimulationChannel):
+            return True
+
+        return self.to_dict() != other.to_dict()

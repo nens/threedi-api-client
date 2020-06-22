@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  07:40AM (UTC) on June 12, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.8   3Di core release: 2.0.9  deployed on:  12:56PM (UTC) on June 22, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class InitialWaterlevel(object):
@@ -49,8 +51,11 @@ class InitialWaterlevel(object):
         'source_raster_id': 'source_raster_id'
     }
 
-    def __init__(self, url=None, threedimodel=None, file=None, source_raster=None, id=None, source_raster_id=None):  # noqa: E501
+    def __init__(self, url=None, threedimodel=None, file=None, source_raster=None, id=None, source_raster_id=None, local_vars_configuration=None):  # noqa: E501
         """InitialWaterlevel - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._threedimodel = None
@@ -153,7 +158,7 @@ class InitialWaterlevel(object):
         :param source_raster: The source_raster of this InitialWaterlevel.  # noqa: E501
         :type: str
         """
-        if source_raster is None:
+        if self.local_vars_configuration.client_side_validation and source_raster is None:  # noqa: E501
             raise ValueError("Invalid value for `source_raster`, must not be `None`")  # noqa: E501
 
         self._source_raster = source_raster
@@ -237,8 +242,11 @@ class InitialWaterlevel(object):
         if not isinstance(other, InitialWaterlevel):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, InitialWaterlevel):
+            return True
+
+        return self.to_dict() != other.to_dict()

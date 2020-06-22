@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  07:40AM (UTC) on June 12, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.8   3Di core release: 2.0.9  deployed on:  12:56PM (UTC) on June 22, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class Result(object):
@@ -43,8 +45,11 @@ class Result(object):
         'arrival_time': 'arrival_time'
     }
 
-    def __init__(self, basic=None, damage_estimation=None, arrival_time=None):  # noqa: E501
+    def __init__(self, basic=None, damage_estimation=None, arrival_time=None, local_vars_configuration=None):  # noqa: E501
         """Result - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._basic = None
         self._damage_estimation = None
@@ -73,7 +78,7 @@ class Result(object):
         :param basic: The basic of this Result.  # noqa: E501
         :type: bool
         """
-        if basic is None:
+        if self.local_vars_configuration.client_side_validation and basic is None:  # noqa: E501
             raise ValueError("Invalid value for `basic`, must not be `None`")  # noqa: E501
 
         self._basic = basic
@@ -96,7 +101,7 @@ class Result(object):
         :param damage_estimation: The damage_estimation of this Result.  # noqa: E501
         :type: bool
         """
-        if damage_estimation is None:
+        if self.local_vars_configuration.client_side_validation and damage_estimation is None:  # noqa: E501
             raise ValueError("Invalid value for `damage_estimation`, must not be `None`")  # noqa: E501
 
         self._damage_estimation = damage_estimation
@@ -119,7 +124,7 @@ class Result(object):
         :param arrival_time: The arrival_time of this Result.  # noqa: E501
         :type: bool
         """
-        if arrival_time is None:
+        if self.local_vars_configuration.client_side_validation and arrival_time is None:  # noqa: E501
             raise ValueError("Invalid value for `arrival_time`, must not be `None`")  # noqa: E501
 
         self._arrival_time = arrival_time
@@ -161,8 +166,11 @@ class Result(object):
         if not isinstance(other, Result):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, Result):
+            return True
+
+        return self.to_dict() != other.to_dict()

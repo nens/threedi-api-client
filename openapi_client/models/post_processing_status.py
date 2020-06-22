@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  07:40AM (UTC) on June 12, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.8   3Di core release: 2.0.9  deployed on:  12:56PM (UTC) on June 22, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class PostProcessingStatus(object):
@@ -43,8 +45,11 @@ class PostProcessingStatus(object):
         'created': 'created'
     }
 
-    def __init__(self, simulation=None, status=None, created=None):  # noqa: E501
+    def __init__(self, simulation=None, status=None, created=None, local_vars_configuration=None):  # noqa: E501
         """PostProcessingStatus - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._simulation = None
         self._status = None
@@ -96,10 +101,10 @@ class PostProcessingStatus(object):
         :param status: The status of this PostProcessingStatus.  # noqa: E501
         :type: str
         """
-        if status is None:
+        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
             raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
         allowed_values = ["created", "requested", "archiving", "archiving_failed", "archived"]  # noqa: E501
-        if status not in allowed_values:
+        if self.local_vars_configuration.client_side_validation and status not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
                 .format(status, allowed_values)
@@ -165,8 +170,11 @@ class PostProcessingStatus(object):
         if not isinstance(other, PostProcessingStatus):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, PostProcessingStatus):
+            return True
+
+        return self.to_dict() != other.to_dict()

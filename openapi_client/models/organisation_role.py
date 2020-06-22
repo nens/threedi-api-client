@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.6   3Di core release: 2.0.9  deployed on:  07:40AM (UTC) on June 12, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.8   3Di core release: 2.0.9  deployed on:  12:56PM (UTC) on June 22, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from openapi_client.configuration import Configuration
 
 
 class OrganisationRole(object):
@@ -47,8 +49,11 @@ class OrganisationRole(object):
         'organisation_name': 'organisation_name'
     }
 
-    def __init__(self, url=None, user=None, role=None, organisation=None, organisation_name=None):  # noqa: E501
+    def __init__(self, url=None, user=None, role=None, organisation=None, organisation_name=None, local_vars_configuration=None):  # noqa: E501
         """OrganisationRole - a model defined in OpenAPI"""  # noqa: E501
+        if local_vars_configuration is None:
+            local_vars_configuration = Configuration()
+        self.local_vars_configuration = local_vars_configuration
 
         self._url = None
         self._user = None
@@ -90,6 +95,7 @@ class OrganisationRole(object):
     def user(self):
         """Gets the user of this OrganisationRole.  # noqa: E501
 
+        The username of a user  # noqa: E501
 
         :return: The user of this OrganisationRole.  # noqa: E501
         :rtype: str
@@ -100,13 +106,15 @@ class OrganisationRole(object):
     def user(self, user):
         """Sets the user of this OrganisationRole.
 
+        The username of a user  # noqa: E501
 
         :param user: The user of this OrganisationRole.  # noqa: E501
         :type: str
         """
-        if user is None:
+        if self.local_vars_configuration.client_side_validation and user is None:  # noqa: E501
             raise ValueError("Invalid value for `user`, must not be `None`")  # noqa: E501
-        if user is not None and not re.search(r'^[\w.@+-]+$', user):  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                user is not None and not re.search(r'^[\w.@+-]+$', user)):  # noqa: E501
             raise ValueError(r"Invalid value for `user`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
 
         self._user = user
@@ -129,7 +137,7 @@ class OrganisationRole(object):
         :param role: The role of this OrganisationRole.  # noqa: E501
         :type: str
         """
-        if role is None:
+        if self.local_vars_configuration.client_side_validation and role is None:  # noqa: E501
             raise ValueError("Invalid value for `role`, must not be `None`")  # noqa: E501
 
         self._role = role
@@ -138,6 +146,7 @@ class OrganisationRole(object):
     def organisation(self):
         """Gets the organisation of this OrganisationRole.  # noqa: E501
 
+        The unique_id of an organisation  # noqa: E501
 
         :return: The organisation of this OrganisationRole.  # noqa: E501
         :rtype: str
@@ -148,11 +157,12 @@ class OrganisationRole(object):
     def organisation(self, organisation):
         """Sets the organisation of this OrganisationRole.
 
+        The unique_id of an organisation  # noqa: E501
 
         :param organisation: The organisation of this OrganisationRole.  # noqa: E501
         :type: str
         """
-        if organisation is None:
+        if self.local_vars_configuration.client_side_validation and organisation is None:  # noqa: E501
             raise ValueError("Invalid value for `organisation`, must not be `None`")  # noqa: E501
 
         self._organisation = organisation
@@ -215,8 +225,11 @@ class OrganisationRole(object):
         if not isinstance(other, OrganisationRole):
             return False
 
-        return self.__dict__ == other.__dict__
+        return self.to_dict() == other.to_dict()
 
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
-        return not self == other
+        if not isinstance(other, OrganisationRole):
+            return True
+
+        return self.to_dict() != other.to_dict()
