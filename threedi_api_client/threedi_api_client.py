@@ -13,52 +13,54 @@ from threedi_api_client.config import Config, EnvironConfig
 EXPIRE_LEEWAY = -300
 
 
-class APIConfiguration(Configuration):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self._access_token = None
-
-    def _is_token_usable(self):
-        if self._access_token is None:
-            return False
-
-        # Check if not expired...
-        try:
-            jwt.decode(
-                self._access_token,
-                options={"verify_signature": False},
-                leeway=EXPIRE_LEEWAY,
-            )
-        except Exception:
-            return False
-
-        return True
-
-    def _get_api_tokens(self, username, password):
-        configuration = Configuration()
-        configuration.host = self._user_config.get("API_HOST")
-        api_client = ApiClient(configuration)
-        auth = AuthApi(api_client)
-        return auth.auth_token_create(Authenticate(username, password))
-
-    @property
-    def access_token(self):
-        if self._is_token_usable():
-            return self._access_token
-        # Access token is not usable (None/expired)
-        # get a new one
-        tokens = self._get_api_tokens(
-            self._user_config.get("API_USERNAME"),
-            self._user_config.get("API_PASSWORD"),
+def get_auth_token(username: str, password: str, api_host: str):
+    api_client = ApiClient(
+        Configuration(
+            username=username,
+            password=password,
+            host=api_host
         )
-        self._access_token = tokens.access
-        return self._access_token
+    )
+    auth = AuthApi(api_client)
+    return auth.auth_token_create(Authenticate(username, password))
 
-    def get_api_key_with_prefix(self, identifier):
-        if identifier == 'Authorization':
-            self.api_key["Authorization"] = self.access_token
-            self.api_key_prefix["Authorization"] = "Bearer"
-        return super().get_api_key_with_prefix(identifier)
+
+def is_token_usable(token: str) -> bool:
+    if token is None:
+        return False
+
+    # Check if not expired...
+    try:
+        jwt.decode(
+            token,
+            options={"verify_signature": False},
+            leeway=EXPIRE_LEEWAY,
+        )
+    except Exception:
+        return False
+
+    return True
+
+
+def refresh_api_key(config: Configuration):
+    """Refreshes the access key if its expired"""
+    api_key = config.api_key.get("Authorization")
+    if is_token_usable(api_key):
+        return
+
+    refresh_key = config.api_key['refresh']
+    if is_token_usable(refresh_key):
+        api_client = ApiClient(Configuration(config.host))
+        auth = AuthApi(api_client)
+        token = auth.auth_refresh_token_create(
+            {"refresh": config.api_key['refresh']}
+        )
+    else:
+        token = get_auth_token(config.username, config.password, config.host)
+    config.api_key = {
+        'Authorization': token.access,
+        'refresh': token.refresh
+    }
 
 
 class ThreediApiClient:
@@ -70,7 +72,13 @@ class ThreediApiClient:
         else:
             user_config = EnvironConfig()
 
-        configuration = APIConfiguration()
-        configuration.host = user_config.get("API_HOST")
-        configuration._user_config = user_config
-        return ApiClient(configuration)
+        configuration = Configuration(
+            host=user_config.get("API_HOST"),
+            username=user_config.get("API_USERNAME"),
+            password=user_config.get("API_PASSWORD"),
+            api_key={"Authorization": '', "refresh": ''},
+            api_key_prefix={"Authorization": "Bearer"}
+        )
+        configuration.refresh_api_key_hook = refresh_api_key
+        api_client = ApiClient(configuration)
+        return api_client
