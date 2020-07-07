@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.7   3Di core release: 2.0.9  deployed on:  13:41PM (UTC) on June 16, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.10   3Di core release: 2.0.10  deployed on:  09:44AM (UTC) on July 02, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -38,7 +38,7 @@ class Simulation(object):
         'name': 'str',
         'tags': 'str',
         'created': 'str',
-        'threedimodel': 'str',
+        'threedimodel': 'int',
         'organisation': 'str',
         'organisation_name': 'str',
         'user': 'str',
@@ -259,9 +259,10 @@ class Simulation(object):
     def threedimodel(self):
         """Gets the threedimodel of this Simulation.  # noqa: E501
 
+        The id of a threedimodel  # noqa: E501
 
         :return: The threedimodel of this Simulation.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._threedimodel
 
@@ -269,9 +270,10 @@ class Simulation(object):
     def threedimodel(self, threedimodel):
         """Sets the threedimodel of this Simulation.
 
+        The id of a threedimodel  # noqa: E501
 
         :param threedimodel: The threedimodel of this Simulation.  # noqa: E501
-        :type: str
+        :type: int
         """
         if threedimodel is None:
             raise ValueError("Invalid value for `threedimodel`, must not be `None`")  # noqa: E501
@@ -282,6 +284,7 @@ class Simulation(object):
     def organisation(self):
         """Gets the organisation of this Simulation.  # noqa: E501
 
+        The unique_id of an organisation  # noqa: E501
 
         :return: The organisation of this Simulation.  # noqa: E501
         :rtype: str
@@ -292,6 +295,7 @@ class Simulation(object):
     def organisation(self, organisation):
         """Sets the organisation of this Simulation.
 
+        The unique_id of an organisation  # noqa: E501
 
         :param organisation: The organisation of this Simulation.  # noqa: E501
         :type: str
@@ -326,6 +330,7 @@ class Simulation(object):
     def user(self):
         """Gets the user of this Simulation.  # noqa: E501
 
+        The username of a user  # noqa: E501
 
         :return: The user of this Simulation.  # noqa: E501
         :rtype: str
@@ -336,6 +341,7 @@ class Simulation(object):
     def user(self, user):
         """Sets the user of this Simulation.
 
+        The username of a user  # noqa: E501
 
         :param user: The user of this Simulation.  # noqa: E501
         :type: str

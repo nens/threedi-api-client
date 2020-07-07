@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest version: 3.0) 
-     Framework release: 1.0.7 
-     3Di core release: 2.0.9 
-    deployed on:  13:41PM (UTC) on June 16, 2020
+     Framework release: 1.0.10 
+     3Di core release: 2.0.10 
+    deployed on:  09:44AM (UTC) on July 02, 2020
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -7193,7 +7193,8 @@ paths:
         The ``scenario_name`` parameter is optional (max 50 chars). If not
         provided it becomes an empty string.
 
-        THe ``result_uuid`` can be defined for e.g. operational models.
+        THe ``result_uuid`` can be defined for e.g. operational models. Defaults to
+        an uuid4 if not provided.
 
         If ``process_basic_results`` (boolean) is False then:
         - It is not possible to have ArrivalTimePostProcessing and DamagePostProcessing.
@@ -7246,7 +7247,8 @@ paths:
         The ``scenario_name`` parameter is optional (max 50 chars). If not
         provided it becomes an empty string.
 
-        THe ``result_uuid`` can be defined for e.g. operational models.
+        THe ``result_uuid`` can be defined for e.g. operational models. Defaults to
+        an uuid4 if not provided.
 
         If ``process_basic_results`` (boolean) is False then:
         - It is not possible to have ArrivalTimePostProcessing and DamagePostProcessing.
@@ -7298,7 +7300,8 @@ paths:
         The ``scenario_name`` parameter is optional (max 50 chars). If not
         provided it becomes an empty string.
 
-        THe ``result_uuid`` can be defined for e.g. operational models.
+        THe ``result_uuid`` can be defined for e.g. operational models. Defaults to
+        an uuid4 if not provided.
 
         If ``process_basic_results`` (boolean) is False then:
         - It is not possible to have ArrivalTimePostProcessing and DamagePostProcessing.
@@ -7512,8 +7515,7 @@ paths:
             "damage_estimation": bool,
             "arrival_time": bool
           },
-          "model_name": str,
-          "settings": {  # empty dict if damage_estimation=False
+          "settings": {
             "damage_estimation": {
                 "damage_table": str,
                 "elevation_raster_uuid": str,
@@ -7526,6 +7528,8 @@ paths:
                 "repair_time_buildings": int
                 },
           },
+          "model_name": str, (=threedimodel_slug)
+          "simulation_name": str, (=simulation_slug)
           "scenario_name": str,
           "model_id": int,
           "model_revision_id": str,
@@ -10752,8 +10756,13 @@ definitions:
         type: integer
         readOnly: true
       organisation:
-        title: Organisation
+        title: Organisation.unique_id
         type: string
+        description: The unique_id of an organisation
+      organisation_name:
+        title: Organisation name
+        type: string
+        readOnly: true
       hours_bought:
         title: Hours bought
         type: integer
@@ -10994,15 +11003,17 @@ definitions:
         format: uri
         readOnly: true
       user:
-        title: User
+        title: User.username
         type: string
         pattern: ^[\w.@+-]+$
+        description: The username of a user
       role:
         title: Role
         type: string
       organisation:
-        title: Organisation
+        title: Organisation.unique_id
         type: string
+        description: The unique_id of an organisation
       organisation_name:
         title: Organisation name
         type: string
@@ -11022,8 +11033,9 @@ definitions:
         type: integer
         readOnly: true
       organisation:
-        title: Organisation
+        title: Organisation.unique_id
         type: string
+        description: The unique_id of an organisation
       slug:
         title: Slug
         description: do not change
@@ -11099,9 +11111,10 @@ definitions:
         type: integer
         readOnly: true
       user:
-        title: User
+        title: User.username
         type: string
         readOnly: true
+        description: The username of a user
       inpy_version:
         title: Inpy version
         type: string
@@ -11251,21 +11264,24 @@ definitions:
         type: string
         readOnly: true
       threedimodel:
-        title: Threedimodel
-        type: string
+        title: Threedimodel.id
+        type: integer
         format: uri
+        description: The id of a threedimodel
       organisation:
-        title: Organisation
+        title: Organisation.unique_id
         type: string
+        description: The unique_id of an organisation
       organisation_name:
         title: Organisation name
         type: string
         readOnly: true
       user:
-        title: User
+        title: User.username
         type: string
         pattern: ^[\w.@+-]+$
         readOnly: true
+        description: The username of a user
       start_datetime:
         title: Start datetime
         type: string
@@ -11347,23 +11363,26 @@ definitions:
         type: string
         readOnly: true
       threedimodel:
-        title: Threedimodel
-        type: string
+        title: Threedimodel.id
+        type: integer
         format: uri
         readOnly: true
+        description: The id of a threedimodel
       organisation:
-        title: Organisation
+        title: Organisation.unique_id
         type: string
         readOnly: true
+        description: The unique_id of an organisation
       organisation_name:
         title: Organisation name
         type: string
         readOnly: true
       user:
-        title: User
+        title: User.username
         type: string
         pattern: ^[\w.@+-]+$
         readOnly: true
+        description: The username of a user
       start_datetime:
         title: Start datetime
         type: string
@@ -14276,8 +14295,6 @@ definitions:
         readOnly: true
   Settings:
     title: Settings
-    required:
-      - damage_estimation
     type: object
     properties:
       damage_estimation:
@@ -14307,12 +14324,16 @@ definitions:
         readOnly: true
       results:
         $ref: '#/definitions/Result'
+      settings:
+        $ref: '#/definitions/Settings'
       model_name:
         title: Model name
         type: string
         readOnly: true
-      settings:
-        $ref: '#/definitions/Settings'
+      simulation_name:
+        title: Simulation name
+        type: string
+        readOnly: true
       scenario_name:
         title: Scenario name
         description: Scenario name for saving the results

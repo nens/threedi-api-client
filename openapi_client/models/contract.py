@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.7   3Di core release: 2.0.9  deployed on:  13:41PM (UTC) on June 16, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.10   3Di core release: 2.0.10  deployed on:  09:44AM (UTC) on July 02, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -35,6 +35,7 @@ class Contract(object):
         'url': 'str',
         'id': 'int',
         'organisation': 'str',
+        'organisation_name': 'str',
         'hours_bought': 'int',
         'hours_used': 'float',
         'session_limit': 'int',
@@ -45,18 +46,20 @@ class Contract(object):
         'url': 'url',
         'id': 'id',
         'organisation': 'organisation',
+        'organisation_name': 'organisation_name',
         'hours_bought': 'hours_bought',
         'hours_used': 'hours_used',
         'session_limit': 'session_limit',
         'current_sessions': 'current_sessions'
     }
 
-    def __init__(self, url=None, id=None, organisation=None, hours_bought=None, hours_used=None, session_limit=None, current_sessions=None):  # noqa: E501
+    def __init__(self, url=None, id=None, organisation=None, organisation_name=None, hours_bought=None, hours_used=None, session_limit=None, current_sessions=None):  # noqa: E501
         """Contract - a model defined in OpenAPI"""  # noqa: E501
 
         self._url = None
         self._id = None
         self._organisation = None
+        self._organisation_name = None
         self._hours_bought = None
         self._hours_used = None
         self._session_limit = None
@@ -68,6 +71,8 @@ class Contract(object):
         if id is not None:
             self.id = id
         self.organisation = organisation
+        if organisation_name is not None:
+            self.organisation_name = organisation_name
         self.hours_bought = hours_bought
         if hours_used is not None:
             self.hours_used = hours_used
@@ -121,6 +126,7 @@ class Contract(object):
     def organisation(self):
         """Gets the organisation of this Contract.  # noqa: E501
 
+        The unique_id of an organisation  # noqa: E501
 
         :return: The organisation of this Contract.  # noqa: E501
         :rtype: str
@@ -131,6 +137,7 @@ class Contract(object):
     def organisation(self, organisation):
         """Sets the organisation of this Contract.
 
+        The unique_id of an organisation  # noqa: E501
 
         :param organisation: The organisation of this Contract.  # noqa: E501
         :type: str
@@ -139,6 +146,27 @@ class Contract(object):
             raise ValueError("Invalid value for `organisation`, must not be `None`")  # noqa: E501
 
         self._organisation = organisation
+
+    @property
+    def organisation_name(self):
+        """Gets the organisation_name of this Contract.  # noqa: E501
+
+
+        :return: The organisation_name of this Contract.  # noqa: E501
+        :rtype: str
+        """
+        return self._organisation_name
+
+    @organisation_name.setter
+    def organisation_name(self, organisation_name):
+        """Sets the organisation_name of this Contract.
+
+
+        :param organisation_name: The organisation_name of this Contract.  # noqa: E501
+        :type: str
+        """
+
+        self._organisation_name = organisation_name
 
     @property
     def hours_bought(self):

@@ -2,10 +2,10 @@
 History
 =======
 
-3.0.4 (unreleased)
-------------------
+3.0.4b1 (unreleased)
+--------------------
 
-- Nothing changed yet.
+- Damage estimation is not required
 
 
 3.0.3 (2020-06-16)

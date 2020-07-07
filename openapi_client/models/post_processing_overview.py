@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.7   3Di core release: 2.0.9  deployed on:  13:41PM (UTC) on June 16, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.10   3Di core release: 2.0.10  deployed on:  09:44AM (UTC) on July 02, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -37,8 +37,9 @@ class PostProcessingOverview(object):
         'start_time_sim': 'str',
         'end_time_sim': 'str',
         'results': 'Result',
-        'model_name': 'str',
         'settings': 'Settings',
+        'model_name': 'str',
+        'simulation_name': 'str',
         'scenario_name': 'str',
         'model_id': 'int',
         'model_revision_id': 'str',
@@ -54,8 +55,9 @@ class PostProcessingOverview(object):
         'start_time_sim': 'start_time_sim',
         'end_time_sim': 'end_time_sim',
         'results': 'results',
-        'model_name': 'model_name',
         'settings': 'settings',
+        'model_name': 'model_name',
+        'simulation_name': 'simulation_name',
         'scenario_name': 'scenario_name',
         'model_id': 'model_id',
         'model_revision_id': 'model_revision_id',
@@ -65,7 +67,7 @@ class PostProcessingOverview(object):
         'simulation': 'simulation'
     }
 
-    def __init__(self, username=None, metadata_version='1.2', start_time_sim=None, end_time_sim=None, results=None, model_name=None, settings=None, scenario_name=None, model_id=None, model_revision_id=None, email=None, result_uuid=None, organisation_uuid=None, simulation=None):  # noqa: E501
+    def __init__(self, username=None, metadata_version='1.2', start_time_sim=None, end_time_sim=None, results=None, settings=None, model_name=None, simulation_name=None, scenario_name=None, model_id=None, model_revision_id=None, email=None, result_uuid=None, organisation_uuid=None, simulation=None):  # noqa: E501
         """PostProcessingOverview - a model defined in OpenAPI"""  # noqa: E501
 
         self._username = None
@@ -73,8 +75,9 @@ class PostProcessingOverview(object):
         self._start_time_sim = None
         self._end_time_sim = None
         self._results = None
-        self._model_name = None
         self._settings = None
+        self._model_name = None
+        self._simulation_name = None
         self._scenario_name = None
         self._model_id = None
         self._model_revision_id = None
@@ -93,9 +96,11 @@ class PostProcessingOverview(object):
         if end_time_sim is not None:
             self.end_time_sim = end_time_sim
         self.results = results
+        self.settings = settings
         if model_name is not None:
             self.model_name = model_name
-        self.settings = settings
+        if simulation_name is not None:
+            self.simulation_name = simulation_name
         if scenario_name is not None:
             self.scenario_name = scenario_name
         if model_id is not None:
@@ -219,27 +224,6 @@ class PostProcessingOverview(object):
         self._results = results
 
     @property
-    def model_name(self):
-        """Gets the model_name of this PostProcessingOverview.  # noqa: E501
-
-
-        :return: The model_name of this PostProcessingOverview.  # noqa: E501
-        :rtype: str
-        """
-        return self._model_name
-
-    @model_name.setter
-    def model_name(self, model_name):
-        """Sets the model_name of this PostProcessingOverview.
-
-
-        :param model_name: The model_name of this PostProcessingOverview.  # noqa: E501
-        :type: str
-        """
-
-        self._model_name = model_name
-
-    @property
     def settings(self):
         """Gets the settings of this PostProcessingOverview.  # noqa: E501
 
@@ -261,6 +245,48 @@ class PostProcessingOverview(object):
             raise ValueError("Invalid value for `settings`, must not be `None`")  # noqa: E501
 
         self._settings = settings
+
+    @property
+    def model_name(self):
+        """Gets the model_name of this PostProcessingOverview.  # noqa: E501
+
+
+        :return: The model_name of this PostProcessingOverview.  # noqa: E501
+        :rtype: str
+        """
+        return self._model_name
+
+    @model_name.setter
+    def model_name(self, model_name):
+        """Sets the model_name of this PostProcessingOverview.
+
+
+        :param model_name: The model_name of this PostProcessingOverview.  # noqa: E501
+        :type: str
+        """
+
+        self._model_name = model_name
+
+    @property
+    def simulation_name(self):
+        """Gets the simulation_name of this PostProcessingOverview.  # noqa: E501
+
+
+        :return: The simulation_name of this PostProcessingOverview.  # noqa: E501
+        :rtype: str
+        """
+        return self._simulation_name
+
+    @simulation_name.setter
+    def simulation_name(self, simulation_name):
+        """Sets the simulation_name of this PostProcessingOverview.
+
+
+        :param simulation_name: The simulation_name of this PostProcessingOverview.  # noqa: E501
+        :type: str
+        """
+
+        self._simulation_name = simulation_name
 
     @property
     def scenario_name(self):
