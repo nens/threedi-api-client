@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.4b1 (unreleased)
+3.0.4b1 (2020-07-07)
 --------------------
 
 - Damage estimation is not required
