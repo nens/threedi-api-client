@@ -5,7 +5,9 @@ History
 3.0.4b2 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Generated with generator version v4.3.0
+
+- Fixed problem with threedimodel on simulation resource (was integer should be string) 
 
 
 3.0.4b1 (2020-07-07)

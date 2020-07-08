@@ -11265,7 +11265,7 @@ definitions:
         readOnly: true
       threedimodel:
         title: Threedimodel.id
-        type: integer
+        type: string
         format: uri
         description: The id of a threedimodel
       organisation:
@@ -11299,7 +11299,7 @@ definitions:
         readOnly: true
       threedimodel_id:
         title: Threedimodel id
-        type: string
+        type: integer
         readOnly: true
       id:
         title: ID
@@ -11364,7 +11364,7 @@ definitions:
         readOnly: true
       threedimodel:
         title: Threedimodel.id
-        type: integer
+        type: string
         format: uri
         readOnly: true
         description: The id of a threedimodel
@@ -11401,7 +11401,7 @@ definitions:
         readOnly: true
       threedimodel_id:
         title: Threedimodel id
-        type: string
+        type: integer
         readOnly: true
       id:
         title: ID

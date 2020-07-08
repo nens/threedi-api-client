@@ -19,7 +19,7 @@ import re  # noqa: F401
 import six
 
 from openapi_client.api_client import ApiClient
-from openapi_client.exceptions import (
+from openapi_client.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -91,11 +91,18 @@ class AuthApi(object):
 
         local_var_params = locals()
 
-        all_params = ['limit', 'offset']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'limit',
+            'offset'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -111,9 +118,9 @@ class AuthApi(object):
         path_params = {}
 
         query_params = []
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params:
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -197,11 +204,17 @@ class AuthApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -212,8 +225,8 @@ class AuthApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `data` when calling `auth_refresh_token_create`")  # noqa: E501
 
         collection_formats = {}
@@ -309,11 +322,17 @@ class AuthApi(object):
 
         local_var_params = locals()
 
-        all_params = ['data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -324,8 +343,8 @@ class AuthApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'data' is set
-        if ('data' not in local_var_params or
-                local_var_params['data'] is None):
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `data` when calling `auth_token_create`")  # noqa: E501
 
         collection_formats = {}
@@ -455,11 +474,34 @@ class AuthApi(object):
 
         local_var_params = locals()
 
-        all_params = ['username', 'username__contains', 'username__icontains', 'username__in', 'username__startswith', 'username__istartswith', 'username__endswith', 'username__regex', 'email', 'email__contains', 'email__icontains', 'email__in', 'email__startswith', 'email__istartswith', 'email__endswith', 'email__regex', 'limit', 'offset']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'username',
+            'username__contains',
+            'username__icontains',
+            'username__in',
+            'username__startswith',
+            'username__istartswith',
+            'username__endswith',
+            'username__regex',
+            'email',
+            'email__contains',
+            'email__icontains',
+            'email__in',
+            'email__startswith',
+            'email__istartswith',
+            'email__endswith',
+            'email__regex',
+            'limit',
+            'offset'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -475,41 +517,41 @@ class AuthApi(object):
         path_params = {}
 
         query_params = []
-        if 'username' in local_var_params:
+        if 'username' in local_var_params and local_var_params['username'] is not None:  # noqa: E501
             query_params.append(('username', local_var_params['username']))  # noqa: E501
-        if 'username__contains' in local_var_params:
+        if 'username__contains' in local_var_params and local_var_params['username__contains'] is not None:  # noqa: E501
             query_params.append(('username__contains', local_var_params['username__contains']))  # noqa: E501
-        if 'username__icontains' in local_var_params:
+        if 'username__icontains' in local_var_params and local_var_params['username__icontains'] is not None:  # noqa: E501
             query_params.append(('username__icontains', local_var_params['username__icontains']))  # noqa: E501
-        if 'username__in' in local_var_params:
+        if 'username__in' in local_var_params and local_var_params['username__in'] is not None:  # noqa: E501
             query_params.append(('username__in', local_var_params['username__in']))  # noqa: E501
-        if 'username__startswith' in local_var_params:
+        if 'username__startswith' in local_var_params and local_var_params['username__startswith'] is not None:  # noqa: E501
             query_params.append(('username__startswith', local_var_params['username__startswith']))  # noqa: E501
-        if 'username__istartswith' in local_var_params:
+        if 'username__istartswith' in local_var_params and local_var_params['username__istartswith'] is not None:  # noqa: E501
             query_params.append(('username__istartswith', local_var_params['username__istartswith']))  # noqa: E501
-        if 'username__endswith' in local_var_params:
+        if 'username__endswith' in local_var_params and local_var_params['username__endswith'] is not None:  # noqa: E501
             query_params.append(('username__endswith', local_var_params['username__endswith']))  # noqa: E501
-        if 'username__regex' in local_var_params:
+        if 'username__regex' in local_var_params and local_var_params['username__regex'] is not None:  # noqa: E501
             query_params.append(('username__regex', local_var_params['username__regex']))  # noqa: E501
-        if 'email' in local_var_params:
+        if 'email' in local_var_params and local_var_params['email'] is not None:  # noqa: E501
             query_params.append(('email', local_var_params['email']))  # noqa: E501
-        if 'email__contains' in local_var_params:
+        if 'email__contains' in local_var_params and local_var_params['email__contains'] is not None:  # noqa: E501
             query_params.append(('email__contains', local_var_params['email__contains']))  # noqa: E501
-        if 'email__icontains' in local_var_params:
+        if 'email__icontains' in local_var_params and local_var_params['email__icontains'] is not None:  # noqa: E501
             query_params.append(('email__icontains', local_var_params['email__icontains']))  # noqa: E501
-        if 'email__in' in local_var_params:
+        if 'email__in' in local_var_params and local_var_params['email__in'] is not None:  # noqa: E501
             query_params.append(('email__in', local_var_params['email__in']))  # noqa: E501
-        if 'email__startswith' in local_var_params:
+        if 'email__startswith' in local_var_params and local_var_params['email__startswith'] is not None:  # noqa: E501
             query_params.append(('email__startswith', local_var_params['email__startswith']))  # noqa: E501
-        if 'email__istartswith' in local_var_params:
+        if 'email__istartswith' in local_var_params and local_var_params['email__istartswith'] is not None:  # noqa: E501
             query_params.append(('email__istartswith', local_var_params['email__istartswith']))  # noqa: E501
-        if 'email__endswith' in local_var_params:
+        if 'email__endswith' in local_var_params and local_var_params['email__endswith'] is not None:  # noqa: E501
             query_params.append(('email__endswith', local_var_params['email__endswith']))  # noqa: E501
-        if 'email__regex' in local_var_params:
+        if 'email__regex' in local_var_params and local_var_params['email__regex'] is not None:  # noqa: E501
             query_params.append(('email__regex', local_var_params['email__regex']))  # noqa: E501
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params:
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
             query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
@@ -591,11 +633,17 @@ class AuthApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -606,8 +654,8 @@ class AuthApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `auth_users_read`")  # noqa: E501
 
         collection_formats = {}
