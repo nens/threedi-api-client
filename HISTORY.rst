@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.4b2 (unreleased)
+3.0.4b2 (2020-07-08)
 --------------------
 
 - Generated with generator version v4.3.0
