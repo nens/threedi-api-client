@@ -1,66 +1,8 @@
-import jwt
-
 from openapi_client.aio import ApiClient
 from openapi_client.aio import Configuration
-from openapi_client.aio import AuthApi
-from openapi_client.aio.models import Authenticate
 
+from threedi_api_client.threedi_api_client import refresh_api_key
 from threedi_api_client.config import Config, EnvironConfig
-
-# Token expires at:
-# jwt_token.exp + EXPIRE_LEEWAY seconds
-# (thus EXPIRE_LEEWAY seconds before it really expires)
-EXPIRE_LEEWAY = -300
-
-
-async def get_auth_token(username: str, password: str, api_host: str):
-    api_client = ApiClient(
-        Configuration(
-            username=username,
-            password=password,
-            host=api_host
-        )
-    )
-    auth = AuthApi(api_client)
-    return await auth.auth_token_create(Authenticate(username, password))
-
-
-def is_token_usable(token: str) -> bool:
-    if token is None:
-        return False
-
-    # Check if not expired...
-    try:
-        jwt.decode(
-            token,
-            options={"verify_signature": False},
-            leeway=EXPIRE_LEEWAY,
-        )
-    except Exception:
-        return False
-
-    return True
-
-
-async def refresh_api_key(config: Configuration):
-    """Refreshes the access key if its expired"""
-    api_key = config.api_key.get("Authorization")
-    if is_token_usable(api_key):
-        return
-
-    refresh_key = config.api_key['refresh']
-    if is_token_usable(refresh_key):
-        api_client = ApiClient(Configuration(config.host))
-        auth = AuthApi(api_client)
-        token = await auth.auth_refresh_token_create(
-            {"refresh": config.api_key['refresh']}
-        )
-    else:
-        token = await get_auth_token(config.username, config.password, config.host)
-    config.api_key = {
-        'Authorization': token.access,
-        'refresh': token.refresh
-    }
 
 
 class ThreediApiClient:
