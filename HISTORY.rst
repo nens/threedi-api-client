@@ -5,7 +5,7 @@ History
 3.0.4b3 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Added id field everywhere
 
 
 3.0.4b2 (2020-07-08)

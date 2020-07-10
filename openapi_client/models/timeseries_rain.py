@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.10   3Di core release: 2.0.10  deployed on:  09:44AM (UTC) on July 02, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.11   3Di core release: 2.0.10  deployed on:  11:20AM (UTC) on July 10, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -41,7 +41,8 @@ class TimeseriesRain(object):
         'interpolate': 'bool',
         'values': 'list[list[float]]',
         'units': 'str',
-        'uid': 'str'
+        'uid': 'str',
+        'id': 'int'
     }
 
     attribute_map = {
@@ -52,10 +53,11 @@ class TimeseriesRain(object):
         'interpolate': 'interpolate',
         'values': 'values',
         'units': 'units',
-        'uid': 'uid'
+        'uid': 'uid',
+        'id': 'id'
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, duration=None, interpolate=None, values=None, units=None, uid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, offset=None, duration=None, interpolate=None, values=None, units=None, uid=None, id=None, local_vars_configuration=None):  # noqa: E501
         """TimeseriesRain - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class TimeseriesRain(object):
         self._values = None
         self._units = None
         self._uid = None
+        self._id = None
         self.discriminator = None
 
         if url is not None:
@@ -84,6 +87,8 @@ class TimeseriesRain(object):
         self.units = units
         if uid is not None:
             self.uid = uid
+        if id is not None:
+            self.id = id
 
     @property
     def url(self):
@@ -276,6 +281,27 @@ class TimeseriesRain(object):
         """
 
         self._uid = uid
+
+    @property
+    def id(self):
+        """Gets the id of this TimeseriesRain.  # noqa: E501
+
+
+        :return: The id of this TimeseriesRain.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this TimeseriesRain.
+
+
+        :param id: The id of this TimeseriesRain.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
