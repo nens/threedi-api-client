@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.10   3Di core release: 2.0.10  deployed on:  09:44AM (UTC) on July 02, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.11   3Di core release: 2.0.10  deployed on:  11:20AM (UTC) on July 10, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,8 @@ class ConstantSourcesSinks(object):
         'duration': 'float',
         'value': 'float',
         'units': 'str',
-        'uid': 'str'
+        'uid': 'str',
+        'id': 'int'
     }
 
     attribute_map = {
@@ -50,10 +51,11 @@ class ConstantSourcesSinks(object):
         'duration': 'duration',
         'value': 'value',
         'units': 'units',
-        'uid': 'uid'
+        'uid': 'uid',
+        'id': 'id'
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, duration=None, value=None, units=None, uid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, simulation=None, offset=None, duration=None, value=None, units=None, uid=None, id=None, local_vars_configuration=None):  # noqa: E501
         """ConstantSourcesSinks - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +68,7 @@ class ConstantSourcesSinks(object):
         self._value = None
         self._units = None
         self._uid = None
+        self._id = None
         self.discriminator = None
 
         if url is not None:
@@ -78,6 +81,8 @@ class ConstantSourcesSinks(object):
         self.units = units
         if uid is not None:
             self.uid = uid
+        if id is not None:
+            self.id = id
 
     @property
     def url(self):
@@ -249,6 +254,27 @@ class ConstantSourcesSinks(object):
         """
 
         self._uid = uid
+
+    @property
+    def id(self):
+        """Gets the id of this ConstantSourcesSinks.  # noqa: E501
+
+
+        :return: The id of this ConstantSourcesSinks.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this ConstantSourcesSinks.
+
+
+        :param id: The id of this ConstantSourcesSinks.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

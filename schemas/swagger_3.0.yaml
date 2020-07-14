@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest version: 3.0) 
-     Framework release: 1.0.10 
+     Framework release: 1.0.11 
      3Di core release: 2.0.10 
-    deployed on:  09:44AM (UTC) on July 02, 2020
+    deployed on:  11:20AM (UTC) on July 10, 2020
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -2944,7 +2944,23 @@ paths:
         - simulations
     post:
       operationId: simulations_events_breaches_create
-      description: A simple ViewSet for viewing Breaches
+      description: |-
+        Create a breach during a given simulation. The `potential_breach`
+        parameter refers to the id of a potential location associated with the
+        threedimodel. A list of these locations can be retrieved at the uri
+        `v3.0/threedimodels/{id}/potentialbreaches/`
+
+        The `duration_till_max_depth` parameter describes the time it takes until
+        the deepest point of the breach is reached. [seconds]
+
+        `maximum_breach_depth` specifies the maximum depth of the breach
+        relative to the top of the levee [meters]
+
+        `initial_width` of the breach [meters]
+
+        `discharge_coefficient_positive` and `discharge_coefficient_negative`
+        are dimensionless parameters to deal with behaviour of energy loss
+        around a breach.
       parameters:
         - name: data
           in: body
@@ -2994,8 +3010,8 @@ paths:
     patch:
       operationId: simulations_events_breaches_partial_update
       description: |-
-        when the simulation has started only the duration parameter might
-        be patched
+        Please note: **Breach resources are not allowed to be patched after the
+        simulation has started**
       parameters:
         - name: data
           in: body
@@ -10603,6 +10619,15 @@ paths:
             $ref: '#/definitions/ThreediModelSavedState'
       tags:
         - threedimodels
+    delete:
+      operationId: threedimodels_saved_states_delete
+      description: View saved states created for this 3Di model
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - threedimodels
     parameters:
       - name: id
         in: path
@@ -11602,6 +11627,10 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   Breach:
     required:
       - potential_breach
@@ -11943,6 +11972,10 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   FileTimeseriesSourcesSinks:
     required:
       - units
@@ -12020,6 +12053,10 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   TimeseriesSourcesSinksOverview:
     required:
       - offset
@@ -12070,6 +12107,10 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   TwoDWaterLevel:
     title: Initial twodwaterlevel
     required:
@@ -12094,6 +12135,10 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   OneDWaterLevelPredefined:
     title: Initial onedwaterlevelpredefined
     type: object
@@ -12112,6 +12157,10 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
+      id:
+        title: ID
+        type: integer
         readOnly: true
   GroundWaterLevel:
     title: Initial groundwaterlevel
@@ -12136,6 +12185,10 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
+      id:
+        title: ID
+        type: integer
         readOnly: true
   GroundWaterRaster:
     title: Initial groundwaterraster
@@ -12174,6 +12227,10 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   OneDWaterLevel:
     title: Initial onedwaterlevel
     required:
@@ -12197,6 +12254,10 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
+      id:
+        title: ID
+        type: integer
         readOnly: true
   TwoDWaterRaster:
     title: Initial twodwaterraster
@@ -12234,6 +12295,10 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
+      id:
+        title: ID
+        type: integer
         readOnly: true
   FileRasterRain:
     type: object
@@ -12324,6 +12389,10 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   FileTimeseriesRain:
     required:
       - units
@@ -12400,6 +12469,10 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
+      id:
+        title: ID
+        type: integer
         readOnly: true
   Threshold:
     required:
@@ -12575,6 +12648,10 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
+      id:
+        title: ID
+        type: integer
         readOnly: true
   TimedStructureControl:
     required:
@@ -12792,6 +12869,10 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   Wind:
     required:
       - offset
@@ -12882,6 +12963,10 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
+      id:
+        title: ID
+        type: integer
         readOnly: true
   Event:
     type: object
@@ -13207,6 +13292,10 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   GridEventState:
     required:
       - state
@@ -13348,6 +13437,10 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   ConstantLocalRain:
     required:
       - offset
@@ -13407,6 +13500,10 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   TimeseriesLocalRain:
     required:
       - offset
@@ -13462,6 +13559,10 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
+      id:
+        title: ID
+        type: integer
         readOnly: true
   NetCDFRasterRain:
     type: object
@@ -13597,6 +13698,10 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   NetCDFTimeseriesRain:
     required:
       - units
@@ -13721,6 +13826,10 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
+      id:
+        title: ID
+        type: integer
         readOnly: true
   NetCDFRasterSourcesSinks:
     type: object
@@ -13854,6 +13963,10 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
+      id:
+        title: ID
+        type: integer
         readOnly: true
   NetCDFTimeseriesSourcesSinks:
     required:
@@ -14782,6 +14895,10 @@ definitions:
       - dimension
     type: object
     properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
       url:
         title: Url
         type: string
@@ -14959,6 +15076,10 @@ definitions:
       - type
     type: object
     properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
       url:
         title: Url
         type: string

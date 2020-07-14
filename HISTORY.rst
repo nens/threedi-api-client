@@ -2,10 +2,16 @@
 History
 =======
 
-3.0.4b3 (unreleased)
+3.0.4b4 (unreleased)
 --------------------
 
 - Nothing changed yet.
+
+
+3.0.4b3 (2020-07-10)
+--------------------
+
+- Added id field everywhere
 
 
 3.0.4b2 (2020-07-08)

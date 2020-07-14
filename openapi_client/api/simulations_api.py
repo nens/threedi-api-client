@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.10   3Di core release: 2.0.10  deployed on:  09:44AM (UTC) on July 02, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.11   3Di core release: 2.0.10  deployed on:  11:20AM (UTC) on July 10, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -2299,7 +2299,7 @@ class SimulationsApi(object):
     def simulations_events_breaches_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_breaches_create  # noqa: E501
 
-        A simple ViewSet for viewing Breaches  # noqa: E501
+        Create a breach during a given simulation. The `potential_breach` parameter refers to the id of a potential location associated with the threedimodel. A list of these locations can be retrieved at the uri `v3.0/threedimodels/{id}/potentialbreaches/`  The `duration_till_max_depth` parameter describes the time it takes until the deepest point of the breach is reached. [seconds]  `maximum_breach_depth` specifies the maximum depth of the breach relative to the top of the levee [meters]  `initial_width` of the breach [meters]  `discharge_coefficient_positive` and `discharge_coefficient_negative` are dimensionless parameters to deal with behaviour of energy loss around a breach.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_breaches_create(simulation_pk, data, async_req=True)
@@ -2325,7 +2325,7 @@ class SimulationsApi(object):
     def simulations_events_breaches_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_breaches_create  # noqa: E501
 
-        A simple ViewSet for viewing Breaches  # noqa: E501
+        Create a breach during a given simulation. The `potential_breach` parameter refers to the id of a potential location associated with the threedimodel. A list of these locations can be retrieved at the uri `v3.0/threedimodels/{id}/potentialbreaches/`  The `duration_till_max_depth` parameter describes the time it takes until the deepest point of the breach is reached. [seconds]  `maximum_breach_depth` specifies the maximum depth of the breach relative to the top of the levee [meters]  `initial_width` of the breach [meters]  `discharge_coefficient_positive` and `discharge_coefficient_negative` are dimensionless parameters to deal with behaviour of energy loss around a breach.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_breaches_create_with_http_info(simulation_pk, data, async_req=True)
@@ -2669,7 +2669,7 @@ class SimulationsApi(object):
     def simulations_events_breaches_partial_update(self, id, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_breaches_partial_update  # noqa: E501
 
-        when the simulation has started only the duration parameter might be patched  # noqa: E501
+        Please note: **Breach resources are not allowed to be patched after the simulation has started**  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_breaches_partial_update(id, simulation_pk, data, async_req=True)
@@ -2696,7 +2696,7 @@ class SimulationsApi(object):
     def simulations_events_breaches_partial_update_with_http_info(self, id, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_breaches_partial_update  # noqa: E501
 
-        when the simulation has started only the duration parameter might be patched  # noqa: E501
+        Please note: **Breach resources are not allowed to be patched after the simulation has started**  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_breaches_partial_update_with_http_info(id, simulation_pk, data, async_req=True)
