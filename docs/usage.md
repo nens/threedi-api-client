@@ -253,3 +253,36 @@ with open(local_file_path, 'rb') as f:
     # Requests automatically streams the file this way
     requests.put(file_upload.put_url, data=f)
 ```
+
+
+### Async client
+
+The ThreediApiClient also provides an asynchronous api client. To use the async-client 
+make sure you import from the `aio` submodule. The async-client works the same as the 
+synchronous client, except all api calls are coroutines.
+
+For example, to asynchronously request files from the api:
+
+```python
+import asyncio
+
+from openapi_client.aio.api.files_api import FilesApi
+from threedi_api_client.aio.threedi_api_client import ThreediApiClient
+
+
+config = {
+    "API_HOST": "https://api.3di.live/v3.0",
+    "API_USERNAME": "black.sheep",
+    "API_PASSWORD": "myverysecretmehhh"
+}
+
+
+async def main():
+    async with ThreediApiClient(config=config) as api_client:
+        files_api = FilesApi(api_client)
+        await files_api.files_list()
+
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```

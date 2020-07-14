@@ -63,10 +63,12 @@ class Configuration(object):
             name: JSESSIONID  # cookie name
 
     You can programmatically set the cookie:
-      conf = openapi_client.Configuration(
-        api_key={'cookieAuth': 'abc123'}
-        api_key_prefix={'cookieAuth': 'JSESSIONID'}
-      )
+
+conf = openapi_client.Configuration(
+    api_key={'cookieAuth': 'abc123'}
+    api_key_prefix={'cookieAuth': 'JSESSIONID'}
+)
+
     The following cookie will be added to the HTTP request:
        Cookie: JSESSIONID abc123
     """
@@ -182,6 +184,9 @@ class Configuration(object):
         result.logger_file = self.logger_file
         result.debug = self.debug
         return result
+
+    def __setattr__(self, name, value):
+        object.__setattr__(self, name, value)
 
     @classmethod
     def set_default(cls, default):
