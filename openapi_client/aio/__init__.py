@@ -17,8 +17,11 @@ from __future__ import absolute_import
 
 __version__ = "1.0.0"
 
+from openapi_client.aio import rest as rest_iets
 from openapi_client import *
 
 
 # import ApiClient
+rest = rest_iets
 from openapi_client.aio.api_client import ApiClient
+

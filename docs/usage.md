@@ -266,7 +266,7 @@ For example, to asynchronously request files from the api:
 ```python
 import asyncio
 
-from openapi_client.aio.api.files_api import FilesApi
+from openapi_client.api.files_api import FilesApi
 from threedi_api_client.aio.threedi_api_client import ThreediApiClient
 
 
@@ -280,7 +280,7 @@ config = {
 async def main():
     async with ThreediApiClient(config=config) as api_client:
         files_api = FilesApi(api_client)
-        await files_api.files_list()
+        print(await files_api.files_list())
 
 
 if __name__ == '__main__':
