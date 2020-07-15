@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.4 (unreleased)
+3.0.4 (2020-07-15)
 ------------------
 
 - Added pumps discharge graph endpoint
