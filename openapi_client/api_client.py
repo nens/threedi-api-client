@@ -2,7 +2,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.11   3Di core release: 2.0.10  deployed on:  11:20AM (UTC) on July 10, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.11   3Di core release: 2.0.12  deployed on:  13:48AM (UTC) on July 15, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -79,7 +79,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'OpenApi-Generator/1.0.10/python-urllib3'
+        self.user_agent = 'OpenApi-Generator/1.0.11/python-urllib3'
         self.client_side_validation = configuration.client_side_validation
 
     def __enter__(self):

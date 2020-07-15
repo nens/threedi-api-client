@@ -2,10 +2,12 @@
 History
 =======
 
-3.0.4b4 (unreleased)
---------------------
+3.0.4 (unreleased)
+------------------
 
-- Nothing changed yet.
+- Added pumps discharge graph endpoint
+
+- Added more filtering options on contracts 
 
 
 3.0.4b3 (2020-07-10)

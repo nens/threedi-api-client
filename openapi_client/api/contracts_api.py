@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.11   3Di core release: 2.0.10  deployed on:  11:20AM (UTC) on July 10, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.11   3Di core release: 2.0.12  deployed on:  13:48AM (UTC) on July 15, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -266,9 +266,9 @@ class ContractsApi(object):
             collection_formats=collection_formats)
 
     def contracts_list(self, **kwargs):  # noqa: E501
-        """contracts_list  # noqa: E501
+        """Overview of organisations that have a valid 3Di contract.  # noqa: E501
 
-        API endpoint for interacting with contracts.  # noqa: E501
+        List all organisations that already have used some fraction of their calculation quota (for the current year - the `hours_used` property is based on the current calender year) ``` ?hours_used__gt=0 ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.contracts_list(async_req=True)
@@ -298,6 +298,8 @@ class ContractsApi(object):
         :param str organisation__unique_id__istartswith:
         :param str organisation__unique_id__endswith:
         :param str organisation__unique_id__regex:
+        :param float hours_used__gt:
+        :param float hours_used__lt:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -315,9 +317,9 @@ class ContractsApi(object):
         return self.contracts_list_with_http_info(**kwargs)  # noqa: E501
 
     def contracts_list_with_http_info(self, **kwargs):  # noqa: E501
-        """contracts_list  # noqa: E501
+        """Overview of organisations that have a valid 3Di contract.  # noqa: E501
 
-        API endpoint for interacting with contracts.  # noqa: E501
+        List all organisations that already have used some fraction of their calculation quota (for the current year - the `hours_used` property is based on the current calender year) ``` ?hours_used__gt=0 ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.contracts_list_with_http_info(async_req=True)
@@ -347,6 +349,8 @@ class ContractsApi(object):
         :param str organisation__unique_id__istartswith:
         :param str organisation__unique_id__endswith:
         :param str organisation__unique_id__regex:
+        :param float hours_used__gt:
+        :param float hours_used__lt:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -389,6 +393,8 @@ class ContractsApi(object):
             'organisation__unique_id__istartswith',
             'organisation__unique_id__endswith',
             'organisation__unique_id__regex',
+            'hours_used__gt',
+            'hours_used__lt',
             'limit',
             'offset'
         ]
@@ -461,6 +467,10 @@ class ContractsApi(object):
             query_params.append(('organisation__unique_id__endswith', local_var_params['organisation__unique_id__endswith']))  # noqa: E501
         if 'organisation__unique_id__regex' in local_var_params and local_var_params['organisation__unique_id__regex'] is not None:  # noqa: E501
             query_params.append(('organisation__unique_id__regex', local_var_params['organisation__unique_id__regex']))  # noqa: E501
+        if 'hours_used__gt' in local_var_params and local_var_params['hours_used__gt'] is not None:  # noqa: E501
+            query_params.append(('hours_used__gt', local_var_params['hours_used__gt']))  # noqa: E501
+        if 'hours_used__lt' in local_var_params and local_var_params['hours_used__lt'] is not None:  # noqa: E501
+            query_params.append(('hours_used__lt', local_var_params['hours_used__lt']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501

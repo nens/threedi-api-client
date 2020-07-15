@@ -4,8 +4,8 @@ info:
   description: |-
     3Di simulation API (latest version: 3.0) 
      Framework release: 1.0.11 
-     3Di core release: 2.0.10 
-    deployed on:  11:20AM (UTC) on July 10, 2020
+     3Di core release: 2.0.12 
+    deployed on:  13:48AM (UTC) on July 15, 2020
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -249,7 +249,14 @@ paths:
   /contracts/:
     get:
       operationId: contracts_list
-      description: API endpoint for interacting with contracts.
+      summary: Overview of organisations that have a valid 3Di contract.
+      description: |-
+        List all organisations that already have used some fraction
+        of their calculation quota (for the current year - the `hours_used`
+        property is based on the current calender year)
+        ```
+        ?hours_used__gt=0
+        ```
       parameters:
         - name: organisation__id
           in: query
@@ -366,6 +373,16 @@ paths:
           description: ''
           required: false
           type: string
+        - name: hours_used__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: hours_used__lt
+          in: query
+          description: ''
+          required: false
+          type: number
         - name: limit
           in: query
           description: Number of results to return per page.
@@ -7864,6 +7881,22 @@ paths:
             $ref: '#/definitions/SimulationStatus'
       tags:
         - simulations
+    patch:
+      operationId: simulations_status_partial_update
+      description: A simple ViewSet for viewing simulations
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/SimulationStatus'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/SimulationStatus'
+      tags:
+        - simulations
     delete:
       operationId: simulations_status_delete
       description: A simple ViewSet for viewing simulations
@@ -7879,6 +7912,33 @@ paths:
         description: A unique integer value identifying this simulation status.
         required: true
         type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/visualisations/pump_discharge_graph/:
+    post:
+      operationId: simulations_visualisations_pump_discharge_graph_create
+      summary: Get a websocket URL returning pump discharge (graph) data
+      description: |-
+        The websocket-url in the response returns binary data
+        messages consisting of timestamp, q_pump (discharge)
+        float32 data. The values are alternated like:
+        [timestamp, q_pump, timestamp_2, q_pump_2... timestamp_N, q_pump_N]
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PumpDischargeGraphRequest'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/PumpDischargeGraph'
+      tags:
+        - simulations
+    parameters:
       - name: simulation_pk
         in: path
         required: true
@@ -14588,6 +14648,50 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+  PumpDischargeGraphRequest:
+    required:
+      - start_time
+      - subscribe
+      - pump_id
+    type: object
+    properties:
+      start_time:
+        title: Start time
+        description: simulation time in seconds
+        type: integer
+        minimum: 0
+      history_points_limit:
+        title: History points limit
+        description: Maximum number of points of history to return
+        type: integer
+        default: 200
+        maximum: 500
+        minimum: 1
+      subscribe:
+        title: Subscribe
+        description: Subscribe for new results during simulation
+        type: boolean
+      subscribe_rate_limit:
+        title: Subscribe rate limit
+        description: Max number of items per second for subscription
+        type: number
+        default: 0.5
+        maximum: 2
+        minimum: 0.25
+      pump_id:
+        title: Pump id
+        type: integer
+        minimum: 1
+  PumpDischargeGraph:
+    required:
+      - url
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        minLength: 1
   WaterFlowGraphRequest:
     required:
       - start_time
