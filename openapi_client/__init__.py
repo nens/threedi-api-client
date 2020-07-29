@@ -5,7 +5,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.11   3Di core release: 2.0.12  deployed on:  13:48AM (UTC) on July 15, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.13   3Di core release: 2.0.11  deployed on:  09:00AM (UTC) on July 29, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = '3.0.5.dev0'
+__version__ = "1.0.0"
 
 # import apis into sdk package
 from openapi_client.api.auth_api import AuthApi
@@ -47,6 +47,8 @@ from openapi_client.models.authenticate import Authenticate
 from openapi_client.models.basic_post_processing import BasicPostProcessing
 from openapi_client.models.boundary_condition import BoundaryCondition
 from openapi_client.models.breach import Breach
+from openapi_client.models.breach_graph import BreachGraph
+from openapi_client.models.breach_graph_request import BreachGraphRequest
 from openapi_client.models.constant_lateral import ConstantLateral
 from openapi_client.models.constant_local_rain import ConstantLocalRain
 from openapi_client.models.constant_rain import ConstantRain

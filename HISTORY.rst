@@ -5,7 +5,7 @@ History
 3.0.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added breaches graph endpoint
 
 
 3.0.4 (2020-07-15)

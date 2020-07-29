@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest version: 3.0) 
-     Framework release: 1.0.11 
-     3Di core release: 2.0.12 
-    deployed on:  13:48AM (UTC) on July 15, 2020
+     Framework release: 1.0.13 
+     3Di core release: 2.0.11 
+    deployed on:  09:00AM (UTC) on July 29, 2020
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -7916,6 +7916,37 @@ paths:
         in: path
         required: true
         type: string
+  /simulations/{simulation_pk}/visualisations/breach_graph/:
+    post:
+      operationId: simulations_visualisations_breach_graph_create
+      summary: Get a websocket URL returning breaches (graph) data
+      description: |-
+        The websocket-url in the response returns binary data
+        messages consisting of timestamp, breach_width,
+        breach_depth, q (discharge), au (wet cross-sectional area)
+        as float32 data.
+
+        The values are alternated like:
+        [timestamp, breach_width, breach_depth, q, au ...
+         timestamp_N, breach_width_N, breach_depth_N, q_N, au_N]
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/BreachGraphRequest'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/BreachGraph'
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
   /simulations/{simulation_pk}/visualisations/pump_discharge_graph/:
     post:
       operationId: simulations_visualisations_pump_discharge_graph_create
@@ -14648,6 +14679,50 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+  BreachGraphRequest:
+    required:
+      - start_time
+      - subscribe
+      - line_id
+    type: object
+    properties:
+      start_time:
+        title: Start time
+        description: simulation time in seconds
+        type: integer
+        minimum: 0
+      history_points_limit:
+        title: History points limit
+        description: Maximum number of points of history to return
+        type: integer
+        default: 200
+        maximum: 500
+        minimum: 1
+      subscribe:
+        title: Subscribe
+        description: Subscribe for new results during simulation
+        type: boolean
+      subscribe_rate_limit:
+        title: Subscribe rate limit
+        description: Max number of items per second for subscription
+        type: number
+        default: 0.5
+        maximum: 2
+        minimum: 0.25
+      line_id:
+        title: Line id
+        type: integer
+        minimum: 1
+  BreachGraph:
+    required:
+      - url
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        minLength: 1
   PumpDischargeGraphRequest:
     required:
       - start_time
