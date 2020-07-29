@@ -5,3 +5,4 @@ https://openapi-generator.tech.
 
 
 * [usage](./usage.md) 
+* [examples](./../examples/README.md)
