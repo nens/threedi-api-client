@@ -38,7 +38,8 @@ class CurrentStatus(object):
         'name': 'str',
         'created': 'datetime',
         'time': 'float',
-        'paused': 'bool'
+        'paused': 'bool',
+        'exit_code': 'str'
     }
 
     attribute_map = {
@@ -46,10 +47,11 @@ class CurrentStatus(object):
         'name': 'name',
         'created': 'created',
         'time': 'time',
-        'paused': 'paused'
+        'paused': 'paused',
+        'exit_code': 'exit_code'
     }
 
-    def __init__(self, id=None, name=None, created=None, time=None, paused=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, created=None, time=None, paused=None, exit_code=None, local_vars_configuration=None):  # noqa: E501
         """CurrentStatus - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,6 +62,7 @@ class CurrentStatus(object):
         self._created = None
         self._time = None
         self._paused = None
+        self._exit_code = None
         self.discriminator = None
 
         self.id = id
@@ -69,6 +72,8 @@ class CurrentStatus(object):
             self.time = time
         if paused is not None:
             self.paused = paused
+        if exit_code is not None:
+            self.exit_code = exit_code
 
     @property
     def id(self):
@@ -183,6 +188,27 @@ class CurrentStatus(object):
         """
 
         self._paused = paused
+
+    @property
+    def exit_code(self):
+        """Gets the exit_code of this CurrentStatus.  # noqa: E501
+
+
+        :return: The exit_code of this CurrentStatus.  # noqa: E501
+        :rtype: str
+        """
+        return self._exit_code
+
+    @exit_code.setter
+    def exit_code(self, exit_code):
+        """Sets the exit_code of this CurrentStatus.
+
+
+        :param exit_code: The exit_code of this CurrentStatus.  # noqa: E501
+        :type: str
+        """
+
+        self._exit_code = exit_code
 
     def to_dict(self):
         """Returns the model properties as a dict"""

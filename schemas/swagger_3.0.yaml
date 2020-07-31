@@ -14690,6 +14690,10 @@ definitions:
       paused:
         title: Paused
         type: boolean
+      exit_code:
+        title: Exit code
+        type: string
+        readOnly: true
   SimulationStatus:
     required:
       - name
@@ -14751,28 +14755,28 @@ definitions:
           Gives detailed insight to the application state when the simulation finished
         type: integer
         enum:
-          - user_shutdown_premature
-          - user_shutdown
-          - finished
-          - health_check_premature_container_error
-          - health_check_container_error
-          - health_check_initialized_error
-          - health_check_ended_error
-          - health_check_postprocessing_error
-          - initial_condition_worker_error
-          - event_worker_error
-          - container_startup_error
-          - calculation_core_error
-          - api_ressource_error
-          - upload_request_error
-          - unfinished_tasks_error
-          - ignition_timeout
-          - initialized_paused_timeout
-          - paused_timeout
-          - initial_condition_worker_timeout
-          - event_worker_timeout
-          - enque_action_collection_timeout
-          - clear_event_data_timeout
+          - 1110
+          - 1210
+          - 1240
+          - 4161
+          - 4262
+          - 4263
+          - 4264
+          - 4265
+          - 4120
+          - 4220
+          - 4150
+          - 4240
+          - 4230
+          - 4231
+          - 4232
+          - 2150
+          - 2110
+          - 2210
+          - 2120
+          - 2220
+          - 2230
+          - 2240
         x-nullable: true
       id:
         title: ID
