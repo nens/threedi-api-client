@@ -5,7 +5,7 @@ History
 3.0.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Update exit code definitions.
 
 
 3.0.5 (2020-07-31)
