@@ -5,7 +5,9 @@ History
 3.0.5 (unreleased)
 ------------------
 
-- Added breaches graph endpoint
+- Added exit_code field to status resource.
+
+- Added breaches graph endpoint.
 
 
 3.0.4 (2020-07-15)

@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest version: 3.0) 
-     Framework release: 1.0.13 
+     Framework release: 1.0.12 
      3Di core release: 2.0.11 
-    deployed on:  09:00AM (UTC) on July 29, 2020
+    deployed on:  07:52AM (UTC) on July 17, 2020
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -8436,6 +8436,41 @@ paths:
           description: ''
           required: false
           type: string
+        - name: exit_code
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: exit_code__range
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: number
+        - name: exit_code__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: exit_code__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: exit_code__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: exit_code__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: exit_code__isnull
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: simulation_id__in
           in: query
           description: Multiple values may be separated by commas.
@@ -8720,6 +8755,41 @@ paths:
           required: false
           type: number
         - name: id__isnull
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: exit_code
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: exit_code__range
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: number
+        - name: exit_code__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: exit_code__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: exit_code__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: exit_code__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: exit_code__isnull
           in: query
           description: ''
           required: false
@@ -14674,6 +14744,35 @@ definitions:
       detail:
         title: Detail
         type: string
+        x-nullable: true
+      exit_code:
+        title: Exit code
+        description: only available for final statuses like 'finished' or 'crashed'.
+          Gives detailed insight to the application state when the simulation finished
+        type: integer
+        enum:
+          - user_shutdown_premature
+          - user_shutdown
+          - finished
+          - health_check_premature_container_error
+          - health_check_container_error
+          - health_check_initialized_error
+          - health_check_ended_error
+          - health_check_postprocessing_error
+          - initial_condition_worker_error
+          - event_worker_error
+          - container_startup_error
+          - calculation_core_error
+          - api_ressource_error
+          - upload_request_error
+          - unfinished_tasks_error
+          - ignition_timeout
+          - initialized_paused_timeout
+          - paused_timeout
+          - initial_condition_worker_timeout
+          - event_worker_timeout
+          - enque_action_collection_timeout
+          - clear_event_data_timeout
         x-nullable: true
       id:
         title: ID
