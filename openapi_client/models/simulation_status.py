@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.13   3Di core release: 2.0.11  deployed on:  09:00AM (UTC) on July 29, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.12   3Di core release: 2.0.11  deployed on:  07:52AM (UTC) on July 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -43,6 +43,7 @@ class SimulationStatus(object):
         'time': 'int',
         'paused': 'bool',
         'detail': 'str',
+        'exit_code': 'int',
         'id': 'int'
     }
 
@@ -56,10 +57,11 @@ class SimulationStatus(object):
         'time': 'time',
         'paused': 'paused',
         'detail': 'detail',
+        'exit_code': 'exit_code',
         'id': 'id'
     }
 
-    def __init__(self, url=None, name=None, simulation=None, simulation_id=None, simulation_name=None, created=None, time=None, paused=None, detail=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, name=None, simulation=None, simulation_id=None, simulation_name=None, created=None, time=None, paused=None, detail=None, exit_code=None, id=None, local_vars_configuration=None):  # noqa: E501
         """SimulationStatus - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,6 +76,7 @@ class SimulationStatus(object):
         self._time = None
         self._paused = None
         self._detail = None
+        self._exit_code = None
         self._id = None
         self.discriminator = None
 
@@ -91,6 +94,7 @@ class SimulationStatus(object):
         self.time = time
         self.paused = paused
         self.detail = detail
+        self.exit_code = exit_code
         if id is not None:
             self.id = id
 
@@ -298,6 +302,29 @@ class SimulationStatus(object):
         """
 
         self._detail = detail
+
+    @property
+    def exit_code(self):
+        """Gets the exit_code of this SimulationStatus.  # noqa: E501
+
+        only available for final statuses like 'finished' or 'crashed'. Gives detailed insight to the application state when the simulation finished  # noqa: E501
+
+        :return: The exit_code of this SimulationStatus.  # noqa: E501
+        :rtype: int
+        """
+        return self._exit_code
+
+    @exit_code.setter
+    def exit_code(self, exit_code):
+        """Sets the exit_code of this SimulationStatus.
+
+        only available for final statuses like 'finished' or 'crashed'. Gives detailed insight to the application state when the simulation finished  # noqa: E501
+
+        :param exit_code: The exit_code of this SimulationStatus.  # noqa: E501
+        :type: int
+        """
+
+        self._exit_code = exit_code
 
     @property
     def id(self):

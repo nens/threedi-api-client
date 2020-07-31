@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.13   3Di core release: 2.0.11  deployed on:  09:00AM (UTC) on July 29, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.12   3Di core release: 2.0.11  deployed on:  07:52AM (UTC) on July 17, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -91,6 +91,13 @@ class StatusesApi(object):
         :param float id__lt:
         :param float id__lte:
         :param str id__isnull:
+        :param str exit_code:
+        :param float exit_code__range: Multiple values may be separated by commas.
+        :param float exit_code__gt:
+        :param float exit_code__gte:
+        :param float exit_code__lt:
+        :param float exit_code__lte:
+        :param str exit_code__isnull:
         :param float simulation_id__in: Multiple values may be separated by commas.
         :param str simulation__user__username:
         :param str simulation__organisation__name__istartswith:
@@ -165,6 +172,13 @@ class StatusesApi(object):
         :param float id__lt:
         :param float id__lte:
         :param str id__isnull:
+        :param str exit_code:
+        :param float exit_code__range: Multiple values may be separated by commas.
+        :param float exit_code__gt:
+        :param float exit_code__gte:
+        :param float exit_code__lt:
+        :param float exit_code__lte:
+        :param str exit_code__isnull:
         :param float simulation_id__in: Multiple values may be separated by commas.
         :param str simulation__user__username:
         :param str simulation__organisation__name__istartswith:
@@ -232,6 +246,13 @@ class StatusesApi(object):
             'id__lt',
             'id__lte',
             'id__isnull',
+            'exit_code',
+            'exit_code__range',
+            'exit_code__gt',
+            'exit_code__gte',
+            'exit_code__lt',
+            'exit_code__lte',
+            'exit_code__isnull',
             'simulation_id__in',
             'simulation__user__username',
             'simulation__organisation__name__istartswith',
@@ -350,6 +371,20 @@ class StatusesApi(object):
             query_params.append(('id__lte', local_var_params['id__lte']))  # noqa: E501
         if 'id__isnull' in local_var_params and local_var_params['id__isnull'] is not None:  # noqa: E501
             query_params.append(('id__isnull', local_var_params['id__isnull']))  # noqa: E501
+        if 'exit_code' in local_var_params and local_var_params['exit_code'] is not None:  # noqa: E501
+            query_params.append(('exit_code', local_var_params['exit_code']))  # noqa: E501
+        if 'exit_code__range' in local_var_params and local_var_params['exit_code__range'] is not None:  # noqa: E501
+            query_params.append(('exit_code__range', local_var_params['exit_code__range']))  # noqa: E501
+        if 'exit_code__gt' in local_var_params and local_var_params['exit_code__gt'] is not None:  # noqa: E501
+            query_params.append(('exit_code__gt', local_var_params['exit_code__gt']))  # noqa: E501
+        if 'exit_code__gte' in local_var_params and local_var_params['exit_code__gte'] is not None:  # noqa: E501
+            query_params.append(('exit_code__gte', local_var_params['exit_code__gte']))  # noqa: E501
+        if 'exit_code__lt' in local_var_params and local_var_params['exit_code__lt'] is not None:  # noqa: E501
+            query_params.append(('exit_code__lt', local_var_params['exit_code__lt']))  # noqa: E501
+        if 'exit_code__lte' in local_var_params and local_var_params['exit_code__lte'] is not None:  # noqa: E501
+            query_params.append(('exit_code__lte', local_var_params['exit_code__lte']))  # noqa: E501
+        if 'exit_code__isnull' in local_var_params and local_var_params['exit_code__isnull'] is not None:  # noqa: E501
+            query_params.append(('exit_code__isnull', local_var_params['exit_code__isnull']))  # noqa: E501
         if 'simulation_id__in' in local_var_params and local_var_params['simulation_id__in'] is not None:  # noqa: E501
             query_params.append(('simulation_id__in', local_var_params['simulation_id__in']))  # noqa: E501
         if 'simulation__user__username' in local_var_params and local_var_params['simulation__user__username'] is not None:  # noqa: E501
@@ -446,6 +481,13 @@ class StatusesApi(object):
         :param float id__lt:
         :param float id__lte:
         :param str id__isnull:
+        :param str exit_code:
+        :param float exit_code__range: Multiple values may be separated by commas.
+        :param float exit_code__gt:
+        :param float exit_code__gte:
+        :param float exit_code__lt:
+        :param float exit_code__lte:
+        :param str exit_code__isnull:
         :param float simulation_id__in: Multiple values may be separated by commas.
         :param str simulation__user__username:
         :param str simulation__organisation__name__istartswith:
@@ -520,6 +562,13 @@ class StatusesApi(object):
         :param float id__lt:
         :param float id__lte:
         :param str id__isnull:
+        :param str exit_code:
+        :param float exit_code__range: Multiple values may be separated by commas.
+        :param float exit_code__gt:
+        :param float exit_code__gte:
+        :param float exit_code__lt:
+        :param float exit_code__lte:
+        :param str exit_code__isnull:
         :param float simulation_id__in: Multiple values may be separated by commas.
         :param str simulation__user__username:
         :param str simulation__organisation__name__istartswith:
@@ -587,6 +636,13 @@ class StatusesApi(object):
             'id__lt',
             'id__lte',
             'id__isnull',
+            'exit_code',
+            'exit_code__range',
+            'exit_code__gt',
+            'exit_code__gte',
+            'exit_code__lt',
+            'exit_code__lte',
+            'exit_code__isnull',
             'simulation_id__in',
             'simulation__user__username',
             'simulation__organisation__name__istartswith',
@@ -705,6 +761,20 @@ class StatusesApi(object):
             query_params.append(('id__lte', local_var_params['id__lte']))  # noqa: E501
         if 'id__isnull' in local_var_params and local_var_params['id__isnull'] is not None:  # noqa: E501
             query_params.append(('id__isnull', local_var_params['id__isnull']))  # noqa: E501
+        if 'exit_code' in local_var_params and local_var_params['exit_code'] is not None:  # noqa: E501
+            query_params.append(('exit_code', local_var_params['exit_code']))  # noqa: E501
+        if 'exit_code__range' in local_var_params and local_var_params['exit_code__range'] is not None:  # noqa: E501
+            query_params.append(('exit_code__range', local_var_params['exit_code__range']))  # noqa: E501
+        if 'exit_code__gt' in local_var_params and local_var_params['exit_code__gt'] is not None:  # noqa: E501
+            query_params.append(('exit_code__gt', local_var_params['exit_code__gt']))  # noqa: E501
+        if 'exit_code__gte' in local_var_params and local_var_params['exit_code__gte'] is not None:  # noqa: E501
+            query_params.append(('exit_code__gte', local_var_params['exit_code__gte']))  # noqa: E501
+        if 'exit_code__lt' in local_var_params and local_var_params['exit_code__lt'] is not None:  # noqa: E501
+            query_params.append(('exit_code__lt', local_var_params['exit_code__lt']))  # noqa: E501
+        if 'exit_code__lte' in local_var_params and local_var_params['exit_code__lte'] is not None:  # noqa: E501
+            query_params.append(('exit_code__lte', local_var_params['exit_code__lte']))  # noqa: E501
+        if 'exit_code__isnull' in local_var_params and local_var_params['exit_code__isnull'] is not None:  # noqa: E501
+            query_params.append(('exit_code__isnull', local_var_params['exit_code__isnull']))  # noqa: E501
         if 'simulation_id__in' in local_var_params and local_var_params['simulation_id__in'] is not None:  # noqa: E501
             query_params.append(('simulation_id__in', local_var_params['simulation_id__in']))  # noqa: E501
         if 'simulation__user__username' in local_var_params and local_var_params['simulation__user__username'] is not None:  # noqa: E501
