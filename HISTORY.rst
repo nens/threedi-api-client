@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.5 (unreleased)
+3.0.5 (2020-07-31)
 ------------------
 
 - Added exit_code field to status resource.
