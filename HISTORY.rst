@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.6 (unreleased)
+3.0.6 (2020-07-31)
 ------------------
 
 - Update exit code definitions.
