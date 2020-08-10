@@ -5,7 +5,7 @@ History
 3.0.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add example notebooks in the documentation.
 
 
 3.0.6 (2020-07-31)
