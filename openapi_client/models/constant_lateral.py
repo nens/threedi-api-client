@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.12   3Di core release: 2.0.11  deployed on:  07:52AM (UTC) on July 17, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.13   3Di core release: 2.0.11  deployed on:  08:30AM (UTC) on July 29, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -200,6 +200,8 @@ class ConstantLateral(object):
         :param duration: The duration of this ConstantLateral.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and duration is None:  # noqa: E501
+            raise ValueError("Invalid value for `duration`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 duration is not None and duration > 9223372036854775807):  # noqa: E501
             raise ValueError("Invalid value for `duration`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501

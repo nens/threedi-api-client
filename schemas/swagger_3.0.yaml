@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest version: 3.0) 
-     Framework release: 1.0.12 
+     Framework release: 1.0.13 
      3Di core release: 2.0.11 
-    deployed on:  07:52AM (UTC) on July 17, 2020
+    deployed on:  08:30AM (UTC) on July 29, 2020
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -5372,6 +5372,371 @@ paths:
       - name: id
         in: path
         description: A unique integer value identifying this timeseries sources sinks.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/structure-control/memory/:
+    get:
+      operationId: simulations_events_structure-control_memory_list
+      description: ViewSet for viewing MemoryStructureControls
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/MemoryStructureControl'
+      tags:
+        - simulations
+    post:
+      operationId: simulations_events_structure-control_memory_create
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/MemoryStructureControl'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/MemoryStructureControl'
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/structure-control/memory/{id}/:
+    get:
+      operationId: simulations_events_structure-control_memory_read
+      description: ViewSet for viewing MemoryStructureControls
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/MemoryStructureControl'
+      tags:
+        - simulations
+    put:
+      operationId: simulations_events_structure-control_memory_update
+      description: ViewSet for viewing MemoryStructureControls
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/MemoryStructureControl'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/MemoryStructureControl'
+      tags:
+        - simulations
+    patch:
+      operationId: simulations_events_structure-control_memory_partial_update
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/MemoryStructureControl'
+      responses:
+        '200':
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
+      tags:
+        - simulations
+    delete:
+      operationId: simulations_events_structure-control_memory_delete
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
+      parameters: []
+      responses:
+        '204':
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
+      tags:
+        - simulations
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this memory structure control.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/structure-control/memory/{id}/processed/:
+    put:
+      operationId: simulations_events_structure-control_memory_processed
+      description: ViewSet for viewing MemoryStructureControls
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/GridEventState'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Event is already processed
+      tags:
+        - simulations
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this memory structure control.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/structure-control/table/:
+    get:
+      operationId: simulations_events_structure-control_table_list
+      description: ViewSet for viewing TableStructureControls
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/TableStructureControl'
+      tags:
+        - simulations
+    post:
+      operationId: simulations_events_structure-control_table_create
+      description: |-
+        A table structure control can used to apply a certain action, e.g
+        increase the pump capacity of a pump station, based on the measured
+        values of one or more locations.
+
+        **type**
+
+        *for weirs and orifices*
+
+        - set_crest_level (less relevant for orifice)
+        - set_discharge_coefficients
+
+        *for culverts, channels and pipes*
+
+        - set_discharge_coefficients
+
+        *for pumps*
+
+        - set_pump_capacity (L/s)
+
+        **values**
+
+        The action table consists of one or more value pairs (threshold, action_value)
+
+        To close/open or partially close/open a structure using the `set_discharge_coefficients` type
+        the values must contain **three** values. For example `[[1.2, 0.5, 0.7]]`,  where
+            1.2 is the threshold value
+            0.5 the action value for the left flow direction
+            0.7 action value for the right flow direction
+
+        Please note: action values for `set_discharge_coefficients` type must be > 0.
+
+        For the operators `>` and `>=` threshold values must be ascending,
+        for the operators `<` and `<=` they must be descending.
+
+        In most cases the measure location will be of type `v2_connection_node`.
+        For this location type only the variables `s1` and `vol1` apply. If your
+        measure location, however, is of any other type the variable must either
+        be `q` or `u1`.
+
+
+        For both the target structure as well as for the measure location it is
+        allowed to use a grid id as input directly. In this case we will check
+        if the structure type associated with the given id matches with the grid
+        administration data.
+
+        Nonetheless, we encourage you to use the structure id (that is the id of the
+        structure in the model sqlite database) as input data. We will look up the
+        corresponding grid id for you. If the validation holds, the state of the
+        resource will be updated from `processing` to `valid`. Using the structure id
+        will enable you to re-use the structure control resource after a model revision
+        as a grid id will most likely change with every new grid generation.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/TableStructureControl'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/TableStructureControl'
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/structure-control/table/{id}/:
+    get:
+      operationId: simulations_events_structure-control_table_read
+      description: ViewSet for viewing TableStructureControls
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/TableStructureControl'
+      tags:
+        - simulations
+    put:
+      operationId: simulations_events_structure-control_table_update
+      description: ViewSet for viewing TableStructureControls
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/TableStructureControl'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/TableStructureControl'
+      tags:
+        - simulations
+    patch:
+      operationId: simulations_events_structure-control_table_partial_update
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/TableStructureControl'
+      responses:
+        '200':
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
+      tags:
+        - simulations
+    delete:
+      operationId: simulations_events_structure-control_table_delete
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
+      parameters: []
+      responses:
+        '204':
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
+      tags:
+        - simulations
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this table structure control.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/structure-control/table/{id}/processed/:
+    put:
+      operationId: simulations_events_structure-control_table_processed
+      description: ViewSet for viewing TableStructureControls
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/MeasureLocationGridEventState'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Event is already processed
+      tags:
+        - simulations
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this table structure control.
         required: true
         type: integer
       - name: simulation_pk
@@ -12899,6 +13264,290 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+  MeasureLocation:
+    required:
+      - weight
+      - content_type
+      - content_pk
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      weight:
+        title: Weight
+        type: string
+        format: decimal
+      content_type:
+        title: Content type
+        description: 'e.g. '
+        type: string
+        enum:
+          - v2_connection_node
+          - v2_pipe
+          - v2_orifice
+          - v2_culvert
+          - v2_channel
+          - v2_weir
+      content_pk:
+        title: Content pk
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      grid_id:
+        title: Grid id
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+        x-nullable: true
+      state:
+        title: State
+        type: string
+        enum:
+          - processing
+          - valid
+          - invalid
+      state_detail:
+        title: State detail
+        type: object
+        x-nullable: true
+  MeasureSpecification:
+    title: Measure specification
+    required:
+      - locations
+      - variable
+      - operator
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 50
+      locations:
+        type: array
+        items:
+          $ref: '#/definitions/MeasureLocation'
+      variable:
+        title: Variable
+        description: |
+          measurement variable, one of the following options:
+           s1 (waterlevel)
+          vol1 (volume)
+          q (discharge)
+          u1 (velocity)
+        type: string
+        enum:
+          - s1
+          - vol1
+          - q
+          - u1
+      operator:
+        title: Operator
+        description: e.g. >, <, >=, <=
+        type: string
+        enum:
+          - '>'
+          - '>='
+          - <
+          - <=
+  TableStructureControl:
+    required:
+      - offset
+      - measure_specification
+      - structure_type
+      - type
+      - values
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      offset:
+        title: Offset
+        description: offset of event in simulation in seconds
+        type: integer
+        maximum: 2147483647
+        minimum: 0
+      duration:
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
+        type: integer
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
+        x-nullable: true
+      measure_specification:
+        $ref: '#/definitions/MeasureSpecification'
+      structure_id:
+        title: Structure id
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+        x-nullable: true
+      structure_type:
+        title: Structure type
+        type: string
+        enum:
+          - v2_pumpstation
+          - v2_pipe
+          - v2_orifice
+          - v2_culvert
+          - v2_weir
+          - v2_channel
+      type:
+        title: Type
+        type: string
+        enum:
+          - set_discharge_coefficients
+          - set_crest_level
+          - set_pump_capacity
+      values:
+        type: array
+        items:
+          type: array
+          items:
+            title: Values
+            type: number
+          maxItems: 3
+        maxItems: 150
+      state:
+        title: State
+        type: string
+        enum:
+          - processing
+          - valid
+          - invalid
+      state_detail:
+        title: State detail
+        type: object
+        x-nullable: true
+      grid_id:
+        title: Grid id
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+        x-nullable: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
+  MemoryStructureControl:
+    required:
+      - offset
+      - measure_specification
+      - structure_type
+      - type
+      - value
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      offset:
+        title: Offset
+        description: offset of event in simulation in seconds
+        type: integer
+        maximum: 2147483647
+        minimum: 0
+      duration:
+        title: Duration (in seconds)
+        description: event duration in seconds. -9999 is the 'infinite duration' value
+          (only allowed in conjunction with infinite simulations
+        type: integer
+        maximum: 9223372036854775807
+        minimum: -9223372036854775808
+        x-nullable: true
+      measure_specification:
+        $ref: '#/definitions/MeasureSpecification'
+      structure_id:
+        title: Structure id
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+        x-nullable: true
+      structure_type:
+        title: Structure type
+        type: string
+        enum:
+          - v2_pumpstation
+          - v2_pipe
+          - v2_orifice
+          - v2_culvert
+          - v2_weir
+          - v2_channel
+      type:
+        title: Type
+        type: string
+        enum:
+          - set_discharge_coefficients
+          - set_crest_level
+          - set_pump_capacity
+      value:
+        description: 'list containing a single action values, e.g. [*action_value*].
+          For type set_discharge_coefficients two action values need to be provided,
+          e.g. [*action_value*, *action_value*]. '
+        type: array
+        items:
+          title: Value
+          type: number
+        maxItems: 2
+      state:
+        title: State
+        type: string
+        enum:
+          - processing
+          - valid
+          - invalid
+      state_detail:
+        title: State detail
+        type: object
+        x-nullable: true
+      grid_id:
+        title: Grid id
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+        x-nullable: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
+      upper_threshold:
+        title: Upper threshold
+        description: e.g. 0.3
+        type: number
+        x-nullable: true
+      lower_threshold:
+        title: Lower threshold
+        description: e.g. 0.3
+        type: number
+        x-nullable: true
+      is_active:
+        title: Is active
+        description: when True the initial state of the target is active
+        type: boolean
+      is_inverse:
+        title: Is inverse
+        description: when True the target will become active when the lower threshold
+          has been reached
+        type: boolean
   RasterEdit:
     required:
       - raster
@@ -13216,6 +13865,16 @@ definitions:
         items:
           $ref: '#/definitions/TimedStructureControl'
         readOnly: true
+      tablestructurecontrol:
+        type: array
+        items:
+          $ref: '#/definitions/TableStructureControl'
+        readOnly: true
+      memorystructurecontrol:
+        type: array
+        items:
+          $ref: '#/definitions/MemoryStructureControl'
+        readOnly: true
       rasteredits:
         type: array
         items:
@@ -13385,6 +14044,7 @@ definitions:
   ConstantLateral:
     required:
       - offset
+      - duration
       - value
       - units
     type: object
@@ -13412,7 +14072,6 @@ definitions:
         type: integer
         maximum: 9223372036854775807
         minimum: -9223372036854775808
-        x-nullable: true
       value:
         title: Value
         type: number
@@ -14204,6 +14863,51 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+  MeasureLocationGridEventState:
+    required:
+      - state
+      - state_detail
+    type: object
+    properties:
+      state:
+        title: State
+        type: string
+        enum:
+          - processing
+          - valid
+          - invalid
+      state_detail:
+        title: State detail
+        type: object
+      grid_id:
+        title: Grid id
+        type: integer
+        x-nullable: true
+      location_grid_ids:
+        type: array
+        items:
+          type: integer
+          x-nullable: true
+        x-nullable: true
+      location_resource_ids:
+        type: array
+        items:
+          type: integer
+          x-nullable: true
+        x-nullable: true
+      location_resource_states:
+        type: array
+        items:
+          type: string
+          minLength: 1
+          x-nullable: true
+        x-nullable: true
+      location_resource_state_details:
+        type: array
+        items:
+          type: object
+          x-nullable: true
+        x-nullable: true
   ConstantWind:
     required:
       - offset
