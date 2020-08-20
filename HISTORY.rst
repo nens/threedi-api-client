@@ -5,6 +5,8 @@ History
 3.0.7 (unreleased)
 ------------------
 
+- Added table and memory structure controls.
+
 - Add example notebooks in the documentation.
 
 
