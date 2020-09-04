@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.8 (unreleased)
+3.0.8 (2020-09-04)
 ------------------
 
 - Renamed timestructurecontrol to timestructurecontrols.
