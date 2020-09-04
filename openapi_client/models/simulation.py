@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.13   3Di core release: 2.0.11  deployed on:  08:30AM (UTC) on July 29, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.15   3Di core release: 2.0.11  deployed on:  12:24PM (UTC) on September 02, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -214,8 +214,8 @@ class Simulation(object):
         if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) > 80):
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `80`")  # noqa: E501
+                name is not None and len(name) > 128):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `128`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) < 1):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
