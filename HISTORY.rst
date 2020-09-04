@@ -5,7 +5,7 @@ History
 3.0.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Renamed timestructurecontrol to timestructurecontrols.
 
 
 3.0.7 (2020-08-20)
