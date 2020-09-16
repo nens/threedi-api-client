@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.9 (unreleased)
+3.0.9 (2020-09-16)
 ------------------
 
 - Added table and memory structure controls.
