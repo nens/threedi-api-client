@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.15   3Di core release: 2.0.11  deployed on:  12:24PM (UTC) on September 02, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.16   3Di core release: 2.0.11  deployed on:  07:33AM (UTC) on September 04, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -54,6 +54,8 @@ class Event(object):
         'initial_savedstate': 'InitialSavedStateOverview',
         'savedstates': 'list[SavedStateOverview]',
         'laterals': 'list[Lateral]',
+        'tablestructurecontrols': 'list[TableStructureControl]',
+        'memorystructurecontrols': 'list[MemoryStructureControl]',
         'timedstructurecontrols': 'list[TimedStructureControl]',
         'rasteredits': 'list[RasterEdit]',
         'localrain': 'list[LocalRain]',
@@ -82,6 +84,8 @@ class Event(object):
         'initial_savedstate': 'initial_savedstate',
         'savedstates': 'savedstates',
         'laterals': 'laterals',
+        'tablestructurecontrols': 'tablestructurecontrols',
+        'memorystructurecontrols': 'memorystructurecontrols',
         'timedstructurecontrols': 'timedstructurecontrols',
         'rasteredits': 'rasteredits',
         'localrain': 'localrain',
@@ -89,7 +93,7 @@ class Event(object):
         'initial_winddragcoefficient': 'initial_winddragcoefficient'
     }
 
-    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, timedstructurecontrols=None, rasteredits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, rasteredits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -115,6 +119,8 @@ class Event(object):
         self._initial_savedstate = None
         self._savedstates = None
         self._laterals = None
+        self._tablestructurecontrols = None
+        self._memorystructurecontrols = None
         self._timedstructurecontrols = None
         self._rasteredits = None
         self._localrain = None
@@ -162,6 +168,10 @@ class Event(object):
             self.savedstates = savedstates
         if laterals is not None:
             self.laterals = laterals
+        if tablestructurecontrols is not None:
+            self.tablestructurecontrols = tablestructurecontrols
+        if memorystructurecontrols is not None:
+            self.memorystructurecontrols = memorystructurecontrols
         if timedstructurecontrols is not None:
             self.timedstructurecontrols = timedstructurecontrols
         if rasteredits is not None:
@@ -592,6 +602,48 @@ class Event(object):
         """
 
         self._laterals = laterals
+
+    @property
+    def tablestructurecontrols(self):
+        """Gets the tablestructurecontrols of this Event.  # noqa: E501
+
+
+        :return: The tablestructurecontrols of this Event.  # noqa: E501
+        :rtype: list[TableStructureControl]
+        """
+        return self._tablestructurecontrols
+
+    @tablestructurecontrols.setter
+    def tablestructurecontrols(self, tablestructurecontrols):
+        """Sets the tablestructurecontrols of this Event.
+
+
+        :param tablestructurecontrols: The tablestructurecontrols of this Event.  # noqa: E501
+        :type: list[TableStructureControl]
+        """
+
+        self._tablestructurecontrols = tablestructurecontrols
+
+    @property
+    def memorystructurecontrols(self):
+        """Gets the memorystructurecontrols of this Event.  # noqa: E501
+
+
+        :return: The memorystructurecontrols of this Event.  # noqa: E501
+        :rtype: list[MemoryStructureControl]
+        """
+        return self._memorystructurecontrols
+
+    @memorystructurecontrols.setter
+    def memorystructurecontrols(self, memorystructurecontrols):
+        """Sets the memorystructurecontrols of this Event.
+
+
+        :param memorystructurecontrols: The memorystructurecontrols of this Event.  # noqa: E501
+        :type: list[MemoryStructureControl]
+        """
+
+        self._memorystructurecontrols = memorystructurecontrols
 
     @property
     def timedstructurecontrols(self):

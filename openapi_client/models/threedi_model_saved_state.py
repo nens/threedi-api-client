@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.15   3Di core release: 2.0.11  deployed on:  12:24PM (UTC) on September 02, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.16   3Di core release: 2.0.11  deployed on:  07:33AM (UTC) on September 04, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -40,6 +40,7 @@ class ThreediModelSavedState(object):
         'created': 'datetime',
         'type': 'str',
         'tags': 'str',
+        'used_in_simulation': 'str',
         'expiry': 'datetime',
         'time': 'int',
         'variables': 'list[str]',
@@ -53,13 +54,14 @@ class ThreediModelSavedState(object):
         'created': 'created',
         'type': 'type',
         'tags': 'tags',
+        'used_in_simulation': 'used_in_simulation',
         'expiry': 'expiry',
         'time': 'time',
         'variables': 'variables',
         'thresholds': 'thresholds'
     }
 
-    def __init__(self, id=None, url=None, name=None, created=None, type=None, tags=None, expiry=None, time=None, variables=None, thresholds=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, url=None, name=None, created=None, type=None, tags=None, used_in_simulation=None, expiry=None, time=None, variables=None, thresholds=None, local_vars_configuration=None):  # noqa: E501
         """ThreediModelSavedState - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -71,6 +73,7 @@ class ThreediModelSavedState(object):
         self._created = None
         self._type = None
         self._tags = None
+        self._used_in_simulation = None
         self._expiry = None
         self._time = None
         self._variables = None
@@ -86,6 +89,8 @@ class ThreediModelSavedState(object):
         self.type = type
         if tags is not None:
             self.tags = tags
+        if used_in_simulation is not None:
+            self.used_in_simulation = used_in_simulation
         self.expiry = expiry
         self.time = time
         self.variables = variables
@@ -232,6 +237,27 @@ class ThreediModelSavedState(object):
         """
 
         self._tags = tags
+
+    @property
+    def used_in_simulation(self):
+        """Gets the used_in_simulation of this ThreediModelSavedState.  # noqa: E501
+
+
+        :return: The used_in_simulation of this ThreediModelSavedState.  # noqa: E501
+        :rtype: str
+        """
+        return self._used_in_simulation
+
+    @used_in_simulation.setter
+    def used_in_simulation(self, used_in_simulation):
+        """Sets the used_in_simulation of this ThreediModelSavedState.
+
+
+        :param used_in_simulation: The used_in_simulation of this ThreediModelSavedState.  # noqa: E501
+        :type: str
+        """
+
+        self._used_in_simulation = used_in_simulation
 
     @property
     def expiry(self):

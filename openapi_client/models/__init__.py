@@ -4,7 +4,7 @@
 """
     3Di API
 
-    3Di simulation API (latest version: 3.0)   Framework release: 1.0.15   3Di core release: 2.0.11  deployed on:  12:24PM (UTC) on September 02, 2020  # noqa: E501
+    3Di simulation API (latest version: 3.0)   Framework release: 1.0.16   3Di core release: 2.0.11  deployed on:  07:33AM (UTC) on September 04, 2020  # noqa: E501
 
     The version of the OpenAPI document: 3.0
     Contact: info@nelen-schuurmans.nl
@@ -96,6 +96,8 @@ from openapi_client.models.inline_response2005 import InlineResponse2005
 from openapi_client.models.inline_response20050 import InlineResponse20050
 from openapi_client.models.inline_response20051 import InlineResponse20051
 from openapi_client.models.inline_response20052 import InlineResponse20052
+from openapi_client.models.inline_response20053 import InlineResponse20053
+from openapi_client.models.inline_response20054 import InlineResponse20054
 from openapi_client.models.inline_response2006 import InlineResponse2006
 from openapi_client.models.inline_response2007 import InlineResponse2007
 from openapi_client.models.inline_response2008 import InlineResponse2008
@@ -108,6 +110,10 @@ from openapi_client.models.lizard_raster_sources_sinks import LizardRasterSource
 from openapi_client.models.lizard_timeseries_rain import LizardTimeseriesRain
 from openapi_client.models.lizard_timeseries_sources_sinks import LizardTimeseriesSourcesSinks
 from openapi_client.models.local_rain import LocalRain
+from openapi_client.models.measure_location import MeasureLocation
+from openapi_client.models.measure_location_grid_event_state import MeasureLocationGridEventState
+from openapi_client.models.measure_specification import MeasureSpecification
+from openapi_client.models.memory_structure_control import MemoryStructureControl
 from openapi_client.models.net_cdf_raster_rain import NetCDFRasterRain
 from openapi_client.models.net_cdf_raster_sources_sinks import NetCDFRasterSourcesSinks
 from openapi_client.models.net_cdf_timeseries_rain import NetCDFTimeseriesRain
@@ -144,6 +150,7 @@ from openapi_client.models.simulation_status_statistics import SimulationStatusS
 from openapi_client.models.simulation_update import SimulationUpdate
 from openapi_client.models.stable_threshold_saved_state import StableThresholdSavedState
 from openapi_client.models.tms import TMS
+from openapi_client.models.table_structure_control import TableStructureControl
 from openapi_client.models.threedi_model import ThreediModel
 from openapi_client.models.threedi_model_saved_state import ThreediModelSavedState
 from openapi_client.models.threshold import Threshold
