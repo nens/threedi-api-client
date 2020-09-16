@@ -5,7 +5,7 @@ History
 3.0.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added table and memory structure controls.
 
 
 3.0.8 (2020-09-04)
@@ -16,8 +16,6 @@ History
 
 3.0.7 (2020-08-20)
 ------------------
-
-- Added table and memory structure controls.
 
 - Add example notebooks in the documentation.
 
@@ -41,7 +39,7 @@ History
 
 - Added pumps discharge graph endpoint
 
-- Added more filtering options on contracts 
+- Added more filtering options on contracts
 
 
 3.0.4b3 (2020-07-10)
@@ -55,7 +53,7 @@ History
 
 - Generated with generator version v4.3.0
 
-- Fixed problem with threedimodel on simulation resource (was integer should be string) 
+- Fixed problem with threedimodel on simulation resource (was integer should be string)
 
 
 3.0.4b1 (2020-07-07)
@@ -80,8 +78,8 @@ History
 ------------------
 
 - Added statistics endpoint
- 
-- Changed Lizard post-processing endpoint 
+
+- Changed Lizard post-processing endpoint
   (not backwards compatible, however intended to be used only by Lizard)
 
 
@@ -160,7 +158,7 @@ History
 3.0.b13 (2020-03-20)
 --------------------
 
-- Split up waterlevel graph endpoint in 
+- Split up waterlevel graph endpoint in
   waterflow and waterlevel graph endpoint
 
 - Added waterprofile graph endpoint
