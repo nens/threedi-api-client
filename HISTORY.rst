@@ -5,7 +5,7 @@ History
 3.0.10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Added bulk-lateral events.
 
 
 3.0.9 (2020-09-16)
