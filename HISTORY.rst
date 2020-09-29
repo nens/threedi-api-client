@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.10 (unreleased)
+3.0.10 (2020-09-29)
 -------------------
 
 - Added bulk-lateral events.
