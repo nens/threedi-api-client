@@ -37,7 +37,7 @@ class InlineResponse20027(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[NetCDFRasterSourcesSinks]'
+        'results': 'list[LizardRasterSourcesSinks]'
     }
 
     attribute_map = {
@@ -135,7 +135,7 @@ class InlineResponse20027(object):
 
 
         :return: The results of this InlineResponse20027.  # noqa: E501
-        :rtype: list[NetCDFRasterSourcesSinks]
+        :rtype: list[LizardRasterSourcesSinks]
         """
         return self._results
 
@@ -145,7 +145,7 @@ class InlineResponse20027(object):
 
 
         :param results: The results of this InlineResponse20027.  # noqa: E501
-        :type: list[NetCDFRasterSourcesSinks]
+        :type: list[LizardRasterSourcesSinks]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

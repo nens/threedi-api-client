@@ -37,7 +37,7 @@ class InlineResponse20015(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[TimeseriesLateral]'
+        'results': 'list[BulkEvent]'
     }
 
     attribute_map = {
@@ -135,7 +135,7 @@ class InlineResponse20015(object):
 
 
         :return: The results of this InlineResponse20015.  # noqa: E501
-        :rtype: list[TimeseriesLateral]
+        :rtype: list[BulkEvent]
         """
         return self._results
 
@@ -145,7 +145,7 @@ class InlineResponse20015(object):
 
 
         :param results: The results of this InlineResponse20015.  # noqa: E501
-        :type: list[TimeseriesLateral]
+        :type: list[BulkEvent]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
