@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.11 (unreleased)
+3.0.11 (2020-10-13)
 -------------------
 
 - Added user to Lizard raster rain and Lizard raster sources sinks
