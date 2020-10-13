@@ -12330,6 +12330,10 @@ definitions:
         title: Interval
         type: integer
         readOnly: true
+      user:
+        title: User
+        type: string
+        readOnly: true
       origin_offset:
         title: Origin offset
         type: integer
@@ -12602,6 +12606,10 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
+      user:
+        title: User
+        type: string
         readOnly: true
   LizardTimeseriesSourcesSinks:
     required:

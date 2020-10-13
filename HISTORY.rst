@@ -5,6 +5,8 @@ History
 3.0.11 (unreleased)
 -------------------
 
+- Added user to Lizard raster rain and Lizard raster sources sinks
+
 - Added gh-actions release pipeline.
 
 
