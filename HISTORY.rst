@@ -5,7 +5,7 @@ History
 3.0.12 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Retrying release
 
 
 3.0.11 (2020-10-13)
