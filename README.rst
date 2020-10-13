@@ -45,7 +45,7 @@ Release
 -------
 
 Use any tool you like to create a release (zest.releaser, github,...) that creates a release tag. That will trigger a
-github acton job called "publish". It will create a wheel and tarball and will updload them to `pypi`_.
+github action job called "publish". It will create a wheel and tarball and will updload them to `pypi`_.
 
 .. _pypi: https://pypi.org/project/threedi-api-client/
 
