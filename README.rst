@@ -28,9 +28,9 @@ Features
 Installation
 ------------
 
-We recommend `pip` to install this package:: 
+We recommend `pip` to install this package::
 
-    pip install --user threedi-api-client  
+    pip install --user threedi-api-client
 
 
 Usage
@@ -40,6 +40,14 @@ Head over to the `documentation`_  for usage eaxmples.
 
 .. _documentation: https://nens.github.io/threedi-openapi-client/
 
+
+Release
+-------
+
+Use any tool you like to create a release (zest.releaser, github,...) that creates a release tag. That will trigger a
+github action job called "publish". It will create a wheel and tarball and will updload them to `pypi`_.
+
+.. _pypi: https://pypi.org/project/threedi-api-client/
 
 Credits
 -------

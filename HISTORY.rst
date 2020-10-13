@@ -5,7 +5,7 @@ History
 3.0.11 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Added gh-actions release pipeline.
 
 
 3.0.10 (2020-09-29)
