@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.14 (unreleased)
+3.0.14 (2020-10-14)
 -------------------
 
 - Retrying release
