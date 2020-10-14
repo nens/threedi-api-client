@@ -3497,7 +3497,7 @@ paths:
   /simulations/{simulation_pk}/events/lateral/file/{id}/upload/:
     get:
       operationId: simulations_events_lateral_file_upload
-      description: Endpoint for uploading a result file
+      description: Endpoint for uploading a laterals file
       parameters: []
       responses:
         '201':
@@ -12411,6 +12411,10 @@ definitions:
         title: Interval
         type: integer
         readOnly: true
+      user:
+        title: User
+        type: string
+        readOnly: true
       origin_offset:
         title: Origin offset
         type: integer
@@ -12716,6 +12720,10 @@ definitions:
         title: Uid
         type: string
         format: uuid
+        readOnly: true
+      user:
+        title: User
+        type: string
         readOnly: true
   LizardTimeseriesSourcesSinks:
     required:

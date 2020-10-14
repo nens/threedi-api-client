@@ -44,7 +44,8 @@ class LizardRasterSourcesSinks(object):
         'origin_offset': 'int',
         'store_path': 'str',
         'id': 'int',
-        'uid': 'str'
+        'uid': 'str',
+        'user': 'str'
     }
 
     attribute_map = {
@@ -58,10 +59,11 @@ class LizardRasterSourcesSinks(object):
         'origin_offset': 'origin_offset',
         'store_path': 'store_path',
         'id': 'id',
-        'uid': 'uid'
+        'uid': 'uid',
+        'user': 'user'
     }
 
-    def __init__(self, url=None, offset=None, duration=None, reference_uuid=None, start_datetime=None, simulation=None, interval=None, origin_offset=None, store_path=None, id=None, uid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, offset=None, duration=None, reference_uuid=None, start_datetime=None, simulation=None, interval=None, origin_offset=None, store_path=None, id=None, uid=None, user=None, local_vars_configuration=None):  # noqa: E501
         """LizardRasterSourcesSinks - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -78,6 +80,7 @@ class LizardRasterSourcesSinks(object):
         self._store_path = None
         self._id = None
         self._uid = None
+        self._user = None
         self.discriminator = None
 
         if url is not None:
@@ -98,6 +101,8 @@ class LizardRasterSourcesSinks(object):
             self.id = id
         if uid is not None:
             self.uid = uid
+        if user is not None:
+            self.user = user
 
     @property
     def url(self):
@@ -360,6 +365,27 @@ class LizardRasterSourcesSinks(object):
         """
 
         self._uid = uid
+
+    @property
+    def user(self):
+        """Gets the user of this LizardRasterSourcesSinks.  # noqa: E501
+
+
+        :return: The user of this LizardRasterSourcesSinks.  # noqa: E501
+        :rtype: str
+        """
+        return self._user
+
+    @user.setter
+    def user(self, user):
+        """Sets the user of this LizardRasterSourcesSinks.
+
+
+        :param user: The user of this LizardRasterSourcesSinks.  # noqa: E501
+        :type: str
+        """
+
+        self._user = user
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -5,7 +5,7 @@ History
 3.0.15 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Added user to lizardrasterrain and lizard raster sources&sinks
 
 
 3.0.14 (2020-10-14)

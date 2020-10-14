@@ -5088,7 +5088,7 @@ class SimulationsApi(object):
     def simulations_events_lateral_file_upload(self, id, simulation_pk, **kwargs):  # noqa: E501
         """simulations_events_lateral_file_upload  # noqa: E501
 
-        Endpoint for uploading a result file  # noqa: E501
+        Endpoint for uploading a laterals file  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_lateral_file_upload(id, simulation_pk, async_req=True)
@@ -5114,7 +5114,7 @@ class SimulationsApi(object):
     def simulations_events_lateral_file_upload_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
         """simulations_events_lateral_file_upload  # noqa: E501
 
-        Endpoint for uploading a result file  # noqa: E501
+        Endpoint for uploading a laterals file  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_lateral_file_upload_with_http_info(id, simulation_pk, async_req=True)
