@@ -40,7 +40,7 @@ class ConstantLateral(object):
         'duration': 'int',
         'value': 'float',
         'units': 'str',
-        'point': 'str',
+        'point': 'Point',
         'connection_node': 'int',
         'state': 'str',
         'state_detail': 'object',
@@ -94,7 +94,8 @@ class ConstantLateral(object):
         self.duration = duration
         self.value = value
         self.units = units
-        self.point = point
+        if point is not None:
+            self.point = point
         self.connection_node = connection_node
         if state is not None:
             self.state = state
@@ -271,7 +272,7 @@ class ConstantLateral(object):
 
 
         :return: The point of this ConstantLateral.  # noqa: E501
-        :rtype: str
+        :rtype: Point
         """
         return self._point
 
@@ -281,7 +282,7 @@ class ConstantLateral(object):
 
 
         :param point: The point of this ConstantLateral.  # noqa: E501
-        :type: str
+        :type: Point
         """
 
         self._point = point

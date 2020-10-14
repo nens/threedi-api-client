@@ -24,7 +24,6 @@ from openapi_client.models.boundary_condition import BoundaryCondition
 from openapi_client.models.breach import Breach
 from openapi_client.models.breach_graph import BreachGraph
 from openapi_client.models.breach_graph_request import BreachGraphRequest
-from openapi_client.models.bulk_event import BulkEvent
 from openapi_client.models.constant_lateral import ConstantLateral
 from openapi_client.models.constant_local_rain import ConstantLocalRain
 from openapi_client.models.constant_rain import ConstantRain
@@ -36,7 +35,9 @@ from openapi_client.models.damage_estimation import DamageEstimation
 from openapi_client.models.damage_post_processing import DamagePostProcessing
 from openapi_client.models.download import Download
 from openapi_client.models.event import Event
+from openapi_client.models.extent import Extent
 from openapi_client.models.file import File
+from openapi_client.models.file_lateral import FileLateral
 from openapi_client.models.file_meta import FileMeta
 from openapi_client.models.file_raster_rain import FileRasterRain
 from openapi_client.models.file_raster_sources_sinks import FileRasterSourcesSinks
@@ -125,6 +126,7 @@ from openapi_client.models.one_d_water_level import OneDWaterLevel
 from openapi_client.models.one_d_water_level_predefined import OneDWaterLevelPredefined
 from openapi_client.models.organisation import Organisation
 from openapi_client.models.organisation_role import OrganisationRole
+from openapi_client.models.point import Point
 from openapi_client.models.polygon import Polygon
 from openapi_client.models.post_processing_overview import PostProcessingOverview
 from openapi_client.models.post_processing_queue import PostProcessingQueue

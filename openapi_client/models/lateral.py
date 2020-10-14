@@ -42,7 +42,7 @@ class Lateral(object):
         'values': 'list[list[float]]',
         'units': 'str',
         'constant': 'bool',
-        'point': 'str',
+        'point': 'Point',
         'connection_node': 'int',
         'state': 'str',
         'state_detail': 'object',
@@ -104,7 +104,8 @@ class Lateral(object):
         self.units = units
         if constant is not None:
             self.constant = constant
-        self.point = point
+        if point is not None:
+            self.point = point
         self.connection_node = connection_node
         if state is not None:
             self.state = state
@@ -244,6 +245,7 @@ class Lateral(object):
     def values(self):
         """Gets the values of this Lateral.  # noqa: E501
 
+        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
         :return: The values of this Lateral.  # noqa: E501
         :rtype: list[list[float]]
@@ -254,6 +256,7 @@ class Lateral(object):
     def values(self, values):
         """Sets the values of this Lateral.
 
+        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
         :param values: The values of this Lateral.  # noqa: E501
         :type: list[list[float]]
@@ -321,7 +324,7 @@ class Lateral(object):
 
 
         :return: The point of this Lateral.  # noqa: E501
-        :rtype: str
+        :rtype: Point
         """
         return self._point
 
@@ -331,7 +334,7 @@ class Lateral(object):
 
 
         :param point: The point of this Lateral.  # noqa: E501
-        :type: str
+        :type: Point
         """
 
         self._point = point

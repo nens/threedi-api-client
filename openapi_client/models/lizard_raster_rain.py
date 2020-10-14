@@ -44,7 +44,6 @@ class LizardRasterRain(object):
         'simulation': 'str',
         'multiplier': 'float',
         'interval': 'int',
-        'user': 'str',
         'origin_offset': 'int',
         'store_path': 'str',
         'id': 'int'
@@ -61,13 +60,12 @@ class LizardRasterRain(object):
         'simulation': 'simulation',
         'multiplier': 'multiplier',
         'interval': 'interval',
-        'user': 'user',
         'origin_offset': 'origin_offset',
         'store_path': 'store_path',
         'id': 'id'
     }
 
-    def __init__(self, url=None, uid=None, offset=None, duration=None, units=None, reference_uuid=None, start_datetime=None, simulation=None, multiplier=None, interval=None, user=None, origin_offset=None, store_path=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, uid=None, offset=None, duration=None, units=None, reference_uuid=None, start_datetime=None, simulation=None, multiplier=None, interval=None, origin_offset=None, store_path=None, id=None, local_vars_configuration=None):  # noqa: E501
         """LizardRasterRain - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -83,7 +81,6 @@ class LizardRasterRain(object):
         self._simulation = None
         self._multiplier = None
         self._interval = None
-        self._user = None
         self._origin_offset = None
         self._store_path = None
         self._id = None
@@ -105,8 +102,6 @@ class LizardRasterRain(object):
             self.multiplier = multiplier
         if interval is not None:
             self.interval = interval
-        if user is not None:
-            self.user = user
         if origin_offset is not None:
             self.origin_offset = origin_offset
         if store_path is not None:
@@ -357,27 +352,6 @@ class LizardRasterRain(object):
         """
 
         self._interval = interval
-
-    @property
-    def user(self):
-        """Gets the user of this LizardRasterRain.  # noqa: E501
-
-
-        :return: The user of this LizardRasterRain.  # noqa: E501
-        :rtype: str
-        """
-        return self._user
-
-    @user.setter
-    def user(self, user):
-        """Sets the user of this LizardRasterRain.
-
-
-        :param user: The user of this LizardRasterRain.  # noqa: E501
-        :type: str
-        """
-
-        self._user = user
 
     @property
     def origin_offset(self):

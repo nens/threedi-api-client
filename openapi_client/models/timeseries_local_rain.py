@@ -41,7 +41,7 @@ class TimeseriesLocalRain(object):
         'interpolate': 'bool',
         'units': 'str',
         'diameter': 'int',
-        'point': 'str',
+        'point': 'Point',
         'uid': 'str',
         'id': 'int'
     }
@@ -171,6 +171,7 @@ class TimeseriesLocalRain(object):
     def values(self):
         """Gets the values of this TimeseriesLocalRain.  # noqa: E501
 
+        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
         :return: The values of this TimeseriesLocalRain.  # noqa: E501
         :rtype: list[list[float]]
@@ -181,6 +182,7 @@ class TimeseriesLocalRain(object):
     def values(self, values):
         """Sets the values of this TimeseriesLocalRain.
 
+        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
         :param values: The values of this TimeseriesLocalRain.  # noqa: E501
         :type: list[list[float]]
@@ -275,7 +277,7 @@ class TimeseriesLocalRain(object):
 
 
         :return: The point of this TimeseriesLocalRain.  # noqa: E501
-        :rtype: str
+        :rtype: Point
         """
         return self._point
 
@@ -285,7 +287,7 @@ class TimeseriesLocalRain(object):
 
 
         :param point: The point of this TimeseriesLocalRain.  # noqa: E501
-        :type: str
+        :type: Point
         """
         if self.local_vars_configuration.client_side_validation and point is None:  # noqa: E501
             raise ValueError("Invalid value for `point`, must not be `None`")  # noqa: E501

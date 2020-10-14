@@ -5,7 +5,9 @@ History
 3.0.13 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Added extent/point swagger definitions
+
+- Added filelateral to swagger
 
 
 3.0.12 (2020-10-13)

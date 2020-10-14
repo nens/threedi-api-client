@@ -40,7 +40,7 @@ class TimeseriesLateral(object):
         'interpolate': 'bool',
         'values': 'list[list[float]]',
         'units': 'str',
-        'point': 'str',
+        'point': 'Point',
         'connection_node': 'int',
         'state': 'str',
         'state_detail': 'object',
@@ -95,7 +95,8 @@ class TimeseriesLateral(object):
             self.interpolate = interpolate
         self.values = values
         self.units = units
-        self.point = point
+        if point is not None:
+            self.point = point
         self.connection_node = connection_node
         if state is not None:
             self.state = state
@@ -206,6 +207,7 @@ class TimeseriesLateral(object):
     def values(self):
         """Gets the values of this TimeseriesLateral.  # noqa: E501
 
+        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
         :return: The values of this TimeseriesLateral.  # noqa: E501
         :rtype: list[list[float]]
@@ -216,6 +218,7 @@ class TimeseriesLateral(object):
     def values(self, values):
         """Sets the values of this TimeseriesLateral.
 
+        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
         :param values: The values of this TimeseriesLateral.  # noqa: E501
         :type: list[list[float]]
@@ -262,7 +265,7 @@ class TimeseriesLateral(object):
 
 
         :return: The point of this TimeseriesLateral.  # noqa: E501
-        :rtype: str
+        :rtype: Point
         """
         return self._point
 
@@ -272,7 +275,7 @@ class TimeseriesLateral(object):
 
 
         :param point: The point of this TimeseriesLateral.  # noqa: E501
-        :type: str
+        :type: Point
         """
 
         self._point = point

@@ -3304,12 +3304,12 @@ paths:
               results:
                 type: array
                 items:
-                  $ref: '#/definitions/BulkEvent'
+                  $ref: '#/definitions/FileLateral'
       tags:
         - simulations
     post:
       operationId: simulations_events_lateral_file_create
-      summary: Endpoint for creating bulk set of laterals
+      summary: Endpoint for uploading a file with one or more laterals
       description: |-
         The response provides a put_url which allows you to upload a file containing one
         or more laterals. These laterals should either be a constant- or a
@@ -3381,7 +3381,7 @@ paths:
         '200':
           description: ''
           schema:
-            $ref: '#/definitions/BulkEvent'
+            $ref: '#/definitions/FileLateral'
       tags:
         - simulations
     put:
@@ -3392,12 +3392,12 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/BulkEvent'
+            $ref: '#/definitions/FileLateral'
       responses:
         '200':
           description: ''
           schema:
-            $ref: '#/definitions/BulkEvent'
+            $ref: '#/definitions/FileLateral'
       tags:
         - simulations
     patch:
@@ -3410,7 +3410,7 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/BulkEvent'
+            $ref: '#/definitions/FileLateral'
       responses:
         '200':
           description: Successfully patched the resource
@@ -12051,17 +12051,98 @@ definitions:
         type: string
         readOnly: true
       extent_two_d:
-        title: Extent two d
-        type: string
-        x-nullable: true
+        title: Extent
+        type: object
+        description: Extent specified either in geojson, wkt or ewkt
+        required:
+          - type
+          - coordinates
+        properties:
+          type:
+            title: type
+            description: Type should always be 'Linestring'
+            type: string
+            default: Linestring
+          coordinates:
+            title: coordinates
+            description: Exactly 2 coordinates, specifying the bottom left and upper
+              right respectively
+            type: array
+            items:
+              type: number
+              minItems: 2
+              maxItems: 2
+            minItems: 2
+            maxItems: 2
+        example:
+          type: LineString
+          coordinates:
+            - - 4.668275805499175
+              - 52.619558913867856
+            - - 4.73849433310911
+              - 52.66453976184968
       extent_one_d:
-        title: Extent one d
-        type: string
-        x-nullable: true
+        title: Extent
+        type: object
+        description: Extent specified either in geojson, wkt or ewkt
+        required:
+          - type
+          - coordinates
+        properties:
+          type:
+            title: type
+            description: Type should always be 'Linestring'
+            type: string
+            default: Linestring
+          coordinates:
+            title: coordinates
+            description: Exactly 2 coordinates, specifying the bottom left and upper
+              right respectively
+            type: array
+            items:
+              type: number
+              minItems: 2
+              maxItems: 2
+            minItems: 2
+            maxItems: 2
+        example:
+          type: LineString
+          coordinates:
+            - - 4.668275805499175
+              - 52.619558913867856
+            - - 4.73849433310911
+              - 52.66453976184968
       extent_zero_d:
-        title: Extent zero d
-        type: string
-        x-nullable: true
+        title: Extent
+        type: object
+        description: Extent specified either in geojson, wkt or ewkt
+        required:
+          - type
+          - coordinates
+        properties:
+          type:
+            title: type
+            description: Type should always be 'Linestring'
+            type: string
+            default: Linestring
+          coordinates:
+            title: coordinates
+            description: Exactly 2 coordinates, specifying the bottom left and upper
+              right respectively
+            type: array
+            items:
+              type: number
+              minItems: 2
+              maxItems: 2
+            minItems: 2
+            maxItems: 2
+        example:
+          type: LineString
+          coordinates:
+            - - 4.668275805499175
+              - 52.619558913867856
+            - - 4.73849433310911
+              - 52.66453976184968
       nodes_count:
         title: Nodes count
         type: integer
@@ -12330,10 +12411,6 @@ definitions:
         title: Interval
         type: integer
         readOnly: true
-      user:
-        title: User
-        type: string
-        readOnly: true
       origin_offset:
         title: Origin offset
         type: integer
@@ -12395,9 +12472,26 @@ definitions:
         items:
           type: array
           items:
-            title: Values
             type: number
+          description: Timestamp + value pair
+          example:
+            - 100
+            - 0.5
+          maxItems: 2
+          minItems: 2
         readOnly: true
+        maxItems: 300
+        title: Timeseries
+        description: 'Timeseries provided as a nested list. The inner list consists
+          of exactly 2 values: timestamp, value'
+        example:
+          - - 0
+            - 0.1
+          - - 100
+            - 0.5
+          - - 200
+            - 0
+        minItems: 1
       units:
         title: Units
         type: string
@@ -12451,9 +12545,25 @@ definitions:
         items:
           type: array
           items:
-            title: Values
             type: number
+          description: Timestamp + value pair
+          example:
+            - 100
+            - 0.5
+          maxItems: 2
+          minItems: 2
         maxItems: 300
+        title: Timeseries
+        description: 'Timeseries provided as a nested list. The inner list consists
+          of exactly 2 values: timestamp, value'
+        example:
+          - - 0
+            - 0.1
+          - - 100
+            - 0.5
+          - - 200
+            - 0
+        minItems: 1
       units:
         title: Units
         description: m/s is only option for now
@@ -12607,10 +12717,6 @@ definitions:
         type: string
         format: uuid
         readOnly: true
-      user:
-        title: User
-        type: string
-        readOnly: true
   LizardTimeseriesSourcesSinks:
     required:
       - offset
@@ -12659,9 +12765,26 @@ definitions:
         items:
           type: array
           items:
-            title: Values
             type: number
+          description: Timestamp + value pair
+          example:
+            - 100
+            - 0.5
+          maxItems: 2
+          minItems: 2
         readOnly: true
+        maxItems: 300
+        title: Timeseries
+        description: 'Timeseries provided as a nested list. The inner list consists
+          of exactly 2 values: timestamp, value'
+        example:
+          - - 0
+            - 0.1
+          - - 100
+            - 0.5
+          - - 200
+            - 0
+        minItems: 1
       uid:
         title: Uid
         type: string
@@ -12936,9 +13059,25 @@ definitions:
         items:
           type: array
           items:
-            title: Values
             type: number
+          description: Timestamp + value pair
+          example:
+            - 100
+            - 0.5
+          maxItems: 2
+          minItems: 2
         maxItems: 300
+        title: Timeseries
+        description: 'Timeseries provided as a nested list. The inner list consists
+          of exactly 2 values: timestamp, value'
+        example:
+          - - 0
+            - 0.1
+          - - 100
+            - 0.5
+          - - 200
+            - 0
+        minItems: 1
       units:
         title: Units
         description: "'m/s' (only option for now)"
@@ -13453,9 +13592,25 @@ definitions:
         items:
           type: array
           items:
-            title: Values
             type: number
+          description: Timestamp + value pair
+          example:
+            - 100
+            - 0.5
+          maxItems: 2
+          minItems: 2
         maxItems: 300
+        title: Timeseries
+        description: 'Timeseries provided as a nested list. The inner list consists
+          of exactly 2 values: timestamp, value'
+        example:
+          - - 0
+            - 0.1
+          - - 100
+            - 0.5
+          - - 200
+            - 0
+        minItems: 1
       units:
         title: Units
         description: "'m3/s' (only option for now)"
@@ -13467,8 +13622,30 @@ definitions:
         type: boolean
       point:
         title: Point
-        type: string
-        x-nullable: true
+        type: object
+        description: Point specified in wkt or geojson
+        required:
+          - type
+          - coordinates
+        properties:
+          type:
+            title: type
+            description: Type should always be 'Point'
+            type: string
+            default: Point
+          coordinates:
+            title: coordinates
+            description: List of exactly one coordinate
+            type: array
+            items:
+              type: number
+            minItems: 2
+            maxItems: 2
+        example:
+          type: Point
+          coordinates:
+            - 4.695281
+            - 52.656047
       connection_node:
         title: Connection node
         type: integer
@@ -13499,6 +13676,50 @@ definitions:
       id:
         title: ID
         type: integer
+        readOnly: true
+  FileLateral:
+    required:
+      - offset
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
+        readOnly: true
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+        readOnly: true
+      offset:
+        title: Offset
+        description: offset of event in simulation in seconds
+        type: integer
+        maximum: 2147483647
+        minimum: 0
+      file:
+        $ref: '#/definitions/File'
+      state:
+        title: State
+        type: string
+        enum:
+          - processing
+          - valid
+          - invalid
+        readOnly: true
+      state_detail:
+        title: State detail
+        type: object
         readOnly: true
   MeasureLocation:
     required:
@@ -13909,7 +14130,7 @@ definitions:
       polygon:
         title: Polygon
         type: object
-        description: Polygon specified in wkt or geojson
+        description: Polygon specified in wkt or geojson, interior rings are not allowed.
         required:
           - type
           - coordinates
@@ -13924,7 +14145,27 @@ definitions:
             description: List of coordinates
             type: array
             items:
-              type: number
+              type: array
+              items:
+                type: array
+                items:
+                  type: number
+                minItems: 2
+                maxItems: 2
+              minItems: 3
+            minItems: 1
+            maxItems: 1
+        example:
+          type: Polygon
+          coordinates:
+            - - - 4.695281
+                - 52.656047
+              - - 4.683754
+                - 52.655824
+              - - 4.683253
+                - 52.639063
+              - - 4.695281
+                - 52.656047
       relative:
         title: Relative
         description: Process the value as a relative height, default is absolute
@@ -13978,9 +14219,25 @@ definitions:
         items:
           type: array
           items:
-            title: Values
             type: number
+          description: Timestamp + value pair
+          example:
+            - 100
+            - 0.5
+          maxItems: 2
+          minItems: 2
         maxItems: 300
+        title: Timeseries
+        description: 'Timeseries provided as a nested list. The inner list consists
+          of exactly 2 values: timestamp, value'
+        example:
+          - - 0
+            - 0.1
+          - - 100
+            - 0.5
+          - - 200
+            - 0
+        minItems: 1
       units:
         title: Units
         description: m/s is only option for now
@@ -13994,7 +14251,30 @@ definitions:
         type: boolean
       point:
         title: Point
-        type: string
+        type: object
+        description: Point specified in wkt or geojson
+        required:
+          - type
+          - coordinates
+        properties:
+          type:
+            title: type
+            description: Type should always be 'Point'
+            type: string
+            default: Point
+          coordinates:
+            title: coordinates
+            description: List of exactly one coordinate
+            type: array
+            items:
+              type: number
+            minItems: 2
+            maxItems: 2
+        example:
+          type: Point
+          coordinates:
+            - 4.695281
+            - 52.656047
       diameter:
         title: Diameter
         type: integer
@@ -14104,50 +14384,6 @@ definitions:
         title: ID
         type: integer
         readOnly: true
-  BulkEvent:
-    required:
-      - offset
-    type: object
-    properties:
-      url:
-        title: Url
-        type: string
-        format: uri
-        readOnly: true
-      id:
-        title: ID
-        type: integer
-        readOnly: true
-      uid:
-        title: Uid
-        type: string
-        format: uuid
-        readOnly: true
-      simulation:
-        title: Simulation
-        type: string
-        format: uri
-        readOnly: true
-      offset:
-        title: Offset
-        description: offset of event in simulation in seconds
-        type: integer
-        maximum: 2147483647
-        minimum: 0
-      file:
-        $ref: '#/definitions/File'
-      state:
-        title: State
-        type: string
-        enum:
-          - processing
-          - valid
-          - invalid
-        readOnly: true
-      state_detail:
-        title: State detail
-        type: object
-        readOnly: true
   Event:
     type: object
     properties:
@@ -14230,6 +14466,11 @@ definitions:
         items:
           $ref: '#/definitions/Lateral'
         readOnly: true
+      filelaterals:
+        type: array
+        items:
+          $ref: '#/definitions/FileLateral'
+        readOnly: true
       tablestructurecontrols:
         type: array
         items:
@@ -14262,11 +14503,6 @@ definitions:
         readOnly: true
       initial_winddragcoefficient:
         $ref: '#/definitions/WindDragCoefficient'
-      bulk_events:
-        type: array
-        items:
-          $ref: '#/definitions/BulkEvent'
-        readOnly: true
   Action:
     required:
       - name
@@ -14469,8 +14705,30 @@ definitions:
           - m3/s
       point:
         title: Point
-        type: string
-        x-nullable: true
+        type: object
+        description: Point specified in wkt or geojson
+        required:
+          - type
+          - coordinates
+        properties:
+          type:
+            title: type
+            description: Type should always be 'Point'
+            type: string
+            default: Point
+          coordinates:
+            title: coordinates
+            description: List of exactly one coordinate
+            type: array
+            items:
+              type: number
+            minItems: 2
+            maxItems: 2
+        example:
+          type: Point
+          coordinates:
+            - 4.695281
+            - 52.656047
       connection_node:
         title: Connection node
         type: integer
@@ -14590,9 +14848,25 @@ definitions:
         items:
           type: array
           items:
-            title: Values
             type: number
+          description: Timestamp + value pair
+          example:
+            - 100
+            - 0.5
+          maxItems: 2
+          minItems: 2
         maxItems: 300
+        title: Timeseries
+        description: 'Timeseries provided as a nested list. The inner list consists
+          of exactly 2 values: timestamp, value'
+        example:
+          - - 0
+            - 0.1
+          - - 100
+            - 0.5
+          - - 200
+            - 0
+        minItems: 1
       units:
         title: Units
         description: "'m3/s' (only option for now)"
@@ -14601,8 +14875,30 @@ definitions:
           - m3/s
       point:
         title: Point
-        type: string
-        x-nullable: true
+        type: object
+        description: Point specified in wkt or geojson
+        required:
+          - type
+          - coordinates
+        properties:
+          type:
+            title: type
+            description: Type should always be 'Point'
+            type: string
+            default: Point
+          coordinates:
+            title: coordinates
+            description: List of exactly one coordinate
+            type: array
+            items:
+              type: number
+            minItems: 2
+            maxItems: 2
+        example:
+          type: Point
+          coordinates:
+            - 4.695281
+            - 52.656047
       connection_node:
         title: Connection node
         type: integer
@@ -14737,7 +15033,30 @@ definitions:
         minimum: -2147483648
       point:
         title: Point
-        type: string
+        type: object
+        description: Point specified in wkt or geojson
+        required:
+          - type
+          - coordinates
+        properties:
+          type:
+            title: type
+            description: Type should always be 'Point'
+            type: string
+            default: Point
+          coordinates:
+            title: coordinates
+            description: List of exactly one coordinate
+            type: array
+            items:
+              type: number
+            minItems: 2
+            maxItems: 2
+        example:
+          type: Point
+          coordinates:
+            - 4.695281
+            - 52.656047
       uid:
         title: Uid
         type: string
@@ -14776,9 +15095,25 @@ definitions:
         items:
           type: array
           items:
-            title: Values
             type: number
+          description: Timestamp + value pair
+          example:
+            - 100
+            - 0.5
+          maxItems: 2
+          minItems: 2
         maxItems: 300
+        title: Timeseries
+        description: 'Timeseries provided as a nested list. The inner list consists
+          of exactly 2 values: timestamp, value'
+        example:
+          - - 0
+            - 0.1
+          - - 100
+            - 0.5
+          - - 200
+            - 0
+        minItems: 1
       interpolate:
         title: Interpolate
         type: boolean
@@ -14797,7 +15132,30 @@ definitions:
         minimum: -2147483648
       point:
         title: Point
-        type: string
+        type: object
+        description: Point specified in wkt or geojson
+        required:
+          - type
+          - coordinates
+        properties:
+          type:
+            title: type
+            description: Type should always be 'Point'
+            type: string
+            default: Point
+          coordinates:
+            title: coordinates
+            description: List of exactly one coordinate
+            type: array
+            items:
+              type: number
+            minItems: 2
+            maxItems: 2
+        example:
+          type: Point
+          coordinates:
+            - 4.695281
+            - 52.656047
       uid:
         title: Uid
         type: string
@@ -14927,9 +15285,25 @@ definitions:
         items:
           type: array
           items:
-            title: Values
             type: number
+          description: Timestamp + value pair
+          example:
+            - 100
+            - 0.5
+          maxItems: 2
+          minItems: 2
         maxItems: 300
+        title: Timeseries
+        description: 'Timeseries provided as a nested list. The inner list consists
+          of exactly 2 values: timestamp, value'
+        example:
+          - - 0
+            - 0.1
+          - - 100
+            - 0.5
+          - - 200
+            - 0
+        minItems: 1
       units:
         title: Units
         description: m/s is only option for now
@@ -15193,9 +15567,25 @@ definitions:
         items:
           type: array
           items:
-            title: Values
             type: number
+          description: Timestamp + value pair
+          example:
+            - 100
+            - 0.5
+          maxItems: 2
+          minItems: 2
         maxItems: 300
+        title: Timeseries
+        description: 'Timeseries provided as a nested list. The inner list consists
+          of exactly 2 values: timestamp, value'
+        example:
+          - - 0
+            - 0.1
+          - - 100
+            - 0.5
+          - - 200
+            - 0
+        minItems: 1
       units:
         title: Units
         description: "'m/s' (only option for now)"
@@ -16102,6 +16492,16 @@ definitions:
               type: array
               items:
                 type: number
+              minItems: 2
+              maxItems: 2
+            minItems: 2
+        example:
+          type: LineString
+          coordinates:
+            - - 4.668275805499175
+              - 52.619558913867856
+            - - 4.73849433310911
+              - 52.66453976184968
       points_limit:
         title: Points limit
         description: Maximum number of points to return
@@ -16435,8 +16835,35 @@ definitions:
         x-nullable: true
       extent:
         title: Extent
-        type: string
-        x-nullable: true
+        type: object
+        description: Extent specified either in geojson, wkt or ewkt
+        required:
+          - type
+          - coordinates
+        properties:
+          type:
+            title: type
+            description: Type should always be 'Linestring'
+            type: string
+            default: Linestring
+          coordinates:
+            title: coordinates
+            description: Exactly 2 coordinates, specifying the bottom left and upper
+              right respectively
+            type: array
+            items:
+              type: number
+              minItems: 2
+              maxItems: 2
+            minItems: 2
+            maxItems: 2
+        example:
+          type: LineString
+          coordinates:
+            - - 4.668275805499175
+              - 52.619558913867856
+            - - 4.73849433310911
+              - 52.66453976184968
       geotransform:
         type: array
         items:

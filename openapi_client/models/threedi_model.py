@@ -53,9 +53,9 @@ class ThreediModel(object):
         'storage_space_humanized': 'str',
         'model_ini': 'str',
         'breach_count': 'str',
-        'extent_two_d': 'str',
-        'extent_one_d': 'str',
-        'extent_zero_d': 'str',
+        'extent_two_d': 'Extent',
+        'extent_one_d': 'Extent',
+        'extent_zero_d': 'Extent',
         'nodes_count': 'int',
         'lines_count': 'int'
     }
@@ -150,9 +150,12 @@ class ThreediModel(object):
         self.model_ini = model_ini
         if breach_count is not None:
             self.breach_count = breach_count
-        self.extent_two_d = extent_two_d
-        self.extent_one_d = extent_one_d
-        self.extent_zero_d = extent_zero_d
+        if extent_two_d is not None:
+            self.extent_two_d = extent_two_d
+        if extent_one_d is not None:
+            self.extent_one_d = extent_one_d
+        if extent_zero_d is not None:
+            self.extent_zero_d = extent_zero_d
         self.nodes_count = nodes_count
         self.lines_count = lines_count
 
@@ -611,7 +614,7 @@ class ThreediModel(object):
 
 
         :return: The extent_two_d of this ThreediModel.  # noqa: E501
-        :rtype: str
+        :rtype: Extent
         """
         return self._extent_two_d
 
@@ -621,7 +624,7 @@ class ThreediModel(object):
 
 
         :param extent_two_d: The extent_two_d of this ThreediModel.  # noqa: E501
-        :type: str
+        :type: Extent
         """
 
         self._extent_two_d = extent_two_d
@@ -632,7 +635,7 @@ class ThreediModel(object):
 
 
         :return: The extent_one_d of this ThreediModel.  # noqa: E501
-        :rtype: str
+        :rtype: Extent
         """
         return self._extent_one_d
 
@@ -642,7 +645,7 @@ class ThreediModel(object):
 
 
         :param extent_one_d: The extent_one_d of this ThreediModel.  # noqa: E501
-        :type: str
+        :type: Extent
         """
 
         self._extent_one_d = extent_one_d
@@ -653,7 +656,7 @@ class ThreediModel(object):
 
 
         :return: The extent_zero_d of this ThreediModel.  # noqa: E501
-        :rtype: str
+        :rtype: Extent
         """
         return self._extent_zero_d
 
@@ -663,7 +666,7 @@ class ThreediModel(object):
 
 
         :param extent_zero_d: The extent_zero_d of this ThreediModel.  # noqa: E501
-        :type: str
+        :type: Extent
         """
 
         self._extent_zero_d = extent_zero_d

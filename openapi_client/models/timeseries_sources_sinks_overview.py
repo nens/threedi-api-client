@@ -188,6 +188,7 @@ class TimeseriesSourcesSinksOverview(object):
     def values(self):
         """Gets the values of this TimeseriesSourcesSinksOverview.  # noqa: E501
 
+        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
         :return: The values of this TimeseriesSourcesSinksOverview.  # noqa: E501
         :rtype: list[list[float]]
@@ -198,6 +199,7 @@ class TimeseriesSourcesSinksOverview(object):
     def values(self, values):
         """Sets the values of this TimeseriesSourcesSinksOverview.
 
+        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
         :param values: The values of this TimeseriesSourcesSinksOverview.  # noqa: E501
         :type: list[list[float]]

@@ -42,7 +42,7 @@ class ConstantLocalRain(object):
         'duration': 'int',
         'interpolate': 'bool',
         'diameter': 'int',
-        'point': 'str',
+        'point': 'Point',
         'uid': 'str',
         'id': 'int'
     }
@@ -308,7 +308,7 @@ class ConstantLocalRain(object):
 
 
         :return: The point of this ConstantLocalRain.  # noqa: E501
-        :rtype: str
+        :rtype: Point
         """
         return self._point
 
@@ -318,7 +318,7 @@ class ConstantLocalRain(object):
 
 
         :param point: The point of this ConstantLocalRain.  # noqa: E501
-        :type: str
+        :type: Point
         """
         if self.local_vars_configuration.client_side_validation and point is None:  # noqa: E501
             raise ValueError("Invalid value for `point`, must not be `None`")  # noqa: E501

@@ -54,14 +54,14 @@ class Event(object):
         'initial_savedstate': 'InitialSavedStateOverview',
         'savedstates': 'list[SavedStateOverview]',
         'laterals': 'list[Lateral]',
+        'filelaterals': 'list[FileLateral]',
         'tablestructurecontrols': 'list[TableStructureControl]',
         'memorystructurecontrols': 'list[MemoryStructureControl]',
         'timedstructurecontrols': 'list[TimedStructureControl]',
         'rasteredits': 'list[RasterEdit]',
         'localrain': 'list[LocalRain]',
         'wind': 'list[Wind]',
-        'initial_winddragcoefficient': 'WindDragCoefficient',
-        'bulk_events': 'list[BulkEvent]'
+        'initial_winddragcoefficient': 'WindDragCoefficient'
     }
 
     attribute_map = {
@@ -85,17 +85,17 @@ class Event(object):
         'initial_savedstate': 'initial_savedstate',
         'savedstates': 'savedstates',
         'laterals': 'laterals',
+        'filelaterals': 'filelaterals',
         'tablestructurecontrols': 'tablestructurecontrols',
         'memorystructurecontrols': 'memorystructurecontrols',
         'timedstructurecontrols': 'timedstructurecontrols',
         'rasteredits': 'rasteredits',
         'localrain': 'localrain',
         'wind': 'wind',
-        'initial_winddragcoefficient': 'initial_winddragcoefficient',
-        'bulk_events': 'bulk_events'
+        'initial_winddragcoefficient': 'initial_winddragcoefficient'
     }
 
-    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, rasteredits=None, localrain=None, wind=None, initial_winddragcoefficient=None, bulk_events=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, filelaterals=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, rasteredits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -121,6 +121,7 @@ class Event(object):
         self._initial_savedstate = None
         self._savedstates = None
         self._laterals = None
+        self._filelaterals = None
         self._tablestructurecontrols = None
         self._memorystructurecontrols = None
         self._timedstructurecontrols = None
@@ -128,7 +129,6 @@ class Event(object):
         self._localrain = None
         self._wind = None
         self._initial_winddragcoefficient = None
-        self._bulk_events = None
         self.discriminator = None
 
         if lizardrasterrain is not None:
@@ -171,6 +171,8 @@ class Event(object):
             self.savedstates = savedstates
         if laterals is not None:
             self.laterals = laterals
+        if filelaterals is not None:
+            self.filelaterals = filelaterals
         if tablestructurecontrols is not None:
             self.tablestructurecontrols = tablestructurecontrols
         if memorystructurecontrols is not None:
@@ -185,8 +187,6 @@ class Event(object):
             self.wind = wind
         if initial_winddragcoefficient is not None:
             self.initial_winddragcoefficient = initial_winddragcoefficient
-        if bulk_events is not None:
-            self.bulk_events = bulk_events
 
     @property
     def lizardrasterrain(self):
@@ -609,6 +609,27 @@ class Event(object):
         self._laterals = laterals
 
     @property
+    def filelaterals(self):
+        """Gets the filelaterals of this Event.  # noqa: E501
+
+
+        :return: The filelaterals of this Event.  # noqa: E501
+        :rtype: list[FileLateral]
+        """
+        return self._filelaterals
+
+    @filelaterals.setter
+    def filelaterals(self, filelaterals):
+        """Sets the filelaterals of this Event.
+
+
+        :param filelaterals: The filelaterals of this Event.  # noqa: E501
+        :type: list[FileLateral]
+        """
+
+        self._filelaterals = filelaterals
+
+    @property
     def tablestructurecontrols(self):
         """Gets the tablestructurecontrols of this Event.  # noqa: E501
 
@@ -754,27 +775,6 @@ class Event(object):
         """
 
         self._initial_winddragcoefficient = initial_winddragcoefficient
-
-    @property
-    def bulk_events(self):
-        """Gets the bulk_events of this Event.  # noqa: E501
-
-
-        :return: The bulk_events of this Event.  # noqa: E501
-        :rtype: list[BulkEvent]
-        """
-        return self._bulk_events
-
-    @bulk_events.setter
-    def bulk_events(self, bulk_events):
-        """Sets the bulk_events of this Event.
-
-
-        :param bulk_events: The bulk_events of this Event.  # noqa: E501
-        :type: list[BulkEvent]
-        """
-
-        self._bulk_events = bulk_events
 
     def to_dict(self):
         """Returns the model properties as a dict"""

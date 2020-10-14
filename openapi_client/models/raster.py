@@ -41,7 +41,7 @@ class Raster(object):
         'file': 'FileReadOnly',
         'id': 'int',
         'epsg_code': 'int',
-        'extent': 'str',
+        'extent': 'Extent',
         'geotransform': 'list[float]',
         'unit': 'str'
     }
@@ -88,7 +88,8 @@ class Raster(object):
         if id is not None:
             self.id = id
         self.epsg_code = epsg_code
-        self.extent = extent
+        if extent is not None:
+            self.extent = extent
         self.geotransform = geotransform
         self.unit = unit
 
@@ -267,7 +268,7 @@ class Raster(object):
 
 
         :return: The extent of this Raster.  # noqa: E501
-        :rtype: str
+        :rtype: Extent
         """
         return self._extent
 
@@ -277,7 +278,7 @@ class Raster(object):
 
 
         :param extent: The extent of this Raster.  # noqa: E501
-        :type: str
+        :type: Extent
         """
 
         self._extent = extent

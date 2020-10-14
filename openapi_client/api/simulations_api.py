@@ -4078,7 +4078,7 @@ class SimulationsApi(object):
             collection_formats=collection_formats)
 
     def simulations_events_lateral_file_create(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """Endpoint for creating bulk set of laterals  # noqa: E501
+        """Endpoint for uploading a file with one or more laterals  # noqa: E501
 
         The response provides a put_url which allows you to upload a file containing one or more laterals. These laterals should either be a constant- or a timeseries-lateral, or a combination of both. See their respective endpoint for the required fields of these laterals.  The uploaded file should be a JSON-file containing an array of laterals. Example of the content of such a file: ``` [   {     \"offset\": 100,     \"value\": 0.05,     \"duration\": 300,     \"units\": \"m3/s\",     \"connection_node\": 5   },   {     \"offset\": 180,     \"interpolate\": false,     \"values\": [       [0.0, 0.0002],       [900.0, 0.0],       [1200.0, 0.0001],       [1620.0, 0.0]     ],     \"units\": \"m3/s\",     \"connection_node\": 4   },   {     \"offset\": 0,     \"value\": 0.03,     \"duration\": 500,     \"units\": \"m3/s\",     \"point\": {       \"type\": \"Point\",       \"coordinates\": [4.70184629, 52.62586862]     }   } ] ```  The `offset` of this file-lateral-event will be applied to each individual lataral offset in the uploaded file.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -4104,7 +4104,7 @@ class SimulationsApi(object):
         return self.simulations_events_lateral_file_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
 
     def simulations_events_lateral_file_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
-        """Endpoint for creating bulk set of laterals  # noqa: E501
+        """Endpoint for uploading a file with one or more laterals  # noqa: E501
 
         The response provides a put_url which allows you to upload a file containing one or more laterals. These laterals should either be a constant- or a timeseries-lateral, or a combination of both. See their respective endpoint for the required fields of these laterals.  The uploaded file should be a JSON-file containing an array of laterals. Example of the content of such a file: ``` [   {     \"offset\": 100,     \"value\": 0.05,     \"duration\": 300,     \"units\": \"m3/s\",     \"connection_node\": 5   },   {     \"offset\": 180,     \"interpolate\": false,     \"values\": [       [0.0, 0.0002],       [900.0, 0.0],       [1200.0, 0.0001],       [1620.0, 0.0]     ],     \"units\": \"m3/s\",     \"connection_node\": 4   },   {     \"offset\": 0,     \"value\": 0.03,     \"duration\": 500,     \"units\": \"m3/s\",     \"point\": {       \"type\": \"Point\",       \"coordinates\": [4.70184629, 52.62586862]     }   } ] ```  The `offset` of this file-lateral-event will be applied to each individual lataral offset in the uploaded file.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -4580,7 +4580,7 @@ class SimulationsApi(object):
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this bulk lateral. (required)
         :param str simulation_pk: (required)
-        :param BulkEvent data: (required)
+        :param FileLateral data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4607,7 +4607,7 @@ class SimulationsApi(object):
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this bulk lateral. (required)
         :param str simulation_pk: (required)
-        :param BulkEvent data: (required)
+        :param FileLateral data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4848,7 +4848,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: BulkEvent
+        :return: FileLateral
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4875,7 +4875,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(BulkEvent, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(FileLateral, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4943,7 +4943,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='BulkEvent',  # noqa: E501
+            response_type='FileLateral',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -4962,7 +4962,7 @@ class SimulationsApi(object):
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this bulk lateral. (required)
         :param str simulation_pk: (required)
-        :param BulkEvent data: (required)
+        :param FileLateral data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4970,7 +4970,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: BulkEvent
+        :return: FileLateral
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4988,7 +4988,7 @@ class SimulationsApi(object):
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this bulk lateral. (required)
         :param str simulation_pk: (required)
-        :param BulkEvent data: (required)
+        :param FileLateral data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4998,7 +4998,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(BulkEvent, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(FileLateral, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5077,7 +5077,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='BulkEvent',  # noqa: E501
+            response_type='FileLateral',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
