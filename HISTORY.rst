@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.13 (unreleased)
+3.0.13 (2020-10-14)
 -------------------
 
 - Added extent/point swagger definitions
