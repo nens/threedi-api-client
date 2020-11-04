@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.16 (unreleased)
+3.0.16 (2020-11-04)
 -------------------
 
 - Pinned aiohttp to 3.6.3,  with >= 3.7.0 yarl and mulitdict
