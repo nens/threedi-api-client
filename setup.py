@@ -37,7 +37,7 @@ requirements = [
     'pyjwt>=1.7.1',
     'six',
     'python-dateutil',
-    'aiohttp',
+    'aiohttp==3.6.3',
 ]
 
 setup_requirements = ['pytest-runner', ]

@@ -5085,129 +5085,6 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def simulations_events_lateral_file_upload(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events_lateral_file_upload  # noqa: E501
-
-        Endpoint for uploading a laterals file  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events_lateral_file_upload(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this bulk lateral. (required)
-        :param str simulation_pk: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: UploadEventFile
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_events_lateral_file_upload_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
-
-    def simulations_events_lateral_file_upload_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """simulations_events_lateral_file_upload  # noqa: E501
-
-        Endpoint for uploading a laterals file  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.simulations_events_lateral_file_upload_with_http_info(id, simulation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this bulk lateral. (required)
-        :param str simulation_pk: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(UploadEventFile, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'simulation_pk'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method simulations_events_lateral_file_upload" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_events_lateral_file_upload`")  # noqa: E501
-        # verify the required parameter 'simulation_pk' is set
-        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_events_lateral_file_upload`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'simulation_pk' in local_var_params:
-            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/simulations/{simulation_pk}/events/lateral/file/{id}/upload/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='UploadEventFile',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def simulations_events_lateral_timeseries_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_lateral_timeseries_create  # noqa: E501
 
@@ -31071,6 +30948,133 @@ class SimulationsApi(object):
 
         return self.api_client.call_api(
             '/simulations/{simulation_pk}/results/post_processing/lizard/start/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_results_post_processing_lizard_start_retry(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """Retry the Lizard post-processing  # noqa: E501
+
+        Will only re-trigger the post-processing if the post-processing status is in `archiving_failed`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_start_retry(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param object data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_results_post_processing_lizard_start_retry_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_results_post_processing_lizard_start_retry_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """Retry the Lizard post-processing  # noqa: E501
+
+        Will only re-trigger the post-processing if the post-processing status is in `archiving_failed`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_results_post_processing_lizard_start_retry_with_http_info(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param object data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'simulation_pk',
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_results_post_processing_lizard_start_retry" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
+                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_results_post_processing_lizard_start_retry`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_results_post_processing_lizard_start_retry`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/simulations/{simulation_pk}/results/post_processing/lizard/start/retry/', 'POST',
             path_params,
             query_params,
             header_params,

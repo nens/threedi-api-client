@@ -5,7 +5,12 @@ History
 3.0.16 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Pinned aiohttp to 3.6.3,  with >= 3.7.0 yarl and mulitdict
+  needs to be build with GCC.
+
+- Removed laterals/file/upload endpoint
+
+- Added endpoint for retrying Lizard (results) postprocessing
 
 
 3.0.15 (2020-10-14)

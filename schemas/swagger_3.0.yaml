@@ -3494,30 +3494,6 @@ paths:
         in: path
         required: true
         type: string
-  /simulations/{simulation_pk}/events/lateral/file/{id}/upload/:
-    get:
-      operationId: simulations_events_lateral_file_upload
-      description: Endpoint for uploading a laterals file
-      parameters: []
-      responses:
-        '201':
-          description: ''
-          schema:
-            $ref: '#/definitions/UploadEventFile'
-        '404':
-          description: Simulation not found
-      tags:
-        - simulations
-    parameters:
-      - name: id
-        in: path
-        description: A unique integer value identifying this bulk lateral.
-        required: true
-        type: integer
-      - name: simulation_pk
-        in: path
-        required: true
-        type: string
   /simulations/{simulation_pk}/events/lateral/timeseries/:
     get:
       operationId: simulations_events_lateral_timeseries_list
@@ -8273,6 +8249,35 @@ paths:
           description: ''
           schema:
             $ref: '#/definitions/PostProcessingStart'
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/results/post_processing/lizard/start/retry/:
+    post:
+      operationId: simulations_results_post_processing_lizard_start_retry
+      summary: Retry the Lizard post-processing
+      description: |-
+        Will only re-trigger the post-processing if the post-processing status is in
+        `archiving_failed`.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PostProcessingStart'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/PostProcessingStart'
+        '400':
+          description: Bad request
+        '403':
+          description: Forbidden
       tags:
         - simulations
     parameters:
