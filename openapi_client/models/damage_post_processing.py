@@ -67,16 +67,11 @@ class DamagePostProcessing(object):
 
         if basic_post_processing is not None:
             self.basic_post_processing = basic_post_processing
-        if cost_type is not None:
-            self.cost_type = cost_type
-        if flood_month is not None:
-            self.flood_month = flood_month
-        if inundation_period is not None:
-            self.inundation_period = inundation_period
-        if repair_time_infrastructure is not None:
-            self.repair_time_infrastructure = repair_time_infrastructure
-        if repair_time_buildings is not None:
-            self.repair_time_buildings = repair_time_buildings
+        self.cost_type = cost_type
+        self.flood_month = flood_month
+        self.inundation_period = inundation_period
+        self.repair_time_infrastructure = repair_time_infrastructure
+        self.repair_time_buildings = repair_time_buildings
 
     @property
     def basic_post_processing(self):
@@ -119,6 +114,8 @@ class DamagePostProcessing(object):
         :param cost_type: The cost_type of this DamagePostProcessing.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and cost_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `cost_type`, must not be `None`")  # noqa: E501
         allowed_values = ["min", "avg", "max"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and cost_type not in allowed_values:  # noqa: E501
             raise ValueError(
@@ -146,6 +143,8 @@ class DamagePostProcessing(object):
         :param flood_month: The flood_month of this DamagePostProcessing.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and flood_month is None:  # noqa: E501
+            raise ValueError("Invalid value for `flood_month`, must not be `None`")  # noqa: E501
         allowed_values = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and flood_month not in allowed_values:  # noqa: E501
             raise ValueError(
@@ -175,6 +174,8 @@ class DamagePostProcessing(object):
         :param inundation_period: The inundation_period of this DamagePostProcessing.  # noqa: E501
         :type: float
         """
+        if self.local_vars_configuration.client_side_validation and inundation_period is None:  # noqa: E501
+            raise ValueError("Invalid value for `inundation_period`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 inundation_period is not None and inundation_period < 1):  # noqa: E501
             raise ValueError("Invalid value for `inundation_period`, must be a value greater than or equal to `1`")  # noqa: E501
@@ -201,6 +202,8 @@ class DamagePostProcessing(object):
         :param repair_time_infrastructure: The repair_time_infrastructure of this DamagePostProcessing.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and repair_time_infrastructure is None:  # noqa: E501
+            raise ValueError("Invalid value for `repair_time_infrastructure`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 repair_time_infrastructure is not None and repair_time_infrastructure > 240):  # noqa: E501
             raise ValueError("Invalid value for `repair_time_infrastructure`, must be a value less than or equal to `240`")  # noqa: E501
@@ -230,6 +233,8 @@ class DamagePostProcessing(object):
         :param repair_time_buildings: The repair_time_buildings of this DamagePostProcessing.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and repair_time_buildings is None:  # noqa: E501
+            raise ValueError("Invalid value for `repair_time_buildings`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 repair_time_buildings is not None and repair_time_buildings > 240):  # noqa: E501
             raise ValueError("Invalid value for `repair_time_buildings`, must be a value less than or equal to `240`")  # noqa: E501

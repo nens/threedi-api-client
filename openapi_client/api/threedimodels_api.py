@@ -303,7 +303,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20050
+        :return: InlineResponse20051
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -332,7 +332,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20050, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20051, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -399,7 +399,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20050',  # noqa: E501
+            response_type='InlineResponse20051',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3799,7 +3799,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20051
+        :return: InlineResponse20052
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3828,7 +3828,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20051, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20052, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3895,7 +3895,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20051',  # noqa: E501
+            response_type='InlineResponse20052',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -4613,7 +4613,6 @@ class ThreedimodelsApi(object):
         :param str inpy_version__threedicore_version__endswith:
         :param str inpy_version__threedicore_version__regex:
         :param float revision__number:
-        :param float revision__number__range: Multiple values may be separated by commas.
         :param float revision__number__gt:
         :param float revision__number__gte:
         :param float revision__number__lt:
@@ -4640,7 +4639,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20049
+        :return: InlineResponse20050
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4699,7 +4698,6 @@ class ThreedimodelsApi(object):
         :param str inpy_version__threedicore_version__endswith:
         :param str inpy_version__threedicore_version__regex:
         :param float revision__number:
-        :param float revision__number__range: Multiple values may be separated by commas.
         :param float revision__number__gt:
         :param float revision__number__gte:
         :param float revision__number__lt:
@@ -4728,7 +4726,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20049, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20050, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4778,7 +4776,6 @@ class ThreedimodelsApi(object):
             'inpy_version__threedicore_version__endswith',
             'inpy_version__threedicore_version__regex',
             'revision__number',
-            'revision__number__range',
             'revision__number__gt',
             'revision__number__gte',
             'revision__number__lt',
@@ -4906,8 +4903,6 @@ class ThreedimodelsApi(object):
             query_params.append(('inpy_version__threedicore_version__regex', local_var_params['inpy_version__threedicore_version__regex']))  # noqa: E501
         if 'revision__number' in local_var_params and local_var_params['revision__number'] is not None:  # noqa: E501
             query_params.append(('revision__number', local_var_params['revision__number']))  # noqa: E501
-        if 'revision__number__range' in local_var_params and local_var_params['revision__number__range'] is not None:  # noqa: E501
-            query_params.append(('revision__number__range', local_var_params['revision__number__range']))  # noqa: E501
         if 'revision__number__gt' in local_var_params and local_var_params['revision__number__gt'] is not None:  # noqa: E501
             query_params.append(('revision__number__gt', local_var_params['revision__number__gt']))  # noqa: E501
         if 'revision__number__gte' in local_var_params and local_var_params['revision__number__gte'] is not None:  # noqa: E501
@@ -4968,7 +4963,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20049',  # noqa: E501
+            response_type='InlineResponse20050',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5742,14 +5737,12 @@ class ThreedimodelsApi(object):
         :param async_req bool: execute request asynchronously
         :param str threedimodel_pk: (required)
         :param float connected_pnt_id:
-        :param float connected_pnt_id__range: Multiple values may be separated by commas.
         :param float connected_pnt_id__gt:
         :param float connected_pnt_id__gte:
         :param float connected_pnt_id__lt:
         :param float connected_pnt_id__lte:
         :param str connected_pnt_id__isnull:
         :param float threedimodel__id:
-        :param float threedimodel__id__range: Multiple values may be separated by commas.
         :param float threedimodel__id__gt:
         :param float threedimodel__id__gte:
         :param float threedimodel__id__lt:
@@ -5764,7 +5757,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20052
+        :return: InlineResponse20053
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5783,14 +5776,12 @@ class ThreedimodelsApi(object):
         :param async_req bool: execute request asynchronously
         :param str threedimodel_pk: (required)
         :param float connected_pnt_id:
-        :param float connected_pnt_id__range: Multiple values may be separated by commas.
         :param float connected_pnt_id__gt:
         :param float connected_pnt_id__gte:
         :param float connected_pnt_id__lt:
         :param float connected_pnt_id__lte:
         :param str connected_pnt_id__isnull:
         :param float threedimodel__id:
-        :param float threedimodel__id__range: Multiple values may be separated by commas.
         :param float threedimodel__id__gt:
         :param float threedimodel__id__gte:
         :param float threedimodel__id__lt:
@@ -5807,7 +5798,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20052, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20053, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5817,14 +5808,12 @@ class ThreedimodelsApi(object):
         all_params = [
             'threedimodel_pk',
             'connected_pnt_id',
-            'connected_pnt_id__range',
             'connected_pnt_id__gt',
             'connected_pnt_id__gte',
             'connected_pnt_id__lt',
             'connected_pnt_id__lte',
             'connected_pnt_id__isnull',
             'threedimodel__id',
-            'threedimodel__id__range',
             'threedimodel__id__gt',
             'threedimodel__id__gte',
             'threedimodel__id__lt',
@@ -5864,8 +5853,6 @@ class ThreedimodelsApi(object):
         query_params = []
         if 'connected_pnt_id' in local_var_params and local_var_params['connected_pnt_id'] is not None:  # noqa: E501
             query_params.append(('connected_pnt_id', local_var_params['connected_pnt_id']))  # noqa: E501
-        if 'connected_pnt_id__range' in local_var_params and local_var_params['connected_pnt_id__range'] is not None:  # noqa: E501
-            query_params.append(('connected_pnt_id__range', local_var_params['connected_pnt_id__range']))  # noqa: E501
         if 'connected_pnt_id__gt' in local_var_params and local_var_params['connected_pnt_id__gt'] is not None:  # noqa: E501
             query_params.append(('connected_pnt_id__gt', local_var_params['connected_pnt_id__gt']))  # noqa: E501
         if 'connected_pnt_id__gte' in local_var_params and local_var_params['connected_pnt_id__gte'] is not None:  # noqa: E501
@@ -5878,8 +5865,6 @@ class ThreedimodelsApi(object):
             query_params.append(('connected_pnt_id__isnull', local_var_params['connected_pnt_id__isnull']))  # noqa: E501
         if 'threedimodel__id' in local_var_params and local_var_params['threedimodel__id'] is not None:  # noqa: E501
             query_params.append(('threedimodel__id', local_var_params['threedimodel__id']))  # noqa: E501
-        if 'threedimodel__id__range' in local_var_params and local_var_params['threedimodel__id__range'] is not None:  # noqa: E501
-            query_params.append(('threedimodel__id__range', local_var_params['threedimodel__id__range']))  # noqa: E501
         if 'threedimodel__id__gt' in local_var_params and local_var_params['threedimodel__id__gt'] is not None:  # noqa: E501
             query_params.append(('threedimodel__id__gt', local_var_params['threedimodel__id__gt']))  # noqa: E501
         if 'threedimodel__id__gte' in local_var_params and local_var_params['threedimodel__id__gte'] is not None:  # noqa: E501
@@ -5916,7 +5901,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20052',  # noqa: E501
+            response_type='InlineResponse20053',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6957,7 +6942,6 @@ class ThreedimodelsApi(object):
         :param str name__endswith:
         :param str name__regex:
         :param float threedimodel__id:
-        :param float threedimodel__id__range: Multiple values may be separated by commas.
         :param float threedimodel__id__gt:
         :param float threedimodel__id__gte:
         :param float threedimodel__id__lt:
@@ -6972,7 +6956,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20053
+        :return: InlineResponse20054
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7007,7 +6991,6 @@ class ThreedimodelsApi(object):
         :param str name__endswith:
         :param str name__regex:
         :param float threedimodel__id:
-        :param float threedimodel__id__range: Multiple values may be separated by commas.
         :param float threedimodel__id__gt:
         :param float threedimodel__id__gte:
         :param float threedimodel__id__lt:
@@ -7024,7 +7007,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20053, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20054, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7050,7 +7033,6 @@ class ThreedimodelsApi(object):
             'name__endswith',
             'name__regex',
             'threedimodel__id',
-            'threedimodel__id__range',
             'threedimodel__id__gt',
             'threedimodel__id__gte',
             'threedimodel__id__lt',
@@ -7122,8 +7104,6 @@ class ThreedimodelsApi(object):
             query_params.append(('name__regex', local_var_params['name__regex']))  # noqa: E501
         if 'threedimodel__id' in local_var_params and local_var_params['threedimodel__id'] is not None:  # noqa: E501
             query_params.append(('threedimodel__id', local_var_params['threedimodel__id']))  # noqa: E501
-        if 'threedimodel__id__range' in local_var_params and local_var_params['threedimodel__id__range'] is not None:  # noqa: E501
-            query_params.append(('threedimodel__id__range', local_var_params['threedimodel__id__range']))  # noqa: E501
         if 'threedimodel__id__gt' in local_var_params and local_var_params['threedimodel__id__gt'] is not None:  # noqa: E501
             query_params.append(('threedimodel__id__gt', local_var_params['threedimodel__id__gt']))  # noqa: E501
         if 'threedimodel__id__gte' in local_var_params and local_var_params['threedimodel__id__gte'] is not None:  # noqa: E501
@@ -7160,7 +7140,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20053',  # noqa: E501
+            response_type='InlineResponse20054',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7953,7 +7933,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20054
+        :return: InlineResponse20055
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7983,7 +7963,7 @@ class ThreedimodelsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20054, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20055, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8053,7 +8033,7 @@ class ThreedimodelsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20054',  # noqa: E501
+            response_type='InlineResponse20055',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

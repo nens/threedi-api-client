@@ -276,7 +276,6 @@ class RevisionsApi(object):
 
         :param async_req bool: execute request asynchronously
         :param float number:
-        :param float number__range: Multiple values may be separated by commas.
         :param float number__gt:
         :param float number__gte:
         :param float number__lt:
@@ -291,7 +290,6 @@ class RevisionsApi(object):
         :param str hash__endswith:
         :param str hash__regex:
         :param float repository__id:
-        :param float repository__id__range: Multiple values may be separated by commas.
         :param float repository__id__gt:
         :param float repository__id__gte:
         :param float repository__id__lt:
@@ -349,7 +347,6 @@ class RevisionsApi(object):
 
         :param async_req bool: execute request asynchronously
         :param float number:
-        :param float number__range: Multiple values may be separated by commas.
         :param float number__gt:
         :param float number__gte:
         :param float number__lt:
@@ -364,7 +361,6 @@ class RevisionsApi(object):
         :param str hash__endswith:
         :param str hash__regex:
         :param float repository__id:
-        :param float repository__id__range: Multiple values may be separated by commas.
         :param float repository__id__gt:
         :param float repository__id__gte:
         :param float repository__id__lt:
@@ -415,7 +411,6 @@ class RevisionsApi(object):
 
         all_params = [
             'number',
-            'number__range',
             'number__gt',
             'number__gte',
             'number__lt',
@@ -430,7 +425,6 @@ class RevisionsApi(object):
             'hash__endswith',
             'hash__regex',
             'repository__id',
-            'repository__id__range',
             'repository__id__gt',
             'repository__id__gte',
             'repository__id__lt',
@@ -489,8 +483,6 @@ class RevisionsApi(object):
         query_params = []
         if 'number' in local_var_params and local_var_params['number'] is not None:  # noqa: E501
             query_params.append(('number', local_var_params['number']))  # noqa: E501
-        if 'number__range' in local_var_params and local_var_params['number__range'] is not None:  # noqa: E501
-            query_params.append(('number__range', local_var_params['number__range']))  # noqa: E501
         if 'number__gt' in local_var_params and local_var_params['number__gt'] is not None:  # noqa: E501
             query_params.append(('number__gt', local_var_params['number__gt']))  # noqa: E501
         if 'number__gte' in local_var_params and local_var_params['number__gte'] is not None:  # noqa: E501
@@ -519,8 +511,6 @@ class RevisionsApi(object):
             query_params.append(('hash__regex', local_var_params['hash__regex']))  # noqa: E501
         if 'repository__id' in local_var_params and local_var_params['repository__id'] is not None:  # noqa: E501
             query_params.append(('repository__id', local_var_params['repository__id']))  # noqa: E501
-        if 'repository__id__range' in local_var_params and local_var_params['repository__id__range'] is not None:  # noqa: E501
-            query_params.append(('repository__id__range', local_var_params['repository__id__range']))  # noqa: E501
         if 'repository__id__gt' in local_var_params and local_var_params['repository__id__gt'] is not None:  # noqa: E501
             query_params.append(('repository__id__gt', local_var_params['repository__id__gt']))  # noqa: E501
         if 'repository__id__gte' in local_var_params and local_var_params['repository__id__gte'] is not None:  # noqa: E501

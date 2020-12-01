@@ -284,7 +284,6 @@ class RepositoriesApi(object):
         :param str slug__endswith:
         :param str slug__regex:
         :param float organisation__id:
-        :param float organisation__id__range: Multiple values may be separated by commas.
         :param float organisation__id__gt:
         :param float organisation__id__gte:
         :param float organisation__id__lt:
@@ -341,7 +340,6 @@ class RepositoriesApi(object):
         :param str slug__endswith:
         :param str slug__regex:
         :param float organisation__id:
-        :param float organisation__id__range: Multiple values may be separated by commas.
         :param float organisation__id__gt:
         :param float organisation__id__gte:
         :param float organisation__id__lt:
@@ -391,7 +389,6 @@ class RepositoriesApi(object):
             'slug__endswith',
             'slug__regex',
             'organisation__id',
-            'organisation__id__range',
             'organisation__id__gt',
             'organisation__id__gte',
             'organisation__id__lt',
@@ -457,8 +454,6 @@ class RepositoriesApi(object):
             query_params.append(('slug__regex', local_var_params['slug__regex']))  # noqa: E501
         if 'organisation__id' in local_var_params and local_var_params['organisation__id'] is not None:  # noqa: E501
             query_params.append(('organisation__id', local_var_params['organisation__id']))  # noqa: E501
-        if 'organisation__id__range' in local_var_params and local_var_params['organisation__id__range'] is not None:  # noqa: E501
-            query_params.append(('organisation__id__range', local_var_params['organisation__id__range']))  # noqa: E501
         if 'organisation__id__gt' in local_var_params and local_var_params['organisation__id__gt'] is not None:  # noqa: E501
             query_params.append(('organisation__id__gt', local_var_params['organisation__id__gt']))  # noqa: E501
         if 'organisation__id__gte' in local_var_params and local_var_params['organisation__id__gte'] is not None:  # noqa: E501

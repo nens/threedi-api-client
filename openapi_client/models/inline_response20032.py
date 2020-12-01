@@ -37,7 +37,7 @@ class InlineResponse20032(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[MemoryStructureControl]'
+        'results': 'list[NetCDFTimeseriesSourcesSinks]'
     }
 
     attribute_map = {
@@ -135,7 +135,7 @@ class InlineResponse20032(object):
 
 
         :return: The results of this InlineResponse20032.  # noqa: E501
-        :rtype: list[MemoryStructureControl]
+        :rtype: list[NetCDFTimeseriesSourcesSinks]
         """
         return self._results
 
@@ -145,7 +145,7 @@ class InlineResponse20032(object):
 
 
         :param results: The results of this InlineResponse20032.  # noqa: E501
-        :type: list[MemoryStructureControl]
+        :type: list[NetCDFTimeseriesSourcesSinks]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

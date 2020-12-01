@@ -263,11 +263,6 @@ paths:
           description: ''
           required: false
           type: number
-        - name: organisation__id__range
-          in: query
-          description: Multiple values may be separated by commas.
-          required: false
-          type: number
         - name: organisation__id__gt
           in: query
           description: ''
@@ -681,7 +676,7 @@ paths:
             $ref: '#/definitions/File'
         '405':
           description: "types that are allowed to be destroyed: ['timeseries', 'rastertimeseries',\
-            \ 'savedstate', 'results']"
+            \ 'savedstate', 'results', 'bulklateral']"
       tags:
         - files
     parameters:
@@ -1433,11 +1428,6 @@ paths:
           description: ''
           required: false
           type: number
-        - name: organisation__id__range
-          in: query
-          description: Multiple values may be separated by commas.
-          required: false
-          type: number
         - name: organisation__id__gt
           in: query
           description: ''
@@ -1704,11 +1694,6 @@ paths:
           description: ''
           required: false
           type: number
-        - name: number__range
-          in: query
-          description: Multiple values may be separated by commas.
-          required: false
-          type: number
         - name: number__gt
           in: query
           description: ''
@@ -1777,11 +1762,6 @@ paths:
         - name: repository__id
           in: query
           description: ''
-          required: false
-          type: number
-        - name: repository__id__range
-          in: query
-          description: Multiple values may be separated by commas.
           required: false
           type: number
         - name: repository__id__gt
@@ -2958,6 +2938,230 @@ paths:
       - name: id
         in: path
         description: A unique integer value identifying this saved state.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/boundaryconditions/file/:
+    get:
+      operationId: simulations_events_boundaryconditions_file_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/FileBoundaryCondition'
+      tags:
+        - simulations
+    post:
+      operationId: simulations_events_boundaryconditions_file_create
+      summary: Endpoint for uploading boundary-conditions file
+      description: |-
+        The response provides a put_url which allows you to upload a file containing one
+        or more boundary-conditions.
+
+        The uploaded file should be a JSON-file containing an array of
+        boundary-conditions timeseries. Example of the content of such a file:
+        ```
+        [
+            {
+                "interpolate": false,
+                "values": [
+                    [0, 0.5],
+                    [500, 0,8],
+                    [1000, 0]
+                ]
+            },
+            {
+                "interpolate": false,
+                "values": [
+                    [0, 0,3],
+                    [400, 0.1]
+                ]
+            },
+            {
+                "interpolate": false,
+                "values": [
+                    [0, -2.4],
+                    [1300, 0,3],
+                    [3000, 1.2],
+                    [3600, 0]
+                ]
+            }
+        ]
+        ```
+
+        When providing a boundary-condition timeseries file via this endpoint, the
+        timeseries boundary-conditions defined in the threedimodel will be ignored.
+
+        The number of timeseries in the uploaded json-file should correspond with the
+        number of boundary-conditions defined in the threedimodel.
+        The timeseries are applied to the boundary-conditions in the order they are
+        defined. Thus, the first timeseries in the uploaded JSON-file will be applied
+        to the first boundary-condition in the threedimodel.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Upload'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Upload'
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/boundaryconditions/file/{id}/:
+    get:
+      operationId: simulations_events_boundaryconditions_file_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/FileBoundaryCondition'
+      tags:
+        - simulations
+    put:
+      operationId: simulations_events_boundaryconditions_file_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/FileBoundaryCondition'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/FileBoundaryCondition'
+      tags:
+        - simulations
+    patch:
+      operationId: simulations_events_boundaryconditions_file_partial_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/FileBoundaryCondition'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/FileBoundaryCondition'
+      tags:
+        - simulations
+    delete:
+      operationId: simulations_events_boundaryconditions_file_delete
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
+      parameters: []
+      responses:
+        '204':
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
+      tags:
+        - simulations
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this bulk boundary condition.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/boundaryconditions/file/{id}/download/:
+    get:
+      operationId: simulations_events_boundaryconditions_file_download
+      description: Endpoint for downloading files.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Download'
+        '400':
+          description: File is not uploaded yet or has been removed
+        '404':
+          description: File not found
+      tags:
+        - simulations
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this bulk boundary condition.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/events/boundaryconditions/file/{id}/processed/:
+    put:
+      operationId: simulations_events_boundaryconditions_file_processed
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/BaseEventState'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Event is already processed
+      tags:
+        - simulations
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this bulk boundary condition.
         required: true
         type: integer
       - name: simulation_pk
@@ -9077,11 +9281,6 @@ paths:
           description: ''
           required: false
           type: number
-        - name: id__range
-          in: query
-          description: Multiple values may be separated by commas.
-          required: false
-          type: number
         - name: id__gt
           in: query
           description: ''
@@ -9112,11 +9311,6 @@ paths:
           description: ''
           required: false
           type: string
-        - name: exit_code__range
-          in: query
-          description: Multiple values may be separated by commas.
-          required: false
-          type: number
         - name: exit_code__gt
           in: query
           description: ''
@@ -9400,11 +9594,6 @@ paths:
           description: ''
           required: false
           type: number
-        - name: id__range
-          in: query
-          description: Multiple values may be separated by commas.
-          required: false
-          type: number
         - name: id__gt
           in: query
           description: ''
@@ -9435,11 +9624,6 @@ paths:
           description: ''
           required: false
           type: string
-        - name: exit_code__range
-          in: query
-          description: Multiple values may be separated by commas.
-          required: false
-          type: number
         - name: exit_code__gt
           in: query
           description: ''
@@ -9736,11 +9920,6 @@ paths:
         - name: revision__number
           in: query
           description: ''
-          required: false
-          type: number
-        - name: revision__number__range
-          in: query
-          description: Multiple values may be separated by commas.
           required: false
           type: number
         - name: revision__number__gt
@@ -10923,11 +11102,6 @@ paths:
           description: ''
           required: false
           type: number
-        - name: connected_pnt_id__range
-          in: query
-          description: Multiple values may be separated by commas.
-          required: false
-          type: number
         - name: connected_pnt_id__gt
           in: query
           description: ''
@@ -10956,11 +11130,6 @@ paths:
         - name: threedimodel__id
           in: query
           description: ''
-          required: false
-          type: number
-        - name: threedimodel__id__range
-          in: query
-          description: Multiple values may be separated by commas.
           required: false
           type: number
         - name: threedimodel__id__gt
@@ -11195,11 +11364,6 @@ paths:
         - name: threedimodel__id
           in: query
           description: ''
-          required: false
-          type: number
-        - name: threedimodel__id__range
-          in: query
-          description: Multiple values may be separated by commas.
           required: false
           type: number
         - name: threedimodel__id__gt
@@ -11715,6 +11879,7 @@ definitions:
           - geojson
           - initialwaterlevel
           - bulklateral
+          - bulk_boundaryconditions
       state:
         title: State
         type: string
@@ -12845,6 +13010,7 @@ definitions:
           - geojson
           - initialwaterlevel
           - bulklateral
+          - bulk_boundaryconditions
         readOnly: true
       size:
         title: Size
@@ -13734,6 +13900,43 @@ definitions:
         title: State detail
         type: object
         readOnly: true
+  FileBoundaryCondition:
+    title: Fileboundaryconditions
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
+        readOnly: true
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+        readOnly: true
+      file:
+        $ref: '#/definitions/File'
+      state:
+        title: State
+        type: string
+        enum:
+          - processing
+          - valid
+          - invalid
+        readOnly: true
+      state_detail:
+        title: State detail
+        type: object
+        readOnly: true
   MeasureLocation:
     required:
       - weight
@@ -14484,6 +14687,8 @@ definitions:
         items:
           $ref: '#/definitions/FileLateral'
         readOnly: true
+      fileboundaryconditions:
+        $ref: '#/definitions/FileBoundaryCondition'
       tablestructurecontrols:
         type: array
         items:
@@ -14676,6 +14881,22 @@ definitions:
         title: Uuid
         type: string
         format: uuid
+  BaseEventState:
+    required:
+      - state
+      - state_detail
+    type: object
+    properties:
+      state:
+        title: State
+        type: string
+        enum:
+          - processing
+          - valid
+          - invalid
+      state_detail:
+        title: State detail
+        type: object
   ConstantLateral:
     required:
       - offset
@@ -14814,22 +15035,6 @@ definitions:
         title: Offset
         type: integer
         minimum: 0
-  BaseEventState:
-    required:
-      - state
-      - state_detail
-    type: object
-    properties:
-      state:
-        title: State
-        type: string
-        enum:
-          - processing
-          - valid
-          - invalid
-      state_detail:
-        title: State detail
-        type: object
   TimeseriesLateral:
     required:
       - offset
@@ -15989,6 +16194,12 @@ definitions:
         type: string
         format: uuid
   DamagePostProcessing:
+    required:
+      - cost_type
+      - flood_month
+      - inundation_period
+      - repair_time_infrastructure
+      - repair_time_buildings
     type: object
     properties:
       basic_post_processing:

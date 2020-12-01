@@ -37,7 +37,7 @@ class InlineResponse20014(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[ConstantLateral]'
+        'results': 'list[Breach]'
     }
 
     attribute_map = {
@@ -135,7 +135,7 @@ class InlineResponse20014(object):
 
 
         :return: The results of this InlineResponse20014.  # noqa: E501
-        :rtype: list[ConstantLateral]
+        :rtype: list[Breach]
         """
         return self._results
 
@@ -145,7 +145,7 @@ class InlineResponse20014(object):
 
 
         :param results: The results of this InlineResponse20014.  # noqa: E501
-        :type: list[ConstantLateral]
+        :type: list[Breach]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

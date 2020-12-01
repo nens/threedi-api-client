@@ -85,14 +85,12 @@ class StatusesApi(object):
         :param float created__week:
         :param float created__week_day:
         :param float id:
-        :param float id__range: Multiple values may be separated by commas.
         :param float id__gt:
         :param float id__gte:
         :param float id__lt:
         :param float id__lte:
         :param str id__isnull:
         :param str exit_code:
-        :param float exit_code__range: Multiple values may be separated by commas.
         :param float exit_code__gt:
         :param float exit_code__gte:
         :param float exit_code__lt:
@@ -111,7 +109,7 @@ class StatusesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20047
+        :return: InlineResponse20048
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -166,14 +164,12 @@ class StatusesApi(object):
         :param float created__week:
         :param float created__week_day:
         :param float id:
-        :param float id__range: Multiple values may be separated by commas.
         :param float id__gt:
         :param float id__gte:
         :param float id__lt:
         :param float id__lte:
         :param str id__isnull:
         :param str exit_code:
-        :param float exit_code__range: Multiple values may be separated by commas.
         :param float exit_code__gt:
         :param float exit_code__gte:
         :param float exit_code__lt:
@@ -194,7 +190,7 @@ class StatusesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20047, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20048, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -240,14 +236,12 @@ class StatusesApi(object):
             'created__week',
             'created__week_day',
             'id',
-            'id__range',
             'id__gt',
             'id__gte',
             'id__lt',
             'id__lte',
             'id__isnull',
             'exit_code',
-            'exit_code__range',
             'exit_code__gt',
             'exit_code__gte',
             'exit_code__lt',
@@ -359,8 +353,6 @@ class StatusesApi(object):
             query_params.append(('created__week_day', local_var_params['created__week_day']))  # noqa: E501
         if 'id' in local_var_params and local_var_params['id'] is not None:  # noqa: E501
             query_params.append(('id', local_var_params['id']))  # noqa: E501
-        if 'id__range' in local_var_params and local_var_params['id__range'] is not None:  # noqa: E501
-            query_params.append(('id__range', local_var_params['id__range']))  # noqa: E501
         if 'id__gt' in local_var_params and local_var_params['id__gt'] is not None:  # noqa: E501
             query_params.append(('id__gt', local_var_params['id__gt']))  # noqa: E501
         if 'id__gte' in local_var_params and local_var_params['id__gte'] is not None:  # noqa: E501
@@ -373,8 +365,6 @@ class StatusesApi(object):
             query_params.append(('id__isnull', local_var_params['id__isnull']))  # noqa: E501
         if 'exit_code' in local_var_params and local_var_params['exit_code'] is not None:  # noqa: E501
             query_params.append(('exit_code', local_var_params['exit_code']))  # noqa: E501
-        if 'exit_code__range' in local_var_params and local_var_params['exit_code__range'] is not None:  # noqa: E501
-            query_params.append(('exit_code__range', local_var_params['exit_code__range']))  # noqa: E501
         if 'exit_code__gt' in local_var_params and local_var_params['exit_code__gt'] is not None:  # noqa: E501
             query_params.append(('exit_code__gt', local_var_params['exit_code__gt']))  # noqa: E501
         if 'exit_code__gte' in local_var_params and local_var_params['exit_code__gte'] is not None:  # noqa: E501
@@ -419,7 +409,7 @@ class StatusesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20047',  # noqa: E501
+            response_type='InlineResponse20048',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -475,14 +465,12 @@ class StatusesApi(object):
         :param float created__week:
         :param float created__week_day:
         :param float id:
-        :param float id__range: Multiple values may be separated by commas.
         :param float id__gt:
         :param float id__gte:
         :param float id__lt:
         :param float id__lte:
         :param str id__isnull:
         :param str exit_code:
-        :param float exit_code__range: Multiple values may be separated by commas.
         :param float exit_code__gt:
         :param float exit_code__gte:
         :param float exit_code__lt:
@@ -556,14 +544,12 @@ class StatusesApi(object):
         :param float created__week:
         :param float created__week_day:
         :param float id:
-        :param float id__range: Multiple values may be separated by commas.
         :param float id__gt:
         :param float id__gte:
         :param float id__lt:
         :param float id__lte:
         :param str id__isnull:
         :param str exit_code:
-        :param float exit_code__range: Multiple values may be separated by commas.
         :param float exit_code__gt:
         :param float exit_code__gte:
         :param float exit_code__lt:
@@ -630,14 +616,12 @@ class StatusesApi(object):
             'created__week',
             'created__week_day',
             'id',
-            'id__range',
             'id__gt',
             'id__gte',
             'id__lt',
             'id__lte',
             'id__isnull',
             'exit_code',
-            'exit_code__range',
             'exit_code__gt',
             'exit_code__gte',
             'exit_code__lt',
@@ -749,8 +733,6 @@ class StatusesApi(object):
             query_params.append(('created__week_day', local_var_params['created__week_day']))  # noqa: E501
         if 'id' in local_var_params and local_var_params['id'] is not None:  # noqa: E501
             query_params.append(('id', local_var_params['id']))  # noqa: E501
-        if 'id__range' in local_var_params and local_var_params['id__range'] is not None:  # noqa: E501
-            query_params.append(('id__range', local_var_params['id__range']))  # noqa: E501
         if 'id__gt' in local_var_params and local_var_params['id__gt'] is not None:  # noqa: E501
             query_params.append(('id__gt', local_var_params['id__gt']))  # noqa: E501
         if 'id__gte' in local_var_params and local_var_params['id__gte'] is not None:  # noqa: E501
@@ -763,8 +745,6 @@ class StatusesApi(object):
             query_params.append(('id__isnull', local_var_params['id__isnull']))  # noqa: E501
         if 'exit_code' in local_var_params and local_var_params['exit_code'] is not None:  # noqa: E501
             query_params.append(('exit_code', local_var_params['exit_code']))  # noqa: E501
-        if 'exit_code__range' in local_var_params and local_var_params['exit_code__range'] is not None:  # noqa: E501
-            query_params.append(('exit_code__range', local_var_params['exit_code__range']))  # noqa: E501
         if 'exit_code__gt' in local_var_params and local_var_params['exit_code__gt'] is not None:  # noqa: E501
             query_params.append(('exit_code__gt', local_var_params['exit_code__gt']))  # noqa: E501
         if 'exit_code__gte' in local_var_params and local_var_params['exit_code__gte'] is not None:  # noqa: E501

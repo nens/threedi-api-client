@@ -55,6 +55,7 @@ class Event(object):
         'savedstates': 'list[SavedStateOverview]',
         'laterals': 'list[Lateral]',
         'filelaterals': 'list[FileLateral]',
+        'fileboundaryconditions': 'FileBoundaryCondition',
         'tablestructurecontrols': 'list[TableStructureControl]',
         'memorystructurecontrols': 'list[MemoryStructureControl]',
         'timedstructurecontrols': 'list[TimedStructureControl]',
@@ -86,6 +87,7 @@ class Event(object):
         'savedstates': 'savedstates',
         'laterals': 'laterals',
         'filelaterals': 'filelaterals',
+        'fileboundaryconditions': 'fileboundaryconditions',
         'tablestructurecontrols': 'tablestructurecontrols',
         'memorystructurecontrols': 'memorystructurecontrols',
         'timedstructurecontrols': 'timedstructurecontrols',
@@ -95,7 +97,7 @@ class Event(object):
         'initial_winddragcoefficient': 'initial_winddragcoefficient'
     }
 
-    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, filelaterals=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, rasteredits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, filelaterals=None, fileboundaryconditions=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, rasteredits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -122,6 +124,7 @@ class Event(object):
         self._savedstates = None
         self._laterals = None
         self._filelaterals = None
+        self._fileboundaryconditions = None
         self._tablestructurecontrols = None
         self._memorystructurecontrols = None
         self._timedstructurecontrols = None
@@ -173,6 +176,8 @@ class Event(object):
             self.laterals = laterals
         if filelaterals is not None:
             self.filelaterals = filelaterals
+        if fileboundaryconditions is not None:
+            self.fileboundaryconditions = fileboundaryconditions
         if tablestructurecontrols is not None:
             self.tablestructurecontrols = tablestructurecontrols
         if memorystructurecontrols is not None:
@@ -628,6 +633,27 @@ class Event(object):
         """
 
         self._filelaterals = filelaterals
+
+    @property
+    def fileboundaryconditions(self):
+        """Gets the fileboundaryconditions of this Event.  # noqa: E501
+
+
+        :return: The fileboundaryconditions of this Event.  # noqa: E501
+        :rtype: FileBoundaryCondition
+        """
+        return self._fileboundaryconditions
+
+    @fileboundaryconditions.setter
+    def fileboundaryconditions(self, fileboundaryconditions):
+        """Sets the fileboundaryconditions of this Event.
+
+
+        :param fileboundaryconditions: The fileboundaryconditions of this Event.  # noqa: E501
+        :type: FileBoundaryCondition
+        """
+
+        self._fileboundaryconditions = fileboundaryconditions
 
     @property
     def tablestructurecontrols(self):

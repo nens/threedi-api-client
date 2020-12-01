@@ -205,7 +205,7 @@ class FileReadOnly(object):
         :param type: The type of this FileReadOnly.  # noqa: E501
         :type: str
         """
-        allowed_values = ["timeseries", "rastertimeseries", "savedstate", "results", "rasters", "gridadmin", "geojson", "initialwaterlevel", "bulklateral"]  # noqa: E501
+        allowed_values = ["timeseries", "rastertimeseries", "savedstate", "results", "rasters", "gridadmin", "geojson", "initialwaterlevel", "bulklateral", "bulk_boundaryconditions"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501

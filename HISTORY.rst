@@ -5,7 +5,7 @@ History
 3.0.17 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Added boundary conditions (file) upload
 
 
 3.0.16 (2020-11-04)

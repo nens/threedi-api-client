@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = '3.0.17.dev0'
+__version__ = "1.0.0"
 
 # import apis into sdk package
 from openapi_client.api.auth_api import AuthApi
@@ -63,6 +63,7 @@ from openapi_client.models.download import Download
 from openapi_client.models.event import Event
 from openapi_client.models.extent import Extent
 from openapi_client.models.file import File
+from openapi_client.models.file_boundary_condition import FileBoundaryCondition
 from openapi_client.models.file_lateral import FileLateral
 from openapi_client.models.file_meta import FileMeta
 from openapi_client.models.file_raster_rain import FileRasterRain
@@ -128,6 +129,7 @@ from openapi_client.models.inline_response20052 import InlineResponse20052
 from openapi_client.models.inline_response20053 import InlineResponse20053
 from openapi_client.models.inline_response20054 import InlineResponse20054
 from openapi_client.models.inline_response20055 import InlineResponse20055
+from openapi_client.models.inline_response20056 import InlineResponse20056
 from openapi_client.models.inline_response2006 import InlineResponse2006
 from openapi_client.models.inline_response2007 import InlineResponse2007
 from openapi_client.models.inline_response2008 import InlineResponse2008
