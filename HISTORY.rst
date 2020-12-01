@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.17 (unreleased)
+3.0.17 (2020-12-01)
 -------------------
 
 - Added boundary conditions (file) upload
