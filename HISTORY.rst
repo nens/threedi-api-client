@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.18 (unreleased)
+3.0.18 (2021-01-07)
 -------------------
 
 - Make sure aio module is distributed as well.
