@@ -5,7 +5,7 @@ History
 3.0.18 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Make sure aio module is distributed as well.
 
 
 3.0.17 (2020-12-01)
