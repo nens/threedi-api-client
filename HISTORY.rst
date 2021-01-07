@@ -5,7 +5,7 @@ History
 3.0.19 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Run pytest with `python -m pyest...` to make sure the current path is added to the PYTHONPATH.
 
 
 3.0.18 (2021-01-07)
