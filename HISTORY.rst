@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.20 (unreleased)
+3.0.20 (2021-01-07)
 -------------------
 
 - Fix threedi_api_client import.
