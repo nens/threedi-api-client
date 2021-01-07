@@ -63,7 +63,12 @@ setup(
     include_package_data=True,
     keywords='threedi_openapi_client',
     name='threedi_api_client',
-    packages=find_packages(include=['openapi_client', 'openapi_client.*', 'threedi_api_client.*']),
+    packages=find_packages(
+        include=[
+            'openapi_client', 'openapi_client.*',
+            'threedi_api_client', 'threedi_api_client.*'
+        ]
+    ),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,

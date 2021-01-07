@@ -5,7 +5,7 @@ History
 3.0.20 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix threedi_api_client import.
 
 
 3.0.19 (2021-01-07)
