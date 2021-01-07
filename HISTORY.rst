@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.19 (unreleased)
+3.0.19 (2021-01-07)
 -------------------
 
 - Run pytest with `python -m pyest...` to make sure the current path is added to the PYTHONPATH.
