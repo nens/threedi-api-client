@@ -11887,7 +11887,7 @@ paths:
     parameters: []
   /usage/statistics/:
     get:
-      operationId: usage_overview
+      operationId: usage_statistics
       description: ''
       parameters:
         - name: started__date
@@ -12074,7 +12074,7 @@ paths:
         '200':
           description: ''
           schema:
-            $ref: '#/definitions/UsageStats'
+            $ref: '#/definitions/UsageStatistics'
       tags:
         - usage
     parameters: []
@@ -17626,7 +17626,7 @@ definitions:
         title: Organisation uuid
         type: string
         readOnly: true
-  UsageStats:
+  UsageStatistics:
     required:
       - total_sessions
       - total_duration
