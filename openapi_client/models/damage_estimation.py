@@ -57,7 +57,7 @@ class DamageEstimation(object):
         'repair_time_buildings': 'repair_time_buildings'
     }
 
-    def __init__(self, damage_table='3Di-V1', elevation_raster_uuid='36588275-f3e3-4120-8c1e-602f7ae85386', landcover_raster_uuid='80852f82-87a9-43bc-89a3-38cafb93b477', road_rail_raster_uuid='e40c1b96-e71f-462c-8acb-59a3a8b7db89', cost_type=None, flood_month=None, inundation_period=None, repair_time_infrastructure=None, repair_time_buildings=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, damage_table='3Di-V1', elevation_raster_uuid='36588275-f3e3-4120-8c1e-602f7ae85386', landcover_raster_uuid='a80a6d31-f539-4037-9765-4fb880654424', road_rail_raster_uuid='e40c1b96-e71f-462c-8acb-59a3a8b7db89', cost_type=None, flood_month=None, inundation_period=None, repair_time_infrastructure=None, repair_time_buildings=None, local_vars_configuration=None):  # noqa: E501
         """DamageEstimation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

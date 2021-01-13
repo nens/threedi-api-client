@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = '3.0.21.dev0'
+__version__ = "1.0.0"
 
 # import apis into sdk package
 from openapi_client.api.auth_api import AuthApi
@@ -203,6 +203,7 @@ from openapi_client.models.two_d_water_raster import TwoDWaterRaster
 from openapi_client.models.upload import Upload
 from openapi_client.models.upload_event_file import UploadEventFile
 from openapi_client.models.usage import Usage
+from openapi_client.models.usage_stats import UsageStats
 from openapi_client.models.user import User
 from openapi_client.models.water_flow_graph_request import WaterFlowGraphRequest
 from openapi_client.models.water_graph import WaterGraph

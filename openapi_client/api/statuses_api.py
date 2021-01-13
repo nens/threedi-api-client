@@ -98,6 +98,7 @@ class StatusesApi(object):
         :param str exit_code__isnull:
         :param float simulation_id__in: Multiple values may be separated by commas.
         :param str simulation__user__username:
+        :param str simulation__type__live:
         :param str simulation__organisation__name__istartswith:
         :param str simulation__organisation__unique_id:
         :param int limit: Number of results to return per page.
@@ -177,6 +178,7 @@ class StatusesApi(object):
         :param str exit_code__isnull:
         :param float simulation_id__in: Multiple values may be separated by commas.
         :param str simulation__user__username:
+        :param str simulation__type__live:
         :param str simulation__organisation__name__istartswith:
         :param str simulation__organisation__unique_id:
         :param int limit: Number of results to return per page.
@@ -249,6 +251,7 @@ class StatusesApi(object):
             'exit_code__isnull',
             'simulation_id__in',
             'simulation__user__username',
+            'simulation__type__live',
             'simulation__organisation__name__istartswith',
             'simulation__organisation__unique_id',
             'limit',
@@ -379,6 +382,8 @@ class StatusesApi(object):
             query_params.append(('simulation_id__in', local_var_params['simulation_id__in']))  # noqa: E501
         if 'simulation__user__username' in local_var_params and local_var_params['simulation__user__username'] is not None:  # noqa: E501
             query_params.append(('simulation__user__username', local_var_params['simulation__user__username']))  # noqa: E501
+        if 'simulation__type__live' in local_var_params and local_var_params['simulation__type__live'] is not None:  # noqa: E501
+            query_params.append(('simulation__type__live', local_var_params['simulation__type__live']))  # noqa: E501
         if 'simulation__organisation__name__istartswith' in local_var_params and local_var_params['simulation__organisation__name__istartswith'] is not None:  # noqa: E501
             query_params.append(('simulation__organisation__name__istartswith', local_var_params['simulation__organisation__name__istartswith']))  # noqa: E501
         if 'simulation__organisation__unique_id' in local_var_params and local_var_params['simulation__organisation__unique_id'] is not None:  # noqa: E501
@@ -478,6 +483,7 @@ class StatusesApi(object):
         :param str exit_code__isnull:
         :param float simulation_id__in: Multiple values may be separated by commas.
         :param str simulation__user__username:
+        :param str simulation__type__live:
         :param str simulation__organisation__name__istartswith:
         :param str simulation__organisation__unique_id:
         :param int limit: Number of results to return per page.
@@ -557,6 +563,7 @@ class StatusesApi(object):
         :param str exit_code__isnull:
         :param float simulation_id__in: Multiple values may be separated by commas.
         :param str simulation__user__username:
+        :param str simulation__type__live:
         :param str simulation__organisation__name__istartswith:
         :param str simulation__organisation__unique_id:
         :param int limit: Number of results to return per page.
@@ -629,6 +636,7 @@ class StatusesApi(object):
             'exit_code__isnull',
             'simulation_id__in',
             'simulation__user__username',
+            'simulation__type__live',
             'simulation__organisation__name__istartswith',
             'simulation__organisation__unique_id',
             'limit',
@@ -759,6 +767,8 @@ class StatusesApi(object):
             query_params.append(('simulation_id__in', local_var_params['simulation_id__in']))  # noqa: E501
         if 'simulation__user__username' in local_var_params and local_var_params['simulation__user__username'] is not None:  # noqa: E501
             query_params.append(('simulation__user__username', local_var_params['simulation__user__username']))  # noqa: E501
+        if 'simulation__type__live' in local_var_params and local_var_params['simulation__type__live'] is not None:  # noqa: E501
+            query_params.append(('simulation__type__live', local_var_params['simulation__type__live']))  # noqa: E501
         if 'simulation__organisation__name__istartswith' in local_var_params and local_var_params['simulation__organisation__name__istartswith'] is not None:  # noqa: E501
             query_params.append(('simulation__organisation__name__istartswith', local_var_params['simulation__organisation__name__istartswith']))  # noqa: E501
         if 'simulation__organisation__unique_id' in local_var_params and local_var_params['simulation__organisation__unique_id'] is not None:  # noqa: E501
