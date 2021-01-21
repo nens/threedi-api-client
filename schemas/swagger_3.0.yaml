@@ -11679,6 +11679,26 @@ paths:
       summary: View to display overview of ran simulations.
       description: Only displays finished/crashed simulations.
       parameters:
+        - name: started__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__lte
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: started__date
           in: query
           description: ''
@@ -11739,6 +11759,26 @@ paths:
           description: ''
           required: false
           type: number
+        - name: finished__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__lte
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: finished__date
           in: query
           description: ''
@@ -11890,6 +11930,26 @@ paths:
       operationId: usage_statistics
       description: ''
       parameters:
+        - name: started__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__lte
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: started__date
           in: query
           description: ''
@@ -11950,6 +12010,26 @@ paths:
           description: ''
           required: false
           type: number
+        - name: finished__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__lte
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: finished__date
           in: query
           description: ''

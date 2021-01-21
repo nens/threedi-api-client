@@ -47,6 +47,10 @@ class UsageApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str started__gt:
+        :param str started__gte:
+        :param str started__lt:
+        :param str started__lte:
         :param str started__date:
         :param str started__date__gt:
         :param str started__date__gte:
@@ -59,6 +63,10 @@ class UsageApi(object):
         :param float started__year__lte:
         :param float started__month:
         :param float started__month__lte:
+        :param str finished__gt:
+        :param str finished__gte:
+        :param str finished__lt:
+        :param str finished__lte:
         :param str finished__date:
         :param str finished__date__gt:
         :param str finished__date__gte:
@@ -107,6 +115,10 @@ class UsageApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str started__gt:
+        :param str started__gte:
+        :param str started__lt:
+        :param str started__lte:
         :param str started__date:
         :param str started__date__gt:
         :param str started__date__gte:
@@ -119,6 +131,10 @@ class UsageApi(object):
         :param float started__year__lte:
         :param float started__month:
         :param float started__month__lte:
+        :param str finished__gt:
+        :param str finished__gte:
+        :param str finished__lt:
+        :param str finished__lte:
         :param str finished__date:
         :param str finished__date__gt:
         :param str finished__date__gte:
@@ -160,6 +176,10 @@ class UsageApi(object):
         local_var_params = locals()
 
         all_params = [
+            'started__gt',
+            'started__gte',
+            'started__lt',
+            'started__lte',
             'started__date',
             'started__date__gt',
             'started__date__gte',
@@ -172,6 +192,10 @@ class UsageApi(object):
             'started__year__lte',
             'started__month',
             'started__month__lte',
+            'finished__gt',
+            'finished__gte',
+            'finished__lt',
+            'finished__lte',
             'finished__date',
             'finished__date__gt',
             'finished__date__gte',
@@ -220,6 +244,14 @@ class UsageApi(object):
         path_params = {}
 
         query_params = []
+        if 'started__gt' in local_var_params and local_var_params['started__gt'] is not None:  # noqa: E501
+            query_params.append(('started__gt', local_var_params['started__gt']))  # noqa: E501
+        if 'started__gte' in local_var_params and local_var_params['started__gte'] is not None:  # noqa: E501
+            query_params.append(('started__gte', local_var_params['started__gte']))  # noqa: E501
+        if 'started__lt' in local_var_params and local_var_params['started__lt'] is not None:  # noqa: E501
+            query_params.append(('started__lt', local_var_params['started__lt']))  # noqa: E501
+        if 'started__lte' in local_var_params and local_var_params['started__lte'] is not None:  # noqa: E501
+            query_params.append(('started__lte', local_var_params['started__lte']))  # noqa: E501
         if 'started__date' in local_var_params and local_var_params['started__date'] is not None:  # noqa: E501
             query_params.append(('started__date', local_var_params['started__date']))  # noqa: E501
         if 'started__date__gt' in local_var_params and local_var_params['started__date__gt'] is not None:  # noqa: E501
@@ -244,6 +276,14 @@ class UsageApi(object):
             query_params.append(('started__month', local_var_params['started__month']))  # noqa: E501
         if 'started__month__lte' in local_var_params and local_var_params['started__month__lte'] is not None:  # noqa: E501
             query_params.append(('started__month__lte', local_var_params['started__month__lte']))  # noqa: E501
+        if 'finished__gt' in local_var_params and local_var_params['finished__gt'] is not None:  # noqa: E501
+            query_params.append(('finished__gt', local_var_params['finished__gt']))  # noqa: E501
+        if 'finished__gte' in local_var_params and local_var_params['finished__gte'] is not None:  # noqa: E501
+            query_params.append(('finished__gte', local_var_params['finished__gte']))  # noqa: E501
+        if 'finished__lt' in local_var_params and local_var_params['finished__lt'] is not None:  # noqa: E501
+            query_params.append(('finished__lt', local_var_params['finished__lt']))  # noqa: E501
+        if 'finished__lte' in local_var_params and local_var_params['finished__lte'] is not None:  # noqa: E501
+            query_params.append(('finished__lte', local_var_params['finished__lte']))  # noqa: E501
         if 'finished__date' in local_var_params and local_var_params['finished__date'] is not None:  # noqa: E501
             query_params.append(('finished__date', local_var_params['finished__date']))  # noqa: E501
         if 'finished__date__gt' in local_var_params and local_var_params['finished__date__gt'] is not None:  # noqa: E501
@@ -445,6 +485,10 @@ class UsageApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str started__gt:
+        :param str started__gte:
+        :param str started__lt:
+        :param str started__lte:
         :param str started__date:
         :param str started__date__gt:
         :param str started__date__gte:
@@ -457,6 +501,10 @@ class UsageApi(object):
         :param float started__year__lte:
         :param float started__month:
         :param float started__month__lte:
+        :param str finished__gt:
+        :param str finished__gte:
+        :param str finished__lt:
+        :param str finished__lte:
         :param str finished__date:
         :param str finished__date__gt:
         :param str finished__date__gte:
@@ -504,6 +552,10 @@ class UsageApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str started__gt:
+        :param str started__gte:
+        :param str started__lt:
+        :param str started__lte:
         :param str started__date:
         :param str started__date__gt:
         :param str started__date__gte:
@@ -516,6 +568,10 @@ class UsageApi(object):
         :param float started__year__lte:
         :param float started__month:
         :param float started__month__lte:
+        :param str finished__gt:
+        :param str finished__gte:
+        :param str finished__lt:
+        :param str finished__lte:
         :param str finished__date:
         :param str finished__date__gt:
         :param str finished__date__gte:
@@ -557,6 +613,10 @@ class UsageApi(object):
         local_var_params = locals()
 
         all_params = [
+            'started__gt',
+            'started__gte',
+            'started__lt',
+            'started__lte',
             'started__date',
             'started__date__gt',
             'started__date__gte',
@@ -569,6 +629,10 @@ class UsageApi(object):
             'started__year__lte',
             'started__month',
             'started__month__lte',
+            'finished__gt',
+            'finished__gte',
+            'finished__lt',
+            'finished__lte',
             'finished__date',
             'finished__date__gt',
             'finished__date__gte',
@@ -617,6 +681,14 @@ class UsageApi(object):
         path_params = {}
 
         query_params = []
+        if 'started__gt' in local_var_params and local_var_params['started__gt'] is not None:  # noqa: E501
+            query_params.append(('started__gt', local_var_params['started__gt']))  # noqa: E501
+        if 'started__gte' in local_var_params and local_var_params['started__gte'] is not None:  # noqa: E501
+            query_params.append(('started__gte', local_var_params['started__gte']))  # noqa: E501
+        if 'started__lt' in local_var_params and local_var_params['started__lt'] is not None:  # noqa: E501
+            query_params.append(('started__lt', local_var_params['started__lt']))  # noqa: E501
+        if 'started__lte' in local_var_params and local_var_params['started__lte'] is not None:  # noqa: E501
+            query_params.append(('started__lte', local_var_params['started__lte']))  # noqa: E501
         if 'started__date' in local_var_params and local_var_params['started__date'] is not None:  # noqa: E501
             query_params.append(('started__date', local_var_params['started__date']))  # noqa: E501
         if 'started__date__gt' in local_var_params and local_var_params['started__date__gt'] is not None:  # noqa: E501
@@ -641,6 +713,14 @@ class UsageApi(object):
             query_params.append(('started__month', local_var_params['started__month']))  # noqa: E501
         if 'started__month__lte' in local_var_params and local_var_params['started__month__lte'] is not None:  # noqa: E501
             query_params.append(('started__month__lte', local_var_params['started__month__lte']))  # noqa: E501
+        if 'finished__gt' in local_var_params and local_var_params['finished__gt'] is not None:  # noqa: E501
+            query_params.append(('finished__gt', local_var_params['finished__gt']))  # noqa: E501
+        if 'finished__gte' in local_var_params and local_var_params['finished__gte'] is not None:  # noqa: E501
+            query_params.append(('finished__gte', local_var_params['finished__gte']))  # noqa: E501
+        if 'finished__lt' in local_var_params and local_var_params['finished__lt'] is not None:  # noqa: E501
+            query_params.append(('finished__lt', local_var_params['finished__lt']))  # noqa: E501
+        if 'finished__lte' in local_var_params and local_var_params['finished__lte'] is not None:  # noqa: E501
+            query_params.append(('finished__lte', local_var_params['finished__lte']))  # noqa: E501
         if 'finished__date' in local_var_params and local_var_params['finished__date'] is not None:  # noqa: E501
             query_params.append(('finished__date', local_var_params['finished__date']))  # noqa: E501
         if 'finished__date__gt' in local_var_params and local_var_params['finished__date__gt'] is not None:  # noqa: E501
