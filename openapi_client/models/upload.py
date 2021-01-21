@@ -34,28 +34,52 @@ class Upload(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'filename': 'str',
-        'put_url': 'str'
+        'put_url': 'str',
+        'filename': 'str'
     }
 
     attribute_map = {
-        'filename': 'filename',
-        'put_url': 'put_url'
+        'put_url': 'put_url',
+        'filename': 'filename'
     }
 
-    def __init__(self, filename=None, put_url=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, put_url=None, filename=None, local_vars_configuration=None):  # noqa: E501
         """Upload - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._filename = None
         self._put_url = None
+        self._filename = None
         self.discriminator = None
 
-        self.filename = filename
         if put_url is not None:
             self.put_url = put_url
+        self.filename = filename
+
+    @property
+    def put_url(self):
+        """Gets the put_url of this Upload.  # noqa: E501
+
+
+        :return: The put_url of this Upload.  # noqa: E501
+        :rtype: str
+        """
+        return self._put_url
+
+    @put_url.setter
+    def put_url(self, put_url):
+        """Sets the put_url of this Upload.
+
+
+        :param put_url: The put_url of this Upload.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                put_url is not None and len(put_url) < 1):
+            raise ValueError("Invalid value for `put_url`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._put_url = put_url
 
     @property
     def filename(self):
@@ -85,30 +109,6 @@ class Upload(object):
             raise ValueError("Invalid value for `filename`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._filename = filename
-
-    @property
-    def put_url(self):
-        """Gets the put_url of this Upload.  # noqa: E501
-
-
-        :return: The put_url of this Upload.  # noqa: E501
-        :rtype: str
-        """
-        return self._put_url
-
-    @put_url.setter
-    def put_url(self, put_url):
-        """Sets the put_url of this Upload.
-
-
-        :param put_url: The put_url of this Upload.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                put_url is not None and len(put_url) < 1):
-            raise ValueError("Invalid value for `put_url`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._put_url = put_url
 
     def to_dict(self):
         """Returns the model properties as a dict"""

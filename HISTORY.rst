@@ -5,7 +5,7 @@ History
 3.0.21 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- New filters and usage statistics models. 
 
 
 3.0.20 (2021-01-07)

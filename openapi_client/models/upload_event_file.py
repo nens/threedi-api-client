@@ -34,32 +34,56 @@ class UploadEventFile(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'filename': 'str',
         'put_url': 'str',
+        'filename': 'str',
         'offset': 'int'
     }
 
     attribute_map = {
-        'filename': 'filename',
         'put_url': 'put_url',
+        'filename': 'filename',
         'offset': 'offset'
     }
 
-    def __init__(self, filename=None, put_url=None, offset=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, put_url=None, filename=None, offset=None, local_vars_configuration=None):  # noqa: E501
         """UploadEventFile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._filename = None
         self._put_url = None
+        self._filename = None
         self._offset = None
         self.discriminator = None
 
-        self.filename = filename
         if put_url is not None:
             self.put_url = put_url
+        self.filename = filename
         self.offset = offset
+
+    @property
+    def put_url(self):
+        """Gets the put_url of this UploadEventFile.  # noqa: E501
+
+
+        :return: The put_url of this UploadEventFile.  # noqa: E501
+        :rtype: str
+        """
+        return self._put_url
+
+    @put_url.setter
+    def put_url(self, put_url):
+        """Sets the put_url of this UploadEventFile.
+
+
+        :param put_url: The put_url of this UploadEventFile.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                put_url is not None and len(put_url) < 1):
+            raise ValueError("Invalid value for `put_url`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._put_url = put_url
 
     @property
     def filename(self):
@@ -89,30 +113,6 @@ class UploadEventFile(object):
             raise ValueError("Invalid value for `filename`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._filename = filename
-
-    @property
-    def put_url(self):
-        """Gets the put_url of this UploadEventFile.  # noqa: E501
-
-
-        :return: The put_url of this UploadEventFile.  # noqa: E501
-        :rtype: str
-        """
-        return self._put_url
-
-    @put_url.setter
-    def put_url(self, put_url):
-        """Sets the put_url of this UploadEventFile.
-
-
-        :param put_url: The put_url of this UploadEventFile.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                put_url is not None and len(put_url) < 1):
-            raise ValueError("Invalid value for `put_url`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._put_url = put_url
 
     @property
     def offset(self):

@@ -39,7 +39,10 @@ class Usage(object):
         'started': 'datetime',
         'finished': 'datetime',
         'total_time': 'int',
-        'status': 'str'
+        'status': 'str',
+        'simulation_type': 'str',
+        'user_name': 'str',
+        'organisation_uuid': 'str'
     }
 
     attribute_map = {
@@ -48,10 +51,13 @@ class Usage(object):
         'started': 'started',
         'finished': 'finished',
         'total_time': 'total_time',
-        'status': 'status'
+        'status': 'status',
+        'simulation_type': 'simulation_type',
+        'user_name': 'user_name',
+        'organisation_uuid': 'organisation_uuid'
     }
 
-    def __init__(self, id=None, simulation=None, started=None, finished=None, total_time=None, status=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, simulation=None, started=None, finished=None, total_time=None, status=None, simulation_type=None, user_name=None, organisation_uuid=None, local_vars_configuration=None):  # noqa: E501
         """Usage - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -63,6 +69,9 @@ class Usage(object):
         self._finished = None
         self._total_time = None
         self._status = None
+        self._simulation_type = None
+        self._user_name = None
+        self._organisation_uuid = None
         self.discriminator = None
 
         if id is not None:
@@ -74,6 +83,12 @@ class Usage(object):
         self.total_time = total_time
         if status is not None:
             self.status = status
+        if simulation_type is not None:
+            self.simulation_type = simulation_type
+        if user_name is not None:
+            self.user_name = user_name
+        if organisation_uuid is not None:
+            self.organisation_uuid = organisation_uuid
 
     @property
     def id(self):
@@ -206,6 +221,69 @@ class Usage(object):
         """
 
         self._status = status
+
+    @property
+    def simulation_type(self):
+        """Gets the simulation_type of this Usage.  # noqa: E501
+
+
+        :return: The simulation_type of this Usage.  # noqa: E501
+        :rtype: str
+        """
+        return self._simulation_type
+
+    @simulation_type.setter
+    def simulation_type(self, simulation_type):
+        """Sets the simulation_type of this Usage.
+
+
+        :param simulation_type: The simulation_type of this Usage.  # noqa: E501
+        :type: str
+        """
+
+        self._simulation_type = simulation_type
+
+    @property
+    def user_name(self):
+        """Gets the user_name of this Usage.  # noqa: E501
+
+
+        :return: The user_name of this Usage.  # noqa: E501
+        :rtype: str
+        """
+        return self._user_name
+
+    @user_name.setter
+    def user_name(self, user_name):
+        """Sets the user_name of this Usage.
+
+
+        :param user_name: The user_name of this Usage.  # noqa: E501
+        :type: str
+        """
+
+        self._user_name = user_name
+
+    @property
+    def organisation_uuid(self):
+        """Gets the organisation_uuid of this Usage.  # noqa: E501
+
+
+        :return: The organisation_uuid of this Usage.  # noqa: E501
+        :rtype: str
+        """
+        return self._organisation_uuid
+
+    @organisation_uuid.setter
+    def organisation_uuid(self, organisation_uuid):
+        """Sets the organisation_uuid of this Usage.
+
+
+        :param organisation_uuid: The organisation_uuid of this Usage.  # noqa: E501
+        :type: str
+        """
+
+        self._organisation_uuid = organisation_uuid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

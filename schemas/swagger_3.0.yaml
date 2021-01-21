@@ -2986,8 +2986,16 @@ paths:
         - simulations
     post:
       operationId: simulations_events_boundaryconditions_file_create
-      summary: Endpoint for uploading boundary-conditions file
+      summary: Endpoint for uploading a boundary-conditions file.
       description: |-
+        The format of the filename should be <filename>.<extension>, e.g.
+
+        `boundary_conditions_bergermeer.txt`
+
+        Every leading and trailing spaces will be removed. Other spaces are
+        converted to underscores and anything that is not an alphanumeric, dash,
+        underscore, or dot will be removed as well.
+
         The response provides a put_url which allows you to upload a file containing one
         or more boundary-conditions.
 
@@ -3022,14 +3030,17 @@ paths:
         ]
         ```
 
-        When providing a boundary-condition timeseries file via this endpoint, the
-        timeseries boundary-conditions defined in the threedimodel will be ignored.
+        2D boundaries need to be provided before 1D boundaries.
 
-        The number of timeseries in the uploaded json-file should correspond with the
-        number of boundary-conditions defined in the threedimodel.
-        The timeseries are applied to the boundary-conditions in the order they are
-        defined. Thus, the first timeseries in the uploaded JSON-file will be applied
-        to the first boundary-condition in the threedimodel.
+        1D boundaries need to be in order of connectionnode id's.
+        2D boundaries need to be in order of id (of the boundary).
+
+        The file is valided to check if all boundary-conditions
+        defined for the threedimodel have timeseries after upload.
+
+        Boundary-conditions need to be added before initializing/starting
+        the simulation and cannot be changed once the simulation is
+        initialized.
       parameters:
         - name: data
           in: body
@@ -3513,8 +3524,16 @@ paths:
         - simulations
     post:
       operationId: simulations_events_lateral_file_create
-      summary: Endpoint for uploading a file with one or more laterals
+      summary: Endpoint for uploading a file with one or more laterals.
       description: |-
+        The format of the filename should be <filename>.<extension>, e.g.
+
+        `laterals_bergermeer.txt`
+
+        Every leading and trailing spaces will be removed. Other spaces are
+        converted to underscores and anything that is not an alphanumeric, dash,
+        underscore, or dot will be removed as well.
+
         The response provides a put_url which allows you to upload a file containing one
         or more laterals. These laterals should either be a constant- or a
         timeseries-lateral, or a combination of both. See their respective endpoint for
@@ -9346,6 +9365,11 @@ paths:
           description: ''
           required: false
           type: string
+        - name: simulation__type__live
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: simulation__organisation__name__istartswith
           in: query
           description: ''
@@ -9655,6 +9679,11 @@ paths:
           required: false
           type: number
         - name: simulation__user__username
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__type__live
           in: query
           description: ''
           required: false
@@ -11650,6 +11679,216 @@ paths:
       summary: View to display overview of ran simulations.
       description: Only displays finished/crashed simulations.
       parameters:
+        - name: started__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__lte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__date
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__date__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__date__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__date__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__date__lte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__year
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: started__year__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: started__year__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: started__year__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: started__year__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: started__month
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: started__month__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: finished__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__lte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__date
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__date__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__date__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__date__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__date__lte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__year
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: finished__year__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: finished__year__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: finished__year__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: finished__year__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: finished__month
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: finished__month__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: total_time
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: total_time__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: total_time__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: total_time__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: total_time__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: total_time__isnull
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__user__username
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__type__live
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__organisation__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__organisation__unique_id
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: limit
           in: query
           description: Number of results to return per page.
@@ -11683,6 +11922,239 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/Usage'
+      tags:
+        - usage
+    parameters: []
+  /usage/statistics/:
+    get:
+      operationId: usage_statistics
+      description: ''
+      parameters:
+        - name: started__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__lte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__date
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__date__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__date__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__date__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__date__lte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: started__year
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: started__year__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: started__year__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: started__year__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: started__year__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: started__month
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: started__month__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: finished__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__lte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__date
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__date__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__date__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__date__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__date__lte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: finished__year
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: finished__year__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: finished__year__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: finished__year__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: finished__year__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: finished__month
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: finished__month__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: total_time
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: total_time__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: total_time__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: total_time__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: total_time__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: total_time__isnull
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__user__username
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__type__live
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__organisation__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__organisation__unique_id
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/UsageStatistics'
       tags:
         - usage
     parameters: []
@@ -13232,7 +13704,6 @@ definitions:
       interpolate:
         title: Interpolate
         type: boolean
-        readOnly: true
       values:
         type: array
         items:
@@ -14814,16 +15285,16 @@ definitions:
       - filename
     type: object
     properties:
-      filename:
-        title: Filename
-        type: string
-        maxLength: 255
-        minLength: 1
       put_url:
         title: Put url
         type: string
         format: uri
         readOnly: true
+        minLength: 1
+      filename:
+        title: Filename
+        type: string
+        maxLength: 255
         minLength: 1
   TimedSavedStateUpdate:
     required:
@@ -15020,16 +15491,16 @@ definitions:
       - offset
     type: object
     properties:
-      filename:
-        title: Filename
-        type: string
-        maxLength: 255
-        minLength: 1
       put_url:
         title: Put url
         type: string
         format: uri
         readOnly: true
+        minLength: 1
+      filename:
+        title: Filename
+        type: string
+        maxLength: 255
         minLength: 1
       offset:
         title: Offset
@@ -15779,7 +16250,6 @@ definitions:
       interpolate:
         title: Interpolate
         type: boolean
-        readOnly: true
       values:
         type: array
         items:
@@ -16075,7 +16545,6 @@ definitions:
         title: Speed interpolate
         description: interpolate wind speed
         type: boolean
-        readOnly: true
       speed_constant:
         title: Speed constant
         description: constant wind speed
@@ -16085,7 +16554,6 @@ definitions:
         title: Direction interpolate
         description: interpolate wind direction
         type: boolean
-        readOnly: true
       direction_constant:
         title: Direction constant
         description: constant wind direction
@@ -16282,7 +16750,7 @@ definitions:
         title: Landcover raster uuid
         type: string
         readOnly: true
-        default: 80852f82-87a9-43bc-89a3-38cafb93b477
+        default: a80a6d31-f539-4037-9765-4fb880654424
       road_rail_raster_uuid:
         title: Road rail raster uuid
         type: string
@@ -17226,3 +17694,44 @@ definitions:
         title: Status
         type: string
         readOnly: true
+      simulation_type:
+        title: Simulation type
+        type: string
+        readOnly: true
+      user_name:
+        title: User name
+        type: string
+        readOnly: true
+      organisation_uuid:
+        title: Organisation uuid
+        type: string
+        readOnly: true
+  UsageStatistics:
+    required:
+      - total_sessions
+      - total_duration
+      - avg_duration
+      - min_duration
+      - max_duration
+      - duration_humanized
+    type: object
+    properties:
+      total_sessions:
+        title: Total sessions
+        type: integer
+      total_duration:
+        title: Total duration
+        type: integer
+      avg_duration:
+        title: Avg duration
+        type: number
+      min_duration:
+        title: Min duration
+        type: integer
+      max_duration:
+        title: Max duration
+        type: integer
+      duration_humanized:
+        title: Duration humanized
+        type: string
+        minLength: 1
