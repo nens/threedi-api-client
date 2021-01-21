@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.21 (unreleased)
+3.0.21 (2021-01-21)
 -------------------
 
 - New filters and usage statistics models. 
