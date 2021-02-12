@@ -5,7 +5,7 @@ History
 3.0.22 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix: The expiry function for automatic token renewal did not work.
 
 
 3.0.21 (2021-01-21)
