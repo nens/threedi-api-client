@@ -1,5 +1,5 @@
 import jwt
-
+from datetime import datetime, timedelta
 from openapi_client import ApiClient
 from openapi_client import Configuration
 from openapi_client import AuthApi
@@ -7,10 +7,8 @@ from openapi_client.models import Authenticate
 
 from threedi_api_client.config import Config, EnvironConfig
 
-# Token expires at:
-# jwt_token.exp + EXPIRE_LEEWAY seconds
-# (thus EXPIRE_LEEWAY seconds before it really expires)
-EXPIRE_LEEWAY = -300
+# Get new token REFRESH_TIME_DELTA before it really expires.
+REFRESH_TIME_DELTA = timedelta(hours=4).total_seconds()
 
 
 def get_auth_token(username: str, password: str, api_host: str):
@@ -29,17 +27,20 @@ def is_token_usable(token: str) -> bool:
     if token is None:
         return False
 
-    # Check if not expired...
     try:
-        jwt.decode(
+        # Get payload without verifying signature,
+        # does NOT validate claims (including exp)
+        payload = jwt.decode(
             token,
             options={"verify_signature": False},
-            leeway=EXPIRE_LEEWAY,
         )
-    except Exception:
+    except (jwt.exceptions.ExpiredSignatureError, jwt.exceptions.DecodeError):
+        print("ERROR")
         return False
 
-    return True
+    expiry_dt = datetime.utcfromtimestamp(payload["exp"])
+    sec_left = (expiry_dt - datetime.utcnow()).total_seconds()
+    return sec_left >= REFRESH_TIME_DELTA
 
 
 def refresh_api_key(config: Configuration):
