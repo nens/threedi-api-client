@@ -35,7 +35,6 @@ def is_token_usable(token: str) -> bool:
             options={"verify_signature": False},
         )
     except (jwt.exceptions.ExpiredSignatureError, jwt.exceptions.DecodeError):
-        print("ERROR")
         return False
 
     expiry_dt = datetime.utcfromtimestamp(payload["exp"])

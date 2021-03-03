@@ -5,7 +5,7 @@ History
 3.0.23 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Removed print statement.
 
 
 3.0.22 (2021-02-12)
