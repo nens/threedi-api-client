@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.23 (unreleased)
+3.0.23 (2021-03-03)
 -------------------
 
 - Removed print statement.
