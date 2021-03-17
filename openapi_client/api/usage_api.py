@@ -98,7 +98,7 @@ class UsageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20056
+        :return: InlineResponse20057
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -168,7 +168,7 @@ class UsageApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20056, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20057, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -354,7 +354,7 @@ class UsageApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20056',  # noqa: E501
+            response_type='InlineResponse20057',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -477,8 +477,9 @@ class UsageApi(object):
             collection_formats=collection_formats)
 
     def usage_statistics(self, **kwargs):  # noqa: E501
-        """usage_statistics  # noqa: E501
+        """Usage statistics like total session count, average session duration and such.  # noqa: E501
 
+        This endpoint comes in handy if you want to aggregate usage number over a certain period of time, for a given user or organisation.  It is also possible to limit the result to a certain simulation type, e.g. to \"live\" sessions. Use the `simulation__type__live` filter with either `true` or `false` as input values.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.usage_statistics(async_req=True)
@@ -544,8 +545,9 @@ class UsageApi(object):
         return self.usage_statistics_with_http_info(**kwargs)  # noqa: E501
 
     def usage_statistics_with_http_info(self, **kwargs):  # noqa: E501
-        """usage_statistics  # noqa: E501
+        """Usage statistics like total session count, average session duration and such.  # noqa: E501
 
+        This endpoint comes in handy if you want to aggregate usage number over a certain period of time, for a given user or organisation.  It is also possible to limit the result to a certain simulation type, e.g. to \"live\" sessions. Use the `simulation__type__live` filter with either `true` or `false` as input values.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.usage_statistics_with_http_info(async_req=True)

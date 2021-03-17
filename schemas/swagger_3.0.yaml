@@ -2361,7 +2361,8 @@ paths:
 
         ```
         {
-          "name":           # give the simualtion a name (optional)
+          "name":           # give the simulation a name
+          "tags":           # add as many tags as you like: handy to find your simulation back later!
           "threedimodel":   # The model schema to use for the simulation by
                             referring to the id of the threedimodel resource
           "organisation":   # uuid of the organisation for which the
@@ -2577,6 +2578,8 @@ paths:
           description: ''
           schema:
             $ref: '#/definitions/Action'
+        '400':
+          description: Bad request
         '429':
           description: No available/free sessions
       tags:
@@ -6874,7 +6877,7 @@ paths:
   /simulations/{simulation_pk}/initial/1d_water_level/predefined/:
     get:
       operationId: simulations_initial_1d_water_level_predefined_list
-      description: A simple ViewSet for initial 2D water levels
+      description: initial predefined 1D water levels
       parameters:
         - name: limit
           in: query
@@ -6938,7 +6941,7 @@ paths:
   /simulations/{simulation_pk}/initial/1d_water_level/predefined/{id}/:
     get:
       operationId: simulations_initial_1d_water_level_predefined_read
-      description: A simple ViewSet for initial 2D water levels
+      description: initial predefined 1D water levels
       parameters: []
       responses:
         '200':
@@ -6949,7 +6952,7 @@ paths:
         - simulations
     put:
       operationId: simulations_initial_1d_water_level_predefined_update
-      description: A simple ViewSet for initial 2D water levels
+      description: initial predefined 1D water levels
       parameters:
         - name: data
           in: body
@@ -6965,7 +6968,7 @@ paths:
         - simulations
     patch:
       operationId: simulations_initial_1d_water_level_predefined_partial_update
-      description: A simple ViewSet for initial 2D water levels
+      description: initial predefined 1D water levels
       parameters:
         - name: data
           in: body
@@ -6981,7 +6984,7 @@ paths:
         - simulations
     delete:
       operationId: simulations_initial_1d_water_level_predefined_delete
-      description: A simple ViewSet for initial 2D water levels
+      description: initial predefined 1D water levels
       parameters: []
       responses:
         '204':
@@ -8614,6 +8617,380 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/PostProcessingStatus'
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/settings/aggregation/:
+    get:
+      operationId: simulations_settings_aggregation_list
+      summary: Simulation aggregation settings.
+      description: |-
+        For a consistent water balance often the results of various snap shots - as provided by the results_3di.nc file -
+        are not enough. Especially in case of an time step setting that is larger than the computational time step.
+        For this purpose, an aggregated results file is available called aggregate_results_3di.nc. The structure of the
+        file is very similar to the other result file. Each Mesh variable (s1, u1, etc.) described in the
+        results section can be aggregated.
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/AggregationSettings'
+      tags:
+        - simulations
+    post:
+      operationId: simulations_settings_aggregation_create
+      summary: Simulation aggregation settings.
+      description: |-
+        For a consistent water balance often the results of various snap shots - as provided by the results_3di.nc file -
+        are not enough. Especially in case of an time step setting that is larger than the computational time step.
+        For this purpose, an aggregated results file is available called aggregate_results_3di.nc. The structure of the
+        file is very similar to the other result file. Each Mesh variable (s1, u1, etc.) described in the
+        results section can be aggregated.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/AggregationSettings'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/AggregationSettings'
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/settings/aggregation/{id}/:
+    get:
+      operationId: simulations_settings_aggregation_read
+      summary: Simulation aggregation settings.
+      description: |-
+        For a consistent water balance often the results of various snap shots - as provided by the results_3di.nc file -
+        are not enough. Especially in case of an time step setting that is larger than the computational time step.
+        For this purpose, an aggregated results file is available called aggregate_results_3di.nc. The structure of the
+        file is very similar to the other result file. Each Mesh variable (s1, u1, etc.) described in the
+        results section can be aggregated.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AggregationSettings'
+      tags:
+        - simulations
+    put:
+      operationId: simulations_settings_aggregation_update
+      summary: Simulation aggregation settings.
+      description: |-
+        For a consistent water balance often the results of various snap shots - as provided by the results_3di.nc file -
+        are not enough. Especially in case of an time step setting that is larger than the computational time step.
+        For this purpose, an aggregated results file is available called aggregate_results_3di.nc. The structure of the
+        file is very similar to the other result file. Each Mesh variable (s1, u1, etc.) described in the
+        results section can be aggregated.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/AggregationSettings'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AggregationSettings'
+      tags:
+        - simulations
+    patch:
+      operationId: simulations_settings_aggregation_partial_update
+      summary: Simulation aggregation settings.
+      description: |-
+        For a consistent water balance often the results of various snap shots - as provided by the results_3di.nc file -
+        are not enough. Especially in case of an time step setting that is larger than the computational time step.
+        For this purpose, an aggregated results file is available called aggregate_results_3di.nc. The structure of the
+        file is very similar to the other result file. Each Mesh variable (s1, u1, etc.) described in the
+        results section can be aggregated.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/AggregationSettings'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AggregationSettings'
+      tags:
+        - simulations
+    delete:
+      operationId: simulations_settings_aggregation_delete
+      summary: Simulation aggregation settings.
+      description: |-
+        For a consistent water balance often the results of various snap shots - as provided by the results_3di.nc file -
+        are not enough. Especially in case of an time step setting that is larger than the computational time step.
+        For this purpose, an aggregated results file is available called aggregate_results_3di.nc. The structure of the
+        file is very similar to the other result file. Each Mesh variable (s1, u1, etc.) described in the
+        results section can be aggregated.
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - simulations
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this aggregation settings.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/settings/general/:
+    post:
+      operationId: simulations_settings_general_create
+      description: Create a general settings resource.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/GeneralSettings'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/GeneralSettings'
+      tags:
+        - simulations
+    put:
+      operationId: simulations_settings_general_update
+      description: Update the general settings resource.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/GeneralSettings'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+      tags:
+        - simulations
+    patch:
+      operationId: simulations_settings_general_partial_update
+      description: Update the general settings resource.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/GeneralSettings'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+      tags:
+        - simulations
+    delete:
+      operationId: simulations_settings_general_delete
+      description: Delete the general settings resource.
+      parameters: []
+      responses:
+        '204':
+          description: Resource deleted successfully
+        '404':
+          description: Resource not found
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/settings/numerical/:
+    post:
+      operationId: simulations_settings_numerical_create
+      description: create a numerical settings resource
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/NumericalSettings'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/NumericalSettings'
+      tags:
+        - simulations
+    put:
+      operationId: simulations_settings_numerical_update
+      description: update the numerical settings resource
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/NumericalSettings'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+      tags:
+        - simulations
+    patch:
+      operationId: simulations_settings_numerical_partial_update
+      description: update the numerical settings resource
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/NumericalSettings'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+      tags:
+        - simulations
+    delete:
+      operationId: simulations_settings_numerical_delete
+      description: delete the numerical settings resource
+      parameters: []
+      responses:
+        '204':
+          description: Resource deleted successfully
+        '404':
+          description: Resource not found
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/settings/overview/:
+    get:
+      operationId: simulations_settings_overview
+      description: Overview of the the simulation settings.
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SimulationSettingsOverview'
+        '404':
+          description: Resource not found
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /simulations/{simulation_pk}/settings/time_step/:
+    post:
+      operationId: simulations_settings_time_step_create
+      description: create a time step settings resource
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/TimeStepSettings'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/TimeStepSettings'
+      tags:
+        - simulations
+    put:
+      operationId: simulations_settings_time_step_update
+      description: update the time step settings resource
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/TimeStepSettings'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+      tags:
+        - simulations
+    patch:
+      operationId: simulations_settings_time_step_partial_update
+      description: update the time step settings resource
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/TimeStepSettings'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+      tags:
+        - simulations
+    delete:
+      operationId: simulations_settings_time_step_delete
+      description: delete the time step settings resource
+      parameters: []
+      responses:
+        '204':
+          description: Resource deleted successfully
+        '404':
+          description: Resource not found
       tags:
         - simulations
     parameters:
@@ -11928,7 +12305,16 @@ paths:
   /usage/statistics/:
     get:
       operationId: usage_statistics
-      description: ''
+      summary: |-
+        Usage statistics like total session count, average session
+        duration and such.
+      description: |-
+        This endpoint comes in handy if you want to aggregate usage
+        number over a certain period of time, for a given user or organisation.
+
+        It is also possible to limit the result to a certain simulation type,
+        e.g. to "live" sessions. Use the `simulation__type__live` filter with
+        either `true` or `false` as input values.
       parameters:
         - name: started__gt
           in: query
@@ -12198,7 +12584,7 @@ definitions:
       first_name:
         title: First name
         type: string
-        maxLength: 30
+        maxLength: 150
       last_name:
         title: Last name
         type: string
@@ -13441,7 +13827,6 @@ definitions:
         format: uuid
         readOnly: true
   FileReadOnly:
-    title: File
     type: object
     properties:
       url:
@@ -13748,7 +14133,6 @@ definitions:
         type: integer
         readOnly: true
   TwoDWaterLevel:
-    title: Initial twodwaterlevel
     required:
       - value
     type: object
@@ -13776,7 +14160,6 @@ definitions:
         type: integer
         readOnly: true
   OneDWaterLevelPredefined:
-    title: Initial onedwaterlevelpredefined
     type: object
     properties:
       url:
@@ -13799,7 +14182,6 @@ definitions:
         type: integer
         readOnly: true
   GroundWaterLevel:
-    title: Initial groundwaterlevel
     required:
       - value
     type: object
@@ -13827,7 +14209,6 @@ definitions:
         type: integer
         readOnly: true
   GroundWaterRaster:
-    title: Initial groundwaterraster
     required:
       - aggregation_method
       - initial_waterlevel
@@ -13868,7 +14249,6 @@ definitions:
         type: integer
         readOnly: true
   OneDWaterLevel:
-    title: Initial onedwaterlevel
     required:
       - value
     type: object
@@ -13896,7 +14276,6 @@ definitions:
         type: integer
         readOnly: true
   TwoDWaterRaster:
-    title: Initial twodwaterraster
     required:
       - aggregation_method
       - initial_waterlevel
@@ -14126,7 +14505,6 @@ definitions:
         title: Value
         type: number
   SavedStateOverview:
-    title: Saved state
     required:
       - type
       - thresholds
@@ -14185,7 +14563,6 @@ definitions:
         type: string
         format: uuid
   InitialSavedStateOverview:
-    title: Initial savedstate
     type: object
     properties:
       url:
@@ -14372,7 +14749,6 @@ definitions:
         type: object
         readOnly: true
   FileBoundaryCondition:
-    title: Fileboundaryconditions
     type: object
     properties:
       url:
@@ -14458,7 +14834,6 @@ definitions:
         type: object
         readOnly: true
   MeasureSpecification:
-    title: Measure specification
     required:
       - locations
       - variable
@@ -15043,7 +15418,6 @@ definitions:
         type: boolean
         readOnly: true
   WindDragCoefficient:
-    title: Initial winddragcoefficient
     type: object
     properties:
       url:
@@ -15342,6 +15716,7 @@ definitions:
         type: integer
         maximum: 2147483647
         minimum: 0
+        x-nullable: true
       file:
         $ref: '#/definitions/FileReadOnly'
       id:
@@ -15399,6 +15774,7 @@ definitions:
         type: integer
         maximum: 9223372036854775807
         minimum: -9223372036854775808
+        x-nullable: true
       value:
         title: Value
         type: number
@@ -15650,6 +16026,7 @@ definitions:
         type: integer
         maximum: 9223372036854775807
         minimum: -9223372036854775808
+        x-nullable: true
       value:
         title: Value
         description: Rain intensity
@@ -16716,7 +17093,6 @@ definitions:
         maximum: 240
         minimum: 1
   Result:
-    title: Results
     required:
       - basic
       - damage_estimation
@@ -16733,7 +17109,6 @@ definitions:
         title: Arrival time
         type: boolean
   DamageEstimation:
-    title: Damage estimation
     type: object
     properties:
       damage_table:
@@ -16777,7 +17152,6 @@ definitions:
         type: integer
         readOnly: true
   Settings:
-    title: Settings
     type: object
     properties:
       damage_estimation:
@@ -16875,6 +17249,320 @@ definitions:
         type: string
         format: date-time
         readOnly: true
+  AggregationSettings:
+    required:
+      - name
+      - flow_variable
+      - method
+      - interval
+      - simulation
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      name:
+        title: Name
+        description: Give your aggregation setting a name to be able to find it back
+          in the results file
+        type: string
+        maxLength: 120
+        minLength: 1
+      flow_variable:
+        title: Flow variable
+        type: string
+        enum:
+          - water_level
+          - flow_velocity
+          - discharge
+          - volume
+          - pump_discharge
+          - wet_cross_section
+          - lateral_discharge
+          - wet_surface
+          - rain
+          - simple_infiltration
+          - leakage
+          - interception
+          - surface_source_sink_discharge
+      method:
+        title: Method
+        description: 'maximum: maximum value of the variable in the configured interval.minimum:
+          minimum value of the variable in the configured interval.avgerage: average
+          value of the variable in the configured interval.cumulative: This is integration
+          over time of the variable [dt * variable]. For instance, the cumulative
+          net discharge across a flow line in the configured interval.cumulative_positive:
+          This is integration over time of the variable [dt * variable] in positive
+          direction. For instance, the cumulative net discharge in positive direction
+          across a flow line in the configured interval.cumulative_negative: This
+          is integration over time of the variable [dt * variable] in negative direction.
+          For instance, the cumulative net discharge in negative direction across
+          a flow line in the configured interval.current: Uses the current value of
+          a variable. This is required in case one checks the water balance for variables
+          that are the result of the processes. This is a setting only valid for volume
+          and intercepted_volume.'
+        type: string
+        enum:
+          - minimum
+          - maximum
+          - average
+          - cumulative
+          - cumulative_positive
+          - cumulative_negative
+          - current
+      interval:
+        title: Interval
+        description: aggregation interval in seconds
+        type: number
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+  GeneralSettings:
+    required:
+      - use_advection_1d
+      - use_advection_2d
+    type: object
+    properties:
+      use_advection_1d:
+        title: Use advection 1d
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      use_advection_2d:
+        title: Use advection 2d
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      simulation_id:
+        title: Simulation id
+        type: string
+        readOnly: true
+  NumericalSettings:
+    required:
+      - cfl_strictness_factor_1d
+      - cfl_strictness_factor_2d
+      - convergence_cg
+      - flow_direction_threshold
+      - friction_shallow_water_depth_correction
+      - general_numerical_threshold
+      - limiter_waterlevel_gradient_1d
+      - limiter_waterlevel_gradient_2d
+      - limiter_slope_crossectional_area_2d
+      - limiter_slope_friction_2d
+      - max_non_linear_newton_iterations
+      - max_degree_gauss_seidel
+      - min_friction_velocity
+      - min_surface_area
+      - use_preconditioner_cg
+      - preissmann_slot
+      - pump_implicit_ratio
+      - limiter_slope_thin_water_layer
+      - use_of_cg
+      - use_nested_newton
+      - flooding_threshold
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      cfl_strictness_factor_1d:
+        title: Cfl strictness factor 1d
+        type: number
+      cfl_strictness_factor_2d:
+        title: Cfl strictness factor 2d
+        type: number
+      convergence_cg:
+        title: Convergence cg
+        description: suitable default is 1.0e-9
+        type: number
+      flow_direction_threshold:
+        title: Flow direction threshold
+        description: suitable default is 1e-05
+        type: number
+      friction_shallow_water_depth_correction:
+        title: Friction shallow water depth correction
+        description: In case the friction assumptions based on the dominant friction
+          balance gives a structurally underestimation of the friction, you can switch
+          this setting on.   0 is OFF, 1 is maximum between averaged friction and
+          divided channel based friction, 2 is always linearized, 3 linearizes the
+          depth based on a weighted average. In this case the maximum depth of a thin
+          layer needs to be defined. Do not use in combination with interflow. Suitable
+          default is 0 (OFF).
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      general_numerical_threshold:
+        title: General numerical threshold
+        description: suitable default is 1.0e-8
+        type: number
+      time_integration_method:
+        title: Time integration method
+        description: There are various ways to discretize equation. At the moment
+          only first order semi implicit is supported and tested (EULER_IMPLICIT).
+        type: integer
+        enum:
+          - 0
+      limiter_waterlevel_gradient_1d:
+        title: Limiter waterlevel gradient 1d
+        description: suitable default is 1
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      limiter_waterlevel_gradient_2d:
+        title: Limiter waterlevel gradient 2d
+        description: suitable default is 1
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      limiter_slope_crossectional_area_2d:
+        title: Limiter slope crossectional area 2d
+        type: integer
+        enum:
+          - 0
+          - 1
+          - 2
+          - 3
+      limiter_slope_friction_2d:
+        title: Limiter slope friction 2d
+        description: This limiter starts working in case the depth based on the downstream
+          water level is 0 and may be useful in sloping areas. This limiter is mandatory
+          if the limiter_slope_crossectional_area_2d settings i greater than 0. Do
+          not use in combination with interflow. Suitable default is 0 (OFF)
+        type: integer
+        enum:
+          - 0
+          - 1
+      max_non_linear_newton_iterations:
+        title: Max non linear newton iterations
+        description: suitable default is 20
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      max_degree_gauss_seidel:
+        title: Max degree gauss seidel
+        description: Suitable default is 0. Values below are advised for different
+          model types 700 for 1D flow 7 for 1D and 2D flow 5 for surface 2D flow only
+          7 for surface and groundwater flow 70 for 1D, 2D surface and groundwater
+          flow or higher. Play around with this value in case of groundwater, can
+          speed up your model significantly
+        type: integer
+        maximum: 2147483647
+        minimum: 0
+      min_friction_velocity:
+        title: Min friction velocity
+        description: suitable default is 0.01
+        type: number
+      min_surface_area:
+        title: Min surface area
+        description: suitable default is 1.0e-8
+        type: number
+      use_preconditioner_cg:
+        title: Use preconditioner cg
+        description: Use preconditioner for matrix solver. Increases simulation speed
+          in most cases. suitable default is 1 (STANDARD)
+        type: integer
+        enum:
+          - 0
+          - 1
+      preissmann_slot:
+        title: Preissmann slot
+        description: suitable default is 0.0
+        type: number
+      pump_implicit_ratio:
+        title: Pump implicit ratio
+        type: number
+      limiter_slope_thin_water_layer:
+        title: Limiter slope thin water layer
+        description: Mandatory when using friction_shallow_water_depth_correction
+          option 3 or limiter_slope_crossectional_area_2d
+        type: number
+      use_of_cg:
+        title: Use of cg
+        description: suitable default is 20
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      use_nested_newton:
+        title: Use nested newton
+        description: Set to 'True' for 1D calculations with closed profiles to handle
+          non-linearity in volume-water level relation. When set to 'False' it will
+          be used if calculations become non-linear. For sewerage systems it is advised
+          to set this setting to 'True'. Otherwise a suitable default is 'False'
+        type: boolean
+      flooding_threshold:
+        title: Flooding threshold
+        description: suitable default is 0.000001
+        type: number
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+        readOnly: true
+  TimeStepSettings:
+    required:
+      - time_step
+      - min_time_step
+      - max_time_step
+      - use_time_step_stretch
+      - output_time_step
+      - simulation
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      time_step:
+        title: Time step
+        description: size of the simulation time step in seconds
+        type: number
+      min_time_step:
+        title: Min time step
+        description: minimum size of the simulation time step in seconds
+        type: number
+      max_time_step:
+        title: Max time step
+        description: only in combination with use_time_step_stretch=True
+        type: number
+      use_time_step_stretch:
+        title: Use time step stretch
+        description: Only when extra control over the time step is required
+        type: boolean
+      output_time_step:
+        title: Output time step
+        description: in seconds
+        type: number
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+  SimulationSettingsOverview:
+    required:
+      - name
+    type: object
+    properties:
+      general_settings:
+        $ref: '#/definitions/GeneralSettings'
+      numerical_settings:
+        $ref: '#/definitions/NumericalSettings'
+      time_step_settings:
+        $ref: '#/definitions/TimeStepSettings'
+      aggregation_settings:
+        type: array
+        items:
+          $ref: '#/definitions/AggregationSettings'
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 128
+        minLength: 1
   CurrentStatus:
     required:
       - id
@@ -16932,7 +17620,7 @@ definitions:
         readOnly: true
       simulation_id:
         title: Simulation id
-        type: string
+        type: integer
         readOnly: true
       simulation_name:
         title: Simulation name
@@ -16956,7 +17644,7 @@ definitions:
         x-nullable: true
       detail:
         title: Detail
-        type: string
+        type: object
         x-nullable: true
       exit_code:
         title: Exit code
@@ -16976,6 +17664,7 @@ definitions:
           - 4220
           - 4150
           - 4240
+          - 4270
           - 4230
           - 4231
           - 4232

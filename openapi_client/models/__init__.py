@@ -16,6 +16,7 @@ from __future__ import absolute_import
 
 # import models into model package
 from openapi_client.models.action import Action
+from openapi_client.models.aggregation_settings import AggregationSettings
 from openapi_client.models.arrival_time_post_processing import ArrivalTimePostProcessing
 from openapi_client.models.authenticate import Authenticate
 from openapi_client.models.base_event_state import BaseEventState
@@ -45,6 +46,7 @@ from openapi_client.models.file_raster_sources_sinks import FileRasterSourcesSin
 from openapi_client.models.file_read_only import FileReadOnly
 from openapi_client.models.file_timeseries_rain import FileTimeseriesRain
 from openapi_client.models.file_timeseries_sources_sinks import FileTimeseriesSourcesSinks
+from openapi_client.models.general_settings import GeneralSettings
 from openapi_client.models.grid_event_state import GridEventState
 from openapi_client.models.ground_water_level import GroundWaterLevel
 from openapi_client.models.ground_water_raster import GroundWaterRaster
@@ -104,6 +106,7 @@ from openapi_client.models.inline_response20053 import InlineResponse20053
 from openapi_client.models.inline_response20054 import InlineResponse20054
 from openapi_client.models.inline_response20055 import InlineResponse20055
 from openapi_client.models.inline_response20056 import InlineResponse20056
+from openapi_client.models.inline_response20057 import InlineResponse20057
 from openapi_client.models.inline_response2006 import InlineResponse2006
 from openapi_client.models.inline_response2007 import InlineResponse2007
 from openapi_client.models.inline_response2008 import InlineResponse2008
@@ -124,6 +127,7 @@ from openapi_client.models.net_cdf_raster_rain import NetCDFRasterRain
 from openapi_client.models.net_cdf_raster_sources_sinks import NetCDFRasterSourcesSinks
 from openapi_client.models.net_cdf_timeseries_rain import NetCDFTimeseriesRain
 from openapi_client.models.net_cdf_timeseries_sources_sinks import NetCDFTimeseriesSourcesSinks
+from openapi_client.models.numerical_settings import NumericalSettings
 from openapi_client.models.one_d_water_level import OneDWaterLevel
 from openapi_client.models.one_d_water_level_predefined import OneDWaterLevelPredefined
 from openapi_client.models.organisation import Organisation
@@ -152,6 +156,7 @@ from openapi_client.models.saved_state_overview import SavedStateOverview
 from openapi_client.models.settings import Settings
 from openapi_client.models.simulation import Simulation
 from openapi_client.models.simulation_channel import SimulationChannel
+from openapi_client.models.simulation_settings_overview import SimulationSettingsOverview
 from openapi_client.models.simulation_status import SimulationStatus
 from openapi_client.models.simulation_status_statistics import SimulationStatusStatistics
 from openapi_client.models.simulation_update import SimulationUpdate
@@ -161,6 +166,7 @@ from openapi_client.models.table_structure_control import TableStructureControl
 from openapi_client.models.threedi_model import ThreediModel
 from openapi_client.models.threedi_model_saved_state import ThreediModelSavedState
 from openapi_client.models.threshold import Threshold
+from openapi_client.models.time_step_settings import TimeStepSettings
 from openapi_client.models.timed_saved_state_update import TimedSavedStateUpdate
 from openapi_client.models.timed_structure_control import TimedStructureControl
 from openapi_client.models.timeout import Timeout

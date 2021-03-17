@@ -37,7 +37,7 @@ class InlineResponse20050(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[ThreediModel]'
+        'results': 'list[SimulationChannel]'
     }
 
     attribute_map = {
@@ -135,7 +135,7 @@ class InlineResponse20050(object):
 
 
         :return: The results of this InlineResponse20050.  # noqa: E501
-        :rtype: list[ThreediModel]
+        :rtype: list[SimulationChannel]
         """
         return self._results
 
@@ -145,7 +145,7 @@ class InlineResponse20050(object):
 
 
         :param results: The results of this InlineResponse20050.  # noqa: E501
-        :type: list[ThreediModel]
+        :type: list[SimulationChannel]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
