@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.24 (unreleased)
+3.0.24 (2021-03-19)
 -------------------
 
 - Added leakage to API
