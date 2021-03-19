@@ -37,7 +37,7 @@ class InlineResponse20056(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[Usage]'
+        'results': 'list[InitialWaterlevel]'
     }
 
     attribute_map = {
@@ -135,7 +135,7 @@ class InlineResponse20056(object):
 
 
         :return: The results of this InlineResponse20056.  # noqa: E501
-        :rtype: list[Usage]
+        :rtype: list[InitialWaterlevel]
         """
         return self._results
 
@@ -145,7 +145,7 @@ class InlineResponse20056(object):
 
 
         :param results: The results of this InlineResponse20056.  # noqa: E501
-        :type: list[Usage]
+        :type: list[InitialWaterlevel]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
