@@ -34,37 +34,85 @@ class GeneralSettings(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'int',
+        'simulation_id': 'int',
         'use_advection_1d': 'int',
-        'use_advection_2d': 'int',
-        'simulation_id': 'str'
+        'use_advection_2d': 'int'
     }
 
     attribute_map = {
+        'id': 'id',
+        'simulation_id': 'simulation_id',
         'use_advection_1d': 'use_advection_1d',
-        'use_advection_2d': 'use_advection_2d',
-        'simulation_id': 'simulation_id'
+        'use_advection_2d': 'use_advection_2d'
     }
 
-    def __init__(self, use_advection_1d=None, use_advection_2d=None, simulation_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, simulation_id=None, use_advection_1d=None, use_advection_2d=None, local_vars_configuration=None):  # noqa: E501
         """GeneralSettings - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
+        self._simulation_id = None
         self._use_advection_1d = None
         self._use_advection_2d = None
-        self._simulation_id = None
         self.discriminator = None
 
-        self.use_advection_1d = use_advection_1d
-        self.use_advection_2d = use_advection_2d
+        if id is not None:
+            self.id = id
         if simulation_id is not None:
             self.simulation_id = simulation_id
+        self.use_advection_1d = use_advection_1d
+        self.use_advection_2d = use_advection_2d
+
+    @property
+    def id(self):
+        """Gets the id of this GeneralSettings.  # noqa: E501
+
+
+        :return: The id of this GeneralSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this GeneralSettings.
+
+
+        :param id: The id of this GeneralSettings.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
+
+    @property
+    def simulation_id(self):
+        """Gets the simulation_id of this GeneralSettings.  # noqa: E501
+
+
+        :return: The simulation_id of this GeneralSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._simulation_id
+
+    @simulation_id.setter
+    def simulation_id(self, simulation_id):
+        """Sets the simulation_id of this GeneralSettings.
+
+
+        :param simulation_id: The simulation_id of this GeneralSettings.  # noqa: E501
+        :type: int
+        """
+
+        self._simulation_id = simulation_id
 
     @property
     def use_advection_1d(self):
         """Gets the use_advection_1d of this GeneralSettings.  # noqa: E501
 
+        Options:  0 = off 1 = standard   # noqa: E501
 
         :return: The use_advection_1d of this GeneralSettings.  # noqa: E501
         :rtype: int
@@ -75,18 +123,13 @@ class GeneralSettings(object):
     def use_advection_1d(self, use_advection_1d):
         """Sets the use_advection_1d of this GeneralSettings.
 
+        Options:  0 = off 1 = standard   # noqa: E501
 
         :param use_advection_1d: The use_advection_1d of this GeneralSettings.  # noqa: E501
         :type: int
         """
         if self.local_vars_configuration.client_side_validation and use_advection_1d is None:  # noqa: E501
             raise ValueError("Invalid value for `use_advection_1d`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                use_advection_1d is not None and use_advection_1d > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `use_advection_1d`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                use_advection_1d is not None and use_advection_1d < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `use_advection_1d`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._use_advection_1d = use_advection_1d
 
@@ -94,6 +137,7 @@ class GeneralSettings(object):
     def use_advection_2d(self):
         """Gets the use_advection_2d of this GeneralSettings.  # noqa: E501
 
+        Options:  0 = off 1 = standard   # noqa: E501
 
         :return: The use_advection_2d of this GeneralSettings.  # noqa: E501
         :rtype: int
@@ -104,41 +148,15 @@ class GeneralSettings(object):
     def use_advection_2d(self, use_advection_2d):
         """Sets the use_advection_2d of this GeneralSettings.
 
+        Options:  0 = off 1 = standard   # noqa: E501
 
         :param use_advection_2d: The use_advection_2d of this GeneralSettings.  # noqa: E501
         :type: int
         """
         if self.local_vars_configuration.client_side_validation and use_advection_2d is None:  # noqa: E501
             raise ValueError("Invalid value for `use_advection_2d`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                use_advection_2d is not None and use_advection_2d > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `use_advection_2d`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                use_advection_2d is not None and use_advection_2d < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `use_advection_2d`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._use_advection_2d = use_advection_2d
-
-    @property
-    def simulation_id(self):
-        """Gets the simulation_id of this GeneralSettings.  # noqa: E501
-
-
-        :return: The simulation_id of this GeneralSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._simulation_id
-
-    @simulation_id.setter
-    def simulation_id(self, simulation_id):
-        """Sets the simulation_id of this GeneralSettings.
-
-
-        :param simulation_id: The simulation_id of this GeneralSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._simulation_id = simulation_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -8629,11 +8629,13 @@ paths:
       operationId: simulations_settings_aggregation_list
       summary: Simulation aggregation settings.
       description: |-
-        For a consistent water balance often the results of various snap shots - as provided by the results_3di.nc file -
-        are not enough. Especially in case of an time step setting that is larger than the computational time step.
-        For this purpose, an aggregated results file is available called aggregate_results_3di.nc. The structure of the
-        file is very similar to the other result file. Each Mesh variable (s1, u1, etc.) described in the
-        results section can be aggregated.
+        For a consistent water balance often the results of various snap shots -
+        as provided by the results_3di.nc file - are not enough. Especially in case
+        of an time step setting that is larger than the computational time step.
+        For this purpose, an aggregated results file is available called
+        aggregate_results_3di.nc. The structure of the file is very similar to the
+        other result file. Each Mesh variable (s1, u1, etc.) described in the results
+        section can be aggregated.
       parameters:
         - name: limit
           in: query
@@ -8674,11 +8676,13 @@ paths:
       operationId: simulations_settings_aggregation_create
       summary: Simulation aggregation settings.
       description: |-
-        For a consistent water balance often the results of various snap shots - as provided by the results_3di.nc file -
-        are not enough. Especially in case of an time step setting that is larger than the computational time step.
-        For this purpose, an aggregated results file is available called aggregate_results_3di.nc. The structure of the
-        file is very similar to the other result file. Each Mesh variable (s1, u1, etc.) described in the
-        results section can be aggregated.
+        For a consistent water balance often the results of various snap shots -
+        as provided by the results_3di.nc file - are not enough. Especially in case
+        of an time step setting that is larger than the computational time step.
+        For this purpose, an aggregated results file is available called
+        aggregate_results_3di.nc. The structure of the file is very similar to the
+        other result file. Each Mesh variable (s1, u1, etc.) described in the results
+        section can be aggregated.
       parameters:
         - name: data
           in: body
@@ -8702,11 +8706,13 @@ paths:
       operationId: simulations_settings_aggregation_read
       summary: Simulation aggregation settings.
       description: |-
-        For a consistent water balance often the results of various snap shots - as provided by the results_3di.nc file -
-        are not enough. Especially in case of an time step setting that is larger than the computational time step.
-        For this purpose, an aggregated results file is available called aggregate_results_3di.nc. The structure of the
-        file is very similar to the other result file. Each Mesh variable (s1, u1, etc.) described in the
-        results section can be aggregated.
+        For a consistent water balance often the results of various snap shots -
+        as provided by the results_3di.nc file - are not enough. Especially in case
+        of an time step setting that is larger than the computational time step.
+        For this purpose, an aggregated results file is available called
+        aggregate_results_3di.nc. The structure of the file is very similar to the
+        other result file. Each Mesh variable (s1, u1, etc.) described in the results
+        section can be aggregated.
       parameters: []
       responses:
         '200':
@@ -8719,11 +8725,13 @@ paths:
       operationId: simulations_settings_aggregation_update
       summary: Simulation aggregation settings.
       description: |-
-        For a consistent water balance often the results of various snap shots - as provided by the results_3di.nc file -
-        are not enough. Especially in case of an time step setting that is larger than the computational time step.
-        For this purpose, an aggregated results file is available called aggregate_results_3di.nc. The structure of the
-        file is very similar to the other result file. Each Mesh variable (s1, u1, etc.) described in the
-        results section can be aggregated.
+        For a consistent water balance often the results of various snap shots -
+        as provided by the results_3di.nc file - are not enough. Especially in case
+        of an time step setting that is larger than the computational time step.
+        For this purpose, an aggregated results file is available called
+        aggregate_results_3di.nc. The structure of the file is very similar to the
+        other result file. Each Mesh variable (s1, u1, etc.) described in the results
+        section can be aggregated.
       parameters:
         - name: data
           in: body
@@ -8741,11 +8749,13 @@ paths:
       operationId: simulations_settings_aggregation_partial_update
       summary: Simulation aggregation settings.
       description: |-
-        For a consistent water balance often the results of various snap shots - as provided by the results_3di.nc file -
-        are not enough. Especially in case of an time step setting that is larger than the computational time step.
-        For this purpose, an aggregated results file is available called aggregate_results_3di.nc. The structure of the
-        file is very similar to the other result file. Each Mesh variable (s1, u1, etc.) described in the
-        results section can be aggregated.
+        For a consistent water balance often the results of various snap shots -
+        as provided by the results_3di.nc file - are not enough. Especially in case
+        of an time step setting that is larger than the computational time step.
+        For this purpose, an aggregated results file is available called
+        aggregate_results_3di.nc. The structure of the file is very similar to the
+        other result file. Each Mesh variable (s1, u1, etc.) described in the results
+        section can be aggregated.
       parameters:
         - name: data
           in: body
@@ -8763,11 +8773,13 @@ paths:
       operationId: simulations_settings_aggregation_delete
       summary: Simulation aggregation settings.
       description: |-
-        For a consistent water balance often the results of various snap shots - as provided by the results_3di.nc file -
-        are not enough. Especially in case of an time step setting that is larger than the computational time step.
-        For this purpose, an aggregated results file is available called aggregate_results_3di.nc. The structure of the
-        file is very similar to the other result file. Each Mesh variable (s1, u1, etc.) described in the
-        results section can be aggregated.
+        For a consistent water balance often the results of various snap shots -
+        as provided by the results_3di.nc file - are not enough. Especially in case
+        of an time step setting that is larger than the computational time step.
+        For this purpose, an aggregated results file is available called
+        aggregate_results_3di.nc. The structure of the file is very similar to the
+        other result file. Each Mesh variable (s1, u1, etc.) described in the results
+        section can be aggregated.
       parameters: []
       responses:
         '204':
@@ -8795,10 +8807,12 @@ paths:
           schema:
             $ref: '#/definitions/GeneralSettings'
       responses:
-        '201':
-          description: ''
-          schema:
-            $ref: '#/definitions/GeneralSettings'
+        '200':
+          description: OK
+        '400':
+          description: Bad request
+        '404':
+          description: Resource not found
       tags:
         - simulations
     put:
@@ -17251,11 +17265,9 @@ definitions:
         readOnly: true
   AggregationSettings:
     required:
-      - name
       - flow_variable
       - method
       - interval
-      - simulation
     type: object
     properties:
       url:
@@ -17266,12 +17278,27 @@ definitions:
       name:
         title: Name
         description: Give your aggregation setting a name to be able to find it back
-          in the results file
+          in the results file.
         type: string
         maxLength: 120
-        minLength: 1
+        x-nullable: true
       flow_variable:
         title: Flow variable
+        description: |
+          Options: 
+          water_level = Water Level
+          flow_velocity = Flow Velocity
+          discharge = Discharge
+          volume = Volume
+          pump_discharge = Pump Discharge
+          wet_cross_section = Wet Cross Section
+          lateral_discharge = Lateral Discharge
+          wet_surface = Wet Surface
+          rain = Rain
+          simple_infiltration = Simple Infiltration
+          leakage = Leakage
+          interception = Interception
+          surface_source_sink_discharge = Surface Source Sink Discharge
         type: string
         enum:
           - water_level
@@ -17289,59 +17316,69 @@ definitions:
           - surface_source_sink_discharge
       method:
         title: Method
-        description: 'maximum: maximum value of the variable in the configured interval.minimum:
-          minimum value of the variable in the configured interval.avgerage: average
-          value of the variable in the configured interval.cumulative: This is integration
-          over time of the variable [dt * variable]. For instance, the cumulative
-          net discharge across a flow line in the configured interval.cumulative_positive:
-          This is integration over time of the variable [dt * variable] in positive
-          direction. For instance, the cumulative net discharge in positive direction
-          across a flow line in the configured interval.cumulative_negative: This
-          is integration over time of the variable [dt * variable] in negative direction.
-          For instance, the cumulative net discharge in negative direction across
-          a flow line in the configured interval.current: Uses the current value of
-          a variable. This is required in case one checks the water balance for variables
-          that are the result of the processes. This is a setting only valid for volume
-          and intercepted_volume.'
+        description: |-
+          Options: 
+          min = minimum value of the variable in the configured interval
+          max = maximum value of the variable in the configured interval
+          avg = average value of the variable in the configured interval
+          cum = variable integration over time [dt * variable]
+          cum_positive = variable integration over time [dt * variable] in positive direction
+          cum_negative = variable integration over time [dt * variable] in negative direction
+          current = current value of a variable
+          sum = variable summation over configured interval
+
+          Note: 'current' is required in case one checks the water balance for variables that are the result of the processes. Only valid for flow_variable 'volume' and 'intercepted_volume'
         type: string
         enum:
-          - minimum
-          - maximum
-          - average
-          - cumulative
-          - cumulative_positive
-          - cumulative_negative
+          - min
+          - max
+          - avg
+          - cum
+          - cum_positive
+          - cum_negative
           - current
+          - sum
       interval:
         title: Interval
         description: aggregation interval in seconds
         type: number
-      simulation:
-        title: Simulation
-        type: string
-        format: uri
   GeneralSettings:
     required:
       - use_advection_1d
       - use_advection_2d
     type: object
     properties:
-      use_advection_1d:
-        title: Use advection 1d
+      id:
+        title: ID
         type: integer
-        maximum: 2147483647
-        minimum: -2147483648
-      use_advection_2d:
-        title: Use advection 2d
-        type: integer
-        maximum: 2147483647
-        minimum: -2147483648
+        readOnly: true
       simulation_id:
         title: Simulation id
-        type: string
+        type: integer
         readOnly: true
+      use_advection_1d:
+        title: Use advection 1d
+        description: |
+          Options: 
+          0 = off
+          1 = standard
+        type: integer
+        enum:
+          - 0
+          - 1
+      use_advection_2d:
+        title: Use advection 2d
+        description: |
+          Options: 
+          0 = off
+          1 = standard
+        type: integer
+        enum:
+          - 0
+          - 1
   NumericalSettings:
     required:
+      - pump_implicit_ratio
       - cfl_strictness_factor_1d
       - cfl_strictness_factor_2d
       - convergence_cg
@@ -17358,69 +17395,97 @@ definitions:
       - min_surface_area
       - use_preconditioner_cg
       - preissmann_slot
-      - pump_implicit_ratio
       - limiter_slope_thin_water_layer
       - use_of_cg
       - use_nested_newton
       - flooding_threshold
     type: object
     properties:
-      url:
-        title: Url
-        type: string
-        format: uri
+      id:
+        title: ID
+        type: integer
         readOnly: true
+      simulation_id:
+        title: Simulation id
+        type: integer
+        readOnly: true
+      pump_implicit_ratio:
+        title: Pump implicit ratio
+        type: number
+        maximum: 1.0
+        minimum: 0.0
       cfl_strictness_factor_1d:
         title: Cfl strictness factor 1d
+        description: "Strictness of CFL (Courant\u2013Friedrichs\u2013Lewy) condition\
+          \ for 1D."
         type: number
       cfl_strictness_factor_2d:
         title: Cfl strictness factor 2d
+        description: "Strictness of CFL (Courant\u2013Friedrichs\u2013Lewy) condition\
+          \ for 2D."
         type: number
       convergence_cg:
         title: Convergence cg
-        description: suitable default is 1.0e-9
+        description: Suitable default is 1.0e-9.
         type: number
       flow_direction_threshold:
         title: Flow direction threshold
-        description: suitable default is 1e-05
+        description: Suitable default is 1e-05.
         type: number
       friction_shallow_water_depth_correction:
         title: Friction shallow water depth correction
-        description: In case the friction assumptions based on the dominant friction
-          balance gives a structurally underestimation of the friction, you can switch
-          this setting on.   0 is OFF, 1 is maximum between averaged friction and
-          divided channel based friction, 2 is always linearized, 3 linearizes the
-          depth based on a weighted average. In this case the maximum depth of a thin
-          layer needs to be defined. Do not use in combination with interflow. Suitable
-          default is 0 (OFF).
+        description: |-
+          In case the friction assumptions based on the dominant friction balance gives a structurally underestimation of the friction, you can switch this setting on.
+           Options: 
+          0 = off
+          1 = max between avg and divided channel based friction
+          2 = always linearized
+          3 = linearizes the depth based on a weighed averaged
+
+           If options 3 is used the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow. Suitable default is 0 (OFF).
         type: integer
-        maximum: 2147483647
-        minimum: -2147483648
+        enum:
+          - 0
+          - 1
+          - 2
+          - 3
       general_numerical_threshold:
         title: General numerical threshold
-        description: suitable default is 1.0e-8
+        description: Suitable default is 1.0e-8
         type: number
       time_integration_method:
         title: Time integration method
-        description: There are various ways to discretize equation. At the moment
-          only first order semi implicit is supported and tested (EULER_IMPLICIT).
+        description: |
+          There are various ways to discretize equation. At the moment only first order semi implicit is supported and tested.
+          Options: 
+          0 = euler implicit
         type: integer
         enum:
           - 0
       limiter_waterlevel_gradient_1d:
         title: Limiter waterlevel gradient 1d
-        description: suitable default is 1
+        description: The limiter on the water level gradient allows the model to deal
+          with unrealistically steep gradients. Suitable default is 1.
         type: integer
         maximum: 2147483647
         minimum: -2147483648
       limiter_waterlevel_gradient_2d:
         title: Limiter waterlevel gradient 2d
-        description: suitable default is 1
+        description: The limiter on the water level gradient allows the model to deal
+          with unrealistically steep gradients. Suitable default is 1.
         type: integer
         maximum: 2147483647
         minimum: -2147483648
       limiter_slope_crossectional_area_2d:
         title: Limiter slope crossectional area 2d
+        description: |-
+          This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas.
+          Options: 
+          0 = off
+          1 = higher order scheme (sensitive too instabilities)
+          2 = cross-sections treated as upwind method volume/surface area
+          3 = combination traditional method thin layer approach
+           If options 3 is used the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow
         type: integer
         enum:
           - 0
@@ -17429,61 +17494,74 @@ definitions:
           - 3
       limiter_slope_friction_2d:
         title: Limiter slope friction 2d
-        description: This limiter starts working in case the depth based on the downstream
-          water level is 0 and may be useful in sloping areas. This limiter is mandatory
-          if the limiter_slope_crossectional_area_2d settings i greater than 0. Do
-          not use in combination with interflow. Suitable default is 0 (OFF)
+        description: |
+          This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. This limiter is mandatory if the limiter_slope_crossectional_area_2d settings i greater than 0. Do not use in combination with interflow. Suitable default is 0 (OFF)
+           Options: 
+          0 = off
+          1 = standard
         type: integer
         enum:
           - 0
           - 1
       max_non_linear_newton_iterations:
         title: Max non linear newton iterations
-        description: suitable default is 20
+        description: Maximum number of nonlinear newton iterations in single time
+          step. Suitable default is 20.
         type: integer
         maximum: 2147483647
         minimum: -2147483648
       max_degree_gauss_seidel:
         title: Max degree gauss seidel
-        description: Suitable default is 0. Values below are advised for different
-          model types 700 for 1D flow 7 for 1D and 2D flow 5 for surface 2D flow only
-          7 for surface and groundwater flow 70 for 1D, 2D surface and groundwater
-          flow or higher. Play around with this value in case of groundwater, can
-          speed up your model significantly
+        description: |-
+          Values below are advised for different model types: 
+          700 for 1D flow 
+          7 for 1D and 2D flow 
+          5 for surface 2D flow only 
+          7 for surface and groundwater flow 
+          70 for 1D, 2D surface and groundwater flow or higher. 
+          Play around with this value in case of groundwater, can speed up your model significantly. Suitable default is 0.
         type: integer
         maximum: 2147483647
         minimum: 0
       min_friction_velocity:
         title: Min friction velocity
-        description: suitable default is 0.01
+        description: For numerical computation several thresholds are needed in the
+          code, to avoid deficiencies due to a limited numerical accuracy. Generally
+          this is to keep the behaviour consistent.Suitable default is 0.01.
         type: number
       min_surface_area:
         title: Min surface area
-        description: suitable default is 1.0e-8
+        description: Suitable default is 1.0e-8.
         type: number
       use_preconditioner_cg:
         title: Use preconditioner cg
-        description: Use preconditioner for matrix solver. Increases simulation speed
-          in most cases. suitable default is 1 (STANDARD)
+        description: |-
+          Use preconditioner for matrix solver. Increases simulation speed in most cases. 
+          Options: 
+          0 = off
+          1 = standard
+          . Suitable default is 1 (STANDARD).
         type: integer
         enum:
           - 0
           - 1
       preissmann_slot:
         title: Preissmann slot
-        description: suitable default is 0.0
-        type: number
-      pump_implicit_ratio:
-        title: Pump implicit ratio
+        description: 'A conceptual vertical narrow slot providing a conceptual free
+          surface condition for the flow when the water level is above the top of
+          a closed conduit. Often used to guarantee stability. Not necessary in 3Di
+          unless used for pressurized pipe flow. Note: Works only for circular profiles.
+          Suitable default is 0.0. Unit: m2.'
         type: number
       limiter_slope_thin_water_layer:
         title: Limiter slope thin water layer
-        description: Mandatory when using friction_shallow_water_depth_correction
-          option 3 or limiter_slope_crossectional_area_2d
+        description: 'Mandatory when using friction_shallow_water_depth_correction
+          option 3 or limiter_slope_crossectional_area_2d option 3. Unit: m'
         type: number
       use_of_cg:
         title: Use of cg
-        description: suitable default is 20
+        description: Number of conjugate gradient method iterations, before switching
+          to another method. Suitable default is 20.
         type: integer
         maximum: 2147483647
         minimum: -2147483648
@@ -17496,13 +17574,10 @@ definitions:
         type: boolean
       flooding_threshold:
         title: Flooding threshold
-        description: suitable default is 0.000001
+        description: Water depth threshold for flow between 2D cells. Depth relative
+          to lowest bathymetry pixel at the edge between two 2D cells. Suitable default
+          is 0.000001.
         type: number
-      simulation:
-        title: Simulation
-        type: string
-        format: uri
-        readOnly: true
   TimeStepSettings:
     required:
       - time_step
@@ -17510,41 +17585,37 @@ definitions:
       - max_time_step
       - use_time_step_stretch
       - output_time_step
-      - simulation
     type: object
     properties:
-      url:
-        title: Url
-        type: string
-        format: uri
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      simulation_id:
+        title: Simulation id
+        type: integer
         readOnly: true
       time_step:
         title: Time step
-        description: size of the simulation time step in seconds
+        description: Size of the simulation time step in seconds.
         type: number
       min_time_step:
         title: Min time step
-        description: minimum size of the simulation time step in seconds
+        description: Minimum size of the simulation time step in seconds.
         type: number
       max_time_step:
         title: Max time step
-        description: only in combination with use_time_step_stretch=True
+        description: Only in combination with use_time_step_stretch=True.
         type: number
       use_time_step_stretch:
         title: Use time step stretch
-        description: Only when extra control over the time step is required
+        description: Only when extra control over the time step is required.
         type: boolean
       output_time_step:
         title: Output time step
-        description: in seconds
+        description: In seconds.
         type: number
-      simulation:
-        title: Simulation
-        type: string
-        format: uri
   SimulationSettingsOverview:
-    required:
-      - name
     type: object
     properties:
       general_settings:
@@ -17558,11 +17629,6 @@ definitions:
         items:
           $ref: '#/definitions/AggregationSettings'
         readOnly: true
-      name:
-        title: Name
-        type: string
-        maxLength: 128
-        minLength: 1
   CurrentStatus:
     required:
       - id

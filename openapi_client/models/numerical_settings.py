@@ -34,7 +34,9 @@ class NumericalSettings(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
+        'id': 'int',
+        'simulation_id': 'int',
+        'pump_implicit_ratio': 'float',
         'cfl_strictness_factor_1d': 'float',
         'cfl_strictness_factor_2d': 'float',
         'convergence_cg': 'float',
@@ -52,16 +54,16 @@ class NumericalSettings(object):
         'min_surface_area': 'float',
         'use_preconditioner_cg': 'int',
         'preissmann_slot': 'float',
-        'pump_implicit_ratio': 'float',
         'limiter_slope_thin_water_layer': 'float',
         'use_of_cg': 'int',
         'use_nested_newton': 'bool',
-        'flooding_threshold': 'float',
-        'simulation': 'str'
+        'flooding_threshold': 'float'
     }
 
     attribute_map = {
-        'url': 'url',
+        'id': 'id',
+        'simulation_id': 'simulation_id',
+        'pump_implicit_ratio': 'pump_implicit_ratio',
         'cfl_strictness_factor_1d': 'cfl_strictness_factor_1d',
         'cfl_strictness_factor_2d': 'cfl_strictness_factor_2d',
         'convergence_cg': 'convergence_cg',
@@ -79,21 +81,21 @@ class NumericalSettings(object):
         'min_surface_area': 'min_surface_area',
         'use_preconditioner_cg': 'use_preconditioner_cg',
         'preissmann_slot': 'preissmann_slot',
-        'pump_implicit_ratio': 'pump_implicit_ratio',
         'limiter_slope_thin_water_layer': 'limiter_slope_thin_water_layer',
         'use_of_cg': 'use_of_cg',
         'use_nested_newton': 'use_nested_newton',
-        'flooding_threshold': 'flooding_threshold',
-        'simulation': 'simulation'
+        'flooding_threshold': 'flooding_threshold'
     }
 
-    def __init__(self, url=None, cfl_strictness_factor_1d=None, cfl_strictness_factor_2d=None, convergence_cg=None, flow_direction_threshold=None, friction_shallow_water_depth_correction=None, general_numerical_threshold=None, time_integration_method=None, limiter_waterlevel_gradient_1d=None, limiter_waterlevel_gradient_2d=None, limiter_slope_crossectional_area_2d=None, limiter_slope_friction_2d=None, max_non_linear_newton_iterations=None, max_degree_gauss_seidel=None, min_friction_velocity=None, min_surface_area=None, use_preconditioner_cg=None, preissmann_slot=None, pump_implicit_ratio=None, limiter_slope_thin_water_layer=None, use_of_cg=None, use_nested_newton=None, flooding_threshold=None, simulation=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, simulation_id=None, pump_implicit_ratio=None, cfl_strictness_factor_1d=None, cfl_strictness_factor_2d=None, convergence_cg=None, flow_direction_threshold=None, friction_shallow_water_depth_correction=None, general_numerical_threshold=None, time_integration_method=None, limiter_waterlevel_gradient_1d=None, limiter_waterlevel_gradient_2d=None, limiter_slope_crossectional_area_2d=None, limiter_slope_friction_2d=None, max_non_linear_newton_iterations=None, max_degree_gauss_seidel=None, min_friction_velocity=None, min_surface_area=None, use_preconditioner_cg=None, preissmann_slot=None, limiter_slope_thin_water_layer=None, use_of_cg=None, use_nested_newton=None, flooding_threshold=None, local_vars_configuration=None):  # noqa: E501
         """NumericalSettings - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._url = None
+        self._id = None
+        self._simulation_id = None
+        self._pump_implicit_ratio = None
         self._cfl_strictness_factor_1d = None
         self._cfl_strictness_factor_2d = None
         self._convergence_cg = None
@@ -111,16 +113,17 @@ class NumericalSettings(object):
         self._min_surface_area = None
         self._use_preconditioner_cg = None
         self._preissmann_slot = None
-        self._pump_implicit_ratio = None
         self._limiter_slope_thin_water_layer = None
         self._use_of_cg = None
         self._use_nested_newton = None
         self._flooding_threshold = None
-        self._simulation = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
+        if id is not None:
+            self.id = id
+        if simulation_id is not None:
+            self.simulation_id = simulation_id
+        self.pump_implicit_ratio = pump_implicit_ratio
         self.cfl_strictness_factor_1d = cfl_strictness_factor_1d
         self.cfl_strictness_factor_2d = cfl_strictness_factor_2d
         self.convergence_cg = convergence_cg
@@ -139,481 +142,52 @@ class NumericalSettings(object):
         self.min_surface_area = min_surface_area
         self.use_preconditioner_cg = use_preconditioner_cg
         self.preissmann_slot = preissmann_slot
-        self.pump_implicit_ratio = pump_implicit_ratio
         self.limiter_slope_thin_water_layer = limiter_slope_thin_water_layer
         self.use_of_cg = use_of_cg
         self.use_nested_newton = use_nested_newton
         self.flooding_threshold = flooding_threshold
-        if simulation is not None:
-            self.simulation = simulation
 
     @property
-    def url(self):
-        """Gets the url of this NumericalSettings.  # noqa: E501
+    def id(self):
+        """Gets the id of this NumericalSettings.  # noqa: E501
 
 
-        :return: The url of this NumericalSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._url
-
-    @url.setter
-    def url(self, url):
-        """Sets the url of this NumericalSettings.
-
-
-        :param url: The url of this NumericalSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._url = url
-
-    @property
-    def cfl_strictness_factor_1d(self):
-        """Gets the cfl_strictness_factor_1d of this NumericalSettings.  # noqa: E501
-
-
-        :return: The cfl_strictness_factor_1d of this NumericalSettings.  # noqa: E501
-        :rtype: float
-        """
-        return self._cfl_strictness_factor_1d
-
-    @cfl_strictness_factor_1d.setter
-    def cfl_strictness_factor_1d(self, cfl_strictness_factor_1d):
-        """Sets the cfl_strictness_factor_1d of this NumericalSettings.
-
-
-        :param cfl_strictness_factor_1d: The cfl_strictness_factor_1d of this NumericalSettings.  # noqa: E501
-        :type: float
-        """
-        if self.local_vars_configuration.client_side_validation and cfl_strictness_factor_1d is None:  # noqa: E501
-            raise ValueError("Invalid value for `cfl_strictness_factor_1d`, must not be `None`")  # noqa: E501
-
-        self._cfl_strictness_factor_1d = cfl_strictness_factor_1d
-
-    @property
-    def cfl_strictness_factor_2d(self):
-        """Gets the cfl_strictness_factor_2d of this NumericalSettings.  # noqa: E501
-
-
-        :return: The cfl_strictness_factor_2d of this NumericalSettings.  # noqa: E501
-        :rtype: float
-        """
-        return self._cfl_strictness_factor_2d
-
-    @cfl_strictness_factor_2d.setter
-    def cfl_strictness_factor_2d(self, cfl_strictness_factor_2d):
-        """Sets the cfl_strictness_factor_2d of this NumericalSettings.
-
-
-        :param cfl_strictness_factor_2d: The cfl_strictness_factor_2d of this NumericalSettings.  # noqa: E501
-        :type: float
-        """
-        if self.local_vars_configuration.client_side_validation and cfl_strictness_factor_2d is None:  # noqa: E501
-            raise ValueError("Invalid value for `cfl_strictness_factor_2d`, must not be `None`")  # noqa: E501
-
-        self._cfl_strictness_factor_2d = cfl_strictness_factor_2d
-
-    @property
-    def convergence_cg(self):
-        """Gets the convergence_cg of this NumericalSettings.  # noqa: E501
-
-        suitable default is 1.0e-9  # noqa: E501
-
-        :return: The convergence_cg of this NumericalSettings.  # noqa: E501
-        :rtype: float
-        """
-        return self._convergence_cg
-
-    @convergence_cg.setter
-    def convergence_cg(self, convergence_cg):
-        """Sets the convergence_cg of this NumericalSettings.
-
-        suitable default is 1.0e-9  # noqa: E501
-
-        :param convergence_cg: The convergence_cg of this NumericalSettings.  # noqa: E501
-        :type: float
-        """
-        if self.local_vars_configuration.client_side_validation and convergence_cg is None:  # noqa: E501
-            raise ValueError("Invalid value for `convergence_cg`, must not be `None`")  # noqa: E501
-
-        self._convergence_cg = convergence_cg
-
-    @property
-    def flow_direction_threshold(self):
-        """Gets the flow_direction_threshold of this NumericalSettings.  # noqa: E501
-
-        suitable default is 1e-05  # noqa: E501
-
-        :return: The flow_direction_threshold of this NumericalSettings.  # noqa: E501
-        :rtype: float
-        """
-        return self._flow_direction_threshold
-
-    @flow_direction_threshold.setter
-    def flow_direction_threshold(self, flow_direction_threshold):
-        """Sets the flow_direction_threshold of this NumericalSettings.
-
-        suitable default is 1e-05  # noqa: E501
-
-        :param flow_direction_threshold: The flow_direction_threshold of this NumericalSettings.  # noqa: E501
-        :type: float
-        """
-        if self.local_vars_configuration.client_side_validation and flow_direction_threshold is None:  # noqa: E501
-            raise ValueError("Invalid value for `flow_direction_threshold`, must not be `None`")  # noqa: E501
-
-        self._flow_direction_threshold = flow_direction_threshold
-
-    @property
-    def friction_shallow_water_depth_correction(self):
-        """Gets the friction_shallow_water_depth_correction of this NumericalSettings.  # noqa: E501
-
-        In case the friction assumptions based on the dominant friction balance gives a structurally underestimation of the friction, you can switch this setting on.   0 is OFF, 1 is maximum between averaged friction and divided channel based friction, 2 is always linearized, 3 linearizes the depth based on a weighted average. In this case the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow. Suitable default is 0 (OFF).  # noqa: E501
-
-        :return: The friction_shallow_water_depth_correction of this NumericalSettings.  # noqa: E501
+        :return: The id of this NumericalSettings.  # noqa: E501
         :rtype: int
         """
-        return self._friction_shallow_water_depth_correction
+        return self._id
 
-    @friction_shallow_water_depth_correction.setter
-    def friction_shallow_water_depth_correction(self, friction_shallow_water_depth_correction):
-        """Sets the friction_shallow_water_depth_correction of this NumericalSettings.
+    @id.setter
+    def id(self, id):
+        """Sets the id of this NumericalSettings.
 
-        In case the friction assumptions based on the dominant friction balance gives a structurally underestimation of the friction, you can switch this setting on.   0 is OFF, 1 is maximum between averaged friction and divided channel based friction, 2 is always linearized, 3 linearizes the depth based on a weighted average. In this case the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow. Suitable default is 0 (OFF).  # noqa: E501
 
-        :param friction_shallow_water_depth_correction: The friction_shallow_water_depth_correction of this NumericalSettings.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and friction_shallow_water_depth_correction is None:  # noqa: E501
-            raise ValueError("Invalid value for `friction_shallow_water_depth_correction`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                friction_shallow_water_depth_correction is not None and friction_shallow_water_depth_correction > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `friction_shallow_water_depth_correction`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                friction_shallow_water_depth_correction is not None and friction_shallow_water_depth_correction < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `friction_shallow_water_depth_correction`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
-
-        self._friction_shallow_water_depth_correction = friction_shallow_water_depth_correction
-
-    @property
-    def general_numerical_threshold(self):
-        """Gets the general_numerical_threshold of this NumericalSettings.  # noqa: E501
-
-        suitable default is 1.0e-8  # noqa: E501
-
-        :return: The general_numerical_threshold of this NumericalSettings.  # noqa: E501
-        :rtype: float
-        """
-        return self._general_numerical_threshold
-
-    @general_numerical_threshold.setter
-    def general_numerical_threshold(self, general_numerical_threshold):
-        """Sets the general_numerical_threshold of this NumericalSettings.
-
-        suitable default is 1.0e-8  # noqa: E501
-
-        :param general_numerical_threshold: The general_numerical_threshold of this NumericalSettings.  # noqa: E501
-        :type: float
-        """
-        if self.local_vars_configuration.client_side_validation and general_numerical_threshold is None:  # noqa: E501
-            raise ValueError("Invalid value for `general_numerical_threshold`, must not be `None`")  # noqa: E501
-
-        self._general_numerical_threshold = general_numerical_threshold
-
-    @property
-    def time_integration_method(self):
-        """Gets the time_integration_method of this NumericalSettings.  # noqa: E501
-
-        There are various ways to discretize equation. At the moment only first order semi implicit is supported and tested (EULER_IMPLICIT).  # noqa: E501
-
-        :return: The time_integration_method of this NumericalSettings.  # noqa: E501
-        :rtype: int
-        """
-        return self._time_integration_method
-
-    @time_integration_method.setter
-    def time_integration_method(self, time_integration_method):
-        """Sets the time_integration_method of this NumericalSettings.
-
-        There are various ways to discretize equation. At the moment only first order semi implicit is supported and tested (EULER_IMPLICIT).  # noqa: E501
-
-        :param time_integration_method: The time_integration_method of this NumericalSettings.  # noqa: E501
+        :param id: The id of this NumericalSettings.  # noqa: E501
         :type: int
         """
 
-        self._time_integration_method = time_integration_method
+        self._id = id
 
     @property
-    def limiter_waterlevel_gradient_1d(self):
-        """Gets the limiter_waterlevel_gradient_1d of this NumericalSettings.  # noqa: E501
+    def simulation_id(self):
+        """Gets the simulation_id of this NumericalSettings.  # noqa: E501
 
-        suitable default is 1  # noqa: E501
 
-        :return: The limiter_waterlevel_gradient_1d of this NumericalSettings.  # noqa: E501
+        :return: The simulation_id of this NumericalSettings.  # noqa: E501
         :rtype: int
         """
-        return self._limiter_waterlevel_gradient_1d
+        return self._simulation_id
 
-    @limiter_waterlevel_gradient_1d.setter
-    def limiter_waterlevel_gradient_1d(self, limiter_waterlevel_gradient_1d):
-        """Sets the limiter_waterlevel_gradient_1d of this NumericalSettings.
+    @simulation_id.setter
+    def simulation_id(self, simulation_id):
+        """Sets the simulation_id of this NumericalSettings.
 
-        suitable default is 1  # noqa: E501
 
-        :param limiter_waterlevel_gradient_1d: The limiter_waterlevel_gradient_1d of this NumericalSettings.  # noqa: E501
+        :param simulation_id: The simulation_id of this NumericalSettings.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and limiter_waterlevel_gradient_1d is None:  # noqa: E501
-            raise ValueError("Invalid value for `limiter_waterlevel_gradient_1d`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                limiter_waterlevel_gradient_1d is not None and limiter_waterlevel_gradient_1d > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `limiter_waterlevel_gradient_1d`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                limiter_waterlevel_gradient_1d is not None and limiter_waterlevel_gradient_1d < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `limiter_waterlevel_gradient_1d`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
-        self._limiter_waterlevel_gradient_1d = limiter_waterlevel_gradient_1d
-
-    @property
-    def limiter_waterlevel_gradient_2d(self):
-        """Gets the limiter_waterlevel_gradient_2d of this NumericalSettings.  # noqa: E501
-
-        suitable default is 1  # noqa: E501
-
-        :return: The limiter_waterlevel_gradient_2d of this NumericalSettings.  # noqa: E501
-        :rtype: int
-        """
-        return self._limiter_waterlevel_gradient_2d
-
-    @limiter_waterlevel_gradient_2d.setter
-    def limiter_waterlevel_gradient_2d(self, limiter_waterlevel_gradient_2d):
-        """Sets the limiter_waterlevel_gradient_2d of this NumericalSettings.
-
-        suitable default is 1  # noqa: E501
-
-        :param limiter_waterlevel_gradient_2d: The limiter_waterlevel_gradient_2d of this NumericalSettings.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and limiter_waterlevel_gradient_2d is None:  # noqa: E501
-            raise ValueError("Invalid value for `limiter_waterlevel_gradient_2d`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                limiter_waterlevel_gradient_2d is not None and limiter_waterlevel_gradient_2d > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `limiter_waterlevel_gradient_2d`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                limiter_waterlevel_gradient_2d is not None and limiter_waterlevel_gradient_2d < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `limiter_waterlevel_gradient_2d`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
-
-        self._limiter_waterlevel_gradient_2d = limiter_waterlevel_gradient_2d
-
-    @property
-    def limiter_slope_crossectional_area_2d(self):
-        """Gets the limiter_slope_crossectional_area_2d of this NumericalSettings.  # noqa: E501
-
-
-        :return: The limiter_slope_crossectional_area_2d of this NumericalSettings.  # noqa: E501
-        :rtype: int
-        """
-        return self._limiter_slope_crossectional_area_2d
-
-    @limiter_slope_crossectional_area_2d.setter
-    def limiter_slope_crossectional_area_2d(self, limiter_slope_crossectional_area_2d):
-        """Sets the limiter_slope_crossectional_area_2d of this NumericalSettings.
-
-
-        :param limiter_slope_crossectional_area_2d: The limiter_slope_crossectional_area_2d of this NumericalSettings.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and limiter_slope_crossectional_area_2d is None:  # noqa: E501
-            raise ValueError("Invalid value for `limiter_slope_crossectional_area_2d`, must not be `None`")  # noqa: E501
-
-        self._limiter_slope_crossectional_area_2d = limiter_slope_crossectional_area_2d
-
-    @property
-    def limiter_slope_friction_2d(self):
-        """Gets the limiter_slope_friction_2d of this NumericalSettings.  # noqa: E501
-
-        This limiter starts working in case the depth based on the downstream water level is 0 and may be useful in sloping areas. This limiter is mandatory if the limiter_slope_crossectional_area_2d settings i greater than 0. Do not use in combination with interflow. Suitable default is 0 (OFF)  # noqa: E501
-
-        :return: The limiter_slope_friction_2d of this NumericalSettings.  # noqa: E501
-        :rtype: int
-        """
-        return self._limiter_slope_friction_2d
-
-    @limiter_slope_friction_2d.setter
-    def limiter_slope_friction_2d(self, limiter_slope_friction_2d):
-        """Sets the limiter_slope_friction_2d of this NumericalSettings.
-
-        This limiter starts working in case the depth based on the downstream water level is 0 and may be useful in sloping areas. This limiter is mandatory if the limiter_slope_crossectional_area_2d settings i greater than 0. Do not use in combination with interflow. Suitable default is 0 (OFF)  # noqa: E501
-
-        :param limiter_slope_friction_2d: The limiter_slope_friction_2d of this NumericalSettings.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and limiter_slope_friction_2d is None:  # noqa: E501
-            raise ValueError("Invalid value for `limiter_slope_friction_2d`, must not be `None`")  # noqa: E501
-
-        self._limiter_slope_friction_2d = limiter_slope_friction_2d
-
-    @property
-    def max_non_linear_newton_iterations(self):
-        """Gets the max_non_linear_newton_iterations of this NumericalSettings.  # noqa: E501
-
-        suitable default is 20  # noqa: E501
-
-        :return: The max_non_linear_newton_iterations of this NumericalSettings.  # noqa: E501
-        :rtype: int
-        """
-        return self._max_non_linear_newton_iterations
-
-    @max_non_linear_newton_iterations.setter
-    def max_non_linear_newton_iterations(self, max_non_linear_newton_iterations):
-        """Sets the max_non_linear_newton_iterations of this NumericalSettings.
-
-        suitable default is 20  # noqa: E501
-
-        :param max_non_linear_newton_iterations: The max_non_linear_newton_iterations of this NumericalSettings.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and max_non_linear_newton_iterations is None:  # noqa: E501
-            raise ValueError("Invalid value for `max_non_linear_newton_iterations`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                max_non_linear_newton_iterations is not None and max_non_linear_newton_iterations > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `max_non_linear_newton_iterations`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                max_non_linear_newton_iterations is not None and max_non_linear_newton_iterations < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `max_non_linear_newton_iterations`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
-
-        self._max_non_linear_newton_iterations = max_non_linear_newton_iterations
-
-    @property
-    def max_degree_gauss_seidel(self):
-        """Gets the max_degree_gauss_seidel of this NumericalSettings.  # noqa: E501
-
-        Suitable default is 0. Values below are advised for different model types 700 for 1D flow 7 for 1D and 2D flow 5 for surface 2D flow only 7 for surface and groundwater flow 70 for 1D, 2D surface and groundwater flow or higher. Play around with this value in case of groundwater, can speed up your model significantly  # noqa: E501
-
-        :return: The max_degree_gauss_seidel of this NumericalSettings.  # noqa: E501
-        :rtype: int
-        """
-        return self._max_degree_gauss_seidel
-
-    @max_degree_gauss_seidel.setter
-    def max_degree_gauss_seidel(self, max_degree_gauss_seidel):
-        """Sets the max_degree_gauss_seidel of this NumericalSettings.
-
-        Suitable default is 0. Values below are advised for different model types 700 for 1D flow 7 for 1D and 2D flow 5 for surface 2D flow only 7 for surface and groundwater flow 70 for 1D, 2D surface and groundwater flow or higher. Play around with this value in case of groundwater, can speed up your model significantly  # noqa: E501
-
-        :param max_degree_gauss_seidel: The max_degree_gauss_seidel of this NumericalSettings.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and max_degree_gauss_seidel is None:  # noqa: E501
-            raise ValueError("Invalid value for `max_degree_gauss_seidel`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                max_degree_gauss_seidel is not None and max_degree_gauss_seidel > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `max_degree_gauss_seidel`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                max_degree_gauss_seidel is not None and max_degree_gauss_seidel < 0):  # noqa: E501
-            raise ValueError("Invalid value for `max_degree_gauss_seidel`, must be a value greater than or equal to `0`")  # noqa: E501
-
-        self._max_degree_gauss_seidel = max_degree_gauss_seidel
-
-    @property
-    def min_friction_velocity(self):
-        """Gets the min_friction_velocity of this NumericalSettings.  # noqa: E501
-
-        suitable default is 0.01  # noqa: E501
-
-        :return: The min_friction_velocity of this NumericalSettings.  # noqa: E501
-        :rtype: float
-        """
-        return self._min_friction_velocity
-
-    @min_friction_velocity.setter
-    def min_friction_velocity(self, min_friction_velocity):
-        """Sets the min_friction_velocity of this NumericalSettings.
-
-        suitable default is 0.01  # noqa: E501
-
-        :param min_friction_velocity: The min_friction_velocity of this NumericalSettings.  # noqa: E501
-        :type: float
-        """
-        if self.local_vars_configuration.client_side_validation and min_friction_velocity is None:  # noqa: E501
-            raise ValueError("Invalid value for `min_friction_velocity`, must not be `None`")  # noqa: E501
-
-        self._min_friction_velocity = min_friction_velocity
-
-    @property
-    def min_surface_area(self):
-        """Gets the min_surface_area of this NumericalSettings.  # noqa: E501
-
-        suitable default is 1.0e-8  # noqa: E501
-
-        :return: The min_surface_area of this NumericalSettings.  # noqa: E501
-        :rtype: float
-        """
-        return self._min_surface_area
-
-    @min_surface_area.setter
-    def min_surface_area(self, min_surface_area):
-        """Sets the min_surface_area of this NumericalSettings.
-
-        suitable default is 1.0e-8  # noqa: E501
-
-        :param min_surface_area: The min_surface_area of this NumericalSettings.  # noqa: E501
-        :type: float
-        """
-        if self.local_vars_configuration.client_side_validation and min_surface_area is None:  # noqa: E501
-            raise ValueError("Invalid value for `min_surface_area`, must not be `None`")  # noqa: E501
-
-        self._min_surface_area = min_surface_area
-
-    @property
-    def use_preconditioner_cg(self):
-        """Gets the use_preconditioner_cg of this NumericalSettings.  # noqa: E501
-
-        Use preconditioner for matrix solver. Increases simulation speed in most cases. suitable default is 1 (STANDARD)  # noqa: E501
-
-        :return: The use_preconditioner_cg of this NumericalSettings.  # noqa: E501
-        :rtype: int
-        """
-        return self._use_preconditioner_cg
-
-    @use_preconditioner_cg.setter
-    def use_preconditioner_cg(self, use_preconditioner_cg):
-        """Sets the use_preconditioner_cg of this NumericalSettings.
-
-        Use preconditioner for matrix solver. Increases simulation speed in most cases. suitable default is 1 (STANDARD)  # noqa: E501
-
-        :param use_preconditioner_cg: The use_preconditioner_cg of this NumericalSettings.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and use_preconditioner_cg is None:  # noqa: E501
-            raise ValueError("Invalid value for `use_preconditioner_cg`, must not be `None`")  # noqa: E501
-
-        self._use_preconditioner_cg = use_preconditioner_cg
-
-    @property
-    def preissmann_slot(self):
-        """Gets the preissmann_slot of this NumericalSettings.  # noqa: E501
-
-        suitable default is 0.0  # noqa: E501
-
-        :return: The preissmann_slot of this NumericalSettings.  # noqa: E501
-        :rtype: float
-        """
-        return self._preissmann_slot
-
-    @preissmann_slot.setter
-    def preissmann_slot(self, preissmann_slot):
-        """Sets the preissmann_slot of this NumericalSettings.
-
-        suitable default is 0.0  # noqa: E501
-
-        :param preissmann_slot: The preissmann_slot of this NumericalSettings.  # noqa: E501
-        :type: float
-        """
-        if self.local_vars_configuration.client_side_validation and preissmann_slot is None:  # noqa: E501
-            raise ValueError("Invalid value for `preissmann_slot`, must not be `None`")  # noqa: E501
-
-        self._preissmann_slot = preissmann_slot
+        self._simulation_id = simulation_id
 
     @property
     def pump_implicit_ratio(self):
@@ -635,14 +209,467 @@ class NumericalSettings(object):
         """
         if self.local_vars_configuration.client_side_validation and pump_implicit_ratio is None:  # noqa: E501
             raise ValueError("Invalid value for `pump_implicit_ratio`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                pump_implicit_ratio is not None and pump_implicit_ratio > 1):  # noqa: E501
+            raise ValueError("Invalid value for `pump_implicit_ratio`, must be a value less than or equal to `1`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                pump_implicit_ratio is not None and pump_implicit_ratio < 0):  # noqa: E501
+            raise ValueError("Invalid value for `pump_implicit_ratio`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._pump_implicit_ratio = pump_implicit_ratio
+
+    @property
+    def cfl_strictness_factor_1d(self):
+        """Gets the cfl_strictness_factor_1d of this NumericalSettings.  # noqa: E501
+
+        Strictness of CFL (Courant–Friedrichs–Lewy) condition for 1D.  # noqa: E501
+
+        :return: The cfl_strictness_factor_1d of this NumericalSettings.  # noqa: E501
+        :rtype: float
+        """
+        return self._cfl_strictness_factor_1d
+
+    @cfl_strictness_factor_1d.setter
+    def cfl_strictness_factor_1d(self, cfl_strictness_factor_1d):
+        """Sets the cfl_strictness_factor_1d of this NumericalSettings.
+
+        Strictness of CFL (Courant–Friedrichs–Lewy) condition for 1D.  # noqa: E501
+
+        :param cfl_strictness_factor_1d: The cfl_strictness_factor_1d of this NumericalSettings.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and cfl_strictness_factor_1d is None:  # noqa: E501
+            raise ValueError("Invalid value for `cfl_strictness_factor_1d`, must not be `None`")  # noqa: E501
+
+        self._cfl_strictness_factor_1d = cfl_strictness_factor_1d
+
+    @property
+    def cfl_strictness_factor_2d(self):
+        """Gets the cfl_strictness_factor_2d of this NumericalSettings.  # noqa: E501
+
+        Strictness of CFL (Courant–Friedrichs–Lewy) condition for 2D.  # noqa: E501
+
+        :return: The cfl_strictness_factor_2d of this NumericalSettings.  # noqa: E501
+        :rtype: float
+        """
+        return self._cfl_strictness_factor_2d
+
+    @cfl_strictness_factor_2d.setter
+    def cfl_strictness_factor_2d(self, cfl_strictness_factor_2d):
+        """Sets the cfl_strictness_factor_2d of this NumericalSettings.
+
+        Strictness of CFL (Courant–Friedrichs–Lewy) condition for 2D.  # noqa: E501
+
+        :param cfl_strictness_factor_2d: The cfl_strictness_factor_2d of this NumericalSettings.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and cfl_strictness_factor_2d is None:  # noqa: E501
+            raise ValueError("Invalid value for `cfl_strictness_factor_2d`, must not be `None`")  # noqa: E501
+
+        self._cfl_strictness_factor_2d = cfl_strictness_factor_2d
+
+    @property
+    def convergence_cg(self):
+        """Gets the convergence_cg of this NumericalSettings.  # noqa: E501
+
+        Suitable default is 1.0e-9.  # noqa: E501
+
+        :return: The convergence_cg of this NumericalSettings.  # noqa: E501
+        :rtype: float
+        """
+        return self._convergence_cg
+
+    @convergence_cg.setter
+    def convergence_cg(self, convergence_cg):
+        """Sets the convergence_cg of this NumericalSettings.
+
+        Suitable default is 1.0e-9.  # noqa: E501
+
+        :param convergence_cg: The convergence_cg of this NumericalSettings.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and convergence_cg is None:  # noqa: E501
+            raise ValueError("Invalid value for `convergence_cg`, must not be `None`")  # noqa: E501
+
+        self._convergence_cg = convergence_cg
+
+    @property
+    def flow_direction_threshold(self):
+        """Gets the flow_direction_threshold of this NumericalSettings.  # noqa: E501
+
+        Suitable default is 1e-05.  # noqa: E501
+
+        :return: The flow_direction_threshold of this NumericalSettings.  # noqa: E501
+        :rtype: float
+        """
+        return self._flow_direction_threshold
+
+    @flow_direction_threshold.setter
+    def flow_direction_threshold(self, flow_direction_threshold):
+        """Sets the flow_direction_threshold of this NumericalSettings.
+
+        Suitable default is 1e-05.  # noqa: E501
+
+        :param flow_direction_threshold: The flow_direction_threshold of this NumericalSettings.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and flow_direction_threshold is None:  # noqa: E501
+            raise ValueError("Invalid value for `flow_direction_threshold`, must not be `None`")  # noqa: E501
+
+        self._flow_direction_threshold = flow_direction_threshold
+
+    @property
+    def friction_shallow_water_depth_correction(self):
+        """Gets the friction_shallow_water_depth_correction of this NumericalSettings.  # noqa: E501
+
+        In case the friction assumptions based on the dominant friction balance gives a structurally underestimation of the friction, you can switch this setting on.  Options:  0 = off 1 = max between avg and divided channel based friction 2 = always linearized 3 = linearizes the depth based on a weighed averaged   If options 3 is used the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow. Suitable default is 0 (OFF).  # noqa: E501
+
+        :return: The friction_shallow_water_depth_correction of this NumericalSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._friction_shallow_water_depth_correction
+
+    @friction_shallow_water_depth_correction.setter
+    def friction_shallow_water_depth_correction(self, friction_shallow_water_depth_correction):
+        """Sets the friction_shallow_water_depth_correction of this NumericalSettings.
+
+        In case the friction assumptions based on the dominant friction balance gives a structurally underestimation of the friction, you can switch this setting on.  Options:  0 = off 1 = max between avg and divided channel based friction 2 = always linearized 3 = linearizes the depth based on a weighed averaged   If options 3 is used the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow. Suitable default is 0 (OFF).  # noqa: E501
+
+        :param friction_shallow_water_depth_correction: The friction_shallow_water_depth_correction of this NumericalSettings.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and friction_shallow_water_depth_correction is None:  # noqa: E501
+            raise ValueError("Invalid value for `friction_shallow_water_depth_correction`, must not be `None`")  # noqa: E501
+
+        self._friction_shallow_water_depth_correction = friction_shallow_water_depth_correction
+
+    @property
+    def general_numerical_threshold(self):
+        """Gets the general_numerical_threshold of this NumericalSettings.  # noqa: E501
+
+        Suitable default is 1.0e-8  # noqa: E501
+
+        :return: The general_numerical_threshold of this NumericalSettings.  # noqa: E501
+        :rtype: float
+        """
+        return self._general_numerical_threshold
+
+    @general_numerical_threshold.setter
+    def general_numerical_threshold(self, general_numerical_threshold):
+        """Sets the general_numerical_threshold of this NumericalSettings.
+
+        Suitable default is 1.0e-8  # noqa: E501
+
+        :param general_numerical_threshold: The general_numerical_threshold of this NumericalSettings.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and general_numerical_threshold is None:  # noqa: E501
+            raise ValueError("Invalid value for `general_numerical_threshold`, must not be `None`")  # noqa: E501
+
+        self._general_numerical_threshold = general_numerical_threshold
+
+    @property
+    def time_integration_method(self):
+        """Gets the time_integration_method of this NumericalSettings.  # noqa: E501
+
+        There are various ways to discretize equation. At the moment only first order semi implicit is supported and tested. Options:  0 = euler implicit   # noqa: E501
+
+        :return: The time_integration_method of this NumericalSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._time_integration_method
+
+    @time_integration_method.setter
+    def time_integration_method(self, time_integration_method):
+        """Sets the time_integration_method of this NumericalSettings.
+
+        There are various ways to discretize equation. At the moment only first order semi implicit is supported and tested. Options:  0 = euler implicit   # noqa: E501
+
+        :param time_integration_method: The time_integration_method of this NumericalSettings.  # noqa: E501
+        :type: int
+        """
+
+        self._time_integration_method = time_integration_method
+
+    @property
+    def limiter_waterlevel_gradient_1d(self):
+        """Gets the limiter_waterlevel_gradient_1d of this NumericalSettings.  # noqa: E501
+
+        The limiter on the water level gradient allows the model to deal with unrealistically steep gradients. Suitable default is 1.  # noqa: E501
+
+        :return: The limiter_waterlevel_gradient_1d of this NumericalSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._limiter_waterlevel_gradient_1d
+
+    @limiter_waterlevel_gradient_1d.setter
+    def limiter_waterlevel_gradient_1d(self, limiter_waterlevel_gradient_1d):
+        """Sets the limiter_waterlevel_gradient_1d of this NumericalSettings.
+
+        The limiter on the water level gradient allows the model to deal with unrealistically steep gradients. Suitable default is 1.  # noqa: E501
+
+        :param limiter_waterlevel_gradient_1d: The limiter_waterlevel_gradient_1d of this NumericalSettings.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and limiter_waterlevel_gradient_1d is None:  # noqa: E501
+            raise ValueError("Invalid value for `limiter_waterlevel_gradient_1d`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                limiter_waterlevel_gradient_1d is not None and limiter_waterlevel_gradient_1d > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `limiter_waterlevel_gradient_1d`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                limiter_waterlevel_gradient_1d is not None and limiter_waterlevel_gradient_1d < -2147483648):  # noqa: E501
+            raise ValueError("Invalid value for `limiter_waterlevel_gradient_1d`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+
+        self._limiter_waterlevel_gradient_1d = limiter_waterlevel_gradient_1d
+
+    @property
+    def limiter_waterlevel_gradient_2d(self):
+        """Gets the limiter_waterlevel_gradient_2d of this NumericalSettings.  # noqa: E501
+
+        The limiter on the water level gradient allows the model to deal with unrealistically steep gradients. Suitable default is 1.  # noqa: E501
+
+        :return: The limiter_waterlevel_gradient_2d of this NumericalSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._limiter_waterlevel_gradient_2d
+
+    @limiter_waterlevel_gradient_2d.setter
+    def limiter_waterlevel_gradient_2d(self, limiter_waterlevel_gradient_2d):
+        """Sets the limiter_waterlevel_gradient_2d of this NumericalSettings.
+
+        The limiter on the water level gradient allows the model to deal with unrealistically steep gradients. Suitable default is 1.  # noqa: E501
+
+        :param limiter_waterlevel_gradient_2d: The limiter_waterlevel_gradient_2d of this NumericalSettings.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and limiter_waterlevel_gradient_2d is None:  # noqa: E501
+            raise ValueError("Invalid value for `limiter_waterlevel_gradient_2d`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                limiter_waterlevel_gradient_2d is not None and limiter_waterlevel_gradient_2d > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `limiter_waterlevel_gradient_2d`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                limiter_waterlevel_gradient_2d is not None and limiter_waterlevel_gradient_2d < -2147483648):  # noqa: E501
+            raise ValueError("Invalid value for `limiter_waterlevel_gradient_2d`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+
+        self._limiter_waterlevel_gradient_2d = limiter_waterlevel_gradient_2d
+
+    @property
+    def limiter_slope_crossectional_area_2d(self):
+        """Gets the limiter_slope_crossectional_area_2d of this NumericalSettings.  # noqa: E501
+
+        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. Options:  0 = off 1 = higher order scheme (sensitive too instabilities) 2 = cross-sections treated as upwind method volume/surface area 3 = combination traditional method thin layer approach  If options 3 is used the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow  # noqa: E501
+
+        :return: The limiter_slope_crossectional_area_2d of this NumericalSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._limiter_slope_crossectional_area_2d
+
+    @limiter_slope_crossectional_area_2d.setter
+    def limiter_slope_crossectional_area_2d(self, limiter_slope_crossectional_area_2d):
+        """Sets the limiter_slope_crossectional_area_2d of this NumericalSettings.
+
+        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. Options:  0 = off 1 = higher order scheme (sensitive too instabilities) 2 = cross-sections treated as upwind method volume/surface area 3 = combination traditional method thin layer approach  If options 3 is used the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow  # noqa: E501
+
+        :param limiter_slope_crossectional_area_2d: The limiter_slope_crossectional_area_2d of this NumericalSettings.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and limiter_slope_crossectional_area_2d is None:  # noqa: E501
+            raise ValueError("Invalid value for `limiter_slope_crossectional_area_2d`, must not be `None`")  # noqa: E501
+
+        self._limiter_slope_crossectional_area_2d = limiter_slope_crossectional_area_2d
+
+    @property
+    def limiter_slope_friction_2d(self):
+        """Gets the limiter_slope_friction_2d of this NumericalSettings.  # noqa: E501
+
+        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. This limiter is mandatory if the limiter_slope_crossectional_area_2d settings i greater than 0. Do not use in combination with interflow. Suitable default is 0 (OFF)  Options:  0 = off 1 = standard   # noqa: E501
+
+        :return: The limiter_slope_friction_2d of this NumericalSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._limiter_slope_friction_2d
+
+    @limiter_slope_friction_2d.setter
+    def limiter_slope_friction_2d(self, limiter_slope_friction_2d):
+        """Sets the limiter_slope_friction_2d of this NumericalSettings.
+
+        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. This limiter is mandatory if the limiter_slope_crossectional_area_2d settings i greater than 0. Do not use in combination with interflow. Suitable default is 0 (OFF)  Options:  0 = off 1 = standard   # noqa: E501
+
+        :param limiter_slope_friction_2d: The limiter_slope_friction_2d of this NumericalSettings.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and limiter_slope_friction_2d is None:  # noqa: E501
+            raise ValueError("Invalid value for `limiter_slope_friction_2d`, must not be `None`")  # noqa: E501
+
+        self._limiter_slope_friction_2d = limiter_slope_friction_2d
+
+    @property
+    def max_non_linear_newton_iterations(self):
+        """Gets the max_non_linear_newton_iterations of this NumericalSettings.  # noqa: E501
+
+        Maximum number of nonlinear newton iterations in single time step. Suitable default is 20.  # noqa: E501
+
+        :return: The max_non_linear_newton_iterations of this NumericalSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_non_linear_newton_iterations
+
+    @max_non_linear_newton_iterations.setter
+    def max_non_linear_newton_iterations(self, max_non_linear_newton_iterations):
+        """Sets the max_non_linear_newton_iterations of this NumericalSettings.
+
+        Maximum number of nonlinear newton iterations in single time step. Suitable default is 20.  # noqa: E501
+
+        :param max_non_linear_newton_iterations: The max_non_linear_newton_iterations of this NumericalSettings.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and max_non_linear_newton_iterations is None:  # noqa: E501
+            raise ValueError("Invalid value for `max_non_linear_newton_iterations`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                max_non_linear_newton_iterations is not None and max_non_linear_newton_iterations > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `max_non_linear_newton_iterations`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                max_non_linear_newton_iterations is not None and max_non_linear_newton_iterations < -2147483648):  # noqa: E501
+            raise ValueError("Invalid value for `max_non_linear_newton_iterations`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+
+        self._max_non_linear_newton_iterations = max_non_linear_newton_iterations
+
+    @property
+    def max_degree_gauss_seidel(self):
+        """Gets the max_degree_gauss_seidel of this NumericalSettings.  # noqa: E501
+
+        Values below are advised for different model types:  700 for 1D flow  7 for 1D and 2D flow  5 for surface 2D flow only  7 for surface and groundwater flow  70 for 1D, 2D surface and groundwater flow or higher.  Play around with this value in case of groundwater, can speed up your model significantly. Suitable default is 0.  # noqa: E501
+
+        :return: The max_degree_gauss_seidel of this NumericalSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_degree_gauss_seidel
+
+    @max_degree_gauss_seidel.setter
+    def max_degree_gauss_seidel(self, max_degree_gauss_seidel):
+        """Sets the max_degree_gauss_seidel of this NumericalSettings.
+
+        Values below are advised for different model types:  700 for 1D flow  7 for 1D and 2D flow  5 for surface 2D flow only  7 for surface and groundwater flow  70 for 1D, 2D surface and groundwater flow or higher.  Play around with this value in case of groundwater, can speed up your model significantly. Suitable default is 0.  # noqa: E501
+
+        :param max_degree_gauss_seidel: The max_degree_gauss_seidel of this NumericalSettings.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and max_degree_gauss_seidel is None:  # noqa: E501
+            raise ValueError("Invalid value for `max_degree_gauss_seidel`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                max_degree_gauss_seidel is not None and max_degree_gauss_seidel > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `max_degree_gauss_seidel`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                max_degree_gauss_seidel is not None and max_degree_gauss_seidel < 0):  # noqa: E501
+            raise ValueError("Invalid value for `max_degree_gauss_seidel`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._max_degree_gauss_seidel = max_degree_gauss_seidel
+
+    @property
+    def min_friction_velocity(self):
+        """Gets the min_friction_velocity of this NumericalSettings.  # noqa: E501
+
+        For numerical computation several thresholds are needed in the code, to avoid deficiencies due to a limited numerical accuracy. Generally this is to keep the behaviour consistent.Suitable default is 0.01.  # noqa: E501
+
+        :return: The min_friction_velocity of this NumericalSettings.  # noqa: E501
+        :rtype: float
+        """
+        return self._min_friction_velocity
+
+    @min_friction_velocity.setter
+    def min_friction_velocity(self, min_friction_velocity):
+        """Sets the min_friction_velocity of this NumericalSettings.
+
+        For numerical computation several thresholds are needed in the code, to avoid deficiencies due to a limited numerical accuracy. Generally this is to keep the behaviour consistent.Suitable default is 0.01.  # noqa: E501
+
+        :param min_friction_velocity: The min_friction_velocity of this NumericalSettings.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and min_friction_velocity is None:  # noqa: E501
+            raise ValueError("Invalid value for `min_friction_velocity`, must not be `None`")  # noqa: E501
+
+        self._min_friction_velocity = min_friction_velocity
+
+    @property
+    def min_surface_area(self):
+        """Gets the min_surface_area of this NumericalSettings.  # noqa: E501
+
+        Suitable default is 1.0e-8.  # noqa: E501
+
+        :return: The min_surface_area of this NumericalSettings.  # noqa: E501
+        :rtype: float
+        """
+        return self._min_surface_area
+
+    @min_surface_area.setter
+    def min_surface_area(self, min_surface_area):
+        """Sets the min_surface_area of this NumericalSettings.
+
+        Suitable default is 1.0e-8.  # noqa: E501
+
+        :param min_surface_area: The min_surface_area of this NumericalSettings.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and min_surface_area is None:  # noqa: E501
+            raise ValueError("Invalid value for `min_surface_area`, must not be `None`")  # noqa: E501
+
+        self._min_surface_area = min_surface_area
+
+    @property
+    def use_preconditioner_cg(self):
+        """Gets the use_preconditioner_cg of this NumericalSettings.  # noqa: E501
+
+        Use preconditioner for matrix solver. Increases simulation speed in most cases.  Options:  0 = off 1 = standard . Suitable default is 1 (STANDARD).  # noqa: E501
+
+        :return: The use_preconditioner_cg of this NumericalSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._use_preconditioner_cg
+
+    @use_preconditioner_cg.setter
+    def use_preconditioner_cg(self, use_preconditioner_cg):
+        """Sets the use_preconditioner_cg of this NumericalSettings.
+
+        Use preconditioner for matrix solver. Increases simulation speed in most cases.  Options:  0 = off 1 = standard . Suitable default is 1 (STANDARD).  # noqa: E501
+
+        :param use_preconditioner_cg: The use_preconditioner_cg of this NumericalSettings.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and use_preconditioner_cg is None:  # noqa: E501
+            raise ValueError("Invalid value for `use_preconditioner_cg`, must not be `None`")  # noqa: E501
+
+        self._use_preconditioner_cg = use_preconditioner_cg
+
+    @property
+    def preissmann_slot(self):
+        """Gets the preissmann_slot of this NumericalSettings.  # noqa: E501
+
+        A conceptual vertical narrow slot providing a conceptual free surface condition for the flow when the water level is above the top of a closed conduit. Often used to guarantee stability. Not necessary in 3Di unless used for pressurized pipe flow. Note: Works only for circular profiles. Suitable default is 0.0. Unit: m2.  # noqa: E501
+
+        :return: The preissmann_slot of this NumericalSettings.  # noqa: E501
+        :rtype: float
+        """
+        return self._preissmann_slot
+
+    @preissmann_slot.setter
+    def preissmann_slot(self, preissmann_slot):
+        """Sets the preissmann_slot of this NumericalSettings.
+
+        A conceptual vertical narrow slot providing a conceptual free surface condition for the flow when the water level is above the top of a closed conduit. Often used to guarantee stability. Not necessary in 3Di unless used for pressurized pipe flow. Note: Works only for circular profiles. Suitable default is 0.0. Unit: m2.  # noqa: E501
+
+        :param preissmann_slot: The preissmann_slot of this NumericalSettings.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and preissmann_slot is None:  # noqa: E501
+            raise ValueError("Invalid value for `preissmann_slot`, must not be `None`")  # noqa: E501
+
+        self._preissmann_slot = preissmann_slot
 
     @property
     def limiter_slope_thin_water_layer(self):
         """Gets the limiter_slope_thin_water_layer of this NumericalSettings.  # noqa: E501
 
-        Mandatory when using friction_shallow_water_depth_correction option 3 or limiter_slope_crossectional_area_2d  # noqa: E501
+        Mandatory when using friction_shallow_water_depth_correction option 3 or limiter_slope_crossectional_area_2d option 3. Unit: m  # noqa: E501
 
         :return: The limiter_slope_thin_water_layer of this NumericalSettings.  # noqa: E501
         :rtype: float
@@ -653,7 +680,7 @@ class NumericalSettings(object):
     def limiter_slope_thin_water_layer(self, limiter_slope_thin_water_layer):
         """Sets the limiter_slope_thin_water_layer of this NumericalSettings.
 
-        Mandatory when using friction_shallow_water_depth_correction option 3 or limiter_slope_crossectional_area_2d  # noqa: E501
+        Mandatory when using friction_shallow_water_depth_correction option 3 or limiter_slope_crossectional_area_2d option 3. Unit: m  # noqa: E501
 
         :param limiter_slope_thin_water_layer: The limiter_slope_thin_water_layer of this NumericalSettings.  # noqa: E501
         :type: float
@@ -667,7 +694,7 @@ class NumericalSettings(object):
     def use_of_cg(self):
         """Gets the use_of_cg of this NumericalSettings.  # noqa: E501
 
-        suitable default is 20  # noqa: E501
+        Number of conjugate gradient method iterations, before switching to another method. Suitable default is 20.  # noqa: E501
 
         :return: The use_of_cg of this NumericalSettings.  # noqa: E501
         :rtype: int
@@ -678,7 +705,7 @@ class NumericalSettings(object):
     def use_of_cg(self, use_of_cg):
         """Sets the use_of_cg of this NumericalSettings.
 
-        suitable default is 20  # noqa: E501
+        Number of conjugate gradient method iterations, before switching to another method. Suitable default is 20.  # noqa: E501
 
         :param use_of_cg: The use_of_cg of this NumericalSettings.  # noqa: E501
         :type: int
@@ -723,7 +750,7 @@ class NumericalSettings(object):
     def flooding_threshold(self):
         """Gets the flooding_threshold of this NumericalSettings.  # noqa: E501
 
-        suitable default is 0.000001  # noqa: E501
+        Water depth threshold for flow between 2D cells. Depth relative to lowest bathymetry pixel at the edge between two 2D cells. Suitable default is 0.000001.  # noqa: E501
 
         :return: The flooding_threshold of this NumericalSettings.  # noqa: E501
         :rtype: float
@@ -734,7 +761,7 @@ class NumericalSettings(object):
     def flooding_threshold(self, flooding_threshold):
         """Sets the flooding_threshold of this NumericalSettings.
 
-        suitable default is 0.000001  # noqa: E501
+        Water depth threshold for flow between 2D cells. Depth relative to lowest bathymetry pixel at the edge between two 2D cells. Suitable default is 0.000001.  # noqa: E501
 
         :param flooding_threshold: The flooding_threshold of this NumericalSettings.  # noqa: E501
         :type: float
@@ -743,27 +770,6 @@ class NumericalSettings(object):
             raise ValueError("Invalid value for `flooding_threshold`, must not be `None`")  # noqa: E501
 
         self._flooding_threshold = flooding_threshold
-
-    @property
-    def simulation(self):
-        """Gets the simulation of this NumericalSettings.  # noqa: E501
-
-
-        :return: The simulation of this NumericalSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._simulation
-
-    @simulation.setter
-    def simulation(self, simulation):
-        """Sets the simulation of this NumericalSettings.
-
-
-        :param simulation: The simulation of this NumericalSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._simulation = simulation
 
     def to_dict(self):
         """Returns the model properties as a dict"""

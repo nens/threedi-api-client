@@ -34,75 +34,97 @@ class TimeStepSettings(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
+        'id': 'int',
+        'simulation_id': 'int',
         'time_step': 'float',
         'min_time_step': 'float',
         'max_time_step': 'float',
         'use_time_step_stretch': 'bool',
-        'output_time_step': 'float',
-        'simulation': 'str'
+        'output_time_step': 'float'
     }
 
     attribute_map = {
-        'url': 'url',
+        'id': 'id',
+        'simulation_id': 'simulation_id',
         'time_step': 'time_step',
         'min_time_step': 'min_time_step',
         'max_time_step': 'max_time_step',
         'use_time_step_stretch': 'use_time_step_stretch',
-        'output_time_step': 'output_time_step',
-        'simulation': 'simulation'
+        'output_time_step': 'output_time_step'
     }
 
-    def __init__(self, url=None, time_step=None, min_time_step=None, max_time_step=None, use_time_step_stretch=None, output_time_step=None, simulation=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, simulation_id=None, time_step=None, min_time_step=None, max_time_step=None, use_time_step_stretch=None, output_time_step=None, local_vars_configuration=None):  # noqa: E501
         """TimeStepSettings - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._url = None
+        self._id = None
+        self._simulation_id = None
         self._time_step = None
         self._min_time_step = None
         self._max_time_step = None
         self._use_time_step_stretch = None
         self._output_time_step = None
-        self._simulation = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
+        if id is not None:
+            self.id = id
+        if simulation_id is not None:
+            self.simulation_id = simulation_id
         self.time_step = time_step
         self.min_time_step = min_time_step
         self.max_time_step = max_time_step
         self.use_time_step_stretch = use_time_step_stretch
         self.output_time_step = output_time_step
-        self.simulation = simulation
 
     @property
-    def url(self):
-        """Gets the url of this TimeStepSettings.  # noqa: E501
+    def id(self):
+        """Gets the id of this TimeStepSettings.  # noqa: E501
 
 
-        :return: The url of this TimeStepSettings.  # noqa: E501
-        :rtype: str
+        :return: The id of this TimeStepSettings.  # noqa: E501
+        :rtype: int
         """
-        return self._url
+        return self._id
 
-    @url.setter
-    def url(self, url):
-        """Sets the url of this TimeStepSettings.
+    @id.setter
+    def id(self, id):
+        """Sets the id of this TimeStepSettings.
 
 
-        :param url: The url of this TimeStepSettings.  # noqa: E501
-        :type: str
+        :param id: The id of this TimeStepSettings.  # noqa: E501
+        :type: int
         """
 
-        self._url = url
+        self._id = id
+
+    @property
+    def simulation_id(self):
+        """Gets the simulation_id of this TimeStepSettings.  # noqa: E501
+
+
+        :return: The simulation_id of this TimeStepSettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._simulation_id
+
+    @simulation_id.setter
+    def simulation_id(self, simulation_id):
+        """Sets the simulation_id of this TimeStepSettings.
+
+
+        :param simulation_id: The simulation_id of this TimeStepSettings.  # noqa: E501
+        :type: int
+        """
+
+        self._simulation_id = simulation_id
 
     @property
     def time_step(self):
         """Gets the time_step of this TimeStepSettings.  # noqa: E501
 
-        size of the simulation time step in seconds  # noqa: E501
+        Size of the simulation time step in seconds.  # noqa: E501
 
         :return: The time_step of this TimeStepSettings.  # noqa: E501
         :rtype: float
@@ -113,7 +135,7 @@ class TimeStepSettings(object):
     def time_step(self, time_step):
         """Sets the time_step of this TimeStepSettings.
 
-        size of the simulation time step in seconds  # noqa: E501
+        Size of the simulation time step in seconds.  # noqa: E501
 
         :param time_step: The time_step of this TimeStepSettings.  # noqa: E501
         :type: float
@@ -127,7 +149,7 @@ class TimeStepSettings(object):
     def min_time_step(self):
         """Gets the min_time_step of this TimeStepSettings.  # noqa: E501
 
-        minimum size of the simulation time step in seconds  # noqa: E501
+        Minimum size of the simulation time step in seconds.  # noqa: E501
 
         :return: The min_time_step of this TimeStepSettings.  # noqa: E501
         :rtype: float
@@ -138,7 +160,7 @@ class TimeStepSettings(object):
     def min_time_step(self, min_time_step):
         """Sets the min_time_step of this TimeStepSettings.
 
-        minimum size of the simulation time step in seconds  # noqa: E501
+        Minimum size of the simulation time step in seconds.  # noqa: E501
 
         :param min_time_step: The min_time_step of this TimeStepSettings.  # noqa: E501
         :type: float
@@ -152,7 +174,7 @@ class TimeStepSettings(object):
     def max_time_step(self):
         """Gets the max_time_step of this TimeStepSettings.  # noqa: E501
 
-        only in combination with use_time_step_stretch=True  # noqa: E501
+        Only in combination with use_time_step_stretch=True.  # noqa: E501
 
         :return: The max_time_step of this TimeStepSettings.  # noqa: E501
         :rtype: float
@@ -163,7 +185,7 @@ class TimeStepSettings(object):
     def max_time_step(self, max_time_step):
         """Sets the max_time_step of this TimeStepSettings.
 
-        only in combination with use_time_step_stretch=True  # noqa: E501
+        Only in combination with use_time_step_stretch=True.  # noqa: E501
 
         :param max_time_step: The max_time_step of this TimeStepSettings.  # noqa: E501
         :type: float
@@ -177,7 +199,7 @@ class TimeStepSettings(object):
     def use_time_step_stretch(self):
         """Gets the use_time_step_stretch of this TimeStepSettings.  # noqa: E501
 
-        Only when extra control over the time step is required  # noqa: E501
+        Only when extra control over the time step is required.  # noqa: E501
 
         :return: The use_time_step_stretch of this TimeStepSettings.  # noqa: E501
         :rtype: bool
@@ -188,7 +210,7 @@ class TimeStepSettings(object):
     def use_time_step_stretch(self, use_time_step_stretch):
         """Sets the use_time_step_stretch of this TimeStepSettings.
 
-        Only when extra control over the time step is required  # noqa: E501
+        Only when extra control over the time step is required.  # noqa: E501
 
         :param use_time_step_stretch: The use_time_step_stretch of this TimeStepSettings.  # noqa: E501
         :type: bool
@@ -202,7 +224,7 @@ class TimeStepSettings(object):
     def output_time_step(self):
         """Gets the output_time_step of this TimeStepSettings.  # noqa: E501
 
-        in seconds  # noqa: E501
+        In seconds.  # noqa: E501
 
         :return: The output_time_step of this TimeStepSettings.  # noqa: E501
         :rtype: float
@@ -213,7 +235,7 @@ class TimeStepSettings(object):
     def output_time_step(self, output_time_step):
         """Sets the output_time_step of this TimeStepSettings.
 
-        in seconds  # noqa: E501
+        In seconds.  # noqa: E501
 
         :param output_time_step: The output_time_step of this TimeStepSettings.  # noqa: E501
         :type: float
@@ -222,29 +244,6 @@ class TimeStepSettings(object):
             raise ValueError("Invalid value for `output_time_step`, must not be `None`")  # noqa: E501
 
         self._output_time_step = output_time_step
-
-    @property
-    def simulation(self):
-        """Gets the simulation of this TimeStepSettings.  # noqa: E501
-
-
-        :return: The simulation of this TimeStepSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._simulation
-
-    @simulation.setter
-    def simulation(self, simulation):
-        """Sets the simulation of this TimeStepSettings.
-
-
-        :param simulation: The simulation of this TimeStepSettings.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
-            raise ValueError("Invalid value for `simulation`, must not be `None`")  # noqa: E501
-
-        self._simulation = simulation
 
     def to_dict(self):
         """Returns the model properties as a dict"""

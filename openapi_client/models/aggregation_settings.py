@@ -38,8 +38,7 @@ class AggregationSettings(object):
         'name': 'str',
         'flow_variable': 'str',
         'method': 'str',
-        'interval': 'float',
-        'simulation': 'str'
+        'interval': 'float'
     }
 
     attribute_map = {
@@ -47,11 +46,10 @@ class AggregationSettings(object):
         'name': 'name',
         'flow_variable': 'flow_variable',
         'method': 'method',
-        'interval': 'interval',
-        'simulation': 'simulation'
+        'interval': 'interval'
     }
 
-    def __init__(self, url=None, name=None, flow_variable=None, method=None, interval=None, simulation=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, name=None, flow_variable=None, method=None, interval=None, local_vars_configuration=None):  # noqa: E501
         """AggregationSettings - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,7 +60,6 @@ class AggregationSettings(object):
         self._flow_variable = None
         self._method = None
         self._interval = None
-        self._simulation = None
         self.discriminator = None
 
         if url is not None:
@@ -71,7 +68,6 @@ class AggregationSettings(object):
         self.flow_variable = flow_variable
         self.method = method
         self.interval = interval
-        self.simulation = simulation
 
     @property
     def url(self):
@@ -98,7 +94,7 @@ class AggregationSettings(object):
     def name(self):
         """Gets the name of this AggregationSettings.  # noqa: E501
 
-        Give your aggregation setting a name to be able to find it back in the results file  # noqa: E501
+        Give your aggregation setting a name to be able to find it back in the results file.  # noqa: E501
 
         :return: The name of this AggregationSettings.  # noqa: E501
         :rtype: str
@@ -109,19 +105,14 @@ class AggregationSettings(object):
     def name(self, name):
         """Sets the name of this AggregationSettings.
 
-        Give your aggregation setting a name to be able to find it back in the results file  # noqa: E501
+        Give your aggregation setting a name to be able to find it back in the results file.  # noqa: E501
 
         :param name: The name of this AggregationSettings.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 120):
             raise ValueError("Invalid value for `name`, length must be less than or equal to `120`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -129,6 +120,7 @@ class AggregationSettings(object):
     def flow_variable(self):
         """Gets the flow_variable of this AggregationSettings.  # noqa: E501
 
+        Options:  water_level = Water Level flow_velocity = Flow Velocity discharge = Discharge volume = Volume pump_discharge = Pump Discharge wet_cross_section = Wet Cross Section lateral_discharge = Lateral Discharge wet_surface = Wet Surface rain = Rain simple_infiltration = Simple Infiltration leakage = Leakage interception = Interception surface_source_sink_discharge = Surface Source Sink Discharge   # noqa: E501
 
         :return: The flow_variable of this AggregationSettings.  # noqa: E501
         :rtype: str
@@ -139,6 +131,7 @@ class AggregationSettings(object):
     def flow_variable(self, flow_variable):
         """Sets the flow_variable of this AggregationSettings.
 
+        Options:  water_level = Water Level flow_velocity = Flow Velocity discharge = Discharge volume = Volume pump_discharge = Pump Discharge wet_cross_section = Wet Cross Section lateral_discharge = Lateral Discharge wet_surface = Wet Surface rain = Rain simple_infiltration = Simple Infiltration leakage = Leakage interception = Interception surface_source_sink_discharge = Surface Source Sink Discharge   # noqa: E501
 
         :param flow_variable: The flow_variable of this AggregationSettings.  # noqa: E501
         :type: str
@@ -158,7 +151,7 @@ class AggregationSettings(object):
     def method(self):
         """Gets the method of this AggregationSettings.  # noqa: E501
 
-        maximum: maximum value of the variable in the configured interval.minimum: minimum value of the variable in the configured interval.avgerage: average value of the variable in the configured interval.cumulative: This is integration over time of the variable [dt * variable]. For instance, the cumulative net discharge across a flow line in the configured interval.cumulative_positive: This is integration over time of the variable [dt * variable] in positive direction. For instance, the cumulative net discharge in positive direction across a flow line in the configured interval.cumulative_negative: This is integration over time of the variable [dt * variable] in negative direction. For instance, the cumulative net discharge in negative direction across a flow line in the configured interval.current: Uses the current value of a variable. This is required in case one checks the water balance for variables that are the result of the processes. This is a setting only valid for volume and intercepted_volume.  # noqa: E501
+        Options:  min = minimum value of the variable in the configured interval max = maximum value of the variable in the configured interval avg = average value of the variable in the configured interval cum = variable integration over time [dt * variable] cum_positive = variable integration over time [dt * variable] in positive direction cum_negative = variable integration over time [dt * variable] in negative direction current = current value of a variable sum = variable summation over configured interval  Note: 'current' is required in case one checks the water balance for variables that are the result of the processes. Only valid for flow_variable 'volume' and 'intercepted_volume'  # noqa: E501
 
         :return: The method of this AggregationSettings.  # noqa: E501
         :rtype: str
@@ -169,14 +162,14 @@ class AggregationSettings(object):
     def method(self, method):
         """Sets the method of this AggregationSettings.
 
-        maximum: maximum value of the variable in the configured interval.minimum: minimum value of the variable in the configured interval.avgerage: average value of the variable in the configured interval.cumulative: This is integration over time of the variable [dt * variable]. For instance, the cumulative net discharge across a flow line in the configured interval.cumulative_positive: This is integration over time of the variable [dt * variable] in positive direction. For instance, the cumulative net discharge in positive direction across a flow line in the configured interval.cumulative_negative: This is integration over time of the variable [dt * variable] in negative direction. For instance, the cumulative net discharge in negative direction across a flow line in the configured interval.current: Uses the current value of a variable. This is required in case one checks the water balance for variables that are the result of the processes. This is a setting only valid for volume and intercepted_volume.  # noqa: E501
+        Options:  min = minimum value of the variable in the configured interval max = maximum value of the variable in the configured interval avg = average value of the variable in the configured interval cum = variable integration over time [dt * variable] cum_positive = variable integration over time [dt * variable] in positive direction cum_negative = variable integration over time [dt * variable] in negative direction current = current value of a variable sum = variable summation over configured interval  Note: 'current' is required in case one checks the water balance for variables that are the result of the processes. Only valid for flow_variable 'volume' and 'intercepted_volume'  # noqa: E501
 
         :param method: The method of this AggregationSettings.  # noqa: E501
         :type: str
         """
         if self.local_vars_configuration.client_side_validation and method is None:  # noqa: E501
             raise ValueError("Invalid value for `method`, must not be `None`")  # noqa: E501
-        allowed_values = ["minimum", "maximum", "average", "cumulative", "cumulative_positive", "cumulative_negative", "current"]  # noqa: E501
+        allowed_values = ["min", "max", "avg", "cum", "cum_positive", "cum_negative", "current", "sum"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and method not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `method` ({0}), must be one of {1}"  # noqa: E501
@@ -209,29 +202,6 @@ class AggregationSettings(object):
             raise ValueError("Invalid value for `interval`, must not be `None`")  # noqa: E501
 
         self._interval = interval
-
-    @property
-    def simulation(self):
-        """Gets the simulation of this AggregationSettings.  # noqa: E501
-
-
-        :return: The simulation of this AggregationSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._simulation
-
-    @simulation.setter
-    def simulation(self, simulation):
-        """Sets the simulation of this AggregationSettings.
-
-
-        :param simulation: The simulation of this AggregationSettings.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
-            raise ValueError("Invalid value for `simulation`, must not be `None`")  # noqa: E501
-
-        self._simulation = simulation
 
     def to_dict(self):
         """Returns the model properties as a dict"""

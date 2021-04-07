@@ -37,19 +37,17 @@ class SimulationSettingsOverview(object):
         'general_settings': 'GeneralSettings',
         'numerical_settings': 'NumericalSettings',
         'time_step_settings': 'TimeStepSettings',
-        'aggregation_settings': 'list[AggregationSettings]',
-        'name': 'str'
+        'aggregation_settings': 'list[AggregationSettings]'
     }
 
     attribute_map = {
         'general_settings': 'general_settings',
         'numerical_settings': 'numerical_settings',
         'time_step_settings': 'time_step_settings',
-        'aggregation_settings': 'aggregation_settings',
-        'name': 'name'
+        'aggregation_settings': 'aggregation_settings'
     }
 
-    def __init__(self, general_settings=None, numerical_settings=None, time_step_settings=None, aggregation_settings=None, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, general_settings=None, numerical_settings=None, time_step_settings=None, aggregation_settings=None, local_vars_configuration=None):  # noqa: E501
         """SimulationSettingsOverview - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,7 +57,6 @@ class SimulationSettingsOverview(object):
         self._numerical_settings = None
         self._time_step_settings = None
         self._aggregation_settings = None
-        self._name = None
         self.discriminator = None
 
         if general_settings is not None:
@@ -70,7 +67,6 @@ class SimulationSettingsOverview(object):
             self.time_step_settings = time_step_settings
         if aggregation_settings is not None:
             self.aggregation_settings = aggregation_settings
-        self.name = name
 
     @property
     def general_settings(self):
@@ -155,35 +151,6 @@ class SimulationSettingsOverview(object):
         """
 
         self._aggregation_settings = aggregation_settings
-
-    @property
-    def name(self):
-        """Gets the name of this SimulationSettingsOverview.  # noqa: E501
-
-
-        :return: The name of this SimulationSettingsOverview.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this SimulationSettingsOverview.
-
-
-        :param name: The name of this SimulationSettingsOverview.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) > 128):
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `128`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
