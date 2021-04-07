@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.25 (unreleased)
+3.0.25 (2021-04-07)
 -------------------
 
 - Added simulation settings.
