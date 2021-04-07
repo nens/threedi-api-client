@@ -37,7 +37,7 @@ class InlineResponse20037(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[TimeseriesWind]'
+        'results': 'list[MemoryStructureControl]'
     }
 
     attribute_map = {
@@ -135,7 +135,7 @@ class InlineResponse20037(object):
 
 
         :return: The results of this InlineResponse20037.  # noqa: E501
-        :rtype: list[TimeseriesWind]
+        :rtype: list[MemoryStructureControl]
         """
         return self._results
 
@@ -145,7 +145,7 @@ class InlineResponse20037(object):
 
 
         :param results: The results of this InlineResponse20037.  # noqa: E501
-        :type: list[TimeseriesWind]
+        :type: list[MemoryStructureControl]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
