@@ -37,7 +37,7 @@ class InlineResponse20043(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[GroundWaterRaster]'
+        'results': 'list[OneDWaterLevelPredefined]'
     }
 
     attribute_map = {
@@ -135,7 +135,7 @@ class InlineResponse20043(object):
 
 
         :return: The results of this InlineResponse20043.  # noqa: E501
-        :rtype: list[GroundWaterRaster]
+        :rtype: list[OneDWaterLevelPredefined]
         """
         return self._results
 
@@ -145,7 +145,7 @@ class InlineResponse20043(object):
 
 
         :param results: The results of this InlineResponse20043.  # noqa: E501
-        :type: list[GroundWaterRaster]
+        :type: list[OneDWaterLevelPredefined]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

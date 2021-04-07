@@ -5,7 +5,7 @@ History
 3.0.26 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Put leakage back. Was missing because local API definition was out of sync.
 
 
 3.0.25 (2021-04-07)

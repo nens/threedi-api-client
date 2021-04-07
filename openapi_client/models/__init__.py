@@ -26,6 +26,7 @@ from openapi_client.models.breach import Breach
 from openapi_client.models.breach_graph import BreachGraph
 from openapi_client.models.breach_graph_request import BreachGraphRequest
 from openapi_client.models.constant_lateral import ConstantLateral
+from openapi_client.models.constant_leakage import ConstantLeakage
 from openapi_client.models.constant_local_rain import ConstantLocalRain
 from openapi_client.models.constant_rain import ConstantRain
 from openapi_client.models.constant_sources_sinks import ConstantSourcesSinks
@@ -41,9 +42,11 @@ from openapi_client.models.file import File
 from openapi_client.models.file_boundary_condition import FileBoundaryCondition
 from openapi_client.models.file_lateral import FileLateral
 from openapi_client.models.file_meta import FileMeta
+from openapi_client.models.file_raster_leakage import FileRasterLeakage
 from openapi_client.models.file_raster_rain import FileRasterRain
 from openapi_client.models.file_raster_sources_sinks import FileRasterSourcesSinks
 from openapi_client.models.file_read_only import FileReadOnly
+from openapi_client.models.file_timeseries_leakage import FileTimeseriesLeakage
 from openapi_client.models.file_timeseries_rain import FileTimeseriesRain
 from openapi_client.models.file_timeseries_sources_sinks import FileTimeseriesSourcesSinks
 from openapi_client.models.general_settings import GeneralSettings
@@ -107,7 +110,11 @@ from openapi_client.models.inline_response20054 import InlineResponse20054
 from openapi_client.models.inline_response20055 import InlineResponse20055
 from openapi_client.models.inline_response20056 import InlineResponse20056
 from openapi_client.models.inline_response20057 import InlineResponse20057
+from openapi_client.models.inline_response20058 import InlineResponse20058
+from openapi_client.models.inline_response20059 import InlineResponse20059
 from openapi_client.models.inline_response2006 import InlineResponse2006
+from openapi_client.models.inline_response20060 import InlineResponse20060
+from openapi_client.models.inline_response20061 import InlineResponse20061
 from openapi_client.models.inline_response2007 import InlineResponse2007
 from openapi_client.models.inline_response2008 import InlineResponse2008
 from openapi_client.models.inline_response2009 import InlineResponse2009
@@ -123,8 +130,10 @@ from openapi_client.models.measure_location import MeasureLocation
 from openapi_client.models.measure_location_grid_event_state import MeasureLocationGridEventState
 from openapi_client.models.measure_specification import MeasureSpecification
 from openapi_client.models.memory_structure_control import MemoryStructureControl
+from openapi_client.models.net_cdf_raster_leakage import NetCDFRasterLeakage
 from openapi_client.models.net_cdf_raster_rain import NetCDFRasterRain
 from openapi_client.models.net_cdf_raster_sources_sinks import NetCDFRasterSourcesSinks
+from openapi_client.models.net_cdf_timeseries_leakage import NetCDFTimeseriesLeakage
 from openapi_client.models.net_cdf_timeseries_rain import NetCDFTimeseriesRain
 from openapi_client.models.net_cdf_timeseries_sources_sinks import NetCDFTimeseriesSourcesSinks
 from openapi_client.models.numerical_settings import NumericalSettings
@@ -171,6 +180,8 @@ from openapi_client.models.timed_saved_state_update import TimedSavedStateUpdate
 from openapi_client.models.timed_structure_control import TimedStructureControl
 from openapi_client.models.timeout import Timeout
 from openapi_client.models.timeseries_lateral import TimeseriesLateral
+from openapi_client.models.timeseries_leakage import TimeseriesLeakage
+from openapi_client.models.timeseries_leakage_overview import TimeseriesLeakageOverview
 from openapi_client.models.timeseries_local_rain import TimeseriesLocalRain
 from openapi_client.models.timeseries_rain import TimeseriesRain
 from openapi_client.models.timeseries_rain_overview import TimeseriesRainOverview
