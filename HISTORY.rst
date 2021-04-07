@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.26 (unreleased)
+3.0.26 (2021-04-07)
 -------------------
 
 - Put leakage back. Was missing because local API definition was out of sync.
