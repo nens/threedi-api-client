@@ -201,8 +201,6 @@ class ConstantLateral(object):
         :param duration: The duration of this ConstantLateral.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and duration is None:  # noqa: E501
-            raise ValueError("Invalid value for `duration`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 duration is not None and duration > 9223372036854775807):  # noqa: E501
             raise ValueError("Invalid value for `duration`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501

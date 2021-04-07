@@ -37,7 +37,7 @@ class SimulationStatus(object):
         'url': 'str',
         'name': 'str',
         'simulation': 'str',
-        'simulation_id': 'str',
+        'simulation_id': 'int',
         'simulation_name': 'str',
         'created': 'datetime',
         'time': 'int',
@@ -175,7 +175,7 @@ class SimulationStatus(object):
 
 
         :return: The simulation_id of this SimulationStatus.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._simulation_id
 
@@ -185,7 +185,7 @@ class SimulationStatus(object):
 
 
         :param simulation_id: The simulation_id of this SimulationStatus.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._simulation_id = simulation_id

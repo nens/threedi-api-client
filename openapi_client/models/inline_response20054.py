@@ -37,7 +37,7 @@ class InlineResponse20054(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[ThreediModel]'
+        'results': 'list[PotentialBreach]'
     }
 
     attribute_map = {
@@ -135,7 +135,7 @@ class InlineResponse20054(object):
 
 
         :return: The results of this InlineResponse20054.  # noqa: E501
-        :rtype: list[ThreediModel]
+        :rtype: list[PotentialBreach]
         """
         return self._results
 
@@ -145,7 +145,7 @@ class InlineResponse20054(object):
 
 
         :param results: The results of this InlineResponse20054.  # noqa: E501
-        :type: list[ThreediModel]
+        :type: list[PotentialBreach]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

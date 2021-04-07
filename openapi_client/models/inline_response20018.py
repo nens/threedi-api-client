@@ -37,7 +37,7 @@ class InlineResponse20018(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[ConstantLeakage]'
+        'results': 'list[ConstantRain]'
     }
 
     attribute_map = {
@@ -135,7 +135,7 @@ class InlineResponse20018(object):
 
 
         :return: The results of this InlineResponse20018.  # noqa: E501
-        :rtype: list[ConstantLeakage]
+        :rtype: list[ConstantRain]
         """
         return self._results
 
@@ -145,7 +145,7 @@ class InlineResponse20018(object):
 
 
         :param results: The results of this InlineResponse20018.  # noqa: E501
-        :type: list[ConstantLeakage]
+        :type: list[ConstantRain]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

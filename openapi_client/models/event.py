@@ -43,9 +43,6 @@ class Event(object):
         'filerastersourcessinks': 'list[FileRasterSourcesSinks]',
         'filetimeseriessourcessinks': 'list[FileTimeseriesSourcesSinks]',
         'timeseriessourcessinks': 'list[TimeseriesSourcesSinksOverview]',
-        'leakage': 'list[TimeseriesLeakageOverview]',
-        'filetimeseriesleakage': 'list[FileTimeseriesLeakage]',
-        'filerasterleakage': 'list[FileRasterLeakage]',
         'initial_twodwaterlevel': 'TwoDWaterLevel',
         'initial_onedwaterlevelpredefined': 'OneDWaterLevelPredefined',
         'initial_groundwaterlevel': 'GroundWaterLevel',
@@ -78,9 +75,6 @@ class Event(object):
         'filerastersourcessinks': 'filerastersourcessinks',
         'filetimeseriessourcessinks': 'filetimeseriessourcessinks',
         'timeseriessourcessinks': 'timeseriessourcessinks',
-        'leakage': 'leakage',
-        'filetimeseriesleakage': 'filetimeseriesleakage',
-        'filerasterleakage': 'filerasterleakage',
         'initial_twodwaterlevel': 'initial_twodwaterlevel',
         'initial_onedwaterlevelpredefined': 'initial_onedwaterlevelpredefined',
         'initial_groundwaterlevel': 'initial_groundwaterlevel',
@@ -103,7 +97,7 @@ class Event(object):
         'initial_winddragcoefficient': 'initial_winddragcoefficient'
     }
 
-    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, leakage=None, filetimeseriesleakage=None, filerasterleakage=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, filelaterals=None, fileboundaryconditions=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, rasteredits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, filelaterals=None, fileboundaryconditions=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, rasteredits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -118,9 +112,6 @@ class Event(object):
         self._filerastersourcessinks = None
         self._filetimeseriessourcessinks = None
         self._timeseriessourcessinks = None
-        self._leakage = None
-        self._filetimeseriesleakage = None
-        self._filerasterleakage = None
         self._initial_twodwaterlevel = None
         self._initial_onedwaterlevelpredefined = None
         self._initial_groundwaterlevel = None
@@ -161,12 +152,6 @@ class Event(object):
             self.filetimeseriessourcessinks = filetimeseriessourcessinks
         if timeseriessourcessinks is not None:
             self.timeseriessourcessinks = timeseriessourcessinks
-        if leakage is not None:
-            self.leakage = leakage
-        if filetimeseriesleakage is not None:
-            self.filetimeseriesleakage = filetimeseriesleakage
-        if filerasterleakage is not None:
-            self.filerasterleakage = filerasterleakage
         if initial_twodwaterlevel is not None:
             self.initial_twodwaterlevel = initial_twodwaterlevel
         if initial_onedwaterlevelpredefined is not None:
@@ -396,69 +381,6 @@ class Event(object):
         """
 
         self._timeseriessourcessinks = timeseriessourcessinks
-
-    @property
-    def leakage(self):
-        """Gets the leakage of this Event.  # noqa: E501
-
-
-        :return: The leakage of this Event.  # noqa: E501
-        :rtype: list[TimeseriesLeakageOverview]
-        """
-        return self._leakage
-
-    @leakage.setter
-    def leakage(self, leakage):
-        """Sets the leakage of this Event.
-
-
-        :param leakage: The leakage of this Event.  # noqa: E501
-        :type: list[TimeseriesLeakageOverview]
-        """
-
-        self._leakage = leakage
-
-    @property
-    def filetimeseriesleakage(self):
-        """Gets the filetimeseriesleakage of this Event.  # noqa: E501
-
-
-        :return: The filetimeseriesleakage of this Event.  # noqa: E501
-        :rtype: list[FileTimeseriesLeakage]
-        """
-        return self._filetimeseriesleakage
-
-    @filetimeseriesleakage.setter
-    def filetimeseriesleakage(self, filetimeseriesleakage):
-        """Sets the filetimeseriesleakage of this Event.
-
-
-        :param filetimeseriesleakage: The filetimeseriesleakage of this Event.  # noqa: E501
-        :type: list[FileTimeseriesLeakage]
-        """
-
-        self._filetimeseriesleakage = filetimeseriesleakage
-
-    @property
-    def filerasterleakage(self):
-        """Gets the filerasterleakage of this Event.  # noqa: E501
-
-
-        :return: The filerasterleakage of this Event.  # noqa: E501
-        :rtype: list[FileRasterLeakage]
-        """
-        return self._filerasterleakage
-
-    @filerasterleakage.setter
-    def filerasterleakage(self, filerasterleakage):
-        """Sets the filerasterleakage of this Event.
-
-
-        :param filerasterleakage: The filerasterleakage of this Event.  # noqa: E501
-        :type: list[FileRasterLeakage]
-        """
-
-        self._filerasterleakage = filerasterleakage
 
     @property
     def initial_twodwaterlevel(self):
