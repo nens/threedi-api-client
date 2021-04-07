@@ -5,7 +5,7 @@ History
 3.0.24 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Simulation settings endpoints.
 
 
 3.0.23 (2021-03-03)
@@ -23,7 +23,7 @@ History
 3.0.21 (2021-01-21)
 -------------------
 
-- New filters and usage statistics models. 
+- New filters and usage statistics models.
 
 
 3.0.20 (2021-01-07)
