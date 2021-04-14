@@ -74,7 +74,7 @@ setup(
     python_requires='>=3.5',
     extras_require={
         "aio": aio_requirements,
-        "tests": test_requirements,
+        "test": test_requirements,
     },
     test_suite='tests',
     url='https://github.com/nens/threedi-openapi-client',
