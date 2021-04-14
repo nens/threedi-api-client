@@ -1,0 +1,129 @@
+import logging
+import os
+import re
+from typing import BinaryIO
+from typing import Tuple
+from urllib.parse import urlparse
+
+import urllib3
+
+from openapi_client.exceptions import ApiException
+
+CONTENT_RANGE_REGEXP = re.compile(r"^bytes (\d+)-(\d+)/(\d+|\*)$")
+
+
+logger = logging.getLogger(__name__)
+
+
+def get_pool(retries=3, backoff_factor=1):
+    """Create a PoolManager with a retry policy.
+
+    The default retry policy has 3 retries with 1, 2, 4 second intervals.
+
+    Args:
+        retries: Total number of retries per request
+        backoff_factor: Multiplier for retry delay times (1, 2, 4, ...)
+    """
+    return urllib3.PoolManager(
+        retries=urllib3.util.retry.Retry(retries, backoff_factor=backoff_factor)
+    )
+
+
+def download_file(
+    url: str,
+    target: str,
+    chunk_size: int = 16777216,
+    timeout: float = 5.0,
+    pool: urllib3.PoolManager = None,
+) -> Tuple[str, int]:
+    """Download a file to a specified path on disk.
+
+    It is assumed that the file server supports multipart downloads.
+
+    Args:
+        url: the url to retrieve
+        target: the location to copy to. if this is a directory, a
+            filename is generated from the filename in the url.
+        chunk_size: numer of bytes per request. Default: 16MB.
+        timeout: the total timeout in seconds
+        pool: an optional PoolManager. if not given, a default one will be
+            created with a retry policy of 3 retries after 1, 2, 4 seconds.
+
+    Returns:
+        tuple of file path, total file size in bytes
+
+    If `path` already exists, it's overwritten. This will fail if the remote
+    server does not support range requests. Retries failed part requests 3
+    times after 1, 2 and 4 seconds.
+    """
+    # if it is a directory, take the filename from the url
+    if os.path.isdir(target):
+        filename = urlparse(url)[2].rsplit("/", 1)[-1]
+        target = os.path.join(target, filename)
+
+    # open the file
+    with open(target, "wb") as fileobj:
+        size = download_fileobj(url, fileobj, chunk_size, timeout, pool)
+
+    return target, size
+
+
+def download_fileobj(
+    url: str,
+    fileobj: BinaryIO,
+    chunk_size: int = 16777216,
+    timeout: float = 5.0,
+    pool: urllib3.PoolManager = None,
+) -> int:
+    """Download a url to a file object using multiple requests.
+
+    It is assumed that the file server supports multipart downloads.
+
+    Args:
+        url: the url to retrieve
+        filename: the file location to copy to.
+        chunk_size: numer of bytes per request. Default: 16MB.
+        timeout: the total timeout in seconds
+        pool: an optional PoolManager. if not given, a default one will be
+            created with a retry policy of 3 retries after 1, 2, 4 seconds.
+
+    Returns:
+        total file size in bytes
+    """
+    if pool is None:
+        pool = get_pool()
+
+    # Our strategy here is to just start downloading chunks while monitoring
+    # the Content-Range header to check if we're done. Although we could get
+    # the total Content-Length from a HEAD request, not all servers support
+    # that (e.g. Minio).
+    start = 0
+    while True:
+        # download a chunk
+        stop = start + chunk_size - 1
+        headers = {"Range": f"bytes={start}-{stop}"}
+
+        # Send the request and get the data with the openapi-generator
+        # ApiClient instance. It will raise on non-2XX responses.
+        response = pool.request(
+            "GET",
+            url,
+            headers=headers,
+            timeout=timeout,
+        )
+        if response.status != 206:
+            raise ApiException(http_resp=response)
+
+        # write to file
+        fileobj.write(response.data)
+
+        # parse content-range header (e.g. "bytes 0-3/7") for next iteration
+        content_range = response.headers["Content-Range"]
+        start, stop, total = [
+            int(x) for x in CONTENT_RANGE_REGEXP.findall(content_range)[0]
+        ]
+        if stop + 1 >= total:
+            break
+        start += chunk_size
+
+    return total
