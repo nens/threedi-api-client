@@ -33,16 +33,16 @@ def find_version(*file_paths):
 
 requirements = [
     'certifi>=2019.3.9',
-    'urllib3',
+    'urllib3>=1.15',
     'pyjwt>=1.7.1',
-    'six',
+    'six>=1.10',
     'python-dateutil',
-    'aiohttp>=3.6.3',
 ]
 
-setup_requirements = ['pytest-runner', ]
+aio_requirements = ['aiohttp>=3.6.3']
 
-test_requirements = ['pytest', ]
+test_requirements = ["pytest"]
+
 
 setup(
     author="Lars Claussen",
@@ -55,6 +55,8 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
     description="client for the threedi API",
     install_requires=requirements,
@@ -69,9 +71,12 @@ setup(
             'threedi_api_client', 'threedi_api_client.*'
         ]
     ),
-    setup_requires=setup_requirements,
+    python_requires='>=3.5',
+    extras_require={
+        "aio": aio_requirements,
+        "tests": test_requirements,
+    },
     test_suite='tests',
-    tests_require=test_requirements,
     url='https://github.com/nens/threedi-openapi-client',
     version=find_version("openapi_client", "__init__.py"),
     zip_safe=False,
