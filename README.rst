@@ -33,6 +33,11 @@ We recommend `pip` to install this package::
     pip install --user threedi-api-client
 
 
+If async support is required, install as follows::
+
+    pip install --user threedi-api-client[aio]
+
+
 Usage
 -----
 
