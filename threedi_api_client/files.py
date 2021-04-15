@@ -47,13 +47,13 @@ def download_file(
         target: The location to copy to. If this is an existing file, it is
             overwritten. If it is a directory, a filename is generated from
             the filename in the url.
-        chunk_size: numer of bytes per request. Default: 16MB.
-        timeout: the total timeout in seconds
-        pool: an optional PoolManager. if not given, a default one will be
+        chunk_size: The numer of bytes per request. Default: 16MB.
+        timeout: The total timeout in seconds.
+        pool: If not supplied, a default connection pool will be
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
 
     Returns:
-        tuple of file path, total file size in bytes
+        Tuple of file path, total amount of uploaded bytes.
 
     Raises:
         openapi_client.exceptions.ApiException: raised on unexpected server
@@ -93,15 +93,15 @@ def download_fileobj(
     requests).
 
     Args:
-        url: the url to retrieve
-        filename: the file location to copy to.
-        chunk_size: numer of bytes per request. Default: 16MB.
-        timeout: the total timeout in seconds
-        pool: an optional PoolManager. if not given, a default one will be
+        url: The url to retrieve.
+        fileobj: The (binary) file object to write into.
+        chunk_size: The numer of bytes per request. Default: 16MB.
+        timeout: The total timeout in seconds.
+        pool: If not supplied, a default connection pool will be
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
 
     Returns:
-        total file size in bytes
+        The total amount of downloaded bytes.
 
     Raises:
         openapi_client.exceptions.ApiException: raised on unexpected server
@@ -157,16 +157,40 @@ def download_fileobj(
 
 def upload_file(
     url: str,
-    source: Path,
+    file_path: Path,
     timeout: float = 5.0,
     pool: Optional[urllib3.PoolManager] = None,
 ) -> int:
+    """Upload a file at specified file path to a url.
+
+    The upload is accompanied by an MD5 hash so that the file server can check
+    the integrity of the file.
+
+    Args:
+        url: The url to upload to.
+        file_path: The file path to read data from.
+        timeout: The total timeout in seconds.
+        pool: If not supplied, a default connection pool will be
+            created with a retry policy of 3 retries after 1, 2, 4 seconds.
+
+    Returns:
+        The total amount of uploaded bytes.
+
+    Raises:
+        IOError: Raised if the provided file is incompatible or empty.
+        openapi_client.exceptions.ApiException: raised on unexpected server
+            responses (HTTP status codes other than 206, 413, 429, 503)
+        urllib3.exceptions.HTTPError: various low-level HTTP errors that persist
+            after retrying: connection errors, timeouts, decode errors,
+            invalid HTTP headers, payload too large (HTTP 413), too many
+            requests (HTTP 429), service unavailable (HTTP 503)
+    """
     # cast string to Path if necessary
-    if isinstance(source, str):
-        source = Path(source)
+    if isinstance(file_path, str):
+        file_path = Path(file_path)
 
     # open the file
-    with source.open("rb") as fileobj:
+    with file_path.open("rb") as fileobj:
         size = upload_fileobj(url, fileobj, timeout=timeout, pool=pool)
 
     return size
@@ -178,6 +202,30 @@ def upload_fileobj(
     timeout: float = 5.0,
     pool: Optional[urllib3.PoolManager] = None,
 ) -> int:
+    """Upload a file object to a url.
+
+    The upload is accompanied by an MD5 hash so that the file server can check
+    the integrity of the file.
+
+    Args:
+        url: The url to upload to.
+        fileobj: The (binary) file object to read from.
+        timeout: The total timeout in seconds.
+        pool: If not supplied, a default connection pool will be
+            created with a retry policy of 3 retries after 1, 2, 4 seconds.
+
+    Returns:
+        The total amount of uploaded bytes.
+
+    Raises:
+        IOError: Raised if the provided file is incompatible or empty.
+        openapi_client.exceptions.ApiException: raised on unexpected server
+            responses (HTTP status codes other than 206, 413, 429, 503)
+        urllib3.exceptions.HTTPError: various low-level HTTP errors that persist
+            after retrying: connection errors, timeouts, decode errors,
+            invalid HTTP headers, payload too large (HTTP 413), too many
+            requests (HTTP 429), service unavailable (HTTP 503)
+    """
     if pool is None:
         pool = get_pool()
 
@@ -188,13 +236,13 @@ def upload_fileobj(
     body = fileobj.read()
     if not isinstance(body, bytes):
         raise IOError(
-            "The file object is not in binary mode. " "Please open with mode='rb'."
+            "The file object is not in binary mode. Please open with mode='rb'."
         )
-    if len(body) == 0:
+    length = len(body)
+    if length == 0:
         raise IOError("The provided file is empty.")
 
     # Make a hash so that the file server can check integerity.
-    length = len(body)
     md5 = base64.b64encode(hashlib.md5(body).digest())
 
     headers = {"Content-Length": str(length), "Content-MD5": md5.decode()}
