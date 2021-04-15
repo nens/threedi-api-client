@@ -4,8 +4,9 @@ from unittest import mock
 import pytest
 from urllib3.response import HTTPResponse
 
-from threedi_api_client.files import download_file, download_fileobj, upload_file, upload_fileobj
 from openapi_client.exceptions import ApiException
+from threedi_api_client.files import (download_file, download_fileobj,
+                                      upload_file, upload_fileobj)
 
 
 @pytest.fixture
@@ -159,3 +160,20 @@ def test_upload_fileobj_errors(pool, fileobj, upload_response):
         upload_fileobj("some-url", fileobj, pool=pool)
 
     assert e.value.status == 400
+
+
+@mock.patch("threedi_api_client.files.upload_fileobj")
+def test_upload_file(upload_fileobj, tmp_path):
+    path = tmp_path / "myfile"
+    with path.open("wb") as f:
+        f.write(b"X")
+
+    upload_file("http://domain/a.b", path, timeout=3.0, pool="foo")
+
+    args, kwargs = upload_fileobj.call_args
+    assert args[0] == "http://domain/a.b"
+    assert isinstance(args[1], io.IOBase)
+    assert args[1].mode == "rb"
+    assert args[1].name == str(path)
+    assert kwargs["timeout"] == 3.0
+    assert kwargs["pool"] == "foo"
