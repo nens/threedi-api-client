@@ -1,10 +1,10 @@
+import base64
+import hashlib
 import logging
 import re
 from pathlib import Path
 from typing import BinaryIO, Optional, Tuple
 from urllib.parse import urlparse
-import base64
-import hashlib
 
 import urllib3
 
@@ -155,6 +155,23 @@ def download_fileobj(
     return total
 
 
+def upload_file(
+    url: str,
+    source: Path,
+    timeout: float = 5.0,
+    pool: Optional[urllib3.PoolManager] = None,
+) -> int:
+    # cast string to Path if necessary
+    if isinstance(source, str):
+        source = Path(source)
+
+    # open the file
+    with source.open("rb") as fileobj:
+        size = upload_fileobj(url, fileobj, timeout=timeout, pool=pool)
+
+    return size
+
+
 def upload_fileobj(
     url: str,
     fileobj: BinaryIO,
@@ -171,25 +188,17 @@ def upload_fileobj(
     body = fileobj.read()
     if not isinstance(body, bytes):
         raise IOError(
-            "The file object is not in binary mode. "
-            "Please open with mode='rb'."
+            "The file object is not in binary mode. " "Please open with mode='rb'."
         )
     if len(body) == 0:
-        raise IOError(
-            "The provided file is empty."
-        )
+        raise IOError("The provided file is empty.")
 
     # Make a hash so that the file server can check integerity.
     length = len(body)
     md5 = base64.b64encode(hashlib.md5(body).digest())
 
-    headers = {
-        "Content-Length": str(length),
-        "Content-MD5": md5.decode()
-    }
-    response = pool.request(
-        "PUT", url, body=body, headers=headers, timeout=timeout
-    )
+    headers = {"Content-Length": str(length), "Content-MD5": md5.decode()}
+    response = pool.request("PUT", url, body=body, headers=headers, timeout=timeout)
     if response.status != 200:
         raise ApiException(http_resp=response)
 
