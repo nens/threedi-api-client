@@ -131,7 +131,8 @@ def download_fileobj(
         )
         if response.status == 200:
             raise ApiException(
-                status=200, reason="Multipart downloads are not supported."
+                status=200,
+                reason="The file server does not support multipart downloads.",
             )
         elif response.status != 206:
             raise ApiException(http_resp=response)

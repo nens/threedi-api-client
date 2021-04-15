@@ -75,7 +75,7 @@ def test_download_fileobj_no_multipart(pool, responses_single):
         download_fileobj("some-url", None, chunk_size=64, pool=pool)
 
     assert e.value.status == 200
-    assert e.value.reason == "Multipart downloads are not supported."
+    assert e.value.reason == "The file server does not support multipart downloads."
 
 
 def test_download_fileobj_forbidden(pool, responses_single):
