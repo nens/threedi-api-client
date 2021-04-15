@@ -62,7 +62,7 @@ def download_file(
             requests (HTTP 429), service unavailable (HTTP 503)
     """
     # cast string to Path if necessary
-    if not isinstance(target, Path):
+    if isinstance(target, str):
         target = Path(target)
 
     # if it is a directory, take the filename from the url
