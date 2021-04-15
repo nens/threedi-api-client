@@ -37,12 +37,14 @@ def download_file(
 ) -> Tuple[str, int]:
     """Download a file to a specified path on disk.
 
-    It is assumed that the file server supports multipart downloads.
+    It is assumed that the file server supports multipart downloads (range
+    requests).
 
     Args:
-        url: the url to retrieve
-        target: the location to copy to. if this is a directory, a
-            filename is generated from the filename in the url.
+        url: The url to retrieve.
+        target: The location to copy to. If this is an existing file, it is
+            overwritten. If it is a directory, a filename is generated from
+            the filename in the url.
         chunk_size: numer of bytes per request. Default: 16MB.
         timeout: the total timeout in seconds
         pool: an optional PoolManager. if not given, a default one will be
@@ -51,9 +53,13 @@ def download_file(
     Returns:
         tuple of file path, total file size in bytes
 
-    If `path` already exists, it's overwritten. This will fail if the remote
-    server does not support range requests. Retries failed part requests 3
-    times after 1, 2 and 4 seconds.
+    Raises:
+        openapi_client.exceptions.ApiException: raised on unexpected server
+            responses (HTTP status codes other than 206, 413, 429, 503)
+        urllib3.exceptions.HTTPError: various low-level HTTP errors that persist
+            after retrying: connection errors, timeouts, decode errors,
+            invalid HTTP headers, payload too large (HTTP 413), too many
+            requests (HTTP 429), service unavailable (HTTP 503)
     """
     # cast string to Path if necessary
     target = Path(target)
@@ -80,7 +86,8 @@ def download_fileobj(
 ) -> int:
     """Download a url to a file object using multiple requests.
 
-    It is assumed that the file server supports multipart downloads.
+    It is assumed that the file server supports multipart downloads (range
+    requests).
 
     Args:
         url: the url to retrieve
@@ -92,6 +99,14 @@ def download_fileobj(
 
     Returns:
         total file size in bytes
+
+    Raises:
+        openapi_client.exceptions.ApiException: raised on unexpected server
+            responses (HTTP status codes other than 206, 413, 429, 503)
+        urllib3.exceptions.HTTPError: various low-level HTTP errors that persist
+            after retrying: connection errors, timeouts, decode errors,
+            invalid HTTP headers, payload too large (HTTP 413), too many
+            requests (HTTP 429), service unavailable (HTTP 503)
     """
     if pool is None:
         pool = get_pool()
@@ -114,7 +129,11 @@ def download_fileobj(
             headers=headers,
             timeout=timeout,
         )
-        if response.status != 206:
+        if response.status == 200:
+            raise ApiException(
+                status=200, reason="Multipart downloads are not supported."
+            )
+        elif response.status != 206:
             raise ApiException(http_resp=response)
 
         # write to file

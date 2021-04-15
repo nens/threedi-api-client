@@ -5,6 +5,7 @@ import pytest
 from urllib3.response import HTTPResponse
 
 from threedi_api_client.files import download_file, download_fileobj
+from openapi_client.exceptions import ApiException
 
 
 @pytest.fixture
@@ -63,6 +64,29 @@ def test_download_fileobj_two_chunks(pool, responses_double):
     assert kwargs1["headers"] == {"Range": "bytes=0-63"}
     assert kwargs2["headers"] == {"Range": "bytes=64-127"}
     assert stream.tell() == 65
+
+
+def test_download_fileobj_no_multipart(pool, responses_single):
+    """The remote server does not support range requests"""
+    responses_single[0].status = 200
+    pool.request.side_effect = responses_single
+
+    with pytest.raises(ApiException) as e:
+        download_fileobj("some-url", None, chunk_size=64, pool=pool)
+
+    assert e.value.status == 200
+    assert e.value.reason == "Multipart downloads are not supported."
+
+
+def test_download_fileobj_forbidden(pool, responses_single):
+    """The remote server does not support range requests"""
+    responses_single[0].status = 403
+    pool.request.side_effect = responses_single
+
+    with pytest.raises(ApiException) as e:
+        download_fileobj("some-url", None, chunk_size=64, pool=pool)
+
+    assert e.value.status == 403
 
 
 @mock.patch("threedi_api_client.files.download_fileobj")
