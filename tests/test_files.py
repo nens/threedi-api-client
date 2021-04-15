@@ -5,8 +5,10 @@ import pytest
 from urllib3.response import HTTPResponse
 
 from openapi_client.exceptions import ApiException
-from threedi_api_client.files import (download_file, download_fileobj,
-                                      upload_file, upload_fileobj)
+from threedi_api_client.files import download_file
+from threedi_api_client.files import download_fileobj
+from threedi_api_client.files import upload_file
+from threedi_api_client.files import upload_fileobj
 
 
 @pytest.fixture

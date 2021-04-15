@@ -164,7 +164,8 @@ def upload_file(
     """Upload a file at specified file path to a url.
 
     The upload is accompanied by an MD5 hash so that the file server can check
-    the integrity of the file.
+    the integrity of the file. This function is not inteded for files larger than
+    1 GB.
 
     Args:
         url: The url to upload to.
@@ -205,11 +206,13 @@ def upload_fileobj(
     """Upload a file object to a url.
 
     The upload is accompanied by an MD5 hash so that the file server can check
-    the integrity of the file.
+    the integrity of the file. This function is not inteded for files larger than
+    1 GB.
 
     Args:
         url: The url to upload to.
         fileobj: The (binary) file object to read from.
+        size: The size of the file, in bytes.
         timeout: The total timeout in seconds.
         pool: If not supplied, a default connection pool will be
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
@@ -230,6 +233,14 @@ def upload_fileobj(
     # - PutObject: put the whole object in one time
     # - multipart upload: requires presigned urls for every part
     # We can only do the first option as we have no other presigned urls.
+
+    # We could do a streaming upload instead by supplying just the file stream as a
+    # body. Urllib3 will in that case forward the stream to http.HTTPConnection.request,
+    # which will stream using a rather small blocksize of 8192. This is hardcoded,
+    # see https://github.com/urllib3/urllib3/issues/2067
+
+    # Also if we would do that, we would have to pass through the file 2 times, once
+    # for computing the MD5 hash, once for the upload. So we just read the thing in memory:
     body = fileobj.read()
     if not isinstance(body, bytes):
         raise IOError(
