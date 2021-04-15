@@ -119,7 +119,7 @@ def download_fileobj(
     while True:
         # download a chunk
         stop = start + chunk_size - 1
-        headers = {"Range": f"bytes={start}-{stop}"}
+        headers = {"Range": "bytes={}-{}".format(start, stop)}
 
         # Send the request and get the data with the openapi-generator
         # ApiClient instance. It will raise on non-2XX responses.
