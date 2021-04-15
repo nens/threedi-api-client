@@ -258,7 +258,8 @@ with open(local_file_path, 'rb') as f:
 ### Async client
 
 The ThreediApiClient also provides an asynchronous api client. To use the async-client 
-make sure you import from the `aio` submodule. The async-client works the same as the 
+make sure you install the optional dependencies using ``pip install threedi-api-client[aio]``
+and then import from the `aio` submodule. The async-client works the same as the 
 synchronous client, except all api calls are coroutines.
 
 For example, to asynchronously request files from the api:
