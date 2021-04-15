@@ -63,3 +63,28 @@ def test_download_fileobj_two_chunks(pool, responses_double):
     assert kwargs1["headers"] == {"Range": "bytes=0-63"}
     assert kwargs2["headers"] == {"Range": "bytes=64-127"}
     assert stream.tell() == 65
+
+
+@mock.patch("threedi_api_client.files.download_fileobj")
+def test_download_file(download_fileobj, tmp_path):
+    download_file(
+        "http://domain/a.b", tmp_path / "c.d", chunk_size=64, timeout=3.0, pool="foo"
+    )
+
+    args, kwargs = download_fileobj.call_args
+    assert args[0] == "http://domain/a.b"
+    assert isinstance(args[1], io.IOBase)
+    assert args[1].mode == "wb"
+    assert args[1].name == str(tmp_path / "c.d")
+    assert kwargs["chunk_size"] == 64
+    assert kwargs["timeout"] == 3.0
+    assert kwargs["pool"] == "foo"
+
+
+@mock.patch("threedi_api_client.files.download_fileobj")
+def test_download_file_directory(download_fileobj, tmp_path):
+    # if a target directory is specified, a filename is created from the url
+    download_file("http://domain/a.b", tmp_path, chunk_size=64, timeout=3.0, pool="foo")
+
+    args, kwargs = download_fileobj.call_args
+    assert args[1].name == str(tmp_path / "a.b")

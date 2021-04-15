@@ -1,8 +1,7 @@
 import logging
-import os
 import re
-from typing import BinaryIO
-from typing import Tuple
+from pathlib import Path
+from typing import BinaryIO, Optional, Tuple
 from urllib.parse import urlparse
 
 import urllib3
@@ -31,10 +30,10 @@ def get_pool(retries: int = 3, backoff_factor: int = 1) -> urllib3.PoolManager:
 
 def download_file(
     url: str,
-    target: str,
+    target: Path,
     chunk_size: int = 16777216,
     timeout: float = 5.0,
-    pool: urllib3.PoolManager = None,
+    pool: Optional[urllib3.PoolManager] = None,
 ) -> Tuple[str, int]:
     """Download a file to a specified path on disk.
 
@@ -56,14 +55,18 @@ def download_file(
     server does not support range requests. Retries failed part requests 3
     times after 1, 2 and 4 seconds.
     """
+    # cast string to Path if necessary
+    target = Path(target)
+
     # if it is a directory, take the filename from the url
-    if os.path.isdir(target):
-        filename = urlparse(url)[2].rsplit("/", 1)[-1]
-        target = os.path.join(target, filename)
+    if target.is_dir():
+        target = target / urlparse(url)[2].rsplit("/", 1)[-1]
 
     # open the file
-    with open(target, "wb") as fileobj:
-        size = download_fileobj(url, fileobj, chunk_size, timeout, pool)
+    with target.open("wb") as fileobj:
+        size = download_fileobj(
+            url, fileobj, chunk_size=chunk_size, timeout=timeout, pool=pool
+        )
 
     return target, size
 
@@ -73,7 +76,7 @@ def download_fileobj(
     fileobj: BinaryIO,
     chunk_size: int = 16777216,
     timeout: float = 5.0,
-    pool: urllib3.PoolManager = None,
+    pool: Optional[urllib3.PoolManager] = None,
 ) -> int:
     """Download a url to a file object using multiple requests.
 
