@@ -226,9 +226,6 @@ def upload_fileobj(
             invalid HTTP headers, payload too large (HTTP 413), too many
             requests (HTTP 429), service unavailable (HTTP 503)
     """
-    if pool is None:
-        pool = get_pool()
-
     # There are two ways to upload in S3 (Minio):
     # - PutObject: put the whole object in one time
     # - multipart upload: requires presigned urls for every part
@@ -240,10 +237,13 @@ def upload_fileobj(
         )
     length = len(body)
     if length == 0:
-        raise IOError("The provided file is empty.")
+        raise IOError("The file object is empty.")
 
     # Make a hash so that the file server can check integerity.
     md5 = base64.b64encode(hashlib.md5(body).digest())
+
+    if pool is None:
+        pool = get_pool()
 
     headers = {"Content-Length": str(length), "Content-MD5": md5.decode()}
     response = pool.request("PUT", url, body=body, headers=headers, timeout=timeout)

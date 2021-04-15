@@ -4,7 +4,7 @@ from unittest import mock
 import pytest
 from urllib3.response import HTTPResponse
 
-from threedi_api_client.files import download_file, download_fileobj
+from threedi_api_client.files import download_file, download_fileobj, upload_file, upload_fileobj
 from openapi_client.exceptions import ApiException
 
 
@@ -112,3 +112,50 @@ def test_download_file_directory(download_fileobj, tmp_path):
 
     args, kwargs = download_fileobj.call_args
     assert args[1].name == str(tmp_path / "a.b")
+
+
+@pytest.fixture
+def upload_response():
+    return HTTPResponse(status=200)
+
+
+@pytest.fixture
+def fileobj():
+    stream = io.BytesIO()
+    stream.write(b"X" * 39)
+    stream.seek(0)
+    return stream
+
+
+def test_upload_fileobj(pool, fileobj, upload_response):
+    pool.request.return_value = upload_response
+    upload_fileobj("some-url", fileobj, pool=pool)
+
+    # base64.b64encode(hashlib.md5(b"X" * 39).digest()).decode()
+    expected_md5 = "Q2zMNJgyazDIkoSqvpOqVg=="
+    pool.request.assert_called_with(
+        "PUT",
+        "some-url",
+        body=b"X" * 39,
+        headers={"Content-Length": "39", "Content-MD5": expected_md5},
+        timeout=5.0,
+    )
+
+
+def test_upload_fileobj_empty_file():
+    with pytest.raises(IOError, match="The file object is empty."):
+        upload_fileobj("some-url", io.BytesIO())
+
+
+def test_upload_fileobj_non_binary_file():
+    with pytest.raises(IOError, match="The file object is not in binary*"):
+        upload_fileobj("some-url", io.StringIO())
+
+
+def test_upload_fileobj_errors(pool, fileobj, upload_response):
+    upload_response.status = 400
+    pool.request.return_value = upload_response
+    with pytest.raises(ApiException) as e:
+        upload_fileobj("some-url", fileobj, pool=pool)
+
+    assert e.value.status == 400
