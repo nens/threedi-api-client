@@ -47,13 +47,13 @@ def download_file(
         target: The location to copy to. If this is an existing file, it is
             overwritten. If it is a directory, a filename is generated from
             the filename in the url.
-        chunk_size: The numer of bytes per request. Default: 16MB.
+        chunk_size: The number of bytes per request. Default: 16MB.
         timeout: The total timeout in seconds.
         pool: If not supplied, a default connection pool will be
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
 
     Returns:
-        Tuple of file path, total amount of uploaded bytes.
+        Tuple of file path, total number of uploaded bytes.
 
     Raises:
         openapi_client.exceptions.ApiException: raised on unexpected server
@@ -95,13 +95,13 @@ def download_fileobj(
     Args:
         url: The url to retrieve.
         fileobj: The (binary) file object to write into.
-        chunk_size: The numer of bytes per request. Default: 16MB.
+        chunk_size: The number of bytes per request. Default: 16MB.
         timeout: The total timeout in seconds.
         pool: If not supplied, a default connection pool will be
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
 
     Returns:
-        The total amount of downloaded bytes.
+        The total number of downloaded bytes.
 
     Raises:
         openapi_client.exceptions.ApiException: raised on unexpected server
@@ -165,9 +165,8 @@ def upload_file(
 ) -> int:
     """Upload a file at specified file path to a url.
 
-    The upload is accompanied by an MD5 hash so that the file server can check
-    the integrity of the file. This function is not inteded for files larger than
-    1 GB.
+    The upload is accompanied by an MD5 hash so that the file server checks
+    the integrity of the file.
 
     Args:
         url: The url to upload to.
@@ -181,7 +180,7 @@ def upload_file(
             have access to it. Otherwise this function will compute it for you.
 
     Returns:
-        The total amount of uploaded bytes.
+        The total number of uploaded bytes.
 
     Raises:
         IOError: Raised if the provided file is incompatible or empty.
