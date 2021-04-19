@@ -158,8 +158,10 @@ def download_fileobj(
 def upload_file(
     url: str,
     file_path: Path,
+    chunk_size: int = 16777216,
     timeout: float = 5.0,
     pool: Optional[urllib3.PoolManager] = None,
+    md5: Optional[bytes] = None,
 ) -> int:
     """Upload a file at specified file path to a url.
 
@@ -170,9 +172,13 @@ def upload_file(
     Args:
         url: The url to upload to.
         file_path: The file path to read data from.
+        chunk_size: The size of the chunk in the streaming upload. Note that this
+            function does not do multipart upload. Default: 16MB.
         timeout: The total timeout in seconds.
         pool: If not supplied, a default connection pool will be
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
+        md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
+            have access to it. Otherwise this function will compute it for you.
 
     Returns:
         The total amount of uploaded bytes.
@@ -192,33 +198,54 @@ def upload_file(
 
     # open the file
     with file_path.open("rb") as fileobj:
-        size = upload_fileobj(url, fileobj, timeout=timeout, pool=pool)
+        size = upload_fileobj(
+            url,
+            fileobj,
+            chunk_size=chunk_size,
+            timeout=timeout,
+            pool=pool,
+            md5=md5,
+        )
 
     return size
+
+
+def _iter_chunks(fileobj: BinaryIO, chunk_size: int):
+    """Yield chunks from a file stream"""
+    assert chunk_size > 0
+    while True:
+        data = fileobj.read(chunk_size)
+        if len(data) == 0:
+            break
+        yield data
 
 
 def upload_fileobj(
     url: str,
     fileobj: BinaryIO,
+    chunk_size: int = 16777216,
     timeout: float = 5.0,
     pool: Optional[urllib3.PoolManager] = None,
+    md5: Optional[bytes] = None,
 ) -> int:
     """Upload a file object to a url.
 
-    The upload is accompanied by an MD5 hash so that the file server can check
-    the integrity of the file. This function is not inteded for files larger than
-    1 GB.
+    The upload is accompanied by an MD5 hash so that the file server checks
+    the integrity of the file.
 
     Args:
         url: The url to upload to.
         fileobj: The (binary) file object to read from.
-        size: The size of the file, in bytes.
+        chunk_size: The size of the chunk in the streaming upload. Note that this
+            function does not do multipart upload. Default: 16MB.
         timeout: The total timeout in seconds.
         pool: If not supplied, a default connection pool will be
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
+        md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
+            have access to it. Otherwise this function will compute it for you.
 
     Returns:
-        The total amount of uploaded bytes.
+        The total number of uploaded bytes.
 
     Raises:
         IOError: Raised if the provided file is incompatible or empty.
@@ -233,32 +260,47 @@ def upload_fileobj(
     # - PutObject: put the whole object in one time
     # - multipart upload: requires presigned urls for every part
     # We can only do the first option as we have no other presigned urls.
+    # So we take the first option, but we do stream the request body in chunks.
 
-    # We could do a streaming upload instead by supplying just the file stream as a
-    # body. Urllib3 will in that case forward the stream to http.HTTPConnection.request,
-    # which will stream using a rather small blocksize of 8192. This is hardcoded,
-    # see https://github.com/urllib3/urllib3/issues/2067
-
-    # Also if we would do that, we would have to pass through the file 2 times, once
-    # for computing the MD5 hash, once for the upload. So we just read the thing in memory:
-    body = fileobj.read()
-    if not isinstance(body, bytes):
+    # We will get hard to understand tracebacks if the fileobj is not
+    # in binary mode. So use a trick to see if fileobj is in binary mode:
+    if not isinstance(fileobj.read(0), bytes):
         raise IOError(
             "The file object is not in binary mode. Please open with mode='rb'."
         )
-    length = len(body)
-    if length == 0:
-        raise IOError("The file object is empty.")
 
-    # Make a hash so that the file server can check integerity.
-    md5 = base64.b64encode(hashlib.md5(body).digest())
+    # For computing the MD5 we need to do an extra pass on the file.
+    if md5 is None:
+        fileobj.seek(0)
+        hasher = hashlib.md5()
+        for chunk in _iter_chunks(fileobj, chunk_size=chunk_size):
+            hasher.update(chunk)
+        md5 = hasher.digest()
+        file_size = fileobj.tell()
+    else:
+        file_size = fileobj.seek(0, 2)  # go to EOF
+
+    if file_size == 0:
+        raise IOError("The file object is empty.")
 
     if pool is None:
         pool = get_pool()
 
-    headers = {"Content-Length": str(length), "Content-MD5": md5.decode()}
-    response = pool.request("PUT", url, body=body, headers=headers, timeout=timeout)
+    fileobj.seek(0)
+    iterable = _iter_chunks(fileobj, chunk_size=chunk_size)
+    # Tested: both Content-Length and Content-MD5 are checked by Minio
+    headers = {
+        "Content-Length": str(file_size),
+        "Content-MD5": base64.b64encode(md5).decode(),
+    }
+    response = pool.request(
+        "PUT",
+        url,
+        body=iterable,
+        headers=headers,
+        timeout=timeout,
+    )
     if response.status != 200:
         raise ApiException(http_resp=response)
 
-    return length
+    return file_size

@@ -130,19 +130,38 @@ def fileobj():
     return stream
 
 
-def test_upload_fileobj(pool, fileobj, upload_response):
+@pytest.mark.parametrize(
+    "chunk_size,expected_body",
+    [
+        (64, [b"X" * 39]),
+        (39, [b"X" * 39]),
+        (38, [b"X" * 38, b"X"]),
+        (16, [b"X" * 16, b"X" * 16, b"X" * 7]),
+    ],
+)
+def test_upload_fileobj(pool, fileobj, upload_response, chunk_size, expected_body):
     pool.request.return_value = upload_response
-    upload_fileobj("some-url", fileobj, pool=pool)
+    upload_fileobj("some-url", fileobj, chunk_size=chunk_size, pool=pool)
 
     # base64.b64encode(hashlib.md5(b"X" * 39).digest()).decode()
     expected_md5 = "Q2zMNJgyazDIkoSqvpOqVg=="
-    pool.request.assert_called_with(
-        "PUT",
-        "some-url",
-        body=b"X" * 39,
-        headers={"Content-Length": "39", "Content-MD5": expected_md5},
-        timeout=5.0,
-    )
+
+    args, kwargs = pool.request.call_args
+    assert args == ("PUT", "some-url")
+    assert list(kwargs["body"]) == expected_body
+    assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
+    assert kwargs["timeout"] == 5.0
+
+
+def test_upload_fileobj_with_md5(pool, fileobj, upload_response):
+    pool.request.return_value = upload_response
+    upload_fileobj("some-url", fileobj, pool=pool, md5=b"abcd")
+
+    # base64.b64encode(b"abcd")).decode()
+    expected_md5 = "YWJjZA=="
+
+    args, kwargs = pool.request.call_args
+    assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
 
 
 def test_upload_fileobj_empty_file():
@@ -170,7 +189,9 @@ def test_upload_file(upload_fileobj, tmp_path):
     with path.open("wb") as f:
         f.write(b"X")
 
-    upload_file("http://domain/a.b", path, timeout=3.0, pool="foo")
+    upload_file(
+        "http://domain/a.b", path, chunk_size=1234, timeout=3.0, pool="foo", md5=b"abcd"
+    )
 
     args, kwargs = upload_fileobj.call_args
     assert args[0] == "http://domain/a.b"
@@ -178,4 +199,6 @@ def test_upload_file(upload_fileobj, tmp_path):
     assert args[1].mode == "rb"
     assert args[1].name == str(path)
     assert kwargs["timeout"] == 3.0
+    assert kwargs["chunk_size"] == 1234
     assert kwargs["pool"] == "foo"
+    assert kwargs["md5"] == b"abcd"
