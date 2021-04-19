@@ -124,8 +124,6 @@ def download_fileobj(
         stop = start + chunk_size - 1
         headers = {"Range": "bytes={}-{}".format(start, stop)}
 
-        # Send the request and get the data with the openapi-generator
-        # ApiClient instance. It will raise on non-2XX responses.
         response = pool.request(
             "GET",
             url,
