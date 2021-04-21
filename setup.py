@@ -39,9 +39,9 @@ requirements = [
     'python-dateutil',
 ]
 
-aio_requirements = ['aiohttp>=3.6.3']
+aio_requirements = ['aiohttp>=3.6.3', "aiofiles"]
 
-test_requirements = ["pytest"]
+test_requirements = ["pytest", "pytest-asyncio"]
 
 
 setup(
