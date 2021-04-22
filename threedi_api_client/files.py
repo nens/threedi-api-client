@@ -16,7 +16,7 @@ CONTENT_RANGE_REGEXP = re.compile(r"^bytes (\d+)-(\d+)/(\d+|\*)$")
 logger = logging.getLogger(__name__)
 
 
-def get_pool(retries: int = 3, backoff_factor: int = 1) -> urllib3.PoolManager:
+def get_pool(retries: int = 3, backoff_factor: float = 1.0) -> urllib3.PoolManager:
     """Create a PoolManager with a retry policy.
 
     The default retry policy has 3 retries with 1, 2, 4 second intervals.

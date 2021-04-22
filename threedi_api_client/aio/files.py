@@ -15,9 +15,30 @@ import aiohttp
 from openapi_client.exceptions import ApiException
 
 CONTENT_RANGE_REGEXP = re.compile(r"^bytes (\d+)-(\d+)/(\d+|\*)$")
+RETRY_STATUSES = frozenset({413, 429, 503})  # like in urllib3
 
 
 logger = logging.getLogger(__name__)
+
+
+async def _request_with_retry(request_coroutine, retries, backoff_factor):
+    """Call a request coroutine and retry on ClientError or on 413/429/503.
+
+    The default retry policy has 3 retries with 1, 2, 4 second intervals.
+    """
+    assert retries > 0
+    for attempt in range(retries):
+        if attempt > 0:
+            asyncio.sleep(backoff_factor * 2 ** attempt)
+
+        try:
+            response = await request_coroutine()
+        except aiohttp.ClientError:
+            if attempt == retries - 1:
+                raise  # propagate ClientError in case no retries left
+        else:
+            if response.status not in RETRY_STATUSES:
+                return response  # on all non-retry statuses: return response
 
 
 async def download_file(
@@ -27,6 +48,8 @@ async def download_file(
     timeout: float = 5.0,
     connector: Optional[aiohttp.BaseConnector] = None,
     executor: Optional[ThreadPoolExecutor] = None,
+    retries: int = 3,
+    backoff_factor: float = 1.0,
 ) -> Tuple[Path, int]:
     """Download a file to a specified path on disk.
 
@@ -42,9 +65,11 @@ async def download_file(
         timeout: The total timeout in seconds.
         connector: An optional aiohttp connector to support connection pooling.
             If not supplied, a default TCPConnector is instantiated with a pool
-            size (limit) of 4.
+            size (limit) of 1.
         executor: The ThreadPoolExecutor to execute local
             file I/O in. If not supplied, default executor is used.
+        retries: Total number of retries per request.
+        backoff_factor: Multiplier for retry delay times (1, 2, 4, ...)
 
     Returns:
         Tuple of file path, total number of uploaded bytes.
@@ -52,7 +77,7 @@ async def download_file(
     Raises:
         openapi_client.exceptions.ApiException: raised on unexpected server
             responses (HTTP status codes other than 206, 413, 429, 503)
-        urllib3.exceptions.HTTPError: various low-level HTTP errors that persist
+        aiohttp.ClientError: various low-level HTTP errors that persist
             after retrying: connection errors, timeouts, decode errors,
             invalid HTTP headers, payload too large (HTTP 413), too many
             requests (HTTP 429), service unavailable (HTTP 503)
@@ -80,6 +105,8 @@ async def download_fileobj(
     chunk_size: int = 16777216,
     timeout: float = 5.0,
     connector: Optional[aiohttp.BaseConnector] = None,
+    retries: int = 3,
+    backoff_factor: float = 1.0,
 ) -> int:
     """Download a url to a file object using multiple requests.
 
@@ -93,7 +120,9 @@ async def download_fileobj(
         timeout: The total timeout in seconds.
         connector: An optional aiohttp connector to support connection pooling.
             If not supplied, a default TCPConnector is instantiated with a pool
-            size (limit) of 4.
+            size (limit) of 1.
+        retries: Total number of retries per request.
+        backoff_factor: Multiplier for retry delay times (1, 2, 4, ...)
 
     Returns:
         The total number of downloaded bytes.
@@ -101,13 +130,13 @@ async def download_fileobj(
     Raises:
         openapi_client.exceptions.ApiException: raised on unexpected server
             responses (HTTP status codes other than 206, 413, 429, 503)
-        urllib3.exceptions.HTTPError: various low-level HTTP errors that persist
+        aiohttp.ClientError: various low-level HTTP errors that persist
             after retrying: connection errors, timeouts, decode errors,
             invalid HTTP headers, payload too large (HTTP 413), too many
             requests (HTTP 429), service unavailable (HTTP 503)
     """
     if connector is None:
-        connector = aiohttp.TCPConnector(limit=4)
+        connector = aiohttp.TCPConnector(limit=1)
 
     # Our strategy here is to just start downloading chunks while monitoring
     # the Content-Range header to check if we're done. Although we could get
@@ -120,12 +149,14 @@ async def download_fileobj(
             stop = start + chunk_size - 1
             headers = {"Range": "bytes={}-{}".format(start, stop)}
 
-            response = await client.request(
+            request = partial(
+                client.request,
                 "GET",
                 url,
                 headers=headers,
                 timeout=timeout,
             )
+            response = await _request_with_retry(request, retries, backoff_factor)
             if response.status == 200:
                 raise ApiException(
                     status=200,
@@ -157,6 +188,8 @@ async def upload_file(
     connector: Optional[aiohttp.BaseConnector] = None,
     md5: Optional[bytes] = None,
     executor: Optional[ThreadPoolExecutor] = None,
+    retries: int = 3,
+    backoff_factor: float = 1.0,
 ) -> int:
     """Upload a file at specified file path to a url.
 
@@ -174,6 +207,8 @@ async def upload_file(
             have access to it. Otherwise this function will compute it for you.
         executor: The ThreadPoolExecutor to execute local file I/O and MD5 hashing
             in. If not supplied, default executor is used.
+        retries: Total number of retries per request.
+        backoff_factor: Multiplier for retry delay times (1, 2, 4, ...)
 
     Returns:
         The total number of uploaded bytes.
@@ -182,7 +217,7 @@ async def upload_file(
         IOError: Raised if the provided file is incompatible or empty.
         openapi_client.exceptions.ApiException: raised on unexpected server
             responses (HTTP status codes other than 206, 413, 429, 503)
-        urllib3.exceptions.HTTPError: various low-level HTTP errors that persist
+        aiohttp.ClientError: various low-level HTTP errors that persist
             after retrying: connection errors, timeouts, decode errors,
             invalid HTTP headers, payload too large (HTTP 413), too many
             requests (HTTP 429), service unavailable (HTTP 503)
@@ -234,6 +269,16 @@ async def _compute_md5(
     return await loop.run_in_executor(executor, hasher.digest)
 
 
+async def _upload_request(client, fileobj, chunk_size, *args, **kwargs):
+    """Send a request with the contents of fileobj as iterable in the body"""
+    await fileobj.seek(0)
+    return await client.request(
+        *args,
+        data=_iter_chunks(fileobj, chunk_size=chunk_size),
+        **kwargs,
+    )
+
+
 async def upload_fileobj(
     url: str,
     fileobj,
@@ -242,6 +287,8 @@ async def upload_fileobj(
     connector: Optional[aiohttp.BaseConnector] = None,
     md5: Optional[bytes] = None,
     executor: Optional[ThreadPoolExecutor] = None,
+    retries: int = 3,
+    backoff_factor: float = 1.0,
 ) -> int:
     """Upload a file object to a url.
 
@@ -259,6 +306,8 @@ async def upload_fileobj(
             have access to it. Otherwise this function will compute it for you.
         executor: The ThreadPoolExecutor to execute local MD5 hashing
             in. If not supplied, default executor is used.
+        retries: Total number of retries per request.
+        backoff_factor: Multiplier for retry delay times (1, 2, 4, ...)
 
     Returns:
         The total number of uploaded bytes.
@@ -267,7 +316,7 @@ async def upload_fileobj(
         IOError: Raised if the provided file is incompatible or empty.
         openapi_client.exceptions.ApiException: raised on unexpected server
             responses (HTTP status codes other than 206, 413, 429, 503)
-        urllib3.exceptions.HTTPError: various low-level HTTP errors that persist
+        aiohttp.ClientError: various low-level HTTP errors that persist
             after retrying: connection errors, timeouts, decode errors,
             invalid HTTP headers, payload too large (HTTP 413), too many
             requests (HTTP 429), service unavailable (HTTP 503)
@@ -293,22 +342,25 @@ async def upload_fileobj(
     if file_size == 0:
         raise IOError("The file object is empty.")
 
+    # Tested: both Content-Length and Content-MD5 are checked by Minio
+    headers = {
+        "Content-Length": str(file_size),
+        "Content-MD5": base64.b64encode(md5).decode(),
+    }
+
     async with aiohttp.ClientSession(connector=connector) as client:
-        await fileobj.seek(0)
-        async_iterable = _iter_chunks(fileobj, chunk_size=chunk_size)
-        # Tested: both Content-Length and Content-MD5 are checked by Minio
-        headers = {
-            "Content-Length": str(file_size),
-            "Content-MD5": base64.b64encode(md5).decode(),
-        }
-        response = await client.request(
+        request = partial(
+            _upload_request,
+            client,
+            fileobj,
+            chunk_size,
             "PUT",
             url,
-            data=async_iterable,
             headers=headers,
             timeout=timeout,
         )
+        response = await _request_with_retry(request, retries, backoff_factor)
         if response.status != 200:
             raise ApiException(status=response.status, reason=response.reason)
 
-        return file_size
+    return file_size
