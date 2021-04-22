@@ -41,7 +41,8 @@ requirements = [
 
 aio_requirements = ['aiohttp>=3.6.3', "aiofiles"]
 
-test_requirements = ["pytest", "pytest-asyncio"]
+# Note: mock contains a backport of AsyncMock
+test_requirements = ["pytest", "pytest-asyncio", "mock"]
 
 
 setup(

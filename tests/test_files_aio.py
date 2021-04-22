@@ -7,6 +7,7 @@ import asyncio
 from threedi_api_client.aio.files import download_fileobj, download_file
 from openapi_client.exceptions import ApiException
 from aiofiles.threadpool import AsyncBufferedIOBase
+from mock import AsyncMock
 
 
 class AsyncBytesIO:
