@@ -30,7 +30,7 @@ async def _request_with_retry(request_coroutine, retries, backoff_factor):
     assert retries > 0
     for attempt in range(retries):
         if attempt > 0:
-            asyncio.sleep(backoff_factor * 2 ** (attempt - 1))
+            await asyncio.sleep(backoff_factor * 2 ** (attempt - 1))
 
         try:
             response = await request_coroutine()
@@ -332,15 +332,15 @@ async def upload_fileobj(
 
     Args:
         url: The url to upload to.
-        fileobj: The (binary) file object to read from.
+        fileobj: The (binary) file object to read from, supporting async I/O.
         chunk_size: The size of the chunk in the streaming upload. Note that this
             function does not do multipart upload. Default: 16MB.
         timeout: The total timeout in seconds.
         connector: An optional aiohttp connector to support connection pooling.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
             have access to it. Otherwise this function will compute it for you.
-        executor: The ThreadPoolExecutor to execute local MD5 hashing
-            in. If not supplied, default executor is used.
+        executor: The ThreadPoolExecutor to execute MD5 hashing in. If not
+            supplied, default executor is used.
         retries: Total number of retries per request.
         backoff_factor: Multiplier for retry delay times (1, 2, 4, ...)
 
