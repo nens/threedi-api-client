@@ -1,13 +1,16 @@
-import logging
-import hashlib
+import asyncio
 import base64
+import hashlib
+import logging
 import re
+from concurrent.futures import ThreadPoolExecutor
+from functools import partial
 from pathlib import Path
-from typing import BinaryIO, Optional, Tuple
+from typing import Optional, Tuple
 from urllib.parse import urlparse
 
-import aiohttp
 import aiofiles
+import aiohttp
 
 from openapi_client.exceptions import ApiException
 
@@ -23,7 +26,8 @@ async def download_file(
     chunk_size: int = 16777216,
     timeout: float = 5.0,
     client: Optional[aiohttp.ClientSession] = None,
-) -> Tuple[str, int]:
+    executor: Optional[ThreadPoolExecutor] = None,
+) -> Tuple[Path, int]:
     """Download a file to a specified path on disk.
 
     It is assumed that the file server supports multipart downloads (range
@@ -37,6 +41,8 @@ async def download_file(
         chunk_size: The number of bytes per request. Default: 16MB.
         timeout: The total timeout in seconds.
         client: If not supplied, a default ClientSession will be created.
+        executor: The ThreadPoolExecutor to execute local
+            file I/O in. If not supplied, default executor is used.
 
     Returns:
         Tuple of file path, total number of uploaded bytes.
@@ -58,7 +64,7 @@ async def download_file(
         target = target / urlparse(url)[2].rsplit("/", 1)[-1]
 
     # open the file
-    async with aiofiles.open(target, "wb") as fileobj:
+    async with aiofiles.open(target, "wb", executor=executor) as fileobj:
         size = await download_fileobj(
             url, fileobj, chunk_size=chunk_size, timeout=timeout, client=client
         )
@@ -68,7 +74,7 @@ async def download_file(
 
 async def download_fileobj(
     url: str,
-    fileobj: BinaryIO,
+    fileobj,
     chunk_size: int = 16777216,
     timeout: float = 5.0,
     client: Optional[aiohttp.ClientSession] = None,
@@ -80,8 +86,7 @@ async def download_fileobj(
 
     Args:
         url: The url to retrieve.
-        fileobj: The (binary) file object to write into. It should support
-            asynchronous writing.
+        fileobj: The (binary) file object to write into, supporting async I/O.
         chunk_size: The number of bytes per request. Default: 16MB.
         timeout: The total timeout in seconds.
         client: If not supplied, a default ClientSession will be created.
@@ -154,6 +159,7 @@ async def upload_file(
     timeout: float = 5.0,
     client: Optional[aiohttp.ClientSession] = None,
     md5: Optional[bytes] = None,
+    executor: Optional[ThreadPoolExecutor] = None,
 ) -> int:
     """Upload a file at specified file path to a url.
 
@@ -169,6 +175,8 @@ async def upload_file(
         client: If not supplied, a default ClientSession will be created.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
             have access to it. Otherwise this function will compute it for you.
+        executor: The ThreadPoolExecutor to execute local file I/O and MD5 hashing
+            in. If not supplied, default executor is used.
 
     Returns:
         The total number of uploaded bytes.
@@ -187,7 +195,7 @@ async def upload_file(
         file_path = Path(file_path)
 
     # open the file
-    async with aiofiles.open(file_path, "rb") as fileobj:
+    async with aiofiles.open(file_path, "rb", executor=executor) as fileobj:
         size = await upload_fileobj(
             url,
             fileobj,
@@ -195,12 +203,13 @@ async def upload_file(
             timeout=timeout,
             client=client,
             md5=md5,
+            executor=executor,
         )
 
     return size
 
 
-async def _iter_chunks(fileobj: BinaryIO, chunk_size: int):
+async def _iter_chunks(fileobj, chunk_size: int):
     """Yield chunks from a file stream"""
     assert chunk_size > 0
     while True:
@@ -210,13 +219,32 @@ async def _iter_chunks(fileobj: BinaryIO, chunk_size: int):
         yield data
 
 
+async def _compute_md5(
+    fileobj,
+    chunk_size: int,
+    executor: Optional[ThreadPoolExecutor] = None,
+):
+    """Return the md5 digest for given fileobj."""
+    loop = asyncio.get_running_loop()
+
+    await fileobj.seek(0)
+    hasher = hashlib.md5()
+    async for chunk in _iter_chunks(fileobj, chunk_size=chunk_size):
+        # From python docs: the Python GIL is released for data larger than
+        # 2047 bytes at object creation or on update.
+        # So it makes sense to do the hasher updates in a threadpool.
+        await loop.run_in_executor(executor, partial(hasher.update, chunk))
+    return await loop.run_in_executor(executor, hasher.digest)
+
+
 async def upload_fileobj(
     url: str,
-    fileobj: BinaryIO,
+    fileobj,
     chunk_size: int = 16777216,
     timeout: float = 5.0,
     client: Optional[aiohttp.ClientSession] = None,
     md5: Optional[bytes] = None,
+    executor: Optional[ThreadPoolExecutor] = None,
 ) -> int:
     """Upload a file object to a url.
 
@@ -232,6 +260,8 @@ async def upload_fileobj(
         client: If not supplied, a default ClientSession will be created.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
             have access to it. Otherwise this function will compute it for you.
+        executor: The ThreadPoolExecutor to execute local MD5 hashing
+            in. If not supplied, default executor is used.
 
     Returns:
         The total number of uploaded bytes.
@@ -258,19 +288,13 @@ async def upload_fileobj(
             "The file object is not in binary mode. Please open with mode='rb'."
         )
 
-    # For computing the MD5 we need to do an extra pass on the file.
-    if md5 is None:
-        fileobj.seek(0)
-        hasher = hashlib.md5()
-        async for chunk in _iter_chunks(fileobj, chunk_size=chunk_size):
-            hasher.update(chunk)
-        md5 = hasher.digest()
-        file_size = fileobj.tell()
-    else:
-        file_size = await fileobj.seek(0, 2)  # go to EOF
-
+    file_size = await fileobj.seek(0, 2)  # go to EOF
     if file_size == 0:
         raise IOError("The file object is empty.")
+
+    # For computing the MD5 we need to do an extra pass on the file.
+    if md5 is None:
+        md5 = await _compute_md5(fileobj, chunk_size, executor=executor)
 
     if client is None:
         client_needs_closing = True
@@ -279,7 +303,7 @@ async def upload_fileobj(
         client_needs_closing = False
 
     try:
-        fileobj.seek(0)
+        await fileobj.seek(0)
         async_iterable = _iter_chunks(fileobj, chunk_size=chunk_size)
         # Tested: both Content-Length and Content-MD5 are checked by Minio
         headers = {

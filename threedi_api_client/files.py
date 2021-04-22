@@ -36,7 +36,7 @@ def download_file(
     chunk_size: int = 16777216,
     timeout: float = 5.0,
     pool: Optional[urllib3.PoolManager] = None,
-) -> Tuple[str, int]:
+) -> Tuple[Path, int]:
     """Download a file to a specified path on disk.
 
     It is assumed that the file server supports multipart downloads (range
