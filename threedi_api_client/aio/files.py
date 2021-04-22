@@ -10,6 +10,7 @@ from typing import Optional, Tuple
 from urllib.parse import urlparse
 
 import aiofiles
+import aiofiles.os
 import aiohttp
 
 from openapi_client.exceptions import ApiException
@@ -30,11 +31,16 @@ async def _request_with_retry(request_coroutine, retries, backoff_factor):
     assert retries > 0
     for attempt in range(retries):
         if attempt > 0:
-            await asyncio.sleep(backoff_factor * 2 ** (attempt - 1))
+            backoff = backoff_factor * 2 ** (attempt - 1)
+            logger.warning(
+                "Retry attempt {}, waiting {} seconds...".format(attempt, backoff)
+            )
+            await asyncio.sleep(backoff)
 
         try:
             response = await request_coroutine()
-        except aiohttp.ClientError:
+            await response.read()
+        except (aiohttp.ClientError, asyncio.exceptions.TimeoutError):
             if attempt == retries - 1:
                 raise  # propagate ClientError in case no retries left
         else:
@@ -48,7 +54,7 @@ async def download_file(
     url: str,
     target: Path,
     chunk_size: int = 16777216,
-    timeout: float = 5.0,
+    timeout: float = 300.0,
     connector: Optional[aiohttp.BaseConnector] = None,
     executor: Optional[ThreadPoolExecutor] = None,
     retries: int = 3,
@@ -65,7 +71,7 @@ async def download_file(
             overwritten. If it is a directory, a filename is generated from
             the filename in the url.
         chunk_size: The number of bytes per request. Default: 16MB.
-        timeout: The total timeout in seconds.
+        timeout: The timeout of the download of a single chunk in seconds.
         connector: An optional aiohttp connector to support connection pooling.
             If not supplied, a default TCPConnector is instantiated with a pool
             size (limit) of 4.
@@ -126,7 +132,9 @@ async def _download_request(client, start, stop, url, timeout, retries, backoff_
         headers=headers,
         timeout=timeout,
     )
+    logger.debug("Downloading bytes {} to {}...".format(start, stop))
     response = await _request_with_retry(request, retries, backoff_factor)
+    logger.debug("Finished downloading bytes {} to {}".format(start, stop))
     if response.status == 200:
         raise ApiException(
             status=200,
@@ -146,7 +154,7 @@ async def download_fileobj(
     url: str,
     fileobj,
     chunk_size: int = 16777216,
-    timeout: float = 5.0,
+    timeout: float = 300.0,
     connector: Optional[aiohttp.BaseConnector] = None,
     retries: int = 3,
     backoff_factor: float = 1.0,
@@ -160,7 +168,7 @@ async def download_fileobj(
         url: The url to retrieve.
         fileobj: The (binary) file object to write into, supporting async I/O.
         chunk_size: The number of bytes per request. Default: 16MB.
-        timeout: The total timeout in seconds.
+        timeout: The timeout of the download of a single chunk in seconds.
         connector: An optional aiohttp connector to support connection pooling.
             If not supplied, a default TCPConnector is instantiated with a pool
             size (limit) of 4.
@@ -202,6 +210,7 @@ async def download_fileobj(
 
         # write to file
         await fileobj.write(await response.read())
+        logger.debug("Written bytes {} to {} to file".format(0, chunk_size))
 
         # return if the file is already completely downloaded
         if file_size <= chunk_size:
@@ -217,10 +226,15 @@ async def download_fileobj(
 
         # write the result of the tasks to the file one by one
         try:
-            for task in tasks:
+            for i, task in enumerate(tasks, 1):
                 response, _ = await task
                 # write to file
                 await fileobj.write(await response.read())
+                logger.debug(
+                    "Written bytes {} to {} to file".format(
+                        i * chunk_size, (i + 1) * chunk_size
+                    )
+                )
         except Exception:
             # in case of an exception, cancel all tasks
             for task in tasks:
@@ -234,7 +248,7 @@ async def upload_file(
     url: str,
     file_path: Path,
     chunk_size: int = 16777216,
-    timeout: float = 5.0,
+    timeout: float = 300.0,
     connector: Optional[aiohttp.BaseConnector] = None,
     md5: Optional[bytes] = None,
     executor: Optional[ThreadPoolExecutor] = None,
@@ -251,7 +265,7 @@ async def upload_file(
         file_path: The file path to read data from.
         chunk_size: The size of the chunk in the streaming upload. Note that this
             function does not do multipart upload. Default: 16MB.
-        timeout: The total timeout in seconds.
+        timeout: The total timeout of the upload in seconds.
         connector: An optional aiohttp connector to support connection pooling.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
             have access to it. Otherwise this function will compute it for you.
@@ -335,7 +349,7 @@ async def upload_fileobj(
     url: str,
     fileobj,
     chunk_size: int = 16777216,
-    timeout: float = 5.0,
+    timeout: float = 300.0,
     connector: Optional[aiohttp.BaseConnector] = None,
     md5: Optional[bytes] = None,
     executor: Optional[ThreadPoolExecutor] = None,
@@ -352,7 +366,7 @@ async def upload_fileobj(
         fileobj: The (binary) file object to read from, supporting async I/O.
         chunk_size: The size of the chunk in the streaming upload. Note that this
             function does not do multipart upload. Default: 16MB.
-        timeout: The total timeout in seconds.
+        timeout: The total timeout of the upload in seconds.
         connector: An optional aiohttp connector to support connection pooling.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
             have access to it. Otherwise this function will compute it for you.

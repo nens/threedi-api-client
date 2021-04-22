@@ -47,7 +47,7 @@ async def aio_request():
 @pytest.fixture
 async def response_error():
     # mimics aiohttp.ClientResponse
-    response = Mock()
+    response = AsyncMock()
     response.status = 503
     return response
 
@@ -55,7 +55,7 @@ async def response_error():
 @pytest.fixture
 async def responses_single():
     # mimics aiohttp.ClientResponse
-    response = Mock()
+    response = AsyncMock()
     response.headers = {"Content-Range": "bytes 0-41/42"}
     response.status = 206
     response.read = AsyncMock(return_value=b"X" * 42)
@@ -65,11 +65,11 @@ async def responses_single():
 @pytest.fixture
 async def responses_double():
     # mimics aiohttp.ClientResponse
-    response1 = Mock()
+    response1 = AsyncMock()
     response1.headers = {"Content-Range": "bytes 0-63/65"}
     response1.status = 206
     response1.read = AsyncMock(return_value=b"X" * 64)
-    response2 = Mock()
+    response2 = AsyncMock()
     response2.headers = {"Content-Range": "bytes 64-64/65"}
     response2.status = 206
     response2.read = AsyncMock(return_value=b"X")
@@ -87,7 +87,7 @@ async def test_download_fileobj(aio_request, responses_single):
         "GET",
         "some-url",
         headers={"Range": "bytes=0-63"},
-        timeout=5.0,
+        timeout=300.0,
     )
     assert await stream.tell() == 42
 
@@ -259,7 +259,7 @@ async def test_upload_fileobj(
     assert args == ("PUT", "some-url")
     assert [x async for x in kwargs["data"]] == expected_body
     assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
-    assert kwargs["timeout"] == 5.0
+    assert kwargs["timeout"] == 300.0
 
 
 @pytest.mark.asyncio
