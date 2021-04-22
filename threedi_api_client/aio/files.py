@@ -95,7 +95,13 @@ async def download_file(
     # open the file
     async with aiofiles.open(target, "wb", executor=executor) as fileobj:
         size = await download_fileobj(
-            url, fileobj, chunk_size=chunk_size, timeout=timeout, connector=connector
+            url,
+            fileobj,
+            chunk_size=chunk_size,
+            timeout=timeout,
+            connector=connector,
+            retries=retries,
+            backoff_factor=backoff_factor,
         )
 
     return target, size
@@ -238,6 +244,8 @@ async def upload_file(
             connector=connector,
             md5=md5,
             executor=executor,
+            retries=retries,
+            backoff_factor=backoff_factor,
         )
 
     return size

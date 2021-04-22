@@ -3,10 +3,11 @@ from unittest import mock
 
 import pytest
 
-from threedi_api_client.aio.files import download_fileobj, download_file
+from threedi_api_client.aio.files import download_fileobj, download_file, upload_fileobj, upload_file
 from openapi_client.exceptions import ApiException
 from aiofiles.threadpool import AsyncBufferedIOBase
 from mock import AsyncMock
+from concurrent.futures import ThreadPoolExecutor
 
 
 class AsyncBytesIO:
@@ -162,12 +163,17 @@ async def test_download_fileobj_forbidden(aio_request, response_error):
 @pytest.mark.asyncio
 @mock.patch("threedi_api_client.aio.files.download_fileobj", new_callable=AsyncMock)
 async def test_download_file(mocked_download_fileobj, tmp_path):
+    executor = ThreadPoolExecutor()
+
     await download_file(
         "http://domain/a.b",
         tmp_path / "c.d",
         chunk_size=64,
         timeout=3.0,
         connector="foo",
+        executor=executor,
+        retries=2,
+        backoff_factor=1.5,
     )
 
     args, kwargs = mocked_download_fileobj.call_args
@@ -178,6 +184,9 @@ async def test_download_file(mocked_download_fileobj, tmp_path):
     assert kwargs["chunk_size"] == 64
     assert kwargs["timeout"] == 3.0
     assert kwargs["connector"] == "foo"
+    assert kwargs["retries"] == 2
+    assert kwargs["backoff_factor"] == 1.5
+    assert "executor" not in kwargs  # download_fileobj does not expect it
 
 
 @pytest.mark.asyncio
@@ -190,3 +199,105 @@ async def test_download_file_directory(mocked_download_fileobj, tmp_path):
 
     args, kwargs = mocked_download_fileobj.call_args
     assert args[1].name == str(tmp_path / "a.b")
+
+
+@pytest.fixture
+async def upload_response():
+    response = mock.Mock()
+    response.status = 200
+    return response
+
+
+@pytest.fixture
+async def fileobj():
+    stream = AsyncBytesIO()
+    await stream.write(b"X" * 39)
+    await stream.seek(0)
+    return stream
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize(
+    "chunk_size,expected_body",
+    [
+        (64, [b"X" * 39]),
+        (39, [b"X" * 39]),
+        (38, [b"X" * 38, b"X"]),
+        (16, [b"X" * 16, b"X" * 16, b"X" * 7]),
+    ],
+)
+async def test_upload_fileobj(aio_request, fileobj, upload_response, chunk_size, expected_body):
+    aio_request.return_value = upload_response
+    await upload_fileobj("some-url", fileobj, chunk_size=chunk_size)
+
+    # base64.b64encode(hashlib.md5(b"X" * 39).digest()).decode()
+    expected_md5 = "Q2zMNJgyazDIkoSqvpOqVg=="
+
+    args, kwargs = aio_request.call_args
+    assert args == ("PUT", "some-url")
+    assert [x async for x in kwargs["data"]] == expected_body
+    assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
+    assert kwargs["timeout"] == 5.0
+
+
+@pytest.mark.asyncio
+async def test_upload_fileobj_with_md5(aio_request, fileobj, upload_response):
+    aio_request.return_value = upload_response
+    await upload_fileobj("some-url", fileobj, md5=b"abcd")
+
+    # base64.b64encode(b"abcd")).decode()
+    expected_md5 = "YWJjZA=="
+
+    args, kwargs = aio_request.call_args
+    assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
+
+
+@pytest.mark.asyncio
+async def test_upload_fileobj_empty_file():
+    with pytest.raises(IOError, match="The file object is empty."):
+        await upload_fileobj("some-url", AsyncBytesIO())
+
+
+@pytest.mark.asyncio
+async def test_upload_fileobj_non_binary_file():
+    string_io = mock.Mock()
+    string_io.read = AsyncMock(return_value="some string")
+    with pytest.raises(IOError, match="The file object is not in binary*"):
+        await upload_fileobj("some-url", string_io)
+
+
+@pytest.mark.asyncio
+async def test_upload_fileobj_errors(aio_request, fileobj, upload_response):
+    upload_response.status = 400
+    aio_request.return_value = upload_response
+    with pytest.raises(ApiException) as e:
+        await upload_fileobj("some-url", fileobj)
+
+    assert e.value.status == 400
+
+
+@pytest.mark.asyncio
+@mock.patch("threedi_api_client.aio.files.upload_fileobj", new_callable=AsyncMock)
+async def test_upload_file(upload_fileobj, tmp_path):
+    executor = ThreadPoolExecutor()
+
+    path = tmp_path / "myfile"
+    with path.open("wb") as f:
+        f.write(b"X")
+
+    await upload_file(
+        "http://domain/a.b", path, chunk_size=1234, timeout=3.0, connector="foo", executor=executor, md5=b"abcd", retries=2, backoff_factor=1.5
+    )
+
+    args, kwargs = upload_fileobj.call_args
+    assert args[0] == "http://domain/a.b"
+    assert isinstance(args[1], AsyncBufferedIOBase)
+    assert args[1].mode == "rb"
+    assert args[1].name == str(path)
+    assert kwargs["timeout"] == 3.0
+    assert kwargs["chunk_size"] == 1234
+    assert kwargs["md5"] == b"abcd"
+    assert kwargs["connector"] == "foo"
+    assert kwargs["executor"] is executor
+    assert kwargs["retries"] == 2
+    assert kwargs["backoff_factor"] == 1.5
