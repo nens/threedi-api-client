@@ -29,7 +29,7 @@ async def _request_with_retry(request_coroutine, retries, backoff_factor):
     assert retries > 0
     for attempt in range(retries):
         if attempt > 0:
-            asyncio.sleep(backoff_factor * 2 ** attempt)
+            asyncio.sleep(backoff_factor * 2 ** (attempt - 1))
 
         try:
             response = await request_coroutine()
@@ -39,6 +39,8 @@ async def _request_with_retry(request_coroutine, retries, backoff_factor):
         else:
             if response.status not in RETRY_STATUSES:
                 return response  # on all non-retry statuses: return response
+
+    return response  # retries exceeded; return the (possibly error) response
 
 
 async def download_file(

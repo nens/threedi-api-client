@@ -30,8 +30,18 @@ class AsyncBytesIO:
 
 @pytest.fixture
 async def aio_request():
-    with mock.patch("aiohttp.ClientSession.request", new_callable=AsyncMock) as aio_request:
+    with mock.patch(
+        "aiohttp.ClientSession.request", new_callable=AsyncMock
+    ) as aio_request:
         yield aio_request
+
+
+@pytest.fixture
+async def response_error():
+    # mimics aiohttp.ClientResponse
+    response = mock.Mock()
+    response.status = 503
+    return response
 
 
 @pytest.fixture
@@ -88,6 +98,43 @@ async def test_download_fileobj_two_chunks(aio_request, responses_double):
 
 
 @pytest.mark.asyncio
+@mock.patch("asyncio.sleep", new_callable=AsyncMock)
+async def test_download_fileobj_retry(
+    sleep, aio_request, responses_double, response_error
+):
+    stream = AsyncBytesIO()
+    responses = [
+        response_error,
+        responses_double[0],
+        response_error,
+        response_error,
+        responses_double[1],
+    ]
+    aio_request.side_effect = responses
+
+    await download_fileobj(
+        "some-url", stream, chunk_size=64, retries=3, backoff_factor=1.5
+    )
+
+    assert aio_request.call_count == 5
+    assert sleep.call_count == 3
+    assert [x[0][0] for x in sleep.call_args_list] == [1.5, 1.5, 3.0]
+    assert await stream.tell() == 65
+
+
+@pytest.mark.asyncio
+@mock.patch("asyncio.sleep", new_callable=AsyncMock)
+async def test_download_fileobj_retry_limit(sleep, aio_request, response_error):
+    aio_request.side_effect = [response_error] * 2
+
+    with pytest.raises(ApiException) as e:
+        await download_fileobj("some-url", None, chunk_size=64, retries=2)
+
+    assert e.value.status == response_error.status
+    assert aio_request.call_count == 2
+
+
+@pytest.mark.asyncio
 async def test_download_fileobj_no_multipart(aio_request, responses_single):
     """The remote server does not support range requests"""
     responses_single[0].status = 200
@@ -101,10 +148,10 @@ async def test_download_fileobj_no_multipart(aio_request, responses_single):
 
 
 @pytest.mark.asyncio
-async def test_download_fileobj_forbidden(aio_request, responses_single):
+async def test_download_fileobj_forbidden(aio_request, response_error):
     """The remote server does not support range requests"""
-    responses_single[0].status = 403
-    aio_request.side_effect = responses_single
+    response_error.status = 403
+    aio_request.side_effect = [response_error]
 
     with pytest.raises(ApiException) as e:
         await download_fileobj("some-url", None, chunk_size=64)
@@ -113,12 +160,14 @@ async def test_download_fileobj_forbidden(aio_request, responses_single):
 
 
 @pytest.mark.asyncio
-@mock.patch(
-        "threedi_api_client.aio.files.download_fileobj", new_callable=AsyncMock
-    )
+@mock.patch("threedi_api_client.aio.files.download_fileobj", new_callable=AsyncMock)
 async def test_download_file(mocked_download_fileobj, tmp_path):
     await download_file(
-        "http://domain/a.b", tmp_path / "c.d", chunk_size=64, timeout=3.0, connector="foo"
+        "http://domain/a.b",
+        tmp_path / "c.d",
+        chunk_size=64,
+        timeout=3.0,
+        connector="foo",
     )
 
     args, kwargs = mocked_download_fileobj.call_args
@@ -132,9 +181,7 @@ async def test_download_file(mocked_download_fileobj, tmp_path):
 
 
 @pytest.mark.asyncio
-@mock.patch(
-        "threedi_api_client.aio.files.download_fileobj", new_callable=AsyncMock
-    )
+@mock.patch("threedi_api_client.aio.files.download_fileobj", new_callable=AsyncMock)
 async def test_download_file_directory(mocked_download_fileobj, tmp_path):
     # if a target directory is specified, a filename is created from the url
     await download_file(
