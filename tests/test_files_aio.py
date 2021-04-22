@@ -1,10 +1,12 @@
 import io
 from concurrent.futures import ThreadPoolExecutor
-from unittest import mock
 
 import pytest
 from aiofiles.threadpool import AsyncBufferedIOBase
-from mock import AsyncMock
+
+# note: unittest.mock has no asyncio support in Python < 3.7,
+# but luckily mock backported it:
+from mock import AsyncMock, Mock, patch
 
 from openapi_client.exceptions import ApiException
 from threedi_api_client.aio.files import (
@@ -36,7 +38,7 @@ class AsyncBytesIO:
 
 @pytest.fixture
 async def aio_request():
-    with mock.patch(
+    with patch(
         "aiohttp.ClientSession.request", new_callable=AsyncMock
     ) as aio_request:
         yield aio_request
@@ -45,7 +47,7 @@ async def aio_request():
 @pytest.fixture
 async def response_error():
     # mimics aiohttp.ClientResponse
-    response = mock.Mock()
+    response = Mock()
     response.status = 503
     return response
 
@@ -53,7 +55,7 @@ async def response_error():
 @pytest.fixture
 async def responses_single():
     # mimics aiohttp.ClientResponse
-    response = mock.Mock()
+    response = Mock()
     response.headers = {"Content-Range": "bytes 0-41/42"}
     response.status = 206
     response.read = AsyncMock(return_value=b"X" * 42)
@@ -63,11 +65,11 @@ async def responses_single():
 @pytest.fixture
 async def responses_double():
     # mimics aiohttp.ClientResponse
-    response1 = mock.Mock()
+    response1 = Mock()
     response1.headers = {"Content-Range": "bytes 0-63/65"}
     response1.status = 206
     response1.read = AsyncMock(return_value=b"X" * 64)
-    response2 = mock.Mock()
+    response2 = Mock()
     response2.headers = {"Content-Range": "bytes 64-64/65"}
     response2.status = 206
     response2.read = AsyncMock(return_value=b"X")
@@ -104,7 +106,7 @@ async def test_download_fileobj_two_chunks(aio_request, responses_double):
 
 
 @pytest.mark.asyncio
-@mock.patch("asyncio.sleep", new_callable=AsyncMock)
+@patch("asyncio.sleep", new_callable=AsyncMock)
 async def test_download_fileobj_retry(
     sleep, aio_request, responses_double, response_error
 ):
@@ -129,7 +131,7 @@ async def test_download_fileobj_retry(
 
 
 @pytest.mark.asyncio
-@mock.patch("asyncio.sleep", new_callable=AsyncMock)
+@patch("asyncio.sleep", new_callable=AsyncMock)
 async def test_download_fileobj_retry_limit(sleep, aio_request, response_error):
     aio_request.side_effect = [response_error] * 2
 
@@ -166,7 +168,7 @@ async def test_download_fileobj_forbidden(aio_request, response_error):
 
 
 @pytest.mark.asyncio
-@mock.patch("threedi_api_client.aio.files.download_fileobj", new_callable=AsyncMock)
+@patch("threedi_api_client.aio.files.download_fileobj", new_callable=AsyncMock)
 async def test_download_file(mocked_download_fileobj, tmp_path):
     executor = ThreadPoolExecutor()
 
@@ -195,7 +197,7 @@ async def test_download_file(mocked_download_fileobj, tmp_path):
 
 
 @pytest.mark.asyncio
-@mock.patch("threedi_api_client.aio.files.download_fileobj", new_callable=AsyncMock)
+@patch("threedi_api_client.aio.files.download_fileobj", new_callable=AsyncMock)
 async def test_download_file_directory(mocked_download_fileobj, tmp_path):
     # if a target directory is specified, a filename is created from the url
     await download_file(
@@ -208,7 +210,7 @@ async def test_download_file_directory(mocked_download_fileobj, tmp_path):
 
 @pytest.fixture
 async def upload_response():
-    response = mock.Mock()
+    response = AsyncMock()
     response.status = 200
     return response
 
@@ -267,7 +269,7 @@ async def test_upload_fileobj_empty_file():
 
 @pytest.mark.asyncio
 async def test_upload_fileobj_non_binary_file():
-    string_io = mock.Mock()
+    string_io = AsyncMock()
     string_io.read = AsyncMock(return_value="some string")
     with pytest.raises(IOError, match="The file object is not in binary*"):
         await upload_fileobj("some-url", string_io)
@@ -284,7 +286,7 @@ async def test_upload_fileobj_errors(aio_request, fileobj, upload_response):
 
 
 @pytest.mark.asyncio
-@mock.patch("threedi_api_client.aio.files.upload_fileobj", new_callable=AsyncMock)
+@patch("threedi_api_client.aio.files.upload_fileobj", new_callable=AsyncMock)
 async def test_upload_file(upload_fileobj, tmp_path):
     executor = ThreadPoolExecutor()
 

@@ -198,7 +198,7 @@ async def download_fileobj(
 
         # create tasks for the rest of the chunks
         tasks = [
-            asyncio.create_task(
+            asyncio.ensure_future(
                 _download_request(client, start, start + chunk_size, **request_kwargs)
             )
             for start in range(chunk_size, file_size, chunk_size)
@@ -292,7 +292,7 @@ async def _compute_md5(
     executor: Optional[ThreadPoolExecutor] = None,
 ):
     """Return the md5 digest for given fileobj."""
-    loop = asyncio.get_running_loop()
+    loop = asyncio.get_event_loop()
 
     await fileobj.seek(0)
     hasher = hashlib.md5()
