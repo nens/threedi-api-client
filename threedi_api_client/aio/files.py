@@ -16,6 +16,7 @@ from openapi_client.exceptions import ApiException
 
 CONTENT_RANGE_REGEXP = re.compile(r"^bytes (\d+)-(\d+)/(\d+|\*)$")
 RETRY_STATUSES = frozenset({413, 429, 503})  # like in urllib3
+DEFAULT_CONN_LIMIT = 4  # for downloads only (which are parrallel)
 
 
 logger = logging.getLogger(__name__)
@@ -67,7 +68,7 @@ async def download_file(
         timeout: The total timeout in seconds.
         connector: An optional aiohttp connector to support connection pooling.
             If not supplied, a default TCPConnector is instantiated with a pool
-            size (limit) of 1.
+            size (limit) of 4.
         executor: The ThreadPoolExecutor to execute local
             file I/O in. If not supplied, default executor is used.
         retries: Total number of retries per request.
@@ -107,6 +108,32 @@ async def download_file(
     return target, size
 
 
+async def _download_request(client, start, stop, url, timeout, retries, backoff_factor):
+    """Send a download with a byte range & parse the content-range header"""
+    headers = {"Range": "bytes={}-{}".format(start, stop - 1)}
+    request = partial(
+        client.request,
+        "GET",
+        url,
+        headers=headers,
+        timeout=timeout,
+    )
+    response = await _request_with_retry(request, retries, backoff_factor)
+    if response.status == 200:
+        raise ApiException(
+            status=200,
+            reason="The file server does not support multipart downloads.",
+        )
+    elif response.status != 206:
+        raise ApiException(http_resp=response)
+    # parse content-range header (e.g. "bytes 0-3/7") for next iteration
+    content_range = response.headers["Content-Range"]
+    start, stop, total = [
+        int(x) for x in CONTENT_RANGE_REGEXP.findall(content_range)[0]
+    ]
+    return response, total
+
+
 async def download_fileobj(
     url: str,
     fileobj,
@@ -128,7 +155,7 @@ async def download_fileobj(
         timeout: The total timeout in seconds.
         connector: An optional aiohttp connector to support connection pooling.
             If not supplied, a default TCPConnector is instantiated with a pool
-            size (limit) of 1.
+            size (limit) of 4.
         retries: Total number of retries per request.
         backoff_factor: Multiplier for retry delay times (1, 2, 4, ...)
 
@@ -144,48 +171,46 @@ async def download_fileobj(
             requests (HTTP 429), service unavailable (HTTP 503)
     """
     if connector is None:
-        connector = aiohttp.TCPConnector(limit=1)
+        connector = aiohttp.TCPConnector(limit=DEFAULT_CONN_LIMIT)
 
-    # Our strategy here is to just start downloading chunks while monitoring
-    # the Content-Range header to check if we're done. Although we could get
-    # the total Content-Length from a HEAD request, not all servers support
-    # that (e.g. Minio).
+    # Our strategy here is to download the first chunk, get the total file
+    # size from the header, and then parrellelize the rest of the chunks.
+    # We could get the total Content-Length from a HEAD request, but not all
+    # servers support that (e.g. Minio).
+    request_kwargs = {
+        "url": url,
+        "timeout": timeout,
+        "retries": retries,
+        "backoff_factor": backoff_factor,
+    }
     async with aiohttp.ClientSession(connector=connector) as client:
-        start = 0
-        while True:
-            # download a chunk
-            stop = start + chunk_size - 1
-            headers = {"Range": "bytes={}-{}".format(start, stop)}
+        # start with a single chunk to learn the total file size
+        response, file_size = await _download_request(
+            client, 0, chunk_size, **request_kwargs
+        )
 
-            request = partial(
-                client.request,
-                "GET",
-                url,
-                headers=headers,
-                timeout=timeout,
+        # write to file
+        await fileobj.write(await response.read())
+
+        # return if the file is already completely downloaded
+        if file_size <= chunk_size:
+            return file_size
+
+        # create tasks for the rest of the chunks
+        tasks = [
+            asyncio.create_task(
+                _download_request(client, start, start + chunk_size, **request_kwargs)
             )
-            response = await _request_with_retry(request, retries, backoff_factor)
-            if response.status == 200:
-                raise ApiException(
-                    status=200,
-                    reason="The file server does not support multipart downloads.",
-                )
-            elif response.status != 206:
-                raise ApiException(http_resp=response)
+            for start in range(chunk_size, file_size, chunk_size)
+        ]
 
+        # write the result of the tasks to the file one by one
+        for task in tasks:
+            response, _ = await task
             # write to file
             await fileobj.write(await response.read())
 
-            # parse content-range header (e.g. "bytes 0-3/7") for next iteration
-            content_range = response.headers["Content-Range"]
-            start, stop, total = [
-                int(x) for x in CONTENT_RANGE_REGEXP.findall(content_range)[0]
-            ]
-            if stop + 1 >= total:
-                break
-            start += chunk_size
-
-        return total
+        return file_size
 
 
 async def upload_file(
