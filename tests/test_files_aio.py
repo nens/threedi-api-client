@@ -1,13 +1,18 @@
 import io
+from concurrent.futures import ThreadPoolExecutor
 from unittest import mock
 
 import pytest
-
-from threedi_api_client.aio.files import download_fileobj, download_file, upload_fileobj, upload_file
-from openapi_client.exceptions import ApiException
 from aiofiles.threadpool import AsyncBufferedIOBase
 from mock import AsyncMock
-from concurrent.futures import ThreadPoolExecutor
+
+from openapi_client.exceptions import ApiException
+from threedi_api_client.aio.files import (
+    download_file,
+    download_fileobj,
+    upload_file,
+    upload_fileobj,
+)
 
 
 class AsyncBytesIO:
@@ -226,7 +231,9 @@ async def fileobj():
         (16, [b"X" * 16, b"X" * 16, b"X" * 7]),
     ],
 )
-async def test_upload_fileobj(aio_request, fileobj, upload_response, chunk_size, expected_body):
+async def test_upload_fileobj(
+    aio_request, fileobj, upload_response, chunk_size, expected_body
+):
     aio_request.return_value = upload_response
     await upload_fileobj("some-url", fileobj, chunk_size=chunk_size)
 
@@ -286,7 +293,15 @@ async def test_upload_file(upload_fileobj, tmp_path):
         f.write(b"X")
 
     await upload_file(
-        "http://domain/a.b", path, chunk_size=1234, timeout=3.0, connector="foo", executor=executor, md5=b"abcd", retries=2, backoff_factor=1.5
+        "http://domain/a.b",
+        path,
+        chunk_size=1234,
+        timeout=3.0,
+        connector="foo",
+        executor=executor,
+        md5=b"abcd",
+        retries=2,
+        backoff_factor=1.5,
     )
 
     args, kwargs = upload_fileobj.call_args
