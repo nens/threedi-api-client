@@ -25,7 +25,7 @@ async def download_file(
     target: Path,
     chunk_size: int = 16777216,
     timeout: float = 5.0,
-    client: Optional[aiohttp.ClientSession] = None,
+    connector: Optional[aiohttp.BaseConnector] = None,
     executor: Optional[ThreadPoolExecutor] = None,
 ) -> Tuple[Path, int]:
     """Download a file to a specified path on disk.
@@ -40,7 +40,9 @@ async def download_file(
             the filename in the url.
         chunk_size: The number of bytes per request. Default: 16MB.
         timeout: The total timeout in seconds.
-        client: If not supplied, a default ClientSession will be created.
+        connector: An optional aiohttp connector to support connection pooling.
+            If not supplied, a default TCPConnector is instantiated with a pool
+            size (limit) of 4.
         executor: The ThreadPoolExecutor to execute local
             file I/O in. If not supplied, default executor is used.
 
@@ -66,7 +68,7 @@ async def download_file(
     # open the file
     async with aiofiles.open(target, "wb", executor=executor) as fileobj:
         size = await download_fileobj(
-            url, fileobj, chunk_size=chunk_size, timeout=timeout, client=client
+            url, fileobj, chunk_size=chunk_size, timeout=timeout, connector=connector
         )
 
     return target, size
@@ -77,7 +79,7 @@ async def download_fileobj(
     fileobj,
     chunk_size: int = 16777216,
     timeout: float = 5.0,
-    client: Optional[aiohttp.ClientSession] = None,
+    connector: Optional[aiohttp.BaseConnector] = None,
 ) -> int:
     """Download a url to a file object using multiple requests.
 
@@ -89,7 +91,9 @@ async def download_fileobj(
         fileobj: The (binary) file object to write into, supporting async I/O.
         chunk_size: The number of bytes per request. Default: 16MB.
         timeout: The total timeout in seconds.
-        client: If not supplied, a default ClientSession will be created.
+        connector: An optional aiohttp connector to support connection pooling.
+            If not supplied, a default TCPConnector is instantiated with a pool
+            size (limit) of 4.
 
     Returns:
         The total number of downloaded bytes.
@@ -102,18 +106,14 @@ async def download_fileobj(
             invalid HTTP headers, payload too large (HTTP 413), too many
             requests (HTTP 429), service unavailable (HTTP 503)
     """
-
-    if client is None:
-        client_needs_closing = True
-        client = aiohttp.ClientSession()
-    else:
-        client_needs_closing = False
+    if connector is None:
+        connector = aiohttp.TCPConnector(limit=4)
 
     # Our strategy here is to just start downloading chunks while monitoring
     # the Content-Range header to check if we're done. Although we could get
     # the total Content-Length from a HEAD request, not all servers support
     # that (e.g. Minio).
-    try:
+    async with aiohttp.ClientSession(connector=connector) as client:
         start = 0
         while True:
             # download a chunk
@@ -147,9 +147,6 @@ async def download_fileobj(
             start += chunk_size
 
         return total
-    finally:
-        if client_needs_closing:
-            await client.close()
 
 
 async def upload_file(
@@ -157,7 +154,7 @@ async def upload_file(
     file_path: Path,
     chunk_size: int = 16777216,
     timeout: float = 5.0,
-    client: Optional[aiohttp.ClientSession] = None,
+    connector: Optional[aiohttp.BaseConnector] = None,
     md5: Optional[bytes] = None,
     executor: Optional[ThreadPoolExecutor] = None,
 ) -> int:
@@ -172,7 +169,7 @@ async def upload_file(
         chunk_size: The size of the chunk in the streaming upload. Note that this
             function does not do multipart upload. Default: 16MB.
         timeout: The total timeout in seconds.
-        client: If not supplied, a default ClientSession will be created.
+        connector: An optional aiohttp connector to support connection pooling.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
             have access to it. Otherwise this function will compute it for you.
         executor: The ThreadPoolExecutor to execute local file I/O and MD5 hashing
@@ -201,7 +198,7 @@ async def upload_file(
             fileobj,
             chunk_size=chunk_size,
             timeout=timeout,
-            client=client,
+            connector=connector,
             md5=md5,
             executor=executor,
         )
@@ -242,7 +239,7 @@ async def upload_fileobj(
     fileobj,
     chunk_size: int = 16777216,
     timeout: float = 5.0,
-    client: Optional[aiohttp.ClientSession] = None,
+    connector: Optional[aiohttp.BaseConnector] = None,
     md5: Optional[bytes] = None,
     executor: Optional[ThreadPoolExecutor] = None,
 ) -> int:
@@ -257,7 +254,7 @@ async def upload_fileobj(
         chunk_size: The size of the chunk in the streaming upload. Note that this
             function does not do multipart upload. Default: 16MB.
         timeout: The total timeout in seconds.
-        client: If not supplied, a default ClientSession will be created.
+        connector: An optional aiohttp connector to support connection pooling.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
             have access to it. Otherwise this function will compute it for you.
         executor: The ThreadPoolExecutor to execute local MD5 hashing
@@ -288,21 +285,15 @@ async def upload_fileobj(
             "The file object is not in binary mode. Please open with mode='rb'."
         )
 
-    file_size = await fileobj.seek(0, 2)  # go to EOF
-    if file_size == 0:
-        raise IOError("The file object is empty.")
-
     # For computing the MD5 we need to do an extra pass on the file.
     if md5 is None:
         md5 = await _compute_md5(fileobj, chunk_size, executor=executor)
 
-    if client is None:
-        client_needs_closing = True
-        client = aiohttp.ClientSession()
-    else:
-        client_needs_closing = False
+    file_size = await fileobj.seek(0, 2)  # go to EOF to get the file size
+    if file_size == 0:
+        raise IOError("The file object is empty.")
 
-    try:
+    async with aiohttp.ClientSession(connector=connector) as client:
         await fileobj.seek(0)
         async_iterable = _iter_chunks(fileobj, chunk_size=chunk_size)
         # Tested: both Content-Length and Content-MD5 are checked by Minio
@@ -321,6 +312,3 @@ async def upload_fileobj(
             raise ApiException(status=response.status, reason=response.reason)
 
         return file_size
-    finally:
-        if client_needs_closing:
-            await client.close()

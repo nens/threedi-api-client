@@ -2,7 +2,6 @@ import io
 from unittest import mock
 
 import pytest
-import asyncio
 
 from threedi_api_client.aio.files import download_fileobj, download_file
 from openapi_client.exceptions import ApiException
@@ -29,22 +28,10 @@ class AsyncBytesIO:
         return self._io.write(*args, **kwargs)
 
 
-# https://stackoverflow.com/questions/29881236/how-to-mock-asyncio-coroutines
-def get_mock_coro(*return_values):
-    values = iter(return_values)
-
-    @asyncio.coroutine
-    def mock_coro(*args, **kwargs):
-        return next(values)
-
-    return mock.Mock(wraps=mock_coro)
-
-
 @pytest.fixture
-async def client():
-    # mimics aiohttp.ClientSession
-    client = mock.Mock()
-    return client
+async def aio_request():
+    with mock.patch("aiohttp.ClientSession.request", new_callable=AsyncMock) as aio_request:
+        yield aio_request
 
 
 @pytest.fixture
@@ -53,7 +40,7 @@ async def responses_single():
     response = mock.Mock()
     response.headers = {"Content-Range": "bytes 0-41/42"}
     response.status = 206
-    response.read = get_mock_coro(b"X" * 42)
+    response.read = AsyncMock(return_value=b"X" * 42)
     return [response]
 
 
@@ -63,21 +50,22 @@ async def responses_double():
     response1 = mock.Mock()
     response1.headers = {"Content-Range": "bytes 0-63/65"}
     response1.status = 206
-    response1.read = get_mock_coro(b"X" * 64)
+    response1.read = AsyncMock(return_value=b"X" * 64)
     response2 = mock.Mock()
     response2.headers = {"Content-Range": "bytes 64-64/65"}
     response2.status = 206
-    response2.read = get_mock_coro(b"X")
+    response2.read = AsyncMock(return_value=b"X")
     return [response1, response2]
 
 
 @pytest.mark.asyncio
-async def test_download_fileobj(client, responses_single):
+async def test_download_fileobj(aio_request, responses_single):
     stream = AsyncBytesIO()
-    client.request.side_effect = get_mock_coro(*responses_single)
-    await download_fileobj("some-url", stream, chunk_size=64, client=client)
+    aio_request.side_effect = responses_single
 
-    client.request.assert_called_with(
+    await download_fileobj("some-url", stream, chunk_size=64)
+
+    aio_request.assert_called_with(
         "GET",
         "some-url",
         headers={"Range": "bytes=0-63"},
@@ -87,55 +75,50 @@ async def test_download_fileobj(client, responses_single):
 
 
 @pytest.mark.asyncio
-async def test_download_fileobj_two_chunks(client, responses_double):
+async def test_download_fileobj_two_chunks(aio_request, responses_double):
     stream = AsyncBytesIO()
-    client.request.side_effect = get_mock_coro(*responses_double)
-    await download_fileobj("some-url", stream, chunk_size=64, client=client)
+    aio_request.side_effect = responses_double
 
-    (_, kwargs1), (_, kwargs2) = client.request.call_args_list
+    await download_fileobj("some-url", stream, chunk_size=64)
+
+    (_, kwargs1), (_, kwargs2) = aio_request.call_args_list
     assert kwargs1["headers"] == {"Range": "bytes=0-63"}
     assert kwargs2["headers"] == {"Range": "bytes=64-127"}
     assert await stream.tell() == 65
 
 
 @pytest.mark.asyncio
-async def test_download_fileobj_no_multipart(client, responses_single):
+async def test_download_fileobj_no_multipart(aio_request, responses_single):
     """The remote server does not support range requests"""
     responses_single[0].status = 200
-    client.request.side_effect = get_mock_coro(*responses_single)
+    aio_request.side_effect = responses_single
 
     with pytest.raises(ApiException) as e:
-        await download_fileobj("some-url", None, chunk_size=64, client=client)
+        await download_fileobj("some-url", None, chunk_size=64)
 
     assert e.value.status == 200
     assert e.value.reason == "The file server does not support multipart downloads."
 
 
 @pytest.mark.asyncio
-async def test_download_fileobj_forbidden(client, responses_single):
+async def test_download_fileobj_forbidden(aio_request, responses_single):
     """The remote server does not support range requests"""
     responses_single[0].status = 403
-    client.request.side_effect = get_mock_coro(*responses_single)
+    aio_request.side_effect = responses_single
 
     with pytest.raises(ApiException) as e:
-        await download_fileobj("some-url", None, chunk_size=64, client=client)
+        await download_fileobj("some-url", None, chunk_size=64)
 
     assert e.value.status == 403
 
 
-@pytest.fixture
-async def mocked_download_fileobj():
-    download_fileobj = get_mock_coro(None)
-    with mock.patch(
-        "threedi_api_client.aio.files.download_fileobj", new=download_fileobj
-    ):
-        yield download_fileobj
-
-
 @pytest.mark.asyncio
-async def test_download_file(tmp_path, mocked_download_fileobj):
+@mock.patch(
+        "threedi_api_client.aio.files.download_fileobj", new_callable=AsyncMock
+    )
+async def test_download_file(mocked_download_fileobj, tmp_path):
     await download_file(
-        "http://domain/a.b", tmp_path / "c.d", chunk_size=64, timeout=3.0, client="foo"
+        "http://domain/a.b", tmp_path / "c.d", chunk_size=64, timeout=3.0, connector="foo"
     )
 
     args, kwargs = mocked_download_fileobj.call_args
@@ -145,14 +128,17 @@ async def test_download_file(tmp_path, mocked_download_fileobj):
     assert args[1].name == str(tmp_path / "c.d")
     assert kwargs["chunk_size"] == 64
     assert kwargs["timeout"] == 3.0
-    assert kwargs["client"] == "foo"
+    assert kwargs["connector"] == "foo"
 
 
 @pytest.mark.asyncio
+@mock.patch(
+        "threedi_api_client.aio.files.download_fileobj", new_callable=AsyncMock
+    )
 async def test_download_file_directory(mocked_download_fileobj, tmp_path):
     # if a target directory is specified, a filename is created from the url
     await download_file(
-        "http://domain/a.b", tmp_path, chunk_size=64, timeout=3.0, client="foo"
+        "http://domain/a.b", tmp_path, chunk_size=64, timeout=3.0, connector="foo"
     )
 
     args, kwargs = mocked_download_fileobj.call_args
