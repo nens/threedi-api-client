@@ -94,16 +94,24 @@ async def download_file(
         target = target / urlparse(url)[2].rsplit("/", 1)[-1]
 
     # open the file
-    async with aiofiles.open(target, "wb", executor=executor) as fileobj:
-        size = await download_fileobj(
-            url,
-            fileobj,
-            chunk_size=chunk_size,
-            timeout=timeout,
-            connector=connector,
-            retries=retries,
-            backoff_factor=backoff_factor,
-        )
+    try:
+        async with aiofiles.open(target, "wb", executor=executor) as fileobj:
+            size = await download_fileobj(
+                url,
+                fileobj,
+                chunk_size=chunk_size,
+                timeout=timeout,
+                connector=connector,
+                retries=retries,
+                backoff_factor=backoff_factor,
+            )
+    except Exception:
+        # Clean up a partially downloaded file
+        try:
+            await aiofiles.os.remove(target)
+        except FileNotFoundError:
+            pass
+        raise
 
     return target, size
 
@@ -169,6 +177,9 @@ async def download_fileobj(
             after retrying: connection errors, timeouts, decode errors,
             invalid HTTP headers, payload too large (HTTP 413), too many
             requests (HTTP 429), service unavailable (HTTP 503)
+
+        Note that the fileobj might be partially filled with data in case of
+        an exception.
     """
     if connector is None:
         connector = aiohttp.TCPConnector(limit=DEFAULT_CONN_LIMIT)
@@ -205,10 +216,16 @@ async def download_fileobj(
         ]
 
         # write the result of the tasks to the file one by one
-        for task in tasks:
-            response, _ = await task
-            # write to file
-            await fileobj.write(await response.read())
+        try:
+            for task in tasks:
+                response, _ = await task
+                # write to file
+                await fileobj.write(await response.read())
+        except Exception:
+            # in case of an exception, cancel all tasks
+            for task in tasks:
+                task.cancel()
+            raise
 
         return file_size
 

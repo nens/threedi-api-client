@@ -156,6 +156,19 @@ async def test_download_fileobj_no_multipart(aio_request, responses_single):
 
 
 @pytest.mark.asyncio
+async def test_download_fileobj_forbidden_2nd_chunk(aio_request, responses_double):
+    """The remote server does not support range requests"""
+    stream = AsyncBytesIO()
+    responses_double[1].status = 403
+    aio_request.side_effect = responses_double
+
+    with pytest.raises(ApiException) as e:
+        await download_fileobj("some-url", stream, chunk_size=64)
+
+    assert e.value.status == 403
+
+
+@pytest.mark.asyncio
 async def test_download_fileobj_forbidden(aio_request, response_error):
     """The remote server does not support range requests"""
     response_error.status = 403
