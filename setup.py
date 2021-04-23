@@ -39,9 +39,10 @@ requirements = [
     'python-dateutil',
 ]
 
-aio_requirements = ['aiohttp>=3.6.3']
+aio_requirements = ['aiohttp>=3.6.3', "aiofiles"]
 
-test_requirements = ["pytest"]
+# Note: mock contains a backport of AsyncMock
+test_requirements = ["pytest", "pytest-asyncio", "mock"]
 
 
 setup(
@@ -52,7 +53,6 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
@@ -71,7 +71,7 @@ setup(
             'threedi_api_client', 'threedi_api_client.*'
         ]
     ),
-    python_requires='>=3.5',
+    python_requires='>=3.6',
     extras_require={
         "aio": aio_requirements,
         "test": test_requirements,

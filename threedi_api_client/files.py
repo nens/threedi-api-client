@@ -1,6 +1,7 @@
 import base64
 import hashlib
 import logging
+import os
 import re
 from pathlib import Path
 from typing import BinaryIO, Optional, Tuple
@@ -16,7 +17,7 @@ CONTENT_RANGE_REGEXP = re.compile(r"^bytes (\d+)-(\d+)/(\d+|\*)$")
 logger = logging.getLogger(__name__)
 
 
-def get_pool(retries: int = 3, backoff_factor: int = 1) -> urllib3.PoolManager:
+def get_pool(retries: int = 3, backoff_factor: float = 1.0) -> urllib3.PoolManager:
     """Create a PoolManager with a retry policy.
 
     The default retry policy has 3 retries with 1, 2, 4 second intervals.
@@ -36,7 +37,7 @@ def download_file(
     chunk_size: int = 16777216,
     timeout: float = 5.0,
     pool: Optional[urllib3.PoolManager] = None,
-) -> Tuple[str, int]:
+) -> Tuple[Path, int]:
     """Download a file to a specified path on disk.
 
     It is assumed that the file server supports multipart downloads (range
@@ -72,10 +73,18 @@ def download_file(
         target = target / urlparse(url)[2].rsplit("/", 1)[-1]
 
     # open the file
-    with target.open("wb") as fileobj:
-        size = download_fileobj(
-            url, fileobj, chunk_size=chunk_size, timeout=timeout, pool=pool
-        )
+    try:
+        with target.open("wb") as fileobj:
+            size = download_fileobj(
+                url, fileobj, chunk_size=chunk_size, timeout=timeout, pool=pool
+            )
+    except Exception:
+        # Clean up a partially downloaded file
+        try:
+            os.remove(target)
+        except FileNotFoundError:
+            pass
+        raise
 
     return target, size
 
@@ -110,6 +119,9 @@ def download_fileobj(
             after retrying: connection errors, timeouts, decode errors,
             invalid HTTP headers, payload too large (HTTP 413), too many
             requests (HTTP 429), service unavailable (HTTP 503)
+
+        Note that the fileobj might be partially filled with data in case of
+        an exception.
     """
     if pool is None:
         pool = get_pool()
