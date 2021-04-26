@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.27 (unreleased)
+3.0.27 (2021-04-26)
 -------------------
 
 - Dropped support for Python 3.5.
