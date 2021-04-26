@@ -7,6 +7,8 @@ History
 
 - Dropped support for Python 3.5.
 
+- Added upload and download file functions (sync and async).
+
 
 3.0.26 (2021-04-07)
 -------------------
