@@ -5,7 +5,7 @@ History
 3.0.28 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Renamed general settings to physical settings.
 
 
 3.0.27 (2021-04-26)
