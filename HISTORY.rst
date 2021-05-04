@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.28 (unreleased)
+3.0.28 (2021-05-04)
 -------------------
 
 - Renamed general settings to physical settings.
