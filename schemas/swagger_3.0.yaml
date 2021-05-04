@@ -9316,73 +9316,6 @@ paths:
         in: path
         required: true
         type: string
-  /simulations/{simulation_pk}/settings/general/:
-    post:
-      operationId: simulations_settings_general_create
-      description: Create a general settings resource.
-      parameters:
-        - name: data
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/GeneralSettings'
-      responses:
-        '200':
-          description: OK
-        '400':
-          description: Bad request
-        '404':
-          description: Resource not found
-      tags:
-        - simulations
-    put:
-      operationId: simulations_settings_general_update
-      description: Update the general settings resource.
-      parameters:
-        - name: data
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/GeneralSettings'
-      responses:
-        '200':
-          description: OK
-        '404':
-          description: Resource not found
-      tags:
-        - simulations
-    patch:
-      operationId: simulations_settings_general_partial_update
-      description: Update the general settings resource.
-      parameters:
-        - name: data
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/GeneralSettings'
-      responses:
-        '200':
-          description: OK
-        '404':
-          description: Resource not found
-      tags:
-        - simulations
-    delete:
-      operationId: simulations_settings_general_delete
-      description: Delete the general settings resource.
-      parameters: []
-      responses:
-        '204':
-          description: Resource deleted successfully
-        '404':
-          description: Resource not found
-      tags:
-        - simulations
-    parameters:
-      - name: simulation_pk
-        in: path
-        required: true
-        type: string
   /simulations/{simulation_pk}/settings/numerical/:
     post:
       operationId: simulations_settings_numerical_create
@@ -9394,10 +9327,14 @@ paths:
           schema:
             $ref: '#/definitions/NumericalSettings'
       responses:
-        '201':
-          description: ''
-          schema:
-            $ref: '#/definitions/NumericalSettings'
+        '200':
+          description: OK
+        '400':
+          description: Bad request
+        '404':
+          description: Resource not found
+        '409':
+          description: Conflict with current state
       tags:
         - simulations
     put:
@@ -9414,6 +9351,8 @@ paths:
           description: OK
         '404':
           description: Resource not found
+        '409':
+          description: Conflict with current state
       tags:
         - simulations
     patch:
@@ -9430,6 +9369,8 @@ paths:
           description: OK
         '404':
           description: Resource not found
+        '409':
+          description: Conflict with current state
       tags:
         - simulations
     delete:
@@ -9441,6 +9382,8 @@ paths:
           description: Resource deleted successfully
         '404':
           description: Resource not found
+        '409':
+          description: Conflict with current state
       tags:
         - simulations
     parameters:
@@ -9467,6 +9410,81 @@ paths:
         in: path
         required: true
         type: string
+  /simulations/{simulation_pk}/settings/physical/:
+    post:
+      operationId: simulations_settings_physical_create
+      description: Create a general settings resource.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PhysicalSettings'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad request
+        '404':
+          description: Resource not found
+        '409':
+          description: Conflict with current state
+      tags:
+        - simulations
+    put:
+      operationId: simulations_settings_physical_update
+      description: Update the general settings resource.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PhysicalSettings'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+        '409':
+          description: Conflict with current state
+      tags:
+        - simulations
+    patch:
+      operationId: simulations_settings_physical_partial_update
+      description: Update the general settings resource.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PhysicalSettings'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+        '409':
+          description: Conflict with current state
+      tags:
+        - simulations
+    delete:
+      operationId: simulations_settings_physical_delete
+      description: Delete the general settings resource.
+      parameters: []
+      responses:
+        '204':
+          description: Resource deleted successfully
+        '404':
+          description: Resource not found
+        '409':
+          description: Conflict with current state
+      tags:
+        - simulations
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
   /simulations/{simulation_pk}/settings/time_step/:
     post:
       operationId: simulations_settings_time_step_create
@@ -9478,10 +9496,14 @@ paths:
           schema:
             $ref: '#/definitions/TimeStepSettings'
       responses:
-        '201':
-          description: ''
-          schema:
-            $ref: '#/definitions/TimeStepSettings'
+        '200':
+          description: OK
+        '400':
+          description: Bad request
+        '404':
+          description: Resource not found
+        '409':
+          description: Conflict with current state
       tags:
         - simulations
     put:
@@ -9498,6 +9520,8 @@ paths:
           description: OK
         '404':
           description: Resource not found
+        '409':
+          description: Conflict with current state
       tags:
         - simulations
     patch:
@@ -9514,6 +9538,8 @@ paths:
           description: OK
         '404':
           description: Resource not found
+        '409':
+          description: Conflict with current state
       tags:
         - simulations
     delete:
@@ -9525,6 +9551,8 @@ paths:
           description: Resource deleted successfully
         '404':
           description: Resource not found
+        '409':
+          description: Conflict with current state
       tags:
         - simulations
     parameters:
@@ -18392,40 +18420,6 @@ definitions:
         title: Interval
         description: aggregation interval in seconds
         type: number
-  GeneralSettings:
-    required:
-      - use_advection_1d
-      - use_advection_2d
-    type: object
-    properties:
-      id:
-        title: ID
-        type: integer
-        readOnly: true
-      simulation_id:
-        title: Simulation id
-        type: integer
-        readOnly: true
-      use_advection_1d:
-        title: Use advection 1d
-        description: |
-          Options: 
-          0 = off
-          1 = standard
-        type: integer
-        enum:
-          - 0
-          - 1
-      use_advection_2d:
-        title: Use advection 2d
-        description: |
-          Options: 
-          0 = off
-          1 = standard
-        type: integer
-        enum:
-          - 0
-          - 1
   NumericalSettings:
     required:
       - pump_implicit_ratio
@@ -18476,11 +18470,13 @@ definitions:
         type: number
       convergence_cg:
         title: Convergence cg
-        description: Suitable default is 1.0e-9.
+        description: Convergence criterion of cg-method, suitable default is 1.0e-9,
+          due to numerical precision.
         type: number
       flow_direction_threshold:
         title: Flow direction threshold
-        description: Suitable default is 1e-05.
+        description: Threshold value for upwind scheme based on flow velocity, suitable
+          default is 1e-06.
         type: number
       friction_shallow_water_depth_correction:
         title: Friction shallow water depth correction
@@ -18506,7 +18502,7 @@ definitions:
       time_integration_method:
         title: Time integration method
         description: |
-          There are various ways to discretize equation. At the moment only first order semi implicit is supported and tested.
+          There are various methods to discretize the equations. At the moment only the first-order, semi-implicit method is supported and tested.
           Options: 
           0 = euler implicit
         type: integer
@@ -18532,7 +18528,7 @@ definitions:
           This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas.
           Options: 
           0 = off
-          1 = higher order scheme (sensitive too instabilities)
+          1 = higher order scheme (might be sensitive to instabilities)
           2 = cross-sections treated as upwind method volume/surface area
           3 = combination traditional method thin layer approach
            If options 3 is used the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow
@@ -18545,7 +18541,7 @@ definitions:
       limiter_slope_friction_2d:
         title: Limiter slope friction 2d
         description: |
-          This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. This limiter is mandatory if the limiter_slope_crossectional_area_2d settings i greater than 0. Do not use in combination with interflow. Suitable default is 0 (OFF)
+          This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. This limiter is mandatory if the limiter_slope_crossectional_area_2d settings is greater than 0. Do not use in combination with interflow. Suitable default is 0 (OFF)
            Options: 
           0 = off
           1 = standard
@@ -18555,7 +18551,7 @@ definitions:
           - 1
       max_non_linear_newton_iterations:
         title: Max non linear newton iterations
-        description: Maximum number of nonlinear newton iterations in single time
+        description: Maximum number of non-linear newton iterations in single time
           step. Suitable default is 20.
         type: integer
         maximum: 2147483647
@@ -18569,15 +18565,15 @@ definitions:
           5 for surface 2D flow only 
           7 for surface and groundwater flow 
           70 for 1D, 2D surface and groundwater flow or higher. 
-          Play around with this value in case of groundwater, can speed up your model significantly. Suitable default is 0.
+          Play around with this value, can speed up your model significantly, especially in case of ground water flow. Suitable default is 0.
         type: integer
         maximum: 2147483647
         minimum: 0
       min_friction_velocity:
         title: Min friction velocity
-        description: For numerical computation several thresholds are needed in the
-          code, to avoid deficiencies due to a limited numerical accuracy. Generally
-          this is to keep the behaviour consistent.Suitable default is 0.01.
+        description: To guarantee some initial friction only in flooded areas and
+          for large time steps, it is wise to assume a minimum velocityfor computing
+          the friction. Suitable default is 0.01.
         type: number
       min_surface_area:
         title: Min surface area
@@ -18586,7 +18582,7 @@ definitions:
       use_preconditioner_cg:
         title: Use preconditioner cg
         description: |-
-          Use preconditioner for matrix solver. Increases simulation speed in most cases. 
+          Use pre-conditioner for matrix solver. Increases simulation speed in most cases. 
           Options: 
           0 = off
           1 = standard
@@ -18600,7 +18596,7 @@ definitions:
         description: 'A conceptual vertical narrow slot providing a conceptual free
           surface condition for the flow when the water level is above the top of
           a closed conduit. Often used to guarantee stability. Not necessary in 3Di
-          unless used for pressurized pipe flow. Note: Works only for circular profiles.
+          even for pressurized pipe flow. Note: Works only for circular profiles.
           Suitable default is 0.0. Unit: m2.'
         type: number
       limiter_slope_thin_water_layer:
@@ -18628,6 +18624,40 @@ definitions:
           to lowest bathymetry pixel at the edge between two 2D cells. Suitable default
           is 0.000001.
         type: number
+  PhysicalSettings:
+    required:
+      - use_advection_1d
+      - use_advection_2d
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      simulation_id:
+        title: Simulation id
+        type: integer
+        readOnly: true
+      use_advection_1d:
+        title: Use advection 1d
+        description: |
+          Options: 
+          0 = off
+          1 = standard
+        type: integer
+        enum:
+          - 0
+          - 1
+      use_advection_2d:
+        title: Use advection 2d
+        description: |
+          Options: 
+          0 = off
+          1 = standard
+        type: integer
+        enum:
+          - 0
+          - 1
   TimeStepSettings:
     required:
       - time_step
@@ -18651,7 +18681,8 @@ definitions:
         type: number
       min_time_step:
         title: Min time step
-        description: Minimum size of the simulation time step in seconds.
+        description: Minimum size of the simulation time step in seconds. Suitable
+          default is 0.001.
         type: number
       max_time_step:
         title: Max time step
@@ -18659,17 +18690,18 @@ definitions:
         type: number
       use_time_step_stretch:
         title: Use time step stretch
-        description: Only when extra control over the time step is required.
+        description: Permit the time step to increase automatically, when the flow
+          allows it.
         type: boolean
       output_time_step:
         title: Output time step
-        description: In seconds.
+        description: The interval in seconds in which results are saved to disk.
         type: number
   SimulationSettingsOverview:
     type: object
     properties:
-      general_settings:
-        $ref: '#/definitions/GeneralSettings'
+      physical_settings:
+        $ref: '#/definitions/PhysicalSettings'
       numerical_settings:
         $ref: '#/definitions/NumericalSettings'
       time_step_settings:

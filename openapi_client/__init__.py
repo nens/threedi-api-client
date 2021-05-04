@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = '3.0.28.dev0'
+__version__ = "1.0.0"
 
 # import apis into sdk package
 from openapi_client.api.auth_api import AuthApi
@@ -75,7 +75,6 @@ from openapi_client.models.file_read_only import FileReadOnly
 from openapi_client.models.file_timeseries_leakage import FileTimeseriesLeakage
 from openapi_client.models.file_timeseries_rain import FileTimeseriesRain
 from openapi_client.models.file_timeseries_sources_sinks import FileTimeseriesSourcesSinks
-from openapi_client.models.general_settings import GeneralSettings
 from openapi_client.models.grid_event_state import GridEventState
 from openapi_client.models.ground_water_level import GroundWaterLevel
 from openapi_client.models.ground_water_raster import GroundWaterRaster
@@ -167,6 +166,7 @@ from openapi_client.models.one_d_water_level import OneDWaterLevel
 from openapi_client.models.one_d_water_level_predefined import OneDWaterLevelPredefined
 from openapi_client.models.organisation import Organisation
 from openapi_client.models.organisation_role import OrganisationRole
+from openapi_client.models.physical_settings import PhysicalSettings
 from openapi_client.models.point import Point
 from openapi_client.models.polygon import Polygon
 from openapi_client.models.post_processing_overview import PostProcessingOverview

@@ -272,7 +272,7 @@ class NumericalSettings(object):
     def convergence_cg(self):
         """Gets the convergence_cg of this NumericalSettings.  # noqa: E501
 
-        Suitable default is 1.0e-9.  # noqa: E501
+        Convergence criterion of cg-method, suitable default is 1.0e-9, due to numerical precision.  # noqa: E501
 
         :return: The convergence_cg of this NumericalSettings.  # noqa: E501
         :rtype: float
@@ -283,7 +283,7 @@ class NumericalSettings(object):
     def convergence_cg(self, convergence_cg):
         """Sets the convergence_cg of this NumericalSettings.
 
-        Suitable default is 1.0e-9.  # noqa: E501
+        Convergence criterion of cg-method, suitable default is 1.0e-9, due to numerical precision.  # noqa: E501
 
         :param convergence_cg: The convergence_cg of this NumericalSettings.  # noqa: E501
         :type: float
@@ -297,7 +297,7 @@ class NumericalSettings(object):
     def flow_direction_threshold(self):
         """Gets the flow_direction_threshold of this NumericalSettings.  # noqa: E501
 
-        Suitable default is 1e-05.  # noqa: E501
+        Threshold value for upwind scheme based on flow velocity, suitable default is 1e-06.  # noqa: E501
 
         :return: The flow_direction_threshold of this NumericalSettings.  # noqa: E501
         :rtype: float
@@ -308,7 +308,7 @@ class NumericalSettings(object):
     def flow_direction_threshold(self, flow_direction_threshold):
         """Sets the flow_direction_threshold of this NumericalSettings.
 
-        Suitable default is 1e-05.  # noqa: E501
+        Threshold value for upwind scheme based on flow velocity, suitable default is 1e-06.  # noqa: E501
 
         :param flow_direction_threshold: The flow_direction_threshold of this NumericalSettings.  # noqa: E501
         :type: float
@@ -372,7 +372,7 @@ class NumericalSettings(object):
     def time_integration_method(self):
         """Gets the time_integration_method of this NumericalSettings.  # noqa: E501
 
-        There are various ways to discretize equation. At the moment only first order semi implicit is supported and tested. Options:  0 = euler implicit   # noqa: E501
+        There are various methods to discretize the equations. At the moment only the first-order, semi-implicit method is supported and tested. Options:  0 = euler implicit   # noqa: E501
 
         :return: The time_integration_method of this NumericalSettings.  # noqa: E501
         :rtype: int
@@ -383,7 +383,7 @@ class NumericalSettings(object):
     def time_integration_method(self, time_integration_method):
         """Sets the time_integration_method of this NumericalSettings.
 
-        There are various ways to discretize equation. At the moment only first order semi implicit is supported and tested. Options:  0 = euler implicit   # noqa: E501
+        There are various methods to discretize the equations. At the moment only the first-order, semi-implicit method is supported and tested. Options:  0 = euler implicit   # noqa: E501
 
         :param time_integration_method: The time_integration_method of this NumericalSettings.  # noqa: E501
         :type: int
@@ -457,7 +457,7 @@ class NumericalSettings(object):
     def limiter_slope_crossectional_area_2d(self):
         """Gets the limiter_slope_crossectional_area_2d of this NumericalSettings.  # noqa: E501
 
-        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. Options:  0 = off 1 = higher order scheme (sensitive too instabilities) 2 = cross-sections treated as upwind method volume/surface area 3 = combination traditional method thin layer approach  If options 3 is used the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow  # noqa: E501
+        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. Options:  0 = off 1 = higher order scheme (might be sensitive to instabilities) 2 = cross-sections treated as upwind method volume/surface area 3 = combination traditional method thin layer approach  If options 3 is used the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow  # noqa: E501
 
         :return: The limiter_slope_crossectional_area_2d of this NumericalSettings.  # noqa: E501
         :rtype: int
@@ -468,7 +468,7 @@ class NumericalSettings(object):
     def limiter_slope_crossectional_area_2d(self, limiter_slope_crossectional_area_2d):
         """Sets the limiter_slope_crossectional_area_2d of this NumericalSettings.
 
-        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. Options:  0 = off 1 = higher order scheme (sensitive too instabilities) 2 = cross-sections treated as upwind method volume/surface area 3 = combination traditional method thin layer approach  If options 3 is used the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow  # noqa: E501
+        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. Options:  0 = off 1 = higher order scheme (might be sensitive to instabilities) 2 = cross-sections treated as upwind method volume/surface area 3 = combination traditional method thin layer approach  If options 3 is used the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow  # noqa: E501
 
         :param limiter_slope_crossectional_area_2d: The limiter_slope_crossectional_area_2d of this NumericalSettings.  # noqa: E501
         :type: int
@@ -482,7 +482,7 @@ class NumericalSettings(object):
     def limiter_slope_friction_2d(self):
         """Gets the limiter_slope_friction_2d of this NumericalSettings.  # noqa: E501
 
-        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. This limiter is mandatory if the limiter_slope_crossectional_area_2d settings i greater than 0. Do not use in combination with interflow. Suitable default is 0 (OFF)  Options:  0 = off 1 = standard   # noqa: E501
+        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. This limiter is mandatory if the limiter_slope_crossectional_area_2d settings is greater than 0. Do not use in combination with interflow. Suitable default is 0 (OFF)  Options:  0 = off 1 = standard   # noqa: E501
 
         :return: The limiter_slope_friction_2d of this NumericalSettings.  # noqa: E501
         :rtype: int
@@ -493,7 +493,7 @@ class NumericalSettings(object):
     def limiter_slope_friction_2d(self, limiter_slope_friction_2d):
         """Sets the limiter_slope_friction_2d of this NumericalSettings.
 
-        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. This limiter is mandatory if the limiter_slope_crossectional_area_2d settings i greater than 0. Do not use in combination with interflow. Suitable default is 0 (OFF)  Options:  0 = off 1 = standard   # noqa: E501
+        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. This limiter is mandatory if the limiter_slope_crossectional_area_2d settings is greater than 0. Do not use in combination with interflow. Suitable default is 0 (OFF)  Options:  0 = off 1 = standard   # noqa: E501
 
         :param limiter_slope_friction_2d: The limiter_slope_friction_2d of this NumericalSettings.  # noqa: E501
         :type: int
@@ -507,7 +507,7 @@ class NumericalSettings(object):
     def max_non_linear_newton_iterations(self):
         """Gets the max_non_linear_newton_iterations of this NumericalSettings.  # noqa: E501
 
-        Maximum number of nonlinear newton iterations in single time step. Suitable default is 20.  # noqa: E501
+        Maximum number of non-linear newton iterations in single time step. Suitable default is 20.  # noqa: E501
 
         :return: The max_non_linear_newton_iterations of this NumericalSettings.  # noqa: E501
         :rtype: int
@@ -518,7 +518,7 @@ class NumericalSettings(object):
     def max_non_linear_newton_iterations(self, max_non_linear_newton_iterations):
         """Sets the max_non_linear_newton_iterations of this NumericalSettings.
 
-        Maximum number of nonlinear newton iterations in single time step. Suitable default is 20.  # noqa: E501
+        Maximum number of non-linear newton iterations in single time step. Suitable default is 20.  # noqa: E501
 
         :param max_non_linear_newton_iterations: The max_non_linear_newton_iterations of this NumericalSettings.  # noqa: E501
         :type: int
@@ -538,7 +538,7 @@ class NumericalSettings(object):
     def max_degree_gauss_seidel(self):
         """Gets the max_degree_gauss_seidel of this NumericalSettings.  # noqa: E501
 
-        Values below are advised for different model types:  700 for 1D flow  7 for 1D and 2D flow  5 for surface 2D flow only  7 for surface and groundwater flow  70 for 1D, 2D surface and groundwater flow or higher.  Play around with this value in case of groundwater, can speed up your model significantly. Suitable default is 0.  # noqa: E501
+        Values below are advised for different model types:  700 for 1D flow  7 for 1D and 2D flow  5 for surface 2D flow only  7 for surface and groundwater flow  70 for 1D, 2D surface and groundwater flow or higher.  Play around with this value, can speed up your model significantly, especially in case of ground water flow. Suitable default is 0.  # noqa: E501
 
         :return: The max_degree_gauss_seidel of this NumericalSettings.  # noqa: E501
         :rtype: int
@@ -549,7 +549,7 @@ class NumericalSettings(object):
     def max_degree_gauss_seidel(self, max_degree_gauss_seidel):
         """Sets the max_degree_gauss_seidel of this NumericalSettings.
 
-        Values below are advised for different model types:  700 for 1D flow  7 for 1D and 2D flow  5 for surface 2D flow only  7 for surface and groundwater flow  70 for 1D, 2D surface and groundwater flow or higher.  Play around with this value in case of groundwater, can speed up your model significantly. Suitable default is 0.  # noqa: E501
+        Values below are advised for different model types:  700 for 1D flow  7 for 1D and 2D flow  5 for surface 2D flow only  7 for surface and groundwater flow  70 for 1D, 2D surface and groundwater flow or higher.  Play around with this value, can speed up your model significantly, especially in case of ground water flow. Suitable default is 0.  # noqa: E501
 
         :param max_degree_gauss_seidel: The max_degree_gauss_seidel of this NumericalSettings.  # noqa: E501
         :type: int
@@ -569,7 +569,7 @@ class NumericalSettings(object):
     def min_friction_velocity(self):
         """Gets the min_friction_velocity of this NumericalSettings.  # noqa: E501
 
-        For numerical computation several thresholds are needed in the code, to avoid deficiencies due to a limited numerical accuracy. Generally this is to keep the behaviour consistent.Suitable default is 0.01.  # noqa: E501
+        To guarantee some initial friction only in flooded areas and for large time steps, it is wise to assume a minimum velocityfor computing the friction. Suitable default is 0.01.  # noqa: E501
 
         :return: The min_friction_velocity of this NumericalSettings.  # noqa: E501
         :rtype: float
@@ -580,7 +580,7 @@ class NumericalSettings(object):
     def min_friction_velocity(self, min_friction_velocity):
         """Sets the min_friction_velocity of this NumericalSettings.
 
-        For numerical computation several thresholds are needed in the code, to avoid deficiencies due to a limited numerical accuracy. Generally this is to keep the behaviour consistent.Suitable default is 0.01.  # noqa: E501
+        To guarantee some initial friction only in flooded areas and for large time steps, it is wise to assume a minimum velocityfor computing the friction. Suitable default is 0.01.  # noqa: E501
 
         :param min_friction_velocity: The min_friction_velocity of this NumericalSettings.  # noqa: E501
         :type: float
@@ -619,7 +619,7 @@ class NumericalSettings(object):
     def use_preconditioner_cg(self):
         """Gets the use_preconditioner_cg of this NumericalSettings.  # noqa: E501
 
-        Use preconditioner for matrix solver. Increases simulation speed in most cases.  Options:  0 = off 1 = standard . Suitable default is 1 (STANDARD).  # noqa: E501
+        Use pre-conditioner for matrix solver. Increases simulation speed in most cases.  Options:  0 = off 1 = standard . Suitable default is 1 (STANDARD).  # noqa: E501
 
         :return: The use_preconditioner_cg of this NumericalSettings.  # noqa: E501
         :rtype: int
@@ -630,7 +630,7 @@ class NumericalSettings(object):
     def use_preconditioner_cg(self, use_preconditioner_cg):
         """Sets the use_preconditioner_cg of this NumericalSettings.
 
-        Use preconditioner for matrix solver. Increases simulation speed in most cases.  Options:  0 = off 1 = standard . Suitable default is 1 (STANDARD).  # noqa: E501
+        Use pre-conditioner for matrix solver. Increases simulation speed in most cases.  Options:  0 = off 1 = standard . Suitable default is 1 (STANDARD).  # noqa: E501
 
         :param use_preconditioner_cg: The use_preconditioner_cg of this NumericalSettings.  # noqa: E501
         :type: int
@@ -644,7 +644,7 @@ class NumericalSettings(object):
     def preissmann_slot(self):
         """Gets the preissmann_slot of this NumericalSettings.  # noqa: E501
 
-        A conceptual vertical narrow slot providing a conceptual free surface condition for the flow when the water level is above the top of a closed conduit. Often used to guarantee stability. Not necessary in 3Di unless used for pressurized pipe flow. Note: Works only for circular profiles. Suitable default is 0.0. Unit: m2.  # noqa: E501
+        A conceptual vertical narrow slot providing a conceptual free surface condition for the flow when the water level is above the top of a closed conduit. Often used to guarantee stability. Not necessary in 3Di even for pressurized pipe flow. Note: Works only for circular profiles. Suitable default is 0.0. Unit: m2.  # noqa: E501
 
         :return: The preissmann_slot of this NumericalSettings.  # noqa: E501
         :rtype: float
@@ -655,7 +655,7 @@ class NumericalSettings(object):
     def preissmann_slot(self, preissmann_slot):
         """Sets the preissmann_slot of this NumericalSettings.
 
-        A conceptual vertical narrow slot providing a conceptual free surface condition for the flow when the water level is above the top of a closed conduit. Often used to guarantee stability. Not necessary in 3Di unless used for pressurized pipe flow. Note: Works only for circular profiles. Suitable default is 0.0. Unit: m2.  # noqa: E501
+        A conceptual vertical narrow slot providing a conceptual free surface condition for the flow when the water level is above the top of a closed conduit. Often used to guarantee stability. Not necessary in 3Di even for pressurized pipe flow. Note: Works only for circular profiles. Suitable default is 0.0. Unit: m2.  # noqa: E501
 
         :param preissmann_slot: The preissmann_slot of this NumericalSettings.  # noqa: E501
         :type: float

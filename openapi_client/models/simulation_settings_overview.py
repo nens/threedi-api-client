@@ -34,33 +34,33 @@ class SimulationSettingsOverview(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'general_settings': 'GeneralSettings',
+        'physical_settings': 'PhysicalSettings',
         'numerical_settings': 'NumericalSettings',
         'time_step_settings': 'TimeStepSettings',
         'aggregation_settings': 'list[AggregationSettings]'
     }
 
     attribute_map = {
-        'general_settings': 'general_settings',
+        'physical_settings': 'physical_settings',
         'numerical_settings': 'numerical_settings',
         'time_step_settings': 'time_step_settings',
         'aggregation_settings': 'aggregation_settings'
     }
 
-    def __init__(self, general_settings=None, numerical_settings=None, time_step_settings=None, aggregation_settings=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, physical_settings=None, numerical_settings=None, time_step_settings=None, aggregation_settings=None, local_vars_configuration=None):  # noqa: E501
         """SimulationSettingsOverview - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._general_settings = None
+        self._physical_settings = None
         self._numerical_settings = None
         self._time_step_settings = None
         self._aggregation_settings = None
         self.discriminator = None
 
-        if general_settings is not None:
-            self.general_settings = general_settings
+        if physical_settings is not None:
+            self.physical_settings = physical_settings
         if numerical_settings is not None:
             self.numerical_settings = numerical_settings
         if time_step_settings is not None:
@@ -69,25 +69,25 @@ class SimulationSettingsOverview(object):
             self.aggregation_settings = aggregation_settings
 
     @property
-    def general_settings(self):
-        """Gets the general_settings of this SimulationSettingsOverview.  # noqa: E501
+    def physical_settings(self):
+        """Gets the physical_settings of this SimulationSettingsOverview.  # noqa: E501
 
 
-        :return: The general_settings of this SimulationSettingsOverview.  # noqa: E501
-        :rtype: GeneralSettings
+        :return: The physical_settings of this SimulationSettingsOverview.  # noqa: E501
+        :rtype: PhysicalSettings
         """
-        return self._general_settings
+        return self._physical_settings
 
-    @general_settings.setter
-    def general_settings(self, general_settings):
-        """Sets the general_settings of this SimulationSettingsOverview.
+    @physical_settings.setter
+    def physical_settings(self, physical_settings):
+        """Sets the physical_settings of this SimulationSettingsOverview.
 
 
-        :param general_settings: The general_settings of this SimulationSettingsOverview.  # noqa: E501
-        :type: GeneralSettings
+        :param physical_settings: The physical_settings of this SimulationSettingsOverview.  # noqa: E501
+        :type: PhysicalSettings
         """
 
-        self._general_settings = general_settings
+        self._physical_settings = physical_settings
 
     @property
     def numerical_settings(self):

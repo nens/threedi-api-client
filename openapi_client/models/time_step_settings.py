@@ -149,7 +149,7 @@ class TimeStepSettings(object):
     def min_time_step(self):
         """Gets the min_time_step of this TimeStepSettings.  # noqa: E501
 
-        Minimum size of the simulation time step in seconds.  # noqa: E501
+        Minimum size of the simulation time step in seconds. Suitable default is 0.001.  # noqa: E501
 
         :return: The min_time_step of this TimeStepSettings.  # noqa: E501
         :rtype: float
@@ -160,7 +160,7 @@ class TimeStepSettings(object):
     def min_time_step(self, min_time_step):
         """Sets the min_time_step of this TimeStepSettings.
 
-        Minimum size of the simulation time step in seconds.  # noqa: E501
+        Minimum size of the simulation time step in seconds. Suitable default is 0.001.  # noqa: E501
 
         :param min_time_step: The min_time_step of this TimeStepSettings.  # noqa: E501
         :type: float
@@ -199,7 +199,7 @@ class TimeStepSettings(object):
     def use_time_step_stretch(self):
         """Gets the use_time_step_stretch of this TimeStepSettings.  # noqa: E501
 
-        Only when extra control over the time step is required.  # noqa: E501
+        Permit the time step to increase automatically, when the flow allows it.  # noqa: E501
 
         :return: The use_time_step_stretch of this TimeStepSettings.  # noqa: E501
         :rtype: bool
@@ -210,7 +210,7 @@ class TimeStepSettings(object):
     def use_time_step_stretch(self, use_time_step_stretch):
         """Sets the use_time_step_stretch of this TimeStepSettings.
 
-        Only when extra control over the time step is required.  # noqa: E501
+        Permit the time step to increase automatically, when the flow allows it.  # noqa: E501
 
         :param use_time_step_stretch: The use_time_step_stretch of this TimeStepSettings.  # noqa: E501
         :type: bool
@@ -224,7 +224,7 @@ class TimeStepSettings(object):
     def output_time_step(self):
         """Gets the output_time_step of this TimeStepSettings.  # noqa: E501
 
-        In seconds.  # noqa: E501
+        The interval in seconds in which results are saved to disk.  # noqa: E501
 
         :return: The output_time_step of this TimeStepSettings.  # noqa: E501
         :rtype: float
@@ -235,7 +235,7 @@ class TimeStepSettings(object):
     def output_time_step(self, output_time_step):
         """Sets the output_time_step of this TimeStepSettings.
 
-        In seconds.  # noqa: E501
+        The interval in seconds in which results are saved to disk.  # noqa: E501
 
         :param output_time_step: The output_time_step of this TimeStepSettings.  # noqa: E501
         :type: float
