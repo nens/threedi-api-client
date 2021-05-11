@@ -9,8 +9,8 @@ threedi-openapi-client
 .. image:: https://img.shields.io/pypi/v/threedi-api-client.svg
         :target: https://pypi.python.org/pypi/threedi-api-client
 
-.. image:: https://img.shields.io/travis/nens/threedi_openapi_client.svg
-        :target: https://travis-ci.com/nens/threedi-openapi-client
+.. image:: https://github.com/nens/threedi-openapi-client/actions/workflows/main.yml/badge.svg
+        :target: https://github.com/nens/threedi-openapi-client/actions/workflows/main.yml
 
 
 * A Python library for the 3Di API
