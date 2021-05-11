@@ -2,6 +2,9 @@
 threedi-openapi-client
 ======================
 
+.. image:: https://readthedocs.org/projects/threedi-openapi-client/badge/?version=latest
+        :target: https://threedi-openapi-client.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
 
 .. image:: https://img.shields.io/pypi/v/threedi-api-client.svg
         :target: https://pypi.python.org/pypi/threedi-api-client
@@ -43,7 +46,7 @@ Usage
 
 Head over to the `documentation`_  for usage eaxmples.
 
-.. _documentation: https://nens.github.io/threedi-openapi-client/
+.. _documentation: https://threedi-openapi-client.readthedocs.io/
 
 
 Release

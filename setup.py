@@ -31,6 +31,7 @@ def find_version(*file_paths):
         return version_match.group(1)
     raise RuntimeError("Unable to find version string.")
 
+
 requirements = [
     'certifi>=2019.3.9',
     'urllib3>=1.15',
@@ -63,8 +64,8 @@ setup(
     license="BSD license",
     long_description=readme + '\n\n' + history,
     include_package_data=True,
-    keywords='threedi_openapi_client',
-    name='threedi_api_client',
+    keywords='threedi-api-client',
+    name='threedi-api-client',
     packages=find_packages(
         include=[
             'openapi_client', 'openapi_client.*',
