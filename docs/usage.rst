@@ -5,7 +5,7 @@ The ``ThreediApiClient`` class is the main entry point to make calls
 to the 3Di API v3. It handles the login process for you and can be
 directly used as client for all API endpoints.
 
-The following settings are necessary to make requests to the 3Di
+The following three settings are necessary to make requests to the 3Di
 API:
 
 -  the host name
@@ -19,7 +19,7 @@ variables, or passed as a config dictionairy.
 
 ::
 
-   API_HOST=https://api.3di.live/v3
+   API_HOST=https://api.3di.live/v3.0
    API_USERNAME=black.sheep
    API_PASSWORD=myverysecretmehhh
 
