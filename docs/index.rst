@@ -13,4 +13,4 @@ API Reference
     :caption: Contents:
 
     usage
-    Examples <https://github.com/nens/threedi-openapi-client/blob/master/examples/README.md>
+    Examples <https://github.com/nens/threedi-api-client/blob/master/examples/README.md>

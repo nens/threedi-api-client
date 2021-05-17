@@ -78,7 +78,7 @@ setup(
         "test": test_requirements,
     },
     test_suite='tests',
-    url='https://github.com/nens/threedi-openapi-client',
+    url='https://github.com/nens/threedi-api-client',
     version=find_version("openapi_client", "__init__.py"),
     zip_safe=False,
 )

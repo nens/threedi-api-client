@@ -1,4 +1,4 @@
-* threedi-openapi-client version:
+* threedi-api-client version:
 * Python version:
 * Operating System:
 

@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'threedi-openapi-client'
+project = 'threedi-api-client'
 copyright = '2021-now, Nelen & Schuurmans'
 author = 'Nelen & Schuurmans'
 
