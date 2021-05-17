@@ -1,23 +1,23 @@
 ======================
-threedi-openapi-client
+threedi-api-client
 ======================
 
-.. image:: https://readthedocs.org/projects/threedi-openapi-client/badge/?version=latest
-        :target: https://threedi-openapi-client.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/threedi-api-client/badge/?version=latest
+        :target: https://threedi-api-client.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
 .. image:: https://img.shields.io/pypi/v/threedi-api-client.svg
         :target: https://pypi.python.org/pypi/threedi-api-client
 
-.. image:: https://github.com/nens/threedi-openapi-client/actions/workflows/main.yml/badge.svg
-        :target: https://github.com/nens/threedi-openapi-client/actions/workflows/main.yml
+.. image:: https://github.com/nens/threedi-api-client/actions/workflows/main.yml/badge.svg
+        :target: https://github.com/nens/threedi-api-client/actions/workflows/main.yml
 
 
 * A Python library for the 3Di API
 
 
 * Free software: BSD license
-* Documentation: https://nens.github.io/threedi-openapi-client
+* Documentation: https://nens.github.io/threedi-api-client
 
 
 Features
@@ -46,7 +46,7 @@ Usage
 
 Head over to the `documentation`_  for usage eaxmples.
 
-.. _documentation: https://threedi-openapi-client.readthedocs.io/
+.. _documentation: https://threedi-api-client.readthedocs.io/
 
 
 Release
