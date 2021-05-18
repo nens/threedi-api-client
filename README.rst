@@ -13,19 +13,16 @@ threedi-api-client
         :target: https://github.com/nens/threedi-api-client/actions/workflows/main.yml
 
 
-* A Python library for the 3Di API
-
-
+* A Python library for interfacing with the 3Di API
 * Free software: BSD license
 * Documentation: https://threedi-api-client.readthedocs.io
-
 
 Features
 --------
 
-* OOP API interaction
-* async support
-* ...
+* Object-oriented API interaction generated with https://openapi-generator.tech/.
+* Asynchronous support.
+* Advanced file download and upload utility functions.
 
 
 Installation
@@ -41,24 +38,11 @@ If async support is required, install as follows::
     pip install --user threedi-api-client[aio]
 
 
-Usage
------
-
-Head over to the `documentation`_  for usage eaxmples.
-
-.. _documentation: https://threedi-api-client.readthedocs.io/
-
-
-Release
--------
-
-Use any tool you like to create a release (zest.releaser, github,...) that creates a release tag. That will trigger a
-github action job called "publish". It will create a wheel and tarball and will updload them to `pypi`_.
-
-.. _pypi: https://pypi.org/project/threedi-api-client/
-
 Credits
 -------
+
+The OpenAPI client has been generated with OpenAPI generator (https://openapi-generator.tech/), which is
+licensed under the Apache License 2.0.
 
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
