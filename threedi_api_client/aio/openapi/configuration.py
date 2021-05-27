@@ -63,7 +63,7 @@ class Configuration(object):
 
     You can programmatically set the cookie:
 
-conf = threedi_api_client.openapi.aio.Configuration(
+conf = threedi_api_client.aio.openapi.Configuration(
     api_key={'cookieAuth': 'abc123'}
     api_key_prefix={'cookieAuth': 'JSESSIONID'}
 )
@@ -111,7 +111,7 @@ conf = threedi_api_client.openapi.aio.Configuration(
         self.logger = {}
         """Logging Settings
         """
-        self.logger["package_logger"] = logging.getLogger("threedi_api_client.openapi.aio")
+        self.logger["package_logger"] = logging.getLogger("threedi_api_client.aio.openapi")
         self.logger["urllib3_logger"] = logging.getLogger("urllib3")
         self.logger_format = '%(asctime)s %(levelname)s %(message)s'
         """Log format

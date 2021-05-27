@@ -22,7 +22,7 @@ import certifi
 # python 2 and python 3 compatibility library
 from six.moves.urllib.parse import urlencode
 
-from threedi_api_client.openapi.aio.exceptions import ApiException, ApiValueError
+from threedi_api_client.aio.openapi.exceptions import ApiException, ApiValueError
 
 logger = logging.getLogger(__name__)
 

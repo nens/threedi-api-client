@@ -19,7 +19,8 @@ __version__ = "3.0.29.dev0"
 
 import warnings
 warnings.warn(
-    "openapi_client is pending deprecation. Please use the new client in threedi_api_client.openapi.",
+    "openapi_client is pending deprecation. Please use the new "
+    "clients in threedi_api_client.openapi and threedi_api_client.aio.openapi",
     UserWarning,
 )
 

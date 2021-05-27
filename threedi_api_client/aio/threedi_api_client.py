@@ -1,5 +1,5 @@
-from threedi_api_client.openapi.aio.api_client import ApiClient
-from threedi_api_client.openapi.aio.configuration import Configuration
+from threedi_api_client.aio.openapi.api_client import ApiClient
+from threedi_api_client.aio.openapi.configuration import Configuration
 
 from threedi_api_client.threedi_api_client import refresh_api_key
 from threedi_api_client.config import Config, EnvironConfig

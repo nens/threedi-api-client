@@ -25,10 +25,10 @@ import tempfile
 import six
 from six.moves.urllib.parse import quote
 
-from threedi_api_client.openapi.aio.configuration import Configuration
-import threedi_api_client.openapi.aio.models
-from threedi_api_client.openapi.aio import rest
-from threedi_api_client.openapi.aio.exceptions import ApiValueError, ApiException
+from threedi_api_client.aio.openapi.configuration import Configuration
+import threedi_api_client.aio.openapi.models
+from threedi_api_client.aio.openapi import rest
+from threedi_api_client.aio.openapi.exceptions import ApiValueError, ApiException
 
 
 class ApiClient(object):
@@ -307,7 +307,7 @@ class ApiClient(object):
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(threedi_api_client.openapi.aio.models, klass)
+                klass = getattr(threedi_api_client.aio.openapi.models, klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)

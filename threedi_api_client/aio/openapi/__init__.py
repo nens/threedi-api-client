@@ -17,11 +17,11 @@ from __future__ import absolute_import
 
 __version__ = "1.0.0"
 
-from threedi_api_client.openapi.aio import rest as rest_iets
+from threedi_api_client.aio.openapi import rest as rest_iets
 from threedi_api_client.openapi import *
 
 
 # import ApiClient
 rest = rest_iets
-from threedi_api_client.openapi.aio.api_client import ApiClient
+from threedi_api_client.aio.openapi.api_client import ApiClient
 
