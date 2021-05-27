@@ -30,7 +30,7 @@ variables, or passed as a config dictionairy.
    env_file = "<path>/.env"
    api_client = ThreediApiClient(env_file=env_file)
 
-1) The enviroment variables are the same as in the .env file:
+2) The enviroment variables are the same as in the .env file:
 
 ::
 
@@ -38,7 +38,7 @@ variables, or passed as a config dictionairy.
    export API_USERNAME=black.sheep
    export API_PASSWORD=myverysecretmehhh
 
-1) The config keyword argument can be used like:
+3) The config keyword argument can be used like:
 
 .. code:: python
 
