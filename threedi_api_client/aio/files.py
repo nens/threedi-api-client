@@ -13,7 +13,7 @@ import aiofiles
 import aiofiles.os
 import aiohttp
 
-from openapi_client.exceptions import ApiException
+from threedi_api_client.openapi import ApiException
 
 CONTENT_RANGE_REGEXP = re.compile(r"^bytes (\d+)-(\d+)/(\d+|\*)$")
 RETRY_STATUSES = frozenset({413, 429, 503})  # like in urllib3
@@ -84,7 +84,7 @@ async def download_file(
         Tuple of file path, total number of uploaded bytes.
 
     Raises:
-        openapi_client.exceptions.ApiException: raised on unexpected server
+        threedi_api_client.openapi.ApiException: raised on unexpected server
             responses (HTTP status codes other than 206, 413, 429, 503)
         aiohttp.ClientError: various low-level HTTP errors that persist
             after retrying: connection errors, timeouts, decode errors,
@@ -179,7 +179,7 @@ async def download_fileobj(
         The total number of downloaded bytes.
 
     Raises:
-        openapi_client.exceptions.ApiException: raised on unexpected server
+        threedi_api_client.openapi.ApiException: raised on unexpected server
             responses (HTTP status codes other than 206, 413, 429, 503)
         aiohttp.ClientError: various low-level HTTP errors that persist
             after retrying: connection errors, timeouts, decode errors,
@@ -279,7 +279,7 @@ async def upload_file(
 
     Raises:
         IOError: Raised if the provided file is incompatible or empty.
-        openapi_client.exceptions.ApiException: raised on unexpected server
+        threedi_api_client.openapi.ApiException: raised on unexpected server
             responses (HTTP status codes other than 206, 413, 429, 503)
         aiohttp.ClientError: various low-level HTTP errors that persist
             after retrying: connection errors, timeouts, decode errors,
@@ -380,7 +380,7 @@ async def upload_fileobj(
 
     Raises:
         IOError: Raised if the provided file is incompatible or empty.
-        openapi_client.exceptions.ApiException: raised on unexpected server
+        threedi_api_client.openapi.ApiException: raised on unexpected server
             responses (HTTP status codes other than 206, 413, 429, 503)
         aiohttp.ClientError: various low-level HTTP errors that persist
             after retrying: connection errors, timeouts, decode errors,

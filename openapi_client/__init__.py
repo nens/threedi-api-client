@@ -17,6 +17,12 @@ from __future__ import absolute_import
 
 __version__ = "3.0.29.dev0"
 
+import warnings
+warnings.warn(
+    "openapi_client is pending deprecation. Please use the new client in threedi_api_client.openapi.",
+    UserWarning,
+)
+
 # import apis into sdk package
 from openapi_client.api.auth_api import AuthApi
 from openapi_client.api.contracts_api import ContractsApi

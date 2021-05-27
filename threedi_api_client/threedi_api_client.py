@@ -1,9 +1,9 @@
 import jwt
 from datetime import datetime, timedelta
-from openapi_client import ApiClient
-from openapi_client import Configuration
-from openapi_client import AuthApi
-from openapi_client.models import Authenticate
+from threedi_api_client.openapi import ApiClient
+from threedi_api_client.openapi import Configuration
+from threedi_api_client.openapi import V3Api
+from threedi_api_client.openapi import Authenticate
 
 from threedi_api_client.config import Config, EnvironConfig
 
@@ -19,8 +19,8 @@ def get_auth_token(username: str, password: str, api_host: str):
             host=api_host
         )
     )
-    auth = AuthApi(api_client)
-    return auth.auth_token_create(Authenticate(username, password))
+    api = V3Api(api_client)
+    return api.auth_token_create(Authenticate(username, password))
 
 
 def is_token_usable(token: str) -> bool:
@@ -51,8 +51,8 @@ def refresh_api_key(config: Configuration):
     refresh_key = config.api_key['refresh']
     if is_token_usable(refresh_key):
         api_client = ApiClient(Configuration(config.host))
-        auth = AuthApi(api_client)
-        token = auth.auth_refresh_token_create(
+        api = V3Api(api_client)
+        token = api.auth_refresh_token_create(
             {"refresh": config.api_key['refresh']}
         )
     else:
