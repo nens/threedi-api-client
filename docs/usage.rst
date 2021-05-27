@@ -259,8 +259,8 @@ For example, to asynchronously request files from the api:
 
    import asyncio
 
-   from threedi_api_client.openapi import V3Api
-   from threedi_api_client.aio.threedi_api_client import ThreediApiClient
+   from threedi_api_client.aio.openapi import V3Api
+   from threedi_api_client.aio import ThreediApiClient
 
 
    config = {
