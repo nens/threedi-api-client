@@ -31,6 +31,18 @@ def host_remove_version(host: str):
         return host
 
 
+def host_has_version(host: str):
+    return bool(re.findall(r"(.*)\/v3.*", host))
+
+
+def host_remove_version(host: str):
+    matches = re.findall(r"(.*)\/v3.*", host)
+    if matches:
+        return matches[0]
+    else:
+        return host
+
+
 def get_auth_token(username: str, password: str, api_host: str):
     api_client = ApiClient(
         Configuration(

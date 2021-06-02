@@ -15,7 +15,14 @@
 
 from __future__ import absolute_import
 
-__version__ = "3.0.29.dev0"
+__version__ = "3.0.30.dev0"
+
+import warnings
+warnings.warn(
+    "openapi_client is pending deprecation. Please use the new "
+    "clients in threedi_api_client.openapi and threedi_api_client.aio.openapi",
+    UserWarning,
+)
 
 import warnings
 warnings.warn(

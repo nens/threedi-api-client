@@ -13,6 +13,13 @@ History
   a version is included.
 
 
+3.0.29 (2021-06-02)
+-------------------
+
+- Moved documentation to readthedocs and consistently named the project from
+  threedi-api-client (instead of threedi-openapi-client).
+
+
 3.0.28 (2021-05-04)
 -------------------
 
