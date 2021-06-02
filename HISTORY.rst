@@ -5,7 +5,8 @@ History
 3.0.29 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Moved documentation to readthedocs and consistently named the project from
+  threedi-api-client (instead of threedi-openapi-client).
 
 
 3.0.28 (2021-05-04)
