@@ -19,7 +19,7 @@ variables, or passed as a config dictionairy.
 
 ::
 
-   API_HOST=https://api.3di.live/v3.0
+   API_HOST=https://api.3di.live
    API_USERNAME=black.sheep
    API_PASSWORD=myverysecretmehhh
 
@@ -34,7 +34,7 @@ variables, or passed as a config dictionairy.
 
 ::
 
-   export API_HOST=https://api.3di.live/v3.0
+   export API_HOST=https://api.3di.live
    export API_USERNAME=black.sheep
    export API_PASSWORD=myverysecretmehhh
 
@@ -45,7 +45,7 @@ variables, or passed as a config dictionairy.
    from threedi_api_client import ThreediApiClient
 
    config = {
-       "API_HOST": "https://api.3di.live/v3.0",
+       "API_HOST": "https://api.3di.live",
        "API_USERNAME": "black.sheep",
        "API_PASSWORD": "myverysecretmehhh"
    }
@@ -76,20 +76,18 @@ need to specify:
    parameter in seconds
 
 If you do not know the unique ID for your organisation you can make use
-of the ``OrganisationsApi`` object that grants access to the
-``/organisations/`` endpoint.
+of the API to request it.
 
 .. code:: python
 
          
-   from openapi_client.api import OrganisationsApi
+   from threedi_api_client.openapi import V3Api
 
    # first get the uuid for the organisation because I just keep forgetting it
-   from openapi_client.api import OrganisationsApi
-   organisations_api = OrganisationsApi(api_client)
+   api = V3Api(api_client)
 
    # I am lazy so I look for an organisation that starts with "nelen", case insensitive 
-   organisations_api.organisations_list(name__istartswith="nelen")
+   api.organisations_list(name__istartswith="nelen")
    {'count': 2,
    'next': None,
    'previous': None,
@@ -104,7 +102,7 @@ Now we can create the ``Simulation`` model instance.
 
 .. code:: python
 
-   openapi_client.models.simulation.Simulation
+   from threedi_api_client.openapi import Simulation
 
    # start date will be a datetime object
    from datetime import datetime
@@ -117,15 +115,11 @@ Now we can create the ``Simulation`` model instance.
            duration=7200              # in secs ==> 2 hours 
    )
 
-The SimulationsApi object gives use access to the ``/simulations/``
-endpoint.
+The ``simulations_create`` method allows you to create a new Simulation resource.
 
 .. code:: python
 
-   from openapi_client import SimulationsApi
-   simulations_api = SimulationsApi(api_client)
-
-   simulations_api.simulations_create(my_extreme_event_simulation)
+   api.simulations_create(my_extreme_event_simulation)
    {'created': 'now',
    'duration': 7200,
    'duration_humanized': '2 hours, 0 minutes, 0 seconds',
@@ -157,7 +151,7 @@ event to the simulation you would do the following.
 .. code:: python
 
 
-   from openapi_client.models import ConstantRain
+   from threedi_api_client.openapi import ConstantRain
    const_rain = ConstantRain(
        simulation=631,   # the ID we got from our create call above
        offset=60,        # let the rain start after one minute
@@ -165,7 +159,7 @@ event to the simulation you would do the following.
        value=0.0006,     # not too extreme after all...;-)
        units="m/s"       # the only unit supported for now
    )
-   simulations_api.simulations_events_rain_constant_create(631, const_rain)
+   api.simulations_events_rain_constant_create(631, const_rain)
    {'duration': 5000,
    'offset': 60,
    'simulation': 'https://api.3di.live/v3.0/simulations/631/',
@@ -177,7 +171,7 @@ If you want to see which events are defined on a given simulation
 
 .. code:: python
 
-   simulations_api.simulations_events(631)
+   api.simulations_events(631)
    {'boundaries': None,
    'breach': [],
    'filerasterrain': [],
@@ -206,13 +200,11 @@ If you want to see which events are defined on a given simulation
                    'values': [[0.0, 0.0006], [5000.0, 0.0]]}],
    'timeseriessourcessinks': []}
 
-To list all file resources get yourself an instance of the ``FilesApi``
-class
+To list all file resources, make use of the ``files_list`` method.
 
 .. code:: python
 
-       files = FilesApi(api_client)
-       files.files_list()                                                                                                                
+       api.files_list()                                                                                                                
        {'count': 3064,
        'next': 'https://api.3di.live/v3.0/files/?limit=10&offset=10',
        'previous': None,
@@ -231,7 +223,7 @@ See below for an example of uploading a rain raster.
 .. code:: python
 
    from threedi_api_client.files import upload_file
-   from openapi_client import SimulationsApi
+   from threedi_api_client.openapi import V3Api
 
    simulation_pk = 1
    filename = 'bergermeer_rasters_from_geotiffs.nc'
@@ -239,13 +231,13 @@ See below for an example of uploading a rain raster.
 
    # Use the api_client as created in the code block
    # above
-   sim_api = SimulationsApi(api_client)
+   api = V3Api(api_client)
 
    # Create rain raster upload resource in API
    # returns a 'file_upload' instance containing a
    # put_url property which is the URL to the object
    # storage object to be uploaded with an HTTP PUT requests.
-   file_upload = sim_api.simulations_events_rain_rasters_upload(
+   file_upload = api.simulations_events_rain_rasters_upload(
        filename, simulation_pk)
 
    # Upload the file
@@ -267,8 +259,8 @@ For example, to asynchronously request files from the api:
 
    import asyncio
 
-   from openapi_client.api.files_api import FilesApi
-   from threedi_api_client.aio.threedi_api_client import ThreediApiClient
+   from threedi_api_client.aio.openapi import V3Api
+   from threedi_api_client.aio import ThreediApiClient
 
 
    config = {
@@ -280,8 +272,8 @@ For example, to asynchronously request files from the api:
 
    async def main():
        async with ThreediApiClient(config=config) as api_client:
-           files_api = FilesApi(api_client)
-           print(await files_api.files_list())
+           api = V3Api(api_client)
+           print(await api.files_list())
 
 
    if __name__ == '__main__':

@@ -8,7 +8,7 @@ from aiofiles.threadpool import AsyncBufferedIOBase
 # but luckily mock backported it:
 from mock import AsyncMock, Mock, patch
 
-from openapi_client.exceptions import ApiException
+from threedi_api_client.openapi import ApiException
 from threedi_api_client.aio.files import (
     download_file,
     download_fileobj,

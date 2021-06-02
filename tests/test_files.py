@@ -4,7 +4,7 @@ from unittest import mock
 import pytest
 from urllib3.response import HTTPResponse
 
-from openapi_client.exceptions import ApiException
+from threedi_api_client.openapi import ApiException
 from threedi_api_client.files import download_file
 from threedi_api_client.files import download_fileobj
 from threedi_api_client.files import upload_file
