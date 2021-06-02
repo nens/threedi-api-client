@@ -1,9 +1,11 @@
 import jwt
+import re
+import warnings
 from datetime import datetime, timedelta
-from openapi_client import ApiClient
-from openapi_client import Configuration
-from openapi_client import AuthApi
-from openapi_client.models import Authenticate
+from threedi_api_client.openapi import ApiClient
+from threedi_api_client.openapi import Configuration
+from threedi_api_client.openapi import V3Api
+from threedi_api_client.openapi import Authenticate
 
 from threedi_api_client.config import Config, EnvironConfig
 
@@ -11,16 +13,28 @@ from threedi_api_client.config import Config, EnvironConfig
 REFRESH_TIME_DELTA = timedelta(hours=4).total_seconds()
 
 
+def host_has_version(host: str):
+    return bool(re.findall(r"(.*)\/v3.*", host))
+
+
+def host_remove_version(host: str):
+    matches = re.findall(r"(.*)\/v3.*", host)
+    if matches:
+        return matches[0]
+    else:
+        return host
+
+
 def get_auth_token(username: str, password: str, api_host: str):
     api_client = ApiClient(
         Configuration(
             username=username,
             password=password,
-            host=api_host
+            host=host_remove_version(api_host)
         )
     )
-    auth = AuthApi(api_client)
-    return auth.auth_token_create(Authenticate(username, password))
+    api = V3Api(api_client)
+    return api.auth_token_create(Authenticate(username, password))
 
 
 def is_token_usable(token: str) -> bool:
@@ -50,9 +64,9 @@ def refresh_api_key(config: Configuration):
 
     refresh_key = config.api_key['refresh']
     if is_token_usable(refresh_key):
-        api_client = ApiClient(Configuration(config.host))
-        auth = AuthApi(api_client)
-        token = auth.auth_refresh_token_create(
+        api_client = ApiClient(Configuration(host_remove_version(config.host)))
+        api = V3Api(api_client)
+        token = api.auth_refresh_token_create(
             {"refresh": config.api_key['refresh']}
         )
     else:
@@ -72,6 +86,20 @@ class ThreediApiClient:
         else:
             user_config = EnvironConfig()
 
+        # Determine whether there is a version in the host. If so, warn and
+        # use the legacy API client.
+        if host_has_version(user_config.get("API_HOST")):
+            warnings.warn(
+                "API_HOST provided with an API version. This implies usage of "
+                "the legacy openapi_client. Please remove "
+                "the version to use the new client and silence warnings.",
+                UserWarning,
+            )
+            from openapi_client import ApiClient as LegacyApiClient
+            client_cls = LegacyApiClient
+        else:
+            client_cls = ApiClient
+
         configuration = Configuration(
             host=user_config.get("API_HOST"),
             username=user_config.get("API_USERNAME"),
@@ -80,5 +108,5 @@ class ThreediApiClient:
             api_key_prefix={"Authorization": "Bearer"}
         )
         configuration.refresh_api_key_hook = refresh_api_key
-        api_client = ApiClient(configuration)
-        return api_client
+
+        return client_cls(configuration)

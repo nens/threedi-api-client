@@ -2,10 +2,15 @@
 History
 =======
 
-3.0.29 (unreleased)
+3.1.0 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Added a new, versioned, API in threedi_api_client.openapi / threedi_api_client.api.openapi.
+  A warning will be emitted if the old one is used (openapi_client).
+
+- The API version should now be omitted from the API_HOST setting (e.g.
+  https://api.3di.live instead of https://api.3di.live/v3.0). A warning will be emitted if
+  a version is included.
 
 
 3.0.28 (2021-05-04)
