@@ -2,7 +2,7 @@
 History
 =======
 
-3.0.29 (unreleased)
+3.0.29 (2021-06-02)
 -------------------
 
 - Moved documentation to readthedocs and consistently named the project from
