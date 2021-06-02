@@ -12,7 +12,7 @@ API Reference
     :maxdepth: 2
     :caption: Contents:
 
-    threedi_api
-    files
     usage
+    files
+    examples
     Example notebooks <https://github.com/nens/threedi-api-client/blob/master/examples/README.md>

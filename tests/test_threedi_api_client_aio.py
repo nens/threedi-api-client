@@ -1,6 +1,6 @@
 import jwt
 import pytest
-from threedi_api_client import ThreediApiClient
+from threedi_api_client.aio.threedi_api_client import ThreediApiClient
 from datetime import datetime, timedelta, timezone
 from threedi_api_client.threedi_api_client import (
     is_token_usable, REFRESH_TIME_DELTA)
