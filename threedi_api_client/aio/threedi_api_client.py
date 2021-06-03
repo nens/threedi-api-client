@@ -1,8 +1,8 @@
-from threedi_api_client.aio.openapi.configuration import Configuration
-
 import warnings
-from threedi_api_client.threedi_api_client import refresh_api_key, host_has_version
+
+from threedi_api_client.aio.openapi.configuration import Configuration
 from threedi_api_client.config import Config, EnvironConfig
+from threedi_api_client.threedi_api_client import host_has_version, refresh_api_key
 
 
 class ThreediApiClient:
@@ -50,8 +50,8 @@ class ThreediApiClient:
             host=user_config.get("API_HOST"),
             username=user_config.get("API_USERNAME"),
             password=user_config.get("API_PASSWORD"),
-            api_key={"Authorization": '', "refresh": ''},
-            api_key_prefix={"Authorization": "Bearer"}
+            api_key={"Authorization": "", "refresh": ""},
+            api_key_prefix={"Authorization": "Bearer"},
         )
         configuration.refresh_api_key_hook = refresh_api_key
         return LegacyApiClient(configuration)

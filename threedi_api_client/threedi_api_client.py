@@ -4,13 +4,7 @@ from datetime import datetime, timedelta
 
 import jwt
 
-from .openapi import (
-    ApiClient,
-    Authenticate,
-    Configuration,
-    V3AlphaApi,
-    V3Api,
-)
+from .openapi import ApiClient, Authenticate, Configuration, V3AlphaApi, V3Api
 
 try:
     from threedi_api_client.aio.openapi.api_client import ApiClient as AsyncApiClient
@@ -31,23 +25,11 @@ API_CLASSES = {
 
 
 def host_has_version(host: str):
-    return bool(re.findall(r"(.*)\/v3.*", host))
+    return bool(re.findall(r"(.*)\/v[0-9]+.*", host))
 
 
 def host_remove_version(host: str):
-    matches = re.findall(r"(.*)\/v3.*", host)
-    if matches:
-        return matches[0]
-    else:
-        return host
-
-
-def host_has_version(host: str):
-    return bool(re.findall(r"(.*)\/v3.*", host))
-
-
-def host_remove_version(host: str):
-    matches = re.findall(r"(.*)\/v3.*", host)
+    matches = re.findall(r"(.*)\/v[0-9]+.*", host)
     if matches:
         return matches[0]
     else:

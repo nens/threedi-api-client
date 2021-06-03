@@ -57,10 +57,17 @@ def test_init_missing_config(key, config):
         ThreediApi(config=config)
 
 
-def test_init_with_version_in_host(config):
-    config["THREEDI_API_HOST"] += "/v3.0"
+@pytest.mark.parametrize("suffix", ["/v3.0", "/v2", "/v6/"])
+def test_init_with_version_in_host(config, suffix):
+    config["THREEDI_API_HOST"] += suffix
     with pytest.raises(ValueError):
         ThreediApi(config=config)
+
+
+@pytest.mark.parametrize("suffix", ["/api", "/api/", "/a3/"])
+def test_init_with_other_suffix_in_host(config, suffix):
+    config["THREEDI_API_HOST"] += suffix
+    ThreediApi(config=config)
 
 
 def test_init_different_version(config):
