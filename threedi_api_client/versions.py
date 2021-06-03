@@ -7,13 +7,15 @@ API_VERSIONS = {
     "v3-alpha": V3AlphaApi,
 }
 
+VERSION_REGEX = re.compile(r"(.*)\/v[0-9./]$")
+
 
 def host_has_version(host: str):
-    return bool(re.findall(r"(.*)\/v[0-9]+.*", host))
+    return bool(VERSION_REGEX.findall(host))
 
 
 def host_remove_version(host: str):
-    matches = re.findall(r"(.*)\/v[0-9]+.*", host)
+    matches = VERSION_REGEX.findall(host)
     if matches:
         return matches[0]
     else:

@@ -64,7 +64,7 @@ def test_init_with_version_in_host(config, suffix):
         ThreediApi(config=config)
 
 
-@pytest.mark.parametrize("suffix", ["/api", "/api/", "/a3/"])
+@pytest.mark.parametrize("suffix", ["/api", "/api/", "/a3/", "/v3/threedi/"])
 def test_init_with_other_suffix_in_host(config, suffix):
     config["THREEDI_API_HOST"] += suffix
     ThreediApi(config=config)
