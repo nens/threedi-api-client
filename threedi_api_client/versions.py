@@ -7,7 +7,7 @@ API_VERSIONS = {
     "v3-alpha": V3AlphaApi,
 }
 
-VERSION_REGEX = re.compile(r"(.*)\/v[0-9./]$")
+VERSION_REGEX = re.compile(r"(.*)\/v[0-9./]+$")
 
 
 def host_has_version(host: str):
