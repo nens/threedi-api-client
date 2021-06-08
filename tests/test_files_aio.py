@@ -38,9 +38,7 @@ class AsyncBytesIO:
 
 @pytest.fixture
 async def aio_request():
-    with patch(
-        "aiohttp.ClientSession.request", new_callable=AsyncMock
-    ) as aio_request:
+    with patch("aiohttp.ClientSession.request", new_callable=AsyncMock) as aio_request:
         yield aio_request
 
 

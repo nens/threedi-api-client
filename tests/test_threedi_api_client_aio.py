@@ -1,5 +1,5 @@
 import pytest
-from threedi_api_client import ThreediApiClient
+from threedi_api_client.aio.threedi_api_client import ThreediApiClient
 
 
 def test_init_threedi_api_client_from_env_file(tmpdir):

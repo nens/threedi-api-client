@@ -14,4 +14,5 @@ API Reference
 
     usage
     files
+    examples
     Example notebooks <https://github.com/nens/threedi-api-client/blob/master/examples/README.md>
