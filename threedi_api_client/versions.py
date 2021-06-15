@@ -1,11 +1,25 @@
 import re
 
-from .openapi import V3AlphaApi, V3Api
+from .openapi import V3Api
 
 API_VERSIONS = {
     "v3": V3Api,
-    "v3-alpha": V3AlphaApi,
 }
+
+try:
+    from .openapi import V3AlphaApi
+    API_VERSIONS["v3-alpha"] = V3AlphaApi
+except ImportError:
+    pass
+
+
+try:
+    from .openapi import V3BetaApi
+    API_VERSIONS["v3-beta"] = V3BetaApi
+except ImportError:
+    pass
+
+
 
 VERSION_REGEX = re.compile(r"(.*)\/v[0-9./]+$")
 
