@@ -29,7 +29,7 @@ try:
 
     API_VERSIONS["v3-alpha"] = V3AlphaApi
 except ImportError:
-    pass
+    API_VERSIONS["v3-alpha"] = API_VERSIONS["v3-beta"]
 
 
 VERSION_REGEX = re.compile(r"(.*)\/v[0-9./]+$")
