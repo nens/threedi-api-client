@@ -12,6 +12,8 @@ History
   https://api.3di.live instead of https://api.3di.live/v3.0). A warning will be emitted if
   a version is included.
 
+- Make V3AlphaApi a subclass of V3BetaApi, and V3BetaApi a superset of V3Api.
+
 
 3.0.29 (2021-06-02)
 -------------------
