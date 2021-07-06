@@ -94,7 +94,7 @@ class ThreediApi:
             )
 
         # Get the config variables
-        password = user_config.get("THREEDI_API_PASSWORD", None)
+        password = user_config.get("THREEDI_API_PASSWORD")
         try:
             access_token = user_config.get("THREEDI_API_ACCESS_TOKEN")
         except KeyError:
