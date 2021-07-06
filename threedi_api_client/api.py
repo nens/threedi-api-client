@@ -85,8 +85,8 @@ class ThreediApi:
         else:
             user_config = EnvironConfig()
 
-        host = user_config.get("THREEDI_API_HOST")
-        username = user_config.get("THREEDI_API_USERNAME")
+        host = user_config.get("THREEDI_API_HOST", None)
+        username = user_config.get("THREEDI_API_USERNAME", None)
         if not all(x for x in (host, username)):
             raise ValueError(
                 "ThreediApi requires the THREEDI_API_HOST, THREEDI_API_USERNAME, "
@@ -94,9 +94,9 @@ class ThreediApi:
             )
 
         # Get the config variables
-        password = user_config.get("THREEDI_API_PASSWORD")
-        access_token = user_config.get("THREEDI_API_ACCESS_TOKEN")
-        refresh_token = user_config.get("THREEDI_API_REFRESH_TOKEN")
+        password = user_config.get("THREEDI_API_PASSWORD", None)
+        access_token = user_config.get("THREEDI_API_ACCESS_TOKEN", None)
+        refresh_token = user_config.get("THREEDI_API_REFRESH_TOKEN", None)
 
         tokens = all(x for x in (access_token, refresh_token))
 
