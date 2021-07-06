@@ -85,14 +85,26 @@ class ThreediApi:
         else:
             user_config = EnvironConfig()
 
-        # Get the config variables
         host = user_config.get("THREEDI_API_HOST")
         username = user_config.get("THREEDI_API_USERNAME")
-        password = user_config.get("THREEDI_API_PASSWORD")
-        if not all(x for x in (host, username, password)):
+        if not all(x for x in (host, username)):
             raise ValueError(
                 "ThreediApi requires the THREEDI_API_HOST, THREEDI_API_USERNAME, "
-                "and THREEDI_API_PASSWORD configuration values."
+                "configuration values."
+            )
+
+        # Get the config variables
+        password = user_config.get("THREEDI_API_PASSWORD")
+        access_token = user_config.get("THREEDI_API_ACCESS_TOKEN")
+        refresh_token = user_config.get("THREEDI_API_REFRESH_TOKEN")
+
+        tokens = all(x for x in (access_token, refresh_token))
+
+        if not tokens and not password:
+            raise ValueError(
+                "ThreediApi requires either THREEDI_API_PASSWORD or "
+                "THREEDI_API_ACCESS_TOKEN and THREEDI_API_REFRESH_TOKEN as "
+                "configuration values."
             )
 
         # Determine whether there is a version in the host
@@ -106,9 +118,10 @@ class ThreediApi:
             host=host,
             username=username,
             password=password,
-            api_key={"Authorization": "", "refresh": ""},
+            api_key={"Authorization": access_token, "refresh": refresh_token},
             api_key_prefix={"Authorization": "Bearer"},
         )
+
         configuration.refresh_api_key_hook = refresh_api_key
 
         if asynchronous:
