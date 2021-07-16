@@ -95,20 +95,14 @@ class ThreediApi:
 
         # Get the config variables
         password = user_config.get("THREEDI_API_PASSWORD")
-        try:
-            access_token = user_config.get("THREEDI_API_ACCESS_TOKEN")
-        except KeyError:
-            access_token = None
-        try:
-            refresh_token = user_config.get("THREEDI_API_REFRESH_TOKEN")
-        except KeyError:
-            refresh_token = None
+        access_token = user_config.get("THREEDI_API_ACCESS_TOKEN")
+        refresh_token = user_config.get("THREEDI_API_REFRESH_TOKEN")
 
         tokens = all(x for x in (access_token, refresh_token))
 
-        if not tokens and not password:
+        if tokens and password or (not tokens and not password):
             raise ValueError(
-                "ThreediApi requires either THREEDI_API_PASSWORD or "
+                "ThreediAPI requires either THREEDI_API_PASSWORD or "
                 "THREEDI_API_ACCESS_TOKEN and THREEDI_API_REFRESH_TOKEN as "
                 "configuration values."
             )
