@@ -19,7 +19,7 @@ class Config:
     def get(self, key):
         if key in self.file_values:
             return self.file_values[key]
-        raise KeyError("Config '%s' is missing." % key)
+        return None
 
     def _read_file(self, file_name):
         file_values = {}
@@ -42,4 +42,4 @@ class EnvironConfig:
         if key in os.environ:
             value = os.environ[key]
             return value
-        raise KeyError("Config '%s' is missing in environment variables" % key)
+        return None

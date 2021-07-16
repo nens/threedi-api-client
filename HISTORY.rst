@@ -5,6 +5,8 @@ History
 3.1.0 (unreleased)
 -------------------
 
+- Added support for `THREEDI_API_ACCESS_TOKEN` and `THREEDI_API_REFRESH_TOKEN` configuration variables
+
 - Added a new, versioned, API in threedi_api_client.openapi / threedi_api_client.api.openapi.
   A warning will be emitted if the old one is used (openapi_client).
 
