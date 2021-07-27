@@ -16,6 +16,8 @@ History
 
 - Make V3AlphaApi a subclass of V3BetaApi, and V3BetaApi a superset of V3Api.
 
+- Added a ``rest_config`` to the ``ThreediApi`` which enables setting a retry policy.
+
 
 3.0.29 (2021-06-02)
 -------------------
