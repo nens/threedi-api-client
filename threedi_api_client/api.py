@@ -120,7 +120,7 @@ class ThreediApi:
         Other configuration options are::
 
         - the exceptions on which to retry (default: None)
-        - the statuses on which to retry (default: 413, 429, 503)
+        - the statuses on which to retry (default: 413, 429, 503, 504)
         - the HTTP methods on which to retry (default: 'DELETE', 'GET', 'HEAD', 'OPTIONS', 'PUT', 'TRACE')
 
     """
