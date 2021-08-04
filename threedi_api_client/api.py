@@ -10,6 +10,11 @@ from .auth import refresh_api_key
 from .config import Config, EnvironConfig
 from .versions import API_VERSIONS, host_has_version
 
+import urllib3
+
+
+RETRY_AFTER_STATUS_CODES = frozenset({413, 429, 503, 504})
+
 
 class ThreediApi:
     """Client for the 3Di API.
@@ -185,6 +190,11 @@ class ThreediApi:
                     retry_options=configuration.retries,
                 )
         else:
+            if isinstance(configuration.retries, int):
+                configuration.retries = urllib3.util.Retry.from_int(configuration.retries)
+            # This adds 504 to the default status codes:
+            if not configuration.retries.status_forcelist:
+                configuration.retries.status_forcelist = RETRY_AFTER_STATUS_CODES
             self._client = ApiClient(configuration)
 
         # Determine what API version to use

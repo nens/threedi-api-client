@@ -3,7 +3,7 @@
 Changes:
 - call signature of RetryClient (PR #64)
 - add 'methods' to RetryOptions  (PR #65)
-- add defaults for 'statuses' (PR #65)
+- add default for 'statuses' (PR #65)
 Author: Dmitry Inyutin <inyutin.da@gmail.com>
 License: MIT
 Project homepage: https://github.com/inyutin/aiohttp_retry
@@ -29,7 +29,7 @@ else:
 
 
 DEFAULT_ALLOWED_METHODS = frozenset({'DELETE', 'GET', 'HEAD', 'OPTIONS', 'PUT', 'TRACE'})
-RETRY_AFTER_STATUS_CODES = frozenset({413, 429, 503})
+RETRY_AFTER_STATUS_CODES = frozenset({413, 429, 503, 504})
 
 
 class _Logger(Protocol):
