@@ -104,13 +104,20 @@ class ThreediApi:
         >>> policy = urllib3.util.Retry(total=3, backoff_factor=1.0)
         >>> api = ThreediApi(..., retries=policy)
 
-        For asynchronous usage, you may also supply a ``aiohttp_retry.util.Retry`` object. See
+        For asynchronous usage, you may also supply a ``aiohttp_retry.ExponentialRetry`` object. See
         the `aiohttp_retry docs <https://github.com/inyutin/aiohttp_retry>`_). The ``aiohttp_retry``
         package is shipped with ``threedi_api_client``.
 
         >>> from threedi_api_client.aio import aiohttp_retry
         >>> policy = aiohttp_retry.ExponentialRetry(attempts=3, factor=1.0)
         >>> api = ThreediApi(..., retries=policy)
+
+        Other configuration options are::
+
+        - the exceptions on which to retry (default: None)
+        - the statuses on which to retry (default: 413, 429, 503)
+        - the HTTP methods on which to retry (default: 'DELETE', 'GET', 'HEAD', 'OPTIONS', 'PUT', 'TRACE')
+
     """
 
     def __init__(self, env_file=None, config=None, version="v3", asynchronous=False, retries=3):
