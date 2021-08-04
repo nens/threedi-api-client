@@ -1,6 +1,9 @@
 """Below code is copied from aiohttp_retry version 2.4.0
 
-Changes: call signature of RetryClient (lines 218-225)
+Changes:
+- call signature of RetryClient (PR #64)
+- add 'methods' to RetryOptions  (PR #65)
+- add default for 'statuses' (PR #65)
 Author: Dmitry Inyutin <inyutin.da@gmail.com>
 License: MIT
 Project homepage: https://github.com/inyutin/aiohttp_retry
@@ -25,6 +28,10 @@ else:
     from typing_extensions import Protocol
 
 
+DEFAULT_ALLOWED_METHODS = frozenset({'DELETE', 'GET', 'HEAD', 'OPTIONS', 'PUT', 'TRACE'})
+RETRY_AFTER_STATUS_CODES = frozenset({413, 429, 503, 504})
+
+
 class _Logger(Protocol):
     """
     _Logger defines which methods logger object should have
@@ -47,15 +54,20 @@ class RetryOptionsBase:
         attempts: int = 3,  # How many times we should retry
         statuses: Optional[Iterable[int]] = None,  # On which statuses we should retry
         exceptions: Optional[Iterable[Type[Exception]]] = None,  # On which exceptions we should retry
+        methods: Optional[Iterable[str]] = None,  # On which HTTP methods we should retry
     ):
         self.attempts: int = attempts
         if statuses is None:
-            statuses = set()
+            statuses = RETRY_AFTER_STATUS_CODES
         self.statuses: Iterable[int] = statuses
 
         if exceptions is None:
             exceptions = set()
         self.exceptions: Iterable[Type[Exception]] = exceptions
+
+        if methods is None:
+            methods = DEFAULT_ALLOWED_METHODS
+        self.methods: Iterable[Type[Exception]] = methods
 
     @abc.abstractmethod
     def get_timeout(self, attempt: int) -> float:
@@ -71,8 +83,9 @@ class ExponentialRetry(RetryOptionsBase):
         factor: float = 2.0,  # How much we increase timeout each time
         statuses: Optional[Set[int]] = None,  # On which statuses we should retry
         exceptions: Optional[Set[Type[Exception]]] = None,  # On which exceptions we should retry
+        methods: Optional[Iterable[str]] = None,  # On which HTTP methods we should retry
     ):
-        super().__init__(attempts, statuses, exceptions)
+        super().__init__(attempts, statuses, exceptions, methods)
 
         self._start_timeout: float = start_timeout
         self._max_timeout: float = max_timeout
@@ -95,11 +108,12 @@ class RandomRetry(RetryOptionsBase):
         attempts: int = 3,  # How many times we should retry
         statuses: Optional[Iterable[int]] = None,  # On which statuses we should retry
         exceptions: Optional[Iterable[Type[Exception]]] = None,  # On which exceptions we should retry
+        methods: Optional[Iterable[str]] = None,  # On which HTTP methods we should retry
         min_timeout: float = 0.1,  # Minimum possible timeout
         max_timeout: float = 3.0,  # Maximum possible timeout between tries
         random_func: Callable[[], float] = random.random,  # Random number generator
     ):
-        super().__init__(attempts, statuses, exceptions)
+        super().__init__(attempts, statuses, exceptions, methods)
         self.attempts: int = attempts
         self.min_timeout: float = min_timeout
         self.max_timeout: float = max_timeout
@@ -116,9 +130,10 @@ class ListRetry(RetryOptionsBase):
         timeouts: List[float],
         statuses: Optional[Iterable[int]] = None,  # On which statuses we should retry
         exceptions: Optional[Iterable[Type[Exception]]] = None,  # On which exceptions we should retry
+        methods: Optional[Iterable[str]] = None,  # On which HTTP methods we should retry
     ):
         self.timeouts = timeouts
-        super().__init__(len(timeouts), statuses, exceptions)
+        super().__init__(len(timeouts), statuses, exceptions, methods)
 
     def get_timeout(self, attempt: int) -> float:
         """timeouts from a defined list."""
@@ -148,7 +163,7 @@ class _RequestContext:
         self._response: Optional[ClientResponse] = None
 
     def _is_status_code_ok(self, code: int) -> bool:
-        return code not in self._retry_options.statuses and code < 500
+        return code not in self._retry_options.statuses
 
     async def _do_request(self) -> ClientResponse:
         current_attempt = 0
@@ -177,7 +192,11 @@ class _RequestContext:
 
                 raise e
 
-            if self._is_status_code_ok(response.status) or current_attempt == self._retry_options.attempts:
+            if (
+                self._method not in self._retry_options.methods
+                or self._is_status_code_ok(response.status)
+                or current_attempt == self._retry_options.attempts
+            ):
                 if self._raise_for_status:
                     response.raise_for_status()
                 self._response = response
