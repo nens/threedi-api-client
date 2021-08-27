@@ -4,7 +4,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.16   3Di core release: 2.0.11  deployed on:  07:33AM (UTC) on September 04, 2020  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 1.0.61   3Di core release: 2.1.2  deployed on:  07:26AM (UTC) on August 17, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,6 +37,7 @@ from threedi_api_client.openapi.models.create_revision import CreateRevision
 from threedi_api_client.openapi.models.current_status import CurrentStatus
 from threedi_api_client.openapi.models.damage_estimation import DamageEstimation
 from threedi_api_client.openapi.models.damage_post_processing import DamagePostProcessing
+from threedi_api_client.openapi.models.destroy_revision import DestroyRevision
 from threedi_api_client.openapi.models.download import Download
 from threedi_api_client.openapi.models.event import Event
 from threedi_api_client.openapi.models.extent import Extent
@@ -48,6 +49,7 @@ from threedi_api_client.openapi.models.file_raster_leakage import FileRasterLeak
 from threedi_api_client.openapi.models.file_raster_rain import FileRasterRain
 from threedi_api_client.openapi.models.file_raster_sources_sinks import FileRasterSourcesSinks
 from threedi_api_client.openapi.models.file_read_only import FileReadOnly
+from threedi_api_client.openapi.models.file_structure_control import FileStructureControl
 from threedi_api_client.openapi.models.file_timeseries_leakage import FileTimeseriesLeakage
 from threedi_api_client.openapi.models.file_timeseries_rain import FileTimeseriesRain
 from threedi_api_client.openapi.models.file_timeseries_sources_sinks import FileTimeseriesSourcesSinks
@@ -118,6 +120,10 @@ from threedi_api_client.openapi.models.inline_response20060 import InlineRespons
 from threedi_api_client.openapi.models.inline_response20061 import InlineResponse20061
 from threedi_api_client.openapi.models.inline_response20062 import InlineResponse20062
 from threedi_api_client.openapi.models.inline_response20063 import InlineResponse20063
+from threedi_api_client.openapi.models.inline_response20064 import InlineResponse20064
+from threedi_api_client.openapi.models.inline_response20065 import InlineResponse20065
+from threedi_api_client.openapi.models.inline_response20066 import InlineResponse20066
+from threedi_api_client.openapi.models.inline_response20067 import InlineResponse20067
 from threedi_api_client.openapi.models.inline_response2007 import InlineResponse2007
 from threedi_api_client.openapi.models.inline_response2008 import InlineResponse2008
 from threedi_api_client.openapi.models.inline_response2009 import InlineResponse2009
@@ -156,15 +162,17 @@ from threedi_api_client.openapi.models.progress import Progress
 from threedi_api_client.openapi.models.pump_discharge_graph import PumpDischargeGraph
 from threedi_api_client.openapi.models.pump_discharge_graph_request import PumpDischargeGraphRequest
 from threedi_api_client.openapi.models.raster import Raster
+from threedi_api_client.openapi.models.raster_create import RasterCreate
 from threedi_api_client.openapi.models.raster_edit import RasterEdit
 from threedi_api_client.openapi.models.raster_edit_urls import RasterEditUrls
-from threedi_api_client.openapi.models.raster_file_upload import RasterFileUpload
 from threedi_api_client.openapi.models.raster_options import RasterOptions
 from threedi_api_client.openapi.models.refresh import Refresh
 from threedi_api_client.openapi.models.repository import Repository
 from threedi_api_client.openapi.models.result import Result
 from threedi_api_client.openapi.models.result_file import ResultFile
 from threedi_api_client.openapi.models.revision import Revision
+from threedi_api_client.openapi.models.revision_raster import RevisionRaster
+from threedi_api_client.openapi.models.revision_task import RevisionTask
 from threedi_api_client.openapi.models.role import Role
 from threedi_api_client.openapi.models.saved_state_overview import SavedStateOverview
 from threedi_api_client.openapi.models.schematisation import Schematisation
@@ -183,6 +191,7 @@ from threedi_api_client.openapi.models.tms import TMS
 from threedi_api_client.openapi.models.table_structure_control import TableStructureControl
 from threedi_api_client.openapi.models.threedi_model import ThreediModel
 from threedi_api_client.openapi.models.threedi_model_saved_state import ThreediModelSavedState
+from threedi_api_client.openapi.models.threedi_model_task import ThreediModelTask
 from threedi_api_client.openapi.models.threshold import Threshold
 from threedi_api_client.openapi.models.time_step_settings import TimeStepSettings
 from threedi_api_client.openapi.models.timed_saved_state_update import TimedSavedStateUpdate

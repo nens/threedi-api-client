@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.16   3Di core release: 2.0.11  deployed on:  07:33AM (UTC) on September 04, 2020  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 1.0.61   3Di core release: 2.1.2  deployed on:  07:26AM (UTC) on August 17, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,10 +40,12 @@ class SchematisationRevision(object):
         'schematisation': 'str',
         'number': 'int',
         'sqlite': 'Sqlite',
-        'rasters': 'list[Raster]',
+        'rasters': 'list[RevisionRaster]',
+        'archived': 'datetime',
         'commit_date': 'datetime',
         'commit_user': 'str',
-        'commit_message': 'str'
+        'commit_message': 'str',
+        'is_valid': 'bool'
     }
 
     attribute_map = {
@@ -54,12 +56,14 @@ class SchematisationRevision(object):
         'number': 'number',
         'sqlite': 'sqlite',
         'rasters': 'rasters',
+        'archived': 'archived',
         'commit_date': 'commit_date',
         'commit_user': 'commit_user',
-        'commit_message': 'commit_message'
+        'commit_message': 'commit_message',
+        'is_valid': 'is_valid'
     }
 
-    def __init__(self, url=None, id=None, created=None, schematisation=None, number=None, sqlite=None, rasters=None, commit_date=None, commit_user=None, commit_message=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, id=None, created=None, schematisation=None, number=None, sqlite=None, rasters=None, archived=None, commit_date=None, commit_user=None, commit_message=None, is_valid=None, local_vars_configuration=None):  # noqa: E501
         """SchematisationRevision - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,9 +76,11 @@ class SchematisationRevision(object):
         self._number = None
         self._sqlite = None
         self._rasters = None
+        self._archived = None
         self._commit_date = None
         self._commit_user = None
         self._commit_message = None
+        self._is_valid = None
         self.discriminator = None
 
         if url is not None:
@@ -91,12 +97,16 @@ class SchematisationRevision(object):
             self.sqlite = sqlite
         if rasters is not None:
             self.rasters = rasters
+        if archived is not None:
+            self.archived = archived
         if commit_date is not None:
             self.commit_date = commit_date
         if commit_user is not None:
             self.commit_user = commit_user
         if commit_message is not None:
             self.commit_message = commit_message
+        if is_valid is not None:
+            self.is_valid = is_valid
 
     @property
     def url(self):
@@ -230,7 +240,7 @@ class SchematisationRevision(object):
 
 
         :return: The rasters of this SchematisationRevision.  # noqa: E501
-        :rtype: list[Raster]
+        :rtype: list[RevisionRaster]
         """
         return self._rasters
 
@@ -240,10 +250,31 @@ class SchematisationRevision(object):
 
 
         :param rasters: The rasters of this SchematisationRevision.  # noqa: E501
-        :type: list[Raster]
+        :type: list[RevisionRaster]
         """
 
         self._rasters = rasters
+
+    @property
+    def archived(self):
+        """Gets the archived of this SchematisationRevision.  # noqa: E501
+
+
+        :return: The archived of this SchematisationRevision.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._archived
+
+    @archived.setter
+    def archived(self, archived):
+        """Sets the archived of this SchematisationRevision.
+
+
+        :param archived: The archived of this SchematisationRevision.  # noqa: E501
+        :type: datetime
+        """
+
+        self._archived = archived
 
     @property
     def commit_date(self):
@@ -310,6 +341,27 @@ class SchematisationRevision(object):
             raise ValueError("Invalid value for `commit_message`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._commit_message = commit_message
+
+    @property
+    def is_valid(self):
+        """Gets the is_valid of this SchematisationRevision.  # noqa: E501
+
+
+        :return: The is_valid of this SchematisationRevision.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_valid
+
+    @is_valid.setter
+    def is_valid(self, is_valid):
+        """Sets the is_valid of this SchematisationRevision.
+
+
+        :param is_valid: The is_valid of this SchematisationRevision.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_valid = is_valid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

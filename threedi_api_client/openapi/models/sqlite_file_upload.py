@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.16   3Di core release: 2.0.11  deployed on:  07:33AM (UTC) on September 04, 2020  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 1.0.61   3Di core release: 2.1.2  deployed on:  07:26AM (UTC) on August 17, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,17 +37,17 @@ class SqliteFileUpload(object):
         'put_url': 'str',
         'filename': 'str',
         'status': 'str',
-        'uncompressed_md5sum': 'str'
+        'md5sum': 'str'
     }
 
     attribute_map = {
         'put_url': 'put_url',
         'filename': 'filename',
         'status': 'status',
-        'uncompressed_md5sum': 'uncompressed_md5sum'
+        'md5sum': 'md5sum'
     }
 
-    def __init__(self, put_url=None, filename=None, status=None, uncompressed_md5sum=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, put_url=None, filename=None, status=None, md5sum=None, local_vars_configuration=None):  # noqa: E501
         """SqliteFileUpload - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,7 +56,7 @@ class SqliteFileUpload(object):
         self._put_url = None
         self._filename = None
         self._status = None
-        self._uncompressed_md5sum = None
+        self._md5sum = None
         self.discriminator = None
 
         if put_url is not None:
@@ -64,8 +64,8 @@ class SqliteFileUpload(object):
         self.filename = filename
         if status is not None:
             self.status = status
-        if uncompressed_md5sum is not None:
-            self.uncompressed_md5sum = uncompressed_md5sum
+        if md5sum is not None:
+            self.md5sum = md5sum
 
     @property
     def put_url(self):
@@ -145,31 +145,31 @@ class SqliteFileUpload(object):
         self._status = status
 
     @property
-    def uncompressed_md5sum(self):
-        """Gets the uncompressed_md5sum of this SqliteFileUpload.  # noqa: E501
+    def md5sum(self):
+        """Gets the md5sum of this SqliteFileUpload.  # noqa: E501
 
 
-        :return: The uncompressed_md5sum of this SqliteFileUpload.  # noqa: E501
+        :return: The md5sum of this SqliteFileUpload.  # noqa: E501
         :rtype: str
         """
-        return self._uncompressed_md5sum
+        return self._md5sum
 
-    @uncompressed_md5sum.setter
-    def uncompressed_md5sum(self, uncompressed_md5sum):
-        """Sets the uncompressed_md5sum of this SqliteFileUpload.
+    @md5sum.setter
+    def md5sum(self, md5sum):
+        """Sets the md5sum of this SqliteFileUpload.
 
 
-        :param uncompressed_md5sum: The uncompressed_md5sum of this SqliteFileUpload.  # noqa: E501
+        :param md5sum: The md5sum of this SqliteFileUpload.  # noqa: E501
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                uncompressed_md5sum is not None and len(uncompressed_md5sum) > 256):
-            raise ValueError("Invalid value for `uncompressed_md5sum`, length must be less than or equal to `256`")  # noqa: E501
+                md5sum is not None and len(md5sum) > 256):
+            raise ValueError("Invalid value for `md5sum`, length must be less than or equal to `256`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                uncompressed_md5sum is not None and len(uncompressed_md5sum) < 1):
-            raise ValueError("Invalid value for `uncompressed_md5sum`, length must be greater than or equal to `1`")  # noqa: E501
+                md5sum is not None and len(md5sum) < 1):
+            raise ValueError("Invalid value for `md5sum`, length must be greater than or equal to `1`")  # noqa: E501
 
-        self._uncompressed_md5sum = uncompressed_md5sum
+        self._md5sum = md5sum
 
     def to_dict(self):
         """Returns the model properties as a dict"""

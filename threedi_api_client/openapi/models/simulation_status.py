@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.16   3Di core release: 2.0.11  deployed on:  07:33AM (UTC) on September 04, 2020  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 1.0.61   3Di core release: 2.1.2  deployed on:  07:26AM (UTC) on August 17, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -39,7 +39,12 @@ class SimulationStatus(object):
         'simulation': 'str',
         'simulation_id': 'int',
         'simulation_name': 'str',
+        'simulation_tags': 'list[str]',
+        'threedimodel_slug': 'str',
+        'threedimodel_id': 'int',
+        'has_results': 'bool',
         'created': 'datetime',
+        'expiry': 'datetime',
         'time': 'int',
         'paused': 'bool',
         'detail': 'object',
@@ -53,7 +58,12 @@ class SimulationStatus(object):
         'simulation': 'simulation',
         'simulation_id': 'simulation_id',
         'simulation_name': 'simulation_name',
+        'simulation_tags': 'simulation_tags',
+        'threedimodel_slug': 'threedimodel_slug',
+        'threedimodel_id': 'threedimodel_id',
+        'has_results': 'has_results',
         'created': 'created',
+        'expiry': 'expiry',
         'time': 'time',
         'paused': 'paused',
         'detail': 'detail',
@@ -61,7 +71,7 @@ class SimulationStatus(object):
         'id': 'id'
     }
 
-    def __init__(self, url=None, name=None, simulation=None, simulation_id=None, simulation_name=None, created=None, time=None, paused=None, detail=None, exit_code=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, name=None, simulation=None, simulation_id=None, simulation_name=None, simulation_tags=None, threedimodel_slug=None, threedimodel_id=None, has_results=None, created=None, expiry=None, time=None, paused=None, detail=None, exit_code=None, id=None, local_vars_configuration=None):  # noqa: E501
         """SimulationStatus - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,7 +82,12 @@ class SimulationStatus(object):
         self._simulation = None
         self._simulation_id = None
         self._simulation_name = None
+        self._simulation_tags = None
+        self._threedimodel_slug = None
+        self._threedimodel_id = None
+        self._has_results = None
         self._created = None
+        self._expiry = None
         self._time = None
         self._paused = None
         self._detail = None
@@ -89,8 +104,16 @@ class SimulationStatus(object):
             self.simulation_id = simulation_id
         if simulation_name is not None:
             self.simulation_name = simulation_name
+        if simulation_tags is not None:
+            self.simulation_tags = simulation_tags
+        if threedimodel_slug is not None:
+            self.threedimodel_slug = threedimodel_slug
+        if threedimodel_id is not None:
+            self.threedimodel_id = threedimodel_id
+        self.has_results = has_results
         if created is not None:
             self.created = created
+        self.expiry = expiry
         self.time = time
         self.paused = paused
         self.detail = detail
@@ -212,6 +235,90 @@ class SimulationStatus(object):
         self._simulation_name = simulation_name
 
     @property
+    def simulation_tags(self):
+        """Gets the simulation_tags of this SimulationStatus.  # noqa: E501
+
+
+        :return: The simulation_tags of this SimulationStatus.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._simulation_tags
+
+    @simulation_tags.setter
+    def simulation_tags(self, simulation_tags):
+        """Sets the simulation_tags of this SimulationStatus.
+
+
+        :param simulation_tags: The simulation_tags of this SimulationStatus.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._simulation_tags = simulation_tags
+
+    @property
+    def threedimodel_slug(self):
+        """Gets the threedimodel_slug of this SimulationStatus.  # noqa: E501
+
+
+        :return: The threedimodel_slug of this SimulationStatus.  # noqa: E501
+        :rtype: str
+        """
+        return self._threedimodel_slug
+
+    @threedimodel_slug.setter
+    def threedimodel_slug(self, threedimodel_slug):
+        """Sets the threedimodel_slug of this SimulationStatus.
+
+
+        :param threedimodel_slug: The threedimodel_slug of this SimulationStatus.  # noqa: E501
+        :type: str
+        """
+
+        self._threedimodel_slug = threedimodel_slug
+
+    @property
+    def threedimodel_id(self):
+        """Gets the threedimodel_id of this SimulationStatus.  # noqa: E501
+
+
+        :return: The threedimodel_id of this SimulationStatus.  # noqa: E501
+        :rtype: int
+        """
+        return self._threedimodel_id
+
+    @threedimodel_id.setter
+    def threedimodel_id(self, threedimodel_id):
+        """Sets the threedimodel_id of this SimulationStatus.
+
+
+        :param threedimodel_id: The threedimodel_id of this SimulationStatus.  # noqa: E501
+        :type: int
+        """
+
+        self._threedimodel_id = threedimodel_id
+
+    @property
+    def has_results(self):
+        """Gets the has_results of this SimulationStatus.  # noqa: E501
+
+
+        :return: The has_results of this SimulationStatus.  # noqa: E501
+        :rtype: bool
+        """
+        return self._has_results
+
+    @has_results.setter
+    def has_results(self, has_results):
+        """Sets the has_results of this SimulationStatus.
+
+
+        :param has_results: The has_results of this SimulationStatus.  # noqa: E501
+        :type: bool
+        """
+
+        self._has_results = has_results
+
+    @property
     def created(self):
         """Gets the created of this SimulationStatus.  # noqa: E501
 
@@ -231,6 +338,27 @@ class SimulationStatus(object):
         """
 
         self._created = created
+
+    @property
+    def expiry(self):
+        """Gets the expiry of this SimulationStatus.  # noqa: E501
+
+
+        :return: The expiry of this SimulationStatus.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._expiry
+
+    @expiry.setter
+    def expiry(self, expiry):
+        """Sets the expiry of this SimulationStatus.
+
+
+        :param expiry: The expiry of this SimulationStatus.  # noqa: E501
+        :type: datetime
+        """
+
+        self._expiry = expiry
 
     @property
     def time(self):

@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest stable version: v3) 
-     Framework release: 1.0.16 
-     3Di core release: 2.0.11 
-    deployed on:  07:33AM (UTC) on September 04, 2020
+     Framework release: 1.0.61 
+     3Di core release: 2.1.2 
+    deployed on:  07:26AM (UTC) on August 17, 2021
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -28,7 +28,7 @@ securityDefinitions:
 security:
   - Bearer: []
 paths:
-  /v3-alpha/schematisations/:
+  /v3-beta/schematisations/:
     get:
       operationId: schematisations_list
       description: Manage schematisations
@@ -247,7 +247,7 @@ paths:
                 items:
                   $ref: '#/definitions/Schematisation'
       tags:
-        - v3-alpha
+        - v3-beta
     post:
       operationId: schematisations_create
       description: Manage schematisations
@@ -263,9 +263,9 @@ paths:
           schema:
             $ref: '#/definitions/Schematisation'
       tags:
-        - v3-alpha
+        - v3-beta
     parameters: []
-  /v3-alpha/schematisations/{id}/:
+  /v3-beta/schematisations/{id}/:
     get:
       operationId: schematisations_read
       description: Manage schematisations
@@ -276,7 +276,7 @@ paths:
           schema:
             $ref: '#/definitions/Schematisation'
       tags:
-        - v3-alpha
+        - v3-beta
     put:
       operationId: schematisations_update
       description: Manage schematisations
@@ -292,7 +292,7 @@ paths:
           schema:
             $ref: '#/definitions/Schematisation'
       tags:
-        - v3-alpha
+        - v3-beta
     patch:
       operationId: schematisations_partial_update
       description: Manage schematisations
@@ -308,23 +308,25 @@ paths:
           schema:
             $ref: '#/definitions/Schematisation'
       tags:
-        - v3-alpha
+        - v3-beta
     delete:
       operationId: schematisations_delete
-      description: Manage schematisations
+      description: |-
+        Schematisation can only be deleted when all commited revisions are
+        deleted.
       parameters: []
       responses:
         '204':
           description: ''
       tags:
-        - v3-alpha
+        - v3-beta
     parameters:
       - name: id
         in: path
         description: A unique integer value identifying this schematisation.
         required: true
         type: integer
-  /v3-alpha/schematisations/{id}/latest_revision/:
+  /v3-beta/schematisations/{id}/latest_revision/:
     get:
       operationId: schematisations_latest_revision
       summary: Get the latest committed revision.
@@ -336,14 +338,14 @@ paths:
           schema:
             $ref: '#/definitions/SchematisationRevision'
       tags:
-        - v3-alpha
+        - v3-beta
     parameters:
       - name: id
         in: path
         description: A unique integer value identifying this schematisation.
         required: true
         type: integer
-  /v3-alpha/schematisations/{schematisation_pk}/revisions/:
+  /v3-beta/schematisations/{schematisation_pk}/revisions/:
     get:
       operationId: schematisations_revisions_list
       description: Manage revisions of schematisations.
@@ -543,6 +545,11 @@ paths:
           description: ''
           required: false
           type: string
+        - name: archived
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: limit
           in: query
           description: Number of results to return per page.
@@ -577,7 +584,7 @@ paths:
                 items:
                   $ref: '#/definitions/SchematisationRevision'
       tags:
-        - v3-alpha
+        - v3-beta
     post:
       operationId: schematisations_revisions_create
       summary: Create a new revision
@@ -596,38 +603,13 @@ paths:
           schema:
             $ref: '#/definitions/SchematisationRevision'
       tags:
-        - v3-alpha
+        - v3-beta
     parameters:
       - name: schematisation_pk
         in: path
         required: true
         type: string
-  /v3-alpha/schematisations/{schematisation_pk}/revisions/clone_last/:
-    post:
-      operationId: schematisations_revisions_clone_last
-      description: |-
-        Create a new revision with the same sqlite and rasters as the
-        last committed revision. Sqlite and rasters can be changed
-        as long as the new revision is not committed.
-      parameters:
-        - name: data
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/SchematisationRevision'
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/SchematisationRevision'
-      tags:
-        - v3-alpha
-    parameters:
-      - name: schematisation_pk
-        in: path
-        required: true
-        type: string
-  /v3-alpha/schematisations/{schematisation_pk}/revisions/{id}/:
+  /v3-beta/schematisations/{schematisation_pk}/revisions/{id}/:
     get:
       operationId: schematisations_revisions_read
       description: Manage revisions of schematisations.
@@ -638,7 +620,7 @@ paths:
           schema:
             $ref: '#/definitions/SchematisationRevision'
       tags:
-        - v3-alpha
+        - v3-beta
     put:
       operationId: schematisations_revisions_update
       description: Manage revisions of schematisations.
@@ -654,7 +636,7 @@ paths:
           schema:
             $ref: '#/definitions/SchematisationRevision'
       tags:
-        - v3-alpha
+        - v3-beta
     patch:
       operationId: schematisations_revisions_partial_update
       description: Manage revisions of schematisations.
@@ -670,16 +652,21 @@ paths:
           schema:
             $ref: '#/definitions/SchematisationRevision'
       tags:
-        - v3-alpha
+        - v3-beta
     delete:
       operationId: schematisations_revisions_delete
-      description: Manage revisions of schematisations.
-      parameters: []
+      description: Provide the revision id to delete the revision
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/DestroyRevision'
       responses:
         '204':
           description: ''
       tags:
-        - v3-alpha
+        - v3-beta
     parameters:
       - name: id
         in: path
@@ -690,7 +677,7 @@ paths:
         in: path
         required: true
         type: string
-  /v3-alpha/schematisations/{schematisation_pk}/revisions/{id}/commit/:
+  /v3-beta/schematisations/{schematisation_pk}/revisions/{id}/commit/:
     post:
       operationId: schematisations_revisions_commit
       summary: Commit the revision
@@ -728,7 +715,7 @@ paths:
         '409':
           description: Conflict with other revision already committed
       tags:
-        - v3-alpha
+        - v3-beta
     parameters:
       - name: id
         in: path
@@ -739,7 +726,34 @@ paths:
         in: path
         required: true
         type: string
-  /v3-alpha/schematisations/{schematisation_pk}/revisions/{id}/sqlite/delete/:
+  /v3-beta/schematisations/{schematisation_pk}/revisions/{id}/create_threedimodel/:
+    post:
+      operationId: schematisations_revisions_create_threedimodel
+      description: Manage revisions of schematisations.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/SchematisationRevision'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ThreediModel'
+      tags:
+        - v3-beta
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this revision.
+        required: true
+        type: integer
+      - name: schematisation_pk
+        in: path
+        required: true
+        type: string
+  /v3-beta/schematisations/{schematisation_pk}/revisions/{id}/sqlite/delete/:
     delete:
       operationId: schematisations_revisions_sqlite_delete
       description: Manage revisions of schematisations.
@@ -752,7 +766,7 @@ paths:
         '400':
           description: Not allowed after commit
       tags:
-        - v3-alpha
+        - v3-beta
     parameters:
       - name: id
         in: path
@@ -763,7 +777,7 @@ paths:
         in: path
         required: true
         type: string
-  /v3-alpha/schematisations/{schematisation_pk}/revisions/{id}/sqlite/download/:
+  /v3-beta/schematisations/{schematisation_pk}/revisions/{id}/sqlite/download/:
     get:
       operationId: schematisations_revisions_sqlite_download
       description: Endpoint for downloading files.
@@ -778,7 +792,7 @@ paths:
         '404':
           description: File not found
       tags:
-        - v3-alpha
+        - v3-beta
     parameters:
       - name: id
         in: path
@@ -789,13 +803,18 @@ paths:
         in: path
         required: true
         type: string
-  /v3-alpha/schematisations/{schematisation_pk}/revisions/{id}/sqlite/upload/:
+  /v3-beta/schematisations/{schematisation_pk}/revisions/{id}/sqlite/upload/:
     post:
       operationId: schematisations_revisions_sqlite_upload
       summary: |-
         Endpoint for uploading the sqlite file, the file
         should be zipped (deflate).
-      description: Replaces the present sqlite file if there already exists one.
+      description: |-
+        Replaces the present sqlite file if there already exists one.
+
+        Optional md5sum can be added to detect if the file already
+        has been uploaded and perform de-duplication.
+        (md5sum of the compressed sqlite file)
       parameters:
         - name: data
           in: body
@@ -814,7 +833,7 @@ paths:
         '400':
           description: Any validation errors
       tags:
-        - v3-alpha
+        - v3-beta
     parameters:
       - name: id
         in: path
@@ -825,7 +844,7 @@ paths:
         in: path
         required: true
         type: string
-  /v3-alpha/schematisations/{schematisation_pk}/revisions/{id}/threedimodels/:
+  /v3-beta/schematisations/{schematisation_pk}/revisions/{id}/threedimodels/:
     get:
       operationId: schematisations_revisions_threedimodels
       description: Manage revisions of schematisations.
@@ -838,7 +857,7 @@ paths:
             items:
               $ref: '#/definitions/ThreediModel'
       tags:
-        - v3-alpha
+        - v3-beta
     parameters:
       - name: id
         in: path
@@ -849,7 +868,7 @@ paths:
         in: path
         required: true
         type: string
-  /v3-alpha/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/:
+  /v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/:
     get:
       operationId: schematisations_revisions_rasters_list
       description: ''
@@ -886,28 +905,28 @@ paths:
               results:
                 type: array
                 items:
-                  $ref: '#/definitions/Raster'
+                  $ref: '#/definitions/RevisionRaster'
       tags:
-        - v3-alpha
+        - v3-beta
     post:
       operationId: schematisations_revisions_rasters_create
       summary: Endpoint for creating a raster.
       description: |-
-        The hash needs to be a sha1 hash of the raster file
-        with the following format: sha1$sha1_hash_value
+        Optional md5sum can be added to detect if the file already
+        has been uploaded and perform de-duplication.
       parameters:
         - name: data
           in: body
           required: true
           schema:
-            $ref: '#/definitions/Raster'
+            $ref: '#/definitions/RasterCreate'
       responses:
         '201':
           description: ''
           schema:
-            $ref: '#/definitions/Raster'
+            $ref: '#/definitions/RevisionRaster'
       tags:
-        - v3-alpha
+        - v3-beta
     parameters:
       - name: revision_pk
         in: path
@@ -917,7 +936,7 @@ paths:
         in: path
         required: true
         type: string
-  /v3-alpha/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/:
+  /v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/:
     get:
       operationId: schematisations_revisions_rasters_read
       description: ''
@@ -926,9 +945,9 @@ paths:
         '200':
           description: ''
           schema:
-            $ref: '#/definitions/Raster'
+            $ref: '#/definitions/RevisionRaster'
       tags:
-        - v3-alpha
+        - v3-beta
     put:
       operationId: schematisations_revisions_rasters_update
       description: ''
@@ -937,14 +956,14 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/Raster'
+            $ref: '#/definitions/RevisionRaster'
       responses:
         '200':
           description: ''
           schema:
-            $ref: '#/definitions/Raster'
+            $ref: '#/definitions/RevisionRaster'
       tags:
-        - v3-alpha
+        - v3-beta
     patch:
       operationId: schematisations_revisions_rasters_partial_update
       description: ''
@@ -953,14 +972,14 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/Raster'
+            $ref: '#/definitions/RevisionRaster'
       responses:
         '200':
           description: ''
           schema:
-            $ref: '#/definitions/Raster'
+            $ref: '#/definitions/RevisionRaster'
       tags:
-        - v3-alpha
+        - v3-beta
     delete:
       operationId: schematisations_revisions_rasters_delete
       description: ''
@@ -969,11 +988,11 @@ paths:
         '204':
           description: ''
       tags:
-        - v3-alpha
+        - v3-beta
     parameters:
       - name: id
         in: path
-        description: A unique integer value identifying this raster.
+        description: A unique integer value identifying this revision raster.
         required: true
         type: integer
       - name: revision_pk
@@ -984,7 +1003,7 @@ paths:
         in: path
         required: true
         type: string
-  /v3-alpha/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/download/:
+  /v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/download/:
     get:
       operationId: schematisations_revisions_rasters_download
       description: Endpoint for downloading files.
@@ -999,11 +1018,11 @@ paths:
         '404':
           description: File not found
       tags:
-        - v3-alpha
+        - v3-beta
     parameters:
       - name: id
         in: path
-        description: A unique integer value identifying this raster.
+        description: A unique integer value identifying this revision raster.
         required: true
         type: integer
       - name: revision_pk
@@ -1014,30 +1033,159 @@ paths:
         in: path
         required: true
         type: string
-  /v3-alpha/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/upload/:
+  /v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/upload/:
     post:
       operationId: schematisations_revisions_rasters_upload
-      summary: Endpoint for uploading a raster.
-      description: |-
-        The hash needs to be a sha1 hash of the raster file
-        with the following format: sha1$sha1_hash_value
+      description: Endpoint for uploading a raster.
       parameters:
         - name: data
           in: body
           required: true
           schema:
-            $ref: '#/definitions/RasterFileUpload'
+            $ref: '#/definitions/Upload'
       responses:
         '201':
           description: ''
           schema:
             $ref: '#/definitions/Upload'
       tags:
-        - v3-alpha
+        - v3-beta
     parameters:
       - name: id
         in: path
-        description: A unique integer value identifying this raster.
+        description: A unique integer value identifying this revision raster.
+        required: true
+        type: integer
+      - name: revision_pk
+        in: path
+        required: true
+        type: string
+      - name: schematisation_pk
+        in: path
+        required: true
+        type: string
+  /v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/:
+    get:
+      operationId: schematisations_revisions_tasks_list
+      description: View revision tasks
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/RevisionTask'
+      tags:
+        - v3-beta
+    post:
+      operationId: schematisations_revisions_tasks_create
+      description: View revision tasks
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RevisionTask'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/RevisionTask'
+      tags:
+        - v3-beta
+    parameters:
+      - name: revision_pk
+        in: path
+        required: true
+        type: string
+      - name: schematisation_pk
+        in: path
+        required: true
+        type: string
+  /v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/{id}/:
+    get:
+      operationId: schematisations_revisions_tasks_read
+      description: View revision tasks
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/RevisionTask'
+      tags:
+        - v3-beta
+    put:
+      operationId: schematisations_revisions_tasks_update
+      description: View revision tasks
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RevisionTask'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/RevisionTask'
+      tags:
+        - v3-beta
+    patch:
+      operationId: schematisations_revisions_tasks_partial_update
+      description: View revision tasks
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RevisionTask'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/RevisionTask'
+      tags:
+        - v3-beta
+    delete:
+      operationId: schematisations_revisions_tasks_delete
+      description: View revision tasks
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - v3-beta
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this revision task.
         required: true
         type: integer
       - name: revision_pk
@@ -1599,16 +1747,6 @@ paths:
           description: ''
           required: false
           type: string
-        - name: simulation__status__in
-          in: query
-          description: ''
-          required: false
-          type: string
-        - name: simulation__status__exclude
-          in: query
-          description: ''
-          required: false
-          type: string
         - name: limit
           in: query
           description: Number of results to return per page.
@@ -1716,7 +1854,7 @@ paths:
             $ref: '#/definitions/File'
         '405':
           description: "types that are allowed to be destroyed: ['timeseries', 'rastertimeseries',\
-            \ 'savedstate', 'results', 'bulklateral']"
+            \ 'savedstate', 'results', 'bulklateral', 'bulkcontrol']"
       tags:
         - v3
     parameters:
@@ -7521,6 +7659,293 @@ paths:
         in: path
         required: true
         type: string
+  /v3/simulations/{simulation_pk}/events/structure-control/file/:
+    get:
+      operationId: simulations_events_structure-control_file_list
+      description: ''
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/FileStructureControl'
+      tags:
+        - v3
+    post:
+      operationId: simulations_events_structure-control_file_create
+      summary: Endpoint for uploading a file with one or more structure controls.
+      description: |-
+        The supplied filename should be include the extension, for example "bergermeer_controls.json".
+
+        `bergermeer_controls.json`
+
+        The response provides a put_url which may be used to upload a file containing one
+        or more controls. These controls are divided in memory, table and timed
+        structure controls. See the respective endpoints for
+        the required fields of these controls.
+
+        The uploaded file should be a JSON-file containing an array of controls per control type. Example
+        of the content of such a file:
+        ```
+        {
+            "timed": [
+                {
+                    "offset": 0,
+                    "duration": 100,
+                    "value": [
+                        0.4, 0.8
+                    ],
+                    "type": "set_discharge_coefficients",
+                    "structure_id": 21,
+                    "structure_type": "v2_weir"
+                }
+            ],
+            "memory": [
+                {
+                    "offset": 0,
+                    "duration": 3600,
+                    "measure_specification": {
+                        "name": "Measurement location",
+                        "locations": [
+                            {
+                                "weight": "1.00",
+                                "content_type": "v2_connection_node",
+                                "content_pk": 356,
+                            }
+                        ],
+                        "variable": "s1",
+                        "operator": "<"
+                    },
+                    "structure_id": 10250,
+                    "structure_type": "v2_weir",
+                    "type": "set_crest_level",
+                    "value": [
+                        9.05
+                    ],
+                    "upper_threshold": 0.3,
+                    "lower_threshold": 0.1,
+                    "is_active": false,
+                    "is_inverse": false
+                }
+            ],
+            "table": [
+                {
+                    "offset": 0,
+                    "duration": 3600,
+                    "measure_specification": {
+                        "name": "Measurement location",
+                        "locations": [
+                            {
+                                "weight": "1.00",
+                                "content_type": "v2_connection_node",
+                                "content_pk": 356,
+                            }
+                        ],
+                        "variable": "s1",
+                        "operator": "<"
+                    },
+                    "structure_id": 10249,
+                    "structure_type": "v2_weir",
+                    "type": "set_crest_level",
+                    "values": [
+                        [
+                            9.05,
+                            -1.45
+                        ],
+                    ]
+                }
+            ]
+        }
+        ```
+
+        If there are only controls of one category, the other arrays can be omitted, like for example:
+        ```
+        {
+            "timed": [
+                {
+                    "offset": 0,
+                    "duration": 100,
+                    "value": [
+                        0.4, 0.8
+                    ],
+                    "type": "set_discharge_coefficients",
+                    "structure_id": 21,
+                    "structure_type": "v2_weir"
+                }
+            ]
+        }
+        ```
+
+        The `offset` supplied in the request body will be applied on top of each individual
+        structure control offset in the uploaded file.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UploadEventFile'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/UploadEventFile'
+      tags:
+        - v3
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /v3/simulations/{simulation_pk}/events/structure-control/file/{id}/:
+    get:
+      operationId: simulations_events_structure-control_file_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/FileStructureControl'
+      tags:
+        - v3
+    put:
+      operationId: simulations_events_structure-control_file_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/FileStructureControl'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/FileStructureControl'
+      tags:
+        - v3
+    patch:
+      operationId: simulations_events_structure-control_file_partial_update
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/FileStructureControl'
+      responses:
+        '200':
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
+      tags:
+        - v3
+    delete:
+      operationId: simulations_events_structure-control_file_delete
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
+      parameters: []
+      responses:
+        '204':
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
+      tags:
+        - v3
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this bulk control.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /v3/simulations/{simulation_pk}/events/structure-control/file/{id}/download/:
+    get:
+      operationId: simulations_events_structure-control_file_download
+      description: Endpoint for downloading files.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Download'
+        '400':
+          description: File is not uploaded yet or has been removed
+        '404':
+          description: File not found
+      tags:
+        - v3
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this bulk control.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /v3/simulations/{simulation_pk}/events/structure-control/file/{id}/processed/:
+    put:
+      operationId: simulations_events_structure-control_file_processed
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/BaseEventState'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Event is already processed
+      tags:
+        - v3
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this bulk control.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
   /v3/simulations/{simulation_pk}/events/structure-control/memory/:
     get:
       operationId: simulations_events_structure-control_memory_list
@@ -7563,7 +7988,7 @@ paths:
         - v3
     post:
       operationId: simulations_events_structure-control_memory_create
-      description: ''
+      description: See tables structure endpoint for more information.
       parameters:
         - name: data
           in: body
@@ -7752,8 +8177,7 @@ paths:
 
         Please note: action values for `set_discharge_coefficients` type must be > 0.
 
-        For the operators `>` and `>=` threshold values must be ascending,
-        for the operators `<` and `<=` they must be descending.
+        For ALL operators threshold values must be ascending,
 
         In most cases the measure location will be of type `v2_connection_node`.
         For this location type only the variables `s1` and `vol1` apply. If your
@@ -11264,6 +11688,51 @@ paths:
           description: ''
           required: false
           type: string
+        - name: simulation__threedimodel__slug
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__slug__iexact
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__slug__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__slug__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__slug__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: simulation__threedimodel__slug__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__slug__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__slug__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__slug__regex
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: created
           in: query
           description: ''
@@ -11444,6 +11913,11 @@ paths:
           description: ''
           required: false
           type: string
+        - name: simulation__tags__contains
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: simulation__organisation__name__istartswith
           in: query
           description: ''
@@ -11452,6 +11926,11 @@ paths:
         - name: simulation__organisation__unique_id
           in: query
           description: ''
+          required: false
+          type: string
+        - name: ordering
+          in: query
+          description: Which field to use when ordering the results.
           required: false
           type: string
         - name: limit
@@ -11592,6 +12071,51 @@ paths:
           description: ''
           required: false
           type: string
+        - name: simulation__threedimodel__slug
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__slug__iexact
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__slug__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__slug__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__slug__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: simulation__threedimodel__slug__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__slug__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__slug__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__slug__regex
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: created
           in: query
           description: ''
@@ -11772,6 +12296,11 @@ paths:
           description: ''
           required: false
           type: string
+        - name: simulation__tags__contains
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: simulation__organisation__name__istartswith
           in: query
           description: ''
@@ -11780,6 +12309,11 @@ paths:
         - name: simulation__organisation__unique_id
           in: query
           description: ''
+          required: false
+          type: string
+        - name: ordering
+          in: query
+          description: Which field to use when ordering the results.
           required: false
           type: string
         - name: limit
@@ -12822,6 +13356,52 @@ paths:
         description: A unique integer value identifying this threedi model.
         required: true
         type: integer
+  /v3/threedimodels/{id}/tables/download/:
+    get:
+      operationId: threedimodels_tables_download
+      description: Endpoint for downloading tables files.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Download'
+        '400':
+          description: File is not uploaded yet or has been removed
+        '404':
+          description: File not found
+      tags:
+        - v3
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /v3/threedimodels/{id}/tables/upload/:
+    post:
+      operationId: threedimodels_tables_upload
+      summary: Endpoint for uploading the tables.h5 file
+      description: Replaces the tables file if there already exists one.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Upload'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Upload'
+      tags:
+        - v3
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
   /v3/threedimodels/{threedimodel_pk}/boundaryconditions/:
     get:
       operationId: threedimodels_boundaryconditions_list
@@ -13767,6 +14347,130 @@ paths:
         in: path
         required: true
         type: string
+  /v3/threedimodels/{threedimodel_pk}/tasks/:
+    get:
+      operationId: threedimodels_tasks_list
+      description: View threedimodel tasks
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ThreediModelTask'
+      tags:
+        - v3
+    post:
+      operationId: threedimodels_tasks_create
+      description: View threedimodel tasks
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ThreediModelTask'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/ThreediModelTask'
+      tags:
+        - v3
+    parameters:
+      - name: threedimodel_pk
+        in: path
+        required: true
+        type: string
+  /v3/threedimodels/{threedimodel_pk}/tasks/{id}/:
+    get:
+      operationId: threedimodels_tasks_read
+      description: View threedimodel tasks
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ThreediModelTask'
+      tags:
+        - v3
+    put:
+      operationId: threedimodels_tasks_update
+      description: View threedimodel tasks
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ThreediModelTask'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ThreediModelTask'
+      tags:
+        - v3
+    patch:
+      operationId: threedimodels_tasks_partial_update
+      description: View threedimodel tasks
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ThreediModelTask'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ThreediModelTask'
+      tags:
+        - v3
+    delete:
+      operationId: threedimodels_tasks_delete
+      description: View threedimodel tasks
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - v3
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model task.
+        required: true
+        type: integer
+      - name: threedimodel_pk
+        in: path
+        required: true
+        type: string
   /v3/usage/:
     get:
       operationId: usage_list
@@ -14376,8 +15080,10 @@ definitions:
           - geojson
           - initialwaterlevel
           - bulklateral
+          - bulkcontrol
           - bulk_boundaryconditions
           - sqlite
+          - tables
         readOnly: true
       size:
         title: Size
@@ -14412,7 +15118,11 @@ definitions:
         readOnly: true
       file:
         $ref: '#/definitions/FileReadOnly'
-  Raster:
+      revision_id:
+        title: Revision id
+        type: string
+        readOnly: true
+  RevisionRaster:
     required:
       - type
       - name
@@ -14534,7 +15244,12 @@ definitions:
       rasters:
         type: array
         items:
-          $ref: '#/definitions/Raster'
+          $ref: '#/definitions/RevisionRaster'
+        readOnly: true
+      archived:
+        title: Archived
+        type: string
+        format: date-time
         readOnly: true
       commit_date:
         title: Commit date
@@ -14551,6 +15266,10 @@ definitions:
         type: string
         readOnly: true
         minLength: 1
+      is_valid:
+        title: Is valid
+        type: boolean
+        readOnly: true
   CreateRevision:
     type: object
     properties:
@@ -14559,6 +15278,15 @@ definitions:
         description: Create an empty revision
         type: boolean
         default: false
+  DestroyRevision:
+    required:
+      - number
+    type: object
+    properties:
+      number:
+        title: Number
+        description: Provide revision number as verification
+        type: integer
   Commit:
     type: object
     properties:
@@ -14578,71 +15306,6 @@ definitions:
         title: Schematisation name
         type: string
         maxLength: 256
-        minLength: 1
-  Download:
-    type: object
-    properties:
-      get_url:
-        title: Get url
-        type: string
-        readOnly: true
-      etag:
-        title: Etag
-        description: Optional eTag (md5sum)
-        type: string
-        readOnly: true
-        minLength: 1
-      size:
-        title: Size
-        description: Filesize in bytes
-        type: integer
-        readOnly: true
-  SqliteFileUpload:
-    required:
-      - filename
-    type: object
-    properties:
-      put_url:
-        title: Put url
-        type: string
-        format: uri
-        readOnly: true
-        minLength: 1
-      filename:
-        title: Filename
-        type: string
-        maxLength: 255
-        minLength: 1
-      status:
-        title: Status
-        type: string
-        readOnly: true
-        minLength: 1
-      uncompressed_md5sum:
-        title: md5sum (hash) of the uncompressed sqlite file
-        type: string
-        maxLength: 256
-        minLength: 1
-  Upload:
-    required:
-      - filename
-    type: object
-    properties:
-      put_url:
-        title: Put url
-        type: string
-        format: uri
-        readOnly: true
-        minLength: 1
-      filename:
-        title: Filename
-        type: string
-        maxLength: 255
-        minLength: 1
-      status:
-        title: Status
-        type: string
-        readOnly: true
         minLength: 1
   ThreediModel:
     required:
@@ -14687,6 +15350,10 @@ definitions:
       revision_commit_date:
         title: Revision commit date
         type: string
+        readOnly: true
+      schematisation_id:
+        title: Schematisation id
+        type: integer
         readOnly: true
       repository_slug:
         title: Repository slug
@@ -14847,7 +15514,25 @@ definitions:
         maximum: 2147483647
         minimum: -2147483648
         x-nullable: true
-  RasterFileUpload:
+  Download:
+    type: object
+    properties:
+      get_url:
+        title: Get url
+        type: string
+        readOnly: true
+      etag:
+        title: Etag
+        description: Optional eTag (md5sum)
+        type: string
+        readOnly: true
+        minLength: 1
+      size:
+        title: Size
+        description: Filesize in bytes
+        type: integer
+        readOnly: true
+  SqliteFileUpload:
     required:
       - filename
     type: object
@@ -14869,10 +15554,176 @@ definitions:
         readOnly: true
         minLength: 1
       md5sum:
-        title: md5sum (hash) of the geotiff
+        title: md5sum (hash) of the compressed sqlite file
         type: string
         maxLength: 256
         minLength: 1
+  Upload:
+    required:
+      - filename
+    type: object
+    properties:
+      put_url:
+        title: Put url
+        type: string
+        format: uri
+        readOnly: true
+        minLength: 1
+      filename:
+        title: Filename
+        type: string
+        maxLength: 255
+        minLength: 1
+      status:
+        title: Status
+        type: string
+        readOnly: true
+        minLength: 1
+  RasterCreate:
+    required:
+      - type
+      - name
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      type:
+        title: Type
+        type: string
+        enum:
+          - dem_file
+          - dem_raw_file
+          - equilibrium_infiltration_rate_file
+          - frict_coef_file
+          - initial_groundwater_level_file
+          - initial_waterlevel_file
+          - groundwater_hydro_connectivity_file
+          - groundwater_impervious_layer_level_file
+          - infiltration_decay_period_file
+          - initial_infiltration_rate_file
+          - leakage_file
+          - phreatic_storage_capacity_file
+          - hydraulic_conductivity_file
+          - porosity_file
+          - infiltration_rate_file
+          - max_infiltration_capacity_file
+          - interception_file
+      name:
+        title: Name
+        type: string
+        maxLength: 60
+        minLength: 1
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      epsg_code:
+        title: Epsg code
+        type: integer
+        readOnly: true
+      extent:
+        title: Extent
+        type: object
+        readOnly: true
+        description: Extent specified either in geojson, wkt or ewkt
+        required:
+          - type
+          - coordinates
+        properties:
+          type:
+            title: type
+            description: Type should always be 'Linestring'
+            type: string
+            default: Linestring
+          coordinates:
+            title: coordinates
+            description: Exactly 2 coordinates, specifying the bottom left and upper
+              right respectively
+            type: array
+            items:
+              type: number
+              minItems: 2
+              maxItems: 2
+            minItems: 2
+            maxItems: 2
+        example:
+          type: LineString
+          coordinates:
+            - - 4.668275805499175
+              - 52.619558913867856
+            - - 4.73849433310911
+              - 52.66453976184968
+      geotransform:
+        type: array
+        items:
+          title: Geotransform
+          type: number
+        readOnly: true
+      unit:
+        title: Unit
+        type: string
+        enum:
+          - meters
+        x-nullable: true
+      md5sum:
+        title: md5sum (hash) of the geotiff file
+        type: string
+        maxLength: 256
+        minLength: 1
+  RevisionTask:
+    required:
+      - name
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        enum:
+          - modelchecker
+      params:
+        title: Params
+        type: object
+        x-nullable: true
+      created:
+        title: Created
+        type: string
+        format: date-time
+        readOnly: true
+      last_updated:
+        title: Last updated
+        type: string
+        format: date-time
+        readOnly: true
+      status:
+        title: Status
+        type: string
+        enum:
+          - pending
+          - received
+          - started
+          - success
+          - failure
+          - revoked
+      detail:
+        title: Detail
+        type: object
+      revision:
+        title: Revision
+        type: string
+        format: uri
+        readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   User:
     required:
       - username
@@ -15046,8 +15897,10 @@ definitions:
           - geojson
           - initialwaterlevel
           - bulklateral
+          - bulkcontrol
           - bulk_boundaryconditions
           - sqlite
+          - tables
       state:
         title: State
         type: string
@@ -17431,6 +18284,50 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+  FileStructureControl:
+    required:
+      - offset
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
+        readOnly: true
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+        readOnly: true
+      offset:
+        title: Offset
+        description: offset of event in simulation in seconds
+        type: integer
+        maximum: 2147483647
+        minimum: 0
+      file:
+        $ref: '#/definitions/File'
+      state:
+        title: State
+        type: string
+        enum:
+          - processing
+          - valid
+          - invalid
+        readOnly: true
+      state_detail:
+        title: State detail
+        type: object
+        readOnly: true
   RasterEdit:
     required:
       - raster
@@ -17837,6 +18734,11 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/TimedStructureControl'
+        readOnly: true
+      filestructurecontrols:
+        type: array
+        items:
+          $ref: '#/definitions/FileStructureControl'
         readOnly: true
       rasteredits:
         type: array
@@ -19883,6 +20785,7 @@ definitions:
       - pump_implicit_ratio
       - cfl_strictness_factor_1d
       - cfl_strictness_factor_2d
+      - convergence_eps
       - convergence_cg
       - flow_direction_threshold
       - friction_shallow_water_depth_correction
@@ -19925,6 +20828,11 @@ definitions:
         title: Cfl strictness factor 2d
         description: "Strictness of CFL (Courant\u2013Friedrichs\u2013Lewy) condition\
           \ for 2D."
+        type: number
+      convergence_eps:
+        title: Convergence eps
+        description: Minimal convergence criterion for Newton's method, suitable default
+          is 1.0e-5, due to numerical precision.
         type: number
       convergence_cg:
         title: Convergence cg
@@ -20232,11 +21140,36 @@ definitions:
         title: Simulation name
         type: string
         readOnly: true
+      simulation_tags:
+        type: array
+        items:
+          type: string
+          x-nullable: true
+        readOnly: true
+      threedimodel_slug:
+        title: Threedimodel slug
+        type: string
+        readOnly: true
+      threedimodel_id:
+        title: Threedimodel id
+        type: integer
+        readOnly: true
+      has_results:
+        title: Has results
+        type: boolean
+        readOnly: true
+        x-nullable: true
       created:
         title: Created
         type: string
         format: date-time
         readOnly: true
+      expiry:
+        title: Expiry
+        type: string
+        format: date-time
+        readOnly: true
+        x-nullable: true
       time:
         title: Time (in seconds)
         description: simulation time in seconds
@@ -20766,6 +21699,104 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+  Raster:
+    required:
+      - type
+      - name
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      type:
+        title: Type
+        type: string
+        enum:
+          - dem_file
+          - dem_raw_file
+          - equilibrium_infiltration_rate_file
+          - frict_coef_file
+          - initial_groundwater_level_file
+          - initial_waterlevel_file
+          - groundwater_hydro_connectivity_file
+          - groundwater_impervious_layer_level_file
+          - infiltration_decay_period_file
+          - initial_infiltration_rate_file
+          - leakage_file
+          - phreatic_storage_capacity_file
+          - hydraulic_conductivity_file
+          - porosity_file
+          - infiltration_rate_file
+          - max_infiltration_capacity_file
+          - interception_file
+      threedimodel:
+        title: Threedimodel
+        type: string
+        format: uri
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 60
+        minLength: 1
+      file:
+        $ref: '#/definitions/FileReadOnly'
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      epsg_code:
+        title: Epsg code
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+        x-nullable: true
+      extent:
+        title: Extent
+        type: object
+        description: Extent specified either in geojson, wkt or ewkt
+        required:
+          - type
+          - coordinates
+        properties:
+          type:
+            title: type
+            description: Type should always be 'Linestring'
+            type: string
+            default: Linestring
+          coordinates:
+            title: coordinates
+            description: Exactly 2 coordinates, specifying the bottom left and upper
+              right respectively
+            type: array
+            items:
+              type: number
+              minItems: 2
+              maxItems: 2
+            minItems: 2
+            maxItems: 2
+        example:
+          type: LineString
+          coordinates:
+            - - 4.668275805499175
+              - 52.619558913867856
+            - - 4.73849433310911
+              - 52.66453976184968
+      geotransform:
+        type: array
+        items:
+          title: Geotransform
+          type: number
+        maxItems: 6
+        x-nullable: true
+      unit:
+        title: Unit
+        type: string
+        enum:
+          - meters
+        x-nullable: true
   InitialWaterlevel:
     required:
       - source_raster
@@ -20862,6 +21893,60 @@ definitions:
           type: number
         maxItems: 2
         x-nullable: true
+  ThreediModelTask:
+    required:
+      - name
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        enum:
+          - make_gridadmin
+          - make_tables
+          - make_cog
+          - make_geojson
+      params:
+        title: Params
+        type: object
+        x-nullable: true
+      created:
+        title: Created
+        type: string
+        format: date-time
+        readOnly: true
+      last_updated:
+        title: Last updated
+        type: string
+        format: date-time
+        readOnly: true
+      status:
+        title: Status
+        type: string
+        enum:
+          - pending
+          - received
+          - started
+          - success
+          - failure
+          - revoked
+      detail:
+        title: Detail
+        type: object
+      threedimodel:
+        title: Threedimodel
+        type: string
+        format: uri
+        readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   Usage:
     type: object
     properties:

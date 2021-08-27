@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.16   3Di core release: 2.0.11  deployed on:  07:33AM (UTC) on September 04, 2020  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 1.0.61   3Di core release: 2.1.2  deployed on:  07:26AM (UTC) on August 17, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,6 +36,7 @@ class Raster(object):
     openapi_types = {
         'url': 'str',
         'type': 'str',
+        'threedimodel': 'str',
         'name': 'str',
         'file': 'FileReadOnly',
         'id': 'int',
@@ -48,6 +49,7 @@ class Raster(object):
     attribute_map = {
         'url': 'url',
         'type': 'type',
+        'threedimodel': 'threedimodel',
         'name': 'name',
         'file': 'file',
         'id': 'id',
@@ -57,7 +59,7 @@ class Raster(object):
         'unit': 'unit'
     }
 
-    def __init__(self, url=None, type=None, name=None, file=None, id=None, epsg_code=None, extent=None, geotransform=None, unit=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, type=None, threedimodel=None, name=None, file=None, id=None, epsg_code=None, extent=None, geotransform=None, unit=None, local_vars_configuration=None):  # noqa: E501
         """Raster - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +67,7 @@ class Raster(object):
 
         self._url = None
         self._type = None
+        self._threedimodel = None
         self._name = None
         self._file = None
         self._id = None
@@ -77,17 +80,17 @@ class Raster(object):
         if url is not None:
             self.url = url
         self.type = type
+        if threedimodel is not None:
+            self.threedimodel = threedimodel
         self.name = name
         if file is not None:
             self.file = file
         if id is not None:
             self.id = id
-        if epsg_code is not None:
-            self.epsg_code = epsg_code
+        self.epsg_code = epsg_code
         if extent is not None:
             self.extent = extent
-        if geotransform is not None:
-            self.geotransform = geotransform
+        self.geotransform = geotransform
         self.unit = unit
 
     @property
@@ -139,6 +142,27 @@ class Raster(object):
             )
 
         self._type = type
+
+    @property
+    def threedimodel(self):
+        """Gets the threedimodel of this Raster.  # noqa: E501
+
+
+        :return: The threedimodel of this Raster.  # noqa: E501
+        :rtype: str
+        """
+        return self._threedimodel
+
+    @threedimodel.setter
+    def threedimodel(self, threedimodel):
+        """Sets the threedimodel of this Raster.
+
+
+        :param threedimodel: The threedimodel of this Raster.  # noqa: E501
+        :type: str
+        """
+
+        self._threedimodel = threedimodel
 
     @property
     def name(self):
@@ -229,6 +253,12 @@ class Raster(object):
         :param epsg_code: The epsg_code of this Raster.  # noqa: E501
         :type: int
         """
+        if (self.local_vars_configuration.client_side_validation and
+                epsg_code is not None and epsg_code > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `epsg_code`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                epsg_code is not None and epsg_code < -2147483648):  # noqa: E501
+            raise ValueError("Invalid value for `epsg_code`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._epsg_code = epsg_code
 

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.16   3Di core release: 2.0.11  deployed on:  07:33AM (UTC) on September 04, 2020  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 1.0.61   3Di core release: 2.1.2  deployed on:  07:26AM (UTC) on August 17, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -39,6 +39,7 @@ class NumericalSettings(object):
         'pump_implicit_ratio': 'float',
         'cfl_strictness_factor_1d': 'float',
         'cfl_strictness_factor_2d': 'float',
+        'convergence_eps': 'float',
         'convergence_cg': 'float',
         'flow_direction_threshold': 'float',
         'friction_shallow_water_depth_correction': 'int',
@@ -66,6 +67,7 @@ class NumericalSettings(object):
         'pump_implicit_ratio': 'pump_implicit_ratio',
         'cfl_strictness_factor_1d': 'cfl_strictness_factor_1d',
         'cfl_strictness_factor_2d': 'cfl_strictness_factor_2d',
+        'convergence_eps': 'convergence_eps',
         'convergence_cg': 'convergence_cg',
         'flow_direction_threshold': 'flow_direction_threshold',
         'friction_shallow_water_depth_correction': 'friction_shallow_water_depth_correction',
@@ -87,7 +89,7 @@ class NumericalSettings(object):
         'flooding_threshold': 'flooding_threshold'
     }
 
-    def __init__(self, id=None, simulation_id=None, pump_implicit_ratio=None, cfl_strictness_factor_1d=None, cfl_strictness_factor_2d=None, convergence_cg=None, flow_direction_threshold=None, friction_shallow_water_depth_correction=None, general_numerical_threshold=None, time_integration_method=None, limiter_waterlevel_gradient_1d=None, limiter_waterlevel_gradient_2d=None, limiter_slope_crossectional_area_2d=None, limiter_slope_friction_2d=None, max_non_linear_newton_iterations=None, max_degree_gauss_seidel=None, min_friction_velocity=None, min_surface_area=None, use_preconditioner_cg=None, preissmann_slot=None, limiter_slope_thin_water_layer=None, use_of_cg=None, use_nested_newton=None, flooding_threshold=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, simulation_id=None, pump_implicit_ratio=None, cfl_strictness_factor_1d=None, cfl_strictness_factor_2d=None, convergence_eps=None, convergence_cg=None, flow_direction_threshold=None, friction_shallow_water_depth_correction=None, general_numerical_threshold=None, time_integration_method=None, limiter_waterlevel_gradient_1d=None, limiter_waterlevel_gradient_2d=None, limiter_slope_crossectional_area_2d=None, limiter_slope_friction_2d=None, max_non_linear_newton_iterations=None, max_degree_gauss_seidel=None, min_friction_velocity=None, min_surface_area=None, use_preconditioner_cg=None, preissmann_slot=None, limiter_slope_thin_water_layer=None, use_of_cg=None, use_nested_newton=None, flooding_threshold=None, local_vars_configuration=None):  # noqa: E501
         """NumericalSettings - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -98,6 +100,7 @@ class NumericalSettings(object):
         self._pump_implicit_ratio = None
         self._cfl_strictness_factor_1d = None
         self._cfl_strictness_factor_2d = None
+        self._convergence_eps = None
         self._convergence_cg = None
         self._flow_direction_threshold = None
         self._friction_shallow_water_depth_correction = None
@@ -126,6 +129,7 @@ class NumericalSettings(object):
         self.pump_implicit_ratio = pump_implicit_ratio
         self.cfl_strictness_factor_1d = cfl_strictness_factor_1d
         self.cfl_strictness_factor_2d = cfl_strictness_factor_2d
+        self.convergence_eps = convergence_eps
         self.convergence_cg = convergence_cg
         self.flow_direction_threshold = flow_direction_threshold
         self.friction_shallow_water_depth_correction = friction_shallow_water_depth_correction
@@ -267,6 +271,31 @@ class NumericalSettings(object):
             raise ValueError("Invalid value for `cfl_strictness_factor_2d`, must not be `None`")  # noqa: E501
 
         self._cfl_strictness_factor_2d = cfl_strictness_factor_2d
+
+    @property
+    def convergence_eps(self):
+        """Gets the convergence_eps of this NumericalSettings.  # noqa: E501
+
+        Minimal convergence criterion for Newton's method, suitable default is 1.0e-5, due to numerical precision.  # noqa: E501
+
+        :return: The convergence_eps of this NumericalSettings.  # noqa: E501
+        :rtype: float
+        """
+        return self._convergence_eps
+
+    @convergence_eps.setter
+    def convergence_eps(self, convergence_eps):
+        """Sets the convergence_eps of this NumericalSettings.
+
+        Minimal convergence criterion for Newton's method, suitable default is 1.0e-5, due to numerical precision.  # noqa: E501
+
+        :param convergence_eps: The convergence_eps of this NumericalSettings.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and convergence_eps is None:  # noqa: E501
+            raise ValueError("Invalid value for `convergence_eps`, must not be `None`")  # noqa: E501
+
+        self._convergence_eps = convergence_eps
 
     @property
     def convergence_cg(self):

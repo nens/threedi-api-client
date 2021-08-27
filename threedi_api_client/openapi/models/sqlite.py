@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.16   3Di core release: 2.0.11  deployed on:  07:33AM (UTC) on September 04, 2020  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 1.0.61   3Di core release: 2.1.2  deployed on:  07:26AM (UTC) on August 17, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -35,15 +35,17 @@ class Sqlite(object):
     """
     openapi_types = {
         'id': 'int',
-        'file': 'FileReadOnly'
+        'file': 'FileReadOnly',
+        'revision_id': 'str'
     }
 
     attribute_map = {
         'id': 'id',
-        'file': 'file'
+        'file': 'file',
+        'revision_id': 'revision_id'
     }
 
-    def __init__(self, id=None, file=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, file=None, revision_id=None, local_vars_configuration=None):  # noqa: E501
         """Sqlite - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -51,12 +53,15 @@ class Sqlite(object):
 
         self._id = None
         self._file = None
+        self._revision_id = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
         if file is not None:
             self.file = file
+        if revision_id is not None:
+            self.revision_id = revision_id
 
     @property
     def id(self):
@@ -99,6 +104,27 @@ class Sqlite(object):
         """
 
         self._file = file
+
+    @property
+    def revision_id(self):
+        """Gets the revision_id of this Sqlite.  # noqa: E501
+
+
+        :return: The revision_id of this Sqlite.  # noqa: E501
+        :rtype: str
+        """
+        return self._revision_id
+
+    @revision_id.setter
+    def revision_id(self, revision_id):
+        """Sets the revision_id of this Sqlite.
+
+
+        :param revision_id: The revision_id of this Sqlite.  # noqa: E501
+        :type: str
+        """
+
+        self._revision_id = revision_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

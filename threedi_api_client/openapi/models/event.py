@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.16   3Di core release: 2.0.11  deployed on:  07:33AM (UTC) on September 04, 2020  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 1.0.61   3Di core release: 2.1.2  deployed on:  07:26AM (UTC) on August 17, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -62,6 +62,7 @@ class Event(object):
         'tablestructurecontrols': 'list[TableStructureControl]',
         'memorystructurecontrols': 'list[MemoryStructureControl]',
         'timedstructurecontrols': 'list[TimedStructureControl]',
+        'filestructurecontrols': 'list[FileStructureControl]',
         'rasteredits': 'list[RasterEdit]',
         'localrain': 'list[LocalRain]',
         'wind': 'list[Wind]',
@@ -97,13 +98,14 @@ class Event(object):
         'tablestructurecontrols': 'tablestructurecontrols',
         'memorystructurecontrols': 'memorystructurecontrols',
         'timedstructurecontrols': 'timedstructurecontrols',
+        'filestructurecontrols': 'filestructurecontrols',
         'rasteredits': 'rasteredits',
         'localrain': 'localrain',
         'wind': 'wind',
         'initial_winddragcoefficient': 'initial_winddragcoefficient'
     }
 
-    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, leakage=None, filetimeseriesleakage=None, filerasterleakage=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, filelaterals=None, fileboundaryconditions=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, rasteredits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, leakage=None, filetimeseriesleakage=None, filerasterleakage=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, filelaterals=None, fileboundaryconditions=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, filestructurecontrols=None, rasteredits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -137,6 +139,7 @@ class Event(object):
         self._tablestructurecontrols = None
         self._memorystructurecontrols = None
         self._timedstructurecontrols = None
+        self._filestructurecontrols = None
         self._rasteredits = None
         self._localrain = None
         self._wind = None
@@ -199,6 +202,8 @@ class Event(object):
             self.memorystructurecontrols = memorystructurecontrols
         if timedstructurecontrols is not None:
             self.timedstructurecontrols = timedstructurecontrols
+        if filestructurecontrols is not None:
+            self.filestructurecontrols = filestructurecontrols
         if rasteredits is not None:
             self.rasteredits = rasteredits
         if localrain is not None:
@@ -795,6 +800,27 @@ class Event(object):
         """
 
         self._timedstructurecontrols = timedstructurecontrols
+
+    @property
+    def filestructurecontrols(self):
+        """Gets the filestructurecontrols of this Event.  # noqa: E501
+
+
+        :return: The filestructurecontrols of this Event.  # noqa: E501
+        :rtype: list[FileStructureControl]
+        """
+        return self._filestructurecontrols
+
+    @filestructurecontrols.setter
+    def filestructurecontrols(self, filestructurecontrols):
+        """Sets the filestructurecontrols of this Event.
+
+
+        :param filestructurecontrols: The filestructurecontrols of this Event.  # noqa: E501
+        :type: list[FileStructureControl]
+        """
+
+        self._filestructurecontrols = filestructurecontrols
 
     @property
     def rasteredits(self):
