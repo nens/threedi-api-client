@@ -6,7 +6,7 @@ from aiofiles.threadpool import AsyncBufferedIOBase
 
 # note: unittest.mock has no asyncio support in Python < 3.7,
 # but luckily mock backported it:
-from mock import AsyncMock, Mock, patch
+from mock import AsyncMock, DEFAULT, Mock, patch
 
 from threedi_api_client.openapi import ApiException
 from threedi_api_client.aio.files import (
@@ -14,6 +14,7 @@ from threedi_api_client.aio.files import (
     download_fileobj,
     upload_file,
     upload_fileobj,
+    DEFAULT_TIMEOUT,
 )
 
 
@@ -85,7 +86,7 @@ async def test_download_fileobj(aio_request, responses_single):
         "GET",
         "some-url",
         headers={"Range": "bytes=0-63"},
-        timeout=300.0,
+        timeout=DEFAULT_TIMEOUT,
     )
     assert await stream.tell() == 42
 
@@ -257,7 +258,7 @@ async def test_upload_fileobj(
     assert args == ("PUT", "some-url")
     assert [x async for x in kwargs["data"]] == expected_body
     assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
-    assert kwargs["timeout"] == 300.0
+    assert kwargs["timeout"] == DEFAULT_TIMEOUT
 
 
 @pytest.mark.asyncio
