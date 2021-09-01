@@ -6,7 +6,7 @@ import re
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 from pathlib import Path
-from typing import Optional, Tuple
+from typing import Optional, Tuple, Union
 from urllib.parse import urlparse
 
 import aiofiles
@@ -18,6 +18,8 @@ from threedi_api_client.openapi import ApiException
 CONTENT_RANGE_REGEXP = re.compile(r"^bytes (\d+)-(\d+)/(\d+|\*)$")
 RETRY_STATUSES = frozenset({413, 429, 503})  # like in urllib3
 DEFAULT_CONN_LIMIT = 4  # for downloads only (which are parrallel)
+# only timeout on the socket, not on Python code (like urllib3)
+DEFAULT_TIMEOUT = aiohttp.ClientTimeout(total=None, sock_connect=5.0, sock_read=5.0)
 
 
 logger = logging.getLogger(__name__)
@@ -54,7 +56,7 @@ async def download_file(
     url: str,
     target: Path,
     chunk_size: int = 16777216,
-    timeout: float = 300.0,
+    timeout: Optional[Union[float, aiohttp.ClientTimeout]] = None,
     connector: Optional[aiohttp.BaseConnector] = None,
     executor: Optional[ThreadPoolExecutor] = None,
     retries: int = 3,
@@ -71,7 +73,8 @@ async def download_file(
             overwritten. If it is a directory, a filename is generated from
             the filename in the url.
         chunk_size: The number of bytes per request. Default: 16MB.
-        timeout: The timeout of the download of a single chunk in seconds.
+        timeout: The total timeout of the download of a single chunk in seconds.
+            By default, there is no total timeout, but only socket timeouts of 5s.
         connector: An optional aiohttp connector to support connection pooling.
             If not supplied, a default TCPConnector is instantiated with a pool
             size (limit) of 4.
@@ -154,7 +157,7 @@ async def download_fileobj(
     url: str,
     fileobj,
     chunk_size: int = 16777216,
-    timeout: float = 300.0,
+    timeout: Optional[Union[float, aiohttp.ClientTimeout]] = None,
     connector: Optional[aiohttp.BaseConnector] = None,
     retries: int = 3,
     backoff_factor: float = 1.0,
@@ -168,7 +171,8 @@ async def download_fileobj(
         url: The url to retrieve.
         fileobj: The (binary) file object to write into, supporting async I/O.
         chunk_size: The number of bytes per request. Default: 16MB.
-        timeout: The timeout of the download of a single chunk in seconds.
+        timeout: The total timeout of the download of a single chunk in seconds.
+            By default, there is no total timeout, but only socket timeouts of 5s.
         connector: An optional aiohttp connector to support connection pooling.
             If not supplied, a default TCPConnector is instantiated with a pool
             size (limit) of 4.
@@ -198,7 +202,7 @@ async def download_fileobj(
     # servers support that (e.g. Minio).
     request_kwargs = {
         "url": url,
-        "timeout": timeout,
+        "timeout": DEFAULT_TIMEOUT if timeout is None else timeout,
         "retries": retries,
         "backoff_factor": backoff_factor,
     }
@@ -248,7 +252,7 @@ async def upload_file(
     url: str,
     file_path: Path,
     chunk_size: int = 16777216,
-    timeout: float = 300.0,
+    timeout: Optional[Union[float, aiohttp.ClientTimeout]] = None,
     connector: Optional[aiohttp.BaseConnector] = None,
     md5: Optional[bytes] = None,
     executor: Optional[ThreadPoolExecutor] = None,
@@ -266,6 +270,7 @@ async def upload_file(
         chunk_size: The size of the chunk in the streaming upload. Note that this
             function does not do multipart upload. Default: 16MB.
         timeout: The total timeout of the upload in seconds.
+            By default, there is no total timeout, but only socket timeouts of 5s.
         connector: An optional aiohttp connector to support connection pooling.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
             have access to it. Otherwise this function will compute it for you.
@@ -349,7 +354,7 @@ async def upload_fileobj(
     url: str,
     fileobj,
     chunk_size: int = 16777216,
-    timeout: float = 300.0,
+    timeout: Optional[Union[float, aiohttp.ClientTimeout]] = None,
     connector: Optional[aiohttp.BaseConnector] = None,
     md5: Optional[bytes] = None,
     executor: Optional[ThreadPoolExecutor] = None,
@@ -367,6 +372,7 @@ async def upload_fileobj(
         chunk_size: The size of the chunk in the streaming upload. Note that this
             function does not do multipart upload. Default: 16MB.
         timeout: The total timeout of the upload in seconds.
+            By default, there is no total timeout, but only socket timeouts of 5s.
         connector: An optional aiohttp connector to support connection pooling.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
             have access to it. Otherwise this function will compute it for you.
@@ -423,7 +429,7 @@ async def upload_fileobj(
             "PUT",
             url,
             headers=headers,
-            timeout=timeout,
+            timeout=DEFAULT_TIMEOUT if timeout is None else timeout,
         )
         response = await _request_with_retry(request, retries, backoff_factor)
         if response.status != 200:

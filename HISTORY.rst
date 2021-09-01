@@ -21,6 +21,9 @@ History
 - Added a ``retries`` to the ``ThreediApi`` which enables setting a retry policy.
   For the async client, ``aiohttp_retry`` is included.
 
+- Changed the default ``timeout`` of asynchronous file down/upload from 5 minutes total to
+  only socket timeouts of 5 seconds. This allows upload of larger files.
+
 
 3.0.29 (2021-06-02)
 -------------------
