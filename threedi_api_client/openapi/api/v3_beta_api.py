@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.61   3Di core release: 2.1.2  deployed on:  07:26AM (UTC) on August 17, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 1.0.64   3Di core release: 2.1.2  deployed on:  03:05PM (UTC) on September 15, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -4691,6 +4691,859 @@ class V3BetaApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='Schematisation',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulation_templates_create(self, data, **kwargs):  # noqa: E501
+        """Create a (optionally cloned) simulation template from this simulation.  # noqa: E501
+
+        A simulation template is actually nothing more than a simulation with a special status. It's immutable after creation and can only used to create new simulations, or be deleted.  Simulations 'upgraded' to simulations templates can't be directly run. The 'from_template' endpoints allows to create a new simulation from a template in a runnable state.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulation_templates_create(data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param CreateTemplate data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Template
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulation_templates_create_with_http_info(data, **kwargs)  # noqa: E501
+
+    def simulation_templates_create_with_http_info(self, data, **kwargs):  # noqa: E501
+        """Create a (optionally cloned) simulation template from this simulation.  # noqa: E501
+
+        A simulation template is actually nothing more than a simulation with a special status. It's immutable after creation and can only used to create new simulations, or be deleted.  Simulations 'upgraded' to simulations templates can't be directly run. The 'from_template' endpoints allows to create a new simulation from a template in a runnable state.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulation_templates_create_with_http_info(data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param CreateTemplate data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Template, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulation_templates_create" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `simulation_templates_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3-beta/simulation_templates/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Template',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulation_templates_delete(self, id, **kwargs):  # noqa: E501
+        """simulation_templates_delete  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulation_templates_delete(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this template. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulation_templates_delete_with_http_info(id, **kwargs)  # noqa: E501
+
+    def simulation_templates_delete_with_http_info(self, id, **kwargs):  # noqa: E501
+        """simulation_templates_delete  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulation_templates_delete_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this template. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulation_templates_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulation_templates_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3-beta/simulation_templates/{id}/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulation_templates_list(self, **kwargs):  # noqa: E501
+        """simulation_templates_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulation_templates_list(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str name:
+        :param str name__iexact:
+        :param str name__contains:
+        :param str name__icontains:
+        :param str name__in: Multiple values may be separated by commas.
+        :param str name__startswith:
+        :param str name__istartswith:
+        :param str name__endswith:
+        :param str name__regex:
+        :param str uuid:
+        :param str uuid__iexact:
+        :param str uuid__contains:
+        :param str uuid__icontains:
+        :param str uuid__in: Multiple values may be separated by commas.
+        :param str uuid__startswith:
+        :param str uuid__istartswith:
+        :param str uuid__endswith:
+        :param str uuid__regex:
+        :param str created__date:
+        :param str created__date__gt:
+        :param str created__date__gte:
+        :param str created__date__lt:
+        :param str created__date__lte:
+        :param float created__year:
+        :param float created__year__gt:
+        :param float created__year__gte:
+        :param float created__year__lt:
+        :param float created__year__lte:
+        :param float created__month:
+        :param float created__month__lte:
+        :param float created__day:
+        :param float created__day__lt:
+        :param float simulation__threedimodel__id:
+        :param float simulation__threedimodel__id__range: Multiple values may be separated by commas.
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse2004
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulation_templates_list_with_http_info(**kwargs)  # noqa: E501
+
+    def simulation_templates_list_with_http_info(self, **kwargs):  # noqa: E501
+        """simulation_templates_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulation_templates_list_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str name:
+        :param str name__iexact:
+        :param str name__contains:
+        :param str name__icontains:
+        :param str name__in: Multiple values may be separated by commas.
+        :param str name__startswith:
+        :param str name__istartswith:
+        :param str name__endswith:
+        :param str name__regex:
+        :param str uuid:
+        :param str uuid__iexact:
+        :param str uuid__contains:
+        :param str uuid__icontains:
+        :param str uuid__in: Multiple values may be separated by commas.
+        :param str uuid__startswith:
+        :param str uuid__istartswith:
+        :param str uuid__endswith:
+        :param str uuid__regex:
+        :param str created__date:
+        :param str created__date__gt:
+        :param str created__date__gte:
+        :param str created__date__lt:
+        :param str created__date__lte:
+        :param float created__year:
+        :param float created__year__gt:
+        :param float created__year__gte:
+        :param float created__year__lt:
+        :param float created__year__lte:
+        :param float created__month:
+        :param float created__month__lte:
+        :param float created__day:
+        :param float created__day__lt:
+        :param float simulation__threedimodel__id:
+        :param float simulation__threedimodel__id__range: Multiple values may be separated by commas.
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse2004, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'name',
+            'name__iexact',
+            'name__contains',
+            'name__icontains',
+            'name__in',
+            'name__startswith',
+            'name__istartswith',
+            'name__endswith',
+            'name__regex',
+            'uuid',
+            'uuid__iexact',
+            'uuid__contains',
+            'uuid__icontains',
+            'uuid__in',
+            'uuid__startswith',
+            'uuid__istartswith',
+            'uuid__endswith',
+            'uuid__regex',
+            'created__date',
+            'created__date__gt',
+            'created__date__gte',
+            'created__date__lt',
+            'created__date__lte',
+            'created__year',
+            'created__year__gt',
+            'created__year__gte',
+            'created__year__lt',
+            'created__year__lte',
+            'created__month',
+            'created__month__lte',
+            'created__day',
+            'created__day__lt',
+            'simulation__threedimodel__id',
+            'simulation__threedimodel__id__range',
+            'limit',
+            'offset'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulation_templates_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if 'name__iexact' in local_var_params and local_var_params['name__iexact'] is not None:  # noqa: E501
+            query_params.append(('name__iexact', local_var_params['name__iexact']))  # noqa: E501
+        if 'name__contains' in local_var_params and local_var_params['name__contains'] is not None:  # noqa: E501
+            query_params.append(('name__contains', local_var_params['name__contains']))  # noqa: E501
+        if 'name__icontains' in local_var_params and local_var_params['name__icontains'] is not None:  # noqa: E501
+            query_params.append(('name__icontains', local_var_params['name__icontains']))  # noqa: E501
+        if 'name__in' in local_var_params and local_var_params['name__in'] is not None:  # noqa: E501
+            query_params.append(('name__in', local_var_params['name__in']))  # noqa: E501
+        if 'name__startswith' in local_var_params and local_var_params['name__startswith'] is not None:  # noqa: E501
+            query_params.append(('name__startswith', local_var_params['name__startswith']))  # noqa: E501
+        if 'name__istartswith' in local_var_params and local_var_params['name__istartswith'] is not None:  # noqa: E501
+            query_params.append(('name__istartswith', local_var_params['name__istartswith']))  # noqa: E501
+        if 'name__endswith' in local_var_params and local_var_params['name__endswith'] is not None:  # noqa: E501
+            query_params.append(('name__endswith', local_var_params['name__endswith']))  # noqa: E501
+        if 'name__regex' in local_var_params and local_var_params['name__regex'] is not None:  # noqa: E501
+            query_params.append(('name__regex', local_var_params['name__regex']))  # noqa: E501
+        if 'uuid' in local_var_params and local_var_params['uuid'] is not None:  # noqa: E501
+            query_params.append(('uuid', local_var_params['uuid']))  # noqa: E501
+        if 'uuid__iexact' in local_var_params and local_var_params['uuid__iexact'] is not None:  # noqa: E501
+            query_params.append(('uuid__iexact', local_var_params['uuid__iexact']))  # noqa: E501
+        if 'uuid__contains' in local_var_params and local_var_params['uuid__contains'] is not None:  # noqa: E501
+            query_params.append(('uuid__contains', local_var_params['uuid__contains']))  # noqa: E501
+        if 'uuid__icontains' in local_var_params and local_var_params['uuid__icontains'] is not None:  # noqa: E501
+            query_params.append(('uuid__icontains', local_var_params['uuid__icontains']))  # noqa: E501
+        if 'uuid__in' in local_var_params and local_var_params['uuid__in'] is not None:  # noqa: E501
+            query_params.append(('uuid__in', local_var_params['uuid__in']))  # noqa: E501
+        if 'uuid__startswith' in local_var_params and local_var_params['uuid__startswith'] is not None:  # noqa: E501
+            query_params.append(('uuid__startswith', local_var_params['uuid__startswith']))  # noqa: E501
+        if 'uuid__istartswith' in local_var_params and local_var_params['uuid__istartswith'] is not None:  # noqa: E501
+            query_params.append(('uuid__istartswith', local_var_params['uuid__istartswith']))  # noqa: E501
+        if 'uuid__endswith' in local_var_params and local_var_params['uuid__endswith'] is not None:  # noqa: E501
+            query_params.append(('uuid__endswith', local_var_params['uuid__endswith']))  # noqa: E501
+        if 'uuid__regex' in local_var_params and local_var_params['uuid__regex'] is not None:  # noqa: E501
+            query_params.append(('uuid__regex', local_var_params['uuid__regex']))  # noqa: E501
+        if 'created__date' in local_var_params and local_var_params['created__date'] is not None:  # noqa: E501
+            query_params.append(('created__date', local_var_params['created__date']))  # noqa: E501
+        if 'created__date__gt' in local_var_params and local_var_params['created__date__gt'] is not None:  # noqa: E501
+            query_params.append(('created__date__gt', local_var_params['created__date__gt']))  # noqa: E501
+        if 'created__date__gte' in local_var_params and local_var_params['created__date__gte'] is not None:  # noqa: E501
+            query_params.append(('created__date__gte', local_var_params['created__date__gte']))  # noqa: E501
+        if 'created__date__lt' in local_var_params and local_var_params['created__date__lt'] is not None:  # noqa: E501
+            query_params.append(('created__date__lt', local_var_params['created__date__lt']))  # noqa: E501
+        if 'created__date__lte' in local_var_params and local_var_params['created__date__lte'] is not None:  # noqa: E501
+            query_params.append(('created__date__lte', local_var_params['created__date__lte']))  # noqa: E501
+        if 'created__year' in local_var_params and local_var_params['created__year'] is not None:  # noqa: E501
+            query_params.append(('created__year', local_var_params['created__year']))  # noqa: E501
+        if 'created__year__gt' in local_var_params and local_var_params['created__year__gt'] is not None:  # noqa: E501
+            query_params.append(('created__year__gt', local_var_params['created__year__gt']))  # noqa: E501
+        if 'created__year__gte' in local_var_params and local_var_params['created__year__gte'] is not None:  # noqa: E501
+            query_params.append(('created__year__gte', local_var_params['created__year__gte']))  # noqa: E501
+        if 'created__year__lt' in local_var_params and local_var_params['created__year__lt'] is not None:  # noqa: E501
+            query_params.append(('created__year__lt', local_var_params['created__year__lt']))  # noqa: E501
+        if 'created__year__lte' in local_var_params and local_var_params['created__year__lte'] is not None:  # noqa: E501
+            query_params.append(('created__year__lte', local_var_params['created__year__lte']))  # noqa: E501
+        if 'created__month' in local_var_params and local_var_params['created__month'] is not None:  # noqa: E501
+            query_params.append(('created__month', local_var_params['created__month']))  # noqa: E501
+        if 'created__month__lte' in local_var_params and local_var_params['created__month__lte'] is not None:  # noqa: E501
+            query_params.append(('created__month__lte', local_var_params['created__month__lte']))  # noqa: E501
+        if 'created__day' in local_var_params and local_var_params['created__day'] is not None:  # noqa: E501
+            query_params.append(('created__day', local_var_params['created__day']))  # noqa: E501
+        if 'created__day__lt' in local_var_params and local_var_params['created__day__lt'] is not None:  # noqa: E501
+            query_params.append(('created__day__lt', local_var_params['created__day__lt']))  # noqa: E501
+        if 'simulation__threedimodel__id' in local_var_params and local_var_params['simulation__threedimodel__id'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__id', local_var_params['simulation__threedimodel__id']))  # noqa: E501
+        if 'simulation__threedimodel__id__range' in local_var_params and local_var_params['simulation__threedimodel__id__range'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__id__range', local_var_params['simulation__threedimodel__id__range']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3-beta/simulation_templates/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2004',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulation_templates_read(self, id, **kwargs):  # noqa: E501
+        """simulation_templates_read  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulation_templates_read(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this template. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Template
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulation_templates_read_with_http_info(id, **kwargs)  # noqa: E501
+
+    def simulation_templates_read_with_http_info(self, id, **kwargs):  # noqa: E501
+        """simulation_templates_read  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulation_templates_read_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this template. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Template, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulation_templates_read" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulation_templates_read`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3-beta/simulation_templates/{id}/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Template',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_clone(self, id, **kwargs):  # noqa: E501
+        """Clone the simulation.  # noqa: E501
+
+        Clones the simulation in a runnable state, only events & initials.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_clone(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this simulation. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Simulation
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_clone_with_http_info(id, **kwargs)  # noqa: E501
+
+    def simulations_clone_with_http_info(self, id, **kwargs):  # noqa: E501
+        """Clone the simulation.  # noqa: E501
+
+        Clones the simulation in a runnable state, only events & initials.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_clone_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this simulation. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Simulation, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_clone" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulations_clone`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3-beta/simulations/{id}/clone/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Simulation',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulations_from_template(self, data, **kwargs):  # noqa: E501
+        """simulations_from_template  # noqa: E501
+
+        Create a (new/cloned) simulation from a simulation template  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_from_template(data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param FromTemplate data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Simulation
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_from_template_with_http_info(data, **kwargs)  # noqa: E501
+
+    def simulations_from_template_with_http_info(self, data, **kwargs):  # noqa: E501
+        """simulations_from_template  # noqa: E501
+
+        Create a (new/cloned) simulation from a simulation template  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_from_template_with_http_info(data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param FromTemplate data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Simulation, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_from_template" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_from_template`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3-beta/simulations/from_template/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Simulation',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

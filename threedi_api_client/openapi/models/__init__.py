@@ -4,7 +4,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.61   3Di core release: 2.1.2  deployed on:  07:26AM (UTC) on August 17, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 1.0.64   3Di core release: 2.1.2  deployed on:  03:05PM (UTC) on September 15, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -34,6 +34,7 @@ from threedi_api_client.openapi.models.constant_sources_sinks import ConstantSou
 from threedi_api_client.openapi.models.constant_wind import ConstantWind
 from threedi_api_client.openapi.models.contract import Contract
 from threedi_api_client.openapi.models.create_revision import CreateRevision
+from threedi_api_client.openapi.models.create_template import CreateTemplate
 from threedi_api_client.openapi.models.current_status import CurrentStatus
 from threedi_api_client.openapi.models.damage_estimation import DamageEstimation
 from threedi_api_client.openapi.models.damage_post_processing import DamagePostProcessing
@@ -53,6 +54,7 @@ from threedi_api_client.openapi.models.file_structure_control import FileStructu
 from threedi_api_client.openapi.models.file_timeseries_leakage import FileTimeseriesLeakage
 from threedi_api_client.openapi.models.file_timeseries_rain import FileTimeseriesRain
 from threedi_api_client.openapi.models.file_timeseries_sources_sinks import FileTimeseriesSourcesSinks
+from threedi_api_client.openapi.models.from_template import FromTemplate
 from threedi_api_client.openapi.models.grid_event_state import GridEventState
 from threedi_api_client.openapi.models.ground_water_level import GroundWaterLevel
 from threedi_api_client.openapi.models.ground_water_raster import GroundWaterRaster
@@ -124,6 +126,7 @@ from threedi_api_client.openapi.models.inline_response20064 import InlineRespons
 from threedi_api_client.openapi.models.inline_response20065 import InlineResponse20065
 from threedi_api_client.openapi.models.inline_response20066 import InlineResponse20066
 from threedi_api_client.openapi.models.inline_response20067 import InlineResponse20067
+from threedi_api_client.openapi.models.inline_response20068 import InlineResponse20068
 from threedi_api_client.openapi.models.inline_response2007 import InlineResponse2007
 from threedi_api_client.openapi.models.inline_response2008 import InlineResponse2008
 from threedi_api_client.openapi.models.inline_response2009 import InlineResponse2009
@@ -189,6 +192,7 @@ from threedi_api_client.openapi.models.sqlite_file_upload import SqliteFileUploa
 from threedi_api_client.openapi.models.stable_threshold_saved_state import StableThresholdSavedState
 from threedi_api_client.openapi.models.tms import TMS
 from threedi_api_client.openapi.models.table_structure_control import TableStructureControl
+from threedi_api_client.openapi.models.template import Template
 from threedi_api_client.openapi.models.threedi_model import ThreediModel
 from threedi_api_client.openapi.models.threedi_model_saved_state import ThreediModelSavedState
 from threedi_api_client.openapi.models.threedi_model_task import ThreediModelTask
