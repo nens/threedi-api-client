@@ -96,12 +96,20 @@ async def test_download_fileobj_two_chunks(aio_request, responses_double):
     stream = AsyncBytesIO()
     aio_request.side_effect = responses_double
 
-    await download_fileobj("some-url", stream, chunk_size=64)
+    callback_func = AsyncMock()
+
+    await download_fileobj("some-url", stream, chunk_size=64, callback_func=callback_func)
 
     (_, kwargs1), (_, kwargs2) = aio_request.call_args_list
     assert kwargs1["headers"] == {"Range": "bytes=0-63"}
     assert kwargs2["headers"] == {"Range": "bytes=64-127"}
     assert await stream.tell() == 65
+
+    # Check callback func
+    (args1, _), (args2, _) = callback_func.call_args_list
+
+    assert args1 == (63, 65)
+    assert args2 == (65, 65)
 
 
 @pytest.mark.asyncio
@@ -259,6 +267,34 @@ async def test_upload_fileobj(
     assert [x async for x in kwargs["data"]] == expected_body
     assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
     assert kwargs["timeout"] == DEFAULT_TIMEOUT
+
+
+@pytest.mark.asyncio
+async def test_upload_fileobj_callback(
+    aio_request, fileobj, upload_response
+):
+    expected_body = [b"X" * 16, b"X" * 16, b"X" * 7]
+    chunk_size = 16 
+
+    callback_func = AsyncMock()
+
+    aio_request.return_value = upload_response
+    await upload_fileobj("some-url", fileobj, chunk_size=chunk_size, callback_func=callback_func)
+
+    # base64.b64encode(hashlib.md5(b"X" * 39).digest()).decode()
+    expected_md5 = "Q2zMNJgyazDIkoSqvpOqVg=="
+
+    args, kwargs = aio_request.call_args
+    assert args == ("PUT", "some-url")
+    assert [x async for x in kwargs["data"]] == expected_body
+    assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
+    assert kwargs["timeout"] == DEFAULT_TIMEOUT
+
+    # Check callback_func
+    (args1, _), (args2, _), (args3, _) = callback_func.call_args_list
+    assert args1 == (16, 39)
+    assert args2 == (32, 39)
+    assert args3 == (39, 39)
 
 
 @pytest.mark.asyncio

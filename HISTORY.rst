@@ -5,6 +5,8 @@ History
 3.1.0 (unreleased)
 -------------------
 
+- Added callback support for async/sync download/upload functions
+
 - Added structure controls file upload
 
 - Added support for `THREEDI_API_ACCESS_TOKEN` and `THREEDI_API_REFRESH_TOKEN` configuration variables
