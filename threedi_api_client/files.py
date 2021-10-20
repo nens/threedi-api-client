@@ -4,7 +4,7 @@ import logging
 import os
 import re
 from pathlib import Path
-from typing import BinaryIO, Optional, Tuple
+from typing import BinaryIO, Optional, Tuple, Callable
 from urllib.parse import urlparse
 
 import urllib3
@@ -37,6 +37,7 @@ def download_file(
     chunk_size: int = 16777216,
     timeout: float = 5.0,
     pool: Optional[urllib3.PoolManager] = None,
+    callback_func: Optional[Callable[[int, int], None]] = None
 ) -> Tuple[Path, int]:
     """Download a file to a specified path on disk.
 
@@ -52,6 +53,8 @@ def download_file(
         timeout: The total timeout in seconds.
         pool: If not supplied, a default connection pool will be
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
+        callback_func: optional function used to receive: bytes_downloaded, total_bytes
+            for example: def callback(bytes_downloaded: int, total_bytes: int) -> None
 
     Returns:
         Tuple of file path, total number of uploaded bytes.
@@ -76,7 +79,8 @@ def download_file(
     try:
         with target.open("wb") as fileobj:
             size = download_fileobj(
-                url, fileobj, chunk_size=chunk_size, timeout=timeout, pool=pool
+                url, fileobj, chunk_size=chunk_size, timeout=timeout, pool=pool,
+                callback_func=callback_func
             )
     except Exception:
         # Clean up a partially downloaded file
@@ -95,6 +99,7 @@ def download_fileobj(
     chunk_size: int = 16777216,
     timeout: float = 5.0,
     pool: Optional[urllib3.PoolManager] = None,
+    callback_func: Optional[Callable[[int, int], None]] = None
 ) -> int:
     """Download a url to a file object using multiple requests.
 
@@ -108,6 +113,8 @@ def download_fileobj(
         timeout: The total timeout in seconds.
         pool: If not supplied, a default connection pool will be
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
+        callback_func: optional function used to receive: bytes_downloaded, total_bytes
+            for example: def callback(bytes_downloaded: int, total_bytes: int) -> None
 
     Returns:
         The total number of downloaded bytes.
@@ -155,9 +162,15 @@ def download_fileobj(
 
         # parse content-range header (e.g. "bytes 0-3/7") for next iteration
         content_range = response.headers["Content-Range"]
+
         start, stop, total = [
             int(x) for x in CONTENT_RANGE_REGEXP.findall(content_range)[0]
         ]
+
+        if callable(callback_func):
+            download_bytes: int = total if stop + 1 >= total else stop
+            callback_func(download_bytes, total)
+
         if stop + 1 >= total:
             break
         start += chunk_size
@@ -172,6 +185,7 @@ def upload_file(
     timeout: float = 5.0,
     pool: Optional[urllib3.PoolManager] = None,
     md5: Optional[bytes] = None,
+    callback_func: Optional[Callable[[int, int], None]] = None
 ) -> int:
     """Upload a file at specified file path to a url.
 
@@ -188,6 +202,8 @@ def upload_file(
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
             have access to it. Otherwise this function will compute it for you.
+        callback_func: optional function used to receive: bytes_uploaded, total_bytes
+            for example: def callback(bytes_uploaded: int, total_bytes: int) -> None
 
     Returns:
         The total number of uploaded bytes.
@@ -214,18 +230,23 @@ def upload_file(
             timeout=timeout,
             pool=pool,
             md5=md5,
+            callback_func=callback_func
         )
 
     return size
 
 
-def _iter_chunks(fileobj: BinaryIO, chunk_size: int):
+def _iter_chunks(fileobj: BinaryIO, chunk_size: int, callback_func: Optional[Callable[[int], None]] = None):
     """Yield chunks from a file stream"""
+    uploaded_bytes: int = 0
     assert chunk_size > 0
     while True:
         data = fileobj.read(chunk_size)
         if len(data) == 0:
             break
+        uploaded_bytes += chunk_size
+        if callable(callback_func):
+            callback_func(uploaded_bytes)
         yield data
 
 
@@ -236,6 +257,7 @@ def upload_fileobj(
     timeout: float = 5.0,
     pool: Optional[urllib3.PoolManager] = None,
     md5: Optional[bytes] = None,
+    callback_func: Optional[Callable[[int, int], None]] = None
 ) -> int:
     """Upload a file object to a url.
 
@@ -252,6 +274,8 @@ def upload_fileobj(
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
             have access to it. Otherwise this function will compute it for you.
+        callback_func: optional function used to receive: bytes_uploaded, total_bytes
+            for example: def callback(bytes_uploaded: int, total_bytes: int) -> None
 
     Returns:
         The total number of uploaded bytes.
@@ -296,7 +320,14 @@ def upload_fileobj(
         pool = get_pool()
 
     fileobj.seek(0)
-    iterable = _iter_chunks(fileobj, chunk_size=chunk_size)
+
+    def callback(uploaded_bytes: int):
+        if callable(callback_func):            
+            if uploaded_bytes > file_size:
+                uploaded_bytes = file_size
+            callback_func(uploaded_bytes, file_size)
+
+    iterable = _iter_chunks(fileobj, chunk_size=chunk_size, callback_func=callback)
     # Tested: both Content-Length and Content-MD5 are checked by Minio
     headers = {
         "Content-Length": str(file_size),

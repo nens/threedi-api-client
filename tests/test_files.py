@@ -61,13 +61,21 @@ def test_download_fileobj(pool, responses_single):
 def test_download_fileobj_two_chunks(pool, responses_double):
     stream = io.BytesIO()
     pool.request.side_effect = responses_double
-    download_fileobj("some-url", stream, chunk_size=64, pool=pool)
+
+    callback_func = mock.Mock()
+
+    download_fileobj("some-url", stream, chunk_size=64, pool=pool, callback_func=callback_func)
 
     (_, kwargs1), (_, kwargs2) = pool.request.call_args_list
     assert kwargs1["headers"] == {"Range": "bytes=0-63"}
     assert kwargs2["headers"] == {"Range": "bytes=64-127"}
     assert stream.tell() == 65
 
+    # Check callback func
+    (args1, _), (args2, _) = callback_func.call_args_list
+
+    assert args1 == (63, 65)
+    assert args2 == (65, 65)
 
 def test_download_fileobj_no_multipart(pool, responses_single):
     """The remote server does not support range requests"""
@@ -151,6 +159,31 @@ def test_upload_fileobj(pool, fileobj, upload_response, chunk_size, expected_bod
     assert list(kwargs["body"]) == expected_body
     assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
     assert kwargs["timeout"] == 5.0
+
+
+def test_upload_fileobj_callback(pool, fileobj, upload_response):
+    expected_body = [b"X" * 16, b"X" * 16, b"X" * 7]
+    chunk_size = 16
+
+    pool.request.return_value = upload_response
+    callback_func = mock.Mock()
+
+    upload_fileobj("some-url", fileobj, chunk_size=chunk_size, pool=pool, callback_func=callback_func)
+
+    # base64.b64encode(hashlib.md5(b"X" * 39).digest()).decode()
+    expected_md5 = "Q2zMNJgyazDIkoSqvpOqVg=="
+
+    args, kwargs = pool.request.call_args
+    assert args == ("PUT", "some-url")
+    assert list(kwargs["body"]) == expected_body
+    assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
+    assert kwargs["timeout"] == 5.0
+
+    # Check callback_func
+    (args1, _), (args2, _), (args3, _) = callback_func.call_args_list
+    assert args1 == (16, 39)
+    assert args2 == (32, 39)
+    assert args3 == (39, 39)
 
 
 def test_upload_fileobj_with_md5(pool, fileobj, upload_response):

@@ -6,7 +6,7 @@ import re
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 from pathlib import Path
-from typing import Optional, Tuple, Union
+from typing import Optional, Tuple, Union, Callable, Awaitable
 from urllib.parse import urlparse
 
 import aiofiles
@@ -61,6 +61,7 @@ async def download_file(
     executor: Optional[ThreadPoolExecutor] = None,
     retries: int = 3,
     backoff_factor: float = 1.0,
+    callback_func: Optional[Callable[[int, int], Awaitable[None]]] = None
 ) -> Tuple[Path, int]:
     """Download a file to a specified path on disk.
 
@@ -82,6 +83,8 @@ async def download_file(
             file I/O in. If not supplied, default executor is used.
         retries: Total number of retries per request.
         backoff_factor: Multiplier for retry delay times (1, 2, 4, ...)
+        callback_func: optional async function used to receive: bytes_downloaded, total_bytes
+            for example: async def callback(bytes_downloaded: int, total_bytes: int) -> None
 
     Returns:
         Tuple of file path, total number of uploaded bytes.
@@ -113,6 +116,7 @@ async def download_file(
                 connector=connector,
                 retries=retries,
                 backoff_factor=backoff_factor,
+                callback_func=callback_func
             )
     except Exception:
         # Clean up a partially downloaded file
@@ -161,6 +165,7 @@ async def download_fileobj(
     connector: Optional[aiohttp.BaseConnector] = None,
     retries: int = 3,
     backoff_factor: float = 1.0,
+    callback_func: Optional[Callable[[int, int], Awaitable[None]]] = None
 ) -> int:
     """Download a url to a file object using multiple requests.
 
@@ -178,6 +183,8 @@ async def download_fileobj(
             size (limit) of 4.
         retries: Total number of retries per request.
         backoff_factor: Multiplier for retry delay times (1, 2, 4, ...)
+        callback_func: optional async function used to receive: bytes_downloaded, total_bytes
+            for example: async def callback(bytes_downloaded: int, total_bytes: int) -> None
 
     Returns:
         The total number of downloaded bytes.
@@ -216,6 +223,9 @@ async def download_fileobj(
         await fileobj.write(await response.read())
         logger.debug("Written bytes {} to {} to file".format(0, chunk_size))
 
+        if callable(callback_func):
+            await callback_func(chunk_size - 1, file_size)
+
         # return if the file is already completely downloaded
         if file_size <= chunk_size:
             return file_size
@@ -239,6 +249,9 @@ async def download_fileobj(
                         i * chunk_size, (i + 1) * chunk_size
                     )
                 )
+                if callable(callback_func):
+                    total: int = file_size if (i + 1) * chunk_size - 1 > file_size else (i + 1) * chunk_size - 1
+                    await callback_func(total, file_size)
         except Exception:
             # in case of an exception, cancel all tasks
             for task in tasks:
@@ -258,6 +271,7 @@ async def upload_file(
     executor: Optional[ThreadPoolExecutor] = None,
     retries: int = 3,
     backoff_factor: float = 1.0,
+    callback_func: Optional[Callable[[int, int], Awaitable[None]]] = None
 ) -> int:
     """Upload a file at specified file path to a url.
 
@@ -278,6 +292,8 @@ async def upload_file(
             in. If not supplied, default executor is used.
         retries: Total number of retries per request.
         backoff_factor: Multiplier for retry delay times (1, 2, 4, ...)
+        callback_func: optional async function used to receive: bytes_uploaded, total_bytes
+            for example: async def callback(bytes_uploaded: int, total_bytes: int) -> None
 
     Returns:
         The total number of uploaded bytes.
@@ -307,18 +323,23 @@ async def upload_file(
             executor=executor,
             retries=retries,
             backoff_factor=backoff_factor,
+            callback_func=callback_func
         )
 
     return size
 
 
-async def _iter_chunks(fileobj, chunk_size: int):
+async def _iter_chunks(fileobj, chunk_size: int, callback_func: Optional[Callable[[int], Awaitable[None]]] = None):
     """Yield chunks from a file stream"""
     assert chunk_size > 0
+    uploaded_bytes: int = 0
     while True:
         data = await fileobj.read(chunk_size)
         if len(data) == 0:
             break
+        uploaded_bytes += chunk_size
+        if callable(callback_func):
+            await callback_func(uploaded_bytes)
         yield data
 
 
@@ -340,12 +361,21 @@ async def _compute_md5(
     return await loop.run_in_executor(executor, hasher.digest)
 
 
-async def _upload_request(client, fileobj, chunk_size, *args, **kwargs):
+async def _upload_request(client, fileobj, chunk_size, callback_func: Optional[Callable[[int, int], Awaitable[None]]],  *args, **kwargs):
     """Send a request with the contents of fileobj as iterable in the body"""
+    file_size: int = await fileobj.seek(0, 2)
+
     await fileobj.seek(0)
+
+    async def callback(uploaded_bytes: int):
+        if callable(callback_func):    
+            if uploaded_bytes > file_size:
+                uploaded_bytes = file_size
+            await callback_func(uploaded_bytes, file_size)
+
     return await client.request(
         *args,
-        data=_iter_chunks(fileobj, chunk_size=chunk_size),
+        data=_iter_chunks(fileobj, chunk_size=chunk_size, callback_func=callback),
         **kwargs,
     )
 
@@ -360,6 +390,7 @@ async def upload_fileobj(
     executor: Optional[ThreadPoolExecutor] = None,
     retries: int = 3,
     backoff_factor: float = 1.0,
+    callback_func: Optional[Callable[[int, int], Awaitable[None]]] = None
 ) -> int:
     """Upload a file object to a url.
 
@@ -380,6 +411,8 @@ async def upload_fileobj(
             supplied, default executor is used.
         retries: Total number of retries per request.
         backoff_factor: Multiplier for retry delay times (1, 2, 4, ...)
+        callback_func: optional async function used to receive: bytes_uploaded, total_bytes
+            for example: async def callback(bytes_uploaded: int, total_bytes: int) -> None
 
     Returns:
         The total number of uploaded bytes.
@@ -426,6 +459,7 @@ async def upload_fileobj(
             client,
             fileobj,
             chunk_size,
+            callback_func,
             "PUT",
             url,
             headers=headers,
