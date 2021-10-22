@@ -5,6 +5,8 @@ History
 3.1.0 (unreleased)
 -------------------
 
+- Show warnings in cases of unknown enum values instead of raising errors.
+
 - Added callback support for async/sync download/upload functions
 
 - Added structure controls file upload
