@@ -12,6 +12,10 @@ import urllib3
 from threedi_api_client.openapi import ApiException
 
 CONTENT_RANGE_REGEXP = re.compile(r"^bytes (\d+)-(\d+)/(\d+|\*)$")
+# Ignore timeout settings if the uploaded file is larger than 500MB.
+# This to handle the fact that MinIO computes the MD5sum of the file,
+# which will take longer than a few seconds for larger files.
+UPLOAD_SIZE_NO_TIMEOUT = 500 * 1024 * 1024
 
 
 logger = logging.getLogger(__name__)
@@ -198,6 +202,7 @@ def upload_file(
         chunk_size: The size of the chunk in the streaming upload. Note that this
             function does not do multipart upload. Default: 16MB.
         timeout: The total timeout in seconds.
+            There is no timeout if the file is larger than 500MB.
         pool: If not supplied, a default connection pool will be
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
@@ -270,6 +275,7 @@ def upload_fileobj(
         chunk_size: The size of the chunk in the streaming upload. Note that this
             function does not do multipart upload. Default: 16MB.
         timeout: The total timeout in seconds.
+            There is no timeout if the file is larger than 500MB.
         pool: If not supplied, a default connection pool will be
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
@@ -316,13 +322,16 @@ def upload_fileobj(
     if file_size == 0:
         raise IOError("The file object is empty.")
 
+    if file_size > UPLOAD_SIZE_NO_TIMEOUT and timeout is not None:
+        timeout = None
+
     if pool is None:
         pool = get_pool()
 
     fileobj.seek(0)
 
     def callback(uploaded_bytes: int):
-        if callable(callback_func):            
+        if callable(callback_func):
             if uploaded_bytes > file_size:
                 uploaded_bytes = file_size
             callback_func(uploaded_bytes, file_size)

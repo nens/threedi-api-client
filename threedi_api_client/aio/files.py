@@ -20,7 +20,10 @@ RETRY_STATUSES = frozenset({413, 429, 503})  # like in urllib3
 DEFAULT_CONN_LIMIT = 4  # for downloads only (which are parrallel)
 # only timeout on the socket, not on Python code (like urllib3)
 DEFAULT_TIMEOUT = aiohttp.ClientTimeout(total=None, sock_connect=5.0, sock_read=5.0)
-
+# Ignore timeout settings if the uploaded file is larger than 500MB.
+# This to handle the fact that MinIO computes the MD5sum of the file,
+# which will take longer than a few seconds for larger files.
+UPLOAD_SIZE_NO_TIMEOUT = 500 * 1024 * 1024
 
 logger = logging.getLogger(__name__)
 
@@ -285,6 +288,7 @@ async def upload_file(
             function does not do multipart upload. Default: 16MB.
         timeout: The total timeout of the upload in seconds.
             By default, there is no total timeout, but only socket timeouts of 5s.
+            There is no timeout if the file is larger than 500MB.
         connector: An optional aiohttp connector to support connection pooling.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
             have access to it. Otherwise this function will compute it for you.
@@ -404,6 +408,7 @@ async def upload_fileobj(
             function does not do multipart upload. Default: 16MB.
         timeout: The total timeout of the upload in seconds.
             By default, there is no total timeout, but only socket timeouts of 5s.
+            There is no timeout if the file is larger than 500MB.
         connector: An optional aiohttp connector to support connection pooling.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
             have access to it. Otherwise this function will compute it for you.
@@ -446,6 +451,10 @@ async def upload_fileobj(
     file_size = await fileobj.seek(0, 2)  # go to EOF to get the file size
     if file_size == 0:
         raise IOError("The file object is empty.")
+    if file_size > UPLOAD_SIZE_NO_TIMEOUT:
+        timeout = None
+    elif timeout is None:
+        timeout = DEFAULT_TIMEOUT
 
     # Tested: both Content-Length and Content-MD5 are checked by Minio
     headers = {
@@ -463,7 +472,7 @@ async def upload_fileobj(
             "PUT",
             url,
             headers=headers,
-            timeout=DEFAULT_TIMEOUT if timeout is None else timeout,
+            timeout=timeout,
         )
         response = await _request_with_retry(request, retries, backoff_factor)
         if response.status != 200:
