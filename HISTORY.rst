@@ -30,6 +30,9 @@ History
 - Changed the default ``timeout`` of asynchronous file down/upload from 5 minutes total to
   only socket timeouts of 5 seconds. This allows upload of larger files.
 
+- Changed the default socket read ``timeout`` of uploads from 5 seconds to 10 minutes
+  to accomodate large file uploads.
+
 
 3.0.29 (2021-06-02)
 -------------------

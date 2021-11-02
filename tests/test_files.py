@@ -9,6 +9,7 @@ from threedi_api_client.files import download_file
 from threedi_api_client.files import download_fileobj
 from threedi_api_client.files import upload_file
 from threedi_api_client.files import upload_fileobj
+from threedi_api_client.files import DEFAULT_UPLOAD_TIMEOUT
 
 
 @pytest.fixture
@@ -158,7 +159,7 @@ def test_upload_fileobj(pool, fileobj, upload_response, chunk_size, expected_bod
     assert args == ("PUT", "some-url")
     assert list(kwargs["body"]) == expected_body
     assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
-    assert kwargs["timeout"] == 5.0
+    assert kwargs["timeout"] == DEFAULT_UPLOAD_TIMEOUT
 
 
 def test_upload_fileobj_callback(pool, fileobj, upload_response):
@@ -177,7 +178,7 @@ def test_upload_fileobj_callback(pool, fileobj, upload_response):
     assert args == ("PUT", "some-url")
     assert list(kwargs["body"]) == expected_body
     assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
-    assert kwargs["timeout"] == 5.0
+    assert kwargs["timeout"] == DEFAULT_UPLOAD_TIMEOUT
 
     # Check callback_func
     (args1, _), (args2, _), (args3, _) = callback_func.call_args_list

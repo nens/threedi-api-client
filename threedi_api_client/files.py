@@ -4,7 +4,7 @@ import logging
 import os
 import re
 from pathlib import Path
-from typing import BinaryIO, Optional, Tuple, Callable
+from typing import BinaryIO, Optional, Tuple, Callable, Union
 from urllib.parse import urlparse
 
 import urllib3
@@ -12,6 +12,10 @@ import urllib3
 from threedi_api_client.openapi import ApiException
 
 CONTENT_RANGE_REGEXP = re.compile(r"^bytes (\d+)-(\d+)/(\d+|\*)$")
+# Default upload timeout has an increased socket read timeout, because MinIO
+# takes very long for completing the upload for larger files. The limit of 10 minutes
+# should accomodate files up to 150 GB.
+DEFAULT_UPLOAD_TIMEOUT = urllib3.Timeout(connect=5.0, read=600.0)
 
 
 logger = logging.getLogger(__name__)
@@ -35,9 +39,9 @@ def download_file(
     url: str,
     target: Path,
     chunk_size: int = 16777216,
-    timeout: float = 5.0,
+    timeout: Optional[Union[float, urllib3.Timeout]] = 5.0,
     pool: Optional[urllib3.PoolManager] = None,
-    callback_func: Optional[Callable[[int, int], None]] = None
+    callback_func: Optional[Callable[[int, int], None]] = None,
 ) -> Tuple[Path, int]:
     """Download a file to a specified path on disk.
 
@@ -79,8 +83,12 @@ def download_file(
     try:
         with target.open("wb") as fileobj:
             size = download_fileobj(
-                url, fileobj, chunk_size=chunk_size, timeout=timeout, pool=pool,
-                callback_func=callback_func
+                url,
+                fileobj,
+                chunk_size=chunk_size,
+                timeout=timeout,
+                pool=pool,
+                callback_func=callback_func,
             )
     except Exception:
         # Clean up a partially downloaded file
@@ -97,9 +105,9 @@ def download_fileobj(
     url: str,
     fileobj: BinaryIO,
     chunk_size: int = 16777216,
-    timeout: float = 5.0,
+    timeout: Optional[Union[float, urllib3.Timeout]] = 5.0,
     pool: Optional[urllib3.PoolManager] = None,
-    callback_func: Optional[Callable[[int, int], None]] = None
+    callback_func: Optional[Callable[[int, int], None]] = None,
 ) -> int:
     """Download a url to a file object using multiple requests.
 
@@ -182,10 +190,10 @@ def upload_file(
     url: str,
     file_path: Path,
     chunk_size: int = 16777216,
-    timeout: float = 5.0,
+    timeout: Optional[Union[float, urllib3.Timeout]] = None,
     pool: Optional[urllib3.PoolManager] = None,
     md5: Optional[bytes] = None,
-    callback_func: Optional[Callable[[int, int], None]] = None
+    callback_func: Optional[Callable[[int, int], None]] = None,
 ) -> int:
     """Upload a file at specified file path to a url.
 
@@ -197,7 +205,8 @@ def upload_file(
         file_path: The file path to read data from.
         chunk_size: The size of the chunk in the streaming upload. Note that this
             function does not do multipart upload. Default: 16MB.
-        timeout: The total timeout in seconds.
+        timeout: The total timeout in seconds. The default is a connect timeout of
+            5 seconds and a read timeout of 10 minutes.
         pool: If not supplied, a default connection pool will be
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
@@ -230,13 +239,17 @@ def upload_file(
             timeout=timeout,
             pool=pool,
             md5=md5,
-            callback_func=callback_func
+            callback_func=callback_func,
         )
 
     return size
 
 
-def _iter_chunks(fileobj: BinaryIO, chunk_size: int, callback_func: Optional[Callable[[int], None]] = None):
+def _iter_chunks(
+    fileobj: BinaryIO,
+    chunk_size: int,
+    callback_func: Optional[Callable[[int], None]] = None,
+):
     """Yield chunks from a file stream"""
     uploaded_bytes: int = 0
     assert chunk_size > 0
@@ -254,10 +267,10 @@ def upload_fileobj(
     url: str,
     fileobj: BinaryIO,
     chunk_size: int = 16777216,
-    timeout: float = 5.0,
+    timeout: Optional[Union[float, urllib3.Timeout]] = None,
     pool: Optional[urllib3.PoolManager] = None,
     md5: Optional[bytes] = None,
-    callback_func: Optional[Callable[[int, int], None]] = None
+    callback_func: Optional[Callable[[int, int], None]] = None,
 ) -> int:
     """Upload a file object to a url.
 
@@ -269,7 +282,8 @@ def upload_fileobj(
         fileobj: The (binary) file object to read from.
         chunk_size: The size of the chunk in the streaming upload. Note that this
             function does not do multipart upload. Default: 16MB.
-        timeout: The total timeout in seconds.
+        timeout: The total timeout in seconds. The default is a connect timeout of
+            5 seconds and a read timeout of 10 minutes.
         pool: If not supplied, a default connection pool will be
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
         md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
@@ -322,7 +336,7 @@ def upload_fileobj(
     fileobj.seek(0)
 
     def callback(uploaded_bytes: int):
-        if callable(callback_func):            
+        if callable(callback_func):
             if uploaded_bytes > file_size:
                 uploaded_bytes = file_size
             callback_func(uploaded_bytes, file_size)
@@ -338,7 +352,7 @@ def upload_fileobj(
         url,
         body=iterable,
         headers=headers,
-        timeout=timeout,
+        timeout=DEFAULT_UPLOAD_TIMEOUT if timeout is None else timeout,
     )
     if response.status != 200:
         raise ApiException(http_resp=response)
