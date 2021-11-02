@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.64   3Di core release: 2.1.2  deployed on:  03:05PM (UTC) on September 15, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 1.0.65   3Di core release: 2.1.3  deployed on:  09:52AM (UTC) on November 01, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,42 +37,70 @@ class FromTemplate(object):
     """
     openapi_types = {
         'template': 'str',
-        'include_events': 'bool',
-        'include_initials': 'bool',
-        'include_settings': 'bool'
+        'name': 'str',
+        'tags': 'list[str]',
+        'organisation': 'str',
+        'start_datetime': 'datetime',
+        'end_datetime': 'datetime',
+        'duration': 'int',
+        'clone_events': 'bool',
+        'clone_initials': 'bool',
+        'clone_settings': 'bool'
     }
 
     attribute_map = {
         'template': 'template',
-        'include_events': 'include_events',
-        'include_initials': 'include_initials',
-        'include_settings': 'include_settings'
+        'name': 'name',
+        'tags': 'tags',
+        'organisation': 'organisation',
+        'start_datetime': 'start_datetime',
+        'end_datetime': 'end_datetime',
+        'duration': 'duration',
+        'clone_events': 'clone_events',
+        'clone_initials': 'clone_initials',
+        'clone_settings': 'clone_settings'
     }
 
-    def __init__(self, template=None, include_events=True, include_initials=True, include_settings=True, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, template=None, name=None, tags=None, organisation=None, start_datetime=None, end_datetime=None, duration=None, clone_events=True, clone_initials=True, clone_settings=True, local_vars_configuration=None):  # noqa: E501
         """FromTemplate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._template = None
-        self._include_events = None
-        self._include_initials = None
-        self._include_settings = None
+        self._name = None
+        self._tags = None
+        self._organisation = None
+        self._start_datetime = None
+        self._end_datetime = None
+        self._duration = None
+        self._clone_events = None
+        self._clone_initials = None
+        self._clone_settings = None
         self.discriminator = None
 
         self.template = template
-        if include_events is not None:
-            self.include_events = include_events
-        if include_initials is not None:
-            self.include_initials = include_initials
-        if include_settings is not None:
-            self.include_settings = include_settings
+        self.name = name
+        if tags is not None:
+            self.tags = tags
+        self.organisation = organisation
+        self.start_datetime = start_datetime
+        if end_datetime is not None:
+            self.end_datetime = end_datetime
+        if duration is not None:
+            self.duration = duration
+        if clone_events is not None:
+            self.clone_events = clone_events
+        if clone_initials is not None:
+            self.clone_initials = clone_initials
+        if clone_settings is not None:
+            self.clone_settings = clone_settings
 
     @property
     def template(self):
         """Gets the template of this FromTemplate.  # noqa: E501
 
+        source simulation template id  # noqa: E501
 
         :return: The template of this FromTemplate.  # noqa: E501
         :rtype: str
@@ -83,6 +111,7 @@ class FromTemplate(object):
     def template(self, template):
         """Sets the template of this FromTemplate.
 
+        source simulation template id  # noqa: E501
 
         :param template: The template of this FromTemplate.  # noqa: E501
         :type: str
@@ -93,67 +122,208 @@ class FromTemplate(object):
         self._template = template
 
     @property
-    def include_events(self):
-        """Gets the include_events of this FromTemplate.  # noqa: E501
+    def name(self):
+        """Gets the name of this FromTemplate.  # noqa: E501
 
 
-        :return: The include_events of this FromTemplate.  # noqa: E501
-        :rtype: bool
+        :return: The name of this FromTemplate.  # noqa: E501
+        :rtype: str
         """
-        return self._include_events
+        return self._name
 
-    @include_events.setter
-    def include_events(self, include_events):
-        """Sets the include_events of this FromTemplate.
+    @name.setter
+    def name(self, name):
+        """Sets the name of this FromTemplate.
 
 
-        :param include_events: The include_events of this FromTemplate.  # noqa: E501
-        :type: bool
+        :param name: The name of this FromTemplate.  # noqa: E501
+        :type: str
         """
+        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) > 128):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `128`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) < 1):
+            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
-        self._include_events = include_events
+        self._name = name
 
     @property
-    def include_initials(self):
-        """Gets the include_initials of this FromTemplate.  # noqa: E501
+    def tags(self):
+        """Gets the tags of this FromTemplate.  # noqa: E501
 
 
-        :return: The include_initials of this FromTemplate.  # noqa: E501
-        :rtype: bool
+        :return: The tags of this FromTemplate.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._include_initials
+        return self._tags
 
-    @include_initials.setter
-    def include_initials(self, include_initials):
-        """Sets the include_initials of this FromTemplate.
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this FromTemplate.
 
 
-        :param include_initials: The include_initials of this FromTemplate.  # noqa: E501
-        :type: bool
+        :param tags: The tags of this FromTemplate.  # noqa: E501
+        :type: list[str]
         """
 
-        self._include_initials = include_initials
+        self._tags = tags
 
     @property
-    def include_settings(self):
-        """Gets the include_settings of this FromTemplate.  # noqa: E501
+    def organisation(self):
+        """Gets the organisation of this FromTemplate.  # noqa: E501
 
 
-        :return: The include_settings of this FromTemplate.  # noqa: E501
+        :return: The organisation of this FromTemplate.  # noqa: E501
+        :rtype: str
+        """
+        return self._organisation
+
+    @organisation.setter
+    def organisation(self, organisation):
+        """Sets the organisation of this FromTemplate.
+
+
+        :param organisation: The organisation of this FromTemplate.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and organisation is None:  # noqa: E501
+            raise ValueError("Invalid value for `organisation`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                organisation is not None and len(organisation) < 1):
+            raise ValueError("Invalid value for `organisation`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._organisation = organisation
+
+    @property
+    def start_datetime(self):
+        """Gets the start_datetime of this FromTemplate.  # noqa: E501
+
+
+        :return: The start_datetime of this FromTemplate.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._start_datetime
+
+    @start_datetime.setter
+    def start_datetime(self, start_datetime):
+        """Sets the start_datetime of this FromTemplate.
+
+
+        :param start_datetime: The start_datetime of this FromTemplate.  # noqa: E501
+        :type: datetime
+        """
+        if self.local_vars_configuration.client_side_validation and start_datetime is None:  # noqa: E501
+            raise ValueError("Invalid value for `start_datetime`, must not be `None`")  # noqa: E501
+
+        self._start_datetime = start_datetime
+
+    @property
+    def end_datetime(self):
+        """Gets the end_datetime of this FromTemplate.  # noqa: E501
+
+
+        :return: The end_datetime of this FromTemplate.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._end_datetime
+
+    @end_datetime.setter
+    def end_datetime(self, end_datetime):
+        """Sets the end_datetime of this FromTemplate.
+
+
+        :param end_datetime: The end_datetime of this FromTemplate.  # noqa: E501
+        :type: datetime
+        """
+
+        self._end_datetime = end_datetime
+
+    @property
+    def duration(self):
+        """Gets the duration of this FromTemplate.  # noqa: E501
+
+
+        :return: The duration of this FromTemplate.  # noqa: E501
+        :rtype: int
+        """
+        return self._duration
+
+    @duration.setter
+    def duration(self, duration):
+        """Sets the duration of this FromTemplate.
+
+
+        :param duration: The duration of this FromTemplate.  # noqa: E501
+        :type: int
+        """
+
+        self._duration = duration
+
+    @property
+    def clone_events(self):
+        """Gets the clone_events of this FromTemplate.  # noqa: E501
+
+
+        :return: The clone_events of this FromTemplate.  # noqa: E501
         :rtype: bool
         """
-        return self._include_settings
+        return self._clone_events
 
-    @include_settings.setter
-    def include_settings(self, include_settings):
-        """Sets the include_settings of this FromTemplate.
+    @clone_events.setter
+    def clone_events(self, clone_events):
+        """Sets the clone_events of this FromTemplate.
 
 
-        :param include_settings: The include_settings of this FromTemplate.  # noqa: E501
+        :param clone_events: The clone_events of this FromTemplate.  # noqa: E501
         :type: bool
         """
 
-        self._include_settings = include_settings
+        self._clone_events = clone_events
+
+    @property
+    def clone_initials(self):
+        """Gets the clone_initials of this FromTemplate.  # noqa: E501
+
+
+        :return: The clone_initials of this FromTemplate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._clone_initials
+
+    @clone_initials.setter
+    def clone_initials(self, clone_initials):
+        """Sets the clone_initials of this FromTemplate.
+
+
+        :param clone_initials: The clone_initials of this FromTemplate.  # noqa: E501
+        :type: bool
+        """
+
+        self._clone_initials = clone_initials
+
+    @property
+    def clone_settings(self):
+        """Gets the clone_settings of this FromTemplate.  # noqa: E501
+
+
+        :return: The clone_settings of this FromTemplate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._clone_settings
+
+    @clone_settings.setter
+    def clone_settings(self, clone_settings):
+        """Sets the clone_settings of this FromTemplate.
+
+
+        :param clone_settings: The clone_settings of this FromTemplate.  # noqa: E501
+        :type: bool
+        """
+
+        self._clone_settings = clone_settings
 
     def to_dict(self):
         """Returns the model properties as a dict"""

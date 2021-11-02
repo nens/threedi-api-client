@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.64   3Di core release: 2.1.2  deployed on:  03:05PM (UTC) on September 15, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 1.0.65   3Di core release: 2.1.3  deployed on:  09:52AM (UTC) on November 01, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -53,6 +53,7 @@ class Event(object):
         'initial_groundwaterlevel': 'GroundWaterLevel',
         'initial_groundwaterraster': 'GroundWaterRaster',
         'initial_onedwaterlevel': 'OneDWaterLevel',
+        'initial_onedwaterlevelfile': 'OneDWaterLevelFile',
         'initial_twodwaterraster': 'TwoDWaterRaster',
         'filerasterrain': 'list[FileRasterRain]',
         'filetimeseriesrain': 'list[FileTimeseriesRain]',
@@ -89,6 +90,7 @@ class Event(object):
         'initial_groundwaterlevel': 'initial_groundwaterlevel',
         'initial_groundwaterraster': 'initial_groundwaterraster',
         'initial_onedwaterlevel': 'initial_onedwaterlevel',
+        'initial_onedwaterlevelfile': 'initial_onedwaterlevelfile',
         'initial_twodwaterraster': 'initial_twodwaterraster',
         'filerasterrain': 'filerasterrain',
         'filetimeseriesrain': 'filetimeseriesrain',
@@ -107,7 +109,7 @@ class Event(object):
         'initial_winddragcoefficient': 'initial_winddragcoefficient'
     }
 
-    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, leakage=None, filetimeseriesleakage=None, filerasterleakage=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, filelaterals=None, fileboundaryconditions=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, filestructurecontrols=None, rasteredits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, leakage=None, filetimeseriesleakage=None, filerasterleakage=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_onedwaterlevelfile=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, filelaterals=None, fileboundaryconditions=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, filestructurecontrols=None, rasteredits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -130,6 +132,7 @@ class Event(object):
         self._initial_groundwaterlevel = None
         self._initial_groundwaterraster = None
         self._initial_onedwaterlevel = None
+        self._initial_onedwaterlevelfile = None
         self._initial_twodwaterraster = None
         self._filerasterrain = None
         self._filetimeseriesrain = None
@@ -182,6 +185,8 @@ class Event(object):
             self.initial_groundwaterraster = initial_groundwaterraster
         if initial_onedwaterlevel is not None:
             self.initial_onedwaterlevel = initial_onedwaterlevel
+        if initial_onedwaterlevelfile is not None:
+            self.initial_onedwaterlevelfile = initial_onedwaterlevelfile
         if initial_twodwaterraster is not None:
             self.initial_twodwaterraster = initial_twodwaterraster
         if filerasterrain is not None:
@@ -571,6 +576,27 @@ class Event(object):
         """
 
         self._initial_onedwaterlevel = initial_onedwaterlevel
+
+    @property
+    def initial_onedwaterlevelfile(self):
+        """Gets the initial_onedwaterlevelfile of this Event.  # noqa: E501
+
+
+        :return: The initial_onedwaterlevelfile of this Event.  # noqa: E501
+        :rtype: OneDWaterLevelFile
+        """
+        return self._initial_onedwaterlevelfile
+
+    @initial_onedwaterlevelfile.setter
+    def initial_onedwaterlevelfile(self, initial_onedwaterlevelfile):
+        """Sets the initial_onedwaterlevelfile of this Event.
+
+
+        :param initial_onedwaterlevelfile: The initial_onedwaterlevelfile of this Event.  # noqa: E501
+        :type: OneDWaterLevelFile
+        """
+
+        self._initial_onedwaterlevelfile = initial_onedwaterlevelfile
 
     @property
     def initial_twodwaterraster(self):

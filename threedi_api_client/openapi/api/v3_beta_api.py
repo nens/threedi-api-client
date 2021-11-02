@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.64   3Di core release: 2.1.2  deployed on:  03:05PM (UTC) on September 15, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 1.0.65   3Di core release: 2.1.3  deployed on:  09:52AM (UTC) on November 01, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -5434,9 +5434,9 @@ class V3BetaApi(object):
             collection_formats=collection_formats)
 
     def simulations_from_template(self, data, **kwargs):  # noqa: E501
-        """simulations_from_template  # noqa: E501
+        """Create a (new/cloned) simulation from a simulation template.  # noqa: E501
 
-        Create a (new/cloned) simulation from a simulation template  # noqa: E501
+        There are two options to specify the desired duration for the new simulation, either by using the ``end_datetime`` **or** the ``duration`` parameter.  {   \"template\":                  # source simulation template resource id   \"name\":                      # name for the new simulation.   \"tags\":                      # extra tags, added to existing simulation template tags.   \"organisation\":              # uuid of the organisation for which the                                  simulation is run   \"start_datetime\":            # datetime (in ISO 8601 (UTC) format) for the                                  simulation start, e.g. \"YYYY-MM-DDThh:mm:ss\"   \"end_datetime\":              # datetime (in ISO 8601 (UTC) format) for the                                  simulation end, e.g. \"YYYY-MM-DDThh:mm:ss\"   \"duration\":                  # in seconds, can be used instead of end_datetime   \"clone_events\":              # if true, clone events like rain/sources & sinks etc.   \"clone_initials\":            # if true, clone initial waterlevels   \"clone_settings\":            # if true, clone simulation settings, like physical settings etc. }  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_from_template(data, async_req=True)
@@ -5459,9 +5459,9 @@ class V3BetaApi(object):
         return self.simulations_from_template_with_http_info(data, **kwargs)  # noqa: E501
 
     def simulations_from_template_with_http_info(self, data, **kwargs):  # noqa: E501
-        """simulations_from_template  # noqa: E501
+        """Create a (new/cloned) simulation from a simulation template.  # noqa: E501
 
-        Create a (new/cloned) simulation from a simulation template  # noqa: E501
+        There are two options to specify the desired duration for the new simulation, either by using the ``end_datetime`` **or** the ``duration`` parameter.  {   \"template\":                  # source simulation template resource id   \"name\":                      # name for the new simulation.   \"tags\":                      # extra tags, added to existing simulation template tags.   \"organisation\":              # uuid of the organisation for which the                                  simulation is run   \"start_datetime\":            # datetime (in ISO 8601 (UTC) format) for the                                  simulation start, e.g. \"YYYY-MM-DDThh:mm:ss\"   \"end_datetime\":              # datetime (in ISO 8601 (UTC) format) for the                                  simulation end, e.g. \"YYYY-MM-DDThh:mm:ss\"   \"duration\":                  # in seconds, can be used instead of end_datetime   \"clone_events\":              # if true, clone events like rain/sources & sinks etc.   \"clone_initials\":            # if true, clone initial waterlevels   \"clone_settings\":            # if true, clone simulation settings, like physical settings etc. }  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_from_template_with_http_info(data, async_req=True)

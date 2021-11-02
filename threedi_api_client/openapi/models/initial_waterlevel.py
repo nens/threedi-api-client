@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.64   3Di core release: 2.1.2  deployed on:  03:05PM (UTC) on September 15, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 1.0.65   3Di core release: 2.1.3  deployed on:  09:52AM (UTC) on November 01, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -41,7 +41,8 @@ class InitialWaterlevel(object):
         'file': 'FileReadOnly',
         'source_raster': 'str',
         'id': 'int',
-        'source_raster_id': 'str'
+        'source_raster_id': 'str',
+        'dimension': 'str'
     }
 
     attribute_map = {
@@ -50,10 +51,11 @@ class InitialWaterlevel(object):
         'file': 'file',
         'source_raster': 'source_raster',
         'id': 'id',
-        'source_raster_id': 'source_raster_id'
+        'source_raster_id': 'source_raster_id',
+        'dimension': 'dimension'
     }
 
-    def __init__(self, url=None, threedimodel=None, file=None, source_raster=None, id=None, source_raster_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, threedimodel=None, file=None, source_raster=None, id=None, source_raster_id=None, dimension=None, local_vars_configuration=None):  # noqa: E501
         """InitialWaterlevel - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +67,7 @@ class InitialWaterlevel(object):
         self._source_raster = None
         self._id = None
         self._source_raster_id = None
+        self._dimension = None
         self.discriminator = None
 
         if url is not None:
@@ -73,11 +76,14 @@ class InitialWaterlevel(object):
             self.threedimodel = threedimodel
         if file is not None:
             self.file = file
-        self.source_raster = source_raster
+        if source_raster is not None:
+            self.source_raster = source_raster
         if id is not None:
             self.id = id
         if source_raster_id is not None:
             self.source_raster_id = source_raster_id
+        if dimension is not None:
+            self.dimension = dimension
 
     @property
     def url(self):
@@ -160,8 +166,6 @@ class InitialWaterlevel(object):
         :param source_raster: The source_raster of this InitialWaterlevel.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and source_raster is None:  # noqa: E501
-            raise ValueError("Invalid value for `source_raster`, must not be `None`")  # noqa: E501
 
         self._source_raster = source_raster
 
@@ -206,6 +210,33 @@ class InitialWaterlevel(object):
         """
 
         self._source_raster_id = source_raster_id
+
+    @property
+    def dimension(self):
+        """Gets the dimension of this InitialWaterlevel.  # noqa: E501
+
+
+        :return: The dimension of this InitialWaterlevel.  # noqa: E501
+        :rtype: str
+        """
+        return self._dimension
+
+    @dimension.setter
+    def dimension(self, dimension):
+        """Sets the dimension of this InitialWaterlevel.
+
+
+        :param dimension: The dimension of this InitialWaterlevel.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["one_d", "two_d"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and dimension not in allowed_values:  # noqa: E501
+            logger.warning(
+                "Warning: Unknown value for `dimension` ({0}), must be one of {1}. Either your threedi-api-client version is out of date or this value is invalid."  # noqa: E501
+                .format(dimension, allowed_values)
+            )
+
+        self._dimension = dimension
 
     def to_dict(self):
         """Returns the model properties as a dict"""

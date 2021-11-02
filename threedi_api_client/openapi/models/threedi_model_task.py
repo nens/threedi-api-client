@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.64   3Di core release: 2.1.2  deployed on:  03:05PM (UTC) on September 15, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 1.0.65   3Di core release: 2.1.3  deployed on:  09:52AM (UTC) on November 01, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -134,7 +134,7 @@ class ThreediModelTask(object):
         """
         if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        allowed_values = ["make_gridadmin", "make_tables", "make_cog", "make_geojson"]  # noqa: E501
+        allowed_values = ["make_gridadmin", "make_tables", "make_cog", "make_geojson", "make_simulation_templates", "make_aggregations"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and name not in allowed_values:  # noqa: E501
             logger.warning(
                 "Warning: Unknown value for `name` ({0}), must be one of {1}. Either your threedi-api-client version is out of date or this value is invalid."  # noqa: E501

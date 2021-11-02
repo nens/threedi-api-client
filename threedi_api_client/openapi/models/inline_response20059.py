@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.64   3Di core release: 2.1.2  deployed on:  03:05PM (UTC) on September 15, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 1.0.65   3Di core release: 2.1.3  deployed on:  09:52AM (UTC) on November 01, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -39,7 +39,7 @@ class InlineResponse20059(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[SimulationStatus]'
+        'results': 'list[AggregationSettings]'
     }
 
     attribute_map = {
@@ -137,7 +137,7 @@ class InlineResponse20059(object):
 
 
         :return: The results of this InlineResponse20059.  # noqa: E501
-        :rtype: list[SimulationStatus]
+        :rtype: list[AggregationSettings]
         """
         return self._results
 
@@ -147,7 +147,7 @@ class InlineResponse20059(object):
 
 
         :param results: The results of this InlineResponse20059.  # noqa: E501
-        :type: list[SimulationStatus]
+        :type: list[AggregationSettings]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

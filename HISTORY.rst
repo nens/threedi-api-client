@@ -5,6 +5,8 @@ History
 3.1.0 (unreleased)
 -------------------
 
+- Support for 1D initial waterlevels from file.
+
 - Show warnings in cases of unknown enum values instead of raising errors.
 
 - Added callback support for async/sync download/upload functions

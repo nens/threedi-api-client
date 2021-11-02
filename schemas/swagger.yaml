@@ -1,13 +1,11 @@
-
-
 swagger: '2.0'
 info:
   title: 3Di API
   description: |-
     3Di simulation API (latest stable version: v3) 
-     Framework release: 1.0.64 
-     3Di core release: 2.1.2 
-    deployed on:  03:05PM (UTC) on September 15, 2021
+     Framework release: 1.0.65 
+     3Di core release: 2.1.3 
+    deployed on:  09:52AM (UTC) on November 01, 2021
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -1463,7 +1461,27 @@ paths:
   /v3-beta/simulations/from_template/:
     post:
       operationId: simulations_from_template
-      description: Create a (new/cloned) simulation from a simulation template
+      summary: Create a (new/cloned) simulation from a simulation template.
+      description: |-
+        There are two options to specify the desired duration for the
+        new simulation, either by using the ``end_datetime`` **or** the
+        ``duration`` parameter.
+
+        {
+          "template":                  # source simulation template resource id
+          "name":                      # name for the new simulation.
+          "tags":                      # extra tags, added to existing simulation template tags.
+          "organisation":              # uuid of the organisation for which the
+                                         simulation is run
+          "start_datetime":            # datetime (in ISO 8601 (UTC) format) for the
+                                         simulation start, e.g. "YYYY-MM-DDThh:mm:ss"
+          "end_datetime":              # datetime (in ISO 8601 (UTC) format) for the
+                                         simulation end, e.g. "YYYY-MM-DDThh:mm:ss"
+          "duration":                  # in seconds, can be used instead of end_datetime
+          "clone_events":              # if true, clone events like rain/sources & sinks etc.
+          "clone_initials":            # if true, clone initial waterlevels
+          "clone_settings":            # if true, clone simulation settings, like physical settings etc.
+        }
       parameters:
         - name: data
           in: body
@@ -9253,6 +9271,135 @@ paths:
         in: path
         required: true
         type: string
+  /v3/simulations/{simulation_pk}/initial/1d_water_level/file/:
+    get:
+      operationId: simulations_initial_1d_water_level_file_list
+      description: Initial 1D water levels
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/OneDWaterLevelFile'
+      tags:
+        - v3
+    post:
+      operationId: simulations_initial_1d_water_level_file_create
+      description: |-
+        Start the simulation with a 1D water levels from a file. Applies the
+        given values to the predefined nodes subset "1D"
+        as described in the [threedigrid documentation] [ref]
+
+        [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/OneDWaterLevelFile'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/OneDWaterLevelFile'
+      tags:
+        - v3
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /v3/simulations/{simulation_pk}/initial/1d_water_level/file/{id}/:
+    get:
+      operationId: simulations_initial_1d_water_level_file_read
+      description: Initial 1D water levels
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/OneDWaterLevelFile'
+      tags:
+        - v3
+    put:
+      operationId: simulations_initial_1d_water_level_file_update
+      description: Initial 1D water levels
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/OneDWaterLevelFile'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/OneDWaterLevelFile'
+      tags:
+        - v3
+    patch:
+      operationId: simulations_initial_1d_water_level_file_partial_update
+      description: Initial 1D water levels
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/OneDWaterLevelFile'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/OneDWaterLevelFile'
+      tags:
+        - v3
+    delete:
+      operationId: simulations_initial_1d_water_level_file_delete
+      description: Initial 1D water levels
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - v3
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this one d water level file.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
   /v3/simulations/{simulation_pk}/initial/1d_water_level/predefined/:
     get:
       operationId: simulations_initial_1d_water_level_predefined_list
@@ -9295,10 +9442,18 @@ paths:
         - v3
     post:
       operationId: simulations_initial_1d_water_level_predefined_create
+      summary: This endpoint is pending deprecation.
       description: |-
+        For threedimodels that came from a repository on models.lizard.net:
         Start the simulation with predefined 1D water levels. That is,
         use the initial water levels that have been specified in the
         ``v2_connection_nodes`` schema.
+
+        For threedimodels that came from a schematisation in this API, there
+        might be a threedimodels/{}/initial_waterlevels 1D resource. If such
+        a resource exists, there will also be a /file initial condition
+        created. The /predefined resource will still be created but is
+        ignored by the simulation.
       parameters:
         - name: data
           in: body
@@ -16169,22 +16324,51 @@ definitions:
   FromTemplate:
     required:
       - template
+      - name
+      - organisation
+      - start_datetime
     type: object
     properties:
       template:
         title: Template
+        description: source simulation template id
         type: string
         format: uri
-      include_events:
-        title: Include events
+      name:
+        title: Name
+        type: string
+        maxLength: 128
+        minLength: 1
+      tags:
+        type: array
+        items:
+          type: string
+          x-nullable: true
+      organisation:
+        title: Organisation
+        type: string
+        minLength: 1
+      start_datetime:
+        title: Start datetime
+        type: string
+        format: date-time
+      end_datetime:
+        title: End datetime
+        type: string
+        format: date-time
+      duration:
+        title: Duration
+        type: integer
+      clone_events:
+        title: Clone events
         type: boolean
         default: true
-      include_initials:
-        title: Include initials
+      clone_initials:
+        title: Clone initials
         type: boolean
         default: true
-      include_settings:
-        title: Include settings
+      clone_settings:
+        title: Clone settings
         type: boolean
         default: true
   User:
@@ -17786,6 +17970,38 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+  OneDWaterLevelFile:
+    required:
+      - initial_waterlevel
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+        readOnly: true
+      initial_waterlevel:
+        title: Initial waterlevel
+        type: string
+        format: uri
+      initial_waterlevel_id:
+        title: Initial waterlevel id
+        type: string
+        readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
+        readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   TwoDWaterRaster:
     required:
       - aggregation_method
@@ -19073,6 +19289,8 @@ definitions:
         $ref: '#/definitions/GroundWaterRaster'
       initial_onedwaterlevel:
         $ref: '#/definitions/OneDWaterLevel'
+      initial_onedwaterlevelfile:
+        $ref: '#/definitions/OneDWaterLevelFile'
       initial_twodwaterraster:
         $ref: '#/definitions/TwoDWaterRaster'
       filerasterrain:
@@ -22182,8 +22400,6 @@ definitions:
           - meters
         x-nullable: true
   InitialWaterlevel:
-    required:
-      - source_raster
     type: object
     properties:
       url:
@@ -22210,6 +22426,12 @@ definitions:
         title: Source raster id
         type: string
         readOnly: true
+      dimension:
+        title: Dimension
+        type: string
+        enum:
+          - one_d
+          - two_d
   ThreediModelSavedState:
     required:
       - name
@@ -22295,6 +22517,8 @@ definitions:
           - make_tables
           - make_cog
           - make_geojson
+          - make_simulation_templates
+          - make_aggregations
       params:
         title: Params
         type: object
