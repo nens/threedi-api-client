@@ -41,7 +41,7 @@ def download_file(
     chunk_size: int = 16777216,
     timeout: Optional[Union[float, urllib3.Timeout]] = 5.0,
     pool: Optional[urllib3.PoolManager] = None,
-    callback_func: Optional[Callable[[int, int], None]] = None
+    callback_func: Optional[Callable[[int, int], None]] = None,
 ) -> Tuple[Path, int]:
     """Download a file to a specified path on disk.
 
@@ -83,8 +83,12 @@ def download_file(
     try:
         with target.open("wb") as fileobj:
             size = download_fileobj(
-                url, fileobj, chunk_size=chunk_size, timeout=timeout, pool=pool,
-                callback_func=callback_func
+                url,
+                fileobj,
+                chunk_size=chunk_size,
+                timeout=timeout,
+                pool=pool,
+                callback_func=callback_func,
             )
     except Exception:
         # Clean up a partially downloaded file
@@ -103,7 +107,7 @@ def download_fileobj(
     chunk_size: int = 16777216,
     timeout: Optional[Union[float, urllib3.Timeout]] = 5.0,
     pool: Optional[urllib3.PoolManager] = None,
-    callback_func: Optional[Callable[[int, int], None]] = None
+    callback_func: Optional[Callable[[int, int], None]] = None,
 ) -> int:
     """Download a url to a file object using multiple requests.
 
@@ -189,7 +193,7 @@ def upload_file(
     timeout: Optional[Union[float, urllib3.Timeout]] = None,
     pool: Optional[urllib3.PoolManager] = None,
     md5: Optional[bytes] = None,
-    callback_func: Optional[Callable[[int, int], None]] = None
+    callback_func: Optional[Callable[[int, int], None]] = None,
 ) -> int:
     """Upload a file at specified file path to a url.
 
@@ -235,13 +239,17 @@ def upload_file(
             timeout=timeout,
             pool=pool,
             md5=md5,
-            callback_func=callback_func
+            callback_func=callback_func,
         )
 
     return size
 
 
-def _iter_chunks(fileobj: BinaryIO, chunk_size: int, callback_func: Optional[Callable[[int], None]] = None):
+def _iter_chunks(
+    fileobj: BinaryIO,
+    chunk_size: int,
+    callback_func: Optional[Callable[[int], None]] = None,
+):
     """Yield chunks from a file stream"""
     uploaded_bytes: int = 0
     assert chunk_size > 0
@@ -262,7 +270,7 @@ def upload_fileobj(
     timeout: Optional[Union[float, urllib3.Timeout]] = None,
     pool: Optional[urllib3.PoolManager] = None,
     md5: Optional[bytes] = None,
-    callback_func: Optional[Callable[[int, int], None]] = None
+    callback_func: Optional[Callable[[int, int], None]] = None,
 ) -> int:
     """Upload a file object to a url.
 

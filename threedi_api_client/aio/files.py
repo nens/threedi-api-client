@@ -19,11 +19,15 @@ CONTENT_RANGE_REGEXP = re.compile(r"^bytes (\d+)-(\d+)/(\d+|\*)$")
 RETRY_STATUSES = frozenset({413, 429, 503})  # like in urllib3
 DEFAULT_CONN_LIMIT = 4  # for downloads only (which are parrallel)
 # only timeout on the socket, not on Python code (like urllib3)
-DEFAULT_DOWNLOAD_TIMEOUT = aiohttp.ClientTimeout(total=None, sock_connect=5.0, sock_read=5.0)
+DEFAULT_DOWNLOAD_TIMEOUT = aiohttp.ClientTimeout(
+    total=None, sock_connect=5.0, sock_read=5.0
+)
 # Default upload timeout has an increased socket read timeout, because MinIO
 # takes very long for completing the upload for larger files. The limit of 10 minutes
 # should accomodate files up to 150 GB.
-DEFAULT_UPLOAD_TIMEOUT = aiohttp.ClientTimeout(total=None, sock_connect=5.0, sock_read=600.0)
+DEFAULT_UPLOAD_TIMEOUT = aiohttp.ClientTimeout(
+    total=None, sock_connect=5.0, sock_read=600.0
+)
 
 logger = logging.getLogger(__name__)
 
@@ -64,7 +68,7 @@ async def download_file(
     executor: Optional[ThreadPoolExecutor] = None,
     retries: int = 3,
     backoff_factor: float = 1.0,
-    callback_func: Optional[Callable[[int, int], Awaitable[None]]] = None
+    callback_func: Optional[Callable[[int, int], Awaitable[None]]] = None,
 ) -> Tuple[Path, int]:
     """Download a file to a specified path on disk.
 
@@ -119,7 +123,7 @@ async def download_file(
                 connector=connector,
                 retries=retries,
                 backoff_factor=backoff_factor,
-                callback_func=callback_func
+                callback_func=callback_func,
             )
     except Exception:
         # Clean up a partially downloaded file
@@ -168,7 +172,7 @@ async def download_fileobj(
     connector: Optional[aiohttp.BaseConnector] = None,
     retries: int = 3,
     backoff_factor: float = 1.0,
-    callback_func: Optional[Callable[[int, int], Awaitable[None]]] = None
+    callback_func: Optional[Callable[[int, int], Awaitable[None]]] = None,
 ) -> int:
     """Download a url to a file object using multiple requests.
 
@@ -253,7 +257,11 @@ async def download_fileobj(
                     )
                 )
                 if callable(callback_func):
-                    total: int = file_size if (i + 1) * chunk_size - 1 > file_size else (i + 1) * chunk_size - 1
+                    total: int = (
+                        file_size
+                        if (i + 1) * chunk_size - 1 > file_size
+                        else (i + 1) * chunk_size - 1
+                    )
                     await callback_func(total, file_size)
         except Exception:
             # in case of an exception, cancel all tasks
@@ -274,7 +282,7 @@ async def upload_file(
     executor: Optional[ThreadPoolExecutor] = None,
     retries: int = 3,
     backoff_factor: float = 1.0,
-    callback_func: Optional[Callable[[int, int], Awaitable[None]]] = None
+    callback_func: Optional[Callable[[int, int], Awaitable[None]]] = None,
 ) -> int:
     """Upload a file at specified file path to a url.
 
@@ -327,13 +335,17 @@ async def upload_file(
             executor=executor,
             retries=retries,
             backoff_factor=backoff_factor,
-            callback_func=callback_func
+            callback_func=callback_func,
         )
 
     return size
 
 
-async def _iter_chunks(fileobj, chunk_size: int, callback_func: Optional[Callable[[int], Awaitable[None]]] = None):
+async def _iter_chunks(
+    fileobj,
+    chunk_size: int,
+    callback_func: Optional[Callable[[int], Awaitable[None]]] = None,
+):
     """Yield chunks from a file stream"""
     assert chunk_size > 0
     uploaded_bytes: int = 0
@@ -365,14 +377,21 @@ async def _compute_md5(
     return await loop.run_in_executor(executor, hasher.digest)
 
 
-async def _upload_request(client, fileobj, chunk_size, callback_func: Optional[Callable[[int, int], Awaitable[None]]],  *args, **kwargs):
+async def _upload_request(
+    client,
+    fileobj,
+    chunk_size,
+    callback_func: Optional[Callable[[int, int], Awaitable[None]]],
+    *args,
+    **kwargs
+):
     """Send a request with the contents of fileobj as iterable in the body"""
     file_size: int = await fileobj.seek(0, 2)
 
     await fileobj.seek(0)
 
     async def callback(uploaded_bytes: int):
-        if callable(callback_func):    
+        if callable(callback_func):
             if uploaded_bytes > file_size:
                 uploaded_bytes = file_size
             await callback_func(uploaded_bytes, file_size)
@@ -394,7 +413,7 @@ async def upload_fileobj(
     executor: Optional[ThreadPoolExecutor] = None,
     retries: int = 3,
     backoff_factor: float = 1.0,
-    callback_func: Optional[Callable[[int, int], Awaitable[None]]] = None
+    callback_func: Optional[Callable[[int, int], Awaitable[None]]] = None,
 ) -> int:
     """Upload a file object to a url.
 
