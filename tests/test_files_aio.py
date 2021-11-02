@@ -14,7 +14,8 @@ from threedi_api_client.aio.files import (
     download_fileobj,
     upload_file,
     upload_fileobj,
-    DEFAULT_TIMEOUT,
+    DEFAULT_DOWNLOAD_TIMEOUT,
+    DEFAULT_UPLOAD_TIMEOUT,
 )
 
 
@@ -86,7 +87,7 @@ async def test_download_fileobj(aio_request, responses_single):
         "GET",
         "some-url",
         headers={"Range": "bytes=0-63"},
-        timeout=DEFAULT_TIMEOUT,
+        timeout=DEFAULT_DOWNLOAD_TIMEOUT,
     )
     assert await stream.tell() == 42
 
@@ -266,7 +267,7 @@ async def test_upload_fileobj(
     assert args == ("PUT", "some-url")
     assert [x async for x in kwargs["data"]] == expected_body
     assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
-    assert kwargs["timeout"] == DEFAULT_TIMEOUT
+    assert kwargs["timeout"] == DEFAULT_UPLOAD_TIMEOUT
 
 
 @pytest.mark.asyncio
@@ -288,7 +289,7 @@ async def test_upload_fileobj_callback(
     assert args == ("PUT", "some-url")
     assert [x async for x in kwargs["data"]] == expected_body
     assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
-    assert kwargs["timeout"] == DEFAULT_TIMEOUT
+    assert kwargs["timeout"] == DEFAULT_UPLOAD_TIMEOUT
 
     # Check callback_func
     (args1, _), (args2, _), (args3, _) = callback_func.call_args_list
