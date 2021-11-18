@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.65   3Di core release: 2.1.3  deployed on:  09:52AM (UTC) on November 01, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.0.5   3Di core release: 2.1.7  deployed on:  09:40AM (UTC) on November 18, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -41,7 +41,7 @@ class Schematisation(object):
         'owner': 'str',
         'name': 'str',
         'slug': 'str',
-        'tags': 'str',
+        'tags': 'list[str]',
         'meta': 'object',
         'created_by': 'str',
         'created': 'datetime',
@@ -196,7 +196,7 @@ class Schematisation(object):
     def slug(self):
         """Gets the slug of this Schematisation.  # noqa: E501
 
-        do not change  # noqa: E501
+        The internal name (only superusers can modify)  # noqa: E501
 
         :return: The slug of this Schematisation.  # noqa: E501
         :rtype: str
@@ -207,11 +207,14 @@ class Schematisation(object):
     def slug(self, slug):
         """Sets the slug of this Schematisation.
 
-        do not change  # noqa: E501
+        The internal name (only superusers can modify)  # noqa: E501
 
         :param slug: The slug of this Schematisation.  # noqa: E501
         :type: str
         """
+        if (self.local_vars_configuration.client_side_validation and
+                slug is not None and len(slug) > 256):
+            raise ValueError("Invalid value for `slug`, length must be less than or equal to `256`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 slug is not None and len(slug) < 1):
             raise ValueError("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
@@ -225,9 +228,10 @@ class Schematisation(object):
     def tags(self):
         """Gets the tags of this Schematisation.  # noqa: E501
 
+        tags provided as a list of strings  # noqa: E501
 
         :return: The tags of this Schematisation.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._tags
 
@@ -235,9 +239,10 @@ class Schematisation(object):
     def tags(self, tags):
         """Sets the tags of this Schematisation.
 
+        tags provided as a list of strings  # noqa: E501
 
         :param tags: The tags of this Schematisation.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._tags = tags
@@ -293,6 +298,7 @@ class Schematisation(object):
     def created(self):
         """Gets the created of this Schematisation.  # noqa: E501
 
+        The creation date and time (only superusers can modify)  # noqa: E501
 
         :return: The created of this Schematisation.  # noqa: E501
         :rtype: datetime
@@ -303,6 +309,7 @@ class Schematisation(object):
     def created(self, created):
         """Sets the created of this Schematisation.
 
+        The creation date and time (only superusers can modify)  # noqa: E501
 
         :param created: The created of this Schematisation.  # noqa: E501
         :type: datetime

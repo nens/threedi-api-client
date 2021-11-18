@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.65   3Di core release: 2.1.3  deployed on:  09:52AM (UTC) on November 01, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.0.5   3Di core release: 2.1.7  deployed on:  09:40AM (UTC) on November 18, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -246,6 +246,9 @@ class NumericalSettings(object):
         """
         if self.local_vars_configuration.client_side_validation and cfl_strictness_factor_1d is None:  # noqa: E501
             raise ValueError("Invalid value for `cfl_strictness_factor_1d`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                cfl_strictness_factor_1d is not None and cfl_strictness_factor_1d < 1E-14):  # noqa: E501
+            raise ValueError("Invalid value for `cfl_strictness_factor_1d`, must be a value greater than or equal to `1E-14`")  # noqa: E501
 
         self._cfl_strictness_factor_1d = cfl_strictness_factor_1d
 
@@ -271,6 +274,9 @@ class NumericalSettings(object):
         """
         if self.local_vars_configuration.client_side_validation and cfl_strictness_factor_2d is None:  # noqa: E501
             raise ValueError("Invalid value for `cfl_strictness_factor_2d`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                cfl_strictness_factor_2d is not None and cfl_strictness_factor_2d < 1E-14):  # noqa: E501
+            raise ValueError("Invalid value for `cfl_strictness_factor_2d`, must be a value greater than or equal to `1E-14`")  # noqa: E501
 
         self._cfl_strictness_factor_2d = cfl_strictness_factor_2d
 
@@ -296,6 +302,12 @@ class NumericalSettings(object):
         """
         if self.local_vars_configuration.client_side_validation and convergence_eps is None:  # noqa: E501
             raise ValueError("Invalid value for `convergence_eps`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                convergence_eps is not None and convergence_eps > 0.0001):  # noqa: E501
+            raise ValueError("Invalid value for `convergence_eps`, must be a value less than or equal to `0.0001`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                convergence_eps is not None and convergence_eps < 1E-7):  # noqa: E501
+            raise ValueError("Invalid value for `convergence_eps`, must be a value greater than or equal to `1E-7`")  # noqa: E501
 
         self._convergence_eps = convergence_eps
 
@@ -321,6 +333,12 @@ class NumericalSettings(object):
         """
         if self.local_vars_configuration.client_side_validation and convergence_cg is None:  # noqa: E501
             raise ValueError("Invalid value for `convergence_cg`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                convergence_cg is not None and convergence_cg > 1E-7):  # noqa: E501
+            raise ValueError("Invalid value for `convergence_cg`, must be a value less than or equal to `1E-7`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                convergence_cg is not None and convergence_cg < 1E-12):  # noqa: E501
+            raise ValueError("Invalid value for `convergence_cg`, must be a value greater than or equal to `1E-12`")  # noqa: E501
 
         self._convergence_cg = convergence_cg
 
@@ -346,6 +364,12 @@ class NumericalSettings(object):
         """
         if self.local_vars_configuration.client_side_validation and flow_direction_threshold is None:  # noqa: E501
             raise ValueError("Invalid value for `flow_direction_threshold`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                flow_direction_threshold is not None and flow_direction_threshold > 0.01):  # noqa: E501
+            raise ValueError("Invalid value for `flow_direction_threshold`, must be a value less than or equal to `0.01`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                flow_direction_threshold is not None and flow_direction_threshold < 1E-13):  # noqa: E501
+            raise ValueError("Invalid value for `flow_direction_threshold`, must be a value greater than or equal to `1E-13`")  # noqa: E501
 
         self._flow_direction_threshold = flow_direction_threshold
 
@@ -396,6 +420,12 @@ class NumericalSettings(object):
         """
         if self.local_vars_configuration.client_side_validation and general_numerical_threshold is None:  # noqa: E501
             raise ValueError("Invalid value for `general_numerical_threshold`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                general_numerical_threshold is not None and general_numerical_threshold > 1E-7):  # noqa: E501
+            raise ValueError("Invalid value for `general_numerical_threshold`, must be a value less than or equal to `1E-7`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                general_numerical_threshold is not None and general_numerical_threshold < 1E-13):  # noqa: E501
+            raise ValueError("Invalid value for `general_numerical_threshold`, must be a value greater than or equal to `1E-13`")  # noqa: E501
 
         self._general_numerical_threshold = general_numerical_threshold
 
@@ -444,12 +474,6 @@ class NumericalSettings(object):
         """
         if self.local_vars_configuration.client_side_validation and limiter_waterlevel_gradient_1d is None:  # noqa: E501
             raise ValueError("Invalid value for `limiter_waterlevel_gradient_1d`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                limiter_waterlevel_gradient_1d is not None and limiter_waterlevel_gradient_1d > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `limiter_waterlevel_gradient_1d`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                limiter_waterlevel_gradient_1d is not None and limiter_waterlevel_gradient_1d < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `limiter_waterlevel_gradient_1d`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._limiter_waterlevel_gradient_1d = limiter_waterlevel_gradient_1d
 
@@ -475,12 +499,6 @@ class NumericalSettings(object):
         """
         if self.local_vars_configuration.client_side_validation and limiter_waterlevel_gradient_2d is None:  # noqa: E501
             raise ValueError("Invalid value for `limiter_waterlevel_gradient_2d`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                limiter_waterlevel_gradient_2d is not None and limiter_waterlevel_gradient_2d > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `limiter_waterlevel_gradient_2d`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                limiter_waterlevel_gradient_2d is not None and limiter_waterlevel_gradient_2d < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `limiter_waterlevel_gradient_2d`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._limiter_waterlevel_gradient_2d = limiter_waterlevel_gradient_2d
 
@@ -488,7 +506,7 @@ class NumericalSettings(object):
     def limiter_slope_crossectional_area_2d(self):
         """Gets the limiter_slope_crossectional_area_2d of this NumericalSettings.  # noqa: E501
 
-        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. Options:  0 = off 1 = higher order scheme (might be sensitive to instabilities) 2 = cross-sections treated as upwind method volume/surface area 3 = combination traditional method thin layer approach  If options 3 is used the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow  # noqa: E501
+        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. Options:  0 = off 1 = higher order scheme (might be sensitive to instabilities) 2 = cross-sections treated as upwind method volume/surface area 3 = combination traditional method thin layer approach  If option 3 is used the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow.  # noqa: E501
 
         :return: The limiter_slope_crossectional_area_2d of this NumericalSettings.  # noqa: E501
         :rtype: int
@@ -499,7 +517,7 @@ class NumericalSettings(object):
     def limiter_slope_crossectional_area_2d(self, limiter_slope_crossectional_area_2d):
         """Sets the limiter_slope_crossectional_area_2d of this NumericalSettings.
 
-        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. Options:  0 = off 1 = higher order scheme (might be sensitive to instabilities) 2 = cross-sections treated as upwind method volume/surface area 3 = combination traditional method thin layer approach  If options 3 is used the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow  # noqa: E501
+        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. Options:  0 = off 1 = higher order scheme (might be sensitive to instabilities) 2 = cross-sections treated as upwind method volume/surface area 3 = combination traditional method thin layer approach  If option 3 is used the maximum depth of a thin layer needs to be defined. Do not use in combination with interflow.  # noqa: E501
 
         :param limiter_slope_crossectional_area_2d: The limiter_slope_crossectional_area_2d of this NumericalSettings.  # noqa: E501
         :type: int
@@ -513,7 +531,7 @@ class NumericalSettings(object):
     def limiter_slope_friction_2d(self):
         """Gets the limiter_slope_friction_2d of this NumericalSettings.  # noqa: E501
 
-        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. This limiter is mandatory if the limiter_slope_crossectional_area_2d settings is greater than 0. Do not use in combination with interflow. Suitable default is 0 (OFF)  Options:  0 = off 1 = standard   # noqa: E501
+        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. This limiter is mandatory if the limiter_slope_crossectional_area_2d setting is greater than 0. Do not use in combination with interflow. Suitable default is 0 (OFF)  Options:  0 = off 1 = standard   # noqa: E501
 
         :return: The limiter_slope_friction_2d of this NumericalSettings.  # noqa: E501
         :rtype: int
@@ -524,7 +542,7 @@ class NumericalSettings(object):
     def limiter_slope_friction_2d(self, limiter_slope_friction_2d):
         """Sets the limiter_slope_friction_2d of this NumericalSettings.
 
-        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. This limiter is mandatory if the limiter_slope_crossectional_area_2d settings is greater than 0. Do not use in combination with interflow. Suitable default is 0 (OFF)  Options:  0 = off 1 = standard   # noqa: E501
+        This limiter starts working in case the depth based on the downstream water level is zero and may be useful in sloping areas. This limiter is mandatory if the limiter_slope_crossectional_area_2d setting is greater than 0. Do not use in combination with interflow. Suitable default is 0 (OFF)  Options:  0 = off 1 = standard   # noqa: E501
 
         :param limiter_slope_friction_2d: The limiter_slope_friction_2d of this NumericalSettings.  # noqa: E501
         :type: int
@@ -560,8 +578,8 @@ class NumericalSettings(object):
                 max_non_linear_newton_iterations is not None and max_non_linear_newton_iterations > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `max_non_linear_newton_iterations`, must be a value less than or equal to `2147483647`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                max_non_linear_newton_iterations is not None and max_non_linear_newton_iterations < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `max_non_linear_newton_iterations`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+                max_non_linear_newton_iterations is not None and max_non_linear_newton_iterations < 1):  # noqa: E501
+            raise ValueError("Invalid value for `max_non_linear_newton_iterations`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._max_non_linear_newton_iterations = max_non_linear_newton_iterations
 
@@ -591,8 +609,8 @@ class NumericalSettings(object):
                 max_degree_gauss_seidel is not None and max_degree_gauss_seidel > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `max_degree_gauss_seidel`, must be a value less than or equal to `2147483647`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                max_degree_gauss_seidel is not None and max_degree_gauss_seidel < 0):  # noqa: E501
-            raise ValueError("Invalid value for `max_degree_gauss_seidel`, must be a value greater than or equal to `0`")  # noqa: E501
+                max_degree_gauss_seidel is not None and max_degree_gauss_seidel < 1):  # noqa: E501
+            raise ValueError("Invalid value for `max_degree_gauss_seidel`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._max_degree_gauss_seidel = max_degree_gauss_seidel
 
@@ -600,7 +618,7 @@ class NumericalSettings(object):
     def min_friction_velocity(self):
         """Gets the min_friction_velocity of this NumericalSettings.  # noqa: E501
 
-        To guarantee some initial friction only in flooded areas and for large time steps, it is wise to assume a minimum velocityfor computing the friction. Suitable default is 0.01.  # noqa: E501
+        To guarantee some initial friction only in flooded areas and for large time steps, it is wise to assume a minimum velocity for computing the friction. Suitable default is 0.01.  # noqa: E501
 
         :return: The min_friction_velocity of this NumericalSettings.  # noqa: E501
         :rtype: float
@@ -611,13 +629,19 @@ class NumericalSettings(object):
     def min_friction_velocity(self, min_friction_velocity):
         """Sets the min_friction_velocity of this NumericalSettings.
 
-        To guarantee some initial friction only in flooded areas and for large time steps, it is wise to assume a minimum velocityfor computing the friction. Suitable default is 0.01.  # noqa: E501
+        To guarantee some initial friction only in flooded areas and for large time steps, it is wise to assume a minimum velocity for computing the friction. Suitable default is 0.01.  # noqa: E501
 
         :param min_friction_velocity: The min_friction_velocity of this NumericalSettings.  # noqa: E501
         :type: float
         """
         if self.local_vars_configuration.client_side_validation and min_friction_velocity is None:  # noqa: E501
             raise ValueError("Invalid value for `min_friction_velocity`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                min_friction_velocity is not None and min_friction_velocity > 1):  # noqa: E501
+            raise ValueError("Invalid value for `min_friction_velocity`, must be a value less than or equal to `1`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                min_friction_velocity is not None and min_friction_velocity < 0):  # noqa: E501
+            raise ValueError("Invalid value for `min_friction_velocity`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._min_friction_velocity = min_friction_velocity
 
@@ -643,6 +667,12 @@ class NumericalSettings(object):
         """
         if self.local_vars_configuration.client_side_validation and min_surface_area is None:  # noqa: E501
             raise ValueError("Invalid value for `min_surface_area`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                min_surface_area is not None and min_surface_area > 1E-7):  # noqa: E501
+            raise ValueError("Invalid value for `min_surface_area`, must be a value less than or equal to `1E-7`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                min_surface_area is not None and min_surface_area < 1E-13):  # noqa: E501
+            raise ValueError("Invalid value for `min_surface_area`, must be a value greater than or equal to `1E-13`")  # noqa: E501
 
         self._min_surface_area = min_surface_area
 
@@ -693,6 +723,9 @@ class NumericalSettings(object):
         """
         if self.local_vars_configuration.client_side_validation and preissmann_slot is None:  # noqa: E501
             raise ValueError("Invalid value for `preissmann_slot`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                preissmann_slot is not None and preissmann_slot < 0):  # noqa: E501
+            raise ValueError("Invalid value for `preissmann_slot`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._preissmann_slot = preissmann_slot
 
@@ -718,6 +751,9 @@ class NumericalSettings(object):
         """
         if self.local_vars_configuration.client_side_validation and limiter_slope_thin_water_layer is None:  # noqa: E501
             raise ValueError("Invalid value for `limiter_slope_thin_water_layer`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                limiter_slope_thin_water_layer is not None and limiter_slope_thin_water_layer < 0):  # noqa: E501
+            raise ValueError("Invalid value for `limiter_slope_thin_water_layer`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._limiter_slope_thin_water_layer = limiter_slope_thin_water_layer
 
@@ -747,8 +783,8 @@ class NumericalSettings(object):
                 use_of_cg is not None and use_of_cg > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `use_of_cg`, must be a value less than or equal to `2147483647`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                use_of_cg is not None and use_of_cg < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `use_of_cg`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+                use_of_cg is not None and use_of_cg < 1):  # noqa: E501
+            raise ValueError("Invalid value for `use_of_cg`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._use_of_cg = use_of_cg
 
@@ -799,6 +835,12 @@ class NumericalSettings(object):
         """
         if self.local_vars_configuration.client_side_validation and flooding_threshold is None:  # noqa: E501
             raise ValueError("Invalid value for `flooding_threshold`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                flooding_threshold is not None and flooding_threshold > 0.05):  # noqa: E501
+            raise ValueError("Invalid value for `flooding_threshold`, must be a value less than or equal to `0.05`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                flooding_threshold is not None and flooding_threshold < 0):  # noqa: E501
+            raise ValueError("Invalid value for `flooding_threshold`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._flooding_threshold = flooding_threshold
 

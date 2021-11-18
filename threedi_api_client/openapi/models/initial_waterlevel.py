@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.65   3Di core release: 2.1.3  deployed on:  09:52AM (UTC) on November 01, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.0.5   3Di core release: 2.1.7  deployed on:  09:40AM (UTC) on November 18, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -41,7 +41,7 @@ class InitialWaterlevel(object):
         'file': 'FileReadOnly',
         'source_raster': 'str',
         'id': 'int',
-        'source_raster_id': 'str',
+        'source_raster_id': 'int',
         'dimension': 'str'
     }
 
@@ -196,7 +196,7 @@ class InitialWaterlevel(object):
 
 
         :return: The source_raster_id of this InitialWaterlevel.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._source_raster_id
 
@@ -206,7 +206,7 @@ class InitialWaterlevel(object):
 
 
         :param source_raster_id: The source_raster_id of this InitialWaterlevel.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._source_raster_id = source_raster_id

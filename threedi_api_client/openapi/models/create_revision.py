@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.65   3Di core release: 2.1.3  deployed on:  09:52AM (UTC) on November 01, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.0.5   3Di core release: 2.1.7  deployed on:  09:40AM (UTC) on November 18, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,24 +36,34 @@ class CreateRevision(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'empty': 'bool'
+        'empty': 'bool',
+        'number': 'int',
+        'created': 'datetime'
     }
 
     attribute_map = {
-        'empty': 'empty'
+        'empty': 'empty',
+        'number': 'number',
+        'created': 'created'
     }
 
-    def __init__(self, empty=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, empty=False, number=None, created=None, local_vars_configuration=None):  # noqa: E501
         """CreateRevision - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._empty = None
+        self._number = None
+        self._created = None
         self.discriminator = None
 
         if empty is not None:
             self.empty = empty
+        if number is not None:
+            self.number = number
+        if created is not None:
+            self.created = created
 
     @property
     def empty(self):
@@ -77,6 +87,52 @@ class CreateRevision(object):
         """
 
         self._empty = empty
+
+    @property
+    def number(self):
+        """Gets the number of this CreateRevision.  # noqa: E501
+
+        An optional revision number (only superusers can modify)  # noqa: E501
+
+        :return: The number of this CreateRevision.  # noqa: E501
+        :rtype: int
+        """
+        return self._number
+
+    @number.setter
+    def number(self, number):
+        """Sets the number of this CreateRevision.
+
+        An optional revision number (only superusers can modify)  # noqa: E501
+
+        :param number: The number of this CreateRevision.  # noqa: E501
+        :type: int
+        """
+
+        self._number = number
+
+    @property
+    def created(self):
+        """Gets the created of this CreateRevision.  # noqa: E501
+
+        An optional creation datetime (only superusers can modify)  # noqa: E501
+
+        :return: The created of this CreateRevision.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """Sets the created of this CreateRevision.
+
+        An optional creation datetime (only superusers can modify)  # noqa: E501
+
+        :param created: The created of this CreateRevision.  # noqa: E501
+        :type: datetime
+        """
+
+        self._created = created
 
     def to_dict(self):
         """Returns the model properties as a dict"""

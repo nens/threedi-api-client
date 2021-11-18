@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.65   3Di core release: 2.1.3  deployed on:  09:52AM (UTC) on November 01, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.0.5   3Di core release: 2.1.7  deployed on:  09:40AM (UTC) on November 18, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -39,7 +39,7 @@ class OneDWaterLevelFile(object):
         'url': 'str',
         'simulation': 'str',
         'initial_waterlevel': 'str',
-        'initial_waterlevel_id': 'str',
+        'initial_waterlevel_id': 'int',
         'uid': 'str',
         'id': 'int'
     }
@@ -150,7 +150,7 @@ class OneDWaterLevelFile(object):
 
 
         :return: The initial_waterlevel_id of this OneDWaterLevelFile.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._initial_waterlevel_id
 
@@ -160,7 +160,7 @@ class OneDWaterLevelFile(object):
 
 
         :param initial_waterlevel_id: The initial_waterlevel_id of this OneDWaterLevelFile.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._initial_waterlevel_id = initial_waterlevel_id
