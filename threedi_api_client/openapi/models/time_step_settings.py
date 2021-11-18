@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.65   3Di core release: 2.1.3  deployed on:  09:52AM (UTC) on November 01, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.0.5   3Di core release: 2.1.7  deployed on:  09:40AM (UTC) on November 18, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -144,6 +144,9 @@ class TimeStepSettings(object):
         """
         if self.local_vars_configuration.client_side_validation and time_step is None:  # noqa: E501
             raise ValueError("Invalid value for `time_step`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                time_step is not None and time_step < 1E-14):  # noqa: E501
+            raise ValueError("Invalid value for `time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
 
         self._time_step = time_step
 
@@ -169,6 +172,9 @@ class TimeStepSettings(object):
         """
         if self.local_vars_configuration.client_side_validation and min_time_step is None:  # noqa: E501
             raise ValueError("Invalid value for `min_time_step`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                min_time_step is not None and min_time_step < 1E-14):  # noqa: E501
+            raise ValueError("Invalid value for `min_time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
 
         self._min_time_step = min_time_step
 
@@ -192,8 +198,9 @@ class TimeStepSettings(object):
         :param max_time_step: The max_time_step of this TimeStepSettings.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and max_time_step is None:  # noqa: E501
-            raise ValueError("Invalid value for `max_time_step`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                max_time_step is not None and max_time_step < 1E-14):  # noqa: E501
+            raise ValueError("Invalid value for `max_time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
 
         self._max_time_step = max_time_step
 
@@ -244,6 +251,9 @@ class TimeStepSettings(object):
         """
         if self.local_vars_configuration.client_side_validation and output_time_step is None:  # noqa: E501
             raise ValueError("Invalid value for `output_time_step`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                output_time_step is not None and output_time_step < 1E-14):  # noqa: E501
+            raise ValueError("Invalid value for `output_time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
 
         self._output_time_step = output_time_step
 

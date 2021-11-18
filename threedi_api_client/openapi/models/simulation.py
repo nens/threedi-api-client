@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.65   3Di core release: 2.1.3  deployed on:  09:52AM (UTC) on November 01, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.0.5   3Di core release: 2.1.7  deployed on:  09:40AM (UTC) on November 18, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,7 @@ class Simulation(object):
         'slug': 'str',
         'uuid': 'str',
         'name': 'str',
-        'tags': 'str',
+        'tags': 'list[str]',
         'created': 'str',
         'threedimodel': 'str',
         'organisation': 'str',
@@ -228,9 +228,10 @@ class Simulation(object):
     def tags(self):
         """Gets the tags of this Simulation.  # noqa: E501
 
+        tags provided as a list of strings  # noqa: E501
 
         :return: The tags of this Simulation.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._tags
 
@@ -238,9 +239,10 @@ class Simulation(object):
     def tags(self, tags):
         """Sets the tags of this Simulation.
 
+        tags provided as a list of strings  # noqa: E501
 
         :param tags: The tags of this Simulation.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._tags = tags

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 1.0.65   3Di core release: 2.1.3  deployed on:  09:52AM (UTC) on November 01, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.0.5   3Di core release: 2.1.7  deployed on:  09:40AM (UTC) on November 18, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -38,16 +38,20 @@ class Commit(object):
     openapi_types = {
         'commit_message': 'str',
         'force_as': 'str',
-        'schematisation_name': 'str'
+        'schematisation_name': 'str',
+        'commit_date': 'datetime',
+        'user': 'str'
     }
 
     attribute_map = {
         'commit_message': 'commit_message',
         'force_as': 'force_as',
-        'schematisation_name': 'schematisation_name'
+        'schematisation_name': 'schematisation_name',
+        'commit_date': 'commit_date',
+        'user': 'user'
     }
 
-    def __init__(self, commit_message=None, force_as=None, schematisation_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, commit_message=None, force_as=None, schematisation_name=None, commit_date=None, user=None, local_vars_configuration=None):  # noqa: E501
         """Commit - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,6 +60,8 @@ class Commit(object):
         self._commit_message = None
         self._force_as = None
         self._schematisation_name = None
+        self._commit_date = None
+        self._user = None
         self.discriminator = None
 
         self.commit_message = commit_message
@@ -63,6 +69,8 @@ class Commit(object):
             self.force_as = force_as
         if schematisation_name is not None:
             self.schematisation_name = schematisation_name
+        self.commit_date = commit_date
+        self.user = user
 
     @property
     def commit_message(self):
@@ -85,6 +93,9 @@ class Commit(object):
         if (self.local_vars_configuration.client_side_validation and
                 commit_message is not None and len(commit_message) > 512):
             raise ValueError("Invalid value for `commit_message`, length must be less than or equal to `512`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                commit_message is not None and len(commit_message) < 1):
+            raise ValueError("Invalid value for `commit_message`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._commit_message = commit_message
 
@@ -141,6 +152,55 @@ class Commit(object):
             raise ValueError("Invalid value for `schematisation_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._schematisation_name = schematisation_name
+
+    @property
+    def commit_date(self):
+        """Gets the commit_date of this Commit.  # noqa: E501
+
+        The datetime of the commit (only superusers can modify)  # noqa: E501
+
+        :return: The commit_date of this Commit.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._commit_date
+
+    @commit_date.setter
+    def commit_date(self, commit_date):
+        """Sets the commit_date of this Commit.
+
+        The datetime of the commit (only superusers can modify)  # noqa: E501
+
+        :param commit_date: The commit_date of this Commit.  # noqa: E501
+        :type: datetime
+        """
+
+        self._commit_date = commit_date
+
+    @property
+    def user(self):
+        """Gets the user of this Commit.  # noqa: E501
+
+        User that committed the changeset for this revision (only superusers can modify)  # noqa: E501
+
+        :return: The user of this Commit.  # noqa: E501
+        :rtype: str
+        """
+        return self._user
+
+    @user.setter
+    def user(self, user):
+        """Sets the user of this Commit.
+
+        User that committed the changeset for this revision (only superusers can modify)  # noqa: E501
+
+        :param user: The user of this Commit.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                user is not None and len(user) > 128):
+            raise ValueError("Invalid value for `user`, length must be less than or equal to `128`")  # noqa: E501
+
+        self._user = user
 
     def to_dict(self):
         """Returns the model properties as a dict"""
