@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.0.5   3Di core release: 2.1.7  deployed on:  09:40AM (UTC) on November 18, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  02:45PM (UTC) on December 08, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -41,7 +41,9 @@ class UsageStatistics(object):
         'avg_duration': 'float',
         'min_duration': 'int',
         'max_duration': 'int',
-        'duration_humanized': 'str'
+        'duration_humanized': 'str',
+        'min_started': 'datetime',
+        'max_started': 'datetime'
     }
 
     attribute_map = {
@@ -50,10 +52,12 @@ class UsageStatistics(object):
         'avg_duration': 'avg_duration',
         'min_duration': 'min_duration',
         'max_duration': 'max_duration',
-        'duration_humanized': 'duration_humanized'
+        'duration_humanized': 'duration_humanized',
+        'min_started': 'min_started',
+        'max_started': 'max_started'
     }
 
-    def __init__(self, total_sessions=None, total_duration=None, avg_duration=None, min_duration=None, max_duration=None, duration_humanized=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, total_sessions=None, total_duration=None, avg_duration=None, min_duration=None, max_duration=None, duration_humanized=None, min_started=None, max_started=None, local_vars_configuration=None):  # noqa: E501
         """UsageStatistics - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +69,8 @@ class UsageStatistics(object):
         self._min_duration = None
         self._max_duration = None
         self._duration_humanized = None
+        self._min_started = None
+        self._max_started = None
         self.discriminator = None
 
         self.total_sessions = total_sessions
@@ -73,6 +79,8 @@ class UsageStatistics(object):
         self.min_duration = min_duration
         self.max_duration = max_duration
         self.duration_humanized = duration_humanized
+        self.min_started = min_started
+        self.max_started = max_started
 
     @property
     def total_sessions(self):
@@ -214,6 +222,48 @@ class UsageStatistics(object):
             raise ValueError("Invalid value for `duration_humanized`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._duration_humanized = duration_humanized
+
+    @property
+    def min_started(self):
+        """Gets the min_started of this UsageStatistics.  # noqa: E501
+
+
+        :return: The min_started of this UsageStatistics.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._min_started
+
+    @min_started.setter
+    def min_started(self, min_started):
+        """Sets the min_started of this UsageStatistics.
+
+
+        :param min_started: The min_started of this UsageStatistics.  # noqa: E501
+        :type: datetime
+        """
+
+        self._min_started = min_started
+
+    @property
+    def max_started(self):
+        """Gets the max_started of this UsageStatistics.  # noqa: E501
+
+
+        :return: The max_started of this UsageStatistics.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._max_started
+
+    @max_started.setter
+    def max_started(self, max_started):
+        """Sets the max_started of this UsageStatistics.
+
+
+        :param max_started: The max_started of this UsageStatistics.  # noqa: E501
+        :type: datetime
+        """
+
+        self._max_started = max_started
 
     def to_dict(self):
         """Returns the model properties as a dict"""

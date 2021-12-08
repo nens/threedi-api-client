@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.0.5   3Di core release: 2.1.7  deployed on:  09:40AM (UTC) on November 18, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  02:45PM (UTC) on December 08, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -54419,6 +54419,24 @@ class V3Api(object):
         :param str revision__hash__istartswith:
         :param str revision__hash__endswith:
         :param str revision__hash__regex:
+        :param str revision__schematisation__name:
+        :param str revision__schematisation__name__iexact:
+        :param str revision__schematisation__name__contains:
+        :param str revision__schematisation__name__icontains:
+        :param str revision__schematisation__name__in: Multiple values may be separated by commas.
+        :param str revision__schematisation__name__startswith:
+        :param str revision__schematisation__name__istartswith:
+        :param str revision__schematisation__name__endswith:
+        :param str revision__schematisation__name__regex:
+        :param str revision__repository__organisation__unique_id:
+        :param str revision__repository__organisation__unique_id__iexact:
+        :param str revision__repository__organisation__unique_id__contains:
+        :param str revision__repository__organisation__unique_id__icontains:
+        :param str revision__repository__organisation__unique_id__in: Multiple values may be separated by commas.
+        :param str revision__repository__organisation__unique_id__startswith:
+        :param str revision__repository__organisation__unique_id__istartswith:
+        :param str revision__repository__organisation__unique_id__endswith:
+        :param str revision__repository__organisation__unique_id__regex:
         :param str revision__is_pinned:
         :param str disabled:
         :param str inp_success:
@@ -54510,6 +54528,24 @@ class V3Api(object):
         :param str revision__hash__istartswith:
         :param str revision__hash__endswith:
         :param str revision__hash__regex:
+        :param str revision__schematisation__name:
+        :param str revision__schematisation__name__iexact:
+        :param str revision__schematisation__name__contains:
+        :param str revision__schematisation__name__icontains:
+        :param str revision__schematisation__name__in: Multiple values may be separated by commas.
+        :param str revision__schematisation__name__startswith:
+        :param str revision__schematisation__name__istartswith:
+        :param str revision__schematisation__name__endswith:
+        :param str revision__schematisation__name__regex:
+        :param str revision__repository__organisation__unique_id:
+        :param str revision__repository__organisation__unique_id__iexact:
+        :param str revision__repository__organisation__unique_id__contains:
+        :param str revision__repository__organisation__unique_id__icontains:
+        :param str revision__repository__organisation__unique_id__in: Multiple values may be separated by commas.
+        :param str revision__repository__organisation__unique_id__startswith:
+        :param str revision__repository__organisation__unique_id__istartswith:
+        :param str revision__repository__organisation__unique_id__endswith:
+        :param str revision__repository__organisation__unique_id__regex:
         :param str revision__is_pinned:
         :param str disabled:
         :param str inp_success:
@@ -54594,6 +54630,24 @@ class V3Api(object):
             'revision__hash__istartswith',
             'revision__hash__endswith',
             'revision__hash__regex',
+            'revision__schematisation__name',
+            'revision__schematisation__name__iexact',
+            'revision__schematisation__name__contains',
+            'revision__schematisation__name__icontains',
+            'revision__schematisation__name__in',
+            'revision__schematisation__name__startswith',
+            'revision__schematisation__name__istartswith',
+            'revision__schematisation__name__endswith',
+            'revision__schematisation__name__regex',
+            'revision__repository__organisation__unique_id',
+            'revision__repository__organisation__unique_id__iexact',
+            'revision__repository__organisation__unique_id__contains',
+            'revision__repository__organisation__unique_id__icontains',
+            'revision__repository__organisation__unique_id__in',
+            'revision__repository__organisation__unique_id__startswith',
+            'revision__repository__organisation__unique_id__istartswith',
+            'revision__repository__organisation__unique_id__endswith',
+            'revision__repository__organisation__unique_id__regex',
             'revision__is_pinned',
             'disabled',
             'inp_success',
@@ -54746,6 +54800,42 @@ class V3Api(object):
             query_params.append(('revision__hash__endswith', local_var_params['revision__hash__endswith']))  # noqa: E501
         if 'revision__hash__regex' in local_var_params and local_var_params['revision__hash__regex'] is not None:  # noqa: E501
             query_params.append(('revision__hash__regex', local_var_params['revision__hash__regex']))  # noqa: E501
+        if 'revision__schematisation__name' in local_var_params and local_var_params['revision__schematisation__name'] is not None:  # noqa: E501
+            query_params.append(('revision__schematisation__name', local_var_params['revision__schematisation__name']))  # noqa: E501
+        if 'revision__schematisation__name__iexact' in local_var_params and local_var_params['revision__schematisation__name__iexact'] is not None:  # noqa: E501
+            query_params.append(('revision__schematisation__name__iexact', local_var_params['revision__schematisation__name__iexact']))  # noqa: E501
+        if 'revision__schematisation__name__contains' in local_var_params and local_var_params['revision__schematisation__name__contains'] is not None:  # noqa: E501
+            query_params.append(('revision__schematisation__name__contains', local_var_params['revision__schematisation__name__contains']))  # noqa: E501
+        if 'revision__schematisation__name__icontains' in local_var_params and local_var_params['revision__schematisation__name__icontains'] is not None:  # noqa: E501
+            query_params.append(('revision__schematisation__name__icontains', local_var_params['revision__schematisation__name__icontains']))  # noqa: E501
+        if 'revision__schematisation__name__in' in local_var_params and local_var_params['revision__schematisation__name__in'] is not None:  # noqa: E501
+            query_params.append(('revision__schematisation__name__in', local_var_params['revision__schematisation__name__in']))  # noqa: E501
+        if 'revision__schematisation__name__startswith' in local_var_params and local_var_params['revision__schematisation__name__startswith'] is not None:  # noqa: E501
+            query_params.append(('revision__schematisation__name__startswith', local_var_params['revision__schematisation__name__startswith']))  # noqa: E501
+        if 'revision__schematisation__name__istartswith' in local_var_params and local_var_params['revision__schematisation__name__istartswith'] is not None:  # noqa: E501
+            query_params.append(('revision__schematisation__name__istartswith', local_var_params['revision__schematisation__name__istartswith']))  # noqa: E501
+        if 'revision__schematisation__name__endswith' in local_var_params and local_var_params['revision__schematisation__name__endswith'] is not None:  # noqa: E501
+            query_params.append(('revision__schematisation__name__endswith', local_var_params['revision__schematisation__name__endswith']))  # noqa: E501
+        if 'revision__schematisation__name__regex' in local_var_params and local_var_params['revision__schematisation__name__regex'] is not None:  # noqa: E501
+            query_params.append(('revision__schematisation__name__regex', local_var_params['revision__schematisation__name__regex']))  # noqa: E501
+        if 'revision__repository__organisation__unique_id' in local_var_params and local_var_params['revision__repository__organisation__unique_id'] is not None:  # noqa: E501
+            query_params.append(('revision__repository__organisation__unique_id', local_var_params['revision__repository__organisation__unique_id']))  # noqa: E501
+        if 'revision__repository__organisation__unique_id__iexact' in local_var_params and local_var_params['revision__repository__organisation__unique_id__iexact'] is not None:  # noqa: E501
+            query_params.append(('revision__repository__organisation__unique_id__iexact', local_var_params['revision__repository__organisation__unique_id__iexact']))  # noqa: E501
+        if 'revision__repository__organisation__unique_id__contains' in local_var_params and local_var_params['revision__repository__organisation__unique_id__contains'] is not None:  # noqa: E501
+            query_params.append(('revision__repository__organisation__unique_id__contains', local_var_params['revision__repository__organisation__unique_id__contains']))  # noqa: E501
+        if 'revision__repository__organisation__unique_id__icontains' in local_var_params and local_var_params['revision__repository__organisation__unique_id__icontains'] is not None:  # noqa: E501
+            query_params.append(('revision__repository__organisation__unique_id__icontains', local_var_params['revision__repository__organisation__unique_id__icontains']))  # noqa: E501
+        if 'revision__repository__organisation__unique_id__in' in local_var_params and local_var_params['revision__repository__organisation__unique_id__in'] is not None:  # noqa: E501
+            query_params.append(('revision__repository__organisation__unique_id__in', local_var_params['revision__repository__organisation__unique_id__in']))  # noqa: E501
+        if 'revision__repository__organisation__unique_id__startswith' in local_var_params and local_var_params['revision__repository__organisation__unique_id__startswith'] is not None:  # noqa: E501
+            query_params.append(('revision__repository__organisation__unique_id__startswith', local_var_params['revision__repository__organisation__unique_id__startswith']))  # noqa: E501
+        if 'revision__repository__organisation__unique_id__istartswith' in local_var_params and local_var_params['revision__repository__organisation__unique_id__istartswith'] is not None:  # noqa: E501
+            query_params.append(('revision__repository__organisation__unique_id__istartswith', local_var_params['revision__repository__organisation__unique_id__istartswith']))  # noqa: E501
+        if 'revision__repository__organisation__unique_id__endswith' in local_var_params and local_var_params['revision__repository__organisation__unique_id__endswith'] is not None:  # noqa: E501
+            query_params.append(('revision__repository__organisation__unique_id__endswith', local_var_params['revision__repository__organisation__unique_id__endswith']))  # noqa: E501
+        if 'revision__repository__organisation__unique_id__regex' in local_var_params and local_var_params['revision__repository__organisation__unique_id__regex'] is not None:  # noqa: E501
+            query_params.append(('revision__repository__organisation__unique_id__regex', local_var_params['revision__repository__organisation__unique_id__regex']))  # noqa: E501
         if 'revision__is_pinned' in local_var_params and local_var_params['revision__is_pinned'] is not None:  # noqa: E501
             query_params.append(('revision__is_pinned', local_var_params['revision__is_pinned']))  # noqa: E501
         if 'disabled' in local_var_params and local_var_params['disabled'] is not None:  # noqa: E501
@@ -59269,10 +59359,54 @@ class V3Api(object):
         :param float total_time__lt:
         :param float total_time__lte:
         :param str total_time__isnull:
+        :param str simulation__name:
+        :param str simulation__name__iexact:
+        :param str simulation__name__contains:
+        :param str simulation__name__icontains:
+        :param str simulation__name__in: Multiple values may be separated by commas.
+        :param str simulation__name__startswith:
+        :param str simulation__name__istartswith:
+        :param str simulation__name__endswith:
+        :param str simulation__name__regex:
+        :param float simulation__threedimodel__id:
+        :param float simulation__threedimodel__id__gt:
+        :param float simulation__threedimodel__id__gte:
+        :param float simulation__threedimodel__id__lt:
+        :param float simulation__threedimodel__id__lte:
+        :param str simulation__threedimodel__id__isnull:
+        :param str simulation__threedimodel__name:
+        :param str simulation__threedimodel__name__iexact:
+        :param str simulation__threedimodel__name__contains:
+        :param str simulation__threedimodel__name__icontains:
+        :param str simulation__threedimodel__name__in: Multiple values may be separated by commas.
+        :param str simulation__threedimodel__name__startswith:
+        :param str simulation__threedimodel__name__istartswith:
+        :param str simulation__threedimodel__name__endswith:
+        :param str simulation__threedimodel__name__regex:
         :param str simulation__user__username:
+        :param str simulation__user__username__iexact:
+        :param str simulation__user__username__contains:
+        :param str simulation__user__username__icontains:
+        :param str simulation__user__username__in: Multiple values may be separated by commas.
+        :param str simulation__user__username__startswith:
+        :param str simulation__user__username__istartswith:
+        :param str simulation__user__username__endswith:
+        :param str simulation__user__username__regex:
+        :param str simulation__active_status__name:
+        :param str simulation__active_status__name__iexact:
+        :param str simulation__active_status__name__contains:
+        :param str simulation__active_status__name__icontains:
+        :param str simulation__active_status__name__in: Multiple values may be separated by commas.
+        :param str simulation__active_status__name__startswith:
+        :param str simulation__active_status__name__istartswith:
+        :param str simulation__active_status__name__endswith:
+        :param str simulation__active_status__name__regex:
         :param str simulation__type__live:
         :param str simulation__organisation__name__istartswith:
         :param str simulation__organisation__unique_id:
+        :param str simulation__status:
+        :param str simulation__tags__in:
+        :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -59337,10 +59471,54 @@ class V3Api(object):
         :param float total_time__lt:
         :param float total_time__lte:
         :param str total_time__isnull:
+        :param str simulation__name:
+        :param str simulation__name__iexact:
+        :param str simulation__name__contains:
+        :param str simulation__name__icontains:
+        :param str simulation__name__in: Multiple values may be separated by commas.
+        :param str simulation__name__startswith:
+        :param str simulation__name__istartswith:
+        :param str simulation__name__endswith:
+        :param str simulation__name__regex:
+        :param float simulation__threedimodel__id:
+        :param float simulation__threedimodel__id__gt:
+        :param float simulation__threedimodel__id__gte:
+        :param float simulation__threedimodel__id__lt:
+        :param float simulation__threedimodel__id__lte:
+        :param str simulation__threedimodel__id__isnull:
+        :param str simulation__threedimodel__name:
+        :param str simulation__threedimodel__name__iexact:
+        :param str simulation__threedimodel__name__contains:
+        :param str simulation__threedimodel__name__icontains:
+        :param str simulation__threedimodel__name__in: Multiple values may be separated by commas.
+        :param str simulation__threedimodel__name__startswith:
+        :param str simulation__threedimodel__name__istartswith:
+        :param str simulation__threedimodel__name__endswith:
+        :param str simulation__threedimodel__name__regex:
         :param str simulation__user__username:
+        :param str simulation__user__username__iexact:
+        :param str simulation__user__username__contains:
+        :param str simulation__user__username__icontains:
+        :param str simulation__user__username__in: Multiple values may be separated by commas.
+        :param str simulation__user__username__startswith:
+        :param str simulation__user__username__istartswith:
+        :param str simulation__user__username__endswith:
+        :param str simulation__user__username__regex:
+        :param str simulation__active_status__name:
+        :param str simulation__active_status__name__iexact:
+        :param str simulation__active_status__name__contains:
+        :param str simulation__active_status__name__icontains:
+        :param str simulation__active_status__name__in: Multiple values may be separated by commas.
+        :param str simulation__active_status__name__startswith:
+        :param str simulation__active_status__name__istartswith:
+        :param str simulation__active_status__name__endswith:
+        :param str simulation__active_status__name__regex:
         :param str simulation__type__live:
         :param str simulation__organisation__name__istartswith:
         :param str simulation__organisation__unique_id:
+        :param str simulation__status:
+        :param str simulation__tags__in:
+        :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -59398,10 +59576,54 @@ class V3Api(object):
             'total_time__lt',
             'total_time__lte',
             'total_time__isnull',
+            'simulation__name',
+            'simulation__name__iexact',
+            'simulation__name__contains',
+            'simulation__name__icontains',
+            'simulation__name__in',
+            'simulation__name__startswith',
+            'simulation__name__istartswith',
+            'simulation__name__endswith',
+            'simulation__name__regex',
+            'simulation__threedimodel__id',
+            'simulation__threedimodel__id__gt',
+            'simulation__threedimodel__id__gte',
+            'simulation__threedimodel__id__lt',
+            'simulation__threedimodel__id__lte',
+            'simulation__threedimodel__id__isnull',
+            'simulation__threedimodel__name',
+            'simulation__threedimodel__name__iexact',
+            'simulation__threedimodel__name__contains',
+            'simulation__threedimodel__name__icontains',
+            'simulation__threedimodel__name__in',
+            'simulation__threedimodel__name__startswith',
+            'simulation__threedimodel__name__istartswith',
+            'simulation__threedimodel__name__endswith',
+            'simulation__threedimodel__name__regex',
             'simulation__user__username',
+            'simulation__user__username__iexact',
+            'simulation__user__username__contains',
+            'simulation__user__username__icontains',
+            'simulation__user__username__in',
+            'simulation__user__username__startswith',
+            'simulation__user__username__istartswith',
+            'simulation__user__username__endswith',
+            'simulation__user__username__regex',
+            'simulation__active_status__name',
+            'simulation__active_status__name__iexact',
+            'simulation__active_status__name__contains',
+            'simulation__active_status__name__icontains',
+            'simulation__active_status__name__in',
+            'simulation__active_status__name__startswith',
+            'simulation__active_status__name__istartswith',
+            'simulation__active_status__name__endswith',
+            'simulation__active_status__name__regex',
             'simulation__type__live',
             'simulation__organisation__name__istartswith',
             'simulation__organisation__unique_id',
+            'simulation__status',
+            'simulation__tags__in',
+            'ordering',
             'limit',
             'offset'
         ]
@@ -59504,14 +59726,102 @@ class V3Api(object):
             query_params.append(('total_time__lte', local_var_params['total_time__lte']))  # noqa: E501
         if 'total_time__isnull' in local_var_params and local_var_params['total_time__isnull'] is not None:  # noqa: E501
             query_params.append(('total_time__isnull', local_var_params['total_time__isnull']))  # noqa: E501
+        if 'simulation__name' in local_var_params and local_var_params['simulation__name'] is not None:  # noqa: E501
+            query_params.append(('simulation__name', local_var_params['simulation__name']))  # noqa: E501
+        if 'simulation__name__iexact' in local_var_params and local_var_params['simulation__name__iexact'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__iexact', local_var_params['simulation__name__iexact']))  # noqa: E501
+        if 'simulation__name__contains' in local_var_params and local_var_params['simulation__name__contains'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__contains', local_var_params['simulation__name__contains']))  # noqa: E501
+        if 'simulation__name__icontains' in local_var_params and local_var_params['simulation__name__icontains'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__icontains', local_var_params['simulation__name__icontains']))  # noqa: E501
+        if 'simulation__name__in' in local_var_params and local_var_params['simulation__name__in'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__in', local_var_params['simulation__name__in']))  # noqa: E501
+        if 'simulation__name__startswith' in local_var_params and local_var_params['simulation__name__startswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__startswith', local_var_params['simulation__name__startswith']))  # noqa: E501
+        if 'simulation__name__istartswith' in local_var_params and local_var_params['simulation__name__istartswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__istartswith', local_var_params['simulation__name__istartswith']))  # noqa: E501
+        if 'simulation__name__endswith' in local_var_params and local_var_params['simulation__name__endswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__endswith', local_var_params['simulation__name__endswith']))  # noqa: E501
+        if 'simulation__name__regex' in local_var_params and local_var_params['simulation__name__regex'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__regex', local_var_params['simulation__name__regex']))  # noqa: E501
+        if 'simulation__threedimodel__id' in local_var_params and local_var_params['simulation__threedimodel__id'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__id', local_var_params['simulation__threedimodel__id']))  # noqa: E501
+        if 'simulation__threedimodel__id__gt' in local_var_params and local_var_params['simulation__threedimodel__id__gt'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__id__gt', local_var_params['simulation__threedimodel__id__gt']))  # noqa: E501
+        if 'simulation__threedimodel__id__gte' in local_var_params and local_var_params['simulation__threedimodel__id__gte'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__id__gte', local_var_params['simulation__threedimodel__id__gte']))  # noqa: E501
+        if 'simulation__threedimodel__id__lt' in local_var_params and local_var_params['simulation__threedimodel__id__lt'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__id__lt', local_var_params['simulation__threedimodel__id__lt']))  # noqa: E501
+        if 'simulation__threedimodel__id__lte' in local_var_params and local_var_params['simulation__threedimodel__id__lte'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__id__lte', local_var_params['simulation__threedimodel__id__lte']))  # noqa: E501
+        if 'simulation__threedimodel__id__isnull' in local_var_params and local_var_params['simulation__threedimodel__id__isnull'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__id__isnull', local_var_params['simulation__threedimodel__id__isnull']))  # noqa: E501
+        if 'simulation__threedimodel__name' in local_var_params and local_var_params['simulation__threedimodel__name'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name', local_var_params['simulation__threedimodel__name']))  # noqa: E501
+        if 'simulation__threedimodel__name__iexact' in local_var_params and local_var_params['simulation__threedimodel__name__iexact'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name__iexact', local_var_params['simulation__threedimodel__name__iexact']))  # noqa: E501
+        if 'simulation__threedimodel__name__contains' in local_var_params and local_var_params['simulation__threedimodel__name__contains'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name__contains', local_var_params['simulation__threedimodel__name__contains']))  # noqa: E501
+        if 'simulation__threedimodel__name__icontains' in local_var_params and local_var_params['simulation__threedimodel__name__icontains'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name__icontains', local_var_params['simulation__threedimodel__name__icontains']))  # noqa: E501
+        if 'simulation__threedimodel__name__in' in local_var_params and local_var_params['simulation__threedimodel__name__in'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name__in', local_var_params['simulation__threedimodel__name__in']))  # noqa: E501
+        if 'simulation__threedimodel__name__startswith' in local_var_params and local_var_params['simulation__threedimodel__name__startswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name__startswith', local_var_params['simulation__threedimodel__name__startswith']))  # noqa: E501
+        if 'simulation__threedimodel__name__istartswith' in local_var_params and local_var_params['simulation__threedimodel__name__istartswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name__istartswith', local_var_params['simulation__threedimodel__name__istartswith']))  # noqa: E501
+        if 'simulation__threedimodel__name__endswith' in local_var_params and local_var_params['simulation__threedimodel__name__endswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name__endswith', local_var_params['simulation__threedimodel__name__endswith']))  # noqa: E501
+        if 'simulation__threedimodel__name__regex' in local_var_params and local_var_params['simulation__threedimodel__name__regex'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name__regex', local_var_params['simulation__threedimodel__name__regex']))  # noqa: E501
         if 'simulation__user__username' in local_var_params and local_var_params['simulation__user__username'] is not None:  # noqa: E501
             query_params.append(('simulation__user__username', local_var_params['simulation__user__username']))  # noqa: E501
+        if 'simulation__user__username__iexact' in local_var_params and local_var_params['simulation__user__username__iexact'] is not None:  # noqa: E501
+            query_params.append(('simulation__user__username__iexact', local_var_params['simulation__user__username__iexact']))  # noqa: E501
+        if 'simulation__user__username__contains' in local_var_params and local_var_params['simulation__user__username__contains'] is not None:  # noqa: E501
+            query_params.append(('simulation__user__username__contains', local_var_params['simulation__user__username__contains']))  # noqa: E501
+        if 'simulation__user__username__icontains' in local_var_params and local_var_params['simulation__user__username__icontains'] is not None:  # noqa: E501
+            query_params.append(('simulation__user__username__icontains', local_var_params['simulation__user__username__icontains']))  # noqa: E501
+        if 'simulation__user__username__in' in local_var_params and local_var_params['simulation__user__username__in'] is not None:  # noqa: E501
+            query_params.append(('simulation__user__username__in', local_var_params['simulation__user__username__in']))  # noqa: E501
+        if 'simulation__user__username__startswith' in local_var_params and local_var_params['simulation__user__username__startswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__user__username__startswith', local_var_params['simulation__user__username__startswith']))  # noqa: E501
+        if 'simulation__user__username__istartswith' in local_var_params and local_var_params['simulation__user__username__istartswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__user__username__istartswith', local_var_params['simulation__user__username__istartswith']))  # noqa: E501
+        if 'simulation__user__username__endswith' in local_var_params and local_var_params['simulation__user__username__endswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__user__username__endswith', local_var_params['simulation__user__username__endswith']))  # noqa: E501
+        if 'simulation__user__username__regex' in local_var_params and local_var_params['simulation__user__username__regex'] is not None:  # noqa: E501
+            query_params.append(('simulation__user__username__regex', local_var_params['simulation__user__username__regex']))  # noqa: E501
+        if 'simulation__active_status__name' in local_var_params and local_var_params['simulation__active_status__name'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name', local_var_params['simulation__active_status__name']))  # noqa: E501
+        if 'simulation__active_status__name__iexact' in local_var_params and local_var_params['simulation__active_status__name__iexact'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name__iexact', local_var_params['simulation__active_status__name__iexact']))  # noqa: E501
+        if 'simulation__active_status__name__contains' in local_var_params and local_var_params['simulation__active_status__name__contains'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name__contains', local_var_params['simulation__active_status__name__contains']))  # noqa: E501
+        if 'simulation__active_status__name__icontains' in local_var_params and local_var_params['simulation__active_status__name__icontains'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name__icontains', local_var_params['simulation__active_status__name__icontains']))  # noqa: E501
+        if 'simulation__active_status__name__in' in local_var_params and local_var_params['simulation__active_status__name__in'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name__in', local_var_params['simulation__active_status__name__in']))  # noqa: E501
+        if 'simulation__active_status__name__startswith' in local_var_params and local_var_params['simulation__active_status__name__startswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name__startswith', local_var_params['simulation__active_status__name__startswith']))  # noqa: E501
+        if 'simulation__active_status__name__istartswith' in local_var_params and local_var_params['simulation__active_status__name__istartswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name__istartswith', local_var_params['simulation__active_status__name__istartswith']))  # noqa: E501
+        if 'simulation__active_status__name__endswith' in local_var_params and local_var_params['simulation__active_status__name__endswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name__endswith', local_var_params['simulation__active_status__name__endswith']))  # noqa: E501
+        if 'simulation__active_status__name__regex' in local_var_params and local_var_params['simulation__active_status__name__regex'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name__regex', local_var_params['simulation__active_status__name__regex']))  # noqa: E501
         if 'simulation__type__live' in local_var_params and local_var_params['simulation__type__live'] is not None:  # noqa: E501
             query_params.append(('simulation__type__live', local_var_params['simulation__type__live']))  # noqa: E501
         if 'simulation__organisation__name__istartswith' in local_var_params and local_var_params['simulation__organisation__name__istartswith'] is not None:  # noqa: E501
             query_params.append(('simulation__organisation__name__istartswith', local_var_params['simulation__organisation__name__istartswith']))  # noqa: E501
         if 'simulation__organisation__unique_id' in local_var_params and local_var_params['simulation__organisation__unique_id'] is not None:  # noqa: E501
             query_params.append(('simulation__organisation__unique_id', local_var_params['simulation__organisation__unique_id']))  # noqa: E501
+        if 'simulation__status' in local_var_params and local_var_params['simulation__status'] is not None:  # noqa: E501
+            query_params.append(('simulation__status', local_var_params['simulation__status']))  # noqa: E501
+        if 'simulation__tags__in' in local_var_params and local_var_params['simulation__tags__in'] is not None:  # noqa: E501
+            query_params.append(('simulation__tags__in', local_var_params['simulation__tags__in']))  # noqa: E501
+        if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
+            query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
@@ -59708,10 +60018,54 @@ class V3Api(object):
         :param float total_time__lt:
         :param float total_time__lte:
         :param str total_time__isnull:
+        :param str simulation__name:
+        :param str simulation__name__iexact:
+        :param str simulation__name__contains:
+        :param str simulation__name__icontains:
+        :param str simulation__name__in: Multiple values may be separated by commas.
+        :param str simulation__name__startswith:
+        :param str simulation__name__istartswith:
+        :param str simulation__name__endswith:
+        :param str simulation__name__regex:
+        :param float simulation__threedimodel__id:
+        :param float simulation__threedimodel__id__gt:
+        :param float simulation__threedimodel__id__gte:
+        :param float simulation__threedimodel__id__lt:
+        :param float simulation__threedimodel__id__lte:
+        :param str simulation__threedimodel__id__isnull:
+        :param str simulation__threedimodel__name:
+        :param str simulation__threedimodel__name__iexact:
+        :param str simulation__threedimodel__name__contains:
+        :param str simulation__threedimodel__name__icontains:
+        :param str simulation__threedimodel__name__in: Multiple values may be separated by commas.
+        :param str simulation__threedimodel__name__startswith:
+        :param str simulation__threedimodel__name__istartswith:
+        :param str simulation__threedimodel__name__endswith:
+        :param str simulation__threedimodel__name__regex:
         :param str simulation__user__username:
+        :param str simulation__user__username__iexact:
+        :param str simulation__user__username__contains:
+        :param str simulation__user__username__icontains:
+        :param str simulation__user__username__in: Multiple values may be separated by commas.
+        :param str simulation__user__username__startswith:
+        :param str simulation__user__username__istartswith:
+        :param str simulation__user__username__endswith:
+        :param str simulation__user__username__regex:
+        :param str simulation__active_status__name:
+        :param str simulation__active_status__name__iexact:
+        :param str simulation__active_status__name__contains:
+        :param str simulation__active_status__name__icontains:
+        :param str simulation__active_status__name__in: Multiple values may be separated by commas.
+        :param str simulation__active_status__name__startswith:
+        :param str simulation__active_status__name__istartswith:
+        :param str simulation__active_status__name__endswith:
+        :param str simulation__active_status__name__regex:
         :param str simulation__type__live:
         :param str simulation__organisation__name__istartswith:
         :param str simulation__organisation__unique_id:
+        :param str simulation__status:
+        :param str simulation__tags__in:
+        :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -59776,10 +60130,54 @@ class V3Api(object):
         :param float total_time__lt:
         :param float total_time__lte:
         :param str total_time__isnull:
+        :param str simulation__name:
+        :param str simulation__name__iexact:
+        :param str simulation__name__contains:
+        :param str simulation__name__icontains:
+        :param str simulation__name__in: Multiple values may be separated by commas.
+        :param str simulation__name__startswith:
+        :param str simulation__name__istartswith:
+        :param str simulation__name__endswith:
+        :param str simulation__name__regex:
+        :param float simulation__threedimodel__id:
+        :param float simulation__threedimodel__id__gt:
+        :param float simulation__threedimodel__id__gte:
+        :param float simulation__threedimodel__id__lt:
+        :param float simulation__threedimodel__id__lte:
+        :param str simulation__threedimodel__id__isnull:
+        :param str simulation__threedimodel__name:
+        :param str simulation__threedimodel__name__iexact:
+        :param str simulation__threedimodel__name__contains:
+        :param str simulation__threedimodel__name__icontains:
+        :param str simulation__threedimodel__name__in: Multiple values may be separated by commas.
+        :param str simulation__threedimodel__name__startswith:
+        :param str simulation__threedimodel__name__istartswith:
+        :param str simulation__threedimodel__name__endswith:
+        :param str simulation__threedimodel__name__regex:
         :param str simulation__user__username:
+        :param str simulation__user__username__iexact:
+        :param str simulation__user__username__contains:
+        :param str simulation__user__username__icontains:
+        :param str simulation__user__username__in: Multiple values may be separated by commas.
+        :param str simulation__user__username__startswith:
+        :param str simulation__user__username__istartswith:
+        :param str simulation__user__username__endswith:
+        :param str simulation__user__username__regex:
+        :param str simulation__active_status__name:
+        :param str simulation__active_status__name__iexact:
+        :param str simulation__active_status__name__contains:
+        :param str simulation__active_status__name__icontains:
+        :param str simulation__active_status__name__in: Multiple values may be separated by commas.
+        :param str simulation__active_status__name__startswith:
+        :param str simulation__active_status__name__istartswith:
+        :param str simulation__active_status__name__endswith:
+        :param str simulation__active_status__name__regex:
         :param str simulation__type__live:
         :param str simulation__organisation__name__istartswith:
         :param str simulation__organisation__unique_id:
+        :param str simulation__status:
+        :param str simulation__tags__in:
+        :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -59837,10 +60235,54 @@ class V3Api(object):
             'total_time__lt',
             'total_time__lte',
             'total_time__isnull',
+            'simulation__name',
+            'simulation__name__iexact',
+            'simulation__name__contains',
+            'simulation__name__icontains',
+            'simulation__name__in',
+            'simulation__name__startswith',
+            'simulation__name__istartswith',
+            'simulation__name__endswith',
+            'simulation__name__regex',
+            'simulation__threedimodel__id',
+            'simulation__threedimodel__id__gt',
+            'simulation__threedimodel__id__gte',
+            'simulation__threedimodel__id__lt',
+            'simulation__threedimodel__id__lte',
+            'simulation__threedimodel__id__isnull',
+            'simulation__threedimodel__name',
+            'simulation__threedimodel__name__iexact',
+            'simulation__threedimodel__name__contains',
+            'simulation__threedimodel__name__icontains',
+            'simulation__threedimodel__name__in',
+            'simulation__threedimodel__name__startswith',
+            'simulation__threedimodel__name__istartswith',
+            'simulation__threedimodel__name__endswith',
+            'simulation__threedimodel__name__regex',
             'simulation__user__username',
+            'simulation__user__username__iexact',
+            'simulation__user__username__contains',
+            'simulation__user__username__icontains',
+            'simulation__user__username__in',
+            'simulation__user__username__startswith',
+            'simulation__user__username__istartswith',
+            'simulation__user__username__endswith',
+            'simulation__user__username__regex',
+            'simulation__active_status__name',
+            'simulation__active_status__name__iexact',
+            'simulation__active_status__name__contains',
+            'simulation__active_status__name__icontains',
+            'simulation__active_status__name__in',
+            'simulation__active_status__name__startswith',
+            'simulation__active_status__name__istartswith',
+            'simulation__active_status__name__endswith',
+            'simulation__active_status__name__regex',
             'simulation__type__live',
             'simulation__organisation__name__istartswith',
             'simulation__organisation__unique_id',
+            'simulation__status',
+            'simulation__tags__in',
+            'ordering',
             'limit',
             'offset'
         ]
@@ -59943,14 +60385,102 @@ class V3Api(object):
             query_params.append(('total_time__lte', local_var_params['total_time__lte']))  # noqa: E501
         if 'total_time__isnull' in local_var_params and local_var_params['total_time__isnull'] is not None:  # noqa: E501
             query_params.append(('total_time__isnull', local_var_params['total_time__isnull']))  # noqa: E501
+        if 'simulation__name' in local_var_params and local_var_params['simulation__name'] is not None:  # noqa: E501
+            query_params.append(('simulation__name', local_var_params['simulation__name']))  # noqa: E501
+        if 'simulation__name__iexact' in local_var_params and local_var_params['simulation__name__iexact'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__iexact', local_var_params['simulation__name__iexact']))  # noqa: E501
+        if 'simulation__name__contains' in local_var_params and local_var_params['simulation__name__contains'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__contains', local_var_params['simulation__name__contains']))  # noqa: E501
+        if 'simulation__name__icontains' in local_var_params and local_var_params['simulation__name__icontains'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__icontains', local_var_params['simulation__name__icontains']))  # noqa: E501
+        if 'simulation__name__in' in local_var_params and local_var_params['simulation__name__in'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__in', local_var_params['simulation__name__in']))  # noqa: E501
+        if 'simulation__name__startswith' in local_var_params and local_var_params['simulation__name__startswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__startswith', local_var_params['simulation__name__startswith']))  # noqa: E501
+        if 'simulation__name__istartswith' in local_var_params and local_var_params['simulation__name__istartswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__istartswith', local_var_params['simulation__name__istartswith']))  # noqa: E501
+        if 'simulation__name__endswith' in local_var_params and local_var_params['simulation__name__endswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__endswith', local_var_params['simulation__name__endswith']))  # noqa: E501
+        if 'simulation__name__regex' in local_var_params and local_var_params['simulation__name__regex'] is not None:  # noqa: E501
+            query_params.append(('simulation__name__regex', local_var_params['simulation__name__regex']))  # noqa: E501
+        if 'simulation__threedimodel__id' in local_var_params and local_var_params['simulation__threedimodel__id'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__id', local_var_params['simulation__threedimodel__id']))  # noqa: E501
+        if 'simulation__threedimodel__id__gt' in local_var_params and local_var_params['simulation__threedimodel__id__gt'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__id__gt', local_var_params['simulation__threedimodel__id__gt']))  # noqa: E501
+        if 'simulation__threedimodel__id__gte' in local_var_params and local_var_params['simulation__threedimodel__id__gte'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__id__gte', local_var_params['simulation__threedimodel__id__gte']))  # noqa: E501
+        if 'simulation__threedimodel__id__lt' in local_var_params and local_var_params['simulation__threedimodel__id__lt'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__id__lt', local_var_params['simulation__threedimodel__id__lt']))  # noqa: E501
+        if 'simulation__threedimodel__id__lte' in local_var_params and local_var_params['simulation__threedimodel__id__lte'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__id__lte', local_var_params['simulation__threedimodel__id__lte']))  # noqa: E501
+        if 'simulation__threedimodel__id__isnull' in local_var_params and local_var_params['simulation__threedimodel__id__isnull'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__id__isnull', local_var_params['simulation__threedimodel__id__isnull']))  # noqa: E501
+        if 'simulation__threedimodel__name' in local_var_params and local_var_params['simulation__threedimodel__name'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name', local_var_params['simulation__threedimodel__name']))  # noqa: E501
+        if 'simulation__threedimodel__name__iexact' in local_var_params and local_var_params['simulation__threedimodel__name__iexact'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name__iexact', local_var_params['simulation__threedimodel__name__iexact']))  # noqa: E501
+        if 'simulation__threedimodel__name__contains' in local_var_params and local_var_params['simulation__threedimodel__name__contains'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name__contains', local_var_params['simulation__threedimodel__name__contains']))  # noqa: E501
+        if 'simulation__threedimodel__name__icontains' in local_var_params and local_var_params['simulation__threedimodel__name__icontains'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name__icontains', local_var_params['simulation__threedimodel__name__icontains']))  # noqa: E501
+        if 'simulation__threedimodel__name__in' in local_var_params and local_var_params['simulation__threedimodel__name__in'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name__in', local_var_params['simulation__threedimodel__name__in']))  # noqa: E501
+        if 'simulation__threedimodel__name__startswith' in local_var_params and local_var_params['simulation__threedimodel__name__startswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name__startswith', local_var_params['simulation__threedimodel__name__startswith']))  # noqa: E501
+        if 'simulation__threedimodel__name__istartswith' in local_var_params and local_var_params['simulation__threedimodel__name__istartswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name__istartswith', local_var_params['simulation__threedimodel__name__istartswith']))  # noqa: E501
+        if 'simulation__threedimodel__name__endswith' in local_var_params and local_var_params['simulation__threedimodel__name__endswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name__endswith', local_var_params['simulation__threedimodel__name__endswith']))  # noqa: E501
+        if 'simulation__threedimodel__name__regex' in local_var_params and local_var_params['simulation__threedimodel__name__regex'] is not None:  # noqa: E501
+            query_params.append(('simulation__threedimodel__name__regex', local_var_params['simulation__threedimodel__name__regex']))  # noqa: E501
         if 'simulation__user__username' in local_var_params and local_var_params['simulation__user__username'] is not None:  # noqa: E501
             query_params.append(('simulation__user__username', local_var_params['simulation__user__username']))  # noqa: E501
+        if 'simulation__user__username__iexact' in local_var_params and local_var_params['simulation__user__username__iexact'] is not None:  # noqa: E501
+            query_params.append(('simulation__user__username__iexact', local_var_params['simulation__user__username__iexact']))  # noqa: E501
+        if 'simulation__user__username__contains' in local_var_params and local_var_params['simulation__user__username__contains'] is not None:  # noqa: E501
+            query_params.append(('simulation__user__username__contains', local_var_params['simulation__user__username__contains']))  # noqa: E501
+        if 'simulation__user__username__icontains' in local_var_params and local_var_params['simulation__user__username__icontains'] is not None:  # noqa: E501
+            query_params.append(('simulation__user__username__icontains', local_var_params['simulation__user__username__icontains']))  # noqa: E501
+        if 'simulation__user__username__in' in local_var_params and local_var_params['simulation__user__username__in'] is not None:  # noqa: E501
+            query_params.append(('simulation__user__username__in', local_var_params['simulation__user__username__in']))  # noqa: E501
+        if 'simulation__user__username__startswith' in local_var_params and local_var_params['simulation__user__username__startswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__user__username__startswith', local_var_params['simulation__user__username__startswith']))  # noqa: E501
+        if 'simulation__user__username__istartswith' in local_var_params and local_var_params['simulation__user__username__istartswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__user__username__istartswith', local_var_params['simulation__user__username__istartswith']))  # noqa: E501
+        if 'simulation__user__username__endswith' in local_var_params and local_var_params['simulation__user__username__endswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__user__username__endswith', local_var_params['simulation__user__username__endswith']))  # noqa: E501
+        if 'simulation__user__username__regex' in local_var_params and local_var_params['simulation__user__username__regex'] is not None:  # noqa: E501
+            query_params.append(('simulation__user__username__regex', local_var_params['simulation__user__username__regex']))  # noqa: E501
+        if 'simulation__active_status__name' in local_var_params and local_var_params['simulation__active_status__name'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name', local_var_params['simulation__active_status__name']))  # noqa: E501
+        if 'simulation__active_status__name__iexact' in local_var_params and local_var_params['simulation__active_status__name__iexact'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name__iexact', local_var_params['simulation__active_status__name__iexact']))  # noqa: E501
+        if 'simulation__active_status__name__contains' in local_var_params and local_var_params['simulation__active_status__name__contains'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name__contains', local_var_params['simulation__active_status__name__contains']))  # noqa: E501
+        if 'simulation__active_status__name__icontains' in local_var_params and local_var_params['simulation__active_status__name__icontains'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name__icontains', local_var_params['simulation__active_status__name__icontains']))  # noqa: E501
+        if 'simulation__active_status__name__in' in local_var_params and local_var_params['simulation__active_status__name__in'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name__in', local_var_params['simulation__active_status__name__in']))  # noqa: E501
+        if 'simulation__active_status__name__startswith' in local_var_params and local_var_params['simulation__active_status__name__startswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name__startswith', local_var_params['simulation__active_status__name__startswith']))  # noqa: E501
+        if 'simulation__active_status__name__istartswith' in local_var_params and local_var_params['simulation__active_status__name__istartswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name__istartswith', local_var_params['simulation__active_status__name__istartswith']))  # noqa: E501
+        if 'simulation__active_status__name__endswith' in local_var_params and local_var_params['simulation__active_status__name__endswith'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name__endswith', local_var_params['simulation__active_status__name__endswith']))  # noqa: E501
+        if 'simulation__active_status__name__regex' in local_var_params and local_var_params['simulation__active_status__name__regex'] is not None:  # noqa: E501
+            query_params.append(('simulation__active_status__name__regex', local_var_params['simulation__active_status__name__regex']))  # noqa: E501
         if 'simulation__type__live' in local_var_params and local_var_params['simulation__type__live'] is not None:  # noqa: E501
             query_params.append(('simulation__type__live', local_var_params['simulation__type__live']))  # noqa: E501
         if 'simulation__organisation__name__istartswith' in local_var_params and local_var_params['simulation__organisation__name__istartswith'] is not None:  # noqa: E501
             query_params.append(('simulation__organisation__name__istartswith', local_var_params['simulation__organisation__name__istartswith']))  # noqa: E501
         if 'simulation__organisation__unique_id' in local_var_params and local_var_params['simulation__organisation__unique_id'] is not None:  # noqa: E501
             query_params.append(('simulation__organisation__unique_id', local_var_params['simulation__organisation__unique_id']))  # noqa: E501
+        if 'simulation__status' in local_var_params and local_var_params['simulation__status'] is not None:  # noqa: E501
+            query_params.append(('simulation__status', local_var_params['simulation__status']))  # noqa: E501
+        if 'simulation__tags__in' in local_var_params and local_var_params['simulation__tags__in'] is not None:  # noqa: E501
+            query_params.append(('simulation__tags__in', local_var_params['simulation__tags__in']))  # noqa: E501
+        if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
+            query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501

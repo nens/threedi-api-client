@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest stable version: v3) 
-     Framework release: 2.0.5 
-     3Di core release: 2.1.7 
-    deployed on:  09:40AM (UTC) on November 18, 2021
+     Framework release: 2.1.1 
+     3Di core release: 2.1.9 
+    deployed on:  02:45PM (UTC) on December 08, 2021
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -33,6 +33,166 @@ paths:
       operationId: schematisations_list
       description: Manage schematisations
       parameters:
+        - name: created__range
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: created__date
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created__date__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created__date__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created__date__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created__date__lte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created__year
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__year__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__year__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__year__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__year__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__month
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__month__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__day
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__day__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__week
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__week_day
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__quarter
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__time
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created__hour
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__minute
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__second
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: created__isnull
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created_by__username
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created_by__username__iexact
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created_by__username__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created_by__username__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created_by__username__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: created_by__username__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created_by__username__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created_by__username__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: created_by__username__regex
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: name
           in: query
           description: ''
@@ -213,6 +373,16 @@ paths:
           description: ''
           required: false
           type: string
+        - name: tags__in
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: ordering
+          in: query
+          description: Which field to use when ordering the results.
+          required: false
+          type: string
         - name: limit
           in: query
           description: Number of results to return per page.
@@ -330,7 +500,7 @@ paths:
     get:
       operationId: schematisations_latest_revision
       summary: Get the latest committed revision.
-      description: 'For retrieving all revisions use: `/revisions/?schematisation__id=xx`'
+      description: 'For retrieving all revisions use: `/schematisations/{id}/revisions`'
       parameters: []
       responses:
         '200':
@@ -540,12 +710,167 @@ paths:
           description: ''
           required: false
           type: string
+        - name: commit_user__username
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_user__username__iexact
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_user__username__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_user__username__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_user__username__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: commit_user__username__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_user__username__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_user__username__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_user__username__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_date
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_date__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_date__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_date__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_date__lte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_date__date
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_date__date__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_date__date__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_date__date__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_date__date__lte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: commit_date__year
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: commit_date__year__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: commit_date__year__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: commit_date__year__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: commit_date__year__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: commit_date__month
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: commit_date__month__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: commit_date__day
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: commit_date__day__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: commit_date__week
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: commit_date__week_day
+          in: query
+          description: ''
+          required: false
+          type: number
         - name: committed
           in: query
           description: ''
           required: false
           type: string
         - name: archived
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: is_valid
           in: query
           description: ''
           required: false
@@ -13099,6 +13424,96 @@ paths:
           description: ''
           required: false
           type: string
+        - name: revision__schematisation__name
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__schematisation__name__iexact
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__schematisation__name__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__schematisation__name__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__schematisation__name__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: revision__schematisation__name__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__schematisation__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__schematisation__name__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__schematisation__name__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__repository__organisation__unique_id
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__repository__organisation__unique_id__iexact
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__repository__organisation__unique_id__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__repository__organisation__unique_id__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__repository__organisation__unique_id__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: revision__repository__organisation__unique_id__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__repository__organisation__unique_id__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__repository__organisation__unique_id__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__repository__organisation__unique_id__regex
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: revision__is_pinned
           in: query
           description: ''
@@ -15102,7 +15517,212 @@ paths:
           description: ''
           required: false
           type: string
+        - name: simulation__name
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__iexact
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: simulation__name__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__id
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: simulation__threedimodel__id__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: simulation__threedimodel__id__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: simulation__threedimodel__id__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: simulation__threedimodel__id__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: simulation__threedimodel__id__isnull
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__name
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__name__iexact
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__name__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__name__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__name__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: simulation__threedimodel__name__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__name__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__name__regex
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: simulation__user__username
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__user__username__iexact
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__user__username__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__user__username__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__user__username__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: simulation__user__username__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__user__username__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__user__username__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__user__username__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__active_status__name
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__active_status__name__iexact
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__active_status__name__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__active_status__name__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__active_status__name__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: simulation__active_status__name__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__active_status__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__active_status__name__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__active_status__name__regex
           in: query
           description: ''
           required: false
@@ -15120,6 +15740,21 @@ paths:
         - name: simulation__organisation__unique_id
           in: query
           description: ''
+          required: false
+          type: string
+        - name: simulation__status
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__tags__in
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: ordering
+          in: query
+          description: Which field to use when ordering the results.
           required: false
           type: string
         - name: limit
@@ -15362,7 +15997,212 @@ paths:
           description: ''
           required: false
           type: string
+        - name: simulation__name
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__iexact
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: simulation__name__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__name__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__id
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: simulation__threedimodel__id__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: simulation__threedimodel__id__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: simulation__threedimodel__id__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: simulation__threedimodel__id__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: simulation__threedimodel__id__isnull
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__name
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__name__iexact
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__name__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__name__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__name__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: simulation__threedimodel__name__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__name__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__threedimodel__name__regex
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: simulation__user__username
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__user__username__iexact
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__user__username__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__user__username__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__user__username__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: simulation__user__username__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__user__username__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__user__username__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__user__username__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__active_status__name
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__active_status__name__iexact
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__active_status__name__contains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__active_status__name__icontains
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__active_status__name__in
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: simulation__active_status__name__startswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__active_status__name__istartswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__active_status__name__endswith
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__active_status__name__regex
           in: query
           description: ''
           required: false
@@ -15380,6 +16220,21 @@ paths:
         - name: simulation__organisation__unique_id
           in: query
           description: ''
+          required: false
+          type: string
+        - name: simulation__status
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__tags__in
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: ordering
+          in: query
+          description: Which field to use when ordering the results.
           required: false
           type: string
         - name: limit
@@ -15630,7 +16485,11 @@ definitions:
               latitude order)and upper right respectively
             type: array
             items:
-              type: number
+              type: array
+              items:
+                type: number
+                minItems: 2
+                maxItems: 2
               minItems: 2
               maxItems: 2
             minItems: 2
@@ -15676,6 +16535,10 @@ definitions:
         type: string
         format: uri
         readOnly: true
+      schematisation_id:
+        title: Schematisation id
+        type: integer
+        readOnly: true
       number:
         title: Number
         type: integer
@@ -15701,6 +16564,10 @@ definitions:
         title: Commit user
         type: string
         format: uri
+        readOnly: true
+      commit_username:
+        title: Commit username
+        type: string
         readOnly: true
       commit_message:
         title: Commit message
@@ -15743,7 +16610,6 @@ definitions:
       commit_message:
         title: Commit message
         type: string
-        maxLength: 512
         minLength: 1
         x-nullable: true
       force_as:
@@ -15819,6 +16685,10 @@ definitions:
         title: Schematisation id
         type: integer
         readOnly: true
+      schematisation_name:
+        title: Schematisation name
+        type: string
+        readOnly: true
       repository_slug:
         title: Repository slug
         type: string
@@ -15893,7 +16763,11 @@ definitions:
               latitude order)and upper right respectively
             type: array
             items:
-              type: number
+              type: array
+              items:
+                type: number
+                minItems: 2
+                maxItems: 2
               minItems: 2
               maxItems: 2
             minItems: 2
@@ -15925,7 +16799,11 @@ definitions:
               latitude order)and upper right respectively
             type: array
             items:
-              type: number
+              type: array
+              items:
+                type: number
+                minItems: 2
+                maxItems: 2
               minItems: 2
               maxItems: 2
             minItems: 2
@@ -15957,7 +16835,11 @@ definitions:
               latitude order)and upper right respectively
             type: array
             items:
-              type: number
+              type: array
+              items:
+                type: number
+                minItems: 2
+                maxItems: 2
               minItems: 2
               maxItems: 2
             minItems: 2
@@ -16112,7 +16994,11 @@ definitions:
               latitude order)and upper right respectively
             type: array
             items:
-              type: number
+              type: array
+              items:
+                type: number
+                minItems: 2
+                maxItems: 2
               minItems: 2
               maxItems: 2
             minItems: 2
@@ -22440,7 +23326,11 @@ definitions:
               latitude order)and upper right respectively
             type: array
             items:
-              type: number
+              type: array
+              items:
+                type: number
+                minItems: 2
+                maxItems: 2
               minItems: 2
               maxItems: 2
             minItems: 2
@@ -22676,6 +23566,8 @@ definitions:
       - min_duration
       - max_duration
       - duration_humanized
+      - min_started
+      - max_started
     type: object
     properties:
       total_sessions:
@@ -22697,3 +23589,13 @@ definitions:
         title: Duration humanized
         type: string
         minLength: 1
+      min_started:
+        title: Min started
+        type: string
+        format: date-time
+        x-nullable: true
+      max_started:
+        title: Max started
+        type: string
+        format: date-time
+        x-nullable: true

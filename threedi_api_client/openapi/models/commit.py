@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.0.5   3Di core release: 2.1.7  deployed on:  09:40AM (UTC) on November 18, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  02:45PM (UTC) on December 08, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -90,9 +90,6 @@ class Commit(object):
         :param commit_message: The commit_message of this Commit.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                commit_message is not None and len(commit_message) > 512):
-            raise ValueError("Invalid value for `commit_message`, length must be less than or equal to `512`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 commit_message is not None and len(commit_message) < 1):
             raise ValueError("Invalid value for `commit_message`, length must be greater than or equal to `1`")  # noqa: E501

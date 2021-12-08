@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.0.5   3Di core release: 2.1.7  deployed on:  09:40AM (UTC) on November 18, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  02:45PM (UTC) on December 08, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,12 +40,14 @@ class SchematisationRevision(object):
         'id': 'int',
         'created': 'datetime',
         'schematisation': 'str',
+        'schematisation_id': 'int',
         'number': 'int',
         'sqlite': 'Sqlite',
         'rasters': 'list[RevisionRaster]',
         'archived': 'datetime',
         'commit_date': 'datetime',
         'commit_user': 'str',
+        'commit_username': 'str',
         'commit_message': 'str',
         'is_valid': 'bool'
     }
@@ -55,17 +57,19 @@ class SchematisationRevision(object):
         'id': 'id',
         'created': 'created',
         'schematisation': 'schematisation',
+        'schematisation_id': 'schematisation_id',
         'number': 'number',
         'sqlite': 'sqlite',
         'rasters': 'rasters',
         'archived': 'archived',
         'commit_date': 'commit_date',
         'commit_user': 'commit_user',
+        'commit_username': 'commit_username',
         'commit_message': 'commit_message',
         'is_valid': 'is_valid'
     }
 
-    def __init__(self, url=None, id=None, created=None, schematisation=None, number=None, sqlite=None, rasters=None, archived=None, commit_date=None, commit_user=None, commit_message=None, is_valid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, id=None, created=None, schematisation=None, schematisation_id=None, number=None, sqlite=None, rasters=None, archived=None, commit_date=None, commit_user=None, commit_username=None, commit_message=None, is_valid=None, local_vars_configuration=None):  # noqa: E501
         """SchematisationRevision - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,12 +79,14 @@ class SchematisationRevision(object):
         self._id = None
         self._created = None
         self._schematisation = None
+        self._schematisation_id = None
         self._number = None
         self._sqlite = None
         self._rasters = None
         self._archived = None
         self._commit_date = None
         self._commit_user = None
+        self._commit_username = None
         self._commit_message = None
         self._is_valid = None
         self.discriminator = None
@@ -93,6 +99,8 @@ class SchematisationRevision(object):
             self.created = created
         if schematisation is not None:
             self.schematisation = schematisation
+        if schematisation_id is not None:
+            self.schematisation_id = schematisation_id
         if number is not None:
             self.number = number
         if sqlite is not None:
@@ -105,6 +113,8 @@ class SchematisationRevision(object):
             self.commit_date = commit_date
         if commit_user is not None:
             self.commit_user = commit_user
+        if commit_username is not None:
+            self.commit_username = commit_username
         if commit_message is not None:
             self.commit_message = commit_message
         if is_valid is not None:
@@ -193,6 +203,27 @@ class SchematisationRevision(object):
         """
 
         self._schematisation = schematisation
+
+    @property
+    def schematisation_id(self):
+        """Gets the schematisation_id of this SchematisationRevision.  # noqa: E501
+
+
+        :return: The schematisation_id of this SchematisationRevision.  # noqa: E501
+        :rtype: int
+        """
+        return self._schematisation_id
+
+    @schematisation_id.setter
+    def schematisation_id(self, schematisation_id):
+        """Sets the schematisation_id of this SchematisationRevision.
+
+
+        :param schematisation_id: The schematisation_id of this SchematisationRevision.  # noqa: E501
+        :type: int
+        """
+
+        self._schematisation_id = schematisation_id
 
     @property
     def number(self):
@@ -319,6 +350,27 @@ class SchematisationRevision(object):
         """
 
         self._commit_user = commit_user
+
+    @property
+    def commit_username(self):
+        """Gets the commit_username of this SchematisationRevision.  # noqa: E501
+
+
+        :return: The commit_username of this SchematisationRevision.  # noqa: E501
+        :rtype: str
+        """
+        return self._commit_username
+
+    @commit_username.setter
+    def commit_username(self, commit_username):
+        """Sets the commit_username of this SchematisationRevision.
+
+
+        :param commit_username: The commit_username of this SchematisationRevision.  # noqa: E501
+        :type: str
+        """
+
+        self._commit_username = commit_username
 
     @property
     def commit_message(self):

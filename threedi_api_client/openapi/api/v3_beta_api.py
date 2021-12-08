@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.0.5   3Di core release: 2.1.7  deployed on:  09:40AM (UTC) on November 18, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  02:45PM (UTC) on December 08, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -268,7 +268,7 @@ class V3BetaApi(object):
     def schematisations_latest_revision(self, id, **kwargs):  # noqa: E501
         """Get the latest committed revision.  # noqa: E501
 
-        For retrieving all revisions use: `/revisions/?schematisation__id=xx`  # noqa: E501
+        For retrieving all revisions use: `/schematisations/{id}/revisions`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.schematisations_latest_revision(id, async_req=True)
@@ -293,7 +293,7 @@ class V3BetaApi(object):
     def schematisations_latest_revision_with_http_info(self, id, **kwargs):  # noqa: E501
         """Get the latest committed revision.  # noqa: E501
 
-        For retrieving all revisions use: `/revisions/?schematisation__id=xx`  # noqa: E501
+        For retrieving all revisions use: `/schematisations/{id}/revisions`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.schematisations_latest_revision_with_http_info(id, async_req=True)
@@ -389,6 +389,38 @@ class V3BetaApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str created__range: Multiple values may be separated by commas.
+        :param str created__date:
+        :param str created__date__gt:
+        :param str created__date__gte:
+        :param str created__date__lt:
+        :param str created__date__lte:
+        :param float created__year:
+        :param float created__year__gt:
+        :param float created__year__gte:
+        :param float created__year__lt:
+        :param float created__year__lte:
+        :param float created__month:
+        :param float created__month__lte:
+        :param float created__day:
+        :param float created__day__lt:
+        :param float created__week:
+        :param float created__week_day:
+        :param float created__quarter:
+        :param str created__time:
+        :param float created__hour:
+        :param float created__minute:
+        :param float created__second:
+        :param str created__isnull:
+        :param str created_by__username:
+        :param str created_by__username__iexact:
+        :param str created_by__username__contains:
+        :param str created_by__username__icontains:
+        :param str created_by__username__in: Multiple values may be separated by commas.
+        :param str created_by__username__startswith:
+        :param str created_by__username__istartswith:
+        :param str created_by__username__endswith:
+        :param str created_by__username__regex:
         :param str name:
         :param str name__iexact:
         :param str name__contains:
@@ -425,6 +457,8 @@ class V3BetaApi(object):
         :param str owner__unique_id__istartswith:
         :param str owner__unique_id__endswith:
         :param str owner__unique_id__regex:
+        :param str tags__in:
+        :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -451,6 +485,38 @@ class V3BetaApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str created__range: Multiple values may be separated by commas.
+        :param str created__date:
+        :param str created__date__gt:
+        :param str created__date__gte:
+        :param str created__date__lt:
+        :param str created__date__lte:
+        :param float created__year:
+        :param float created__year__gt:
+        :param float created__year__gte:
+        :param float created__year__lt:
+        :param float created__year__lte:
+        :param float created__month:
+        :param float created__month__lte:
+        :param float created__day:
+        :param float created__day__lt:
+        :param float created__week:
+        :param float created__week_day:
+        :param float created__quarter:
+        :param str created__time:
+        :param float created__hour:
+        :param float created__minute:
+        :param float created__second:
+        :param str created__isnull:
+        :param str created_by__username:
+        :param str created_by__username__iexact:
+        :param str created_by__username__contains:
+        :param str created_by__username__icontains:
+        :param str created_by__username__in: Multiple values may be separated by commas.
+        :param str created_by__username__startswith:
+        :param str created_by__username__istartswith:
+        :param str created_by__username__endswith:
+        :param str created_by__username__regex:
         :param str name:
         :param str name__iexact:
         :param str name__contains:
@@ -487,6 +553,8 @@ class V3BetaApi(object):
         :param str owner__unique_id__istartswith:
         :param str owner__unique_id__endswith:
         :param str owner__unique_id__regex:
+        :param str tags__in:
+        :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -506,6 +574,38 @@ class V3BetaApi(object):
         local_var_params = locals()
 
         all_params = [
+            'created__range',
+            'created__date',
+            'created__date__gt',
+            'created__date__gte',
+            'created__date__lt',
+            'created__date__lte',
+            'created__year',
+            'created__year__gt',
+            'created__year__gte',
+            'created__year__lt',
+            'created__year__lte',
+            'created__month',
+            'created__month__lte',
+            'created__day',
+            'created__day__lt',
+            'created__week',
+            'created__week_day',
+            'created__quarter',
+            'created__time',
+            'created__hour',
+            'created__minute',
+            'created__second',
+            'created__isnull',
+            'created_by__username',
+            'created_by__username__iexact',
+            'created_by__username__contains',
+            'created_by__username__icontains',
+            'created_by__username__in',
+            'created_by__username__startswith',
+            'created_by__username__istartswith',
+            'created_by__username__endswith',
+            'created_by__username__regex',
             'name',
             'name__iexact',
             'name__contains',
@@ -542,6 +642,8 @@ class V3BetaApi(object):
             'owner__unique_id__istartswith',
             'owner__unique_id__endswith',
             'owner__unique_id__regex',
+            'tags__in',
+            'ordering',
             'limit',
             'offset'
         ]
@@ -568,6 +670,70 @@ class V3BetaApi(object):
         path_params = {}
 
         query_params = []
+        if 'created__range' in local_var_params and local_var_params['created__range'] is not None:  # noqa: E501
+            query_params.append(('created__range', local_var_params['created__range']))  # noqa: E501
+        if 'created__date' in local_var_params and local_var_params['created__date'] is not None:  # noqa: E501
+            query_params.append(('created__date', local_var_params['created__date']))  # noqa: E501
+        if 'created__date__gt' in local_var_params and local_var_params['created__date__gt'] is not None:  # noqa: E501
+            query_params.append(('created__date__gt', local_var_params['created__date__gt']))  # noqa: E501
+        if 'created__date__gte' in local_var_params and local_var_params['created__date__gte'] is not None:  # noqa: E501
+            query_params.append(('created__date__gte', local_var_params['created__date__gte']))  # noqa: E501
+        if 'created__date__lt' in local_var_params and local_var_params['created__date__lt'] is not None:  # noqa: E501
+            query_params.append(('created__date__lt', local_var_params['created__date__lt']))  # noqa: E501
+        if 'created__date__lte' in local_var_params and local_var_params['created__date__lte'] is not None:  # noqa: E501
+            query_params.append(('created__date__lte', local_var_params['created__date__lte']))  # noqa: E501
+        if 'created__year' in local_var_params and local_var_params['created__year'] is not None:  # noqa: E501
+            query_params.append(('created__year', local_var_params['created__year']))  # noqa: E501
+        if 'created__year__gt' in local_var_params and local_var_params['created__year__gt'] is not None:  # noqa: E501
+            query_params.append(('created__year__gt', local_var_params['created__year__gt']))  # noqa: E501
+        if 'created__year__gte' in local_var_params and local_var_params['created__year__gte'] is not None:  # noqa: E501
+            query_params.append(('created__year__gte', local_var_params['created__year__gte']))  # noqa: E501
+        if 'created__year__lt' in local_var_params and local_var_params['created__year__lt'] is not None:  # noqa: E501
+            query_params.append(('created__year__lt', local_var_params['created__year__lt']))  # noqa: E501
+        if 'created__year__lte' in local_var_params and local_var_params['created__year__lte'] is not None:  # noqa: E501
+            query_params.append(('created__year__lte', local_var_params['created__year__lte']))  # noqa: E501
+        if 'created__month' in local_var_params and local_var_params['created__month'] is not None:  # noqa: E501
+            query_params.append(('created__month', local_var_params['created__month']))  # noqa: E501
+        if 'created__month__lte' in local_var_params and local_var_params['created__month__lte'] is not None:  # noqa: E501
+            query_params.append(('created__month__lte', local_var_params['created__month__lte']))  # noqa: E501
+        if 'created__day' in local_var_params and local_var_params['created__day'] is not None:  # noqa: E501
+            query_params.append(('created__day', local_var_params['created__day']))  # noqa: E501
+        if 'created__day__lt' in local_var_params and local_var_params['created__day__lt'] is not None:  # noqa: E501
+            query_params.append(('created__day__lt', local_var_params['created__day__lt']))  # noqa: E501
+        if 'created__week' in local_var_params and local_var_params['created__week'] is not None:  # noqa: E501
+            query_params.append(('created__week', local_var_params['created__week']))  # noqa: E501
+        if 'created__week_day' in local_var_params and local_var_params['created__week_day'] is not None:  # noqa: E501
+            query_params.append(('created__week_day', local_var_params['created__week_day']))  # noqa: E501
+        if 'created__quarter' in local_var_params and local_var_params['created__quarter'] is not None:  # noqa: E501
+            query_params.append(('created__quarter', local_var_params['created__quarter']))  # noqa: E501
+        if 'created__time' in local_var_params and local_var_params['created__time'] is not None:  # noqa: E501
+            query_params.append(('created__time', local_var_params['created__time']))  # noqa: E501
+        if 'created__hour' in local_var_params and local_var_params['created__hour'] is not None:  # noqa: E501
+            query_params.append(('created__hour', local_var_params['created__hour']))  # noqa: E501
+        if 'created__minute' in local_var_params and local_var_params['created__minute'] is not None:  # noqa: E501
+            query_params.append(('created__minute', local_var_params['created__minute']))  # noqa: E501
+        if 'created__second' in local_var_params and local_var_params['created__second'] is not None:  # noqa: E501
+            query_params.append(('created__second', local_var_params['created__second']))  # noqa: E501
+        if 'created__isnull' in local_var_params and local_var_params['created__isnull'] is not None:  # noqa: E501
+            query_params.append(('created__isnull', local_var_params['created__isnull']))  # noqa: E501
+        if 'created_by__username' in local_var_params and local_var_params['created_by__username'] is not None:  # noqa: E501
+            query_params.append(('created_by__username', local_var_params['created_by__username']))  # noqa: E501
+        if 'created_by__username__iexact' in local_var_params and local_var_params['created_by__username__iexact'] is not None:  # noqa: E501
+            query_params.append(('created_by__username__iexact', local_var_params['created_by__username__iexact']))  # noqa: E501
+        if 'created_by__username__contains' in local_var_params and local_var_params['created_by__username__contains'] is not None:  # noqa: E501
+            query_params.append(('created_by__username__contains', local_var_params['created_by__username__contains']))  # noqa: E501
+        if 'created_by__username__icontains' in local_var_params and local_var_params['created_by__username__icontains'] is not None:  # noqa: E501
+            query_params.append(('created_by__username__icontains', local_var_params['created_by__username__icontains']))  # noqa: E501
+        if 'created_by__username__in' in local_var_params and local_var_params['created_by__username__in'] is not None:  # noqa: E501
+            query_params.append(('created_by__username__in', local_var_params['created_by__username__in']))  # noqa: E501
+        if 'created_by__username__startswith' in local_var_params and local_var_params['created_by__username__startswith'] is not None:  # noqa: E501
+            query_params.append(('created_by__username__startswith', local_var_params['created_by__username__startswith']))  # noqa: E501
+        if 'created_by__username__istartswith' in local_var_params and local_var_params['created_by__username__istartswith'] is not None:  # noqa: E501
+            query_params.append(('created_by__username__istartswith', local_var_params['created_by__username__istartswith']))  # noqa: E501
+        if 'created_by__username__endswith' in local_var_params and local_var_params['created_by__username__endswith'] is not None:  # noqa: E501
+            query_params.append(('created_by__username__endswith', local_var_params['created_by__username__endswith']))  # noqa: E501
+        if 'created_by__username__regex' in local_var_params and local_var_params['created_by__username__regex'] is not None:  # noqa: E501
+            query_params.append(('created_by__username__regex', local_var_params['created_by__username__regex']))  # noqa: E501
         if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
             query_params.append(('name', local_var_params['name']))  # noqa: E501
         if 'name__iexact' in local_var_params and local_var_params['name__iexact'] is not None:  # noqa: E501
@@ -640,6 +806,10 @@ class V3BetaApi(object):
             query_params.append(('owner__unique_id__endswith', local_var_params['owner__unique_id__endswith']))  # noqa: E501
         if 'owner__unique_id__regex' in local_var_params and local_var_params['owner__unique_id__regex'] is not None:  # noqa: E501
             query_params.append(('owner__unique_id__regex', local_var_params['owner__unique_id__regex']))  # noqa: E501
+        if 'tags__in' in local_var_params and local_var_params['tags__in'] is not None:  # noqa: E501
+            query_params.append(('tags__in', local_var_params['tags__in']))  # noqa: E501
+        if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
+            query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
@@ -1495,8 +1665,39 @@ class V3BetaApi(object):
         :param str schematisation__owner__unique_id__istartswith:
         :param str schematisation__owner__unique_id__endswith:
         :param str schematisation__owner__unique_id__regex:
+        :param str commit_user__username:
+        :param str commit_user__username__iexact:
+        :param str commit_user__username__contains:
+        :param str commit_user__username__icontains:
+        :param str commit_user__username__in: Multiple values may be separated by commas.
+        :param str commit_user__username__startswith:
+        :param str commit_user__username__istartswith:
+        :param str commit_user__username__endswith:
+        :param str commit_user__username__regex:
+        :param str commit_date:
+        :param str commit_date__gt:
+        :param str commit_date__gte:
+        :param str commit_date__lt:
+        :param str commit_date__lte:
+        :param str commit_date__date:
+        :param str commit_date__date__gt:
+        :param str commit_date__date__gte:
+        :param str commit_date__date__lt:
+        :param str commit_date__date__lte:
+        :param float commit_date__year:
+        :param float commit_date__year__gt:
+        :param float commit_date__year__gte:
+        :param float commit_date__year__lt:
+        :param float commit_date__year__lte:
+        :param float commit_date__month:
+        :param float commit_date__month__lte:
+        :param float commit_date__day:
+        :param float commit_date__day__lt:
+        :param float commit_date__week:
+        :param float commit_date__week_day:
         :param str committed:
         :param str archived:
+        :param str is_valid:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1562,8 +1763,39 @@ class V3BetaApi(object):
         :param str schematisation__owner__unique_id__istartswith:
         :param str schematisation__owner__unique_id__endswith:
         :param str schematisation__owner__unique_id__regex:
+        :param str commit_user__username:
+        :param str commit_user__username__iexact:
+        :param str commit_user__username__contains:
+        :param str commit_user__username__icontains:
+        :param str commit_user__username__in: Multiple values may be separated by commas.
+        :param str commit_user__username__startswith:
+        :param str commit_user__username__istartswith:
+        :param str commit_user__username__endswith:
+        :param str commit_user__username__regex:
+        :param str commit_date:
+        :param str commit_date__gt:
+        :param str commit_date__gte:
+        :param str commit_date__lt:
+        :param str commit_date__lte:
+        :param str commit_date__date:
+        :param str commit_date__date__gt:
+        :param str commit_date__date__gte:
+        :param str commit_date__date__lt:
+        :param str commit_date__date__lte:
+        :param float commit_date__year:
+        :param float commit_date__year__gt:
+        :param float commit_date__year__gte:
+        :param float commit_date__year__lt:
+        :param float commit_date__year__lte:
+        :param float commit_date__month:
+        :param float commit_date__month__lte:
+        :param float commit_date__day:
+        :param float commit_date__day__lt:
+        :param float commit_date__week:
+        :param float commit_date__week_day:
         :param str committed:
         :param str archived:
+        :param str is_valid:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -1622,8 +1854,39 @@ class V3BetaApi(object):
             'schematisation__owner__unique_id__istartswith',
             'schematisation__owner__unique_id__endswith',
             'schematisation__owner__unique_id__regex',
+            'commit_user__username',
+            'commit_user__username__iexact',
+            'commit_user__username__contains',
+            'commit_user__username__icontains',
+            'commit_user__username__in',
+            'commit_user__username__startswith',
+            'commit_user__username__istartswith',
+            'commit_user__username__endswith',
+            'commit_user__username__regex',
+            'commit_date',
+            'commit_date__gt',
+            'commit_date__gte',
+            'commit_date__lt',
+            'commit_date__lte',
+            'commit_date__date',
+            'commit_date__date__gt',
+            'commit_date__date__gte',
+            'commit_date__date__lt',
+            'commit_date__date__lte',
+            'commit_date__year',
+            'commit_date__year__gt',
+            'commit_date__year__gte',
+            'commit_date__year__lt',
+            'commit_date__year__lte',
+            'commit_date__month',
+            'commit_date__month__lte',
+            'commit_date__day',
+            'commit_date__day__lt',
+            'commit_date__week',
+            'commit_date__week_day',
             'committed',
             'archived',
+            'is_valid',
             'limit',
             'offset'
         ]
@@ -1732,10 +1995,72 @@ class V3BetaApi(object):
             query_params.append(('schematisation__owner__unique_id__endswith', local_var_params['schematisation__owner__unique_id__endswith']))  # noqa: E501
         if 'schematisation__owner__unique_id__regex' in local_var_params and local_var_params['schematisation__owner__unique_id__regex'] is not None:  # noqa: E501
             query_params.append(('schematisation__owner__unique_id__regex', local_var_params['schematisation__owner__unique_id__regex']))  # noqa: E501
+        if 'commit_user__username' in local_var_params and local_var_params['commit_user__username'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username', local_var_params['commit_user__username']))  # noqa: E501
+        if 'commit_user__username__iexact' in local_var_params and local_var_params['commit_user__username__iexact'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username__iexact', local_var_params['commit_user__username__iexact']))  # noqa: E501
+        if 'commit_user__username__contains' in local_var_params and local_var_params['commit_user__username__contains'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username__contains', local_var_params['commit_user__username__contains']))  # noqa: E501
+        if 'commit_user__username__icontains' in local_var_params and local_var_params['commit_user__username__icontains'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username__icontains', local_var_params['commit_user__username__icontains']))  # noqa: E501
+        if 'commit_user__username__in' in local_var_params and local_var_params['commit_user__username__in'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username__in', local_var_params['commit_user__username__in']))  # noqa: E501
+        if 'commit_user__username__startswith' in local_var_params and local_var_params['commit_user__username__startswith'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username__startswith', local_var_params['commit_user__username__startswith']))  # noqa: E501
+        if 'commit_user__username__istartswith' in local_var_params and local_var_params['commit_user__username__istartswith'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username__istartswith', local_var_params['commit_user__username__istartswith']))  # noqa: E501
+        if 'commit_user__username__endswith' in local_var_params and local_var_params['commit_user__username__endswith'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username__endswith', local_var_params['commit_user__username__endswith']))  # noqa: E501
+        if 'commit_user__username__regex' in local_var_params and local_var_params['commit_user__username__regex'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username__regex', local_var_params['commit_user__username__regex']))  # noqa: E501
+        if 'commit_date' in local_var_params and local_var_params['commit_date'] is not None:  # noqa: E501
+            query_params.append(('commit_date', local_var_params['commit_date']))  # noqa: E501
+        if 'commit_date__gt' in local_var_params and local_var_params['commit_date__gt'] is not None:  # noqa: E501
+            query_params.append(('commit_date__gt', local_var_params['commit_date__gt']))  # noqa: E501
+        if 'commit_date__gte' in local_var_params and local_var_params['commit_date__gte'] is not None:  # noqa: E501
+            query_params.append(('commit_date__gte', local_var_params['commit_date__gte']))  # noqa: E501
+        if 'commit_date__lt' in local_var_params and local_var_params['commit_date__lt'] is not None:  # noqa: E501
+            query_params.append(('commit_date__lt', local_var_params['commit_date__lt']))  # noqa: E501
+        if 'commit_date__lte' in local_var_params and local_var_params['commit_date__lte'] is not None:  # noqa: E501
+            query_params.append(('commit_date__lte', local_var_params['commit_date__lte']))  # noqa: E501
+        if 'commit_date__date' in local_var_params and local_var_params['commit_date__date'] is not None:  # noqa: E501
+            query_params.append(('commit_date__date', local_var_params['commit_date__date']))  # noqa: E501
+        if 'commit_date__date__gt' in local_var_params and local_var_params['commit_date__date__gt'] is not None:  # noqa: E501
+            query_params.append(('commit_date__date__gt', local_var_params['commit_date__date__gt']))  # noqa: E501
+        if 'commit_date__date__gte' in local_var_params and local_var_params['commit_date__date__gte'] is not None:  # noqa: E501
+            query_params.append(('commit_date__date__gte', local_var_params['commit_date__date__gte']))  # noqa: E501
+        if 'commit_date__date__lt' in local_var_params and local_var_params['commit_date__date__lt'] is not None:  # noqa: E501
+            query_params.append(('commit_date__date__lt', local_var_params['commit_date__date__lt']))  # noqa: E501
+        if 'commit_date__date__lte' in local_var_params and local_var_params['commit_date__date__lte'] is not None:  # noqa: E501
+            query_params.append(('commit_date__date__lte', local_var_params['commit_date__date__lte']))  # noqa: E501
+        if 'commit_date__year' in local_var_params and local_var_params['commit_date__year'] is not None:  # noqa: E501
+            query_params.append(('commit_date__year', local_var_params['commit_date__year']))  # noqa: E501
+        if 'commit_date__year__gt' in local_var_params and local_var_params['commit_date__year__gt'] is not None:  # noqa: E501
+            query_params.append(('commit_date__year__gt', local_var_params['commit_date__year__gt']))  # noqa: E501
+        if 'commit_date__year__gte' in local_var_params and local_var_params['commit_date__year__gte'] is not None:  # noqa: E501
+            query_params.append(('commit_date__year__gte', local_var_params['commit_date__year__gte']))  # noqa: E501
+        if 'commit_date__year__lt' in local_var_params and local_var_params['commit_date__year__lt'] is not None:  # noqa: E501
+            query_params.append(('commit_date__year__lt', local_var_params['commit_date__year__lt']))  # noqa: E501
+        if 'commit_date__year__lte' in local_var_params and local_var_params['commit_date__year__lte'] is not None:  # noqa: E501
+            query_params.append(('commit_date__year__lte', local_var_params['commit_date__year__lte']))  # noqa: E501
+        if 'commit_date__month' in local_var_params and local_var_params['commit_date__month'] is not None:  # noqa: E501
+            query_params.append(('commit_date__month', local_var_params['commit_date__month']))  # noqa: E501
+        if 'commit_date__month__lte' in local_var_params and local_var_params['commit_date__month__lte'] is not None:  # noqa: E501
+            query_params.append(('commit_date__month__lte', local_var_params['commit_date__month__lte']))  # noqa: E501
+        if 'commit_date__day' in local_var_params and local_var_params['commit_date__day'] is not None:  # noqa: E501
+            query_params.append(('commit_date__day', local_var_params['commit_date__day']))  # noqa: E501
+        if 'commit_date__day__lt' in local_var_params and local_var_params['commit_date__day__lt'] is not None:  # noqa: E501
+            query_params.append(('commit_date__day__lt', local_var_params['commit_date__day__lt']))  # noqa: E501
+        if 'commit_date__week' in local_var_params and local_var_params['commit_date__week'] is not None:  # noqa: E501
+            query_params.append(('commit_date__week', local_var_params['commit_date__week']))  # noqa: E501
+        if 'commit_date__week_day' in local_var_params and local_var_params['commit_date__week_day'] is not None:  # noqa: E501
+            query_params.append(('commit_date__week_day', local_var_params['commit_date__week_day']))  # noqa: E501
         if 'committed' in local_var_params and local_var_params['committed'] is not None:  # noqa: E501
             query_params.append(('committed', local_var_params['committed']))  # noqa: E501
         if 'archived' in local_var_params and local_var_params['archived'] is not None:  # noqa: E501
             query_params.append(('archived', local_var_params['archived']))  # noqa: E501
+        if 'is_valid' in local_var_params and local_var_params['is_valid'] is not None:  # noqa: E501
+            query_params.append(('is_valid', local_var_params['is_valid']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501

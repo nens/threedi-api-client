@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.0.5   3Di core release: 2.1.7  deployed on:  09:40AM (UTC) on November 18, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  02:45PM (UTC) on December 08, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -46,6 +46,7 @@ class ThreediModel(object):
         'revision_number': 'str',
         'revision_commit_date': 'str',
         'schematisation_id': 'int',
+        'schematisation_name': 'str',
         'repository_slug': 'str',
         'name': 'str',
         'slug': 'str',
@@ -75,6 +76,7 @@ class ThreediModel(object):
         'revision_number': 'revision_number',
         'revision_commit_date': 'revision_commit_date',
         'schematisation_id': 'schematisation_id',
+        'schematisation_name': 'schematisation_name',
         'repository_slug': 'repository_slug',
         'name': 'name',
         'slug': 'slug',
@@ -93,7 +95,7 @@ class ThreediModel(object):
         'lines_count': 'lines_count'
     }
 
-    def __init__(self, url=None, id=None, user=None, inpy_version=None, revision=None, revision_id=None, revision_hash=None, revision_number=None, revision_commit_date=None, schematisation_id=None, repository_slug=None, name=None, slug=None, disabled=None, epsg=None, inp_success=None, description=None, storage_space=None, storage_space_humanized=None, model_ini=None, breach_count=None, extent_two_d=None, extent_one_d=None, extent_zero_d=None, nodes_count=None, lines_count=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, id=None, user=None, inpy_version=None, revision=None, revision_id=None, revision_hash=None, revision_number=None, revision_commit_date=None, schematisation_id=None, schematisation_name=None, repository_slug=None, name=None, slug=None, disabled=None, epsg=None, inp_success=None, description=None, storage_space=None, storage_space_humanized=None, model_ini=None, breach_count=None, extent_two_d=None, extent_one_d=None, extent_zero_d=None, nodes_count=None, lines_count=None, local_vars_configuration=None):  # noqa: E501
         """ThreediModel - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -109,6 +111,7 @@ class ThreediModel(object):
         self._revision_number = None
         self._revision_commit_date = None
         self._schematisation_id = None
+        self._schematisation_name = None
         self._repository_slug = None
         self._name = None
         self._slug = None
@@ -145,6 +148,8 @@ class ThreediModel(object):
             self.revision_commit_date = revision_commit_date
         if schematisation_id is not None:
             self.schematisation_id = schematisation_id
+        if schematisation_name is not None:
+            self.schematisation_name = schematisation_name
         if repository_slug is not None:
             self.repository_slug = repository_slug
         if name is not None:
@@ -386,6 +391,27 @@ class ThreediModel(object):
         """
 
         self._schematisation_id = schematisation_id
+
+    @property
+    def schematisation_name(self):
+        """Gets the schematisation_name of this ThreediModel.  # noqa: E501
+
+
+        :return: The schematisation_name of this ThreediModel.  # noqa: E501
+        :rtype: str
+        """
+        return self._schematisation_name
+
+    @schematisation_name.setter
+    def schematisation_name(self, schematisation_name):
+        """Sets the schematisation_name of this ThreediModel.
+
+
+        :param schematisation_name: The schematisation_name of this ThreediModel.  # noqa: E501
+        :type: str
+        """
+
+        self._schematisation_name = schematisation_name
 
     @property
     def repository_slug(self):

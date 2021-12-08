@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.0.5   3Di core release: 2.1.7  deployed on:  09:40AM (UTC) on November 18, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  02:45PM (UTC) on December 08, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,7 +37,7 @@ class Extent(object):
     """
     openapi_types = {
         'type': 'str',
-        'coordinates': 'list[float]'
+        'coordinates': 'list[list[float]]'
     }
 
     attribute_map = {
@@ -90,7 +90,7 @@ class Extent(object):
         Exactly 2 coordinates, specifying the bottom left (longitude, latitude order)and upper right respectively  # noqa: E501
 
         :return: The coordinates of this Extent.  # noqa: E501
-        :rtype: list[float]
+        :rtype: list[list[float]]
         """
         return self._coordinates
 
@@ -101,7 +101,7 @@ class Extent(object):
         Exactly 2 coordinates, specifying the bottom left (longitude, latitude order)and upper right respectively  # noqa: E501
 
         :param coordinates: The coordinates of this Extent.  # noqa: E501
-        :type: list[float]
+        :type: list[list[float]]
         """
         if self.local_vars_configuration.client_side_validation and coordinates is None:  # noqa: E501
             raise ValueError("Invalid value for `coordinates`, must not be `None`")  # noqa: E501
