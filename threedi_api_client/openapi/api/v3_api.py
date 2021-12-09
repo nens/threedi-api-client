@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  02:45PM (UTC) on December 08, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  10:36AM (UTC) on December 09, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -54437,6 +54437,7 @@ class V3Api(object):
         :param str revision__repository__organisation__unique_id__istartswith:
         :param str revision__repository__organisation__unique_id__endswith:
         :param str revision__repository__organisation__unique_id__regex:
+        :param str revision__schematisation__owner__unique_id:
         :param str revision__is_pinned:
         :param str disabled:
         :param str inp_success:
@@ -54546,6 +54547,7 @@ class V3Api(object):
         :param str revision__repository__organisation__unique_id__istartswith:
         :param str revision__repository__organisation__unique_id__endswith:
         :param str revision__repository__organisation__unique_id__regex:
+        :param str revision__schematisation__owner__unique_id:
         :param str revision__is_pinned:
         :param str disabled:
         :param str inp_success:
@@ -54648,6 +54650,7 @@ class V3Api(object):
             'revision__repository__organisation__unique_id__istartswith',
             'revision__repository__organisation__unique_id__endswith',
             'revision__repository__organisation__unique_id__regex',
+            'revision__schematisation__owner__unique_id',
             'revision__is_pinned',
             'disabled',
             'inp_success',
@@ -54836,6 +54839,8 @@ class V3Api(object):
             query_params.append(('revision__repository__organisation__unique_id__endswith', local_var_params['revision__repository__organisation__unique_id__endswith']))  # noqa: E501
         if 'revision__repository__organisation__unique_id__regex' in local_var_params and local_var_params['revision__repository__organisation__unique_id__regex'] is not None:  # noqa: E501
             query_params.append(('revision__repository__organisation__unique_id__regex', local_var_params['revision__repository__organisation__unique_id__regex']))  # noqa: E501
+        if 'revision__schematisation__owner__unique_id' in local_var_params and local_var_params['revision__schematisation__owner__unique_id'] is not None:  # noqa: E501
+            query_params.append(('revision__schematisation__owner__unique_id', local_var_params['revision__schematisation__owner__unique_id']))  # noqa: E501
         if 'revision__is_pinned' in local_var_params and local_var_params['revision__is_pinned'] is not None:  # noqa: E501
             query_params.append(('revision__is_pinned', local_var_params['revision__is_pinned']))  # noqa: E501
         if 'disabled' in local_var_params and local_var_params['disabled'] is not None:  # noqa: E501

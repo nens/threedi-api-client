@@ -5,7 +5,7 @@ info:
     3Di simulation API (latest stable version: v3) 
      Framework release: 2.1.1 
      3Di core release: 2.1.9 
-    deployed on:  02:45PM (UTC) on December 08, 2021
+    deployed on:  10:36AM (UTC) on December 09, 2021
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -13514,6 +13514,11 @@ paths:
           description: ''
           required: false
           type: string
+        - name: revision__schematisation__owner__unique_id
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: revision__is_pinned
           in: query
           description: ''
@@ -16324,6 +16329,14 @@ definitions:
         description: The username of a user
         type: string
         pattern: ^[\w.@+-]+$
+      created_by_first_name:
+        title: Created by first name
+        type: string
+        readOnly: true
+      created_by_last_name:
+        title: Created by last name
+        type: string
+        readOnly: true
       created:
         title: Created
         description: The creation date and time (only superusers can modify)
@@ -16561,12 +16574,17 @@ definitions:
         format: date-time
         readOnly: true
       commit_user:
-        title: Commit user
+        title: User.username
+        description: The username of a user
         type: string
-        format: uri
+        pattern: ^[\w.@+-]+$
         readOnly: true
-      commit_username:
-        title: Commit username
+      commit_first_name:
+        title: Commit first name
+        type: string
+        readOnly: true
+      commit_last_name:
+        title: Commit last name
         type: string
         readOnly: true
       commit_message:
@@ -16630,9 +16648,14 @@ definitions:
         type: string
         format: date-time
         x-nullable: true
+      commit_user:
+        title: User.username
+        description: The username of a user
+        type: string
+        pattern: ^[\w.@+-]+$
       user:
         title: User
-        description: User that committed the changeset for this revision (only superusers
+        description: User that committed the revision on models.lizard.net (only superusers
           can modify)
         type: string
         maxLength: 128

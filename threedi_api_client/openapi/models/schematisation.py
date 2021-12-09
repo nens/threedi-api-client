@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  02:45PM (UTC) on December 08, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  10:36AM (UTC) on December 09, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -44,6 +44,8 @@ class Schematisation(object):
         'tags': 'list[str]',
         'meta': 'object',
         'created_by': 'str',
+        'created_by_first_name': 'str',
+        'created_by_last_name': 'str',
         'created': 'datetime',
         'storage_usage': 'int'
     }
@@ -57,11 +59,13 @@ class Schematisation(object):
         'tags': 'tags',
         'meta': 'meta',
         'created_by': 'created_by',
+        'created_by_first_name': 'created_by_first_name',
+        'created_by_last_name': 'created_by_last_name',
         'created': 'created',
         'storage_usage': 'storage_usage'
     }
 
-    def __init__(self, url=None, id=None, owner=None, name=None, slug=None, tags=None, meta=None, created_by=None, created=None, storage_usage=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, id=None, owner=None, name=None, slug=None, tags=None, meta=None, created_by=None, created_by_first_name=None, created_by_last_name=None, created=None, storage_usage=None, local_vars_configuration=None):  # noqa: E501
         """Schematisation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,6 +79,8 @@ class Schematisation(object):
         self._tags = None
         self._meta = None
         self._created_by = None
+        self._created_by_first_name = None
+        self._created_by_last_name = None
         self._created = None
         self._storage_usage = None
         self.discriminator = None
@@ -93,6 +99,10 @@ class Schematisation(object):
         self.meta = meta
         if created_by is not None:
             self.created_by = created_by
+        if created_by_first_name is not None:
+            self.created_by_first_name = created_by_first_name
+        if created_by_last_name is not None:
+            self.created_by_last_name = created_by_last_name
         if created is not None:
             self.created = created
         if storage_usage is not None:
@@ -293,6 +303,48 @@ class Schematisation(object):
             raise ValueError(r"Invalid value for `created_by`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
 
         self._created_by = created_by
+
+    @property
+    def created_by_first_name(self):
+        """Gets the created_by_first_name of this Schematisation.  # noqa: E501
+
+
+        :return: The created_by_first_name of this Schematisation.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_by_first_name
+
+    @created_by_first_name.setter
+    def created_by_first_name(self, created_by_first_name):
+        """Sets the created_by_first_name of this Schematisation.
+
+
+        :param created_by_first_name: The created_by_first_name of this Schematisation.  # noqa: E501
+        :type: str
+        """
+
+        self._created_by_first_name = created_by_first_name
+
+    @property
+    def created_by_last_name(self):
+        """Gets the created_by_last_name of this Schematisation.  # noqa: E501
+
+
+        :return: The created_by_last_name of this Schematisation.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_by_last_name
+
+    @created_by_last_name.setter
+    def created_by_last_name(self, created_by_last_name):
+        """Sets the created_by_last_name of this Schematisation.
+
+
+        :param created_by_last_name: The created_by_last_name of this Schematisation.  # noqa: E501
+        :type: str
+        """
+
+        self._created_by_last_name = created_by_last_name
 
     @property
     def created(self):

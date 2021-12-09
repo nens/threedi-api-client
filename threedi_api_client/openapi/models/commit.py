@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  02:45PM (UTC) on December 08, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  10:36AM (UTC) on December 09, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,6 +40,7 @@ class Commit(object):
         'force_as': 'str',
         'schematisation_name': 'str',
         'commit_date': 'datetime',
+        'commit_user': 'str',
         'user': 'str'
     }
 
@@ -48,10 +49,11 @@ class Commit(object):
         'force_as': 'force_as',
         'schematisation_name': 'schematisation_name',
         'commit_date': 'commit_date',
+        'commit_user': 'commit_user',
         'user': 'user'
     }
 
-    def __init__(self, commit_message=None, force_as=None, schematisation_name=None, commit_date=None, user=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, commit_message=None, force_as=None, schematisation_name=None, commit_date=None, commit_user=None, user=None, local_vars_configuration=None):  # noqa: E501
         """Commit - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,6 +63,7 @@ class Commit(object):
         self._force_as = None
         self._schematisation_name = None
         self._commit_date = None
+        self._commit_user = None
         self._user = None
         self.discriminator = None
 
@@ -70,6 +73,8 @@ class Commit(object):
         if schematisation_name is not None:
             self.schematisation_name = schematisation_name
         self.commit_date = commit_date
+        if commit_user is not None:
+            self.commit_user = commit_user
         self.user = user
 
     @property
@@ -174,10 +179,36 @@ class Commit(object):
         self._commit_date = commit_date
 
     @property
+    def commit_user(self):
+        """Gets the commit_user of this Commit.  # noqa: E501
+
+        The username of a user  # noqa: E501
+
+        :return: The commit_user of this Commit.  # noqa: E501
+        :rtype: str
+        """
+        return self._commit_user
+
+    @commit_user.setter
+    def commit_user(self, commit_user):
+        """Sets the commit_user of this Commit.
+
+        The username of a user  # noqa: E501
+
+        :param commit_user: The commit_user of this Commit.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                commit_user is not None and not re.search(r'^[\w.@+-]+$', commit_user)):  # noqa: E501
+            raise ValueError(r"Invalid value for `commit_user`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
+
+        self._commit_user = commit_user
+
+    @property
     def user(self):
         """Gets the user of this Commit.  # noqa: E501
 
-        User that committed the changeset for this revision (only superusers can modify)  # noqa: E501
+        User that committed the revision on models.lizard.net (only superusers can modify)  # noqa: E501
 
         :return: The user of this Commit.  # noqa: E501
         :rtype: str
@@ -188,7 +219,7 @@ class Commit(object):
     def user(self, user):
         """Sets the user of this Commit.
 
-        User that committed the changeset for this revision (only superusers can modify)  # noqa: E501
+        User that committed the revision on models.lizard.net (only superusers can modify)  # noqa: E501
 
         :param user: The user of this Commit.  # noqa: E501
         :type: str

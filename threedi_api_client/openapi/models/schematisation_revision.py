@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  02:45PM (UTC) on December 08, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  10:36AM (UTC) on December 09, 2021  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -47,7 +47,8 @@ class SchematisationRevision(object):
         'archived': 'datetime',
         'commit_date': 'datetime',
         'commit_user': 'str',
-        'commit_username': 'str',
+        'commit_first_name': 'str',
+        'commit_last_name': 'str',
         'commit_message': 'str',
         'is_valid': 'bool'
     }
@@ -64,12 +65,13 @@ class SchematisationRevision(object):
         'archived': 'archived',
         'commit_date': 'commit_date',
         'commit_user': 'commit_user',
-        'commit_username': 'commit_username',
+        'commit_first_name': 'commit_first_name',
+        'commit_last_name': 'commit_last_name',
         'commit_message': 'commit_message',
         'is_valid': 'is_valid'
     }
 
-    def __init__(self, url=None, id=None, created=None, schematisation=None, schematisation_id=None, number=None, sqlite=None, rasters=None, archived=None, commit_date=None, commit_user=None, commit_username=None, commit_message=None, is_valid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, id=None, created=None, schematisation=None, schematisation_id=None, number=None, sqlite=None, rasters=None, archived=None, commit_date=None, commit_user=None, commit_first_name=None, commit_last_name=None, commit_message=None, is_valid=None, local_vars_configuration=None):  # noqa: E501
         """SchematisationRevision - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -86,7 +88,8 @@ class SchematisationRevision(object):
         self._archived = None
         self._commit_date = None
         self._commit_user = None
-        self._commit_username = None
+        self._commit_first_name = None
+        self._commit_last_name = None
         self._commit_message = None
         self._is_valid = None
         self.discriminator = None
@@ -113,8 +116,10 @@ class SchematisationRevision(object):
             self.commit_date = commit_date
         if commit_user is not None:
             self.commit_user = commit_user
-        if commit_username is not None:
-            self.commit_username = commit_username
+        if commit_first_name is not None:
+            self.commit_first_name = commit_first_name
+        if commit_last_name is not None:
+            self.commit_last_name = commit_last_name
         if commit_message is not None:
             self.commit_message = commit_message
         if is_valid is not None:
@@ -334,6 +339,7 @@ class SchematisationRevision(object):
     def commit_user(self):
         """Gets the commit_user of this SchematisationRevision.  # noqa: E501
 
+        The username of a user  # noqa: E501
 
         :return: The commit_user of this SchematisationRevision.  # noqa: E501
         :rtype: str
@@ -344,33 +350,58 @@ class SchematisationRevision(object):
     def commit_user(self, commit_user):
         """Sets the commit_user of this SchematisationRevision.
 
+        The username of a user  # noqa: E501
 
         :param commit_user: The commit_user of this SchematisationRevision.  # noqa: E501
         :type: str
         """
+        if (self.local_vars_configuration.client_side_validation and
+                commit_user is not None and not re.search(r'^[\w.@+-]+$', commit_user)):  # noqa: E501
+            raise ValueError(r"Invalid value for `commit_user`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
 
         self._commit_user = commit_user
 
     @property
-    def commit_username(self):
-        """Gets the commit_username of this SchematisationRevision.  # noqa: E501
+    def commit_first_name(self):
+        """Gets the commit_first_name of this SchematisationRevision.  # noqa: E501
 
 
-        :return: The commit_username of this SchematisationRevision.  # noqa: E501
+        :return: The commit_first_name of this SchematisationRevision.  # noqa: E501
         :rtype: str
         """
-        return self._commit_username
+        return self._commit_first_name
 
-    @commit_username.setter
-    def commit_username(self, commit_username):
-        """Sets the commit_username of this SchematisationRevision.
+    @commit_first_name.setter
+    def commit_first_name(self, commit_first_name):
+        """Sets the commit_first_name of this SchematisationRevision.
 
 
-        :param commit_username: The commit_username of this SchematisationRevision.  # noqa: E501
+        :param commit_first_name: The commit_first_name of this SchematisationRevision.  # noqa: E501
         :type: str
         """
 
-        self._commit_username = commit_username
+        self._commit_first_name = commit_first_name
+
+    @property
+    def commit_last_name(self):
+        """Gets the commit_last_name of this SchematisationRevision.  # noqa: E501
+
+
+        :return: The commit_last_name of this SchematisationRevision.  # noqa: E501
+        :rtype: str
+        """
+        return self._commit_last_name
+
+    @commit_last_name.setter
+    def commit_last_name(self, commit_last_name):
+        """Sets the commit_last_name of this SchematisationRevision.
+
+
+        :param commit_last_name: The commit_last_name of this SchematisationRevision.  # noqa: E501
+        :type: str
+        """
+
+        self._commit_last_name = commit_last_name
 
     @property
     def commit_message(self):
