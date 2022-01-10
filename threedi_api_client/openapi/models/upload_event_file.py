@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  10:36AM (UTC) on December 09, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.7.0   3Di core release: 2.2.2  deployed on:  01:00PM (UTC) on January 10, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -39,17 +39,19 @@ class UploadEventFile(object):
         'put_url': 'str',
         'filename': 'str',
         'status': 'str',
-        'offset': 'int'
+        'offset': 'int',
+        'periodic': 'str'
     }
 
     attribute_map = {
         'put_url': 'put_url',
         'filename': 'filename',
         'status': 'status',
-        'offset': 'offset'
+        'offset': 'offset',
+        'periodic': 'periodic'
     }
 
-    def __init__(self, put_url=None, filename=None, status=None, offset=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, put_url=None, filename=None, status=None, offset=None, periodic=None, local_vars_configuration=None):  # noqa: E501
         """UploadEventFile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +61,7 @@ class UploadEventFile(object):
         self._filename = None
         self._status = None
         self._offset = None
+        self._periodic = None
         self.discriminator = None
 
         if put_url is not None:
@@ -67,6 +70,8 @@ class UploadEventFile(object):
         if status is not None:
             self.status = status
         self.offset = offset
+        if periodic is not None:
+            self.periodic = periodic
 
     @property
     def put_url(self):
@@ -170,6 +175,33 @@ class UploadEventFile(object):
             raise ValueError("Invalid value for `offset`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._offset = offset
+
+    @property
+    def periodic(self):
+        """Gets the periodic of this UploadEventFile.  # noqa: E501
+
+
+        :return: The periodic of this UploadEventFile.  # noqa: E501
+        :rtype: str
+        """
+        return self._periodic
+
+    @periodic.setter
+    def periodic(self, periodic):
+        """Sets the periodic of this UploadEventFile.
+
+
+        :param periodic: The periodic of this UploadEventFile.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["daily"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and periodic not in allowed_values:  # noqa: E501
+            logger.warning(
+                "Warning: Unknown value for `periodic` ({0}), must be one of {1}. Either your threedi-api-client version is out of date or this value is invalid."  # noqa: E501
+                .format(periodic, allowed_values)
+            )
+
+        self._periodic = periodic
 
     def to_dict(self):
         """Returns the model properties as a dict"""

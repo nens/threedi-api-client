@@ -5,6 +5,8 @@ History
 3.1.0 (unreleased)
 -------------------
 
+- Added support for `periodic` (`daily` only for now) lateral file
+
 - Support for 1D initial waterlevels from file.
 
 - Show warnings in cases of unknown enum values instead of raising errors.

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  10:36AM (UTC) on December 09, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.7.0   3Di core release: 2.2.2  deployed on:  01:00PM (UTC) on January 10, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -43,7 +43,8 @@ class FileLateral(object):
         'offset': 'int',
         'file': 'File',
         'state': 'str',
-        'state_detail': 'object'
+        'state_detail': 'object',
+        'periodic': 'str'
     }
 
     attribute_map = {
@@ -54,10 +55,11 @@ class FileLateral(object):
         'offset': 'offset',
         'file': 'file',
         'state': 'state',
-        'state_detail': 'state_detail'
+        'state_detail': 'state_detail',
+        'periodic': 'periodic'
     }
 
-    def __init__(self, url=None, id=None, uid=None, simulation=None, offset=None, file=None, state=None, state_detail=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, id=None, uid=None, simulation=None, offset=None, file=None, state=None, state_detail=None, periodic=None, local_vars_configuration=None):  # noqa: E501
         """FileLateral - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -71,6 +73,7 @@ class FileLateral(object):
         self._file = None
         self._state = None
         self._state_detail = None
+        self._periodic = None
         self.discriminator = None
 
         if url is not None:
@@ -88,6 +91,8 @@ class FileLateral(object):
             self.state = state
         if state_detail is not None:
             self.state_detail = state_detail
+        if periodic is not None:
+            self.periodic = periodic
 
     @property
     def url(self):
@@ -272,6 +277,33 @@ class FileLateral(object):
         """
 
         self._state_detail = state_detail
+
+    @property
+    def periodic(self):
+        """Gets the periodic of this FileLateral.  # noqa: E501
+
+
+        :return: The periodic of this FileLateral.  # noqa: E501
+        :rtype: str
+        """
+        return self._periodic
+
+    @periodic.setter
+    def periodic(self, periodic):
+        """Sets the periodic of this FileLateral.
+
+
+        :param periodic: The periodic of this FileLateral.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["daily"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and periodic not in allowed_values:  # noqa: E501
+            logger.warning(
+                "Warning: Unknown value for `periodic` ({0}), must be one of {1}. Either your threedi-api-client version is out of date or this value is invalid."  # noqa: E501
+                .format(periodic, allowed_values)
+            )
+
+        self._periodic = periodic
 
     def to_dict(self):
         """Returns the model properties as a dict"""

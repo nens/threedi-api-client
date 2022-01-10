@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest stable version: v3) 
-     Framework release: 2.1.1 
-     3Di core release: 2.1.9 
-    deployed on:  10:36AM (UTC) on December 09, 2021
+     Framework release: 2.7.0 
+     3Di core release: 2.2.2 
+    deployed on:  01:00PM (UTC) on January 10, 2022
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -1099,10 +1099,10 @@ paths:
   /v3-beta/schematisations/{schematisation_pk}/revisions/{id}/sqlite/upload/:
     post:
       operationId: schematisations_revisions_sqlite_upload
-      summary: |-
-        Endpoint for uploading the sqlite file, the file
-        should be zipped (deflate).
+      summary: Endpoint for uploading the sqlite file.
       description: |-
+        The file should preferably be zipped (deflate).
+
         Replaces the present sqlite file if there already exists one.
 
         Optional md5sum can be added to detect if the file already
@@ -1703,13 +1703,16 @@ paths:
         - v3-beta
     post:
       operationId: simulation_templates_create
-      summary: Create a (optionally cloned) simulation template from this simulation.
+      summary: Create a (optionally cloned) simulation template from the given simulation.
       description: |-
         A simulation template is actually nothing more than a simulation with a special status.
-        It's immutable after creation and can only used to create new simulations, or be deleted.
+        It's immutable after creation and only can be used to create new simulations.
 
-        Simulations 'upgraded' to simulations templates can't be directly run. The 'from_template' endpoints
+        Simulations 'upgraded' to simulations templates can't be directly run. The 'from_template' endpoint
         allows to create a new simulation from a template in a runnable state.
+
+        A simulation template can be changed by first creating a simulation from it with 'from_template'.
+        Changing that simulation and use this endpoint to 'upgrade' it to a simulation template.
       parameters:
         - name: data
           in: body
@@ -5417,7 +5420,7 @@ paths:
       description: |-
         The format of the filename should be <filename>.<extension>, e.g.
 
-        `laterals_bergermeer.txt`
+        `laterals_bergermeer.json`
 
         Every leading and trailing spaces will be removed. Other spaces are
         converted to underscores and anything that is not an alphanumeric, dash,
@@ -5465,7 +5468,24 @@ paths:
         ```
 
         The `offset` of this file-lateral-event will be applied to each individual
-        lataral offset in the uploaded file.
+        lateral offset in the uploaded file
+
+        If the `periodic` field is set to `daily` the values given are used for every hour of
+        every day in the simulation. Exact 25 (0-24) timeseries per entry are required like such:
+              "values": [
+                [0.0, 0.0002],
+                [3600, 0.01],
+                .....
+                <SNIP>
+                .....
+                [82800, 0.15]  # 3600.0 * 23
+                [86400, 0.0]   # 3600.0 * 24
+              ]
+
+        Only laterals with 'values' are allowed in this case.
+
+        The **hour** (not minutes or seconds) of the simulation `start_datetime` (UTC) is taken into consideration for the first timeseries value to use.
+        This function is intended for dry weather flow.
       parameters:
         - name: data
           in: body
@@ -16446,7 +16466,6 @@ definitions:
         type: string
         enum:
           - dem_file
-          - dem_raw_file
           - equilibrium_infiltration_rate_file
           - frict_coef_file
           - initial_groundwater_level_file
@@ -16725,7 +16744,7 @@ definitions:
         type: string
         format: slug
         pattern: ^[-a-zA-Z0-9_]+$
-        maxLength: 255
+        maxLength: 512
         minLength: 1
       disabled:
         title: Disabled
@@ -16926,7 +16945,7 @@ definitions:
         readOnly: true
         minLength: 1
       md5sum:
-        title: md5sum (hash) of the compressed sqlite file
+        title: md5sum (hash) of the (compressed) sqlite file
         type: string
         maxLength: 256
         minLength: 1
@@ -16967,7 +16986,6 @@ definitions:
         type: string
         enum:
           - dem_file
-          - dem_raw_file
           - equilibrium_infiltration_rate_file
           - frict_coef_file
           - initial_groundwater_level_file
@@ -19406,6 +19424,12 @@ definitions:
         title: State detail
         type: object
         readOnly: true
+      periodic:
+        title: Periodic
+        type: string
+        enum:
+          - daily
+        readOnly: true
   FileBoundaryCondition:
     type: object
     properties:
@@ -20610,6 +20634,11 @@ definitions:
         title: Offset
         type: integer
         minimum: 0
+      periodic:
+        title: Periodic
+        type: string
+        enum:
+          - daily
   TimeseriesLateral:
     required:
       - offset

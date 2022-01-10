@@ -4,7 +4,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  10:36AM (UTC) on December 09, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.7.0   3Di core release: 2.2.2  deployed on:  01:00PM (UTC) on January 10, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl

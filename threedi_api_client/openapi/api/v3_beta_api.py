@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.1.1   3Di core release: 2.1.9  deployed on:  10:36AM (UTC) on December 09, 2021  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.7.0   3Di core release: 2.2.2  deployed on:  01:00PM (UTC) on January 10, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -3547,9 +3547,9 @@ class V3BetaApi(object):
             collection_formats=collection_formats)
 
     def schematisations_revisions_sqlite_upload(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
-        """Endpoint for uploading the sqlite file, the file should be zipped (deflate).  # noqa: E501
+        """Endpoint for uploading the sqlite file.  # noqa: E501
 
-        Replaces the present sqlite file if there already exists one.  Optional md5sum can be added to detect if the file already has been uploaded and perform de-duplication. (md5sum of the compressed sqlite file)  # noqa: E501
+        The file should preferably be zipped (deflate).  Replaces the present sqlite file if there already exists one.  Optional md5sum can be added to detect if the file already has been uploaded and perform de-duplication. (md5sum of the compressed sqlite file)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.schematisations_revisions_sqlite_upload(id, schematisation_pk, data, async_req=True)
@@ -3574,9 +3574,9 @@ class V3BetaApi(object):
         return self.schematisations_revisions_sqlite_upload_with_http_info(id, schematisation_pk, data, **kwargs)  # noqa: E501
 
     def schematisations_revisions_sqlite_upload_with_http_info(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
-        """Endpoint for uploading the sqlite file, the file should be zipped (deflate).  # noqa: E501
+        """Endpoint for uploading the sqlite file.  # noqa: E501
 
-        Replaces the present sqlite file if there already exists one.  Optional md5sum can be added to detect if the file already has been uploaded and perform de-duplication. (md5sum of the compressed sqlite file)  # noqa: E501
+        The file should preferably be zipped (deflate).  Replaces the present sqlite file if there already exists one.  Optional md5sum can be added to detect if the file already has been uploaded and perform de-duplication. (md5sum of the compressed sqlite file)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.schematisations_revisions_sqlite_upload_with_http_info(id, schematisation_pk, data, async_req=True)
@@ -4752,9 +4752,9 @@ class V3BetaApi(object):
             collection_formats=collection_formats)
 
     def simulation_templates_create(self, data, **kwargs):  # noqa: E501
-        """Create a (optionally cloned) simulation template from this simulation.  # noqa: E501
+        """Create a (optionally cloned) simulation template from the given simulation.  # noqa: E501
 
-        A simulation template is actually nothing more than a simulation with a special status. It's immutable after creation and can only used to create new simulations, or be deleted.  Simulations 'upgraded' to simulations templates can't be directly run. The 'from_template' endpoints allows to create a new simulation from a template in a runnable state.  # noqa: E501
+        A simulation template is actually nothing more than a simulation with a special status. It's immutable after creation and only can be used to create new simulations.  Simulations 'upgraded' to simulations templates can't be directly run. The 'from_template' endpoint allows to create a new simulation from a template in a runnable state.  A simulation template can be changed by first creating a simulation from it with 'from_template'. Changing that simulation and use this endpoint to 'upgrade' it to a simulation template.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulation_templates_create(data, async_req=True)
@@ -4777,9 +4777,9 @@ class V3BetaApi(object):
         return self.simulation_templates_create_with_http_info(data, **kwargs)  # noqa: E501
 
     def simulation_templates_create_with_http_info(self, data, **kwargs):  # noqa: E501
-        """Create a (optionally cloned) simulation template from this simulation.  # noqa: E501
+        """Create a (optionally cloned) simulation template from the given simulation.  # noqa: E501
 
-        A simulation template is actually nothing more than a simulation with a special status. It's immutable after creation and can only used to create new simulations, or be deleted.  Simulations 'upgraded' to simulations templates can't be directly run. The 'from_template' endpoints allows to create a new simulation from a template in a runnable state.  # noqa: E501
+        A simulation template is actually nothing more than a simulation with a special status. It's immutable after creation and only can be used to create new simulations.  Simulations 'upgraded' to simulations templates can't be directly run. The 'from_template' endpoint allows to create a new simulation from a template in a runnable state.  A simulation template can be changed by first creating a simulation from it with 'from_template'. Changing that simulation and use this endpoint to 'upgrade' it to a simulation template.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulation_templates_create_with_http_info(data, async_req=True)
