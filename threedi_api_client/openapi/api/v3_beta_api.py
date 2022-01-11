@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.7.0   3Di core release: 2.2.2  deployed on:  01:00PM (UTC) on January 10, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.9.0   3Di core release: 2.2.2  deployed on:  11:01AM (UTC) on January 11, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -412,6 +412,29 @@ class V3BetaApi(object):
         :param float created__minute:
         :param float created__second:
         :param str created__isnull:
+        :param str last_updated__range: Multiple values may be separated by commas.
+        :param str last_updated__date:
+        :param str last_updated__date__gt:
+        :param str last_updated__date__gte:
+        :param str last_updated__date__lt:
+        :param str last_updated__date__lte:
+        :param float last_updated__year:
+        :param float last_updated__year__gt:
+        :param float last_updated__year__gte:
+        :param float last_updated__year__lt:
+        :param float last_updated__year__lte:
+        :param float last_updated__month:
+        :param float last_updated__month__lte:
+        :param float last_updated__day:
+        :param float last_updated__day__lt:
+        :param float last_updated__week:
+        :param float last_updated__week_day:
+        :param float last_updated__quarter:
+        :param str last_updated__time:
+        :param float last_updated__hour:
+        :param float last_updated__minute:
+        :param float last_updated__second:
+        :param str last_updated__isnull:
         :param str created_by__username:
         :param str created_by__username__iexact:
         :param str created_by__username__contains:
@@ -508,6 +531,29 @@ class V3BetaApi(object):
         :param float created__minute:
         :param float created__second:
         :param str created__isnull:
+        :param str last_updated__range: Multiple values may be separated by commas.
+        :param str last_updated__date:
+        :param str last_updated__date__gt:
+        :param str last_updated__date__gte:
+        :param str last_updated__date__lt:
+        :param str last_updated__date__lte:
+        :param float last_updated__year:
+        :param float last_updated__year__gt:
+        :param float last_updated__year__gte:
+        :param float last_updated__year__lt:
+        :param float last_updated__year__lte:
+        :param float last_updated__month:
+        :param float last_updated__month__lte:
+        :param float last_updated__day:
+        :param float last_updated__day__lt:
+        :param float last_updated__week:
+        :param float last_updated__week_day:
+        :param float last_updated__quarter:
+        :param str last_updated__time:
+        :param float last_updated__hour:
+        :param float last_updated__minute:
+        :param float last_updated__second:
+        :param str last_updated__isnull:
         :param str created_by__username:
         :param str created_by__username__iexact:
         :param str created_by__username__contains:
@@ -597,6 +643,29 @@ class V3BetaApi(object):
             'created__minute',
             'created__second',
             'created__isnull',
+            'last_updated__range',
+            'last_updated__date',
+            'last_updated__date__gt',
+            'last_updated__date__gte',
+            'last_updated__date__lt',
+            'last_updated__date__lte',
+            'last_updated__year',
+            'last_updated__year__gt',
+            'last_updated__year__gte',
+            'last_updated__year__lt',
+            'last_updated__year__lte',
+            'last_updated__month',
+            'last_updated__month__lte',
+            'last_updated__day',
+            'last_updated__day__lt',
+            'last_updated__week',
+            'last_updated__week_day',
+            'last_updated__quarter',
+            'last_updated__time',
+            'last_updated__hour',
+            'last_updated__minute',
+            'last_updated__second',
+            'last_updated__isnull',
             'created_by__username',
             'created_by__username__iexact',
             'created_by__username__contains',
@@ -716,6 +785,52 @@ class V3BetaApi(object):
             query_params.append(('created__second', local_var_params['created__second']))  # noqa: E501
         if 'created__isnull' in local_var_params and local_var_params['created__isnull'] is not None:  # noqa: E501
             query_params.append(('created__isnull', local_var_params['created__isnull']))  # noqa: E501
+        if 'last_updated__range' in local_var_params and local_var_params['last_updated__range'] is not None:  # noqa: E501
+            query_params.append(('last_updated__range', local_var_params['last_updated__range']))  # noqa: E501
+        if 'last_updated__date' in local_var_params and local_var_params['last_updated__date'] is not None:  # noqa: E501
+            query_params.append(('last_updated__date', local_var_params['last_updated__date']))  # noqa: E501
+        if 'last_updated__date__gt' in local_var_params and local_var_params['last_updated__date__gt'] is not None:  # noqa: E501
+            query_params.append(('last_updated__date__gt', local_var_params['last_updated__date__gt']))  # noqa: E501
+        if 'last_updated__date__gte' in local_var_params and local_var_params['last_updated__date__gte'] is not None:  # noqa: E501
+            query_params.append(('last_updated__date__gte', local_var_params['last_updated__date__gte']))  # noqa: E501
+        if 'last_updated__date__lt' in local_var_params and local_var_params['last_updated__date__lt'] is not None:  # noqa: E501
+            query_params.append(('last_updated__date__lt', local_var_params['last_updated__date__lt']))  # noqa: E501
+        if 'last_updated__date__lte' in local_var_params and local_var_params['last_updated__date__lte'] is not None:  # noqa: E501
+            query_params.append(('last_updated__date__lte', local_var_params['last_updated__date__lte']))  # noqa: E501
+        if 'last_updated__year' in local_var_params and local_var_params['last_updated__year'] is not None:  # noqa: E501
+            query_params.append(('last_updated__year', local_var_params['last_updated__year']))  # noqa: E501
+        if 'last_updated__year__gt' in local_var_params and local_var_params['last_updated__year__gt'] is not None:  # noqa: E501
+            query_params.append(('last_updated__year__gt', local_var_params['last_updated__year__gt']))  # noqa: E501
+        if 'last_updated__year__gte' in local_var_params and local_var_params['last_updated__year__gte'] is not None:  # noqa: E501
+            query_params.append(('last_updated__year__gte', local_var_params['last_updated__year__gte']))  # noqa: E501
+        if 'last_updated__year__lt' in local_var_params and local_var_params['last_updated__year__lt'] is not None:  # noqa: E501
+            query_params.append(('last_updated__year__lt', local_var_params['last_updated__year__lt']))  # noqa: E501
+        if 'last_updated__year__lte' in local_var_params and local_var_params['last_updated__year__lte'] is not None:  # noqa: E501
+            query_params.append(('last_updated__year__lte', local_var_params['last_updated__year__lte']))  # noqa: E501
+        if 'last_updated__month' in local_var_params and local_var_params['last_updated__month'] is not None:  # noqa: E501
+            query_params.append(('last_updated__month', local_var_params['last_updated__month']))  # noqa: E501
+        if 'last_updated__month__lte' in local_var_params and local_var_params['last_updated__month__lte'] is not None:  # noqa: E501
+            query_params.append(('last_updated__month__lte', local_var_params['last_updated__month__lte']))  # noqa: E501
+        if 'last_updated__day' in local_var_params and local_var_params['last_updated__day'] is not None:  # noqa: E501
+            query_params.append(('last_updated__day', local_var_params['last_updated__day']))  # noqa: E501
+        if 'last_updated__day__lt' in local_var_params and local_var_params['last_updated__day__lt'] is not None:  # noqa: E501
+            query_params.append(('last_updated__day__lt', local_var_params['last_updated__day__lt']))  # noqa: E501
+        if 'last_updated__week' in local_var_params and local_var_params['last_updated__week'] is not None:  # noqa: E501
+            query_params.append(('last_updated__week', local_var_params['last_updated__week']))  # noqa: E501
+        if 'last_updated__week_day' in local_var_params and local_var_params['last_updated__week_day'] is not None:  # noqa: E501
+            query_params.append(('last_updated__week_day', local_var_params['last_updated__week_day']))  # noqa: E501
+        if 'last_updated__quarter' in local_var_params and local_var_params['last_updated__quarter'] is not None:  # noqa: E501
+            query_params.append(('last_updated__quarter', local_var_params['last_updated__quarter']))  # noqa: E501
+        if 'last_updated__time' in local_var_params and local_var_params['last_updated__time'] is not None:  # noqa: E501
+            query_params.append(('last_updated__time', local_var_params['last_updated__time']))  # noqa: E501
+        if 'last_updated__hour' in local_var_params and local_var_params['last_updated__hour'] is not None:  # noqa: E501
+            query_params.append(('last_updated__hour', local_var_params['last_updated__hour']))  # noqa: E501
+        if 'last_updated__minute' in local_var_params and local_var_params['last_updated__minute'] is not None:  # noqa: E501
+            query_params.append(('last_updated__minute', local_var_params['last_updated__minute']))  # noqa: E501
+        if 'last_updated__second' in local_var_params and local_var_params['last_updated__second'] is not None:  # noqa: E501
+            query_params.append(('last_updated__second', local_var_params['last_updated__second']))  # noqa: E501
+        if 'last_updated__isnull' in local_var_params and local_var_params['last_updated__isnull'] is not None:  # noqa: E501
+            query_params.append(('last_updated__isnull', local_var_params['last_updated__isnull']))  # noqa: E501
         if 'created_by__username' in local_var_params and local_var_params['created_by__username'] is not None:  # noqa: E501
             query_params.append(('created_by__username', local_var_params['created_by__username']))  # noqa: E501
         if 'created_by__username__iexact' in local_var_params and local_var_params['created_by__username__iexact'] is not None:  # noqa: E501
@@ -1078,6 +1193,142 @@ class V3BetaApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='Schematisation',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def schematisations_revisions_check(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
+        """schematisations_revisions_check  # noqa: E501
+
+        Manage revisions of schematisations.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.schematisations_revisions_check(id, schematisation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this revision. (required)
+        :param str schematisation_pk: (required)
+        :param SchematisationRevision data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: RevisionTask
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.schematisations_revisions_check_with_http_info(id, schematisation_pk, data, **kwargs)  # noqa: E501
+
+    def schematisations_revisions_check_with_http_info(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
+        """schematisations_revisions_check  # noqa: E501
+
+        Manage revisions of schematisations.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.schematisations_revisions_check_with_http_info(id, schematisation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this revision. (required)
+        :param str schematisation_pk: (required)
+        :param SchematisationRevision data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(RevisionTask, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'schematisation_pk',
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method schematisations_revisions_check" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_check`")  # noqa: E501
+        # verify the required parameter 'schematisation_pk' is set
+        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
+                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_check`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_revisions_check`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'schematisation_pk' in local_var_params:
+            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/check/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='RevisionTask',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

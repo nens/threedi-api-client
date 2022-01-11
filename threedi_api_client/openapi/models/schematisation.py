@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.7.0   3Di core release: 2.2.2  deployed on:  01:00PM (UTC) on January 10, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.9.0   3Di core release: 2.2.2  deployed on:  11:01AM (UTC) on January 11, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -47,6 +47,7 @@ class Schematisation(object):
         'created_by_first_name': 'str',
         'created_by_last_name': 'str',
         'created': 'datetime',
+        'last_updated': 'datetime',
         'storage_usage': 'int'
     }
 
@@ -62,10 +63,11 @@ class Schematisation(object):
         'created_by_first_name': 'created_by_first_name',
         'created_by_last_name': 'created_by_last_name',
         'created': 'created',
+        'last_updated': 'last_updated',
         'storage_usage': 'storage_usage'
     }
 
-    def __init__(self, url=None, id=None, owner=None, name=None, slug=None, tags=None, meta=None, created_by=None, created_by_first_name=None, created_by_last_name=None, created=None, storage_usage=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, id=None, owner=None, name=None, slug=None, tags=None, meta=None, created_by=None, created_by_first_name=None, created_by_last_name=None, created=None, last_updated=None, storage_usage=None, local_vars_configuration=None):  # noqa: E501
         """Schematisation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -82,6 +84,7 @@ class Schematisation(object):
         self._created_by_first_name = None
         self._created_by_last_name = None
         self._created = None
+        self._last_updated = None
         self._storage_usage = None
         self.discriminator = None
 
@@ -105,6 +108,8 @@ class Schematisation(object):
             self.created_by_last_name = created_by_last_name
         if created is not None:
             self.created = created
+        if last_updated is not None:
+            self.last_updated = last_updated
         if storage_usage is not None:
             self.storage_usage = storage_usage
 
@@ -368,6 +373,27 @@ class Schematisation(object):
         """
 
         self._created = created
+
+    @property
+    def last_updated(self):
+        """Gets the last_updated of this Schematisation.  # noqa: E501
+
+
+        :return: The last_updated of this Schematisation.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._last_updated
+
+    @last_updated.setter
+    def last_updated(self, last_updated):
+        """Sets the last_updated of this Schematisation.
+
+
+        :param last_updated: The last_updated of this Schematisation.  # noqa: E501
+        :type: datetime
+        """
+
+        self._last_updated = last_updated
 
     @property
     def storage_usage(self):

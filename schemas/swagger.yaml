@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest stable version: v3) 
-     Framework release: 2.7.0 
+     Framework release: 2.9.0 
      3Di core release: 2.2.2 
-    deployed on:  01:00PM (UTC) on January 10, 2022
+    deployed on:  11:01AM (UTC) on January 11, 2022
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -144,6 +144,121 @@ paths:
           required: false
           type: number
         - name: created__isnull
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: last_updated__range
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          type: string
+        - name: last_updated__date
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: last_updated__date__gt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: last_updated__date__gte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: last_updated__date__lt
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: last_updated__date__lte
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: last_updated__year
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: last_updated__year__gt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: last_updated__year__gte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: last_updated__year__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: last_updated__year__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: last_updated__month
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: last_updated__month__lte
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: last_updated__day
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: last_updated__day__lt
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: last_updated__week
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: last_updated__week_day
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: last_updated__quarter
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: last_updated__time
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: last_updated__hour
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: last_updated__minute
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: last_updated__second
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: last_updated__isnull
           in: query
           description: ''
           required: false
@@ -958,6 +1073,35 @@ paths:
       responses:
         '204':
           description: ''
+      tags:
+        - v3-beta
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this revision.
+        required: true
+        type: integer
+      - name: schematisation_pk
+        in: path
+        required: true
+        type: string
+  /v3-beta/schematisations/{schematisation_pk}/revisions/{id}/check/:
+    post:
+      operationId: schematisations_revisions_check
+      description: Manage revisions of schematisations.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/SchematisationRevision'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/RevisionTask'
+        '409':
+          description: Conflict with other task already pending
       tags:
         - v3-beta
     parameters:
@@ -5471,7 +5615,7 @@ paths:
         lateral offset in the uploaded file
 
         If the `periodic` field is set to `daily` the values given are used for every hour of
-        every day in the simulation. Exact 25 (0-24) timeseries per entry are required like such:
+        every day in the simulation. Exactly 25 (0-24) timeseries per entry are required like such:
               "values": [
                 [0.0, 0.0002],
                 [3600, 0.01],
@@ -5485,7 +5629,7 @@ paths:
         Only laterals with 'values' are allowed in this case.
 
         The **hour** (not minutes or seconds) of the simulation `start_datetime` (UTC) is taken into consideration for the first timeseries value to use.
-        This function is intended for dry weather flow.
+        Periodic laterals are intended for dry weather flow.
       parameters:
         - name: data
           in: body
@@ -16362,6 +16506,11 @@ definitions:
         description: The creation date and time (only superusers can modify)
         type: string
         format: date-time
+      last_updated:
+        title: Last updated
+        type: string
+        format: date-time
+        readOnly: true
       storage_usage:
         title: Storage usage
         description: Automatically calculated.
@@ -16641,6 +16790,57 @@ definitions:
         title: Number
         description: Provide revision number as verification
         type: integer
+  RevisionTask:
+    required:
+      - name
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        enum:
+          - modelchecker
+      params:
+        title: Params
+        type: object
+        x-nullable: true
+      created:
+        title: Created
+        type: string
+        format: date-time
+        readOnly: true
+      last_updated:
+        title: Last updated
+        type: string
+        format: date-time
+        readOnly: true
+      status:
+        title: Status
+        type: string
+        enum:
+          - pending
+          - received
+          - started
+          - success
+          - failure
+          - revoked
+      detail:
+        title: Detail
+        type: object
+      revision:
+        title: Revision
+        type: string
+        format: uri
+        readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   Commit:
     type: object
     properties:
@@ -17068,57 +17268,6 @@ definitions:
         type: string
         maxLength: 256
         minLength: 1
-  RevisionTask:
-    required:
-      - name
-    type: object
-    properties:
-      url:
-        title: Url
-        type: string
-        format: uri
-        readOnly: true
-      name:
-        title: Name
-        type: string
-        enum:
-          - modelchecker
-      params:
-        title: Params
-        type: object
-        x-nullable: true
-      created:
-        title: Created
-        type: string
-        format: date-time
-        readOnly: true
-      last_updated:
-        title: Last updated
-        type: string
-        format: date-time
-        readOnly: true
-      status:
-        title: Status
-        type: string
-        enum:
-          - pending
-          - received
-          - started
-          - success
-          - failure
-          - revoked
-      detail:
-        title: Detail
-        type: object
-      revision:
-        title: Revision
-        type: string
-        format: uri
-        readOnly: true
-      id:
-        title: ID
-        type: integer
-        readOnly: true
   Simulation:
     required:
       - name
