@@ -2,8 +2,8 @@
 History
 =======
 
-3.1.0 (unreleased)
--------------------
+4.0.0b1 (2022-01-17)
+--------------------
 
 - Added support for `periodic` (`daily` only for now) lateral file
 
