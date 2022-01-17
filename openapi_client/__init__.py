@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "3.0.30.dev0"
+from threedi_api_client import __version__
 
 import warnings
 warnings.warn(

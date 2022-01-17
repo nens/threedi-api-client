@@ -7,6 +7,7 @@ from setuptools import setup, find_packages
 import codecs
 import re
 import os
+import pathlib
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -23,13 +24,15 @@ def read(*parts):
         return fp.read()
 
 
-def find_version(*file_paths):
-    version_file = read(*file_paths)
-    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
-                              version_file, re.M)
-    if version_match:
-        return version_match.group(1)
-    raise RuntimeError("Unable to find version string.")
+def get_version():
+    # Edited from https://packaging.python.org/guides/single-sourcing-package-version/
+    init_path = pathlib.Path(__file__).parent / "threedi_api_client/__init__.py"
+    for line in init_path.open("r").readlines():
+        if line.startswith("__version__"):
+            delim = '"' if '"' in line else "'"
+            return line.split(delim)[1]
+    else:
+        raise RuntimeError("Unable to find version string.")
 
 
 requirements = [
@@ -50,7 +53,7 @@ setup(
     author="Lars Claussen",
     author_email='lars.claussen@nelen-schuurmans.nl',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 3 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
@@ -79,6 +82,6 @@ setup(
     },
     test_suite='tests',
     url='https://github.com/nens/threedi-api-client',
-    version=find_version("openapi_client", "__init__.py"),
+    version=get_version(),
     zip_safe=False,
 )
