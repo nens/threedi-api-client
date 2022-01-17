@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.9.0   3Di core release: 2.2.2  deployed on:  11:01AM (UTC) on January 11, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.11.1   3Di core release: 2.2.3  deployed on:  02:06PM (UTC) on January 13, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -39,6 +39,7 @@ class ThreediModel(object):
         'url': 'str',
         'id': 'int',
         'user': 'str',
+        'threedi_version': 'str',
         'inpy_version': 'str',
         'revision': 'str',
         'revision_id': 'int',
@@ -69,6 +70,7 @@ class ThreediModel(object):
         'url': 'url',
         'id': 'id',
         'user': 'user',
+        'threedi_version': 'threedi_version',
         'inpy_version': 'inpy_version',
         'revision': 'revision',
         'revision_id': 'revision_id',
@@ -95,7 +97,7 @@ class ThreediModel(object):
         'lines_count': 'lines_count'
     }
 
-    def __init__(self, url=None, id=None, user=None, inpy_version=None, revision=None, revision_id=None, revision_hash=None, revision_number=None, revision_commit_date=None, schematisation_id=None, schematisation_name=None, repository_slug=None, name=None, slug=None, disabled=None, epsg=None, inp_success=None, description=None, storage_space=None, storage_space_humanized=None, model_ini=None, breach_count=None, extent_two_d=None, extent_one_d=None, extent_zero_d=None, nodes_count=None, lines_count=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, id=None, user=None, threedi_version=None, inpy_version=None, revision=None, revision_id=None, revision_hash=None, revision_number=None, revision_commit_date=None, schematisation_id=None, schematisation_name=None, repository_slug=None, name=None, slug=None, disabled=None, epsg=None, inp_success=None, description=None, storage_space=None, storage_space_humanized=None, model_ini=None, breach_count=None, extent_two_d=None, extent_one_d=None, extent_zero_d=None, nodes_count=None, lines_count=None, local_vars_configuration=None):  # noqa: E501
         """ThreediModel - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -104,6 +106,7 @@ class ThreediModel(object):
         self._url = None
         self._id = None
         self._user = None
+        self._threedi_version = None
         self._inpy_version = None
         self._revision = None
         self._revision_id = None
@@ -136,6 +139,8 @@ class ThreediModel(object):
             self.id = id
         if user is not None:
             self.user = user
+        if threedi_version is not None:
+            self.threedi_version = threedi_version
         self.inpy_version = inpy_version
         self.revision = revision
         if revision_id is not None:
@@ -240,6 +245,32 @@ class ThreediModel(object):
         """
 
         self._user = user
+
+    @property
+    def threedi_version(self):
+        """Gets the threedi_version of this ThreediModel.  # noqa: E501
+
+        The 3Di API version that created this threedimodel.  # noqa: E501
+
+        :return: The threedi_version of this ThreediModel.  # noqa: E501
+        :rtype: str
+        """
+        return self._threedi_version
+
+    @threedi_version.setter
+    def threedi_version(self, threedi_version):
+        """Sets the threedi_version of this ThreediModel.
+
+        The 3Di API version that created this threedimodel.  # noqa: E501
+
+        :param threedi_version: The threedi_version of this ThreediModel.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                threedi_version is not None and len(threedi_version) < 1):
+            raise ValueError("Invalid value for `threedi_version`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._threedi_version = threedi_version
 
     @property
     def inpy_version(self):
@@ -544,7 +575,7 @@ class ThreediModel(object):
     def inp_success(self):
         """Gets the inp_success of this ThreediModel.  # noqa: E501
 
-        signals success of generate inp/sewerage_inp/...  # noqa: E501
+        True if the threedimodel was generated without errors.  # noqa: E501
 
         :return: The inp_success of this ThreediModel.  # noqa: E501
         :rtype: bool
@@ -555,7 +586,7 @@ class ThreediModel(object):
     def inp_success(self, inp_success):
         """Sets the inp_success of this ThreediModel.
 
-        signals success of generate inp/sewerage_inp/...  # noqa: E501
+        True if the threedimodel was generated without errors.  # noqa: E501
 
         :param inp_success: The inp_success of this ThreediModel.  # noqa: E501
         :type: bool
@@ -590,7 +621,7 @@ class ThreediModel(object):
     def storage_space(self):
         """Gets the storage_space of this ThreediModel.  # noqa: E501
 
-        Automatically filled after inp generation.  # noqa: E501
+        Automatically filled after threedimodel generation.  # noqa: E501
 
         :return: The storage_space of this ThreediModel.  # noqa: E501
         :rtype: int
@@ -601,7 +632,7 @@ class ThreediModel(object):
     def storage_space(self, storage_space):
         """Sets the storage_space of this ThreediModel.
 
-        Automatically filled after inp generation.  # noqa: E501
+        Automatically filled after threedimodel generation.  # noqa: E501
 
         :param storage_space: The storage_space of this ThreediModel.  # noqa: E501
         :type: int

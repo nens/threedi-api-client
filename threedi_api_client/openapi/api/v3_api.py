@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.9.0   3Di core release: 2.2.2  deployed on:  11:01AM (UTC) on January 11, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.11.1   3Di core release: 2.2.3  deployed on:  02:06PM (UTC) on January 13, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -2558,7 +2558,7 @@ class V3Api(object):
     def inpy_versions_create(self, data, **kwargs):  # noqa: E501
         """inpy_versions_create  # noqa: E501
 
-        Inpy is the service for preparing models to become usable by the Threedi calculation core. Updates in Inpy often result in updates in the calculation core.  This resource keeps track of updates to the Inpy service.  # noqa: E501
+        Inpy was the service for preparing user-supplied schematisations into 3Di models (threedimodels) usable by the 3Di calculation core.  Currently, this route is pending deprecation: most newly generated 3Di models will carry an empty inpy_version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.inpy_versions_create(data, async_req=True)
@@ -2583,7 +2583,7 @@ class V3Api(object):
     def inpy_versions_create_with_http_info(self, data, **kwargs):  # noqa: E501
         """inpy_versions_create  # noqa: E501
 
-        Inpy is the service for preparing models to become usable by the Threedi calculation core. Updates in Inpy often result in updates in the calculation core.  This resource keeps track of updates to the Inpy service.  # noqa: E501
+        Inpy was the service for preparing user-supplied schematisations into 3Di models (threedimodels) usable by the 3Di calculation core.  Currently, this route is pending deprecation: most newly generated 3Di models will carry an empty inpy_version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.inpy_versions_create_with_http_info(data, async_req=True)
@@ -2676,7 +2676,7 @@ class V3Api(object):
     def inpy_versions_delete(self, id, **kwargs):  # noqa: E501
         """inpy_versions_delete  # noqa: E501
 
-        Inpy is the service for preparing models to become usable by the Threedi calculation core. Updates in Inpy often result in updates in the calculation core.  This resource keeps track of updates to the Inpy service.  # noqa: E501
+        Inpy was the service for preparing user-supplied schematisations into 3Di models (threedimodels) usable by the 3Di calculation core.  Currently, this route is pending deprecation: most newly generated 3Di models will carry an empty inpy_version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.inpy_versions_delete(id, async_req=True)
@@ -2701,7 +2701,7 @@ class V3Api(object):
     def inpy_versions_delete_with_http_info(self, id, **kwargs):  # noqa: E501
         """inpy_versions_delete  # noqa: E501
 
-        Inpy is the service for preparing models to become usable by the Threedi calculation core. Updates in Inpy often result in updates in the calculation core.  This resource keeps track of updates to the Inpy service.  # noqa: E501
+        Inpy was the service for preparing user-supplied schematisations into 3Di models (threedimodels) usable by the 3Di calculation core.  Currently, this route is pending deprecation: most newly generated 3Di models will carry an empty inpy_version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.inpy_versions_delete_with_http_info(id, async_req=True)
@@ -2786,7 +2786,7 @@ class V3Api(object):
     def inpy_versions_list(self, **kwargs):  # noqa: E501
         """inpy_versions_list  # noqa: E501
 
-        Inpy is the service for preparing models to become usable by the Threedi calculation core. Updates in Inpy often result in updates in the calculation core.  This resource keeps track of updates to the Inpy service.  # noqa: E501
+        Inpy was the service for preparing user-supplied schematisations into 3Di models (threedimodels) usable by the 3Di calculation core.  Currently, this route is pending deprecation: most newly generated 3Di models will carry an empty inpy_version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.inpy_versions_list(async_req=True)
@@ -2839,7 +2839,7 @@ class V3Api(object):
     def inpy_versions_list_with_http_info(self, **kwargs):  # noqa: E501
         """inpy_versions_list  # noqa: E501
 
-        Inpy is the service for preparing models to become usable by the Threedi calculation core. Updates in Inpy often result in updates in the calculation core.  This resource keeps track of updates to the Inpy service.  # noqa: E501
+        Inpy was the service for preparing user-supplied schematisations into 3Di models (threedimodels) usable by the 3Di calculation core.  Currently, this route is pending deprecation: most newly generated 3Di models will carry an empty inpy_version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.inpy_versions_list_with_http_info(async_req=True)
@@ -3036,7 +3036,7 @@ class V3Api(object):
     def inpy_versions_partial_update(self, id, data, **kwargs):  # noqa: E501
         """inpy_versions_partial_update  # noqa: E501
 
-        Inpy is the service for preparing models to become usable by the Threedi calculation core. Updates in Inpy often result in updates in the calculation core.  This resource keeps track of updates to the Inpy service.  # noqa: E501
+        Inpy was the service for preparing user-supplied schematisations into 3Di models (threedimodels) usable by the 3Di calculation core.  Currently, this route is pending deprecation: most newly generated 3Di models will carry an empty inpy_version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.inpy_versions_partial_update(id, data, async_req=True)
@@ -3062,7 +3062,7 @@ class V3Api(object):
     def inpy_versions_partial_update_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """inpy_versions_partial_update  # noqa: E501
 
-        Inpy is the service for preparing models to become usable by the Threedi calculation core. Updates in Inpy often result in updates in the calculation core.  This resource keeps track of updates to the Inpy service.  # noqa: E501
+        Inpy was the service for preparing user-supplied schematisations into 3Di models (threedimodels) usable by the 3Di calculation core.  Currently, this route is pending deprecation: most newly generated 3Di models will carry an empty inpy_version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.inpy_versions_partial_update_with_http_info(id, data, async_req=True)
@@ -3163,7 +3163,7 @@ class V3Api(object):
     def inpy_versions_read(self, id, **kwargs):  # noqa: E501
         """inpy_versions_read  # noqa: E501
 
-        Inpy is the service for preparing models to become usable by the Threedi calculation core. Updates in Inpy often result in updates in the calculation core.  This resource keeps track of updates to the Inpy service.  # noqa: E501
+        Inpy was the service for preparing user-supplied schematisations into 3Di models (threedimodels) usable by the 3Di calculation core.  Currently, this route is pending deprecation: most newly generated 3Di models will carry an empty inpy_version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.inpy_versions_read(id, async_req=True)
@@ -3188,7 +3188,7 @@ class V3Api(object):
     def inpy_versions_read_with_http_info(self, id, **kwargs):  # noqa: E501
         """inpy_versions_read  # noqa: E501
 
-        Inpy is the service for preparing models to become usable by the Threedi calculation core. Updates in Inpy often result in updates in the calculation core.  This resource keeps track of updates to the Inpy service.  # noqa: E501
+        Inpy was the service for preparing user-supplied schematisations into 3Di models (threedimodels) usable by the 3Di calculation core.  Currently, this route is pending deprecation: most newly generated 3Di models will carry an empty inpy_version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.inpy_versions_read_with_http_info(id, async_req=True)
@@ -3277,7 +3277,7 @@ class V3Api(object):
     def inpy_versions_update(self, id, data, **kwargs):  # noqa: E501
         """inpy_versions_update  # noqa: E501
 
-        Inpy is the service for preparing models to become usable by the Threedi calculation core. Updates in Inpy often result in updates in the calculation core.  This resource keeps track of updates to the Inpy service.  # noqa: E501
+        Inpy was the service for preparing user-supplied schematisations into 3Di models (threedimodels) usable by the 3Di calculation core.  Currently, this route is pending deprecation: most newly generated 3Di models will carry an empty inpy_version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.inpy_versions_update(id, data, async_req=True)
@@ -3303,7 +3303,7 @@ class V3Api(object):
     def inpy_versions_update_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """inpy_versions_update  # noqa: E501
 
-        Inpy is the service for preparing models to become usable by the Threedi calculation core. Updates in Inpy often result in updates in the calculation core.  This resource keeps track of updates to the Inpy service.  # noqa: E501
+        Inpy was the service for preparing user-supplied schematisations into 3Di models (threedimodels) usable by the 3Di calculation core.  Currently, this route is pending deprecation: most newly generated 3Di models will carry an empty inpy_version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.inpy_versions_update_with_http_info(id, data, async_req=True)
@@ -9223,7 +9223,7 @@ class V3Api(object):
     def simulations_events_boundaryconditions_file_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """Endpoint for uploading a boundary-conditions file.  # noqa: E501
 
-        The format of the filename should be <filename>.<extension>, e.g.  `boundary_conditions_bergermeer.txt`  Every leading and trailing spaces will be removed. Other spaces are converted to underscores and anything that is not an alphanumeric, dash, underscore, or dot will be removed as well.  The response provides a put_url which allows you to upload a file containing one or more boundary-conditions.  The uploaded file should be a JSON-file containing an array of boundary-conditions timeseries. Example of the content of such a file: ``` [     {         \"interpolate\": false,         \"values\": [             [0, 0.5],             [500, 0,8],             [1000, 0]         ]     },     {         \"interpolate\": false,         \"values\": [             [0, 0,3],             [400, 0.1]         ]     },     {         \"interpolate\": false,         \"values\": [             [0, -2.4],             [1300, 0,3],             [3000, 1.2],             [3600, 0]         ]     } ] ```  2D boundaries need to be provided before 1D boundaries.  1D boundaries need to be in order of connectionnode id's. 2D boundaries need to be in order of id (of the boundary).  The file is valided to check if all boundary-conditions defined for the threedimodel have timeseries after upload.  Boundary-conditions need to be added before initializing/starting the simulation and cannot be changed once the simulation is initialized.  # noqa: E501
+        The format of the filename should be <filename>.<extension>, e.g.  `boundary_conditions_bergermeer.json`  Every leading and trailing spaces will be removed. Other spaces are converted to underscores and anything that is not an alphanumeric, dash, underscore, or dot will be removed as well.  The response provides a put_url which allows you to upload a file containing one or more boundary-conditions.  The uploaded file should be a JSON-file containing an array of boundary-conditions timeseries. Example of the content of such a file: ``` [     {         \"id\": 1,   # sqlite boundary_1d table id         \"type\": \"1D\",  # \"1D\" for 1d boundaries         \"interpolate\": false,         \"values\": [             [0, 0.5],             [500, 0,8],             [1000, 0]         ]     },     {         \"id\": 2,  # sqlite boundary_2d table id         \"type\": \"2D\", # \"2D\" for 2d boundaries         \"interpolate\": false,         \"values\": [             [0, 0,3],             [400, 0.1]         ]     },     {         \"id\": 3,         \"type\": \"2D\",         \"interpolate\": false,         \"values\": [             [0, -2.4],             [1300, 0,3],             [3000, 1.2],             [3600, 0]         ]     } ] ```  The ordering of the boundaries does not matter.  The file is valided to check if all boundary-conditions defined for the threedimodel have timeseries after upload.  Boundary-conditions need to be added before initializing/starting the simulation and cannot be changed once the simulation is initialized.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_boundaryconditions_file_create(simulation_pk, data, async_req=True)
@@ -9249,7 +9249,7 @@ class V3Api(object):
     def simulations_events_boundaryconditions_file_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """Endpoint for uploading a boundary-conditions file.  # noqa: E501
 
-        The format of the filename should be <filename>.<extension>, e.g.  `boundary_conditions_bergermeer.txt`  Every leading and trailing spaces will be removed. Other spaces are converted to underscores and anything that is not an alphanumeric, dash, underscore, or dot will be removed as well.  The response provides a put_url which allows you to upload a file containing one or more boundary-conditions.  The uploaded file should be a JSON-file containing an array of boundary-conditions timeseries. Example of the content of such a file: ``` [     {         \"interpolate\": false,         \"values\": [             [0, 0.5],             [500, 0,8],             [1000, 0]         ]     },     {         \"interpolate\": false,         \"values\": [             [0, 0,3],             [400, 0.1]         ]     },     {         \"interpolate\": false,         \"values\": [             [0, -2.4],             [1300, 0,3],             [3000, 1.2],             [3600, 0]         ]     } ] ```  2D boundaries need to be provided before 1D boundaries.  1D boundaries need to be in order of connectionnode id's. 2D boundaries need to be in order of id (of the boundary).  The file is valided to check if all boundary-conditions defined for the threedimodel have timeseries after upload.  Boundary-conditions need to be added before initializing/starting the simulation and cannot be changed once the simulation is initialized.  # noqa: E501
+        The format of the filename should be <filename>.<extension>, e.g.  `boundary_conditions_bergermeer.json`  Every leading and trailing spaces will be removed. Other spaces are converted to underscores and anything that is not an alphanumeric, dash, underscore, or dot will be removed as well.  The response provides a put_url which allows you to upload a file containing one or more boundary-conditions.  The uploaded file should be a JSON-file containing an array of boundary-conditions timeseries. Example of the content of such a file: ``` [     {         \"id\": 1,   # sqlite boundary_1d table id         \"type\": \"1D\",  # \"1D\" for 1d boundaries         \"interpolate\": false,         \"values\": [             [0, 0.5],             [500, 0,8],             [1000, 0]         ]     },     {         \"id\": 2,  # sqlite boundary_2d table id         \"type\": \"2D\", # \"2D\" for 2d boundaries         \"interpolate\": false,         \"values\": [             [0, 0,3],             [400, 0.1]         ]     },     {         \"id\": 3,         \"type\": \"2D\",         \"interpolate\": false,         \"values\": [             [0, -2.4],             [1300, 0,3],             [3000, 1.2],             [3600, 0]         ]     } ] ```  The ordering of the boundaries does not matter.  The file is valided to check if all boundary-conditions defined for the threedimodel have timeseries after upload.  Boundary-conditions need to be added before initializing/starting the simulation and cannot be changed once the simulation is initialized.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_boundaryconditions_file_create_with_http_info(simulation_pk, data, async_req=True)
@@ -40511,6 +40511,8 @@ class V3Api(object):
         :param float created__day__lt:
         :param str user__username:
         :param str user__username__istartswith:
+        :param float threedimodel__id:
+        :param float threedimodel__revision__id:
         :param str tags__in:
         :param str is_template:
         :param str ordering: Which field to use when ordering the results.
@@ -40574,6 +40576,8 @@ class V3Api(object):
         :param float created__day__lt:
         :param str user__username:
         :param str user__username__istartswith:
+        :param float threedimodel__id:
+        :param float threedimodel__revision__id:
         :param str tags__in:
         :param str is_template:
         :param str ordering: Which field to use when ordering the results.
@@ -40630,6 +40634,8 @@ class V3Api(object):
             'created__day__lt',
             'user__username',
             'user__username__istartswith',
+            'threedimodel__id',
+            'threedimodel__revision__id',
             'tags__in',
             'is_template',
             'ordering',
@@ -40727,6 +40733,10 @@ class V3Api(object):
             query_params.append(('user__username', local_var_params['user__username']))  # noqa: E501
         if 'user__username__istartswith' in local_var_params and local_var_params['user__username__istartswith'] is not None:  # noqa: E501
             query_params.append(('user__username__istartswith', local_var_params['user__username__istartswith']))  # noqa: E501
+        if 'threedimodel__id' in local_var_params and local_var_params['threedimodel__id'] is not None:  # noqa: E501
+            query_params.append(('threedimodel__id', local_var_params['threedimodel__id']))  # noqa: E501
+        if 'threedimodel__revision__id' in local_var_params and local_var_params['threedimodel__revision__id'] is not None:  # noqa: E501
+            query_params.append(('threedimodel__revision__id', local_var_params['threedimodel__revision__id']))  # noqa: E501
         if 'tags__in' in local_var_params and local_var_params['tags__in'] is not None:  # noqa: E501
             query_params.append(('tags__in', local_var_params['tags__in']))  # noqa: E501
         if 'is_template' in local_var_params and local_var_params['is_template'] is not None:  # noqa: E501
@@ -51466,9 +51476,9 @@ class V3Api(object):
             collection_formats=collection_formats)
 
     def threedimodels_delete(self, id, **kwargs):  # noqa: E501
-        """threedimodels_delete  # noqa: E501
+        """Soft-delete the threedimodel (sets disabled to True)  # noqa: E501
 
-        A simple ViewSet for viewing threedimodels  # noqa: E501
+        If the model is already disabled and the user is a superuser, delete the threedimodel.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_delete(id, async_req=True)
@@ -51491,9 +51501,9 @@ class V3Api(object):
         return self.threedimodels_delete_with_http_info(id, **kwargs)  # noqa: E501
 
     def threedimodels_delete_with_http_info(self, id, **kwargs):  # noqa: E501
-        """threedimodels_delete  # noqa: E501
+        """Soft-delete the threedimodel (sets disabled to True)  # noqa: E501
 
-        A simple ViewSet for viewing threedimodels  # noqa: E501
+        If the model is already disabled and the user is a superuser, delete the threedimodel.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_delete_with_http_info(id, async_req=True)
@@ -54404,6 +54414,7 @@ class V3Api(object):
         :param str inpy_version__threedicore_version__istartswith:
         :param str inpy_version__threedicore_version__endswith:
         :param str inpy_version__threedicore_version__regex:
+        :param float revision__id:
         :param float revision__number:
         :param float revision__number__gt:
         :param float revision__number__gte:
@@ -54419,6 +54430,7 @@ class V3Api(object):
         :param str revision__hash__istartswith:
         :param str revision__hash__endswith:
         :param str revision__hash__regex:
+        :param str revision__schematisation__isnull:
         :param str revision__schematisation__name:
         :param str revision__schematisation__name__iexact:
         :param str revision__schematisation__name__contains:
@@ -54441,6 +54453,7 @@ class V3Api(object):
         :param str revision__is_pinned:
         :param str disabled:
         :param str inp_success:
+        :param str inpy_version__active:
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -54514,6 +54527,7 @@ class V3Api(object):
         :param str inpy_version__threedicore_version__istartswith:
         :param str inpy_version__threedicore_version__endswith:
         :param str inpy_version__threedicore_version__regex:
+        :param float revision__id:
         :param float revision__number:
         :param float revision__number__gt:
         :param float revision__number__gte:
@@ -54529,6 +54543,7 @@ class V3Api(object):
         :param str revision__hash__istartswith:
         :param str revision__hash__endswith:
         :param str revision__hash__regex:
+        :param str revision__schematisation__isnull:
         :param str revision__schematisation__name:
         :param str revision__schematisation__name__iexact:
         :param str revision__schematisation__name__contains:
@@ -54551,6 +54566,7 @@ class V3Api(object):
         :param str revision__is_pinned:
         :param str disabled:
         :param str inp_success:
+        :param str inpy_version__active:
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -54617,6 +54633,7 @@ class V3Api(object):
             'inpy_version__threedicore_version__istartswith',
             'inpy_version__threedicore_version__endswith',
             'inpy_version__threedicore_version__regex',
+            'revision__id',
             'revision__number',
             'revision__number__gt',
             'revision__number__gte',
@@ -54632,6 +54649,7 @@ class V3Api(object):
             'revision__hash__istartswith',
             'revision__hash__endswith',
             'revision__hash__regex',
+            'revision__schematisation__isnull',
             'revision__schematisation__name',
             'revision__schematisation__name__iexact',
             'revision__schematisation__name__contains',
@@ -54654,6 +54672,7 @@ class V3Api(object):
             'revision__is_pinned',
             'disabled',
             'inp_success',
+            'inpy_version__active',
             'ordering',
             'limit',
             'offset'
@@ -54773,6 +54792,8 @@ class V3Api(object):
             query_params.append(('inpy_version__threedicore_version__endswith', local_var_params['inpy_version__threedicore_version__endswith']))  # noqa: E501
         if 'inpy_version__threedicore_version__regex' in local_var_params and local_var_params['inpy_version__threedicore_version__regex'] is not None:  # noqa: E501
             query_params.append(('inpy_version__threedicore_version__regex', local_var_params['inpy_version__threedicore_version__regex']))  # noqa: E501
+        if 'revision__id' in local_var_params and local_var_params['revision__id'] is not None:  # noqa: E501
+            query_params.append(('revision__id', local_var_params['revision__id']))  # noqa: E501
         if 'revision__number' in local_var_params and local_var_params['revision__number'] is not None:  # noqa: E501
             query_params.append(('revision__number', local_var_params['revision__number']))  # noqa: E501
         if 'revision__number__gt' in local_var_params and local_var_params['revision__number__gt'] is not None:  # noqa: E501
@@ -54803,6 +54824,8 @@ class V3Api(object):
             query_params.append(('revision__hash__endswith', local_var_params['revision__hash__endswith']))  # noqa: E501
         if 'revision__hash__regex' in local_var_params and local_var_params['revision__hash__regex'] is not None:  # noqa: E501
             query_params.append(('revision__hash__regex', local_var_params['revision__hash__regex']))  # noqa: E501
+        if 'revision__schematisation__isnull' in local_var_params and local_var_params['revision__schematisation__isnull'] is not None:  # noqa: E501
+            query_params.append(('revision__schematisation__isnull', local_var_params['revision__schematisation__isnull']))  # noqa: E501
         if 'revision__schematisation__name' in local_var_params and local_var_params['revision__schematisation__name'] is not None:  # noqa: E501
             query_params.append(('revision__schematisation__name', local_var_params['revision__schematisation__name']))  # noqa: E501
         if 'revision__schematisation__name__iexact' in local_var_params and local_var_params['revision__schematisation__name__iexact'] is not None:  # noqa: E501
@@ -54847,6 +54870,8 @@ class V3Api(object):
             query_params.append(('disabled', local_var_params['disabled']))  # noqa: E501
         if 'inp_success' in local_var_params and local_var_params['inp_success'] is not None:  # noqa: E501
             query_params.append(('inp_success', local_var_params['inp_success']))  # noqa: E501
+        if 'inpy_version__active' in local_var_params and local_var_params['inpy_version__active'] is not None:  # noqa: E501
+            query_params.append(('inpy_version__active', local_var_params['inpy_version__active']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501

@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest stable version: v3) 
-     Framework release: 2.9.0 
-     3Di core release: 2.2.2 
-    deployed on:  11:01AM (UTC) on January 11, 2022
+     Framework release: 2.11.1 
+     3Di core release: 2.2.3 
+    deployed on:  02:06PM (UTC) on January 13, 2022
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -2682,11 +2682,11 @@ paths:
     get:
       operationId: inpy-versions_list
       description: |-
-        Inpy is the service for preparing models to become
-        usable by the Threedi calculation core. Updates in Inpy often
-        result in updates in the calculation core.
+        Inpy was the service for preparing user-supplied schematisations into 3Di
+        models (threedimodels) usable by the 3Di calculation core.
 
-        This resource keeps track of updates to the Inpy service.
+        Currently, this route is pending deprecation: most newly generated
+        3Di models will carry an empty inpy_version.
       parameters:
         - name: threedi_version
           in: query
@@ -2861,11 +2861,11 @@ paths:
     post:
       operationId: inpy-versions_create
       description: |-
-        Inpy is the service for preparing models to become
-        usable by the Threedi calculation core. Updates in Inpy often
-        result in updates in the calculation core.
+        Inpy was the service for preparing user-supplied schematisations into 3Di
+        models (threedimodels) usable by the 3Di calculation core.
 
-        This resource keeps track of updates to the Inpy service.
+        Currently, this route is pending deprecation: most newly generated
+        3Di models will carry an empty inpy_version.
       parameters:
         - name: data
           in: body
@@ -2884,11 +2884,11 @@ paths:
     get:
       operationId: inpy-versions_read
       description: |-
-        Inpy is the service for preparing models to become
-        usable by the Threedi calculation core. Updates in Inpy often
-        result in updates in the calculation core.
+        Inpy was the service for preparing user-supplied schematisations into 3Di
+        models (threedimodels) usable by the 3Di calculation core.
 
-        This resource keeps track of updates to the Inpy service.
+        Currently, this route is pending deprecation: most newly generated
+        3Di models will carry an empty inpy_version.
       parameters: []
       responses:
         '200':
@@ -2900,11 +2900,11 @@ paths:
     put:
       operationId: inpy-versions_update
       description: |-
-        Inpy is the service for preparing models to become
-        usable by the Threedi calculation core. Updates in Inpy often
-        result in updates in the calculation core.
+        Inpy was the service for preparing user-supplied schematisations into 3Di
+        models (threedimodels) usable by the 3Di calculation core.
 
-        This resource keeps track of updates to the Inpy service.
+        Currently, this route is pending deprecation: most newly generated
+        3Di models will carry an empty inpy_version.
       parameters:
         - name: data
           in: body
@@ -2921,11 +2921,11 @@ paths:
     patch:
       operationId: inpy-versions_partial_update
       description: |-
-        Inpy is the service for preparing models to become
-        usable by the Threedi calculation core. Updates in Inpy often
-        result in updates in the calculation core.
+        Inpy was the service for preparing user-supplied schematisations into 3Di
+        models (threedimodels) usable by the 3Di calculation core.
 
-        This resource keeps track of updates to the Inpy service.
+        Currently, this route is pending deprecation: most newly generated
+        3Di models will carry an empty inpy_version.
       parameters:
         - name: data
           in: body
@@ -2942,11 +2942,11 @@ paths:
     delete:
       operationId: inpy-versions_delete
       description: |-
-        Inpy is the service for preparing models to become
-        usable by the Threedi calculation core. Updates in Inpy often
-        result in updates in the calculation core.
+        Inpy was the service for preparing user-supplied schematisations into 3Di
+        models (threedimodels) usable by the 3Di calculation core.
 
-        This resource keeps track of updates to the Inpy service.
+        Currently, this route is pending deprecation: most newly generated
+        3Di models will carry an empty inpy_version.
       parameters: []
       responses:
         '204':
@@ -4334,6 +4334,16 @@ paths:
           description: ''
           required: false
           type: string
+        - name: threedimodel__id
+          in: query
+          description: ''
+          required: false
+          type: number
+        - name: threedimodel__revision__id
+          in: query
+          description: ''
+          required: false
+          type: number
         - name: tags__in
           in: query
           description: ''
@@ -5026,7 +5036,7 @@ paths:
       description: |-
         The format of the filename should be <filename>.<extension>, e.g.
 
-        `boundary_conditions_bergermeer.txt`
+        `boundary_conditions_bergermeer.json`
 
         Every leading and trailing spaces will be removed. Other spaces are
         converted to underscores and anything that is not an alphanumeric, dash,
@@ -5040,6 +5050,8 @@ paths:
         ```
         [
             {
+                "id": 1,   # sqlite boundary_1d table id
+                "type": "1D",  # "1D" for 1d boundaries
                 "interpolate": false,
                 "values": [
                     [0, 0.5],
@@ -5048,6 +5060,8 @@ paths:
                 ]
             },
             {
+                "id": 2,  # sqlite boundary_2d table id
+                "type": "2D", # "2D" for 2d boundaries
                 "interpolate": false,
                 "values": [
                     [0, 0,3],
@@ -5055,6 +5069,8 @@ paths:
                 ]
             },
             {
+                "id": 3,
+                "type": "2D",
                 "interpolate": false,
                 "values": [
                     [0, -2.4],
@@ -5066,10 +5082,7 @@ paths:
         ]
         ```
 
-        2D boundaries need to be provided before 1D boundaries.
-
-        1D boundaries need to be in order of connectionnode id's.
-        2D boundaries need to be in order of id (of the boundary).
+        The ordering of the boundaries does not matter.
 
         The file is valided to check if all boundary-conditions
         defined for the threedimodel have timeseries after upload.
@@ -13513,6 +13526,11 @@ paths:
           description: ''
           required: false
           type: string
+        - name: revision__id
+          in: query
+          description: ''
+          required: false
+          type: number
         - name: revision__number
           in: query
           description: ''
@@ -13584,6 +13602,11 @@ paths:
           required: false
           type: string
         - name: revision__hash__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__schematisation__isnull
           in: query
           description: ''
           required: false
@@ -13698,6 +13721,11 @@ paths:
           description: ''
           required: false
           type: string
+        - name: inpy_version__active
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: ordering
           in: query
           description: Which field to use when ordering the results.
@@ -13801,7 +13829,10 @@ paths:
         - v3
     delete:
       operationId: threedimodels_delete
-      description: A simple ViewSet for viewing threedimodels
+      summary: Soft-delete the threedimodel (sets disabled to True)
+      description: |-
+        If the model is already disabled and the user is a superuser, delete
+        the threedimodel.
       parameters: []
       responses:
         '204':
@@ -16900,6 +16931,12 @@ definitions:
         type: string
         readOnly: true
         description: The username of a user
+      threedi_version:
+        title: Threedi version
+        description: The 3Di API version that created this threedimodel.
+        type: string
+        readOnly: true
+        minLength: 1
       inpy_version:
         title: Inpy version
         type: string
@@ -16958,7 +16995,7 @@ definitions:
         x-nullable: true
       inp_success:
         title: Inp success
-        description: signals success of generate inp/sewerage_inp/...
+        description: True if the threedimodel was generated without errors.
         type: boolean
         x-nullable: true
       description:
@@ -16968,7 +17005,7 @@ definitions:
         x-nullable: true
       storage_space:
         title: Storage space
-        description: Automatically filled after inp generation.
+        description: Automatically filled after threedimodel generation.
         type: integer
         maximum: 9223372036854775807
         minimum: -9223372036854775808
