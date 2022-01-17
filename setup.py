@@ -53,7 +53,7 @@ setup(
     author="Lars Claussen",
     author_email='lars.claussen@nelen-schuurmans.nl',
     classifiers=[
-        'Development Status :: 3 - Beta',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',

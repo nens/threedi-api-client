@@ -5,7 +5,7 @@ History
 4.0.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix distribution.
 
 
 4.0.0b1 (2022-01-17)
