@@ -2,7 +2,7 @@
 History
 =======
 
-4.0.0b3 (unreleased)
+4.0.0b3 (2022-01-26)
 --------------------
 
 - Added Threedimodel `is_valid` field as alias for `inp_success`
