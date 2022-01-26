@@ -2,7 +2,7 @@
 History
 =======
 
-4.0.0b4 (unreleased)
+4.0.0b4 (2022-01-26)
 --------------------
 
 - Renamed `simulation_templates` to `simulation-templates`
