@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.11.1   3Di core release: 2.2.3  deployed on:  02:06PM (UTC) on January 13, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.14.0   3Di core release: 2.2.4  deployed on:  04:05PM (UTC) on January 25, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,6 @@ class ThreediModel(object):
         'id': 'int',
         'user': 'str',
         'threedi_version': 'str',
-        'inpy_version': 'str',
         'revision': 'str',
         'revision_id': 'int',
         'revision_hash': 'str',
@@ -52,8 +51,8 @@ class ThreediModel(object):
         'name': 'str',
         'slug': 'str',
         'disabled': 'bool',
+        'is_valid': 'bool',
         'epsg': 'int',
-        'inp_success': 'bool',
         'description': 'str',
         'storage_space': 'int',
         'storage_space_humanized': 'str',
@@ -63,7 +62,9 @@ class ThreediModel(object):
         'extent_one_d': 'Extent',
         'extent_zero_d': 'Extent',
         'nodes_count': 'int',
-        'lines_count': 'int'
+        'lines_count': 'int',
+        'inpy_version': 'str',
+        'inp_success': 'bool'
     }
 
     attribute_map = {
@@ -71,7 +72,6 @@ class ThreediModel(object):
         'id': 'id',
         'user': 'user',
         'threedi_version': 'threedi_version',
-        'inpy_version': 'inpy_version',
         'revision': 'revision',
         'revision_id': 'revision_id',
         'revision_hash': 'revision_hash',
@@ -83,8 +83,8 @@ class ThreediModel(object):
         'name': 'name',
         'slug': 'slug',
         'disabled': 'disabled',
+        'is_valid': 'is_valid',
         'epsg': 'epsg',
-        'inp_success': 'inp_success',
         'description': 'description',
         'storage_space': 'storage_space',
         'storage_space_humanized': 'storage_space_humanized',
@@ -94,10 +94,12 @@ class ThreediModel(object):
         'extent_one_d': 'extent_one_d',
         'extent_zero_d': 'extent_zero_d',
         'nodes_count': 'nodes_count',
-        'lines_count': 'lines_count'
+        'lines_count': 'lines_count',
+        'inpy_version': 'inpy_version',
+        'inp_success': 'inp_success'
     }
 
-    def __init__(self, url=None, id=None, user=None, threedi_version=None, inpy_version=None, revision=None, revision_id=None, revision_hash=None, revision_number=None, revision_commit_date=None, schematisation_id=None, schematisation_name=None, repository_slug=None, name=None, slug=None, disabled=None, epsg=None, inp_success=None, description=None, storage_space=None, storage_space_humanized=None, model_ini=None, breach_count=None, extent_two_d=None, extent_one_d=None, extent_zero_d=None, nodes_count=None, lines_count=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, id=None, user=None, threedi_version=None, revision=None, revision_id=None, revision_hash=None, revision_number=None, revision_commit_date=None, schematisation_id=None, schematisation_name=None, repository_slug=None, name=None, slug=None, disabled=None, is_valid=None, epsg=None, description=None, storage_space=None, storage_space_humanized=None, model_ini=None, breach_count=None, extent_two_d=None, extent_one_d=None, extent_zero_d=None, nodes_count=None, lines_count=None, inpy_version=None, inp_success=None, local_vars_configuration=None):  # noqa: E501
         """ThreediModel - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -107,7 +109,6 @@ class ThreediModel(object):
         self._id = None
         self._user = None
         self._threedi_version = None
-        self._inpy_version = None
         self._revision = None
         self._revision_id = None
         self._revision_hash = None
@@ -119,8 +120,8 @@ class ThreediModel(object):
         self._name = None
         self._slug = None
         self._disabled = None
+        self._is_valid = None
         self._epsg = None
-        self._inp_success = None
         self._description = None
         self._storage_space = None
         self._storage_space_humanized = None
@@ -131,6 +132,8 @@ class ThreediModel(object):
         self._extent_zero_d = None
         self._nodes_count = None
         self._lines_count = None
+        self._inpy_version = None
+        self._inp_success = None
         self.discriminator = None
 
         if url is not None:
@@ -141,7 +144,6 @@ class ThreediModel(object):
             self.user = user
         if threedi_version is not None:
             self.threedi_version = threedi_version
-        self.inpy_version = inpy_version
         self.revision = revision
         if revision_id is not None:
             self.revision_id = revision_id
@@ -162,8 +164,8 @@ class ThreediModel(object):
         self.slug = slug
         if disabled is not None:
             self.disabled = disabled
+        self.is_valid = is_valid
         self.epsg = epsg
-        self.inp_success = inp_success
         self.description = description
         if storage_space is not None:
             self.storage_space = storage_space
@@ -180,6 +182,9 @@ class ThreediModel(object):
             self.extent_zero_d = extent_zero_d
         self.nodes_count = nodes_count
         self.lines_count = lines_count
+        self.inpy_version = inpy_version
+        if inp_success is not None:
+            self.inp_success = inp_success
 
     @property
     def url(self):
@@ -271,29 +276,6 @@ class ThreediModel(object):
             raise ValueError("Invalid value for `threedi_version`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._threedi_version = threedi_version
-
-    @property
-    def inpy_version(self):
-        """Gets the inpy_version of this ThreediModel.  # noqa: E501
-
-
-        :return: The inpy_version of this ThreediModel.  # noqa: E501
-        :rtype: str
-        """
-        return self._inpy_version
-
-    @inpy_version.setter
-    def inpy_version(self, inpy_version):
-        """Sets the inpy_version of this ThreediModel.
-
-
-        :param inpy_version: The inpy_version of this ThreediModel.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and inpy_version is None:  # noqa: E501
-            raise ValueError("Invalid value for `inpy_version`, must not be `None`")  # noqa: E501
-
-        self._inpy_version = inpy_version
 
     @property
     def revision(self):
@@ -545,6 +527,29 @@ class ThreediModel(object):
         self._disabled = disabled
 
     @property
+    def is_valid(self):
+        """Gets the is_valid of this ThreediModel.  # noqa: E501
+
+        True if the threedimodel was generated without errors.  # noqa: E501
+
+        :return: The is_valid of this ThreediModel.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_valid
+
+    @is_valid.setter
+    def is_valid(self, is_valid):
+        """Sets the is_valid of this ThreediModel.
+
+        True if the threedimodel was generated without errors.  # noqa: E501
+
+        :param is_valid: The is_valid of this ThreediModel.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_valid = is_valid
+
+    @property
     def epsg(self):
         """Gets the epsg of this ThreediModel.  # noqa: E501
 
@@ -570,29 +575,6 @@ class ThreediModel(object):
             raise ValueError("Invalid value for `epsg`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._epsg = epsg
-
-    @property
-    def inp_success(self):
-        """Gets the inp_success of this ThreediModel.  # noqa: E501
-
-        True if the threedimodel was generated without errors.  # noqa: E501
-
-        :return: The inp_success of this ThreediModel.  # noqa: E501
-        :rtype: bool
-        """
-        return self._inp_success
-
-    @inp_success.setter
-    def inp_success(self, inp_success):
-        """Sets the inp_success of this ThreediModel.
-
-        True if the threedimodel was generated without errors.  # noqa: E501
-
-        :param inp_success: The inp_success of this ThreediModel.  # noqa: E501
-        :type: bool
-        """
-
-        self._inp_success = inp_success
 
     @property
     def description(self):
@@ -828,6 +810,50 @@ class ThreediModel(object):
             raise ValueError("Invalid value for `lines_count`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._lines_count = lines_count
+
+    @property
+    def inpy_version(self):
+        """Gets the inpy_version of this ThreediModel.  # noqa: E501
+
+
+        :return: The inpy_version of this ThreediModel.  # noqa: E501
+        :rtype: str
+        """
+        return self._inpy_version
+
+    @inpy_version.setter
+    def inpy_version(self, inpy_version):
+        """Sets the inpy_version of this ThreediModel.
+
+
+        :param inpy_version: The inpy_version of this ThreediModel.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and inpy_version is None:  # noqa: E501
+            raise ValueError("Invalid value for `inpy_version`, must not be `None`")  # noqa: E501
+
+        self._inpy_version = inpy_version
+
+    @property
+    def inp_success(self):
+        """Gets the inp_success of this ThreediModel.  # noqa: E501
+
+
+        :return: The inp_success of this ThreediModel.  # noqa: E501
+        :rtype: bool
+        """
+        return self._inp_success
+
+    @inp_success.setter
+    def inp_success(self, inp_success):
+        """Sets the inp_success of this ThreediModel.
+
+
+        :param inp_success: The inp_success of this ThreediModel.  # noqa: E501
+        :type: bool
+        """
+
+        self._inp_success = inp_success
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.11.1   3Di core release: 2.2.3  deployed on:  02:06PM (UTC) on January 13, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.14.0   3Di core release: 2.2.4  deployed on:  04:05PM (UTC) on January 25, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -54387,6 +54387,7 @@ class V3Api(object):
         :param str slug__endswith:
         :param str slug__regex:
         :param float epsg:
+        :param str is_valid:
         :param str inpy_version__slug:
         :param str inpy_version__slug__iexact:
         :param str inpy_version__slug__contains:
@@ -54500,6 +54501,7 @@ class V3Api(object):
         :param str slug__endswith:
         :param str slug__regex:
         :param float epsg:
+        :param str is_valid:
         :param str inpy_version__slug:
         :param str inpy_version__slug__iexact:
         :param str inpy_version__slug__contains:
@@ -54606,6 +54608,7 @@ class V3Api(object):
             'slug__endswith',
             'slug__regex',
             'epsg',
+            'is_valid',
             'inpy_version__slug',
             'inpy_version__slug__iexact',
             'inpy_version__slug__contains',
@@ -54738,6 +54741,8 @@ class V3Api(object):
             query_params.append(('slug__regex', local_var_params['slug__regex']))  # noqa: E501
         if 'epsg' in local_var_params and local_var_params['epsg'] is not None:  # noqa: E501
             query_params.append(('epsg', local_var_params['epsg']))  # noqa: E501
+        if 'is_valid' in local_var_params and local_var_params['is_valid'] is not None:  # noqa: E501
+            query_params.append(('is_valid', local_var_params['is_valid']))  # noqa: E501
         if 'inpy_version__slug' in local_var_params and local_var_params['inpy_version__slug'] is not None:  # noqa: E501
             query_params.append(('inpy_version__slug', local_var_params['inpy_version__slug']))  # noqa: E501
         if 'inpy_version__slug__iexact' in local_var_params and local_var_params['inpy_version__slug__iexact'] is not None:  # noqa: E501

@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest stable version: v3) 
-     Framework release: 2.11.1 
-     3Di core release: 2.2.3 
-    deployed on:  02:06PM (UTC) on January 13, 2022
+     Framework release: 2.14.0 
+     3Di core release: 2.2.4 
+    deployed on:  04:05PM (UTC) on January 25, 2022
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -1961,6 +1961,45 @@ paths:
         description: A unique integer value identifying this simulation.
         required: true
         type: integer
+  /v3-beta/status/:
+    get:
+      operationId: status_list
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Status'
+      tags:
+        - v3-beta
+    parameters: []
+  /v3-beta/status/current-version/:
+    get:
+      operationId: status_current_version
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/CurrentVersion'
+      tags:
+        - v3-beta
+    parameters: []
+  /v3-beta/status/db/:
+    get:
+      operationId: status_db
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Status'
+      tags:
+        - v3-beta
+    parameters: []
   /v3/auth/profile/:
     get:
       operationId: auth_profile_list
@@ -13391,6 +13430,11 @@ paths:
           description: ''
           required: false
           type: number
+        - name: is_valid
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: inpy_version__slug
           in: query
           description: ''
@@ -16912,9 +16956,9 @@ definitions:
         x-nullable: true
   ThreediModel:
     required:
-      - inpy_version
       - revision
       - slug
+      - inpy_version
     type: object
     properties:
       url:
@@ -16937,9 +16981,6 @@ definitions:
         type: string
         readOnly: true
         minLength: 1
-      inpy_version:
-        title: Inpy version
-        type: string
       revision:
         title: Revision
         type: string
@@ -16987,16 +17028,16 @@ definitions:
         title: Disabled
         description: Disable the model.
         type: boolean
+      is_valid:
+        title: Is valid
+        description: True if the threedimodel was generated without errors.
+        type: boolean
+        x-nullable: true
       epsg:
         title: Epsg
         type: integer
         maximum: 2147483647
         minimum: -2147483648
-        x-nullable: true
-      inp_success:
-        title: Inp success
-        description: True if the threedimodel was generated without errors.
-        type: boolean
         x-nullable: true
       description:
         title: Description
@@ -17142,6 +17183,12 @@ definitions:
         maximum: 2147483647
         minimum: -2147483648
         x-nullable: true
+      inpy_version:
+        title: Inpy version
+        type: string
+      inp_success:
+        title: Inp success
+        type: boolean
   Download:
     type: object
     properties:
@@ -17390,6 +17437,16 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      threedicore_version:
+        title: Threedicore version
+        type: string
+        readOnly: true
+        minLength: 1
+      cloned_from:
+        title: Cloned from
+        type: string
+        format: uri
+        readOnly: true
   Template:
     required:
       - name
@@ -17493,6 +17550,24 @@ definitions:
         title: Clone settings
         type: boolean
         default: true
+  Status:
+    type: object
+    properties:
+      status:
+        title: Status
+        type: string
+        readOnly: true
+  CurrentVersion:
+    type: object
+    properties:
+      threedi_version:
+        title: Threedi version
+        type: string
+        readOnly: true
+      threedicore_version:
+        title: Threedicore version
+        type: string
+        readOnly: true
   User:
     required:
       - username
@@ -18021,6 +18096,16 @@ definitions:
       id:
         title: ID
         type: integer
+        readOnly: true
+      threedicore_version:
+        title: Threedicore version
+        type: string
+        readOnly: true
+        minLength: 1
+      cloned_from:
+        title: Cloned from
+        type: string
+        format: uri
         readOnly: true
   LizardRasterRain:
     required:

@@ -4,7 +4,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.11.1   3Di core release: 2.2.3  deployed on:  02:06PM (UTC) on January 13, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.14.0   3Di core release: 2.2.4  deployed on:  04:05PM (UTC) on January 25, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,6 +36,7 @@ from threedi_api_client.openapi.models.contract import Contract
 from threedi_api_client.openapi.models.create_revision import CreateRevision
 from threedi_api_client.openapi.models.create_template import CreateTemplate
 from threedi_api_client.openapi.models.current_status import CurrentStatus
+from threedi_api_client.openapi.models.current_version import CurrentVersion
 from threedi_api_client.openapi.models.damage_estimation import DamageEstimation
 from threedi_api_client.openapi.models.damage_post_processing import DamagePostProcessing
 from threedi_api_client.openapi.models.destroy_revision import DestroyRevision
@@ -192,6 +193,7 @@ from threedi_api_client.openapi.models.simulation_update import SimulationUpdate
 from threedi_api_client.openapi.models.sqlite import Sqlite
 from threedi_api_client.openapi.models.sqlite_file_upload import SqliteFileUpload
 from threedi_api_client.openapi.models.stable_threshold_saved_state import StableThresholdSavedState
+from threedi_api_client.openapi.models.status import Status
 from threedi_api_client.openapi.models.tms import TMS
 from threedi_api_client.openapi.models.table_structure_control import TableStructureControl
 from threedi_api_client.openapi.models.template import Template

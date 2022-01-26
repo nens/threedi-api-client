@@ -5,7 +5,11 @@ History
 4.0.0b3 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Added Threedimodel `is_valid` field as alias for `inp_success`
+
+- Added Simulation `threedicore_version` field and `cloned_from` field
+
+- Added `status` endpoints and `version` endpoints
 
 
 4.0.0b2 (2022-01-17)

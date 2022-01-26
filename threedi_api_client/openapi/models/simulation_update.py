@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.11.1   3Di core release: 2.2.3  deployed on:  02:06PM (UTC) on January 13, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.14.0   3Di core release: 2.2.4  deployed on:  04:05PM (UTC) on January 25, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -51,7 +51,9 @@ class SimulationUpdate(object):
         'duration': 'int',
         'duration_humanized': 'str',
         'threedimodel_id': 'int',
-        'id': 'int'
+        'id': 'int',
+        'threedicore_version': 'str',
+        'cloned_from': 'str'
     }
 
     attribute_map = {
@@ -70,10 +72,12 @@ class SimulationUpdate(object):
         'duration': 'duration',
         'duration_humanized': 'duration_humanized',
         'threedimodel_id': 'threedimodel_id',
-        'id': 'id'
+        'id': 'id',
+        'threedicore_version': 'threedicore_version',
+        'cloned_from': 'cloned_from'
     }
 
-    def __init__(self, url=None, slug=None, uuid=None, name=None, tags=None, created=None, threedimodel=None, organisation=None, organisation_name=None, user=None, start_datetime=None, end_datetime=None, duration=None, duration_humanized=None, threedimodel_id=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, slug=None, uuid=None, name=None, tags=None, created=None, threedimodel=None, organisation=None, organisation_name=None, user=None, start_datetime=None, end_datetime=None, duration=None, duration_humanized=None, threedimodel_id=None, id=None, threedicore_version=None, cloned_from=None, local_vars_configuration=None):  # noqa: E501
         """SimulationUpdate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -95,6 +99,8 @@ class SimulationUpdate(object):
         self._duration_humanized = None
         self._threedimodel_id = None
         self._id = None
+        self._threedicore_version = None
+        self._cloned_from = None
         self.discriminator = None
 
         if url is not None:
@@ -128,6 +134,10 @@ class SimulationUpdate(object):
             self.threedimodel_id = threedimodel_id
         if id is not None:
             self.id = id
+        if threedicore_version is not None:
+            self.threedicore_version = threedicore_version
+        if cloned_from is not None:
+            self.cloned_from = cloned_from
 
     @property
     def url(self):
@@ -489,6 +499,51 @@ class SimulationUpdate(object):
         """
 
         self._id = id
+
+    @property
+    def threedicore_version(self):
+        """Gets the threedicore_version of this SimulationUpdate.  # noqa: E501
+
+
+        :return: The threedicore_version of this SimulationUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._threedicore_version
+
+    @threedicore_version.setter
+    def threedicore_version(self, threedicore_version):
+        """Sets the threedicore_version of this SimulationUpdate.
+
+
+        :param threedicore_version: The threedicore_version of this SimulationUpdate.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                threedicore_version is not None and len(threedicore_version) < 1):
+            raise ValueError("Invalid value for `threedicore_version`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._threedicore_version = threedicore_version
+
+    @property
+    def cloned_from(self):
+        """Gets the cloned_from of this SimulationUpdate.  # noqa: E501
+
+
+        :return: The cloned_from of this SimulationUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._cloned_from
+
+    @cloned_from.setter
+    def cloned_from(self, cloned_from):
+        """Sets the cloned_from of this SimulationUpdate.
+
+
+        :param cloned_from: The cloned_from of this SimulationUpdate.  # noqa: E501
+        :type: str
+        """
+
+        self._cloned_from = cloned_from
 
     def to_dict(self):
         """Returns the model properties as a dict"""
