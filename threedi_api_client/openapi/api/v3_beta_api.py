@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.14.0   3Di core release: 2.2.4  deployed on:  04:05PM (UTC) on January 25, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.15.1   3Di core release: 2.2.4  deployed on:  01:07PM (UTC) on January 26, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -5105,7 +5105,7 @@ class V3BetaApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/simulation_templates/', 'POST',
+            '/v3-beta/simulation-templates/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -5213,7 +5213,7 @@ class V3BetaApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/simulation_templates/{id}/', 'DELETE',
+            '/v3-beta/simulation-templates/{id}/', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -5496,7 +5496,7 @@ class V3BetaApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/simulation_templates/', 'GET',
+            '/v3-beta/simulation-templates/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -5608,7 +5608,7 @@ class V3BetaApi(object):
         auth_settings = ['Bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/simulation_templates/{id}/', 'GET',
+            '/v3-beta/simulation-templates/{id}/', 'GET',
             path_params,
             query_params,
             header_params,

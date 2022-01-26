@@ -5,7 +5,7 @@ History
 4.0.0b4 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Renamed `simulation_templates` to `simulation-templates`
 
 
 4.0.0b3 (2022-01-26)

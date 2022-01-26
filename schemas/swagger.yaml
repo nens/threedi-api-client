@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest stable version: v3) 
-     Framework release: 2.14.0 
+     Framework release: 2.15.1 
      3Di core release: 2.2.4 
-    deployed on:  04:05PM (UTC) on January 25, 2022
+    deployed on:  01:07PM (UTC) on January 26, 2022
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -1635,9 +1635,9 @@ paths:
         in: path
         required: true
         type: string
-  /v3-beta/simulation_templates/:
+  /v3-beta/simulation-templates/:
     get:
-      operationId: simulation_templates_list
+      operationId: simulation-templates_list
       description: ''
       parameters:
         - name: name
@@ -1846,7 +1846,7 @@ paths:
       tags:
         - v3-beta
     post:
-      operationId: simulation_templates_create
+      operationId: simulation-templates_create
       summary: Create a (optionally cloned) simulation template from the given simulation.
       description: |-
         A simulation template is actually nothing more than a simulation with a special status.
@@ -1873,9 +1873,9 @@ paths:
       tags:
         - v3-beta
     parameters: []
-  /v3-beta/simulation_templates/{id}/:
+  /v3-beta/simulation-templates/{id}/:
     get:
-      operationId: simulation_templates_read
+      operationId: simulation-templates_read
       description: ''
       parameters: []
       responses:
@@ -1886,7 +1886,7 @@ paths:
       tags:
         - v3-beta
     delete:
-      operationId: simulation_templates_delete
+      operationId: simulation-templates_delete
       description: ''
       parameters: []
       responses:
