@@ -2,7 +2,7 @@
 History
 =======
 
-4.0.0 (unreleased)
+4.0.0 (2022-02-11)
 ------------------
 
 - First stable release with new `ThreediApi` client included
