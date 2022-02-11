@@ -34,34 +34,48 @@ class LizardTimeseriesRain(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'simulation': 'str',
-        'offset': 'int',
-        'duration': 'int',
-        'reference_uuid': 'str',
-        'start_datetime': 'datetime',
-        'interpolate': 'bool',
-        'values': 'list[list[float]]',
-        'units': 'str',
-        'id': 'int',
-        'uid': 'str'
+        "url": "str",
+        "simulation": "str",
+        "offset": "int",
+        "duration": "int",
+        "reference_uuid": "str",
+        "start_datetime": "datetime",
+        "interpolate": "bool",
+        "values": "list[list[float]]",
+        "units": "str",
+        "id": "int",
+        "uid": "str",
     }
 
     attribute_map = {
-        'url': 'url',
-        'simulation': 'simulation',
-        'offset': 'offset',
-        'duration': 'duration',
-        'reference_uuid': 'reference_uuid',
-        'start_datetime': 'start_datetime',
-        'interpolate': 'interpolate',
-        'values': 'values',
-        'units': 'units',
-        'id': 'id',
-        'uid': 'uid'
+        "url": "url",
+        "simulation": "simulation",
+        "offset": "offset",
+        "duration": "duration",
+        "reference_uuid": "reference_uuid",
+        "start_datetime": "start_datetime",
+        "interpolate": "interpolate",
+        "values": "values",
+        "units": "units",
+        "id": "id",
+        "uid": "uid",
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, duration=None, reference_uuid=None, start_datetime=None, interpolate=None, values=None, units=None, id=None, uid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        simulation=None,
+        offset=None,
+        duration=None,
+        reference_uuid=None,
+        start_datetime=None,
+        interpolate=None,
+        values=None,
+        units=None,
+        id=None,
+        uid=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """LizardTimeseriesRain - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -161,14 +175,28 @@ class LizardTimeseriesRain(object):
         :param offset: The offset of this LizardTimeseriesRain.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and offset is None:  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                offset is not None and offset > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                offset is not None and offset < 0):  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must be a value greater than or equal to `0`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and offset is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and offset is not None
+            and offset > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and offset is not None
+            and offset < 0
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must be a value greater than or equal to `0`"
+            )  # noqa: E501
 
         self._offset = offset
 
@@ -192,12 +220,22 @@ class LizardTimeseriesRain(object):
         :param duration: The duration of this LizardTimeseriesRain.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                duration is not None and duration > 9223372036854775807):  # noqa: E501
-            raise ValueError("Invalid value for `duration`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                duration is not None and duration < -9223372036854775808):  # noqa: E501
-            raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and duration is not None
+            and duration > 9223372036854775807
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `duration`, must be a value less than or equal to `9223372036854775807`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and duration is not None
+            and duration < -9223372036854775808
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `duration`, must be a value greater than or equal to `-9223372036854775808`"
+            )  # noqa: E501
 
         self._duration = duration
 
@@ -219,14 +257,29 @@ class LizardTimeseriesRain(object):
         :param reference_uuid: The reference_uuid of this LizardTimeseriesRain.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and reference_uuid is None:  # noqa: E501
-            raise ValueError("Invalid value for `reference_uuid`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                reference_uuid is not None and len(reference_uuid) > 40):
-            raise ValueError("Invalid value for `reference_uuid`, length must be less than or equal to `40`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                reference_uuid is not None and len(reference_uuid) < 1):
-            raise ValueError("Invalid value for `reference_uuid`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and reference_uuid is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `reference_uuid`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and reference_uuid is not None
+            and len(reference_uuid) > 40
+        ):
+            raise ValueError(
+                "Invalid value for `reference_uuid`, length must be less than or equal to `40`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and reference_uuid is not None
+            and len(reference_uuid) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `reference_uuid`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._reference_uuid = reference_uuid
 
@@ -248,8 +301,13 @@ class LizardTimeseriesRain(object):
         :param start_datetime: The start_datetime of this LizardTimeseriesRain.  # noqa: E501
         :type: datetime
         """
-        if self.local_vars_configuration.client_side_validation and start_datetime is None:  # noqa: E501
-            raise ValueError("Invalid value for `start_datetime`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and start_datetime is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `start_datetime`, must not be `None`"
+            )  # noqa: E501
 
         self._start_datetime = start_datetime
 
@@ -316,10 +374,14 @@ class LizardTimeseriesRain(object):
         :type: str
         """
         allowed_values = ["mm/duration", "mm/h", "m/s"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and units not in allowed_values
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
-                .format(units, allowed_values)
+                "Invalid value for `units` ({0}), must be one of {1}".format(  # noqa: E501
+                    units, allowed_values
+                )
             )
 
         self._units = units
@@ -373,18 +435,20 @@ class LizardTimeseriesRain(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

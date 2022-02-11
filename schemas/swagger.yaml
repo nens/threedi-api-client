@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest stable version: v3) 
-     Framework release: 2.15.1 
-     3Di core release: 2.2.4 
-    deployed on:  01:07PM (UTC) on January 26, 2022
+     Framework release: 2.17.1 
+     3Di core release: 2.2.5 
+    deployed on:  12:36PM (UTC) on February 11, 2022
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -611,7 +611,7 @@ paths:
         description: A unique integer value identifying this schematisation.
         required: true
         type: integer
-  /v3-beta/schematisations/{id}/latest_revision/:
+  /v3-beta/schematisations/{id}/latest-revision/:
     get:
       operationId: schematisations_latest_revision
       summary: Get the latest committed revision.
@@ -990,6 +990,11 @@ paths:
           description: ''
           required: false
           type: string
+        - name: ordering
+          in: query
+          description: Which field to use when ordering the results.
+          required: false
+          type: string
         - name: limit
           in: query
           description: Number of results to return per page.
@@ -1163,7 +1168,7 @@ paths:
         in: path
         required: true
         type: string
-  /v3-beta/schematisations/{schematisation_pk}/revisions/{id}/create_threedimodel/:
+  /v3-beta/schematisations/{schematisation_pk}/revisions/{id}/create-threedimodel/:
     post:
       operationId: schematisations_revisions_create_threedimodel
       description: Manage revisions of schematisations.
@@ -1900,7 +1905,7 @@ paths:
         description: A unique integer value identifying this template.
         required: true
         type: integer
-  /v3-beta/simulations/from_template/:
+  /v3-beta/simulations/from-template/:
     post:
       operationId: simulations_from_template
       summary: Create a (new/cloned) simulation from a simulation template.
@@ -5085,7 +5090,24 @@ paths:
         or more boundary-conditions.
 
         The uploaded file should be a JSON-file containing an array of
-        boundary-conditions timeseries. Example of the content of such a file:
+        boundary-conditions timeseries.
+
+        The file must contain a timeseries for each boundary condition in the
+        threedimodel. This is validated after upload.
+
+        Boundary-conditions need to be added before initializing/starting
+        the simulation and cannot be changed once the simulation is
+        initialized.
+
+        Depending on whether the threedimodel is created from a schematisation
+        or via Inpy one of the following file formats needs to be used.
+
+        Example for threedimodels created from schematisations
+        ------------------------------------------------------
+
+        **Notes**
+        The ordering of the boundaries does not matter.
+
         ```
         [
             {
@@ -5121,14 +5143,42 @@ paths:
         ]
         ```
 
-        The ordering of the boundaries does not matter.
+        Example for threedimodels created via inpy
+        ------------------------------------------
 
-        The file is valided to check if all boundary-conditions
-        defined for the threedimodel have timeseries after upload.
+        **Notes**
+        2D boundaries need to be provided before 1D boundaries.
+        1D boundaries need to be in order of connectionnode id.
+        2D boundaries need to be in order of id (of the boundary).
 
-        Boundary-conditions need to be added before initializing/starting
-        the simulation and cannot be changed once the simulation is
-        initialized.
+        ```
+        [
+            {
+                "interpolate": false,
+                "values": [
+                    [0, 0.5],
+                    [500, 0,8],
+                    [1000, 0]
+                ]
+            },
+            {
+                "interpolate": false,
+                "values": [
+                    [0, 0,3],
+                    [400, 0.1]
+                ]
+            },
+            {
+                "interpolate": false,
+                "values": [
+                    [0, -2.4],
+                    [1300, 0,3],
+                    [3000, 1.2],
+                    [3600, 0]
+                ]
+            }
+        ]
+        ```
       parameters:
         - name: data
           in: body

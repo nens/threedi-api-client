@@ -34,24 +34,33 @@ class InpyVersion(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'threedi_version': 'str',
-        'threedicore_version': 'str',
-        'slug': 'str',
-        'id': 'int',
-        'active': 'bool'
+        "url": "str",
+        "threedi_version": "str",
+        "threedicore_version": "str",
+        "slug": "str",
+        "id": "int",
+        "active": "bool",
     }
 
     attribute_map = {
-        'url': 'url',
-        'threedi_version': 'threedi_version',
-        'threedicore_version': 'threedicore_version',
-        'slug': 'slug',
-        'id': 'id',
-        'active': 'active'
+        "url": "url",
+        "threedi_version": "threedi_version",
+        "threedicore_version": "threedicore_version",
+        "slug": "slug",
+        "id": "id",
+        "active": "active",
     }
 
-    def __init__(self, url=None, threedi_version=None, threedicore_version=None, slug=None, id=None, active=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        threedi_version=None,
+        threedicore_version=None,
+        slug=None,
+        id=None,
+        active=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """InpyVersion - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -115,14 +124,29 @@ class InpyVersion(object):
         :param threedi_version: The threedi_version of this InpyVersion.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and threedi_version is None:  # noqa: E501
-            raise ValueError("Invalid value for `threedi_version`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                threedi_version is not None and len(threedi_version) > 80):
-            raise ValueError("Invalid value for `threedi_version`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                threedi_version is not None and len(threedi_version) < 1):
-            raise ValueError("Invalid value for `threedi_version`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and threedi_version is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `threedi_version`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and threedi_version is not None
+            and len(threedi_version) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `threedi_version`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and threedi_version is not None
+            and len(threedi_version) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `threedi_version`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._threedi_version = threedi_version
 
@@ -144,14 +168,29 @@ class InpyVersion(object):
         :param threedicore_version: The threedicore_version of this InpyVersion.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and threedicore_version is None:  # noqa: E501
-            raise ValueError("Invalid value for `threedicore_version`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                threedicore_version is not None and len(threedicore_version) > 80):
-            raise ValueError("Invalid value for `threedicore_version`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                threedicore_version is not None and len(threedicore_version) < 1):
-            raise ValueError("Invalid value for `threedicore_version`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and threedicore_version is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `threedicore_version`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and threedicore_version is not None
+            and len(threedicore_version) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `threedicore_version`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and threedicore_version is not None
+            and len(threedicore_version) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `threedicore_version`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._threedicore_version = threedicore_version
 
@@ -173,9 +212,14 @@ class InpyVersion(object):
         :param slug: The slug of this InpyVersion.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and len(slug) < 1):
-            raise ValueError("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and slug is not None
+            and len(slug) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `slug`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._slug = slug
 
@@ -228,18 +272,20 @@ class InpyVersion(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

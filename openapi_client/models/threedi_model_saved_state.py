@@ -34,34 +34,48 @@ class ThreediModelSavedState(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int',
-        'url': 'str',
-        'name': 'str',
-        'created': 'datetime',
-        'type': 'str',
-        'tags': 'str',
-        'used_in_simulation': 'str',
-        'expiry': 'datetime',
-        'time': 'int',
-        'variables': 'list[str]',
-        'thresholds': 'list[float]'
+        "id": "int",
+        "url": "str",
+        "name": "str",
+        "created": "datetime",
+        "type": "str",
+        "tags": "str",
+        "used_in_simulation": "str",
+        "expiry": "datetime",
+        "time": "int",
+        "variables": "list[str]",
+        "thresholds": "list[float]",
     }
 
     attribute_map = {
-        'id': 'id',
-        'url': 'url',
-        'name': 'name',
-        'created': 'created',
-        'type': 'type',
-        'tags': 'tags',
-        'used_in_simulation': 'used_in_simulation',
-        'expiry': 'expiry',
-        'time': 'time',
-        'variables': 'variables',
-        'thresholds': 'thresholds'
+        "id": "id",
+        "url": "url",
+        "name": "name",
+        "created": "created",
+        "type": "type",
+        "tags": "tags",
+        "used_in_simulation": "used_in_simulation",
+        "expiry": "expiry",
+        "time": "time",
+        "variables": "variables",
+        "thresholds": "thresholds",
     }
 
-    def __init__(self, id=None, url=None, name=None, created=None, type=None, tags=None, used_in_simulation=None, expiry=None, time=None, variables=None, thresholds=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        url=None,
+        name=None,
+        created=None,
+        type=None,
+        tags=None,
+        used_in_simulation=None,
+        expiry=None,
+        time=None,
+        variables=None,
+        thresholds=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """ThreediModelSavedState - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -156,14 +170,28 @@ class ThreediModelSavedState(object):
         :param name: The name of this ThreediModelSavedState.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) > 80):
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and name is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `name`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and name is not None
+            and len(name) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `name`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and name is not None
+            and len(name) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `name`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._name = name
 
@@ -206,13 +234,21 @@ class ThreediModelSavedState(object):
         :param type: The type of this ThreediModelSavedState.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["stable_threshold", "timed"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and type is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
+                "Invalid value for `type`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = ["stable_threshold", "timed"]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and type not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}".format(  # noqa: E501
+                    type, allowed_values
+                )
             )
 
         self._type = type
@@ -300,12 +336,22 @@ class ThreediModelSavedState(object):
         :param time: The time of this ThreediModelSavedState.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                time is not None and time > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `time`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                time is not None and time < 0):  # noqa: E501
-            raise ValueError("Invalid value for `time`, must be a value greater than or equal to `0`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and time is not None
+            and time > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `time`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and time is not None
+            and time < 0
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `time`, must be a value greater than or equal to `0`"
+            )  # noqa: E501
 
         self._time = time
 
@@ -327,13 +373,19 @@ class ThreediModelSavedState(object):
         :param variables: The variables of this ThreediModelSavedState.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = [None,"s1", "u1"]  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                not set(variables).issubset(set(allowed_values))):  # noqa: E501
+        allowed_values = [None, "s1", "u1"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and not set(
+            variables
+        ).issubset(
+            set(allowed_values)
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid values for `variables` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(variables) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
+                "Invalid values for `variables` [{0}], must be a subset of [{1}]".format(  # noqa: E501
+                    ", ".join(
+                        map(str, set(variables) - set(allowed_values))
+                    ),  # noqa: E501
+                    ", ".join(map(str, allowed_values)),
+                )
             )
 
         self._variables = variables
@@ -366,18 +418,20 @@ class ThreediModelSavedState(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

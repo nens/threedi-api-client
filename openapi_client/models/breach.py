@@ -34,38 +34,54 @@ class Breach(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'potential_breach': 'str',
-        'line_id': 'int',
-        'duration_till_max_depth': 'int',
-        'maximum_breach_depth': 'float',
-        'levee_material': 'str',
-        'initial_width': 'float',
-        'discharge_coefficient_positive': 'float',
-        'discharge_coefficient_negative': 'float',
-        'simulation': 'str',
-        'offset': 'int',
-        'id': 'int',
-        'uid': 'str'
+        "url": "str",
+        "potential_breach": "str",
+        "line_id": "int",
+        "duration_till_max_depth": "int",
+        "maximum_breach_depth": "float",
+        "levee_material": "str",
+        "initial_width": "float",
+        "discharge_coefficient_positive": "float",
+        "discharge_coefficient_negative": "float",
+        "simulation": "str",
+        "offset": "int",
+        "id": "int",
+        "uid": "str",
     }
 
     attribute_map = {
-        'url': 'url',
-        'potential_breach': 'potential_breach',
-        'line_id': 'line_id',
-        'duration_till_max_depth': 'duration_till_max_depth',
-        'maximum_breach_depth': 'maximum_breach_depth',
-        'levee_material': 'levee_material',
-        'initial_width': 'initial_width',
-        'discharge_coefficient_positive': 'discharge_coefficient_positive',
-        'discharge_coefficient_negative': 'discharge_coefficient_negative',
-        'simulation': 'simulation',
-        'offset': 'offset',
-        'id': 'id',
-        'uid': 'uid'
+        "url": "url",
+        "potential_breach": "potential_breach",
+        "line_id": "line_id",
+        "duration_till_max_depth": "duration_till_max_depth",
+        "maximum_breach_depth": "maximum_breach_depth",
+        "levee_material": "levee_material",
+        "initial_width": "initial_width",
+        "discharge_coefficient_positive": "discharge_coefficient_positive",
+        "discharge_coefficient_negative": "discharge_coefficient_negative",
+        "simulation": "simulation",
+        "offset": "offset",
+        "id": "id",
+        "uid": "uid",
     }
 
-    def __init__(self, url=None, potential_breach=None, line_id=None, duration_till_max_depth=None, maximum_breach_depth=None, levee_material=None, initial_width=None, discharge_coefficient_positive=None, discharge_coefficient_negative=None, simulation=None, offset=None, id=None, uid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        potential_breach=None,
+        line_id=None,
+        duration_till_max_depth=None,
+        maximum_breach_depth=None,
+        levee_material=None,
+        initial_width=None,
+        discharge_coefficient_positive=None,
+        discharge_coefficient_negative=None,
+        simulation=None,
+        offset=None,
+        id=None,
+        uid=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """Breach - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -144,8 +160,13 @@ class Breach(object):
         :param potential_breach: The potential_breach of this Breach.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and potential_breach is None:  # noqa: E501
-            raise ValueError("Invalid value for `potential_breach`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and potential_breach is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `potential_breach`, must not be `None`"
+            )  # noqa: E501
 
         self._potential_breach = potential_breach
 
@@ -190,14 +211,29 @@ class Breach(object):
         :param duration_till_max_depth: The duration_till_max_depth of this Breach.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and duration_till_max_depth is None:  # noqa: E501
-            raise ValueError("Invalid value for `duration_till_max_depth`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                duration_till_max_depth is not None and duration_till_max_depth > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `duration_till_max_depth`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                duration_till_max_depth is not None and duration_till_max_depth < 0):  # noqa: E501
-            raise ValueError("Invalid value for `duration_till_max_depth`, must be a value greater than or equal to `0`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and duration_till_max_depth is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `duration_till_max_depth`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and duration_till_max_depth is not None
+            and duration_till_max_depth > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `duration_till_max_depth`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and duration_till_max_depth is not None
+            and duration_till_max_depth < 0
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `duration_till_max_depth`, must be a value greater than or equal to `0`"
+            )  # noqa: E501
 
         self._duration_till_max_depth = duration_till_max_depth
 
@@ -244,11 +280,15 @@ class Breach(object):
         :param levee_material: The levee_material of this Breach.  # noqa: E501
         :type: str
         """
-        allowed_values = [None,"sand", "clay"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and levee_material not in allowed_values:  # noqa: E501
+        allowed_values = [None, "sand", "clay"]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and levee_material not in allowed_values
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `levee_material` ({0}), must be one of {1}"  # noqa: E501
-                .format(levee_material, allowed_values)
+                "Invalid value for `levee_material` ({0}), must be one of {1}".format(  # noqa: E501
+                    levee_material, allowed_values
+                )
             )
 
         self._levee_material = levee_material
@@ -273,8 +313,13 @@ class Breach(object):
         :param initial_width: The initial_width of this Breach.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and initial_width is None:  # noqa: E501
-            raise ValueError("Invalid value for `initial_width`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and initial_width is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `initial_width`, must not be `None`"
+            )  # noqa: E501
 
         self._initial_width = initial_width
 
@@ -361,14 +406,28 @@ class Breach(object):
         :param offset: The offset of this Breach.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and offset is None:  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                offset is not None and offset > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                offset is not None and offset < 0):  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must be a value greater than or equal to `0`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and offset is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and offset is not None
+            and offset > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and offset is not None
+            and offset < 0
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must be a value greater than or equal to `0`"
+            )  # noqa: E501
 
         self._offset = offset
 
@@ -421,18 +480,20 @@ class Breach(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

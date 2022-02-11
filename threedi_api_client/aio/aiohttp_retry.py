@@ -18,7 +18,18 @@ from abc import abstractmethod
 from warnings import warn
 
 from aiohttp import ClientSession, ClientResponse, hdrs
-from typing import Any, Callable, Generator, Optional, Set, Type, Iterable, List, Union, Tuple
+from typing import (
+    Any,
+    Callable,
+    Generator,
+    Optional,
+    Set,
+    Type,
+    Iterable,
+    List,
+    Union,
+    Tuple,
+)
 
 from aiohttp.typedefs import StrOrURL
 
@@ -28,7 +39,9 @@ else:
     from typing_extensions import Protocol
 
 
-DEFAULT_ALLOWED_METHODS = frozenset({'DELETE', 'GET', 'HEAD', 'OPTIONS', 'PUT', 'TRACE'})
+DEFAULT_ALLOWED_METHODS = frozenset(
+    {"DELETE", "GET", "HEAD", "OPTIONS", "PUT", "TRACE"}
+)
 RETRY_AFTER_STATUS_CODES = frozenset({413, 429, 503, 504})
 
 
@@ -38,10 +51,12 @@ class _Logger(Protocol):
     """
 
     @abstractmethod
-    def debug(self, msg: str, *args: Any, **kwargs: Any) -> None: pass
+    def debug(self, msg: str, *args: Any, **kwargs: Any) -> None:
+        pass
 
     @abstractmethod
-    def warning(self, msg: str, *args: Any, **kwargs: Any) -> None: pass
+    def warning(self, msg: str, *args: Any, **kwargs: Any) -> None:
+        pass
 
 
 # url itself or list of urls for changing between retries
@@ -53,8 +68,12 @@ class RetryOptionsBase:
         self,
         attempts: int = 3,  # How many times we should retry
         statuses: Optional[Iterable[int]] = None,  # On which statuses we should retry
-        exceptions: Optional[Iterable[Type[Exception]]] = None,  # On which exceptions we should retry
-        methods: Optional[Iterable[str]] = None,  # On which HTTP methods we should retry
+        exceptions: Optional[
+            Iterable[Type[Exception]]
+        ] = None,  # On which exceptions we should retry
+        methods: Optional[
+            Iterable[str]
+        ] = None,  # On which HTTP methods we should retry
     ):
         self.attempts: int = attempts
         if statuses is None:
@@ -82,8 +101,12 @@ class ExponentialRetry(RetryOptionsBase):
         max_timeout: float = 30.0,  # Max possible timeout between tries
         factor: float = 2.0,  # How much we increase timeout each time
         statuses: Optional[Set[int]] = None,  # On which statuses we should retry
-        exceptions: Optional[Set[Type[Exception]]] = None,  # On which exceptions we should retry
-        methods: Optional[Iterable[str]] = None,  # On which HTTP methods we should retry
+        exceptions: Optional[
+            Set[Type[Exception]]
+        ] = None,  # On which exceptions we should retry
+        methods: Optional[
+            Iterable[str]
+        ] = None,  # On which HTTP methods we should retry
     ):
         super().__init__(attempts, statuses, exceptions, methods)
 
@@ -107,8 +130,12 @@ class RandomRetry(RetryOptionsBase):
         self,
         attempts: int = 3,  # How many times we should retry
         statuses: Optional[Iterable[int]] = None,  # On which statuses we should retry
-        exceptions: Optional[Iterable[Type[Exception]]] = None,  # On which exceptions we should retry
-        methods: Optional[Iterable[str]] = None,  # On which HTTP methods we should retry
+        exceptions: Optional[
+            Iterable[Type[Exception]]
+        ] = None,  # On which exceptions we should retry
+        methods: Optional[
+            Iterable[str]
+        ] = None,  # On which HTTP methods we should retry
         min_timeout: float = 0.1,  # Minimum possible timeout
         max_timeout: float = 3.0,  # Maximum possible timeout between tries
         random_func: Callable[[], float] = random.random,  # Random number generator
@@ -129,8 +156,12 @@ class ListRetry(RetryOptionsBase):
         self,
         timeouts: List[float],
         statuses: Optional[Iterable[int]] = None,  # On which statuses we should retry
-        exceptions: Optional[Iterable[Type[Exception]]] = None,  # On which exceptions we should retry
-        methods: Optional[Iterable[str]] = None,  # On which HTTP methods we should retry
+        exceptions: Optional[
+            Iterable[Type[Exception]]
+        ] = None,  # On which exceptions we should retry
+        methods: Optional[
+            Iterable[str]
+        ] = None,  # On which HTTP methods we should retry
     ):
         self.timeouts = timeouts
         super().__init__(len(timeouts), statuses, exceptions, methods)
@@ -157,7 +188,7 @@ class _RequestContext:
         self._logger = logger
         self._retry_options = retry_options
         self._kwargs = kwargs
-        self._trace_request_ctx = kwargs.pop('trace_request_ctx', {})
+        self._trace_request_ctx = kwargs.pop("trace_request_ctx", {})
         self._raise_for_status = raise_for_status
 
         self._response: Optional[ClientResponse] = None
@@ -168,7 +199,11 @@ class _RequestContext:
     async def _do_request(self) -> ClientResponse:
         current_attempt = 0
         while True:
-            self._logger.debug("Attempt {} out of {}".format(current_attempt, self._retry_options.attempts))
+            self._logger.debug(
+                "Attempt {} out of {}".format(
+                    current_attempt, self._retry_options.attempts
+                )
+            )
             if current_attempt > 0:
                 retry_wait = self._retry_options.get_timeout(current_attempt)
                 await asyncio.sleep(retry_wait)
@@ -180,13 +215,15 @@ class _RequestContext:
                     self._urls[current_attempt - 1],
                     **self._kwargs,
                     trace_request_ctx={
-                        'current_attempt': current_attempt,
+                        "current_attempt": current_attempt,
                         **self._trace_request_ctx,
                     },
                 )
             except Exception as e:
                 if current_attempt < self._retry_options.attempts:
-                    is_exc_valid = any([isinstance(e, exc) for exc in self._retry_options.exceptions])
+                    is_exc_valid = any(
+                        [isinstance(e, exc) for exc in self._retry_options.exceptions]
+                    )
                     if is_exc_valid:
                         continue
 
@@ -226,7 +263,9 @@ def _url_to_urls(url: _URL_TYPE, attempts: int) -> Tuple[StrOrURL, ...]:
         raise ValueError("you can pass url only by str or list/tuple")
 
     if len(urls) == 0:
-        raise ValueError("you can pass url by str or list/tuple with attempts count size")
+        raise ValueError(
+            "you can pass url by str or list/tuple with attempts count size"
+        )
 
     if len(urls) < attempts:
         return urls + (urls[-1],) * (attempts - len(url))
@@ -275,7 +314,7 @@ class RetryClient:
             logger=self._logger,
             retry_options=retry_options,
             raise_for_status=raise_for_status,
-            **kwargs
+            **kwargs,
         )
 
     def request(
@@ -291,7 +330,7 @@ class RetryClient:
             url=url,
             retry_options=retry_options,
             raise_for_status=raise_for_status,
-            **kwargs
+            **kwargs,
         )
 
     def get(
@@ -306,7 +345,7 @@ class RetryClient:
             url=url,
             retry_options=retry_options,
             raise_for_status=raise_for_status,
-            **kwargs
+            **kwargs,
         )
 
     def options(
@@ -321,21 +360,22 @@ class RetryClient:
             url=url,
             retry_options=retry_options,
             raise_for_status=raise_for_status,
-            **kwargs
+            **kwargs,
         )
 
     def head(
         self,
         url: _URL_TYPE,
         retry_options: Optional[RetryOptionsBase] = None,
-        raise_for_status: Optional[bool] = None, **kwargs: Any
+        raise_for_status: Optional[bool] = None,
+        **kwargs: Any
     ) -> _RequestContext:
         return self._request(
             method=hdrs.METH_HEAD,
             url=url,
             retry_options=retry_options,
             raise_for_status=raise_for_status,
-            **kwargs
+            **kwargs,
         )
 
     def post(
@@ -350,7 +390,7 @@ class RetryClient:
             url=url,
             retry_options=retry_options,
             raise_for_status=raise_for_status,
-            **kwargs
+            **kwargs,
         )
 
     def put(
@@ -365,7 +405,7 @@ class RetryClient:
             url=url,
             retry_options=retry_options,
             raise_for_status=raise_for_status,
-            **kwargs
+            **kwargs,
         )
 
     def patch(
@@ -380,7 +420,7 @@ class RetryClient:
             url=url,
             retry_options=retry_options,
             raise_for_status=raise_for_status,
-            **kwargs
+            **kwargs,
         )
 
     def delete(
@@ -395,14 +435,14 @@ class RetryClient:
             url=url,
             retry_options=retry_options,
             raise_for_status=raise_for_status,
-            **kwargs
+            **kwargs,
         )
 
     async def close(self) -> None:
         await self._client.close()
         self._closed = True
 
-    async def __aenter__(self) -> 'RetryClient':
+    async def __aenter__(self) -> "RetryClient":
         return self
 
     async def __aexit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:

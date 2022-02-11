@@ -34,24 +34,33 @@ class UsageStatistics(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'total_sessions': 'int',
-        'total_duration': 'int',
-        'avg_duration': 'float',
-        'min_duration': 'int',
-        'max_duration': 'int',
-        'duration_humanized': 'str'
+        "total_sessions": "int",
+        "total_duration": "int",
+        "avg_duration": "float",
+        "min_duration": "int",
+        "max_duration": "int",
+        "duration_humanized": "str",
     }
 
     attribute_map = {
-        'total_sessions': 'total_sessions',
-        'total_duration': 'total_duration',
-        'avg_duration': 'avg_duration',
-        'min_duration': 'min_duration',
-        'max_duration': 'max_duration',
-        'duration_humanized': 'duration_humanized'
+        "total_sessions": "total_sessions",
+        "total_duration": "total_duration",
+        "avg_duration": "avg_duration",
+        "min_duration": "min_duration",
+        "max_duration": "max_duration",
+        "duration_humanized": "duration_humanized",
     }
 
-    def __init__(self, total_sessions=None, total_duration=None, avg_duration=None, min_duration=None, max_duration=None, duration_humanized=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        total_sessions=None,
+        total_duration=None,
+        avg_duration=None,
+        min_duration=None,
+        max_duration=None,
+        duration_humanized=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """UsageStatistics - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -90,8 +99,13 @@ class UsageStatistics(object):
         :param total_sessions: The total_sessions of this UsageStatistics.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and total_sessions is None:  # noqa: E501
-            raise ValueError("Invalid value for `total_sessions`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and total_sessions is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `total_sessions`, must not be `None`"
+            )  # noqa: E501
 
         self._total_sessions = total_sessions
 
@@ -113,8 +127,13 @@ class UsageStatistics(object):
         :param total_duration: The total_duration of this UsageStatistics.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and total_duration is None:  # noqa: E501
-            raise ValueError("Invalid value for `total_duration`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and total_duration is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `total_duration`, must not be `None`"
+            )  # noqa: E501
 
         self._total_duration = total_duration
 
@@ -136,8 +155,13 @@ class UsageStatistics(object):
         :param avg_duration: The avg_duration of this UsageStatistics.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and avg_duration is None:  # noqa: E501
-            raise ValueError("Invalid value for `avg_duration`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and avg_duration is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `avg_duration`, must not be `None`"
+            )  # noqa: E501
 
         self._avg_duration = avg_duration
 
@@ -159,8 +183,13 @@ class UsageStatistics(object):
         :param min_duration: The min_duration of this UsageStatistics.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and min_duration is None:  # noqa: E501
-            raise ValueError("Invalid value for `min_duration`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and min_duration is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `min_duration`, must not be `None`"
+            )  # noqa: E501
 
         self._min_duration = min_duration
 
@@ -182,8 +211,13 @@ class UsageStatistics(object):
         :param max_duration: The max_duration of this UsageStatistics.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and max_duration is None:  # noqa: E501
-            raise ValueError("Invalid value for `max_duration`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and max_duration is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `max_duration`, must not be `None`"
+            )  # noqa: E501
 
         self._max_duration = max_duration
 
@@ -205,11 +239,21 @@ class UsageStatistics(object):
         :param duration_humanized: The duration_humanized of this UsageStatistics.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and duration_humanized is None:  # noqa: E501
-            raise ValueError("Invalid value for `duration_humanized`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                duration_humanized is not None and len(duration_humanized) < 1):
-            raise ValueError("Invalid value for `duration_humanized`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and duration_humanized is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `duration_humanized`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and duration_humanized is not None
+            and len(duration_humanized) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `duration_humanized`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._duration_humanized = duration_humanized
 
@@ -220,18 +264,20 @@ class UsageStatistics(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

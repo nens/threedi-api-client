@@ -34,40 +34,57 @@ class File(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'storage_name': 'str',
-        'filename': 'str',
-        'bucket': 'str',
-        'prefix': 'str',
-        'etag': 'str',
-        'size': 'int',
-        'expiry_date': 'date',
-        'related_object': 'str',
-        'type': 'str',
-        'state': 'str',
-        'state_description': 'str',
-        'meta': 'object',
-        'id': 'int'
+        "url": "str",
+        "storage_name": "str",
+        "filename": "str",
+        "bucket": "str",
+        "prefix": "str",
+        "etag": "str",
+        "size": "int",
+        "expiry_date": "date",
+        "related_object": "str",
+        "type": "str",
+        "state": "str",
+        "state_description": "str",
+        "meta": "object",
+        "id": "int",
     }
 
     attribute_map = {
-        'url': 'url',
-        'storage_name': 'storage_name',
-        'filename': 'filename',
-        'bucket': 'bucket',
-        'prefix': 'prefix',
-        'etag': 'etag',
-        'size': 'size',
-        'expiry_date': 'expiry_date',
-        'related_object': 'related_object',
-        'type': 'type',
-        'state': 'state',
-        'state_description': 'state_description',
-        'meta': 'meta',
-        'id': 'id'
+        "url": "url",
+        "storage_name": "storage_name",
+        "filename": "filename",
+        "bucket": "bucket",
+        "prefix": "prefix",
+        "etag": "etag",
+        "size": "size",
+        "expiry_date": "expiry_date",
+        "related_object": "related_object",
+        "type": "type",
+        "state": "state",
+        "state_description": "state_description",
+        "meta": "meta",
+        "id": "id",
     }
 
-    def __init__(self, url=None, storage_name=None, filename=None, bucket=None, prefix=None, etag=None, size=None, expiry_date=None, related_object=None, type=None, state=None, state_description=None, meta=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        storage_name=None,
+        filename=None,
+        bucket=None,
+        prefix=None,
+        etag=None,
+        size=None,
+        expiry_date=None,
+        related_object=None,
+        type=None,
+        state=None,
+        state_description=None,
+        meta=None,
+        id=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """File - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -148,9 +165,14 @@ class File(object):
         :param storage_name: The storage_name of this File.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                storage_name is not None and len(storage_name) < 1):
-            raise ValueError("Invalid value for `storage_name`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and storage_name is not None
+            and len(storage_name) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `storage_name`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._storage_name = storage_name
 
@@ -172,14 +194,28 @@ class File(object):
         :param filename: The filename of this File.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and filename is None:  # noqa: E501
-            raise ValueError("Invalid value for `filename`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                filename is not None and len(filename) > 256):
-            raise ValueError("Invalid value for `filename`, length must be less than or equal to `256`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                filename is not None and len(filename) < 1):
-            raise ValueError("Invalid value for `filename`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and filename is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `filename`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and filename is not None
+            and len(filename) > 256
+        ):
+            raise ValueError(
+                "Invalid value for `filename`, length must be less than or equal to `256`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and filename is not None
+            and len(filename) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `filename`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._filename = filename
 
@@ -201,14 +237,28 @@ class File(object):
         :param bucket: The bucket of this File.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and bucket is None:  # noqa: E501
-            raise ValueError("Invalid value for `bucket`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                bucket is not None and len(bucket) > 256):
-            raise ValueError("Invalid value for `bucket`, length must be less than or equal to `256`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                bucket is not None and len(bucket) < 1):
-            raise ValueError("Invalid value for `bucket`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and bucket is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `bucket`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and bucket is not None
+            and len(bucket) > 256
+        ):
+            raise ValueError(
+                "Invalid value for `bucket`, length must be less than or equal to `256`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and bucket is not None
+            and len(bucket) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `bucket`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._bucket = bucket
 
@@ -230,9 +280,14 @@ class File(object):
         :param prefix: The prefix of this File.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                prefix is not None and len(prefix) > 256):
-            raise ValueError("Invalid value for `prefix`, length must be less than or equal to `256`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and prefix is not None
+            and len(prefix) > 256
+        ):
+            raise ValueError(
+                "Invalid value for `prefix`, length must be less than or equal to `256`"
+            )  # noqa: E501
 
         self._prefix = prefix
 
@@ -256,9 +311,14 @@ class File(object):
         :param etag: The etag of this File.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                etag is not None and len(etag) > 256):
-            raise ValueError("Invalid value for `etag`, length must be less than or equal to `256`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and etag is not None
+            and len(etag) > 256
+        ):
+            raise ValueError(
+                "Invalid value for `etag`, length must be less than or equal to `256`"
+            )  # noqa: E501
 
         self._etag = etag
 
@@ -282,12 +342,22 @@ class File(object):
         :param size: The size of this File.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                size is not None and size > 9223372036854775807):  # noqa: E501
-            raise ValueError("Invalid value for `size`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                size is not None and size < -9223372036854775808):  # noqa: E501
-            raise ValueError("Invalid value for `size`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and size is not None
+            and size > 9223372036854775807
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `size`, must be a value less than or equal to `9223372036854775807`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and size is not None
+            and size < -9223372036854775808
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `size`, must be a value greater than or equal to `-9223372036854775808`"
+            )  # noqa: E501
 
         self._size = size
 
@@ -351,13 +421,32 @@ class File(object):
         :param type: The type of this File.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["timeseries", "rastertimeseries", "savedstate", "results", "rasters", "gridadmin", "geojson", "initialwaterlevel", "bulklateral", "bulk_boundaryconditions"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and type is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
+                "Invalid value for `type`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = [
+            "timeseries",
+            "rastertimeseries",
+            "savedstate",
+            "results",
+            "rasters",
+            "gridadmin",
+            "geojson",
+            "initialwaterlevel",
+            "bulklateral",
+            "bulk_boundaryconditions",
+        ]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and type not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}".format(  # noqa: E501
+                    type, allowed_values
+                )
             )
 
         self._type = type
@@ -380,13 +469,27 @@ class File(object):
         :param state: The state of this File.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and state is None:  # noqa: E501
-            raise ValueError("Invalid value for `state`, must not be `None`")  # noqa: E501
-        allowed_values = ["created", "uploaded", "processed", "error", "removed"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and state is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
-                .format(state, allowed_values)
+                "Invalid value for `state`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = [
+            "created",
+            "uploaded",
+            "processed",
+            "error",
+            "removed",
+        ]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and state not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `state` ({0}), must be one of {1}".format(  # noqa: E501
+                    state, allowed_values
+                )
             )
 
         self._state = state
@@ -409,9 +512,14 @@ class File(object):
         :param state_description: The state_description of this File.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                state_description is not None and len(state_description) > 512):
-            raise ValueError("Invalid value for `state_description`, length must be less than or equal to `512`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and state_description is not None
+            and len(state_description) > 512
+        ):
+            raise ValueError(
+                "Invalid value for `state_description`, length must be less than or equal to `512`"
+            )  # noqa: E501
 
         self._state_description = state_description
 
@@ -464,18 +572,20 @@ class File(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

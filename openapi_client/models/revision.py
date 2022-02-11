@@ -34,28 +34,39 @@ class Revision(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'id': 'int',
-        'repository': 'str',
-        'number': 'int',
-        'hash': 'str',
-        'commit_date': 'datetime',
-        'user': 'str',
-        'is_pinned': 'bool'
+        "url": "str",
+        "id": "int",
+        "repository": "str",
+        "number": "int",
+        "hash": "str",
+        "commit_date": "datetime",
+        "user": "str",
+        "is_pinned": "bool",
     }
 
     attribute_map = {
-        'url': 'url',
-        'id': 'id',
-        'repository': 'repository',
-        'number': 'number',
-        'hash': 'hash',
-        'commit_date': 'commit_date',
-        'user': 'user',
-        'is_pinned': 'is_pinned'
+        "url": "url",
+        "id": "id",
+        "repository": "repository",
+        "number": "number",
+        "hash": "hash",
+        "commit_date": "commit_date",
+        "user": "user",
+        "is_pinned": "is_pinned",
     }
 
-    def __init__(self, url=None, id=None, repository=None, number=None, hash=None, commit_date=None, user=None, is_pinned=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        id=None,
+        repository=None,
+        number=None,
+        hash=None,
+        commit_date=None,
+        user=None,
+        is_pinned=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """Revision - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -147,8 +158,12 @@ class Revision(object):
         :param repository: The repository of this Revision.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and repository is None:  # noqa: E501
-            raise ValueError("Invalid value for `repository`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and repository is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `repository`, must not be `None`"
+            )  # noqa: E501
 
         self._repository = repository
 
@@ -170,12 +185,22 @@ class Revision(object):
         :param number: The number of this Revision.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                number is not None and number > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `number`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                number is not None and number < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `number`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and number is not None
+            and number > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `number`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and number is not None
+            and number < -2147483648
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `number`, must be a value greater than or equal to `-2147483648`"
+            )  # noqa: E501
 
         self._number = number
 
@@ -199,12 +224,22 @@ class Revision(object):
         :param hash: The hash of this Revision.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                hash is not None and len(hash) > 200):
-            raise ValueError("Invalid value for `hash`, length must be less than or equal to `200`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                hash is not None and len(hash) < 1):
-            raise ValueError("Invalid value for `hash`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and hash is not None
+            and len(hash) > 200
+        ):
+            raise ValueError(
+                "Invalid value for `hash`, length must be less than or equal to `200`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and hash is not None
+            and len(hash) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `hash`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._hash = hash
 
@@ -249,12 +284,22 @@ class Revision(object):
         :param user: The user of this Revision.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                user is not None and len(user) > 128):
-            raise ValueError("Invalid value for `user`, length must be less than or equal to `128`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                user is not None and len(user) < 1):
-            raise ValueError("Invalid value for `user`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and user is not None
+            and len(user) > 128
+        ):
+            raise ValueError(
+                "Invalid value for `user`, length must be less than or equal to `128`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and user is not None
+            and len(user) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `user`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._user = user
 
@@ -286,18 +331,20 @@ class Revision(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

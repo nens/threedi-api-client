@@ -33,13 +33,9 @@ class Refresh(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    openapi_types = {
-        'refresh': 'str'
-    }
+    openapi_types = {"refresh": "str"}
 
-    attribute_map = {
-        'refresh': 'refresh'
-    }
+    attribute_map = {"refresh": "refresh"}
 
     def __init__(self, refresh=None, local_vars_configuration=None):  # noqa: E501
         """Refresh - a model defined in OpenAPI"""  # noqa: E501
@@ -70,11 +66,20 @@ class Refresh(object):
         :param refresh: The refresh of this Refresh.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and refresh is None:  # noqa: E501
-            raise ValueError("Invalid value for `refresh`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                refresh is not None and len(refresh) < 1):
-            raise ValueError("Invalid value for `refresh`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and refresh is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `refresh`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and refresh is not None
+            and len(refresh) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `refresh`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._refresh = refresh
 
@@ -85,18 +90,20 @@ class Refresh(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

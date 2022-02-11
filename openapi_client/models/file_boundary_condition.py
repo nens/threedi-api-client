@@ -34,26 +34,36 @@ class FileBoundaryCondition(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'id': 'int',
-        'uid': 'str',
-        'simulation': 'str',
-        'file': 'File',
-        'state': 'str',
-        'state_detail': 'object'
+        "url": "str",
+        "id": "int",
+        "uid": "str",
+        "simulation": "str",
+        "file": "File",
+        "state": "str",
+        "state_detail": "object",
     }
 
     attribute_map = {
-        'url': 'url',
-        'id': 'id',
-        'uid': 'uid',
-        'simulation': 'simulation',
-        'file': 'file',
-        'state': 'state',
-        'state_detail': 'state_detail'
+        "url": "url",
+        "id": "id",
+        "uid": "uid",
+        "simulation": "simulation",
+        "file": "file",
+        "state": "state",
+        "state_detail": "state_detail",
     }
 
-    def __init__(self, url=None, id=None, uid=None, simulation=None, file=None, state=None, state_detail=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        id=None,
+        uid=None,
+        simulation=None,
+        file=None,
+        state=None,
+        state_detail=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """FileBoundaryCondition - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -207,10 +217,14 @@ class FileBoundaryCondition(object):
         :type: str
         """
         allowed_values = ["processing", "valid", "invalid"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and state not in allowed_values
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
-                .format(state, allowed_values)
+                "Invalid value for `state` ({0}), must be one of {1}".format(  # noqa: E501
+                    state, allowed_values
+                )
             )
 
         self._state = state
@@ -243,18 +257,20 @@ class FileBoundaryCondition(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

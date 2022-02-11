@@ -34,42 +34,60 @@ class PostProcessingOverview(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'username': 'str',
-        'metadata_version': 'str',
-        'start_time_sim': 'str',
-        'end_time_sim': 'str',
-        'results': 'Result',
-        'settings': 'Settings',
-        'model_name': 'str',
-        'simulation_name': 'str',
-        'scenario_name': 'str',
-        'model_id': 'int',
-        'model_revision_id': 'str',
-        'email': 'str',
-        'result_uuid': 'str',
-        'organisation_uuid': 'str',
-        'simulation': 'int'
+        "username": "str",
+        "metadata_version": "str",
+        "start_time_sim": "str",
+        "end_time_sim": "str",
+        "results": "Result",
+        "settings": "Settings",
+        "model_name": "str",
+        "simulation_name": "str",
+        "scenario_name": "str",
+        "model_id": "int",
+        "model_revision_id": "str",
+        "email": "str",
+        "result_uuid": "str",
+        "organisation_uuid": "str",
+        "simulation": "int",
     }
 
     attribute_map = {
-        'username': 'username',
-        'metadata_version': 'metadata_version',
-        'start_time_sim': 'start_time_sim',
-        'end_time_sim': 'end_time_sim',
-        'results': 'results',
-        'settings': 'settings',
-        'model_name': 'model_name',
-        'simulation_name': 'simulation_name',
-        'scenario_name': 'scenario_name',
-        'model_id': 'model_id',
-        'model_revision_id': 'model_revision_id',
-        'email': 'email',
-        'result_uuid': 'result_uuid',
-        'organisation_uuid': 'organisation_uuid',
-        'simulation': 'simulation'
+        "username": "username",
+        "metadata_version": "metadata_version",
+        "start_time_sim": "start_time_sim",
+        "end_time_sim": "end_time_sim",
+        "results": "results",
+        "settings": "settings",
+        "model_name": "model_name",
+        "simulation_name": "simulation_name",
+        "scenario_name": "scenario_name",
+        "model_id": "model_id",
+        "model_revision_id": "model_revision_id",
+        "email": "email",
+        "result_uuid": "result_uuid",
+        "organisation_uuid": "organisation_uuid",
+        "simulation": "simulation",
     }
 
-    def __init__(self, username=None, metadata_version='1.2', start_time_sim=None, end_time_sim=None, results=None, settings=None, model_name=None, simulation_name=None, scenario_name=None, model_id=None, model_revision_id=None, email=None, result_uuid=None, organisation_uuid=None, simulation=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        username=None,
+        metadata_version="1.2",
+        start_time_sim=None,
+        end_time_sim=None,
+        results=None,
+        settings=None,
+        model_name=None,
+        simulation_name=None,
+        scenario_name=None,
+        model_id=None,
+        model_revision_id=None,
+        email=None,
+        result_uuid=None,
+        organisation_uuid=None,
+        simulation=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """PostProcessingOverview - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -223,8 +241,12 @@ class PostProcessingOverview(object):
         :param results: The results of this PostProcessingOverview.  # noqa: E501
         :type: Result
         """
-        if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
-            raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and results is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `results`, must not be `None`"
+            )  # noqa: E501
 
         self._results = results
 
@@ -246,8 +268,12 @@ class PostProcessingOverview(object):
         :param settings: The settings of this PostProcessingOverview.  # noqa: E501
         :type: Settings
         """
-        if self.local_vars_configuration.client_side_validation and settings is None:  # noqa: E501
-            raise ValueError("Invalid value for `settings`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and settings is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `settings`, must not be `None`"
+            )  # noqa: E501
 
         self._settings = settings
 
@@ -313,9 +339,14 @@ class PostProcessingOverview(object):
         :param scenario_name: The scenario_name of this PostProcessingOverview.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                scenario_name is not None and len(scenario_name) < 1):
-            raise ValueError("Invalid value for `scenario_name`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and scenario_name is not None
+            and len(scenario_name) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `scenario_name`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._scenario_name = scenario_name
 
@@ -452,18 +483,20 @@ class PostProcessingOverview(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

@@ -34,76 +34,111 @@ class Event(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'lizardrasterrain': 'list[LizardRasterRain]',
-        'lizardtimeseriesrain': 'list[LizardTimeseriesRain]',
-        'timeseriesrain': 'list[TimeseriesRainOverview]',
-        'breach': 'list[Breach]',
-        'lizardrastersourcessinks': 'list[LizardRasterSourcesSinks]',
-        'lizardtimeseriessourcessinks': 'list[LizardTimeseriesSourcesSinks]',
-        'filerastersourcessinks': 'list[FileRasterSourcesSinks]',
-        'filetimeseriessourcessinks': 'list[FileTimeseriesSourcesSinks]',
-        'timeseriessourcessinks': 'list[TimeseriesSourcesSinksOverview]',
-        'leakage': 'list[TimeseriesLeakageOverview]',
-        'filetimeseriesleakage': 'list[FileTimeseriesLeakage]',
-        'filerasterleakage': 'list[FileRasterLeakage]',
-        'initial_twodwaterlevel': 'TwoDWaterLevel',
-        'initial_onedwaterlevelpredefined': 'OneDWaterLevelPredefined',
-        'initial_groundwaterlevel': 'GroundWaterLevel',
-        'initial_groundwaterraster': 'GroundWaterRaster',
-        'initial_onedwaterlevel': 'OneDWaterLevel',
-        'initial_twodwaterraster': 'TwoDWaterRaster',
-        'filerasterrain': 'list[FileRasterRain]',
-        'filetimeseriesrain': 'list[FileTimeseriesRain]',
-        'initial_savedstate': 'InitialSavedStateOverview',
-        'savedstates': 'list[SavedStateOverview]',
-        'laterals': 'list[Lateral]',
-        'filelaterals': 'list[FileLateral]',
-        'fileboundaryconditions': 'FileBoundaryCondition',
-        'tablestructurecontrols': 'list[TableStructureControl]',
-        'memorystructurecontrols': 'list[MemoryStructureControl]',
-        'timedstructurecontrols': 'list[TimedStructureControl]',
-        'rasteredits': 'list[RasterEdit]',
-        'localrain': 'list[LocalRain]',
-        'wind': 'list[Wind]',
-        'initial_winddragcoefficient': 'WindDragCoefficient'
+        "lizardrasterrain": "list[LizardRasterRain]",
+        "lizardtimeseriesrain": "list[LizardTimeseriesRain]",
+        "timeseriesrain": "list[TimeseriesRainOverview]",
+        "breach": "list[Breach]",
+        "lizardrastersourcessinks": "list[LizardRasterSourcesSinks]",
+        "lizardtimeseriessourcessinks": "list[LizardTimeseriesSourcesSinks]",
+        "filerastersourcessinks": "list[FileRasterSourcesSinks]",
+        "filetimeseriessourcessinks": "list[FileTimeseriesSourcesSinks]",
+        "timeseriessourcessinks": "list[TimeseriesSourcesSinksOverview]",
+        "leakage": "list[TimeseriesLeakageOverview]",
+        "filetimeseriesleakage": "list[FileTimeseriesLeakage]",
+        "filerasterleakage": "list[FileRasterLeakage]",
+        "initial_twodwaterlevel": "TwoDWaterLevel",
+        "initial_onedwaterlevelpredefined": "OneDWaterLevelPredefined",
+        "initial_groundwaterlevel": "GroundWaterLevel",
+        "initial_groundwaterraster": "GroundWaterRaster",
+        "initial_onedwaterlevel": "OneDWaterLevel",
+        "initial_twodwaterraster": "TwoDWaterRaster",
+        "filerasterrain": "list[FileRasterRain]",
+        "filetimeseriesrain": "list[FileTimeseriesRain]",
+        "initial_savedstate": "InitialSavedStateOverview",
+        "savedstates": "list[SavedStateOverview]",
+        "laterals": "list[Lateral]",
+        "filelaterals": "list[FileLateral]",
+        "fileboundaryconditions": "FileBoundaryCondition",
+        "tablestructurecontrols": "list[TableStructureControl]",
+        "memorystructurecontrols": "list[MemoryStructureControl]",
+        "timedstructurecontrols": "list[TimedStructureControl]",
+        "rasteredits": "list[RasterEdit]",
+        "localrain": "list[LocalRain]",
+        "wind": "list[Wind]",
+        "initial_winddragcoefficient": "WindDragCoefficient",
     }
 
     attribute_map = {
-        'lizardrasterrain': 'lizardrasterrain',
-        'lizardtimeseriesrain': 'lizardtimeseriesrain',
-        'timeseriesrain': 'timeseriesrain',
-        'breach': 'breach',
-        'lizardrastersourcessinks': 'lizardrastersourcessinks',
-        'lizardtimeseriessourcessinks': 'lizardtimeseriessourcessinks',
-        'filerastersourcessinks': 'filerastersourcessinks',
-        'filetimeseriessourcessinks': 'filetimeseriessourcessinks',
-        'timeseriessourcessinks': 'timeseriessourcessinks',
-        'leakage': 'leakage',
-        'filetimeseriesleakage': 'filetimeseriesleakage',
-        'filerasterleakage': 'filerasterleakage',
-        'initial_twodwaterlevel': 'initial_twodwaterlevel',
-        'initial_onedwaterlevelpredefined': 'initial_onedwaterlevelpredefined',
-        'initial_groundwaterlevel': 'initial_groundwaterlevel',
-        'initial_groundwaterraster': 'initial_groundwaterraster',
-        'initial_onedwaterlevel': 'initial_onedwaterlevel',
-        'initial_twodwaterraster': 'initial_twodwaterraster',
-        'filerasterrain': 'filerasterrain',
-        'filetimeseriesrain': 'filetimeseriesrain',
-        'initial_savedstate': 'initial_savedstate',
-        'savedstates': 'savedstates',
-        'laterals': 'laterals',
-        'filelaterals': 'filelaterals',
-        'fileboundaryconditions': 'fileboundaryconditions',
-        'tablestructurecontrols': 'tablestructurecontrols',
-        'memorystructurecontrols': 'memorystructurecontrols',
-        'timedstructurecontrols': 'timedstructurecontrols',
-        'rasteredits': 'rasteredits',
-        'localrain': 'localrain',
-        'wind': 'wind',
-        'initial_winddragcoefficient': 'initial_winddragcoefficient'
+        "lizardrasterrain": "lizardrasterrain",
+        "lizardtimeseriesrain": "lizardtimeseriesrain",
+        "timeseriesrain": "timeseriesrain",
+        "breach": "breach",
+        "lizardrastersourcessinks": "lizardrastersourcessinks",
+        "lizardtimeseriessourcessinks": "lizardtimeseriessourcessinks",
+        "filerastersourcessinks": "filerastersourcessinks",
+        "filetimeseriessourcessinks": "filetimeseriessourcessinks",
+        "timeseriessourcessinks": "timeseriessourcessinks",
+        "leakage": "leakage",
+        "filetimeseriesleakage": "filetimeseriesleakage",
+        "filerasterleakage": "filerasterleakage",
+        "initial_twodwaterlevel": "initial_twodwaterlevel",
+        "initial_onedwaterlevelpredefined": "initial_onedwaterlevelpredefined",
+        "initial_groundwaterlevel": "initial_groundwaterlevel",
+        "initial_groundwaterraster": "initial_groundwaterraster",
+        "initial_onedwaterlevel": "initial_onedwaterlevel",
+        "initial_twodwaterraster": "initial_twodwaterraster",
+        "filerasterrain": "filerasterrain",
+        "filetimeseriesrain": "filetimeseriesrain",
+        "initial_savedstate": "initial_savedstate",
+        "savedstates": "savedstates",
+        "laterals": "laterals",
+        "filelaterals": "filelaterals",
+        "fileboundaryconditions": "fileboundaryconditions",
+        "tablestructurecontrols": "tablestructurecontrols",
+        "memorystructurecontrols": "memorystructurecontrols",
+        "timedstructurecontrols": "timedstructurecontrols",
+        "rasteredits": "rasteredits",
+        "localrain": "localrain",
+        "wind": "wind",
+        "initial_winddragcoefficient": "initial_winddragcoefficient",
     }
 
-    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, leakage=None, filetimeseriesleakage=None, filerasterleakage=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, filelaterals=None, fileboundaryconditions=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, rasteredits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        lizardrasterrain=None,
+        lizardtimeseriesrain=None,
+        timeseriesrain=None,
+        breach=None,
+        lizardrastersourcessinks=None,
+        lizardtimeseriessourcessinks=None,
+        filerastersourcessinks=None,
+        filetimeseriessourcessinks=None,
+        timeseriessourcessinks=None,
+        leakage=None,
+        filetimeseriesleakage=None,
+        filerasterleakage=None,
+        initial_twodwaterlevel=None,
+        initial_onedwaterlevelpredefined=None,
+        initial_groundwaterlevel=None,
+        initial_groundwaterraster=None,
+        initial_onedwaterlevel=None,
+        initial_twodwaterraster=None,
+        filerasterrain=None,
+        filetimeseriesrain=None,
+        initial_savedstate=None,
+        savedstates=None,
+        laterals=None,
+        filelaterals=None,
+        fileboundaryconditions=None,
+        tablestructurecontrols=None,
+        memorystructurecontrols=None,
+        timedstructurecontrols=None,
+        rasteredits=None,
+        localrain=None,
+        wind=None,
+        initial_winddragcoefficient=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -887,18 +922,20 @@ class Event(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

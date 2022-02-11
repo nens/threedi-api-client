@@ -34,24 +34,33 @@ class BoundaryCondition(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int',
-        'url': 'str',
-        'boundary_id': 'int',
-        'threedimodel': 'str',
-        'type': 'str',
-        'dimension': 'str'
+        "id": "int",
+        "url": "str",
+        "boundary_id": "int",
+        "threedimodel": "str",
+        "type": "str",
+        "dimension": "str",
     }
 
     attribute_map = {
-        'id': 'id',
-        'url': 'url',
-        'boundary_id': 'boundary_id',
-        'threedimodel': 'threedimodel',
-        'type': 'type',
-        'dimension': 'dimension'
+        "id": "id",
+        "url": "url",
+        "boundary_id": "boundary_id",
+        "threedimodel": "threedimodel",
+        "type": "type",
+        "dimension": "dimension",
     }
 
-    def __init__(self, id=None, url=None, boundary_id=None, threedimodel=None, type=None, dimension=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        url=None,
+        boundary_id=None,
+        threedimodel=None,
+        type=None,
+        dimension=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """BoundaryCondition - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -135,14 +144,28 @@ class BoundaryCondition(object):
         :param boundary_id: The boundary_id of this BoundaryCondition.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and boundary_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `boundary_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                boundary_id is not None and boundary_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `boundary_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                boundary_id is not None and boundary_id < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `boundary_id`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and boundary_id is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `boundary_id`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and boundary_id is not None
+            and boundary_id > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `boundary_id`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and boundary_id is not None
+            and boundary_id < -2147483648
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `boundary_id`, must be a value greater than or equal to `-2147483648`"
+            )  # noqa: E501
 
         self._boundary_id = boundary_id
 
@@ -185,13 +208,27 @@ class BoundaryCondition(object):
         :param type: The type of this BoundaryCondition.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["velocity", "sommerfeldt", "riemann", "water_level", "discharge"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and type is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
+                "Invalid value for `type`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = [
+            "velocity",
+            "sommerfeldt",
+            "riemann",
+            "water_level",
+            "discharge",
+        ]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and type not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}".format(  # noqa: E501
+                    type, allowed_values
+                )
             )
 
         self._type = type
@@ -214,13 +251,21 @@ class BoundaryCondition(object):
         :param dimension: The dimension of this BoundaryCondition.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and dimension is None:  # noqa: E501
-            raise ValueError("Invalid value for `dimension`, must not be `None`")  # noqa: E501
-        allowed_values = ["one_d", "two_d"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and dimension not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and dimension is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `dimension` ({0}), must be one of {1}"  # noqa: E501
-                .format(dimension, allowed_values)
+                "Invalid value for `dimension`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = ["one_d", "two_d"]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and dimension not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `dimension` ({0}), must be one of {1}".format(  # noqa: E501
+                    dimension, allowed_values
+                )
             )
 
         self._dimension = dimension
@@ -232,18 +277,20 @@ class BoundaryCondition(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

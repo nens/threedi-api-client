@@ -33,17 +33,13 @@ class Tokens(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    openapi_types = {
-        'access': 'str',
-        'refresh': 'str'
-    }
+    openapi_types = {"access": "str", "refresh": "str"}
 
-    attribute_map = {
-        'access': 'access',
-        'refresh': 'refresh'
-    }
+    attribute_map = {"access": "access", "refresh": "refresh"}
 
-    def __init__(self, access=None, refresh=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self, access=None, refresh=None, local_vars_configuration=None
+    ):  # noqa: E501
         """Tokens - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -76,9 +72,14 @@ class Tokens(object):
         :param access: The access of this Tokens.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                access is not None and len(access) < 1):
-            raise ValueError("Invalid value for `access`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and access is not None
+            and len(access) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `access`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._access = access
 
@@ -100,9 +101,14 @@ class Tokens(object):
         :param refresh: The refresh of this Tokens.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                refresh is not None and len(refresh) < 1):
-            raise ValueError("Invalid value for `refresh`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and refresh is not None
+            and len(refresh) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `refresh`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._refresh = refresh
 
@@ -113,18 +119,20 @@ class Tokens(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

@@ -34,34 +34,48 @@ class ConstantLocalRain(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'simulation': 'str',
-        'offset': 'int',
-        'value': 'float',
-        'units': 'str',
-        'duration': 'int',
-        'interpolate': 'bool',
-        'diameter': 'int',
-        'point': 'Point',
-        'uid': 'str',
-        'id': 'int'
+        "url": "str",
+        "simulation": "str",
+        "offset": "int",
+        "value": "float",
+        "units": "str",
+        "duration": "int",
+        "interpolate": "bool",
+        "diameter": "int",
+        "point": "Point",
+        "uid": "str",
+        "id": "int",
     }
 
     attribute_map = {
-        'url': 'url',
-        'simulation': 'simulation',
-        'offset': 'offset',
-        'value': 'value',
-        'units': 'units',
-        'duration': 'duration',
-        'interpolate': 'interpolate',
-        'diameter': 'diameter',
-        'point': 'point',
-        'uid': 'uid',
-        'id': 'id'
+        "url": "url",
+        "simulation": "simulation",
+        "offset": "offset",
+        "value": "value",
+        "units": "units",
+        "duration": "duration",
+        "interpolate": "interpolate",
+        "diameter": "diameter",
+        "point": "point",
+        "uid": "uid",
+        "id": "id",
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, value=None, units=None, duration=None, interpolate=None, diameter=None, point=None, uid=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        simulation=None,
+        offset=None,
+        value=None,
+        units=None,
+        duration=None,
+        interpolate=None,
+        diameter=None,
+        point=None,
+        uid=None,
+        id=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """ConstantLocalRain - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -160,14 +174,28 @@ class ConstantLocalRain(object):
         :param offset: The offset of this ConstantLocalRain.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and offset is None:  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                offset is not None and offset > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                offset is not None and offset < 0):  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must be a value greater than or equal to `0`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and offset is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and offset is not None
+            and offset > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and offset is not None
+            and offset < 0
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must be a value greater than or equal to `0`"
+            )  # noqa: E501
 
         self._offset = offset
 
@@ -189,8 +217,12 @@ class ConstantLocalRain(object):
         :param value: The value of this ConstantLocalRain.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and value is None:  # noqa: E501
-            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and value is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `value`, must not be `None`"
+            )  # noqa: E501
 
         self._value = value
 
@@ -215,10 +247,14 @@ class ConstantLocalRain(object):
         :type: str
         """
         allowed_values = ["m/s", "mm/h", "mm/min"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and units not in allowed_values
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
-                .format(units, allowed_values)
+                "Invalid value for `units` ({0}), must be one of {1}".format(  # noqa: E501
+                    units, allowed_values
+                )
             )
 
         self._units = units
@@ -243,12 +279,22 @@ class ConstantLocalRain(object):
         :param duration: The duration of this ConstantLocalRain.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                duration is not None and duration > 9223372036854775807):  # noqa: E501
-            raise ValueError("Invalid value for `duration`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                duration is not None and duration < -9223372036854775808):  # noqa: E501
-            raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and duration is not None
+            and duration > 9223372036854775807
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `duration`, must be a value less than or equal to `9223372036854775807`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and duration is not None
+            and duration < -9223372036854775808
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `duration`, must be a value greater than or equal to `-9223372036854775808`"
+            )  # noqa: E501
 
         self._duration = duration
 
@@ -291,14 +337,28 @@ class ConstantLocalRain(object):
         :param diameter: The diameter of this ConstantLocalRain.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and diameter is None:  # noqa: E501
-            raise ValueError("Invalid value for `diameter`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                diameter is not None and diameter > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `diameter`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                diameter is not None and diameter < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `diameter`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and diameter is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `diameter`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and diameter is not None
+            and diameter > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `diameter`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and diameter is not None
+            and diameter < -2147483648
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `diameter`, must be a value greater than or equal to `-2147483648`"
+            )  # noqa: E501
 
         self._diameter = diameter
 
@@ -320,8 +380,12 @@ class ConstantLocalRain(object):
         :param point: The point of this ConstantLocalRain.  # noqa: E501
         :type: Point
         """
-        if self.local_vars_configuration.client_side_validation and point is None:  # noqa: E501
-            raise ValueError("Invalid value for `point`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and point is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `point`, must not be `None`"
+            )  # noqa: E501
 
         self._point = point
 
@@ -374,18 +438,20 @@ class ConstantLocalRain(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

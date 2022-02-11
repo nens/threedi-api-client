@@ -33,17 +33,13 @@ class TMS(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    openapi_types = {
-        'tms_url': 'str',
-        'minmax_url': 'str'
-    }
+    openapi_types = {"tms_url": "str", "minmax_url": "str"}
 
-    attribute_map = {
-        'tms_url': 'tms_url',
-        'minmax_url': 'minmax_url'
-    }
+    attribute_map = {"tms_url": "tms_url", "minmax_url": "minmax_url"}
 
-    def __init__(self, tms_url=None, minmax_url=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self, tms_url=None, minmax_url=None, local_vars_configuration=None
+    ):  # noqa: E501
         """TMS - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,11 +70,20 @@ class TMS(object):
         :param tms_url: The tms_url of this TMS.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and tms_url is None:  # noqa: E501
-            raise ValueError("Invalid value for `tms_url`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                tms_url is not None and len(tms_url) < 1):
-            raise ValueError("Invalid value for `tms_url`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and tms_url is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `tms_url`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and tms_url is not None
+            and len(tms_url) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `tms_url`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._tms_url = tms_url
 
@@ -100,11 +105,20 @@ class TMS(object):
         :param minmax_url: The minmax_url of this TMS.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and minmax_url is None:  # noqa: E501
-            raise ValueError("Invalid value for `minmax_url`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                minmax_url is not None and len(minmax_url) < 1):
-            raise ValueError("Invalid value for `minmax_url`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and minmax_url is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `minmax_url`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and minmax_url is not None
+            and len(minmax_url) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `minmax_url`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._minmax_url = minmax_url
 
@@ -115,18 +129,20 @@ class TMS(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

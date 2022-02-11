@@ -34,22 +34,30 @@ class User(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int',
-        'username': 'str',
-        'first_name': 'str',
-        'last_name': 'str',
-        'email': 'str'
+        "id": "int",
+        "username": "str",
+        "first_name": "str",
+        "last_name": "str",
+        "email": "str",
     }
 
     attribute_map = {
-        'id': 'id',
-        'username': 'username',
-        'first_name': 'first_name',
-        'last_name': 'last_name',
-        'email': 'email'
+        "id": "id",
+        "username": "username",
+        "first_name": "first_name",
+        "last_name": "last_name",
+        "email": "email",
     }
 
-    def __init__(self, id=None, username=None, first_name=None, last_name=None, email=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        username=None,
+        first_name=None,
+        last_name=None,
+        email=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """User - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -113,17 +121,36 @@ class User(object):
         :param username: The username of this User.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and username is None:  # noqa: E501
-            raise ValueError("Invalid value for `username`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                username is not None and len(username) > 150):
-            raise ValueError("Invalid value for `username`, length must be less than or equal to `150`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                username is not None and len(username) < 1):
-            raise ValueError("Invalid value for `username`, length must be greater than or equal to `1`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                username is not None and not re.search(r'^[\w.@+-]+$', username)):  # noqa: E501
-            raise ValueError(r"Invalid value for `username`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and username is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `username`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and username is not None
+            and len(username) > 150
+        ):
+            raise ValueError(
+                "Invalid value for `username`, length must be less than or equal to `150`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and username is not None
+            and len(username) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `username`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and username is not None
+            and not re.search(r"^[\w.@+-]+$", username)
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `username`, must be a follow pattern or equal to `/^[\w.@+-]+$/`"
+            )  # noqa: E501
 
         self._username = username
 
@@ -145,9 +172,14 @@ class User(object):
         :param first_name: The first_name of this User.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                first_name is not None and len(first_name) > 150):
-            raise ValueError("Invalid value for `first_name`, length must be less than or equal to `150`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and first_name is not None
+            and len(first_name) > 150
+        ):
+            raise ValueError(
+                "Invalid value for `first_name`, length must be less than or equal to `150`"
+            )  # noqa: E501
 
         self._first_name = first_name
 
@@ -169,9 +201,14 @@ class User(object):
         :param last_name: The last_name of this User.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                last_name is not None and len(last_name) > 150):
-            raise ValueError("Invalid value for `last_name`, length must be less than or equal to `150`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and last_name is not None
+            and len(last_name) > 150
+        ):
+            raise ValueError(
+                "Invalid value for `last_name`, length must be less than or equal to `150`"
+            )  # noqa: E501
 
         self._last_name = last_name
 
@@ -193,9 +230,14 @@ class User(object):
         :param email: The email of this User.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                email is not None and len(email) > 254):
-            raise ValueError("Invalid value for `email`, length must be less than or equal to `254`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and email is not None
+            and len(email) > 254
+        ):
+            raise ValueError(
+                "Invalid value for `email`, length must be less than or equal to `254`"
+            )  # noqa: E501
 
         self._email = email
 
@@ -206,18 +248,20 @@ class User(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

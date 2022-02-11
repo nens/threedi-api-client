@@ -2,10 +2,12 @@
 History
 =======
 
-4.0.0b5 (unreleased)
---------------------
+4.0.0 (unreleased)
+------------------
 
-- Nothing changed yet.
+- First stable release with new `ThreediApi` client included
+
+- Show warning when data fetched from API cannot be succesfully valided by the client-side validation.
 
 
 4.0.0b4 (2022-01-26)

@@ -19,10 +19,7 @@ import re  # noqa: F401
 import six
 
 from openapi_client.api_client import ApiClient
-from openapi_client.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
-)
+from openapi_client.exceptions import ApiTypeError, ApiValueError  # noqa: F401
 
 
 class FilesApi(object):
@@ -59,7 +56,7 @@ class FilesApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.files_delete_with_http_info(id, **kwargs)  # noqa: E501
 
     def files_delete_with_http_info(self, id, **kwargs):  # noqa: E501
@@ -89,36 +86,37 @@ class FilesApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method files_delete" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `files_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `files_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -129,10 +127,11 @@ class FilesApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/files/{id}/', 'DELETE',
+            "/files/{id}/",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -141,11 +140,14 @@ class FilesApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def files_destroy_file(self, id, **kwargs):  # noqa: E501
         """files_destroy_file  # noqa: E501
@@ -169,7 +171,7 @@ class FilesApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.files_destroy_file_with_http_info(id, **kwargs)  # noqa: E501
 
     def files_destroy_file_with_http_info(self, id, **kwargs):  # noqa: E501
@@ -199,36 +201,37 @@ class FilesApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method files_destroy_file" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `files_destroy_file`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `files_destroy_file`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -239,27 +242,32 @@ class FilesApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/files/{id}/destroy_file/', 'DELETE',
+            "/files/{id}/destroy_file/",
+            "DELETE",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='File',  # noqa: E501
+            response_type="File",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def files_download(self, id, **kwargs):  # noqa: E501
         """files_download  # noqa: E501
@@ -283,7 +291,7 @@ class FilesApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.files_download_with_http_info(id, **kwargs)  # noqa: E501
 
     def files_download_with_http_info(self, id, **kwargs):  # noqa: E501
@@ -313,36 +321,37 @@ class FilesApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method files_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `files_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `files_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -353,27 +362,32 @@ class FilesApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/files/{id}/download/', 'GET',
+            "/files/{id}/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def files_list(self, **kwargs):  # noqa: E501
         """files_list  # noqa: E501
@@ -413,7 +427,7 @@ class FilesApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.files_list_with_http_info(**kwargs)  # noqa: E501
 
     def files_list_with_http_info(self, **kwargs):  # noqa: E501
@@ -460,81 +474,149 @@ class FilesApi(object):
         local_var_params = locals()
 
         all_params = [
-            'filename',
-            'filename__icontains',
-            'etag',
-            'expiry_date',
-            'expiry_date__lte',
-            'expiry_date__lt',
-            'expiry_date__gte',
-            'expiry_date__gt',
-            'state',
-            'state__in',
-            'type',
-            'type__in',
-            'meta',
-            'simulation__status__in',
-            'simulation__status__exclude',
-            'limit',
-            'offset'
+            "filename",
+            "filename__icontains",
+            "etag",
+            "expiry_date",
+            "expiry_date__lte",
+            "expiry_date__lt",
+            "expiry_date__gte",
+            "expiry_date__gt",
+            "state",
+            "state__in",
+            "type",
+            "type__in",
+            "meta",
+            "simulation__status__in",
+            "simulation__status__exclude",
+            "limit",
+            "offset",
         ]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method files_list" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'filename' in local_var_params and local_var_params['filename'] is not None:  # noqa: E501
-            query_params.append(('filename', local_var_params['filename']))  # noqa: E501
-        if 'filename__icontains' in local_var_params and local_var_params['filename__icontains'] is not None:  # noqa: E501
-            query_params.append(('filename__icontains', local_var_params['filename__icontains']))  # noqa: E501
-        if 'etag' in local_var_params and local_var_params['etag'] is not None:  # noqa: E501
-            query_params.append(('etag', local_var_params['etag']))  # noqa: E501
-        if 'expiry_date' in local_var_params and local_var_params['expiry_date'] is not None:  # noqa: E501
-            query_params.append(('expiry_date', local_var_params['expiry_date']))  # noqa: E501
-        if 'expiry_date__lte' in local_var_params and local_var_params['expiry_date__lte'] is not None:  # noqa: E501
-            query_params.append(('expiry_date__lte', local_var_params['expiry_date__lte']))  # noqa: E501
-        if 'expiry_date__lt' in local_var_params and local_var_params['expiry_date__lt'] is not None:  # noqa: E501
-            query_params.append(('expiry_date__lt', local_var_params['expiry_date__lt']))  # noqa: E501
-        if 'expiry_date__gte' in local_var_params and local_var_params['expiry_date__gte'] is not None:  # noqa: E501
-            query_params.append(('expiry_date__gte', local_var_params['expiry_date__gte']))  # noqa: E501
-        if 'expiry_date__gt' in local_var_params and local_var_params['expiry_date__gt'] is not None:  # noqa: E501
-            query_params.append(('expiry_date__gt', local_var_params['expiry_date__gt']))  # noqa: E501
-        if 'state' in local_var_params and local_var_params['state'] is not None:  # noqa: E501
-            query_params.append(('state', local_var_params['state']))  # noqa: E501
-        if 'state__in' in local_var_params and local_var_params['state__in'] is not None:  # noqa: E501
-            query_params.append(('state__in', local_var_params['state__in']))  # noqa: E501
-        if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
-            query_params.append(('type', local_var_params['type']))  # noqa: E501
-        if 'type__in' in local_var_params and local_var_params['type__in'] is not None:  # noqa: E501
-            query_params.append(('type__in', local_var_params['type__in']))  # noqa: E501
-        if 'meta' in local_var_params and local_var_params['meta'] is not None:  # noqa: E501
-            query_params.append(('meta', local_var_params['meta']))  # noqa: E501
-        if 'simulation__status__in' in local_var_params and local_var_params['simulation__status__in'] is not None:  # noqa: E501
-            query_params.append(('simulation__status__in', local_var_params['simulation__status__in']))  # noqa: E501
-        if 'simulation__status__exclude' in local_var_params and local_var_params['simulation__status__exclude'] is not None:  # noqa: E501
-            query_params.append(('simulation__status__exclude', local_var_params['simulation__status__exclude']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if (
+            "filename" in local_var_params and local_var_params["filename"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("filename", local_var_params["filename"])
+            )  # noqa: E501
+        if (
+            "filename__icontains" in local_var_params
+            and local_var_params["filename__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("filename__icontains", local_var_params["filename__icontains"])
+            )  # noqa: E501
+        if (
+            "etag" in local_var_params and local_var_params["etag"] is not None
+        ):  # noqa: E501
+            query_params.append(("etag", local_var_params["etag"]))  # noqa: E501
+        if (
+            "expiry_date" in local_var_params
+            and local_var_params["expiry_date"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("expiry_date", local_var_params["expiry_date"])
+            )  # noqa: E501
+        if (
+            "expiry_date__lte" in local_var_params
+            and local_var_params["expiry_date__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("expiry_date__lte", local_var_params["expiry_date__lte"])
+            )  # noqa: E501
+        if (
+            "expiry_date__lt" in local_var_params
+            and local_var_params["expiry_date__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("expiry_date__lt", local_var_params["expiry_date__lt"])
+            )  # noqa: E501
+        if (
+            "expiry_date__gte" in local_var_params
+            and local_var_params["expiry_date__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("expiry_date__gte", local_var_params["expiry_date__gte"])
+            )  # noqa: E501
+        if (
+            "expiry_date__gt" in local_var_params
+            and local_var_params["expiry_date__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("expiry_date__gt", local_var_params["expiry_date__gt"])
+            )  # noqa: E501
+        if (
+            "state" in local_var_params and local_var_params["state"] is not None
+        ):  # noqa: E501
+            query_params.append(("state", local_var_params["state"]))  # noqa: E501
+        if (
+            "state__in" in local_var_params
+            and local_var_params["state__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("state__in", local_var_params["state__in"])
+            )  # noqa: E501
+        if (
+            "type" in local_var_params and local_var_params["type"] is not None
+        ):  # noqa: E501
+            query_params.append(("type", local_var_params["type"]))  # noqa: E501
+        if (
+            "type__in" in local_var_params and local_var_params["type__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("type__in", local_var_params["type__in"])
+            )  # noqa: E501
+        if (
+            "meta" in local_var_params and local_var_params["meta"] is not None
+        ):  # noqa: E501
+            query_params.append(("meta", local_var_params["meta"]))  # noqa: E501
+        if (
+            "simulation__status__in" in local_var_params
+            and local_var_params["simulation__status__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("simulation__status__in", local_var_params["simulation__status__in"])
+            )  # noqa: E501
+        if (
+            "simulation__status__exclude" in local_var_params
+            and local_var_params["simulation__status__exclude"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "simulation__status__exclude",
+                    local_var_params["simulation__status__exclude"],
+                )
+            )  # noqa: E501
+        if (
+            "limit" in local_var_params and local_var_params["limit"] is not None
+        ):  # noqa: E501
+            query_params.append(("limit", local_var_params["limit"]))  # noqa: E501
+        if (
+            "offset" in local_var_params and local_var_params["offset"] is not None
+        ):  # noqa: E501
+            query_params.append(("offset", local_var_params["offset"]))  # noqa: E501
 
         header_params = {}
 
@@ -543,27 +625,32 @@ class FilesApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/files/', 'GET',
+            "/files/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2002',  # noqa: E501
+            response_type="InlineResponse2002",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def files_partial_update(self, id, data, **kwargs):  # noqa: E501
         """files_partial_update  # noqa: E501
@@ -588,8 +675,10 @@ class FilesApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.files_partial_update_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.files_partial_update_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
     def files_partial_update_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """files_partial_update  # noqa: E501
@@ -619,41 +708,45 @@ class FilesApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method files_partial_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `files_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `files_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `files_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `files_partial_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -663,34 +756,42 @@ class FilesApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/files/{id}/', 'PATCH',
+            "/files/{id}/",
+            "PATCH",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='File',  # noqa: E501
+            response_type="File",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def files_processed(self, id, data, **kwargs):  # noqa: E501
         """Endpoint to which the upload-processor can enrich file objects (and their related objects) with metadata.  # noqa: E501
@@ -715,7 +816,7 @@ class FilesApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.files_processed_with_http_info(id, data, **kwargs)  # noqa: E501
 
     def files_processed_with_http_info(self, id, data, **kwargs):  # noqa: E501
@@ -746,41 +847,45 @@ class FilesApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method files_processed" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `files_processed`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `files_processed`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `files_processed`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `files_processed`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -790,17 +895,21 @@ class FilesApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/files/{id}/processed/', 'PUT',
+            "/files/{id}/processed/",
+            "PUT",
             path_params,
             query_params,
             header_params,
@@ -809,11 +918,14 @@ class FilesApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def files_read(self, id, **kwargs):  # noqa: E501
         """files_read  # noqa: E501
@@ -837,7 +949,7 @@ class FilesApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.files_read_with_http_info(id, **kwargs)  # noqa: E501
 
     def files_read_with_http_info(self, id, **kwargs):  # noqa: E501
@@ -867,36 +979,37 @@ class FilesApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method files_read" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `files_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `files_read`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -907,27 +1020,32 @@ class FilesApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/files/{id}/', 'GET',
+            "/files/{id}/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='File',  # noqa: E501
+            response_type="File",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def files_update(self, id, data, **kwargs):  # noqa: E501
         """files_update  # noqa: E501
@@ -952,7 +1070,7 @@ class FilesApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.files_update_with_http_info(id, data, **kwargs)  # noqa: E501
 
     def files_update_with_http_info(self, id, data, **kwargs):  # noqa: E501
@@ -983,41 +1101,45 @@ class FilesApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method files_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `files_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `files_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `files_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `files_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -1027,31 +1149,39 @@ class FilesApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/files/{id}/', 'PUT',
+            "/files/{id}/",
+            "PUT",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='File',  # noqa: E501
+            response_type="File",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

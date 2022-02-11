@@ -34,22 +34,30 @@ class Repository(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'id': 'int',
-        'organisation': 'str',
-        'slug': 'str',
-        'revision': 'list[str]'
+        "url": "str",
+        "id": "int",
+        "organisation": "str",
+        "slug": "str",
+        "revision": "list[str]",
     }
 
     attribute_map = {
-        'url': 'url',
-        'id': 'id',
-        'organisation': 'organisation',
-        'slug': 'slug',
-        'revision': 'revision'
+        "url": "url",
+        "id": "id",
+        "organisation": "organisation",
+        "slug": "slug",
+        "revision": "revision",
     }
 
-    def __init__(self, url=None, id=None, organisation=None, slug=None, revision=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        id=None,
+        organisation=None,
+        slug=None,
+        revision=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """Repository - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -157,17 +165,36 @@ class Repository(object):
         :param slug: The slug of this Repository.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and slug is None:  # noqa: E501
-            raise ValueError("Invalid value for `slug`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and len(slug) > 255):
-            raise ValueError("Invalid value for `slug`, length must be less than or equal to `255`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and len(slug) < 1):
-            raise ValueError("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and not re.search(r'^[-a-zA-Z0-9_]+$', slug)):  # noqa: E501
-            raise ValueError(r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and slug is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `slug`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and slug is not None
+            and len(slug) > 255
+        ):
+            raise ValueError(
+                "Invalid value for `slug`, length must be less than or equal to `255`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and slug is not None
+            and len(slug) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `slug`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and slug is not None
+            and not re.search(r"^[-a-zA-Z0-9_]+$", slug)
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`"
+            )  # noqa: E501
 
         self._slug = slug
 
@@ -199,18 +226,20 @@ class Repository(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

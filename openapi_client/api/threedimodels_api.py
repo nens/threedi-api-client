@@ -19,10 +19,7 @@ import re  # noqa: F401
 import six
 
 from openapi_client.api_client import ApiClient
-from openapi_client.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
-)
+from openapi_client.exceptions import ApiTypeError, ApiValueError  # noqa: F401
 
 
 class ThreedimodelsApi(object):
@@ -37,7 +34,9 @@ class ThreedimodelsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def threedimodels_boundaryconditions_create(self, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_boundaryconditions_create(
+        self, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_boundaryconditions_create  # noqa: E501
 
         A simple ViewSet for viewing boundary conditions  # noqa: E501
@@ -60,10 +59,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_boundaryconditions_create_with_http_info(threedimodel_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_boundaryconditions_create_with_http_info(
+            threedimodel_pk, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_boundaryconditions_create_with_http_info(self, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_boundaryconditions_create_with_http_info(
+        self, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_boundaryconditions_create  # noqa: E501
 
         A simple ViewSet for viewing boundary conditions  # noqa: E501
@@ -91,41 +94,48 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'threedimodel_pk',
-            'data'
-        ]
+        all_params = ["threedimodel_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_boundaryconditions_create" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_boundaryconditions_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_boundaryconditions_create`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_boundaryconditions_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_boundaryconditions_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -135,36 +145,46 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/boundaryconditions/', 'POST',
+            "/threedimodels/{threedimodel_pk}/boundaryconditions/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='BoundaryCondition',  # noqa: E501
+            response_type="BoundaryCondition",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_boundaryconditions_delete(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_boundaryconditions_delete(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_boundaryconditions_delete  # noqa: E501
 
         A simple ViewSet for viewing boundary conditions  # noqa: E501
@@ -187,10 +207,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_boundaryconditions_delete_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_boundaryconditions_delete_with_http_info(
+            id, threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_boundaryconditions_delete_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_boundaryconditions_delete_with_http_info(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_boundaryconditions_delete  # noqa: E501
 
         A simple ViewSet for viewing boundary conditions  # noqa: E501
@@ -218,43 +242,49 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk'
-        ]
+        all_params = ["id", "threedimodel_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_boundaryconditions_delete" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_boundaryconditions_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_boundaryconditions_delete`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_boundaryconditions_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_boundaryconditions_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -265,10 +295,11 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/boundaryconditions/{id}/', 'DELETE',
+            "/threedimodels/{threedimodel_pk}/boundaryconditions/{id}/",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -277,13 +308,18 @@ class ThreedimodelsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_boundaryconditions_list(self, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_boundaryconditions_list(
+        self, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_boundaryconditions_list  # noqa: E501
 
         A simple ViewSet for viewing boundary conditions  # noqa: E501
@@ -307,10 +343,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_boundaryconditions_list_with_http_info(threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_boundaryconditions_list_with_http_info(
+            threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_boundaryconditions_list_with_http_info(self, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_boundaryconditions_list_with_http_info(
+        self, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_boundaryconditions_list  # noqa: E501
 
         A simple ViewSet for viewing boundary conditions  # noqa: E501
@@ -339,44 +379,50 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'threedimodel_pk',
-            'limit',
-            'offset'
-        ]
+        all_params = ["threedimodel_pk", "limit", "offset"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_boundaryconditions_list" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_boundaryconditions_list`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_boundaryconditions_list`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if (
+            "limit" in local_var_params and local_var_params["limit"] is not None
+        ):  # noqa: E501
+            query_params.append(("limit", local_var_params["limit"]))  # noqa: E501
+        if (
+            "offset" in local_var_params and local_var_params["offset"] is not None
+        ):  # noqa: E501
+            query_params.append(("offset", local_var_params["offset"]))  # noqa: E501
 
         header_params = {}
 
@@ -385,29 +431,36 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/boundaryconditions/', 'GET',
+            "/threedimodels/{threedimodel_pk}/boundaryconditions/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20056',  # noqa: E501
+            response_type="InlineResponse20056",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_boundaryconditions_partial_update(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_boundaryconditions_partial_update(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_boundaryconditions_partial_update  # noqa: E501
 
         A simple ViewSet for viewing boundary conditions  # noqa: E501
@@ -431,10 +484,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_boundaryconditions_partial_update_with_http_info(id, threedimodel_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_boundaryconditions_partial_update_with_http_info(
+            id, threedimodel_pk, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_boundaryconditions_partial_update_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_boundaryconditions_partial_update_with_http_info(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_boundaryconditions_partial_update  # noqa: E501
 
         A simple ViewSet for viewing boundary conditions  # noqa: E501
@@ -463,48 +520,57 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk',
-            'data'
-        ]
+        all_params = ["id", "threedimodel_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_boundaryconditions_partial_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_boundaryconditions_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_boundaryconditions_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_boundaryconditions_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_boundaryconditions_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_boundaryconditions_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_boundaryconditions_partial_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -514,36 +580,46 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/boundaryconditions/{id}/', 'PATCH',
+            "/threedimodels/{threedimodel_pk}/boundaryconditions/{id}/",
+            "PATCH",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='BoundaryCondition',  # noqa: E501
+            response_type="BoundaryCondition",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_boundaryconditions_read(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_boundaryconditions_read(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_boundaryconditions_read  # noqa: E501
 
         A simple ViewSet for viewing boundary conditions  # noqa: E501
@@ -566,10 +642,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_boundaryconditions_read_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_boundaryconditions_read_with_http_info(
+            id, threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_boundaryconditions_read_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_boundaryconditions_read_with_http_info(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_boundaryconditions_read  # noqa: E501
 
         A simple ViewSet for viewing boundary conditions  # noqa: E501
@@ -597,43 +677,49 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk'
-        ]
+        all_params = ["id", "threedimodel_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_boundaryconditions_read" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_boundaryconditions_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_boundaryconditions_read`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_boundaryconditions_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_boundaryconditions_read`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -644,29 +730,36 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/boundaryconditions/{id}/', 'GET',
+            "/threedimodels/{threedimodel_pk}/boundaryconditions/{id}/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='BoundaryCondition',  # noqa: E501
+            response_type="BoundaryCondition",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_boundaryconditions_update(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_boundaryconditions_update(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_boundaryconditions_update  # noqa: E501
 
         A simple ViewSet for viewing boundary conditions  # noqa: E501
@@ -690,10 +783,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_boundaryconditions_update_with_http_info(id, threedimodel_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_boundaryconditions_update_with_http_info(
+            id, threedimodel_pk, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_boundaryconditions_update_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_boundaryconditions_update_with_http_info(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_boundaryconditions_update  # noqa: E501
 
         A simple ViewSet for viewing boundary conditions  # noqa: E501
@@ -722,48 +819,57 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk',
-            'data'
-        ]
+        all_params = ["id", "threedimodel_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_boundaryconditions_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_boundaryconditions_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_boundaryconditions_update`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_boundaryconditions_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_boundaryconditions_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_boundaryconditions_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_boundaryconditions_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -773,34 +879,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/boundaryconditions/{id}/', 'PUT',
+            "/threedimodels/{threedimodel_pk}/boundaryconditions/{id}/",
+            "PUT",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='BoundaryCondition',  # noqa: E501
+            response_type="BoundaryCondition",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_breaches_geojson_upload(self, id, data, **kwargs):  # noqa: E501
         """threedimodels_breaches_geojson_upload  # noqa: E501
@@ -825,10 +939,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_breaches_geojson_upload_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_breaches_geojson_upload_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_breaches_geojson_upload_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def threedimodels_breaches_geojson_upload_with_http_info(
+        self, id, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_breaches_geojson_upload  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -856,41 +974,45 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_breaches_geojson_upload" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_breaches_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_breaches_geojson_upload`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_breaches_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_breaches_geojson_upload`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -900,36 +1022,46 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/breaches/upload/', 'POST',
+            "/threedimodels/{id}/geojson/breaches/upload/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type="Upload",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_bulk_potentialbreaches_create(self, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_bulk_potentialbreaches_create(
+        self, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_bulk_potentialbreaches_create  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -951,10 +1083,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_bulk_potentialbreaches_create_with_http_info(threedimodel_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_bulk_potentialbreaches_create_with_http_info(
+            threedimodel_pk, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_bulk_potentialbreaches_create_with_http_info(self, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_bulk_potentialbreaches_create_with_http_info(
+        self, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_bulk_potentialbreaches_create  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -981,41 +1117,48 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'threedimodel_pk',
-            'data'
-        ]
+        all_params = ["threedimodel_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_bulk_potentialbreaches_create" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_bulk_potentialbreaches_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_bulk_potentialbreaches_create`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_bulk_potentialbreaches_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_bulk_potentialbreaches_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -1025,36 +1168,46 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/bulk_potentialbreaches/', 'POST',
+            "/threedimodels/{threedimodel_pk}/bulk_potentialbreaches/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[PotentialBreach]',  # noqa: E501
+            response_type="list[PotentialBreach]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_bulk_rasters_create(self, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_bulk_rasters_create(
+        self, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_bulk_rasters_create  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1076,10 +1229,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_bulk_rasters_create_with_http_info(threedimodel_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_bulk_rasters_create_with_http_info(
+            threedimodel_pk, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_bulk_rasters_create_with_http_info(self, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_bulk_rasters_create_with_http_info(
+        self, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_bulk_rasters_create  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1106,41 +1263,48 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'threedimodel_pk',
-            'data'
-        ]
+        all_params = ["threedimodel_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_bulk_rasters_create" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_bulk_rasters_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_bulk_rasters_create`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_bulk_rasters_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_bulk_rasters_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -1150,34 +1314,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/bulk_rasters/', 'POST',
+            "/threedimodels/{threedimodel_pk}/bulk_rasters/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[Raster]',  # noqa: E501
+            response_type="list[Raster]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_cells_geojson_upload(self, id, data, **kwargs):  # noqa: E501
         """threedimodels_cells_geojson_upload  # noqa: E501
@@ -1202,10 +1374,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_cells_geojson_upload_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_cells_geojson_upload_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_cells_geojson_upload_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def threedimodels_cells_geojson_upload_with_http_info(
+        self, id, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_cells_geojson_upload  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -1233,41 +1409,45 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_cells_geojson_upload" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_cells_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_cells_geojson_upload`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_cells_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_cells_geojson_upload`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -1277,34 +1457,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/cells/upload/', 'POST',
+            "/threedimodels/{id}/geojson/cells/upload/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type="Upload",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_channels_geojson_upload(self, id, data, **kwargs):  # noqa: E501
         """threedimodels_channels_geojson_upload  # noqa: E501
@@ -1329,10 +1517,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_channels_geojson_upload_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_channels_geojson_upload_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_channels_geojson_upload_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def threedimodels_channels_geojson_upload_with_http_info(
+        self, id, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_channels_geojson_upload  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -1360,41 +1552,45 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_channels_geojson_upload" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_channels_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_channels_geojson_upload`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_channels_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_channels_geojson_upload`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -1404,34 +1600,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/channels/upload/', 'POST',
+            "/threedimodels/{id}/geojson/channels/upload/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type="Upload",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_create(self, data, **kwargs):  # noqa: E501
         """threedimodels_create  # noqa: E501
@@ -1455,7 +1659,7 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.threedimodels_create_with_http_info(data, **kwargs)  # noqa: E501
 
     def threedimodels_create_with_http_info(self, data, **kwargs):  # noqa: E501
@@ -1485,30 +1689,32 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'data'
-        ]
+        all_params = ["data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_create" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -1522,34 +1728,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/', 'POST',
+            "/threedimodels/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
+            response_type="ThreediModel",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_culverts_geojson_upload(self, id, data, **kwargs):  # noqa: E501
         """threedimodels_culverts_geojson_upload  # noqa: E501
@@ -1574,10 +1788,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_culverts_geojson_upload_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_culverts_geojson_upload_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_culverts_geojson_upload_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def threedimodels_culverts_geojson_upload_with_http_info(
+        self, id, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_culverts_geojson_upload  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -1605,41 +1823,45 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_culverts_geojson_upload" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_culverts_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_culverts_geojson_upload`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_culverts_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_culverts_geojson_upload`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -1649,34 +1871,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/culverts/upload/', 'POST',
+            "/threedimodels/{id}/geojson/culverts/upload/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type="Upload",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_delete(self, id, **kwargs):  # noqa: E501
         """threedimodels_delete  # noqa: E501
@@ -1700,7 +1930,7 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.threedimodels_delete_with_http_info(id, **kwargs)  # noqa: E501
 
     def threedimodels_delete_with_http_info(self, id, **kwargs):  # noqa: E501
@@ -1730,36 +1960,37 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_delete" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -1770,10 +2001,11 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/', 'DELETE',
+            "/threedimodels/{id}/",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -1782,11 +2014,14 @@ class ThreedimodelsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_geojson_breaches_download(self, id, **kwargs):  # noqa: E501
         """threedimodels_geojson_breaches_download  # noqa: E501
@@ -1810,10 +2045,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_geojson_breaches_download_with_http_info(id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_geojson_breaches_download_with_http_info(
+            id, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_geojson_breaches_download_with_http_info(self, id, **kwargs):  # noqa: E501
+    def threedimodels_geojson_breaches_download_with_http_info(
+        self, id, **kwargs
+    ):  # noqa: E501
         """threedimodels_geojson_breaches_download  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -1840,36 +2079,37 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_geojson_breaches_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_breaches_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_geojson_breaches_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -1880,27 +2120,32 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/breaches/download/', 'GET',
+            "/threedimodels/{id}/geojson/breaches/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_geojson_cells_download(self, id, **kwargs):  # noqa: E501
         """threedimodels_geojson_cells_download  # noqa: E501
@@ -1924,10 +2169,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_geojson_cells_download_with_http_info(id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_geojson_cells_download_with_http_info(
+            id, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_geojson_cells_download_with_http_info(self, id, **kwargs):  # noqa: E501
+    def threedimodels_geojson_cells_download_with_http_info(
+        self, id, **kwargs
+    ):  # noqa: E501
         """threedimodels_geojson_cells_download  # noqa: E501
 
         Note that this is the subset of 2d open_water cells  # noqa: E501
@@ -1954,36 +2203,37 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_geojson_cells_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_cells_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_geojson_cells_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -1994,27 +2244,32 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/cells/download/', 'GET',
+            "/threedimodels/{id}/geojson/cells/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_geojson_channels_download(self, id, **kwargs):  # noqa: E501
         """threedimodels_geojson_channels_download  # noqa: E501
@@ -2038,10 +2293,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_geojson_channels_download_with_http_info(id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_geojson_channels_download_with_http_info(
+            id, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_geojson_channels_download_with_http_info(self, id, **kwargs):  # noqa: E501
+    def threedimodels_geojson_channels_download_with_http_info(
+        self, id, **kwargs
+    ):  # noqa: E501
         """threedimodels_geojson_channels_download  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -2068,36 +2327,37 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_geojson_channels_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_channels_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_geojson_channels_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -2108,27 +2368,32 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/channels/download/', 'GET',
+            "/threedimodels/{id}/geojson/channels/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_geojson_culverts_download(self, id, **kwargs):  # noqa: E501
         """threedimodels_geojson_culverts_download  # noqa: E501
@@ -2152,10 +2417,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_geojson_culverts_download_with_http_info(id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_geojson_culverts_download_with_http_info(
+            id, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_geojson_culverts_download_with_http_info(self, id, **kwargs):  # noqa: E501
+    def threedimodels_geojson_culverts_download_with_http_info(
+        self, id, **kwargs
+    ):  # noqa: E501
         """threedimodels_geojson_culverts_download  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -2182,36 +2451,37 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_geojson_culverts_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_culverts_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_geojson_culverts_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -2222,27 +2492,32 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/culverts/download/', 'GET',
+            "/threedimodels/{id}/geojson/culverts/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_geojson_download(self, id, **kwargs):  # noqa: E501
         """threedimodels_geojson_download  # noqa: E501
@@ -2266,8 +2541,10 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_geojson_download_with_http_info(id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_geojson_download_with_http_info(
+            id, **kwargs
+        )  # noqa: E501
 
     def threedimodels_geojson_download_with_http_info(self, id, **kwargs):  # noqa: E501
         """threedimodels_geojson_download  # noqa: E501
@@ -2296,36 +2573,37 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_geojson_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_geojson_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -2336,27 +2614,32 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/all/download/', 'GET',
+            "/threedimodels/{id}/geojson/all/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_geojson_levees_download(self, id, **kwargs):  # noqa: E501
         """threedimodels_geojson_levees_download  # noqa: E501
@@ -2380,10 +2663,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_geojson_levees_download_with_http_info(id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_geojson_levees_download_with_http_info(
+            id, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_geojson_levees_download_with_http_info(self, id, **kwargs):  # noqa: E501
+    def threedimodels_geojson_levees_download_with_http_info(
+        self, id, **kwargs
+    ):  # noqa: E501
         """threedimodels_geojson_levees_download  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -2410,36 +2697,37 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_geojson_levees_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_levees_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_geojson_levees_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -2450,27 +2738,32 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/levees/download/', 'GET',
+            "/threedimodels/{id}/geojson/levees/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_geojson_manholes_download(self, id, **kwargs):  # noqa: E501
         """threedimodels_geojson_manholes_download  # noqa: E501
@@ -2494,10 +2787,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_geojson_manholes_download_with_http_info(id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_geojson_manholes_download_with_http_info(
+            id, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_geojson_manholes_download_with_http_info(self, id, **kwargs):  # noqa: E501
+    def threedimodels_geojson_manholes_download_with_http_info(
+        self, id, **kwargs
+    ):  # noqa: E501
         """threedimodels_geojson_manholes_download  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -2524,36 +2821,37 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_geojson_manholes_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_manholes_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_geojson_manholes_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -2564,27 +2862,32 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/manholes/download/', 'GET',
+            "/threedimodels/{id}/geojson/manholes/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_geojson_orifices_download(self, id, **kwargs):  # noqa: E501
         """threedimodels_geojson_orifices_download  # noqa: E501
@@ -2608,10 +2911,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_geojson_orifices_download_with_http_info(id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_geojson_orifices_download_with_http_info(
+            id, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_geojson_orifices_download_with_http_info(self, id, **kwargs):  # noqa: E501
+    def threedimodels_geojson_orifices_download_with_http_info(
+        self, id, **kwargs
+    ):  # noqa: E501
         """threedimodels_geojson_orifices_download  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -2638,36 +2945,37 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_geojson_orifices_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_orifices_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_geojson_orifices_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -2678,27 +2986,32 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/orifices/download/', 'GET',
+            "/threedimodels/{id}/geojson/orifices/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_geojson_pipes_download(self, id, **kwargs):  # noqa: E501
         """threedimodels_geojson_pipes_download  # noqa: E501
@@ -2722,10 +3035,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_geojson_pipes_download_with_http_info(id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_geojson_pipes_download_with_http_info(
+            id, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_geojson_pipes_download_with_http_info(self, id, **kwargs):  # noqa: E501
+    def threedimodels_geojson_pipes_download_with_http_info(
+        self, id, **kwargs
+    ):  # noqa: E501
         """threedimodels_geojson_pipes_download  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -2752,36 +3069,37 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_geojson_pipes_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_pipes_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_geojson_pipes_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -2792,27 +3110,32 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/pipes/download/', 'GET',
+            "/threedimodels/{id}/geojson/pipes/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_geojson_pumps_download(self, id, **kwargs):  # noqa: E501
         """threedimodels_geojson_pumps_download  # noqa: E501
@@ -2836,10 +3159,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_geojson_pumps_download_with_http_info(id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_geojson_pumps_download_with_http_info(
+            id, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_geojson_pumps_download_with_http_info(self, id, **kwargs):  # noqa: E501
+    def threedimodels_geojson_pumps_download_with_http_info(
+        self, id, **kwargs
+    ):  # noqa: E501
         """threedimodels_geojson_pumps_download  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -2866,36 +3193,37 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_geojson_pumps_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_pumps_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_geojson_pumps_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -2906,27 +3234,32 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/pumps/download/', 'GET',
+            "/threedimodels/{id}/geojson/pumps/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_geojson_upload(self, id, data, **kwargs):  # noqa: E501
         """threedimodels_geojson_upload  # noqa: E501
@@ -2951,10 +3284,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_geojson_upload_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_geojson_upload_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_geojson_upload_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def threedimodels_geojson_upload_with_http_info(
+        self, id, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_geojson_upload  # noqa: E501
 
         Endpoint for uploading the geojson file Replaces the geojson file if there already exists one.  # noqa: E501
@@ -2982,41 +3319,45 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_geojson_upload" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_geojson_upload`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_geojson_upload`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -3026,34 +3367,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/all/upload/', 'POST',
+            "/threedimodels/{id}/geojson/all/upload/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type="Upload",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_geojson_weirs_download(self, id, **kwargs):  # noqa: E501
         """threedimodels_geojson_weirs_download  # noqa: E501
@@ -3077,10 +3426,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_geojson_weirs_download_with_http_info(id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_geojson_weirs_download_with_http_info(
+            id, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_geojson_weirs_download_with_http_info(self, id, **kwargs):  # noqa: E501
+    def threedimodels_geojson_weirs_download_with_http_info(
+        self, id, **kwargs
+    ):  # noqa: E501
         """threedimodels_geojson_weirs_download  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -3107,36 +3460,37 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_geojson_weirs_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_weirs_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_geojson_weirs_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -3147,27 +3501,32 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/weirs/download/', 'GET',
+            "/threedimodels/{id}/geojson/weirs/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_gridadmin_download(self, id, **kwargs):  # noqa: E501
         """threedimodels_gridadmin_download  # noqa: E501
@@ -3191,10 +3550,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_gridadmin_download_with_http_info(id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_gridadmin_download_with_http_info(
+            id, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_gridadmin_download_with_http_info(self, id, **kwargs):  # noqa: E501
+    def threedimodels_gridadmin_download_with_http_info(
+        self, id, **kwargs
+    ):  # noqa: E501
         """threedimodels_gridadmin_download  # noqa: E501
 
         Endpoint for downloading files.  # noqa: E501
@@ -3221,36 +3584,37 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_gridadmin_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_gridadmin_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_gridadmin_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -3261,27 +3625,32 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/gridadmin/download/', 'GET',
+            "/threedimodels/{id}/gridadmin/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_gridadmin_upload(self, id, data, **kwargs):  # noqa: E501
         """Endpoint for uploading the gridadmin file  # noqa: E501
@@ -3306,10 +3675,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_gridadmin_upload_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_gridadmin_upload_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_gridadmin_upload_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def threedimodels_gridadmin_upload_with_http_info(
+        self, id, data, **kwargs
+    ):  # noqa: E501
         """Endpoint for uploading the gridadmin file  # noqa: E501
 
         Replaces the gridadmin if there already exists one.  # noqa: E501
@@ -3337,41 +3710,45 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_gridadmin_upload" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_gridadmin_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_gridadmin_upload`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_gridadmin_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_gridadmin_upload`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -3381,36 +3758,46 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/gridadmin/upload/', 'POST',
+            "/threedimodels/{id}/gridadmin/upload/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type="Upload",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_initial_waterlevels_create(self, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_initial_waterlevels_create(
+        self, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_initial_waterlevels_create  # noqa: E501
 
         Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
@@ -3433,10 +3820,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_initial_waterlevels_create_with_http_info(threedimodel_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_initial_waterlevels_create_with_http_info(
+            threedimodel_pk, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_initial_waterlevels_create_with_http_info(self, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_initial_waterlevels_create_with_http_info(
+        self, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_initial_waterlevels_create  # noqa: E501
 
         Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
@@ -3464,41 +3855,48 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'threedimodel_pk',
-            'data'
-        ]
+        all_params = ["threedimodel_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_initial_waterlevels_create" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_create`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_initial_waterlevels_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_initial_waterlevels_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -3508,36 +3906,46 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/initial_waterlevels/', 'POST',
+            "/threedimodels/{threedimodel_pk}/initial_waterlevels/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InitialWaterlevel',  # noqa: E501
+            response_type="InitialWaterlevel",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_initial_waterlevels_delete(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_initial_waterlevels_delete(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_initial_waterlevels_delete  # noqa: E501
 
         Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
@@ -3560,10 +3968,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_initial_waterlevels_delete_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_initial_waterlevels_delete_with_http_info(
+            id, threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_initial_waterlevels_delete_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_initial_waterlevels_delete_with_http_info(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_initial_waterlevels_delete  # noqa: E501
 
         Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
@@ -3591,43 +4003,49 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk'
-        ]
+        all_params = ["id", "threedimodel_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_initial_waterlevels_delete" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_initial_waterlevels_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_initial_waterlevels_delete`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -3638,10 +4056,11 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/', 'DELETE',
+            "/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -3650,13 +4069,18 @@ class ThreedimodelsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_initial_waterlevels_download(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_initial_waterlevels_download(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_initial_waterlevels_download  # noqa: E501
 
         Endpoint for downloading files.  # noqa: E501
@@ -3679,10 +4103,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_initial_waterlevels_download_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_initial_waterlevels_download_with_http_info(
+            id, threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_initial_waterlevels_download_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_initial_waterlevels_download_with_http_info(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_initial_waterlevels_download  # noqa: E501
 
         Endpoint for downloading files.  # noqa: E501
@@ -3710,43 +4138,49 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk'
-        ]
+        all_params = ["id", "threedimodel_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_initial_waterlevels_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_initial_waterlevels_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_initial_waterlevels_download`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -3757,29 +4191,36 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/download/', 'GET',
+            "/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_initial_waterlevels_list(self, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_initial_waterlevels_list(
+        self, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_initial_waterlevels_list  # noqa: E501
 
         Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
@@ -3803,10 +4244,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_initial_waterlevels_list_with_http_info(threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_initial_waterlevels_list_with_http_info(
+            threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_initial_waterlevels_list_with_http_info(self, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_initial_waterlevels_list_with_http_info(
+        self, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_initial_waterlevels_list  # noqa: E501
 
         Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
@@ -3835,44 +4280,50 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'threedimodel_pk',
-            'limit',
-            'offset'
-        ]
+        all_params = ["threedimodel_pk", "limit", "offset"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_initial_waterlevels_list" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_list`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_list`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if (
+            "limit" in local_var_params and local_var_params["limit"] is not None
+        ):  # noqa: E501
+            query_params.append(("limit", local_var_params["limit"]))  # noqa: E501
+        if (
+            "offset" in local_var_params and local_var_params["offset"] is not None
+        ):  # noqa: E501
+            query_params.append(("offset", local_var_params["offset"]))  # noqa: E501
 
         header_params = {}
 
@@ -3881,29 +4332,36 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/initial_waterlevels/', 'GET',
+            "/threedimodels/{threedimodel_pk}/initial_waterlevels/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20057',  # noqa: E501
+            response_type="InlineResponse20057",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_initial_waterlevels_partial_update(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_initial_waterlevels_partial_update(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_initial_waterlevels_partial_update  # noqa: E501
 
         Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
@@ -3927,10 +4385,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_initial_waterlevels_partial_update_with_http_info(id, threedimodel_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_initial_waterlevels_partial_update_with_http_info(
+            id, threedimodel_pk, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_initial_waterlevels_partial_update_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_initial_waterlevels_partial_update_with_http_info(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_initial_waterlevels_partial_update  # noqa: E501
 
         Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
@@ -3959,48 +4421,57 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk',
-            'data'
-        ]
+        all_params = ["id", "threedimodel_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_initial_waterlevels_partial_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_initial_waterlevels_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_initial_waterlevels_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_initial_waterlevels_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_initial_waterlevels_partial_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -4010,36 +4481,46 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/', 'PATCH',
+            "/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/",
+            "PATCH",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InitialWaterlevel',  # noqa: E501
+            response_type="InitialWaterlevel",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_initial_waterlevels_read(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_initial_waterlevels_read(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_initial_waterlevels_read  # noqa: E501
 
         Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
@@ -4062,10 +4543,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_initial_waterlevels_read_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_initial_waterlevels_read_with_http_info(
+            id, threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_initial_waterlevels_read_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_initial_waterlevels_read_with_http_info(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_initial_waterlevels_read  # noqa: E501
 
         Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
@@ -4093,43 +4578,49 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk'
-        ]
+        all_params = ["id", "threedimodel_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_initial_waterlevels_read" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_initial_waterlevels_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_initial_waterlevels_read`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_read`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -4140,29 +4631,36 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/', 'GET',
+            "/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InitialWaterlevel',  # noqa: E501
+            response_type="InitialWaterlevel",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_initial_waterlevels_update(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_initial_waterlevels_update(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_initial_waterlevels_update  # noqa: E501
 
         Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
@@ -4186,10 +4684,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_initial_waterlevels_update_with_http_info(id, threedimodel_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_initial_waterlevels_update_with_http_info(
+            id, threedimodel_pk, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_initial_waterlevels_update_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_initial_waterlevels_update_with_http_info(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_initial_waterlevels_update  # noqa: E501
 
         Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
@@ -4218,48 +4720,57 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk',
-            'data'
-        ]
+        all_params = ["id", "threedimodel_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_initial_waterlevels_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_initial_waterlevels_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_initial_waterlevels_update`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_initial_waterlevels_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_initial_waterlevels_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -4269,36 +4780,46 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/', 'PUT',
+            "/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/",
+            "PUT",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InitialWaterlevel',  # noqa: E501
+            response_type="InitialWaterlevel",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_initial_waterlevels_upload(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_initial_waterlevels_upload(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_initial_waterlevels_upload  # noqa: E501
 
         Endpoint for uploading a raster.  # noqa: E501
@@ -4322,10 +4843,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_initial_waterlevels_upload_with_http_info(id, threedimodel_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_initial_waterlevels_upload_with_http_info(
+            id, threedimodel_pk, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_initial_waterlevels_upload_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_initial_waterlevels_upload_with_http_info(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_initial_waterlevels_upload  # noqa: E501
 
         Endpoint for uploading a raster.  # noqa: E501
@@ -4354,48 +4879,57 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk',
-            'data'
-        ]
+        all_params = ["id", "threedimodel_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_initial_waterlevels_upload" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_initial_waterlevels_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_initial_waterlevels_upload`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_upload`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_initial_waterlevels_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_initial_waterlevels_upload`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -4405,34 +4939,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/upload/', 'POST',
+            "/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/upload/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type="Upload",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_levees_geojson_upload(self, id, data, **kwargs):  # noqa: E501
         """threedimodels_levees_geojson_upload  # noqa: E501
@@ -4457,10 +4999,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_levees_geojson_upload_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_levees_geojson_upload_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_levees_geojson_upload_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def threedimodels_levees_geojson_upload_with_http_info(
+        self, id, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_levees_geojson_upload  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -4488,41 +5034,45 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_levees_geojson_upload" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_levees_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_levees_geojson_upload`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_levees_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_levees_geojson_upload`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -4532,34 +5082,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/levees/upload/', 'POST',
+            "/threedimodels/{id}/geojson/levees/upload/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type="Upload",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_list(self, **kwargs):  # noqa: E501
         """threedimodels_list  # noqa: E501
@@ -4643,7 +5201,7 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.threedimodels_list_with_http_info(**kwargs)  # noqa: E501
 
     def threedimodels_list_with_http_info(self, **kwargs):  # noqa: E501
@@ -4734,213 +5292,590 @@ class ThreedimodelsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'name',
-            'name__contains',
-            'name__icontains',
-            'name__in',
-            'name__startswith',
-            'name__istartswith',
-            'name__endswith',
-            'name__regex',
-            'slug',
-            'slug__contains',
-            'slug__icontains',
-            'slug__in',
-            'slug__startswith',
-            'slug__istartswith',
-            'slug__endswith',
-            'slug__regex',
-            'epsg',
-            'inpy_version__slug',
-            'inpy_version__slug__contains',
-            'inpy_version__slug__icontains',
-            'inpy_version__slug__in',
-            'inpy_version__slug__startswith',
-            'inpy_version__slug__istartswith',
-            'inpy_version__slug__endswith',
-            'inpy_version__slug__regex',
-            'inpy_version__threedi_version',
-            'inpy_version__threedi_version__contains',
-            'inpy_version__threedi_version__icontains',
-            'inpy_version__threedi_version__in',
-            'inpy_version__threedi_version__startswith',
-            'inpy_version__threedi_version__istartswith',
-            'inpy_version__threedi_version__endswith',
-            'inpy_version__threedi_version__regex',
-            'inpy_version__threedicore_version',
-            'inpy_version__threedicore_version__contains',
-            'inpy_version__threedicore_version__icontains',
-            'inpy_version__threedicore_version__in',
-            'inpy_version__threedicore_version__startswith',
-            'inpy_version__threedicore_version__istartswith',
-            'inpy_version__threedicore_version__endswith',
-            'inpy_version__threedicore_version__regex',
-            'revision__number',
-            'revision__number__gt',
-            'revision__number__gte',
-            'revision__number__lt',
-            'revision__number__lte',
-            'revision__number__isnull',
-            'revision__hash',
-            'revision__hash__contains',
-            'revision__hash__icontains',
-            'revision__hash__in',
-            'revision__hash__startswith',
-            'revision__hash__istartswith',
-            'revision__hash__endswith',
-            'revision__hash__regex',
-            'revision__is_pinned',
-            'disabled',
-            'inp_success',
-            'ordering',
-            'limit',
-            'offset'
+            "name",
+            "name__contains",
+            "name__icontains",
+            "name__in",
+            "name__startswith",
+            "name__istartswith",
+            "name__endswith",
+            "name__regex",
+            "slug",
+            "slug__contains",
+            "slug__icontains",
+            "slug__in",
+            "slug__startswith",
+            "slug__istartswith",
+            "slug__endswith",
+            "slug__regex",
+            "epsg",
+            "inpy_version__slug",
+            "inpy_version__slug__contains",
+            "inpy_version__slug__icontains",
+            "inpy_version__slug__in",
+            "inpy_version__slug__startswith",
+            "inpy_version__slug__istartswith",
+            "inpy_version__slug__endswith",
+            "inpy_version__slug__regex",
+            "inpy_version__threedi_version",
+            "inpy_version__threedi_version__contains",
+            "inpy_version__threedi_version__icontains",
+            "inpy_version__threedi_version__in",
+            "inpy_version__threedi_version__startswith",
+            "inpy_version__threedi_version__istartswith",
+            "inpy_version__threedi_version__endswith",
+            "inpy_version__threedi_version__regex",
+            "inpy_version__threedicore_version",
+            "inpy_version__threedicore_version__contains",
+            "inpy_version__threedicore_version__icontains",
+            "inpy_version__threedicore_version__in",
+            "inpy_version__threedicore_version__startswith",
+            "inpy_version__threedicore_version__istartswith",
+            "inpy_version__threedicore_version__endswith",
+            "inpy_version__threedicore_version__regex",
+            "revision__number",
+            "revision__number__gt",
+            "revision__number__gte",
+            "revision__number__lt",
+            "revision__number__lte",
+            "revision__number__isnull",
+            "revision__hash",
+            "revision__hash__contains",
+            "revision__hash__icontains",
+            "revision__hash__in",
+            "revision__hash__startswith",
+            "revision__hash__istartswith",
+            "revision__hash__endswith",
+            "revision__hash__regex",
+            "revision__is_pinned",
+            "disabled",
+            "inp_success",
+            "ordering",
+            "limit",
+            "offset",
         ]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_list" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
-            query_params.append(('name', local_var_params['name']))  # noqa: E501
-        if 'name__contains' in local_var_params and local_var_params['name__contains'] is not None:  # noqa: E501
-            query_params.append(('name__contains', local_var_params['name__contains']))  # noqa: E501
-        if 'name__icontains' in local_var_params and local_var_params['name__icontains'] is not None:  # noqa: E501
-            query_params.append(('name__icontains', local_var_params['name__icontains']))  # noqa: E501
-        if 'name__in' in local_var_params and local_var_params['name__in'] is not None:  # noqa: E501
-            query_params.append(('name__in', local_var_params['name__in']))  # noqa: E501
-        if 'name__startswith' in local_var_params and local_var_params['name__startswith'] is not None:  # noqa: E501
-            query_params.append(('name__startswith', local_var_params['name__startswith']))  # noqa: E501
-        if 'name__istartswith' in local_var_params and local_var_params['name__istartswith'] is not None:  # noqa: E501
-            query_params.append(('name__istartswith', local_var_params['name__istartswith']))  # noqa: E501
-        if 'name__endswith' in local_var_params and local_var_params['name__endswith'] is not None:  # noqa: E501
-            query_params.append(('name__endswith', local_var_params['name__endswith']))  # noqa: E501
-        if 'name__regex' in local_var_params and local_var_params['name__regex'] is not None:  # noqa: E501
-            query_params.append(('name__regex', local_var_params['name__regex']))  # noqa: E501
-        if 'slug' in local_var_params and local_var_params['slug'] is not None:  # noqa: E501
-            query_params.append(('slug', local_var_params['slug']))  # noqa: E501
-        if 'slug__contains' in local_var_params and local_var_params['slug__contains'] is not None:  # noqa: E501
-            query_params.append(('slug__contains', local_var_params['slug__contains']))  # noqa: E501
-        if 'slug__icontains' in local_var_params and local_var_params['slug__icontains'] is not None:  # noqa: E501
-            query_params.append(('slug__icontains', local_var_params['slug__icontains']))  # noqa: E501
-        if 'slug__in' in local_var_params and local_var_params['slug__in'] is not None:  # noqa: E501
-            query_params.append(('slug__in', local_var_params['slug__in']))  # noqa: E501
-        if 'slug__startswith' in local_var_params and local_var_params['slug__startswith'] is not None:  # noqa: E501
-            query_params.append(('slug__startswith', local_var_params['slug__startswith']))  # noqa: E501
-        if 'slug__istartswith' in local_var_params and local_var_params['slug__istartswith'] is not None:  # noqa: E501
-            query_params.append(('slug__istartswith', local_var_params['slug__istartswith']))  # noqa: E501
-        if 'slug__endswith' in local_var_params and local_var_params['slug__endswith'] is not None:  # noqa: E501
-            query_params.append(('slug__endswith', local_var_params['slug__endswith']))  # noqa: E501
-        if 'slug__regex' in local_var_params and local_var_params['slug__regex'] is not None:  # noqa: E501
-            query_params.append(('slug__regex', local_var_params['slug__regex']))  # noqa: E501
-        if 'epsg' in local_var_params and local_var_params['epsg'] is not None:  # noqa: E501
-            query_params.append(('epsg', local_var_params['epsg']))  # noqa: E501
-        if 'inpy_version__slug' in local_var_params and local_var_params['inpy_version__slug'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__slug', local_var_params['inpy_version__slug']))  # noqa: E501
-        if 'inpy_version__slug__contains' in local_var_params and local_var_params['inpy_version__slug__contains'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__slug__contains', local_var_params['inpy_version__slug__contains']))  # noqa: E501
-        if 'inpy_version__slug__icontains' in local_var_params and local_var_params['inpy_version__slug__icontains'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__slug__icontains', local_var_params['inpy_version__slug__icontains']))  # noqa: E501
-        if 'inpy_version__slug__in' in local_var_params and local_var_params['inpy_version__slug__in'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__slug__in', local_var_params['inpy_version__slug__in']))  # noqa: E501
-        if 'inpy_version__slug__startswith' in local_var_params and local_var_params['inpy_version__slug__startswith'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__slug__startswith', local_var_params['inpy_version__slug__startswith']))  # noqa: E501
-        if 'inpy_version__slug__istartswith' in local_var_params and local_var_params['inpy_version__slug__istartswith'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__slug__istartswith', local_var_params['inpy_version__slug__istartswith']))  # noqa: E501
-        if 'inpy_version__slug__endswith' in local_var_params and local_var_params['inpy_version__slug__endswith'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__slug__endswith', local_var_params['inpy_version__slug__endswith']))  # noqa: E501
-        if 'inpy_version__slug__regex' in local_var_params and local_var_params['inpy_version__slug__regex'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__slug__regex', local_var_params['inpy_version__slug__regex']))  # noqa: E501
-        if 'inpy_version__threedi_version' in local_var_params and local_var_params['inpy_version__threedi_version'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__threedi_version', local_var_params['inpy_version__threedi_version']))  # noqa: E501
-        if 'inpy_version__threedi_version__contains' in local_var_params and local_var_params['inpy_version__threedi_version__contains'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__threedi_version__contains', local_var_params['inpy_version__threedi_version__contains']))  # noqa: E501
-        if 'inpy_version__threedi_version__icontains' in local_var_params and local_var_params['inpy_version__threedi_version__icontains'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__threedi_version__icontains', local_var_params['inpy_version__threedi_version__icontains']))  # noqa: E501
-        if 'inpy_version__threedi_version__in' in local_var_params and local_var_params['inpy_version__threedi_version__in'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__threedi_version__in', local_var_params['inpy_version__threedi_version__in']))  # noqa: E501
-        if 'inpy_version__threedi_version__startswith' in local_var_params and local_var_params['inpy_version__threedi_version__startswith'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__threedi_version__startswith', local_var_params['inpy_version__threedi_version__startswith']))  # noqa: E501
-        if 'inpy_version__threedi_version__istartswith' in local_var_params and local_var_params['inpy_version__threedi_version__istartswith'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__threedi_version__istartswith', local_var_params['inpy_version__threedi_version__istartswith']))  # noqa: E501
-        if 'inpy_version__threedi_version__endswith' in local_var_params and local_var_params['inpy_version__threedi_version__endswith'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__threedi_version__endswith', local_var_params['inpy_version__threedi_version__endswith']))  # noqa: E501
-        if 'inpy_version__threedi_version__regex' in local_var_params and local_var_params['inpy_version__threedi_version__regex'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__threedi_version__regex', local_var_params['inpy_version__threedi_version__regex']))  # noqa: E501
-        if 'inpy_version__threedicore_version' in local_var_params and local_var_params['inpy_version__threedicore_version'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__threedicore_version', local_var_params['inpy_version__threedicore_version']))  # noqa: E501
-        if 'inpy_version__threedicore_version__contains' in local_var_params and local_var_params['inpy_version__threedicore_version__contains'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__threedicore_version__contains', local_var_params['inpy_version__threedicore_version__contains']))  # noqa: E501
-        if 'inpy_version__threedicore_version__icontains' in local_var_params and local_var_params['inpy_version__threedicore_version__icontains'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__threedicore_version__icontains', local_var_params['inpy_version__threedicore_version__icontains']))  # noqa: E501
-        if 'inpy_version__threedicore_version__in' in local_var_params and local_var_params['inpy_version__threedicore_version__in'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__threedicore_version__in', local_var_params['inpy_version__threedicore_version__in']))  # noqa: E501
-        if 'inpy_version__threedicore_version__startswith' in local_var_params and local_var_params['inpy_version__threedicore_version__startswith'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__threedicore_version__startswith', local_var_params['inpy_version__threedicore_version__startswith']))  # noqa: E501
-        if 'inpy_version__threedicore_version__istartswith' in local_var_params and local_var_params['inpy_version__threedicore_version__istartswith'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__threedicore_version__istartswith', local_var_params['inpy_version__threedicore_version__istartswith']))  # noqa: E501
-        if 'inpy_version__threedicore_version__endswith' in local_var_params and local_var_params['inpy_version__threedicore_version__endswith'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__threedicore_version__endswith', local_var_params['inpy_version__threedicore_version__endswith']))  # noqa: E501
-        if 'inpy_version__threedicore_version__regex' in local_var_params and local_var_params['inpy_version__threedicore_version__regex'] is not None:  # noqa: E501
-            query_params.append(('inpy_version__threedicore_version__regex', local_var_params['inpy_version__threedicore_version__regex']))  # noqa: E501
-        if 'revision__number' in local_var_params and local_var_params['revision__number'] is not None:  # noqa: E501
-            query_params.append(('revision__number', local_var_params['revision__number']))  # noqa: E501
-        if 'revision__number__gt' in local_var_params and local_var_params['revision__number__gt'] is not None:  # noqa: E501
-            query_params.append(('revision__number__gt', local_var_params['revision__number__gt']))  # noqa: E501
-        if 'revision__number__gte' in local_var_params and local_var_params['revision__number__gte'] is not None:  # noqa: E501
-            query_params.append(('revision__number__gte', local_var_params['revision__number__gte']))  # noqa: E501
-        if 'revision__number__lt' in local_var_params and local_var_params['revision__number__lt'] is not None:  # noqa: E501
-            query_params.append(('revision__number__lt', local_var_params['revision__number__lt']))  # noqa: E501
-        if 'revision__number__lte' in local_var_params and local_var_params['revision__number__lte'] is not None:  # noqa: E501
-            query_params.append(('revision__number__lte', local_var_params['revision__number__lte']))  # noqa: E501
-        if 'revision__number__isnull' in local_var_params and local_var_params['revision__number__isnull'] is not None:  # noqa: E501
-            query_params.append(('revision__number__isnull', local_var_params['revision__number__isnull']))  # noqa: E501
-        if 'revision__hash' in local_var_params and local_var_params['revision__hash'] is not None:  # noqa: E501
-            query_params.append(('revision__hash', local_var_params['revision__hash']))  # noqa: E501
-        if 'revision__hash__contains' in local_var_params and local_var_params['revision__hash__contains'] is not None:  # noqa: E501
-            query_params.append(('revision__hash__contains', local_var_params['revision__hash__contains']))  # noqa: E501
-        if 'revision__hash__icontains' in local_var_params and local_var_params['revision__hash__icontains'] is not None:  # noqa: E501
-            query_params.append(('revision__hash__icontains', local_var_params['revision__hash__icontains']))  # noqa: E501
-        if 'revision__hash__in' in local_var_params and local_var_params['revision__hash__in'] is not None:  # noqa: E501
-            query_params.append(('revision__hash__in', local_var_params['revision__hash__in']))  # noqa: E501
-        if 'revision__hash__startswith' in local_var_params and local_var_params['revision__hash__startswith'] is not None:  # noqa: E501
-            query_params.append(('revision__hash__startswith', local_var_params['revision__hash__startswith']))  # noqa: E501
-        if 'revision__hash__istartswith' in local_var_params and local_var_params['revision__hash__istartswith'] is not None:  # noqa: E501
-            query_params.append(('revision__hash__istartswith', local_var_params['revision__hash__istartswith']))  # noqa: E501
-        if 'revision__hash__endswith' in local_var_params and local_var_params['revision__hash__endswith'] is not None:  # noqa: E501
-            query_params.append(('revision__hash__endswith', local_var_params['revision__hash__endswith']))  # noqa: E501
-        if 'revision__hash__regex' in local_var_params and local_var_params['revision__hash__regex'] is not None:  # noqa: E501
-            query_params.append(('revision__hash__regex', local_var_params['revision__hash__regex']))  # noqa: E501
-        if 'revision__is_pinned' in local_var_params and local_var_params['revision__is_pinned'] is not None:  # noqa: E501
-            query_params.append(('revision__is_pinned', local_var_params['revision__is_pinned']))  # noqa: E501
-        if 'disabled' in local_var_params and local_var_params['disabled'] is not None:  # noqa: E501
-            query_params.append(('disabled', local_var_params['disabled']))  # noqa: E501
-        if 'inp_success' in local_var_params and local_var_params['inp_success'] is not None:  # noqa: E501
-            query_params.append(('inp_success', local_var_params['inp_success']))  # noqa: E501
-        if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
-            query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if (
+            "name" in local_var_params and local_var_params["name"] is not None
+        ):  # noqa: E501
+            query_params.append(("name", local_var_params["name"]))  # noqa: E501
+        if (
+            "name__contains" in local_var_params
+            and local_var_params["name__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__contains", local_var_params["name__contains"])
+            )  # noqa: E501
+        if (
+            "name__icontains" in local_var_params
+            and local_var_params["name__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__icontains", local_var_params["name__icontains"])
+            )  # noqa: E501
+        if (
+            "name__in" in local_var_params and local_var_params["name__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__in", local_var_params["name__in"])
+            )  # noqa: E501
+        if (
+            "name__startswith" in local_var_params
+            and local_var_params["name__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__startswith", local_var_params["name__startswith"])
+            )  # noqa: E501
+        if (
+            "name__istartswith" in local_var_params
+            and local_var_params["name__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__istartswith", local_var_params["name__istartswith"])
+            )  # noqa: E501
+        if (
+            "name__endswith" in local_var_params
+            and local_var_params["name__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__endswith", local_var_params["name__endswith"])
+            )  # noqa: E501
+        if (
+            "name__regex" in local_var_params
+            and local_var_params["name__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__regex", local_var_params["name__regex"])
+            )  # noqa: E501
+        if (
+            "slug" in local_var_params and local_var_params["slug"] is not None
+        ):  # noqa: E501
+            query_params.append(("slug", local_var_params["slug"]))  # noqa: E501
+        if (
+            "slug__contains" in local_var_params
+            and local_var_params["slug__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("slug__contains", local_var_params["slug__contains"])
+            )  # noqa: E501
+        if (
+            "slug__icontains" in local_var_params
+            and local_var_params["slug__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("slug__icontains", local_var_params["slug__icontains"])
+            )  # noqa: E501
+        if (
+            "slug__in" in local_var_params and local_var_params["slug__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("slug__in", local_var_params["slug__in"])
+            )  # noqa: E501
+        if (
+            "slug__startswith" in local_var_params
+            and local_var_params["slug__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("slug__startswith", local_var_params["slug__startswith"])
+            )  # noqa: E501
+        if (
+            "slug__istartswith" in local_var_params
+            and local_var_params["slug__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("slug__istartswith", local_var_params["slug__istartswith"])
+            )  # noqa: E501
+        if (
+            "slug__endswith" in local_var_params
+            and local_var_params["slug__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("slug__endswith", local_var_params["slug__endswith"])
+            )  # noqa: E501
+        if (
+            "slug__regex" in local_var_params
+            and local_var_params["slug__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("slug__regex", local_var_params["slug__regex"])
+            )  # noqa: E501
+        if (
+            "epsg" in local_var_params and local_var_params["epsg"] is not None
+        ):  # noqa: E501
+            query_params.append(("epsg", local_var_params["epsg"]))  # noqa: E501
+        if (
+            "inpy_version__slug" in local_var_params
+            and local_var_params["inpy_version__slug"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("inpy_version__slug", local_var_params["inpy_version__slug"])
+            )  # noqa: E501
+        if (
+            "inpy_version__slug__contains" in local_var_params
+            and local_var_params["inpy_version__slug__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__slug__contains",
+                    local_var_params["inpy_version__slug__contains"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__slug__icontains" in local_var_params
+            and local_var_params["inpy_version__slug__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__slug__icontains",
+                    local_var_params["inpy_version__slug__icontains"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__slug__in" in local_var_params
+            and local_var_params["inpy_version__slug__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("inpy_version__slug__in", local_var_params["inpy_version__slug__in"])
+            )  # noqa: E501
+        if (
+            "inpy_version__slug__startswith" in local_var_params
+            and local_var_params["inpy_version__slug__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__slug__startswith",
+                    local_var_params["inpy_version__slug__startswith"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__slug__istartswith" in local_var_params
+            and local_var_params["inpy_version__slug__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__slug__istartswith",
+                    local_var_params["inpy_version__slug__istartswith"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__slug__endswith" in local_var_params
+            and local_var_params["inpy_version__slug__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__slug__endswith",
+                    local_var_params["inpy_version__slug__endswith"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__slug__regex" in local_var_params
+            and local_var_params["inpy_version__slug__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__slug__regex",
+                    local_var_params["inpy_version__slug__regex"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__threedi_version" in local_var_params
+            and local_var_params["inpy_version__threedi_version"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__threedi_version",
+                    local_var_params["inpy_version__threedi_version"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__threedi_version__contains" in local_var_params
+            and local_var_params["inpy_version__threedi_version__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__threedi_version__contains",
+                    local_var_params["inpy_version__threedi_version__contains"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__threedi_version__icontains" in local_var_params
+            and local_var_params["inpy_version__threedi_version__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__threedi_version__icontains",
+                    local_var_params["inpy_version__threedi_version__icontains"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__threedi_version__in" in local_var_params
+            and local_var_params["inpy_version__threedi_version__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__threedi_version__in",
+                    local_var_params["inpy_version__threedi_version__in"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__threedi_version__startswith" in local_var_params
+            and local_var_params["inpy_version__threedi_version__startswith"]
+            is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__threedi_version__startswith",
+                    local_var_params["inpy_version__threedi_version__startswith"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__threedi_version__istartswith" in local_var_params
+            and local_var_params["inpy_version__threedi_version__istartswith"]
+            is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__threedi_version__istartswith",
+                    local_var_params["inpy_version__threedi_version__istartswith"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__threedi_version__endswith" in local_var_params
+            and local_var_params["inpy_version__threedi_version__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__threedi_version__endswith",
+                    local_var_params["inpy_version__threedi_version__endswith"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__threedi_version__regex" in local_var_params
+            and local_var_params["inpy_version__threedi_version__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__threedi_version__regex",
+                    local_var_params["inpy_version__threedi_version__regex"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__threedicore_version" in local_var_params
+            and local_var_params["inpy_version__threedicore_version"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__threedicore_version",
+                    local_var_params["inpy_version__threedicore_version"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__threedicore_version__contains" in local_var_params
+            and local_var_params["inpy_version__threedicore_version__contains"]
+            is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__threedicore_version__contains",
+                    local_var_params["inpy_version__threedicore_version__contains"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__threedicore_version__icontains" in local_var_params
+            and local_var_params["inpy_version__threedicore_version__icontains"]
+            is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__threedicore_version__icontains",
+                    local_var_params["inpy_version__threedicore_version__icontains"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__threedicore_version__in" in local_var_params
+            and local_var_params["inpy_version__threedicore_version__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__threedicore_version__in",
+                    local_var_params["inpy_version__threedicore_version__in"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__threedicore_version__startswith" in local_var_params
+            and local_var_params["inpy_version__threedicore_version__startswith"]
+            is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__threedicore_version__startswith",
+                    local_var_params["inpy_version__threedicore_version__startswith"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__threedicore_version__istartswith" in local_var_params
+            and local_var_params["inpy_version__threedicore_version__istartswith"]
+            is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__threedicore_version__istartswith",
+                    local_var_params["inpy_version__threedicore_version__istartswith"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__threedicore_version__endswith" in local_var_params
+            and local_var_params["inpy_version__threedicore_version__endswith"]
+            is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__threedicore_version__endswith",
+                    local_var_params["inpy_version__threedicore_version__endswith"],
+                )
+            )  # noqa: E501
+        if (
+            "inpy_version__threedicore_version__regex" in local_var_params
+            and local_var_params["inpy_version__threedicore_version__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "inpy_version__threedicore_version__regex",
+                    local_var_params["inpy_version__threedicore_version__regex"],
+                )
+            )  # noqa: E501
+        if (
+            "revision__number" in local_var_params
+            and local_var_params["revision__number"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("revision__number", local_var_params["revision__number"])
+            )  # noqa: E501
+        if (
+            "revision__number__gt" in local_var_params
+            and local_var_params["revision__number__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("revision__number__gt", local_var_params["revision__number__gt"])
+            )  # noqa: E501
+        if (
+            "revision__number__gte" in local_var_params
+            and local_var_params["revision__number__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("revision__number__gte", local_var_params["revision__number__gte"])
+            )  # noqa: E501
+        if (
+            "revision__number__lt" in local_var_params
+            and local_var_params["revision__number__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("revision__number__lt", local_var_params["revision__number__lt"])
+            )  # noqa: E501
+        if (
+            "revision__number__lte" in local_var_params
+            and local_var_params["revision__number__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("revision__number__lte", local_var_params["revision__number__lte"])
+            )  # noqa: E501
+        if (
+            "revision__number__isnull" in local_var_params
+            and local_var_params["revision__number__isnull"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "revision__number__isnull",
+                    local_var_params["revision__number__isnull"],
+                )
+            )  # noqa: E501
+        if (
+            "revision__hash" in local_var_params
+            and local_var_params["revision__hash"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("revision__hash", local_var_params["revision__hash"])
+            )  # noqa: E501
+        if (
+            "revision__hash__contains" in local_var_params
+            and local_var_params["revision__hash__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "revision__hash__contains",
+                    local_var_params["revision__hash__contains"],
+                )
+            )  # noqa: E501
+        if (
+            "revision__hash__icontains" in local_var_params
+            and local_var_params["revision__hash__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "revision__hash__icontains",
+                    local_var_params["revision__hash__icontains"],
+                )
+            )  # noqa: E501
+        if (
+            "revision__hash__in" in local_var_params
+            and local_var_params["revision__hash__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("revision__hash__in", local_var_params["revision__hash__in"])
+            )  # noqa: E501
+        if (
+            "revision__hash__startswith" in local_var_params
+            and local_var_params["revision__hash__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "revision__hash__startswith",
+                    local_var_params["revision__hash__startswith"],
+                )
+            )  # noqa: E501
+        if (
+            "revision__hash__istartswith" in local_var_params
+            and local_var_params["revision__hash__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "revision__hash__istartswith",
+                    local_var_params["revision__hash__istartswith"],
+                )
+            )  # noqa: E501
+        if (
+            "revision__hash__endswith" in local_var_params
+            and local_var_params["revision__hash__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "revision__hash__endswith",
+                    local_var_params["revision__hash__endswith"],
+                )
+            )  # noqa: E501
+        if (
+            "revision__hash__regex" in local_var_params
+            and local_var_params["revision__hash__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("revision__hash__regex", local_var_params["revision__hash__regex"])
+            )  # noqa: E501
+        if (
+            "revision__is_pinned" in local_var_params
+            and local_var_params["revision__is_pinned"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("revision__is_pinned", local_var_params["revision__is_pinned"])
+            )  # noqa: E501
+        if (
+            "disabled" in local_var_params and local_var_params["disabled"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("disabled", local_var_params["disabled"])
+            )  # noqa: E501
+        if (
+            "inp_success" in local_var_params
+            and local_var_params["inp_success"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("inp_success", local_var_params["inp_success"])
+            )  # noqa: E501
+        if (
+            "ordering" in local_var_params and local_var_params["ordering"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("ordering", local_var_params["ordering"])
+            )  # noqa: E501
+        if (
+            "limit" in local_var_params and local_var_params["limit"] is not None
+        ):  # noqa: E501
+            query_params.append(("limit", local_var_params["limit"]))  # noqa: E501
+        if (
+            "offset" in local_var_params and local_var_params["offset"] is not None
+        ):  # noqa: E501
+            query_params.append(("offset", local_var_params["offset"]))  # noqa: E501
 
         header_params = {}
 
@@ -4949,27 +5884,32 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/', 'GET',
+            "/threedimodels/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20055',  # noqa: E501
+            response_type="InlineResponse20055",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_manholes_geojson_upload(self, id, data, **kwargs):  # noqa: E501
         """threedimodels_manholes_geojson_upload  # noqa: E501
@@ -4994,10 +5934,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_manholes_geojson_upload_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_manholes_geojson_upload_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_manholes_geojson_upload_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def threedimodels_manholes_geojson_upload_with_http_info(
+        self, id, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_manholes_geojson_upload  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -5025,41 +5969,45 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_manholes_geojson_upload" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_manholes_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_manholes_geojson_upload`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_manholes_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_manholes_geojson_upload`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -5069,34 +6017,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/manholes/upload/', 'POST',
+            "/threedimodels/{id}/geojson/manholes/upload/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type="Upload",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_orifices_geojson_upload(self, id, data, **kwargs):  # noqa: E501
         """threedimodels_orifices_geojson_upload  # noqa: E501
@@ -5121,10 +6077,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_orifices_geojson_upload_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_orifices_geojson_upload_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_orifices_geojson_upload_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def threedimodels_orifices_geojson_upload_with_http_info(
+        self, id, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_orifices_geojson_upload  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -5152,41 +6112,45 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_orifices_geojson_upload" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_orifices_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_orifices_geojson_upload`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_orifices_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_orifices_geojson_upload`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -5196,34 +6160,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/orifices/upload/', 'POST',
+            "/threedimodels/{id}/geojson/orifices/upload/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type="Upload",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_partial_update(self, id, data, **kwargs):  # noqa: E501
         """threedimodels_partial_update  # noqa: E501
@@ -5248,10 +6220,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_partial_update_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_partial_update_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_partial_update_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def threedimodels_partial_update_with_http_info(
+        self, id, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_partial_update  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -5279,41 +6255,45 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_partial_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_partial_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -5323,34 +6303,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/', 'PATCH',
+            "/threedimodels/{id}/",
+            "PATCH",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
+            response_type="ThreediModel",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_pipes_geojson_upload(self, id, data, **kwargs):  # noqa: E501
         """threedimodels_pipes_geojson_upload  # noqa: E501
@@ -5375,10 +6363,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_pipes_geojson_upload_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_pipes_geojson_upload_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_pipes_geojson_upload_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def threedimodels_pipes_geojson_upload_with_http_info(
+        self, id, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_pipes_geojson_upload  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -5406,41 +6398,45 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_pipes_geojson_upload" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_pipes_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_pipes_geojson_upload`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_pipes_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_pipes_geojson_upload`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -5450,36 +6446,46 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/pipes/upload/', 'POST',
+            "/threedimodels/{id}/geojson/pipes/upload/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type="Upload",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_potentialbreaches_create(self, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_potentialbreaches_create(
+        self, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_potentialbreaches_create  # noqa: E501
 
         A simple ViewSet for viewing breaches  # noqa: E501
@@ -5502,10 +6508,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_potentialbreaches_create_with_http_info(threedimodel_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_potentialbreaches_create_with_http_info(
+            threedimodel_pk, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_potentialbreaches_create_with_http_info(self, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_potentialbreaches_create_with_http_info(
+        self, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_potentialbreaches_create  # noqa: E501
 
         A simple ViewSet for viewing breaches  # noqa: E501
@@ -5533,41 +6543,48 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'threedimodel_pk',
-            'data'
-        ]
+        all_params = ["threedimodel_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_potentialbreaches_create" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_potentialbreaches_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_potentialbreaches_create`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_potentialbreaches_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_potentialbreaches_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -5577,36 +6594,46 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/potentialbreaches/', 'POST',
+            "/threedimodels/{threedimodel_pk}/potentialbreaches/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PotentialBreach',  # noqa: E501
+            response_type="PotentialBreach",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_potentialbreaches_delete(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_potentialbreaches_delete(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_potentialbreaches_delete  # noqa: E501
 
         A simple ViewSet for viewing breaches  # noqa: E501
@@ -5629,10 +6656,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_potentialbreaches_delete_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_potentialbreaches_delete_with_http_info(
+            id, threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_potentialbreaches_delete_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_potentialbreaches_delete_with_http_info(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_potentialbreaches_delete  # noqa: E501
 
         A simple ViewSet for viewing breaches  # noqa: E501
@@ -5660,43 +6691,49 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk'
-        ]
+        all_params = ["id", "threedimodel_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_potentialbreaches_delete" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_potentialbreaches_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_potentialbreaches_delete`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_potentialbreaches_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_potentialbreaches_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -5707,10 +6744,11 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/potentialbreaches/{id}/', 'DELETE',
+            "/threedimodels/{threedimodel_pk}/potentialbreaches/{id}/",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -5719,13 +6757,18 @@ class ThreedimodelsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_potentialbreaches_list(self, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_potentialbreaches_list(
+        self, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_potentialbreaches_list  # noqa: E501
 
         A simple ViewSet for viewing breaches  # noqa: E501
@@ -5761,10 +6804,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_potentialbreaches_list_with_http_info(threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_potentialbreaches_list_with_http_info(
+            threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_potentialbreaches_list_with_http_info(self, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_potentialbreaches_list_with_http_info(
+        self, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_potentialbreaches_list  # noqa: E501
 
         A simple ViewSet for viewing breaches  # noqa: E501
@@ -5806,79 +6853,155 @@ class ThreedimodelsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'threedimodel_pk',
-            'connected_pnt_id',
-            'connected_pnt_id__gt',
-            'connected_pnt_id__gte',
-            'connected_pnt_id__lt',
-            'connected_pnt_id__lte',
-            'connected_pnt_id__isnull',
-            'threedimodel__id',
-            'threedimodel__id__gt',
-            'threedimodel__id__gte',
-            'threedimodel__id__lt',
-            'threedimodel__id__lte',
-            'threedimodel__id__isnull',
-            'limit',
-            'offset'
+            "threedimodel_pk",
+            "connected_pnt_id",
+            "connected_pnt_id__gt",
+            "connected_pnt_id__gte",
+            "connected_pnt_id__lt",
+            "connected_pnt_id__lte",
+            "connected_pnt_id__isnull",
+            "threedimodel__id",
+            "threedimodel__id__gt",
+            "threedimodel__id__gte",
+            "threedimodel__id__lt",
+            "threedimodel__id__lte",
+            "threedimodel__id__isnull",
+            "limit",
+            "offset",
         ]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_potentialbreaches_list" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_potentialbreaches_list`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_potentialbreaches_list`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
-        if 'connected_pnt_id' in local_var_params and local_var_params['connected_pnt_id'] is not None:  # noqa: E501
-            query_params.append(('connected_pnt_id', local_var_params['connected_pnt_id']))  # noqa: E501
-        if 'connected_pnt_id__gt' in local_var_params and local_var_params['connected_pnt_id__gt'] is not None:  # noqa: E501
-            query_params.append(('connected_pnt_id__gt', local_var_params['connected_pnt_id__gt']))  # noqa: E501
-        if 'connected_pnt_id__gte' in local_var_params and local_var_params['connected_pnt_id__gte'] is not None:  # noqa: E501
-            query_params.append(('connected_pnt_id__gte', local_var_params['connected_pnt_id__gte']))  # noqa: E501
-        if 'connected_pnt_id__lt' in local_var_params and local_var_params['connected_pnt_id__lt'] is not None:  # noqa: E501
-            query_params.append(('connected_pnt_id__lt', local_var_params['connected_pnt_id__lt']))  # noqa: E501
-        if 'connected_pnt_id__lte' in local_var_params and local_var_params['connected_pnt_id__lte'] is not None:  # noqa: E501
-            query_params.append(('connected_pnt_id__lte', local_var_params['connected_pnt_id__lte']))  # noqa: E501
-        if 'connected_pnt_id__isnull' in local_var_params and local_var_params['connected_pnt_id__isnull'] is not None:  # noqa: E501
-            query_params.append(('connected_pnt_id__isnull', local_var_params['connected_pnt_id__isnull']))  # noqa: E501
-        if 'threedimodel__id' in local_var_params and local_var_params['threedimodel__id'] is not None:  # noqa: E501
-            query_params.append(('threedimodel__id', local_var_params['threedimodel__id']))  # noqa: E501
-        if 'threedimodel__id__gt' in local_var_params and local_var_params['threedimodel__id__gt'] is not None:  # noqa: E501
-            query_params.append(('threedimodel__id__gt', local_var_params['threedimodel__id__gt']))  # noqa: E501
-        if 'threedimodel__id__gte' in local_var_params and local_var_params['threedimodel__id__gte'] is not None:  # noqa: E501
-            query_params.append(('threedimodel__id__gte', local_var_params['threedimodel__id__gte']))  # noqa: E501
-        if 'threedimodel__id__lt' in local_var_params and local_var_params['threedimodel__id__lt'] is not None:  # noqa: E501
-            query_params.append(('threedimodel__id__lt', local_var_params['threedimodel__id__lt']))  # noqa: E501
-        if 'threedimodel__id__lte' in local_var_params and local_var_params['threedimodel__id__lte'] is not None:  # noqa: E501
-            query_params.append(('threedimodel__id__lte', local_var_params['threedimodel__id__lte']))  # noqa: E501
-        if 'threedimodel__id__isnull' in local_var_params and local_var_params['threedimodel__id__isnull'] is not None:  # noqa: E501
-            query_params.append(('threedimodel__id__isnull', local_var_params['threedimodel__id__isnull']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if (
+            "connected_pnt_id" in local_var_params
+            and local_var_params["connected_pnt_id"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("connected_pnt_id", local_var_params["connected_pnt_id"])
+            )  # noqa: E501
+        if (
+            "connected_pnt_id__gt" in local_var_params
+            and local_var_params["connected_pnt_id__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("connected_pnt_id__gt", local_var_params["connected_pnt_id__gt"])
+            )  # noqa: E501
+        if (
+            "connected_pnt_id__gte" in local_var_params
+            and local_var_params["connected_pnt_id__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("connected_pnt_id__gte", local_var_params["connected_pnt_id__gte"])
+            )  # noqa: E501
+        if (
+            "connected_pnt_id__lt" in local_var_params
+            and local_var_params["connected_pnt_id__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("connected_pnt_id__lt", local_var_params["connected_pnt_id__lt"])
+            )  # noqa: E501
+        if (
+            "connected_pnt_id__lte" in local_var_params
+            and local_var_params["connected_pnt_id__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("connected_pnt_id__lte", local_var_params["connected_pnt_id__lte"])
+            )  # noqa: E501
+        if (
+            "connected_pnt_id__isnull" in local_var_params
+            and local_var_params["connected_pnt_id__isnull"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "connected_pnt_id__isnull",
+                    local_var_params["connected_pnt_id__isnull"],
+                )
+            )  # noqa: E501
+        if (
+            "threedimodel__id" in local_var_params
+            and local_var_params["threedimodel__id"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("threedimodel__id", local_var_params["threedimodel__id"])
+            )  # noqa: E501
+        if (
+            "threedimodel__id__gt" in local_var_params
+            and local_var_params["threedimodel__id__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("threedimodel__id__gt", local_var_params["threedimodel__id__gt"])
+            )  # noqa: E501
+        if (
+            "threedimodel__id__gte" in local_var_params
+            and local_var_params["threedimodel__id__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("threedimodel__id__gte", local_var_params["threedimodel__id__gte"])
+            )  # noqa: E501
+        if (
+            "threedimodel__id__lt" in local_var_params
+            and local_var_params["threedimodel__id__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("threedimodel__id__lt", local_var_params["threedimodel__id__lt"])
+            )  # noqa: E501
+        if (
+            "threedimodel__id__lte" in local_var_params
+            and local_var_params["threedimodel__id__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("threedimodel__id__lte", local_var_params["threedimodel__id__lte"])
+            )  # noqa: E501
+        if (
+            "threedimodel__id__isnull" in local_var_params
+            and local_var_params["threedimodel__id__isnull"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "threedimodel__id__isnull",
+                    local_var_params["threedimodel__id__isnull"],
+                )
+            )  # noqa: E501
+        if (
+            "limit" in local_var_params and local_var_params["limit"] is not None
+        ):  # noqa: E501
+            query_params.append(("limit", local_var_params["limit"]))  # noqa: E501
+        if (
+            "offset" in local_var_params and local_var_params["offset"] is not None
+        ):  # noqa: E501
+            query_params.append(("offset", local_var_params["offset"]))  # noqa: E501
 
         header_params = {}
 
@@ -5887,29 +7010,36 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/potentialbreaches/', 'GET',
+            "/threedimodels/{threedimodel_pk}/potentialbreaches/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20058',  # noqa: E501
+            response_type="InlineResponse20058",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_potentialbreaches_partial_update(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_potentialbreaches_partial_update(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_potentialbreaches_partial_update  # noqa: E501
 
         A simple ViewSet for viewing breaches  # noqa: E501
@@ -5933,10 +7063,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_potentialbreaches_partial_update_with_http_info(id, threedimodel_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_potentialbreaches_partial_update_with_http_info(
+            id, threedimodel_pk, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_potentialbreaches_partial_update_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_potentialbreaches_partial_update_with_http_info(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_potentialbreaches_partial_update  # noqa: E501
 
         A simple ViewSet for viewing breaches  # noqa: E501
@@ -5965,48 +7099,57 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk',
-            'data'
-        ]
+        all_params = ["id", "threedimodel_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_potentialbreaches_partial_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_potentialbreaches_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_potentialbreaches_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_potentialbreaches_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_potentialbreaches_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_potentialbreaches_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_potentialbreaches_partial_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -6016,36 +7159,46 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/potentialbreaches/{id}/', 'PATCH',
+            "/threedimodels/{threedimodel_pk}/potentialbreaches/{id}/",
+            "PATCH",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PotentialBreach',  # noqa: E501
+            response_type="PotentialBreach",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_potentialbreaches_read(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_potentialbreaches_read(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_potentialbreaches_read  # noqa: E501
 
         A simple ViewSet for viewing breaches  # noqa: E501
@@ -6068,10 +7221,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_potentialbreaches_read_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_potentialbreaches_read_with_http_info(
+            id, threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_potentialbreaches_read_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_potentialbreaches_read_with_http_info(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_potentialbreaches_read  # noqa: E501
 
         A simple ViewSet for viewing breaches  # noqa: E501
@@ -6099,43 +7256,49 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk'
-        ]
+        all_params = ["id", "threedimodel_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_potentialbreaches_read" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_potentialbreaches_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_potentialbreaches_read`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_potentialbreaches_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_potentialbreaches_read`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -6146,29 +7309,36 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/potentialbreaches/{id}/', 'GET',
+            "/threedimodels/{threedimodel_pk}/potentialbreaches/{id}/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PotentialBreach',  # noqa: E501
+            response_type="PotentialBreach",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_potentialbreaches_update(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_potentialbreaches_update(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_potentialbreaches_update  # noqa: E501
 
         A simple ViewSet for viewing breaches  # noqa: E501
@@ -6192,10 +7362,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_potentialbreaches_update_with_http_info(id, threedimodel_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_potentialbreaches_update_with_http_info(
+            id, threedimodel_pk, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_potentialbreaches_update_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_potentialbreaches_update_with_http_info(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_potentialbreaches_update  # noqa: E501
 
         A simple ViewSet for viewing breaches  # noqa: E501
@@ -6224,48 +7398,57 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk',
-            'data'
-        ]
+        all_params = ["id", "threedimodel_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_potentialbreaches_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_potentialbreaches_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_potentialbreaches_update`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_potentialbreaches_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_potentialbreaches_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_potentialbreaches_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_potentialbreaches_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -6275,34 +7458,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/potentialbreaches/{id}/', 'PUT',
+            "/threedimodels/{threedimodel_pk}/potentialbreaches/{id}/",
+            "PUT",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PotentialBreach',  # noqa: E501
+            response_type="PotentialBreach",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_pumps_geojson_upload(self, id, data, **kwargs):  # noqa: E501
         """threedimodels_pumps_geojson_upload  # noqa: E501
@@ -6327,10 +7518,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_pumps_geojson_upload_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_pumps_geojson_upload_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_pumps_geojson_upload_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def threedimodels_pumps_geojson_upload_with_http_info(
+        self, id, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_pumps_geojson_upload  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -6358,41 +7553,45 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_pumps_geojson_upload" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_pumps_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_pumps_geojson_upload`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_pumps_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_pumps_geojson_upload`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -6402,34 +7601,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/pumps/upload/', 'POST',
+            "/threedimodels/{id}/geojson/pumps/upload/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type="Upload",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_raster_options(self, id, **kwargs):  # noqa: E501
         """threedimodels_raster_options  # noqa: E501
@@ -6453,8 +7660,10 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_raster_options_with_http_info(id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_raster_options_with_http_info(
+            id, **kwargs
+        )  # noqa: E501
 
     def threedimodels_raster_options_with_http_info(self, id, **kwargs):  # noqa: E501
         """threedimodels_raster_options  # noqa: E501
@@ -6483,36 +7692,37 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_raster_options" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_raster_options`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_raster_options`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -6523,29 +7733,36 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/raster_options/', 'GET',
+            "/threedimodels/{id}/raster_options/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RasterOptions',  # noqa: E501
+            response_type="RasterOptions",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_rasters_create(self, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_rasters_create(
+        self, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_rasters_create  # noqa: E501
 
         View rasters for threedimodel  # noqa: E501
@@ -6568,10 +7785,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_rasters_create_with_http_info(threedimodel_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_rasters_create_with_http_info(
+            threedimodel_pk, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_rasters_create_with_http_info(self, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_rasters_create_with_http_info(
+        self, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_rasters_create  # noqa: E501
 
         View rasters for threedimodel  # noqa: E501
@@ -6599,41 +7820,48 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'threedimodel_pk',
-            'data'
-        ]
+        all_params = ["threedimodel_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_rasters_create" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_rasters_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_rasters_create`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_rasters_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_rasters_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -6643,34 +7871,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/rasters/', 'POST',
+            "/threedimodels/{threedimodel_pk}/rasters/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Raster',  # noqa: E501
+            response_type="Raster",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_rasters_delete(self, id, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_rasters_delete  # noqa: E501
@@ -6695,10 +7931,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_rasters_delete_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_rasters_delete_with_http_info(
+            id, threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_rasters_delete_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_rasters_delete_with_http_info(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_rasters_delete  # noqa: E501
 
         View rasters for threedimodel  # noqa: E501
@@ -6726,43 +7966,49 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk'
-        ]
+        all_params = ["id", "threedimodel_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_rasters_delete" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_rasters_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_rasters_delete`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_rasters_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_rasters_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -6773,10 +8019,11 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/rasters/{id}/', 'DELETE',
+            "/threedimodels/{threedimodel_pk}/rasters/{id}/",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -6785,13 +8032,18 @@ class ThreedimodelsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_rasters_download(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_rasters_download(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_rasters_download  # noqa: E501
 
         Endpoint for downloading files.  # noqa: E501
@@ -6814,10 +8066,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_rasters_download_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_rasters_download_with_http_info(
+            id, threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_rasters_download_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_rasters_download_with_http_info(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_rasters_download  # noqa: E501
 
         Endpoint for downloading files.  # noqa: E501
@@ -6845,43 +8101,49 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk'
-        ]
+        all_params = ["id", "threedimodel_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_rasters_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_rasters_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_rasters_download`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_rasters_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_rasters_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -6892,27 +8154,32 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/rasters/{id}/download/', 'GET',
+            "/threedimodels/{threedimodel_pk}/rasters/{id}/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_rasters_list(self, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_rasters_list  # noqa: E501
@@ -6960,10 +8227,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_rasters_list_with_http_info(threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_rasters_list_with_http_info(
+            threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_rasters_list_with_http_info(self, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_rasters_list_with_http_info(
+        self, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_rasters_list  # noqa: E501
 
         View rasters for threedimodel  # noqa: E501
@@ -7015,109 +8286,224 @@ class ThreedimodelsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'threedimodel_pk',
-            'type',
-            'type__contains',
-            'type__icontains',
-            'type__in',
-            'type__startswith',
-            'type__istartswith',
-            'type__endswith',
-            'type__regex',
-            'name',
-            'name__contains',
-            'name__icontains',
-            'name__in',
-            'name__startswith',
-            'name__istartswith',
-            'name__endswith',
-            'name__regex',
-            'threedimodel__id',
-            'threedimodel__id__gt',
-            'threedimodel__id__gte',
-            'threedimodel__id__lt',
-            'threedimodel__id__lte',
-            'threedimodel__id__isnull',
-            'limit',
-            'offset'
+            "threedimodel_pk",
+            "type",
+            "type__contains",
+            "type__icontains",
+            "type__in",
+            "type__startswith",
+            "type__istartswith",
+            "type__endswith",
+            "type__regex",
+            "name",
+            "name__contains",
+            "name__icontains",
+            "name__in",
+            "name__startswith",
+            "name__istartswith",
+            "name__endswith",
+            "name__regex",
+            "threedimodel__id",
+            "threedimodel__id__gt",
+            "threedimodel__id__gte",
+            "threedimodel__id__lt",
+            "threedimodel__id__lte",
+            "threedimodel__id__isnull",
+            "limit",
+            "offset",
         ]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_rasters_list" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_rasters_list`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_rasters_list`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
-        if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
-            query_params.append(('type', local_var_params['type']))  # noqa: E501
-        if 'type__contains' in local_var_params and local_var_params['type__contains'] is not None:  # noqa: E501
-            query_params.append(('type__contains', local_var_params['type__contains']))  # noqa: E501
-        if 'type__icontains' in local_var_params and local_var_params['type__icontains'] is not None:  # noqa: E501
-            query_params.append(('type__icontains', local_var_params['type__icontains']))  # noqa: E501
-        if 'type__in' in local_var_params and local_var_params['type__in'] is not None:  # noqa: E501
-            query_params.append(('type__in', local_var_params['type__in']))  # noqa: E501
-        if 'type__startswith' in local_var_params and local_var_params['type__startswith'] is not None:  # noqa: E501
-            query_params.append(('type__startswith', local_var_params['type__startswith']))  # noqa: E501
-        if 'type__istartswith' in local_var_params and local_var_params['type__istartswith'] is not None:  # noqa: E501
-            query_params.append(('type__istartswith', local_var_params['type__istartswith']))  # noqa: E501
-        if 'type__endswith' in local_var_params and local_var_params['type__endswith'] is not None:  # noqa: E501
-            query_params.append(('type__endswith', local_var_params['type__endswith']))  # noqa: E501
-        if 'type__regex' in local_var_params and local_var_params['type__regex'] is not None:  # noqa: E501
-            query_params.append(('type__regex', local_var_params['type__regex']))  # noqa: E501
-        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
-            query_params.append(('name', local_var_params['name']))  # noqa: E501
-        if 'name__contains' in local_var_params and local_var_params['name__contains'] is not None:  # noqa: E501
-            query_params.append(('name__contains', local_var_params['name__contains']))  # noqa: E501
-        if 'name__icontains' in local_var_params and local_var_params['name__icontains'] is not None:  # noqa: E501
-            query_params.append(('name__icontains', local_var_params['name__icontains']))  # noqa: E501
-        if 'name__in' in local_var_params and local_var_params['name__in'] is not None:  # noqa: E501
-            query_params.append(('name__in', local_var_params['name__in']))  # noqa: E501
-        if 'name__startswith' in local_var_params and local_var_params['name__startswith'] is not None:  # noqa: E501
-            query_params.append(('name__startswith', local_var_params['name__startswith']))  # noqa: E501
-        if 'name__istartswith' in local_var_params and local_var_params['name__istartswith'] is not None:  # noqa: E501
-            query_params.append(('name__istartswith', local_var_params['name__istartswith']))  # noqa: E501
-        if 'name__endswith' in local_var_params and local_var_params['name__endswith'] is not None:  # noqa: E501
-            query_params.append(('name__endswith', local_var_params['name__endswith']))  # noqa: E501
-        if 'name__regex' in local_var_params and local_var_params['name__regex'] is not None:  # noqa: E501
-            query_params.append(('name__regex', local_var_params['name__regex']))  # noqa: E501
-        if 'threedimodel__id' in local_var_params and local_var_params['threedimodel__id'] is not None:  # noqa: E501
-            query_params.append(('threedimodel__id', local_var_params['threedimodel__id']))  # noqa: E501
-        if 'threedimodel__id__gt' in local_var_params and local_var_params['threedimodel__id__gt'] is not None:  # noqa: E501
-            query_params.append(('threedimodel__id__gt', local_var_params['threedimodel__id__gt']))  # noqa: E501
-        if 'threedimodel__id__gte' in local_var_params and local_var_params['threedimodel__id__gte'] is not None:  # noqa: E501
-            query_params.append(('threedimodel__id__gte', local_var_params['threedimodel__id__gte']))  # noqa: E501
-        if 'threedimodel__id__lt' in local_var_params and local_var_params['threedimodel__id__lt'] is not None:  # noqa: E501
-            query_params.append(('threedimodel__id__lt', local_var_params['threedimodel__id__lt']))  # noqa: E501
-        if 'threedimodel__id__lte' in local_var_params and local_var_params['threedimodel__id__lte'] is not None:  # noqa: E501
-            query_params.append(('threedimodel__id__lte', local_var_params['threedimodel__id__lte']))  # noqa: E501
-        if 'threedimodel__id__isnull' in local_var_params and local_var_params['threedimodel__id__isnull'] is not None:  # noqa: E501
-            query_params.append(('threedimodel__id__isnull', local_var_params['threedimodel__id__isnull']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if (
+            "type" in local_var_params and local_var_params["type"] is not None
+        ):  # noqa: E501
+            query_params.append(("type", local_var_params["type"]))  # noqa: E501
+        if (
+            "type__contains" in local_var_params
+            and local_var_params["type__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("type__contains", local_var_params["type__contains"])
+            )  # noqa: E501
+        if (
+            "type__icontains" in local_var_params
+            and local_var_params["type__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("type__icontains", local_var_params["type__icontains"])
+            )  # noqa: E501
+        if (
+            "type__in" in local_var_params and local_var_params["type__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("type__in", local_var_params["type__in"])
+            )  # noqa: E501
+        if (
+            "type__startswith" in local_var_params
+            and local_var_params["type__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("type__startswith", local_var_params["type__startswith"])
+            )  # noqa: E501
+        if (
+            "type__istartswith" in local_var_params
+            and local_var_params["type__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("type__istartswith", local_var_params["type__istartswith"])
+            )  # noqa: E501
+        if (
+            "type__endswith" in local_var_params
+            and local_var_params["type__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("type__endswith", local_var_params["type__endswith"])
+            )  # noqa: E501
+        if (
+            "type__regex" in local_var_params
+            and local_var_params["type__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("type__regex", local_var_params["type__regex"])
+            )  # noqa: E501
+        if (
+            "name" in local_var_params and local_var_params["name"] is not None
+        ):  # noqa: E501
+            query_params.append(("name", local_var_params["name"]))  # noqa: E501
+        if (
+            "name__contains" in local_var_params
+            and local_var_params["name__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__contains", local_var_params["name__contains"])
+            )  # noqa: E501
+        if (
+            "name__icontains" in local_var_params
+            and local_var_params["name__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__icontains", local_var_params["name__icontains"])
+            )  # noqa: E501
+        if (
+            "name__in" in local_var_params and local_var_params["name__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__in", local_var_params["name__in"])
+            )  # noqa: E501
+        if (
+            "name__startswith" in local_var_params
+            and local_var_params["name__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__startswith", local_var_params["name__startswith"])
+            )  # noqa: E501
+        if (
+            "name__istartswith" in local_var_params
+            and local_var_params["name__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__istartswith", local_var_params["name__istartswith"])
+            )  # noqa: E501
+        if (
+            "name__endswith" in local_var_params
+            and local_var_params["name__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__endswith", local_var_params["name__endswith"])
+            )  # noqa: E501
+        if (
+            "name__regex" in local_var_params
+            and local_var_params["name__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__regex", local_var_params["name__regex"])
+            )  # noqa: E501
+        if (
+            "threedimodel__id" in local_var_params
+            and local_var_params["threedimodel__id"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("threedimodel__id", local_var_params["threedimodel__id"])
+            )  # noqa: E501
+        if (
+            "threedimodel__id__gt" in local_var_params
+            and local_var_params["threedimodel__id__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("threedimodel__id__gt", local_var_params["threedimodel__id__gt"])
+            )  # noqa: E501
+        if (
+            "threedimodel__id__gte" in local_var_params
+            and local_var_params["threedimodel__id__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("threedimodel__id__gte", local_var_params["threedimodel__id__gte"])
+            )  # noqa: E501
+        if (
+            "threedimodel__id__lt" in local_var_params
+            and local_var_params["threedimodel__id__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("threedimodel__id__lt", local_var_params["threedimodel__id__lt"])
+            )  # noqa: E501
+        if (
+            "threedimodel__id__lte" in local_var_params
+            and local_var_params["threedimodel__id__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("threedimodel__id__lte", local_var_params["threedimodel__id__lte"])
+            )  # noqa: E501
+        if (
+            "threedimodel__id__isnull" in local_var_params
+            and local_var_params["threedimodel__id__isnull"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "threedimodel__id__isnull",
+                    local_var_params["threedimodel__id__isnull"],
+                )
+            )  # noqa: E501
+        if (
+            "limit" in local_var_params and local_var_params["limit"] is not None
+        ):  # noqa: E501
+            query_params.append(("limit", local_var_params["limit"]))  # noqa: E501
+        if (
+            "offset" in local_var_params and local_var_params["offset"] is not None
+        ):  # noqa: E501
+            query_params.append(("offset", local_var_params["offset"]))  # noqa: E501
 
         header_params = {}
 
@@ -7126,29 +8512,36 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/rasters/', 'GET',
+            "/threedimodels/{threedimodel_pk}/rasters/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20059',  # noqa: E501
+            response_type="InlineResponse20059",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_rasters_partial_update(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_rasters_partial_update(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_rasters_partial_update  # noqa: E501
 
         View rasters for threedimodel  # noqa: E501
@@ -7172,10 +8565,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_rasters_partial_update_with_http_info(id, threedimodel_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_rasters_partial_update_with_http_info(
+            id, threedimodel_pk, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_rasters_partial_update_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_rasters_partial_update_with_http_info(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_rasters_partial_update  # noqa: E501
 
         View rasters for threedimodel  # noqa: E501
@@ -7204,48 +8601,57 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk',
-            'data'
-        ]
+        all_params = ["id", "threedimodel_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_rasters_partial_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_rasters_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_rasters_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_rasters_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_rasters_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_rasters_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_rasters_partial_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -7255,34 +8661,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/rasters/{id}/', 'PATCH',
+            "/threedimodels/{threedimodel_pk}/rasters/{id}/",
+            "PATCH",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Raster',  # noqa: E501
+            response_type="Raster",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_rasters_read(self, id, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_rasters_read  # noqa: E501
@@ -7307,10 +8721,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_rasters_read_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_rasters_read_with_http_info(
+            id, threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_rasters_read_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_rasters_read_with_http_info(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_rasters_read  # noqa: E501
 
         View rasters for threedimodel  # noqa: E501
@@ -7338,43 +8756,49 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk'
-        ]
+        all_params = ["id", "threedimodel_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_rasters_read" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_rasters_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_rasters_read`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_rasters_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_rasters_read`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -7385,29 +8809,36 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/rasters/{id}/', 'GET',
+            "/threedimodels/{threedimodel_pk}/rasters/{id}/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Raster',  # noqa: E501
+            response_type="Raster",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_rasters_update(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_rasters_update(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_rasters_update  # noqa: E501
 
         View rasters for threedimodel  # noqa: E501
@@ -7431,10 +8862,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_rasters_update_with_http_info(id, threedimodel_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_rasters_update_with_http_info(
+            id, threedimodel_pk, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_rasters_update_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_rasters_update_with_http_info(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_rasters_update  # noqa: E501
 
         View rasters for threedimodel  # noqa: E501
@@ -7463,48 +8898,57 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk',
-            'data'
-        ]
+        all_params = ["id", "threedimodel_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_rasters_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_rasters_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_rasters_update`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_rasters_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_rasters_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_rasters_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_rasters_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -7514,36 +8958,46 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/rasters/{id}/', 'PUT',
+            "/threedimodels/{threedimodel_pk}/rasters/{id}/",
+            "PUT",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Raster',  # noqa: E501
+            response_type="Raster",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_rasters_upload(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_rasters_upload(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_rasters_upload  # noqa: E501
 
         Endpoint for uploading a raster.  # noqa: E501
@@ -7567,10 +9021,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_rasters_upload_with_http_info(id, threedimodel_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_rasters_upload_with_http_info(
+            id, threedimodel_pk, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_rasters_upload_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+    def threedimodels_rasters_upload_with_http_info(
+        self, id, threedimodel_pk, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_rasters_upload  # noqa: E501
 
         Endpoint for uploading a raster.  # noqa: E501
@@ -7599,48 +9057,57 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk',
-            'data'
-        ]
+        all_params = ["id", "threedimodel_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_rasters_upload" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_rasters_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_rasters_upload`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_rasters_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_rasters_upload`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_rasters_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_rasters_upload`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -7650,34 +9117,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/rasters/{id}/upload/', 'POST',
+            "/threedimodels/{threedimodel_pk}/rasters/{id}/upload/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type="Upload",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_read(self, id, **kwargs):  # noqa: E501
         """threedimodels_read  # noqa: E501
@@ -7701,7 +9176,7 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.threedimodels_read_with_http_info(id, **kwargs)  # noqa: E501
 
     def threedimodels_read_with_http_info(self, id, **kwargs):  # noqa: E501
@@ -7731,36 +9206,37 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_read" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_read`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -7771,29 +9247,36 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/', 'GET',
+            "/threedimodels/{id}/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
+            response_type="ThreediModel",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_saved_states_delete(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_saved_states_delete(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_saved_states_delete  # noqa: E501
 
         View saved states created for this 3Di model  # noqa: E501
@@ -7816,10 +9299,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_saved_states_delete_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_saved_states_delete_with_http_info(
+            id, threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_saved_states_delete_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_saved_states_delete_with_http_info(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_saved_states_delete  # noqa: E501
 
         View saved states created for this 3Di model  # noqa: E501
@@ -7847,43 +9334,49 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk'
-        ]
+        all_params = ["id", "threedimodel_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_saved_states_delete" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_saved_states_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_saved_states_delete`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_saved_states_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_saved_states_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -7894,10 +9387,11 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/saved_states/{id}/', 'DELETE',
+            "/threedimodels/{threedimodel_pk}/saved_states/{id}/",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -7906,11 +9400,14 @@ class ThreedimodelsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_saved_states_list(self, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_saved_states_list  # noqa: E501
@@ -7937,10 +9434,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_saved_states_list_with_http_info(threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_saved_states_list_with_http_info(
+            threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_saved_states_list_with_http_info(self, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_saved_states_list_with_http_info(
+        self, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_saved_states_list  # noqa: E501
 
         View saved states created for this 3Di model  # noqa: E501
@@ -7970,47 +9471,56 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'threedimodel_pk',
-            'ordering',
-            'limit',
-            'offset'
-        ]
+        all_params = ["threedimodel_pk", "ordering", "limit", "offset"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_saved_states_list" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_saved_states_list`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_saved_states_list`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
-        if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
-            query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if (
+            "ordering" in local_var_params and local_var_params["ordering"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("ordering", local_var_params["ordering"])
+            )  # noqa: E501
+        if (
+            "limit" in local_var_params and local_var_params["limit"] is not None
+        ):  # noqa: E501
+            query_params.append(("limit", local_var_params["limit"]))  # noqa: E501
+        if (
+            "offset" in local_var_params and local_var_params["offset"] is not None
+        ):  # noqa: E501
+            query_params.append(("offset", local_var_params["offset"]))  # noqa: E501
 
         header_params = {}
 
@@ -8019,29 +9529,36 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/saved_states/', 'GET',
+            "/threedimodels/{threedimodel_pk}/saved_states/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20060',  # noqa: E501
+            response_type="InlineResponse20060",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def threedimodels_saved_states_read(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_saved_states_read(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_saved_states_read  # noqa: E501
 
         View saved states created for this 3Di model  # noqa: E501
@@ -8064,10 +9581,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_saved_states_read_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_saved_states_read_with_http_info(
+            id, threedimodel_pk, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_saved_states_read_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def threedimodels_saved_states_read_with_http_info(
+        self, id, threedimodel_pk, **kwargs
+    ):  # noqa: E501
         """threedimodels_saved_states_read  # noqa: E501
 
         View saved states created for this 3Di model  # noqa: E501
@@ -8095,43 +9616,49 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'threedimodel_pk'
-        ]
+        all_params = ["id", "threedimodel_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_saved_states_read" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_saved_states_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_saved_states_read`"
+            )  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_saved_states_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "threedimodel_pk" not in local_var_params
+            or local_var_params["threedimodel_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `threedimodel_pk` when calling `threedimodels_saved_states_read`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "threedimodel_pk" in local_var_params:
+            path_params["threedimodel_pk"] = local_var_params[
+                "threedimodel_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -8142,27 +9669,32 @@ class ThreedimodelsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{threedimodel_pk}/saved_states/{id}/', 'GET',
+            "/threedimodels/{threedimodel_pk}/saved_states/{id}/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ThreediModelSavedState',  # noqa: E501
+            response_type="ThreediModelSavedState",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_update(self, id, data, **kwargs):  # noqa: E501
         """threedimodels_update  # noqa: E501
@@ -8187,8 +9719,10 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_update_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_update_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
     def threedimodels_update_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """threedimodels_update  # noqa: E501
@@ -8218,41 +9752,45 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -8262,34 +9800,42 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/', 'PUT',
+            "/threedimodels/{id}/",
+            "PUT",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
+            response_type="ThreediModel",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def threedimodels_weirs_geojson_upload(self, id, data, **kwargs):  # noqa: E501
         """threedimodels_weirs_geojson_upload  # noqa: E501
@@ -8314,10 +9860,14 @@ class ThreedimodelsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_weirs_geojson_upload_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.threedimodels_weirs_geojson_upload_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
-    def threedimodels_weirs_geojson_upload_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def threedimodels_weirs_geojson_upload_with_http_info(
+        self, id, data, **kwargs
+    ):  # noqa: E501
         """threedimodels_weirs_geojson_upload  # noqa: E501
 
         A simple ViewSet for viewing threedimodels  # noqa: E501
@@ -8345,41 +9895,45 @@ class ThreedimodelsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method threedimodels_weirs_geojson_upload" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_weirs_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `threedimodels_weirs_geojson_upload`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_weirs_geojson_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `threedimodels_weirs_geojson_upload`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -8389,31 +9943,39 @@ class ThreedimodelsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/threedimodels/{id}/geojson/weirs/upload/', 'POST',
+            "/threedimodels/{id}/geojson/weirs/upload/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type="Upload",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

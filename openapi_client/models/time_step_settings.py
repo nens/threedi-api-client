@@ -34,26 +34,36 @@ class TimeStepSettings(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int',
-        'simulation_id': 'int',
-        'time_step': 'float',
-        'min_time_step': 'float',
-        'max_time_step': 'float',
-        'use_time_step_stretch': 'bool',
-        'output_time_step': 'float'
+        "id": "int",
+        "simulation_id": "int",
+        "time_step": "float",
+        "min_time_step": "float",
+        "max_time_step": "float",
+        "use_time_step_stretch": "bool",
+        "output_time_step": "float",
     }
 
     attribute_map = {
-        'id': 'id',
-        'simulation_id': 'simulation_id',
-        'time_step': 'time_step',
-        'min_time_step': 'min_time_step',
-        'max_time_step': 'max_time_step',
-        'use_time_step_stretch': 'use_time_step_stretch',
-        'output_time_step': 'output_time_step'
+        "id": "id",
+        "simulation_id": "simulation_id",
+        "time_step": "time_step",
+        "min_time_step": "min_time_step",
+        "max_time_step": "max_time_step",
+        "use_time_step_stretch": "use_time_step_stretch",
+        "output_time_step": "output_time_step",
     }
 
-    def __init__(self, id=None, simulation_id=None, time_step=None, min_time_step=None, max_time_step=None, use_time_step_stretch=None, output_time_step=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        simulation_id=None,
+        time_step=None,
+        min_time_step=None,
+        max_time_step=None,
+        use_time_step_stretch=None,
+        output_time_step=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """TimeStepSettings - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -140,8 +150,12 @@ class TimeStepSettings(object):
         :param time_step: The time_step of this TimeStepSettings.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and time_step is None:  # noqa: E501
-            raise ValueError("Invalid value for `time_step`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and time_step is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `time_step`, must not be `None`"
+            )  # noqa: E501
 
         self._time_step = time_step
 
@@ -165,8 +179,13 @@ class TimeStepSettings(object):
         :param min_time_step: The min_time_step of this TimeStepSettings.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and min_time_step is None:  # noqa: E501
-            raise ValueError("Invalid value for `min_time_step`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and min_time_step is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `min_time_step`, must not be `None`"
+            )  # noqa: E501
 
         self._min_time_step = min_time_step
 
@@ -190,8 +209,13 @@ class TimeStepSettings(object):
         :param max_time_step: The max_time_step of this TimeStepSettings.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and max_time_step is None:  # noqa: E501
-            raise ValueError("Invalid value for `max_time_step`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and max_time_step is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `max_time_step`, must not be `None`"
+            )  # noqa: E501
 
         self._max_time_step = max_time_step
 
@@ -215,8 +239,13 @@ class TimeStepSettings(object):
         :param use_time_step_stretch: The use_time_step_stretch of this TimeStepSettings.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and use_time_step_stretch is None:  # noqa: E501
-            raise ValueError("Invalid value for `use_time_step_stretch`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and use_time_step_stretch is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `use_time_step_stretch`, must not be `None`"
+            )  # noqa: E501
 
         self._use_time_step_stretch = use_time_step_stretch
 
@@ -240,8 +269,13 @@ class TimeStepSettings(object):
         :param output_time_step: The output_time_step of this TimeStepSettings.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and output_time_step is None:  # noqa: E501
-            raise ValueError("Invalid value for `output_time_step`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and output_time_step is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `output_time_step`, must not be `None`"
+            )  # noqa: E501
 
         self._output_time_step = output_time_step
 
@@ -252,18 +286,20 @@ class TimeStepSettings(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

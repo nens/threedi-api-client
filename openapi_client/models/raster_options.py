@@ -34,46 +34,66 @@ class RasterOptions(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'dem_file': 'str',
-        'dem_raw_file': 'str',
-        'equilibrium_infiltration_rate_file': 'str',
-        'frict_coef_file': 'str',
-        'initial_groundwater_level_file': 'str',
-        'initial_waterlevel_file': 'str',
-        'groundwater_hydro_connectivity_file': 'str',
-        'groundwater_impervious_layer_level_file': 'str',
-        'infiltration_decay_period_file': 'str',
-        'initial_infiltration_rate_file': 'str',
-        'leakage_file': 'str',
-        'phreatic_storage_capacity_file': 'str',
-        'hydraulic_conductivity_file': 'str',
-        'porosity_file': 'str',
-        'infiltration_rate_file': 'str',
-        'max_infiltration_capacity_file': 'str',
-        'interception_file': 'str'
+        "dem_file": "str",
+        "dem_raw_file": "str",
+        "equilibrium_infiltration_rate_file": "str",
+        "frict_coef_file": "str",
+        "initial_groundwater_level_file": "str",
+        "initial_waterlevel_file": "str",
+        "groundwater_hydro_connectivity_file": "str",
+        "groundwater_impervious_layer_level_file": "str",
+        "infiltration_decay_period_file": "str",
+        "initial_infiltration_rate_file": "str",
+        "leakage_file": "str",
+        "phreatic_storage_capacity_file": "str",
+        "hydraulic_conductivity_file": "str",
+        "porosity_file": "str",
+        "infiltration_rate_file": "str",
+        "max_infiltration_capacity_file": "str",
+        "interception_file": "str",
     }
 
     attribute_map = {
-        'dem_file': 'dem_file',
-        'dem_raw_file': 'dem_raw_file',
-        'equilibrium_infiltration_rate_file': 'equilibrium_infiltration_rate_file',
-        'frict_coef_file': 'frict_coef_file',
-        'initial_groundwater_level_file': 'initial_groundwater_level_file',
-        'initial_waterlevel_file': 'initial_waterlevel_file',
-        'groundwater_hydro_connectivity_file': 'groundwater_hydro_connectivity_file',
-        'groundwater_impervious_layer_level_file': 'groundwater_impervious_layer_level_file',
-        'infiltration_decay_period_file': 'infiltration_decay_period_file',
-        'initial_infiltration_rate_file': 'initial_infiltration_rate_file',
-        'leakage_file': 'leakage_file',
-        'phreatic_storage_capacity_file': 'phreatic_storage_capacity_file',
-        'hydraulic_conductivity_file': 'hydraulic_conductivity_file',
-        'porosity_file': 'porosity_file',
-        'infiltration_rate_file': 'infiltration_rate_file',
-        'max_infiltration_capacity_file': 'max_infiltration_capacity_file',
-        'interception_file': 'interception_file'
+        "dem_file": "dem_file",
+        "dem_raw_file": "dem_raw_file",
+        "equilibrium_infiltration_rate_file": "equilibrium_infiltration_rate_file",
+        "frict_coef_file": "frict_coef_file",
+        "initial_groundwater_level_file": "initial_groundwater_level_file",
+        "initial_waterlevel_file": "initial_waterlevel_file",
+        "groundwater_hydro_connectivity_file": "groundwater_hydro_connectivity_file",
+        "groundwater_impervious_layer_level_file": "groundwater_impervious_layer_level_file",
+        "infiltration_decay_period_file": "infiltration_decay_period_file",
+        "initial_infiltration_rate_file": "initial_infiltration_rate_file",
+        "leakage_file": "leakage_file",
+        "phreatic_storage_capacity_file": "phreatic_storage_capacity_file",
+        "hydraulic_conductivity_file": "hydraulic_conductivity_file",
+        "porosity_file": "porosity_file",
+        "infiltration_rate_file": "infiltration_rate_file",
+        "max_infiltration_capacity_file": "max_infiltration_capacity_file",
+        "interception_file": "interception_file",
     }
 
-    def __init__(self, dem_file=None, dem_raw_file=None, equilibrium_infiltration_rate_file=None, frict_coef_file=None, initial_groundwater_level_file=None, initial_waterlevel_file=None, groundwater_hydro_connectivity_file=None, groundwater_impervious_layer_level_file=None, infiltration_decay_period_file=None, initial_infiltration_rate_file=None, leakage_file=None, phreatic_storage_capacity_file=None, hydraulic_conductivity_file=None, porosity_file=None, infiltration_rate_file=None, max_infiltration_capacity_file=None, interception_file=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        dem_file=None,
+        dem_raw_file=None,
+        equilibrium_infiltration_rate_file=None,
+        frict_coef_file=None,
+        initial_groundwater_level_file=None,
+        initial_waterlevel_file=None,
+        groundwater_hydro_connectivity_file=None,
+        groundwater_impervious_layer_level_file=None,
+        infiltration_decay_period_file=None,
+        initial_infiltration_rate_file=None,
+        leakage_file=None,
+        phreatic_storage_capacity_file=None,
+        hydraulic_conductivity_file=None,
+        porosity_file=None,
+        infiltration_rate_file=None,
+        max_infiltration_capacity_file=None,
+        interception_file=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """RasterOptions - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -111,9 +131,13 @@ class RasterOptions(object):
         if initial_waterlevel_file is not None:
             self.initial_waterlevel_file = initial_waterlevel_file
         if groundwater_hydro_connectivity_file is not None:
-            self.groundwater_hydro_connectivity_file = groundwater_hydro_connectivity_file
+            self.groundwater_hydro_connectivity_file = (
+                groundwater_hydro_connectivity_file
+            )
         if groundwater_impervious_layer_level_file is not None:
-            self.groundwater_impervious_layer_level_file = groundwater_impervious_layer_level_file
+            self.groundwater_impervious_layer_level_file = (
+                groundwater_impervious_layer_level_file
+            )
         if infiltration_decay_period_file is not None:
             self.infiltration_decay_period_file = infiltration_decay_period_file
         if initial_infiltration_rate_file is not None:
@@ -151,12 +175,22 @@ class RasterOptions(object):
         :param dem_file: The dem_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                dem_file is not None and len(dem_file) > 80):
-            raise ValueError("Invalid value for `dem_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                dem_file is not None and len(dem_file) < 1):
-            raise ValueError("Invalid value for `dem_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and dem_file is not None
+            and len(dem_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `dem_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and dem_file is not None
+            and len(dem_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `dem_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._dem_file = dem_file
 
@@ -178,12 +212,22 @@ class RasterOptions(object):
         :param dem_raw_file: The dem_raw_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                dem_raw_file is not None and len(dem_raw_file) > 80):
-            raise ValueError("Invalid value for `dem_raw_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                dem_raw_file is not None and len(dem_raw_file) < 1):
-            raise ValueError("Invalid value for `dem_raw_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and dem_raw_file is not None
+            and len(dem_raw_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `dem_raw_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and dem_raw_file is not None
+            and len(dem_raw_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `dem_raw_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._dem_raw_file = dem_raw_file
 
@@ -205,12 +249,22 @@ class RasterOptions(object):
         :param equilibrium_infiltration_rate_file: The equilibrium_infiltration_rate_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                equilibrium_infiltration_rate_file is not None and len(equilibrium_infiltration_rate_file) > 80):
-            raise ValueError("Invalid value for `equilibrium_infiltration_rate_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                equilibrium_infiltration_rate_file is not None and len(equilibrium_infiltration_rate_file) < 1):
-            raise ValueError("Invalid value for `equilibrium_infiltration_rate_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and equilibrium_infiltration_rate_file is not None
+            and len(equilibrium_infiltration_rate_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `equilibrium_infiltration_rate_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and equilibrium_infiltration_rate_file is not None
+            and len(equilibrium_infiltration_rate_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `equilibrium_infiltration_rate_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._equilibrium_infiltration_rate_file = equilibrium_infiltration_rate_file
 
@@ -232,12 +286,22 @@ class RasterOptions(object):
         :param frict_coef_file: The frict_coef_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                frict_coef_file is not None and len(frict_coef_file) > 80):
-            raise ValueError("Invalid value for `frict_coef_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                frict_coef_file is not None and len(frict_coef_file) < 1):
-            raise ValueError("Invalid value for `frict_coef_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and frict_coef_file is not None
+            and len(frict_coef_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `frict_coef_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and frict_coef_file is not None
+            and len(frict_coef_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `frict_coef_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._frict_coef_file = frict_coef_file
 
@@ -259,12 +323,22 @@ class RasterOptions(object):
         :param initial_groundwater_level_file: The initial_groundwater_level_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                initial_groundwater_level_file is not None and len(initial_groundwater_level_file) > 80):
-            raise ValueError("Invalid value for `initial_groundwater_level_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                initial_groundwater_level_file is not None and len(initial_groundwater_level_file) < 1):
-            raise ValueError("Invalid value for `initial_groundwater_level_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and initial_groundwater_level_file is not None
+            and len(initial_groundwater_level_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `initial_groundwater_level_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and initial_groundwater_level_file is not None
+            and len(initial_groundwater_level_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `initial_groundwater_level_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._initial_groundwater_level_file = initial_groundwater_level_file
 
@@ -286,12 +360,22 @@ class RasterOptions(object):
         :param initial_waterlevel_file: The initial_waterlevel_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                initial_waterlevel_file is not None and len(initial_waterlevel_file) > 80):
-            raise ValueError("Invalid value for `initial_waterlevel_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                initial_waterlevel_file is not None and len(initial_waterlevel_file) < 1):
-            raise ValueError("Invalid value for `initial_waterlevel_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and initial_waterlevel_file is not None
+            and len(initial_waterlevel_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `initial_waterlevel_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and initial_waterlevel_file is not None
+            and len(initial_waterlevel_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `initial_waterlevel_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._initial_waterlevel_file = initial_waterlevel_file
 
@@ -313,12 +397,22 @@ class RasterOptions(object):
         :param groundwater_hydro_connectivity_file: The groundwater_hydro_connectivity_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                groundwater_hydro_connectivity_file is not None and len(groundwater_hydro_connectivity_file) > 80):
-            raise ValueError("Invalid value for `groundwater_hydro_connectivity_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                groundwater_hydro_connectivity_file is not None and len(groundwater_hydro_connectivity_file) < 1):
-            raise ValueError("Invalid value for `groundwater_hydro_connectivity_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and groundwater_hydro_connectivity_file is not None
+            and len(groundwater_hydro_connectivity_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `groundwater_hydro_connectivity_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and groundwater_hydro_connectivity_file is not None
+            and len(groundwater_hydro_connectivity_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `groundwater_hydro_connectivity_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._groundwater_hydro_connectivity_file = groundwater_hydro_connectivity_file
 
@@ -333,21 +427,35 @@ class RasterOptions(object):
         return self._groundwater_impervious_layer_level_file
 
     @groundwater_impervious_layer_level_file.setter
-    def groundwater_impervious_layer_level_file(self, groundwater_impervious_layer_level_file):
+    def groundwater_impervious_layer_level_file(
+        self, groundwater_impervious_layer_level_file
+    ):
         """Sets the groundwater_impervious_layer_level_file of this RasterOptions.
 
 
         :param groundwater_impervious_layer_level_file: The groundwater_impervious_layer_level_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                groundwater_impervious_layer_level_file is not None and len(groundwater_impervious_layer_level_file) > 80):
-            raise ValueError("Invalid value for `groundwater_impervious_layer_level_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                groundwater_impervious_layer_level_file is not None and len(groundwater_impervious_layer_level_file) < 1):
-            raise ValueError("Invalid value for `groundwater_impervious_layer_level_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and groundwater_impervious_layer_level_file is not None
+            and len(groundwater_impervious_layer_level_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `groundwater_impervious_layer_level_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and groundwater_impervious_layer_level_file is not None
+            and len(groundwater_impervious_layer_level_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `groundwater_impervious_layer_level_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
-        self._groundwater_impervious_layer_level_file = groundwater_impervious_layer_level_file
+        self._groundwater_impervious_layer_level_file = (
+            groundwater_impervious_layer_level_file
+        )
 
     @property
     def infiltration_decay_period_file(self):
@@ -367,12 +475,22 @@ class RasterOptions(object):
         :param infiltration_decay_period_file: The infiltration_decay_period_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                infiltration_decay_period_file is not None and len(infiltration_decay_period_file) > 80):
-            raise ValueError("Invalid value for `infiltration_decay_period_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                infiltration_decay_period_file is not None and len(infiltration_decay_period_file) < 1):
-            raise ValueError("Invalid value for `infiltration_decay_period_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and infiltration_decay_period_file is not None
+            and len(infiltration_decay_period_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `infiltration_decay_period_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and infiltration_decay_period_file is not None
+            and len(infiltration_decay_period_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `infiltration_decay_period_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._infiltration_decay_period_file = infiltration_decay_period_file
 
@@ -394,12 +512,22 @@ class RasterOptions(object):
         :param initial_infiltration_rate_file: The initial_infiltration_rate_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                initial_infiltration_rate_file is not None and len(initial_infiltration_rate_file) > 80):
-            raise ValueError("Invalid value for `initial_infiltration_rate_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                initial_infiltration_rate_file is not None and len(initial_infiltration_rate_file) < 1):
-            raise ValueError("Invalid value for `initial_infiltration_rate_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and initial_infiltration_rate_file is not None
+            and len(initial_infiltration_rate_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `initial_infiltration_rate_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and initial_infiltration_rate_file is not None
+            and len(initial_infiltration_rate_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `initial_infiltration_rate_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._initial_infiltration_rate_file = initial_infiltration_rate_file
 
@@ -421,12 +549,22 @@ class RasterOptions(object):
         :param leakage_file: The leakage_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                leakage_file is not None and len(leakage_file) > 80):
-            raise ValueError("Invalid value for `leakage_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                leakage_file is not None and len(leakage_file) < 1):
-            raise ValueError("Invalid value for `leakage_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and leakage_file is not None
+            and len(leakage_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `leakage_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and leakage_file is not None
+            and len(leakage_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `leakage_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._leakage_file = leakage_file
 
@@ -448,12 +586,22 @@ class RasterOptions(object):
         :param phreatic_storage_capacity_file: The phreatic_storage_capacity_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                phreatic_storage_capacity_file is not None and len(phreatic_storage_capacity_file) > 80):
-            raise ValueError("Invalid value for `phreatic_storage_capacity_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                phreatic_storage_capacity_file is not None and len(phreatic_storage_capacity_file) < 1):
-            raise ValueError("Invalid value for `phreatic_storage_capacity_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and phreatic_storage_capacity_file is not None
+            and len(phreatic_storage_capacity_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `phreatic_storage_capacity_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and phreatic_storage_capacity_file is not None
+            and len(phreatic_storage_capacity_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `phreatic_storage_capacity_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._phreatic_storage_capacity_file = phreatic_storage_capacity_file
 
@@ -475,12 +623,22 @@ class RasterOptions(object):
         :param hydraulic_conductivity_file: The hydraulic_conductivity_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                hydraulic_conductivity_file is not None and len(hydraulic_conductivity_file) > 80):
-            raise ValueError("Invalid value for `hydraulic_conductivity_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                hydraulic_conductivity_file is not None and len(hydraulic_conductivity_file) < 1):
-            raise ValueError("Invalid value for `hydraulic_conductivity_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and hydraulic_conductivity_file is not None
+            and len(hydraulic_conductivity_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `hydraulic_conductivity_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and hydraulic_conductivity_file is not None
+            and len(hydraulic_conductivity_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `hydraulic_conductivity_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._hydraulic_conductivity_file = hydraulic_conductivity_file
 
@@ -502,12 +660,22 @@ class RasterOptions(object):
         :param porosity_file: The porosity_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                porosity_file is not None and len(porosity_file) > 80):
-            raise ValueError("Invalid value for `porosity_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                porosity_file is not None and len(porosity_file) < 1):
-            raise ValueError("Invalid value for `porosity_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and porosity_file is not None
+            and len(porosity_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `porosity_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and porosity_file is not None
+            and len(porosity_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `porosity_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._porosity_file = porosity_file
 
@@ -529,12 +697,22 @@ class RasterOptions(object):
         :param infiltration_rate_file: The infiltration_rate_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                infiltration_rate_file is not None and len(infiltration_rate_file) > 80):
-            raise ValueError("Invalid value for `infiltration_rate_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                infiltration_rate_file is not None and len(infiltration_rate_file) < 1):
-            raise ValueError("Invalid value for `infiltration_rate_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and infiltration_rate_file is not None
+            and len(infiltration_rate_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `infiltration_rate_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and infiltration_rate_file is not None
+            and len(infiltration_rate_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `infiltration_rate_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._infiltration_rate_file = infiltration_rate_file
 
@@ -556,12 +734,22 @@ class RasterOptions(object):
         :param max_infiltration_capacity_file: The max_infiltration_capacity_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                max_infiltration_capacity_file is not None and len(max_infiltration_capacity_file) > 80):
-            raise ValueError("Invalid value for `max_infiltration_capacity_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                max_infiltration_capacity_file is not None and len(max_infiltration_capacity_file) < 1):
-            raise ValueError("Invalid value for `max_infiltration_capacity_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and max_infiltration_capacity_file is not None
+            and len(max_infiltration_capacity_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `max_infiltration_capacity_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and max_infiltration_capacity_file is not None
+            and len(max_infiltration_capacity_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `max_infiltration_capacity_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._max_infiltration_capacity_file = max_infiltration_capacity_file
 
@@ -583,12 +771,22 @@ class RasterOptions(object):
         :param interception_file: The interception_file of this RasterOptions.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                interception_file is not None and len(interception_file) > 80):
-            raise ValueError("Invalid value for `interception_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                interception_file is not None and len(interception_file) < 1):
-            raise ValueError("Invalid value for `interception_file`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and interception_file is not None
+            and len(interception_file) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `interception_file`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and interception_file is not None
+            and len(interception_file) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `interception_file`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._interception_file = interception_file
 
@@ -599,18 +797,20 @@ class RasterOptions(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

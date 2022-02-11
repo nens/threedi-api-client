@@ -19,10 +19,7 @@ import re  # noqa: F401
 import six
 
 from openapi_client.api_client import ApiClient
-from openapi_client.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
-)
+from openapi_client.exceptions import ApiTypeError, ApiValueError  # noqa: F401
 
 
 class OrganisationsApi(object):
@@ -77,7 +74,7 @@ class OrganisationsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.organisations_list_with_http_info(**kwargs)  # noqa: E501
 
     def organisations_list_with_http_info(self, **kwargs):  # noqa: E501
@@ -126,87 +123,172 @@ class OrganisationsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'name',
-            'name__contains',
-            'name__icontains',
-            'name__in',
-            'name__startswith',
-            'name__istartswith',
-            'name__endswith',
-            'name__regex',
-            'unique_id',
-            'unique_id__contains',
-            'unique_id__icontains',
-            'unique_id__in',
-            'unique_id__startswith',
-            'unique_id__istartswith',
-            'unique_id__endswith',
-            'unique_id__regex',
-            'valid_contracts_only',
-            'limit',
-            'offset'
+            "name",
+            "name__contains",
+            "name__icontains",
+            "name__in",
+            "name__startswith",
+            "name__istartswith",
+            "name__endswith",
+            "name__regex",
+            "unique_id",
+            "unique_id__contains",
+            "unique_id__icontains",
+            "unique_id__in",
+            "unique_id__startswith",
+            "unique_id__istartswith",
+            "unique_id__endswith",
+            "unique_id__regex",
+            "valid_contracts_only",
+            "limit",
+            "offset",
         ]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method organisations_list" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
-            query_params.append(('name', local_var_params['name']))  # noqa: E501
-        if 'name__contains' in local_var_params and local_var_params['name__contains'] is not None:  # noqa: E501
-            query_params.append(('name__contains', local_var_params['name__contains']))  # noqa: E501
-        if 'name__icontains' in local_var_params and local_var_params['name__icontains'] is not None:  # noqa: E501
-            query_params.append(('name__icontains', local_var_params['name__icontains']))  # noqa: E501
-        if 'name__in' in local_var_params and local_var_params['name__in'] is not None:  # noqa: E501
-            query_params.append(('name__in', local_var_params['name__in']))  # noqa: E501
-        if 'name__startswith' in local_var_params and local_var_params['name__startswith'] is not None:  # noqa: E501
-            query_params.append(('name__startswith', local_var_params['name__startswith']))  # noqa: E501
-        if 'name__istartswith' in local_var_params and local_var_params['name__istartswith'] is not None:  # noqa: E501
-            query_params.append(('name__istartswith', local_var_params['name__istartswith']))  # noqa: E501
-        if 'name__endswith' in local_var_params and local_var_params['name__endswith'] is not None:  # noqa: E501
-            query_params.append(('name__endswith', local_var_params['name__endswith']))  # noqa: E501
-        if 'name__regex' in local_var_params and local_var_params['name__regex'] is not None:  # noqa: E501
-            query_params.append(('name__regex', local_var_params['name__regex']))  # noqa: E501
-        if 'unique_id' in local_var_params and local_var_params['unique_id'] is not None:  # noqa: E501
-            query_params.append(('unique_id', local_var_params['unique_id']))  # noqa: E501
-        if 'unique_id__contains' in local_var_params and local_var_params['unique_id__contains'] is not None:  # noqa: E501
-            query_params.append(('unique_id__contains', local_var_params['unique_id__contains']))  # noqa: E501
-        if 'unique_id__icontains' in local_var_params and local_var_params['unique_id__icontains'] is not None:  # noqa: E501
-            query_params.append(('unique_id__icontains', local_var_params['unique_id__icontains']))  # noqa: E501
-        if 'unique_id__in' in local_var_params and local_var_params['unique_id__in'] is not None:  # noqa: E501
-            query_params.append(('unique_id__in', local_var_params['unique_id__in']))  # noqa: E501
-        if 'unique_id__startswith' in local_var_params and local_var_params['unique_id__startswith'] is not None:  # noqa: E501
-            query_params.append(('unique_id__startswith', local_var_params['unique_id__startswith']))  # noqa: E501
-        if 'unique_id__istartswith' in local_var_params and local_var_params['unique_id__istartswith'] is not None:  # noqa: E501
-            query_params.append(('unique_id__istartswith', local_var_params['unique_id__istartswith']))  # noqa: E501
-        if 'unique_id__endswith' in local_var_params and local_var_params['unique_id__endswith'] is not None:  # noqa: E501
-            query_params.append(('unique_id__endswith', local_var_params['unique_id__endswith']))  # noqa: E501
-        if 'unique_id__regex' in local_var_params and local_var_params['unique_id__regex'] is not None:  # noqa: E501
-            query_params.append(('unique_id__regex', local_var_params['unique_id__regex']))  # noqa: E501
-        if 'valid_contracts_only' in local_var_params and local_var_params['valid_contracts_only'] is not None:  # noqa: E501
-            query_params.append(('valid_contracts_only', local_var_params['valid_contracts_only']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if (
+            "name" in local_var_params and local_var_params["name"] is not None
+        ):  # noqa: E501
+            query_params.append(("name", local_var_params["name"]))  # noqa: E501
+        if (
+            "name__contains" in local_var_params
+            and local_var_params["name__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__contains", local_var_params["name__contains"])
+            )  # noqa: E501
+        if (
+            "name__icontains" in local_var_params
+            and local_var_params["name__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__icontains", local_var_params["name__icontains"])
+            )  # noqa: E501
+        if (
+            "name__in" in local_var_params and local_var_params["name__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__in", local_var_params["name__in"])
+            )  # noqa: E501
+        if (
+            "name__startswith" in local_var_params
+            and local_var_params["name__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__startswith", local_var_params["name__startswith"])
+            )  # noqa: E501
+        if (
+            "name__istartswith" in local_var_params
+            and local_var_params["name__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__istartswith", local_var_params["name__istartswith"])
+            )  # noqa: E501
+        if (
+            "name__endswith" in local_var_params
+            and local_var_params["name__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__endswith", local_var_params["name__endswith"])
+            )  # noqa: E501
+        if (
+            "name__regex" in local_var_params
+            and local_var_params["name__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__regex", local_var_params["name__regex"])
+            )  # noqa: E501
+        if (
+            "unique_id" in local_var_params
+            and local_var_params["unique_id"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("unique_id", local_var_params["unique_id"])
+            )  # noqa: E501
+        if (
+            "unique_id__contains" in local_var_params
+            and local_var_params["unique_id__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("unique_id__contains", local_var_params["unique_id__contains"])
+            )  # noqa: E501
+        if (
+            "unique_id__icontains" in local_var_params
+            and local_var_params["unique_id__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("unique_id__icontains", local_var_params["unique_id__icontains"])
+            )  # noqa: E501
+        if (
+            "unique_id__in" in local_var_params
+            and local_var_params["unique_id__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("unique_id__in", local_var_params["unique_id__in"])
+            )  # noqa: E501
+        if (
+            "unique_id__startswith" in local_var_params
+            and local_var_params["unique_id__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("unique_id__startswith", local_var_params["unique_id__startswith"])
+            )  # noqa: E501
+        if (
+            "unique_id__istartswith" in local_var_params
+            and local_var_params["unique_id__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("unique_id__istartswith", local_var_params["unique_id__istartswith"])
+            )  # noqa: E501
+        if (
+            "unique_id__endswith" in local_var_params
+            and local_var_params["unique_id__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("unique_id__endswith", local_var_params["unique_id__endswith"])
+            )  # noqa: E501
+        if (
+            "unique_id__regex" in local_var_params
+            and local_var_params["unique_id__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("unique_id__regex", local_var_params["unique_id__regex"])
+            )  # noqa: E501
+        if (
+            "valid_contracts_only" in local_var_params
+            and local_var_params["valid_contracts_only"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("valid_contracts_only", local_var_params["valid_contracts_only"])
+            )  # noqa: E501
+        if (
+            "limit" in local_var_params and local_var_params["limit"] is not None
+        ):  # noqa: E501
+            query_params.append(("limit", local_var_params["limit"]))  # noqa: E501
+        if (
+            "offset" in local_var_params and local_var_params["offset"] is not None
+        ):  # noqa: E501
+            query_params.append(("offset", local_var_params["offset"]))  # noqa: E501
 
         header_params = {}
 
@@ -215,27 +297,32 @@ class OrganisationsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/organisations/', 'GET',
+            "/organisations/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2004',  # noqa: E501
+            response_type="InlineResponse2004",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def organisations_permissions(self, unique_id, **kwargs):  # noqa: E501
         """Read-only API endpoint for interacting with organisations.  # noqa: E501
@@ -259,10 +346,14 @@ class OrganisationsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.organisations_permissions_with_http_info(unique_id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.organisations_permissions_with_http_info(
+            unique_id, **kwargs
+        )  # noqa: E501
 
-    def organisations_permissions_with_http_info(self, unique_id, **kwargs):  # noqa: E501
+    def organisations_permissions_with_http_info(
+        self, unique_id, **kwargs
+    ):  # noqa: E501
         """Read-only API endpoint for interacting with organisations.  # noqa: E501
 
         ##Authorization  # noqa: E501
@@ -289,36 +380,38 @@ class OrganisationsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'unique_id'
-        ]
+        all_params = ["unique_id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method organisations_permissions" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'unique_id' is set
-        if self.api_client.client_side_validation and ('unique_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['unique_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `unique_id` when calling `organisations_permissions`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "unique_id" not in local_var_params
+            or local_var_params["unique_id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `unique_id` when calling `organisations_permissions`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'unique_id' in local_var_params:
-            path_params['unique_id'] = local_var_params['unique_id']  # noqa: E501
+        if "unique_id" in local_var_params:
+            path_params["unique_id"] = local_var_params["unique_id"]  # noqa: E501
 
         query_params = []
 
@@ -329,27 +422,32 @@ class OrganisationsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/organisations/{unique_id}/permissions/', 'GET',
+            "/organisations/{unique_id}/permissions/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[OrganisationRole]',  # noqa: E501
+            response_type="list[OrganisationRole]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def organisations_read(self, unique_id, **kwargs):  # noqa: E501
         """Read-only API endpoint for interacting with organisations.  # noqa: E501
@@ -373,7 +471,7 @@ class OrganisationsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.organisations_read_with_http_info(unique_id, **kwargs)  # noqa: E501
 
     def organisations_read_with_http_info(self, unique_id, **kwargs):  # noqa: E501
@@ -403,36 +501,38 @@ class OrganisationsApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'unique_id'
-        ]
+        all_params = ["unique_id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method organisations_read" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'unique_id' is set
-        if self.api_client.client_side_validation and ('unique_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['unique_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `unique_id` when calling `organisations_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "unique_id" not in local_var_params
+            or local_var_params["unique_id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `unique_id` when calling `organisations_read`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'unique_id' in local_var_params:
-            path_params['unique_id'] = local_var_params['unique_id']  # noqa: E501
+        if "unique_id" in local_var_params:
+            path_params["unique_id"] = local_var_params["unique_id"]  # noqa: E501
 
         query_params = []
 
@@ -443,24 +543,29 @@ class OrganisationsApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/organisations/{unique_id}/', 'GET',
+            "/organisations/{unique_id}/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Organisation',  # noqa: E501
+            response_type="Organisation",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

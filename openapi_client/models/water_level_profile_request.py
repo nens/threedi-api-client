@@ -34,20 +34,27 @@ class WaterLevelProfileRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'geometry': 'Linestring',
-        'points_limit': 'int',
-        'subscribe': 'bool',
-        'subscribe_rate_limit': 'float'
+        "geometry": "Linestring",
+        "points_limit": "int",
+        "subscribe": "bool",
+        "subscribe_rate_limit": "float",
     }
 
     attribute_map = {
-        'geometry': 'geometry',
-        'points_limit': 'points_limit',
-        'subscribe': 'subscribe',
-        'subscribe_rate_limit': 'subscribe_rate_limit'
+        "geometry": "geometry",
+        "points_limit": "points_limit",
+        "subscribe": "subscribe",
+        "subscribe_rate_limit": "subscribe_rate_limit",
     }
 
-    def __init__(self, geometry=None, points_limit=None, subscribe=None, subscribe_rate_limit=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        geometry=None,
+        points_limit=None,
+        subscribe=None,
+        subscribe_rate_limit=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """WaterLevelProfileRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -84,8 +91,12 @@ class WaterLevelProfileRequest(object):
         :param geometry: The geometry of this WaterLevelProfileRequest.  # noqa: E501
         :type: Linestring
         """
-        if self.local_vars_configuration.client_side_validation and geometry is None:  # noqa: E501
-            raise ValueError("Invalid value for `geometry`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and geometry is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `geometry`, must not be `None`"
+            )  # noqa: E501
 
         self._geometry = geometry
 
@@ -109,12 +120,22 @@ class WaterLevelProfileRequest(object):
         :param points_limit: The points_limit of this WaterLevelProfileRequest.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                points_limit is not None and points_limit > 200):  # noqa: E501
-            raise ValueError("Invalid value for `points_limit`, must be a value less than or equal to `200`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                points_limit is not None and points_limit < 1):  # noqa: E501
-            raise ValueError("Invalid value for `points_limit`, must be a value greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and points_limit is not None
+            and points_limit > 200
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `points_limit`, must be a value less than or equal to `200`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and points_limit is not None
+            and points_limit < 1
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `points_limit`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
 
         self._points_limit = points_limit
 
@@ -138,8 +159,12 @@ class WaterLevelProfileRequest(object):
         :param subscribe: The subscribe of this WaterLevelProfileRequest.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and subscribe is None:  # noqa: E501
-            raise ValueError("Invalid value for `subscribe`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and subscribe is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `subscribe`, must not be `None`"
+            )  # noqa: E501
 
         self._subscribe = subscribe
 
@@ -163,12 +188,22 @@ class WaterLevelProfileRequest(object):
         :param subscribe_rate_limit: The subscribe_rate_limit of this WaterLevelProfileRequest.  # noqa: E501
         :type: float
         """
-        if (self.local_vars_configuration.client_side_validation and
-                subscribe_rate_limit is not None and subscribe_rate_limit > 1):  # noqa: E501
-            raise ValueError("Invalid value for `subscribe_rate_limit`, must be a value less than or equal to `1`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                subscribe_rate_limit is not None and subscribe_rate_limit < 0.25):  # noqa: E501
-            raise ValueError("Invalid value for `subscribe_rate_limit`, must be a value greater than or equal to `0.25`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and subscribe_rate_limit is not None
+            and subscribe_rate_limit > 1
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `subscribe_rate_limit`, must be a value less than or equal to `1`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and subscribe_rate_limit is not None
+            and subscribe_rate_limit < 0.25
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `subscribe_rate_limit`, must be a value greater than or equal to `0.25`"
+            )  # noqa: E501
 
         self._subscribe_rate_limit = subscribe_rate_limit
 
@@ -179,18 +214,20 @@ class WaterLevelProfileRequest(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

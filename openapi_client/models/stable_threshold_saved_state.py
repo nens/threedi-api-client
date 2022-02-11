@@ -34,30 +34,42 @@ class StableThresholdSavedState(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'name': 'str',
-        'simulation': 'str',
-        'created': 'datetime',
-        'tags': 'str',
-        'expiry': 'datetime',
-        'thresholds': 'list[Threshold]',
-        'file': 'FileReadOnly',
-        'uuid': 'str'
+        "url": "str",
+        "name": "str",
+        "simulation": "str",
+        "created": "datetime",
+        "tags": "str",
+        "expiry": "datetime",
+        "thresholds": "list[Threshold]",
+        "file": "FileReadOnly",
+        "uuid": "str",
     }
 
     attribute_map = {
-        'url': 'url',
-        'name': 'name',
-        'simulation': 'simulation',
-        'created': 'created',
-        'tags': 'tags',
-        'expiry': 'expiry',
-        'thresholds': 'thresholds',
-        'file': 'file',
-        'uuid': 'uuid'
+        "url": "url",
+        "name": "name",
+        "simulation": "simulation",
+        "created": "created",
+        "tags": "tags",
+        "expiry": "expiry",
+        "thresholds": "thresholds",
+        "file": "file",
+        "uuid": "uuid",
     }
 
-    def __init__(self, url=None, name=None, simulation=None, created=None, tags=None, expiry=None, thresholds=None, file=None, uuid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        name=None,
+        simulation=None,
+        created=None,
+        tags=None,
+        expiry=None,
+        thresholds=None,
+        file=None,
+        uuid=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """StableThresholdSavedState - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -130,12 +142,22 @@ class StableThresholdSavedState(object):
         :param name: The name of this StableThresholdSavedState.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) > 80):
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and name is not None
+            and len(name) > 80
+        ):
+            raise ValueError(
+                "Invalid value for `name`, length must be less than or equal to `80`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and name is not None
+            and len(name) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `name`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._name = name
 
@@ -241,8 +263,12 @@ class StableThresholdSavedState(object):
         :param thresholds: The thresholds of this StableThresholdSavedState.  # noqa: E501
         :type: list[Threshold]
         """
-        if self.local_vars_configuration.client_side_validation and thresholds is None:  # noqa: E501
-            raise ValueError("Invalid value for `thresholds`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and thresholds is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `thresholds`, must not be `None`"
+            )  # noqa: E501
 
         self._thresholds = thresholds
 
@@ -295,18 +321,20 @@ class StableThresholdSavedState(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

@@ -33,17 +33,13 @@ class SimulationStatusStatistics(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    openapi_types = {
-        'name': 'str',
-        'total': 'int'
-    }
+    openapi_types = {"name": "str", "total": "int"}
 
-    attribute_map = {
-        'name': 'name',
-        'total': 'total'
-    }
+    attribute_map = {"name": "name", "total": "total"}
 
-    def __init__(self, name=None, total=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self, name=None, total=None, local_vars_configuration=None
+    ):  # noqa: E501
         """SimulationStatusStatistics - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,11 +70,20 @@ class SimulationStatusStatistics(object):
         :param name: The name of this SimulationStatusStatistics.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and name is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `name`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and name is not None
+            and len(name) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `name`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._name = name
 
@@ -100,8 +105,12 @@ class SimulationStatusStatistics(object):
         :param total: The total of this SimulationStatusStatistics.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and total is None:  # noqa: E501
-            raise ValueError("Invalid value for `total`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and total is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `total`, must not be `None`"
+            )  # noqa: E501
 
         self._total = total
 
@@ -112,18 +121,20 @@ class SimulationStatusStatistics(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

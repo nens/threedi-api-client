@@ -34,22 +34,30 @@ class OneDWaterLevel(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'simulation': 'str',
-        'value': 'float',
-        'uid': 'str',
-        'id': 'int'
+        "url": "str",
+        "simulation": "str",
+        "value": "float",
+        "uid": "str",
+        "id": "int",
     }
 
     attribute_map = {
-        'url': 'url',
-        'simulation': 'simulation',
-        'value': 'value',
-        'uid': 'uid',
-        'id': 'id'
+        "url": "url",
+        "simulation": "simulation",
+        "value": "value",
+        "uid": "uid",
+        "id": "id",
     }
 
-    def __init__(self, url=None, simulation=None, value=None, uid=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        simulation=None,
+        value=None,
+        uid=None,
+        id=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """OneDWaterLevel - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -132,8 +140,12 @@ class OneDWaterLevel(object):
         :param value: The value of this OneDWaterLevel.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and value is None:  # noqa: E501
-            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and value is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `value`, must not be `None`"
+            )  # noqa: E501
 
         self._value = value
 
@@ -186,18 +198,20 @@ class OneDWaterLevel(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 
