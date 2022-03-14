@@ -166,7 +166,12 @@ class ThreediApi:
             host=host,
             username=username,
             password=password,
-            api_key={"Authorization": access_token, "refresh": refresh_token},
+            api_key={
+                "Authorization": access_token,
+                "refresh": refresh_token,
+                "client_id": user_config.get("THREEDI_API_CLIENT_ID"),
+                "client_secret": user_config.get("THREEDI_API_CLIENT_SECRET"),
+            },
             api_key_prefix={"Authorization": "Bearer"},
         )
         configuration.refresh_api_key_hook = refresh_api_key

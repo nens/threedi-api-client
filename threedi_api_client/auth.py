@@ -1,12 +1,16 @@
 from datetime import datetime, timedelta
 
-import jwt
+import json
+import base64
+from typing import Tuple
+import urllib3
+from urllib.parse import urlencode
 
 from .openapi import ApiClient, Authenticate, Configuration, V3Api
 from .versions import host_remove_version
 
 # Get new token REFRESH_TIME_DELTA before it really expires.
-REFRESH_TIME_DELTA = timedelta(hours=4).total_seconds()
+REFRESH_TIME_DELTA = timedelta(minutes=2).total_seconds()
 
 
 def get_auth_token(username: str, password: str, api_host: str):
@@ -19,18 +23,22 @@ def get_auth_token(username: str, password: str, api_host: str):
     return api.auth_token_create(Authenticate(username, password))
 
 
+def decode_jwt(token):
+    """Decode a JWT without checking its signature"""
+    # JWT consists of {header}.{payload}.{signature}
+    _, payload, _ = token.split(".")
+    # JWT should be padded with = (base64.b64decode expects this)
+    payload += "=" * (-len(payload) % 4)
+    return json.loads(base64.b64decode(payload))
+
+
 def is_token_usable(token: str) -> bool:
     if token is None:
         return False
 
     try:
-        # Get payload without verifying signature,
-        # does NOT validate claims (including exp)
-        payload = jwt.decode(
-            token,
-            options={"verify_signature": False},
-        )
-    except (jwt.exceptions.ExpiredSignatureError, jwt.exceptions.DecodeError):
+        payload = decode_jwt(token)
+    except Exception:
         return False
 
     expiry_dt = datetime.utcfromtimestamp(payload["exp"])
@@ -38,12 +46,32 @@ def is_token_usable(token: str) -> bool:
     return sec_left >= REFRESH_TIME_DELTA
 
 
+def get_issuer(token: str) -> bool:
+    if token is None:
+        return False
+
+    try:
+        payload = decode_jwt(token)
+    except Exception:
+        return False
+
+    return payload.get("iss")
+
+
 def refresh_api_key(config: Configuration):
     """Refreshes the access key if its expired"""
     api_key = config.api_key.get("Authorization")
     if is_token_usable(api_key):
         return
+    issuer = get_issuer(api_key)
+    if issuer is None:
+        access_token, refresh_token = refresh_simplejwt_token(config)
+    else:
+        access_token, refresh_token = refresh_oauth2_token(issuer, config)
+    config.api_key = {"Authorization": access_token, "refresh": refresh_token}
 
+
+def refresh_simplejwt_token(config: Configuration) -> Tuple[str, str]:
     refresh_key = config.api_key["refresh"]
     if is_token_usable(refresh_key):
         api_client = ApiClient(Configuration(host_remove_version(config.host)))
@@ -51,4 +79,34 @@ def refresh_api_key(config: Configuration):
         token = api.auth_refresh_token_create({"refresh": config.api_key["refresh"]})
     else:
         token = get_auth_token(config.username, config.password, config.host)
-    config.api_key = {"Authorization": token.access, "refresh": token.refresh}
+    return token.access, token.refresh
+
+
+def refresh_oauth2_token(issuer: str, config: Configuration):
+    refresh_token = config.api_key.get("refresh")
+    if refresh_token is None:
+        return None, None
+    # use autodiscovery to fetch server details
+    http = urllib3.PoolManager()
+    resp = http.request("GET", f"{issuer}/.well-known/openid-configuration")
+    assert resp.status == 200
+    server_config = json.loads(resp.data.decode())
+
+    # set up auth headers in case client secret is available
+    client_id = config.api_key.get("client_id")
+    client_secret = config.api_key.get("client_secret")
+    if client_secret:
+        headers = urllib3.make_headers(basic_auth=f"{client_id}:{client_secret}")
+    else:
+        headers = None
+
+    # send the refresh token request
+    url = server_config["token_endpoint"]
+    fields = {
+        "grant_type": "refresh_token",
+        "refresh_token": refresh_token
+    }
+    resp = http.request("POST", url, fields=fields, headers=headers)
+    assert resp.status == 200
+    access_token = json.loads(resp.data.decode())["access_token"]
+    return access_token, refresh_token
