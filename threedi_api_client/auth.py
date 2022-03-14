@@ -4,13 +4,12 @@ import json
 import base64
 from typing import Tuple
 import urllib3
-from urllib.parse import urlencode
 
 from .openapi import ApiClient, Authenticate, Configuration, V3Api
 from .versions import host_remove_version
 
 # Get new token REFRESH_TIME_DELTA before it really expires.
-REFRESH_TIME_DELTA = timedelta(minutes=2).total_seconds()
+REFRESH_TIME_DELTA = timedelta(minutes=5).total_seconds()
 
 
 def get_auth_token(username: str, password: str, api_host: str):
@@ -59,7 +58,7 @@ def get_issuer(token: str) -> bool:
 
 
 def refresh_api_key(config: Configuration):
-    """Refreshes the access key if its expired"""
+    """Refreshes the access key if it is expired"""
     api_key = config.api_key.get("Authorization")
     if is_token_usable(api_key):
         return
@@ -92,19 +91,23 @@ def refresh_oauth2_token(issuer: str, config: Configuration):
     assert resp.status == 200
     server_config = json.loads(resp.data.decode())
 
-    # set up auth headers in case client secret is available
+    # send the refresh token request
+    token_url = server_config["token_endpoint"]
+    fields = {"grant_type": "refresh_token", "refresh_token": refresh_token}
+    headers = {}
+
+    # include client id and optionally secret in headers/body
     client_id = config.api_key.get("client_id")
     client_secret = config.api_key.get("client_secret")
     if client_secret:
-        headers = urllib3.make_headers(basic_auth=f"{client_id}:{client_secret}")
+        # Include id + secret in headers using basic auth
+        headers.update(urllib3.make_headers(basic_auth=f"{client_id}:{client_secret}"))
     else:
-        headers = None
+        # Include only id (in body)
+        fields["client_id"] = client_id
 
-    # send the refresh token request
-    url = server_config["token_endpoint"]
-    fields = {"grant_type": "refresh_token", "refresh_token": refresh_token}
     resp = http.request(
-        "POST", url, fields=fields, headers=headers, encode_multipart=False
+        "POST", token_url, fields=fields, headers=headers, encode_multipart=False
     )
     assert resp.status == 200
     access_token = json.loads(resp.data.decode())["access_token"]
