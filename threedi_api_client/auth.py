@@ -102,11 +102,10 @@ def refresh_oauth2_token(issuer: str, config: Configuration):
 
     # send the refresh token request
     url = server_config["token_endpoint"]
-    fields = {
-        "grant_type": "refresh_token",
-        "refresh_token": refresh_token
-    }
-    resp = http.request("POST", url, fields=fields, headers=headers)
+    fields = {"grant_type": "refresh_token", "refresh_token": refresh_token}
+    resp = http.request(
+        "POST", url, fields=fields, headers=headers, encode_multipart=False
+    )
     assert resp.status == 200
     access_token = json.loads(resp.data.decode())["access_token"]
     return access_token, refresh_token
