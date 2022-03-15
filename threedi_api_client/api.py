@@ -16,6 +16,10 @@ import urllib3
 RETRY_AFTER_STATUS_CODES = frozenset({413, 429, 503, 504})
 
 
+def _drop_empty(dct):
+    return {k: v for (k, v) in dct.items() if v}
+
+
 class ThreediApi:
     """Client for the 3Di API.
 
@@ -156,7 +160,7 @@ class ThreediApi:
                 "configuration values."
             )
 
-        if tokens and get_issuer(access_token) is not None and client_id is None:
+        if tokens and get_issuer(access_token) and not client_id:
             raise ValueError(
                 "In case an OAuth2 token is provided ThreediAPI requires a "
                 "THREEDI_API_CLIENT_ID configuration value."
@@ -173,12 +177,12 @@ class ThreediApi:
             host=host,
             username=username,
             password=password,
-            api_key={
+            api_key=_drop_empty({
                 "Authorization": access_token,
                 "refresh": refresh_token,
                 "client_id": client_id,
                 "client_secret": client_secret,
-            },
+            }),
             api_key_prefix={"Authorization": "Bearer"},
         )
         configuration.refresh_api_key_hook = refresh_api_key

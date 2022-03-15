@@ -12,6 +12,9 @@ from .versions import host_remove_version
 REFRESH_TIME_DELTA = timedelta(minutes=5).total_seconds()
 
 
+class AuthenticationError(Exception):
+    pass
+
 def get_auth_token(username: str, password: str, api_host: str):
     api_client = ApiClient(
         Configuration(
@@ -52,7 +55,7 @@ def get_issuer(token: str) -> bool:
     try:
         payload = decode_jwt(token)
     except Exception:
-        return False
+        return None
 
     return payload.get("iss")
 

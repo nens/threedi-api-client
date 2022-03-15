@@ -22,6 +22,7 @@ def config():
         "THREEDI_API_PASSWORD": "password",
     }
 
+
 @pytest.fixture
 def token_config():
     return {
@@ -30,6 +31,19 @@ def token_config():
         "THREEDI_API_ACCESS_TOKEN": "token",
         "THREEDI_API_REFRESH_TOKEN": "refresh_token"
     }
+
+
+@pytest.fixture
+def oauth2_config():
+    with mock.patch("threedi_api_client.api.get_issuer", return_value="cognito"):
+        yield {
+            "THREEDI_API_HOST": "localhost:8000",
+            "THREEDI_API_USERNAME": "username",
+            "THREEDI_API_ACCESS_TOKEN": "token",
+            "THREEDI_API_REFRESH_TOKEN": "refresh_token",
+            "THREEDI_API_CLIENT_ID": "abc123"
+        }
+
 
 @pytest.fixture
 def v3_api(config):
@@ -49,12 +63,14 @@ def test_init_from_env_vars(monkeypatch):
     monkeypatch.setenv("THREEDI_API_HOST", "localhost:8000")
     monkeypatch.setenv("THREEDI_API_USERNAME", "username")
     monkeypatch.setenv("THREEDI_API_PASSWORD", "password")
+    monkeypatch.setenv("THREEDI_API_ACCESS_TOKEN", "")
+    monkeypatch.setenv("THREEDI_API_REFRESH_TOKEN", "")
     config = ThreediApi()._api.api_client.configuration
 
     assert config.username
     assert config.password
-    assert config.api_key['Authorization'] is None
-    assert config.api_key['refresh'] is None
+    assert config.api_key.get('Authorization') is None
+    assert config.api_key.get('refresh') is None
 
 def test_init_with_tokens(token_config):
     config = ThreediApi(config=token_config)._api.api_client.configuration
@@ -91,7 +107,16 @@ def test_init_missing_config(key, config):
 
 
 @pytest.mark.parametrize(
-    "key", ["THREEDI_API_HOST", "THREEDI_API_USERNAME", "THREEDI_API_ACCESS_TOKEN", "THREEDI_API_REFRESH_TOKEN"]
+    "key", ["THREEDI_API_HOST", "THREEDI_API_ACCESS_TOKEN", "THREEDI_API_REFRESH_TOKEN", "THREEDI_API_CLIENT_ID"]
+)
+def test_init_missing_oauth2_config(key, oauth2_config):
+    del oauth2_config[key]
+    with pytest.raises(ValueError):
+        ThreediApi(config=oauth2_config)
+
+
+@pytest.mark.parametrize(
+    "key", ["THREEDI_API_HOST", "THREEDI_API_ACCESS_TOKEN", "THREEDI_API_REFRESH_TOKEN"]
 )
 def test_init_missing_token_config(key, token_config):
     del token_config[key]
