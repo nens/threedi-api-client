@@ -1,8 +1,8 @@
-from datetime import datetime, timedelta
-
-import json
 import base64
+import json
+from datetime import datetime, timedelta
 from typing import Tuple
+
 import urllib3
 
 from .openapi import ApiClient, Authenticate, Configuration, V3Api
@@ -14,6 +14,7 @@ REFRESH_TIME_DELTA = timedelta(minutes=5).total_seconds()
 
 class AuthenticationError(Exception):
     pass
+
 
 def get_auth_token(username: str, password: str, api_host: str):
     api_client = ApiClient(
@@ -50,12 +51,12 @@ def is_token_usable(token: str) -> bool:
 
 def get_issuer(token: str) -> bool:
     if token is None:
-        return False
+        return
 
     try:
         payload = decode_jwt(token)
     except Exception:
-        return None
+        return
 
     return payload.get("iss")
 
@@ -74,12 +75,16 @@ def refresh_api_key(config: Configuration):
 
 
 def refresh_simplejwt_token(config: Configuration) -> Tuple[str, str]:
-    refresh_key = config.api_key["refresh"]
+    refresh_key = config.api_key.get("refresh")
     if is_token_usable(refresh_key):
         api_client = ApiClient(Configuration(host_remove_version(config.host)))
         api = V3Api(api_client)
         token = api.auth_refresh_token_create({"refresh": config.api_key["refresh"]})
     else:
+        if not config.username or not config.password:
+            raise AuthenticationError(
+                "Cannot fetch a new access token because the refresh token is invalid."
+            )
         token = get_auth_token(config.username, config.password, config.host)
     return token.access, token.refresh
 
