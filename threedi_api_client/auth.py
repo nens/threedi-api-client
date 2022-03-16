@@ -17,20 +17,21 @@ class AuthenticationError(Exception):
     pass
 
 
-def send_json_request(method, url, json_body, error_msg):
-    resp = get_pool().request(
-        method,
-        url,
-        body=json.dumps(json_body) if json_body is not None else None,
-        headers={"Content-Type": "application/json", "Accept": "application/json"},
-    )
+def send_json_request(method, url, **kwargs):
+    headers = kwargs.pop("headers", {})
+    headers["Accept"] = "application/json"
+    if "body" in kwargs:
+        kwargs["body"] = json.dumps(kwargs["body"])
+        headers["Content-Type"] = "application/json"
+    resp = get_pool().request(method, url, headers=headers, **kwargs)
     if resp.status not in (200, 201):
+        error_msg = kwargs.get("error_msg", "Error sending request")
         try:
             detail = json.loads(resp.data)["detail"]
         except Exception:
             detail = f"server responded with error code {resp.status}"
         raise AuthenticationError(f"{error_msg}: {detail}")
-    return json.loads(resp.data)
+    return json.loads(resp.data.decode("ISO-8859-1"))
 
 
 def decode_jwt(token):
@@ -87,7 +88,7 @@ def refresh_simplejwt_token(config: Configuration) -> Tuple[str, str]:
         tokens = send_json_request(
             method="POST",
             url=f"{host_remove_version(config.host)}/v3/auth/refresh-token/",
-            json_body={"refresh": refresh_key},
+            body={"refresh": refresh_key},
             error_msg="Cannot refresh the access token",
         )
     else:
@@ -98,44 +99,48 @@ def refresh_simplejwt_token(config: Configuration) -> Tuple[str, str]:
         tokens = send_json_request(
             method="POST",
             url=f"{host_remove_version(config.host)}/v3/auth/token/",
-            json_body={"username": config.username, "password": config.password},
+            body={"username": config.username, "password": config.password},
             error_msg="Cannot fetch an access token",
         )
     return tokens["access"], tokens["refresh"]
 
 
-def _oauth2_autodiscovery(issuer: str):
-    pass
+def oauth2_autodiscovery(issuer: str):
+    # use autodiscovery to fetch server details
+    return send_json_request(
+        method="GET",
+        url=f"{issuer}/.well-known/openid-configuration",
+        error_msg=f"Cannot discover the authorization server '{issuer}'",
+    )
 
 
 def refresh_oauth2_token(issuer: str, config: Configuration):
     refresh_token = config.api_key.get("refresh")
     if refresh_token is None:
         return None, None
-    # use autodiscovery to fetch server details
-    http = urllib3.PoolManager()
-    resp = http.request("GET", f"{issuer}/.well-known/openid-configuration")
-    assert resp.status == 200
-    server_config = json.loads(resp.data.decode())
 
     # send the refresh token request
-    token_url = server_config["token_endpoint"]
+    token_url = oauth2_autodiscovery(issuer)["token_endpoint"]
     fields = {"grant_type": "refresh_token", "refresh_token": refresh_token}
-    headers = {}
 
     # include client id and optionally secret in headers/body
     client_id = config.api_key.get("client_id")
     client_secret = config.api_key.get("client_secret")
     if client_secret:
         # Include id + secret in headers using basic auth
-        headers.update(urllib3.make_headers(basic_auth=f"{client_id}:{client_secret}"))
+        headers = urllib3.make_headers(basic_auth=f"{client_id}:{client_secret}")
     else:
         # Include only id (in body)
+        headers = {}
         fields["client_id"] = client_id
 
-    resp = http.request(
-        "POST", token_url, fields=fields, headers=headers, encode_multipart=False
+    tokens = send_json_request(
+        method="POST",
+        url=token_url,
+        fields=fields,
+        headers=headers,
+        encode_multipart=False,
+        error_msg="Failed to refresh the access token",
     )
-    assert resp.status == 200
-    access_token = json.loads(resp.data.decode())["access_token"]
+    access_token = tokens["access_token"]
     return access_token, refresh_token
