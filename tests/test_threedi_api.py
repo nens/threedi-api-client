@@ -69,8 +69,8 @@ def test_init_from_env_vars(monkeypatch):
 
     assert config.username
     assert config.password
-    assert config.api_key.get('Authorization') is None
-    assert config.api_key.get('refresh') is None
+    assert not config.api_key['Authorization']
+    assert not config.api_key['refresh']
 
 def test_init_with_tokens(token_config):
     config = ThreediApi(config=token_config)._api.api_client.configuration

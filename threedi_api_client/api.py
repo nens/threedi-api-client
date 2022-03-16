@@ -177,12 +177,12 @@ class ThreediApi:
             host=host,
             username=username,
             password=password,
-            api_key=_drop_empty({
+            api_key={
                 "Authorization": access_token,
                 "refresh": refresh_token,
                 "client_id": client_id,
                 "client_secret": client_secret,
-            }),
+            },
             api_key_prefix={"Authorization": "Bearer"},
         )
         configuration.refresh_api_key_hook = refresh_api_key

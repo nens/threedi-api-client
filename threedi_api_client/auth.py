@@ -5,7 +5,8 @@ from typing import Tuple
 
 import urllib3
 
-from .openapi import ApiClient, Authenticate, Configuration, V3Api
+from .files import get_pool
+from .openapi import Configuration
 from .versions import host_remove_version
 
 # Get new token REFRESH_TIME_DELTA before it really expires.
@@ -16,14 +17,20 @@ class AuthenticationError(Exception):
     pass
 
 
-def get_auth_token(username: str, password: str, api_host: str):
-    api_client = ApiClient(
-        Configuration(
-            username=username, password=password, host=host_remove_version(api_host)
-        )
+def send_json_request(method, url, body, msg):
+    resp = get_pool().request(
+        method,
+        url,
+        body=json.dumps(body),
+        headers={"Content-Type": "application/json", "Accept": "application/json"},
     )
-    api = V3Api(api_client)
-    return api.auth_token_create(Authenticate(username, password))
+    if resp.status not in (200, 201):
+        try:
+            detail = json.loads(resp.data)["detail"]
+        except Exception:
+            detail = f"server responded with error code {resp.status}"
+        raise AuthenticationError(f"{msg}: {detail}")
+    return json.loads(resp.data)
 
 
 def decode_jwt(token):
@@ -77,16 +84,22 @@ def refresh_api_key(config: Configuration):
 def refresh_simplejwt_token(config: Configuration) -> Tuple[str, str]:
     refresh_key = config.api_key.get("refresh")
     if is_token_usable(refresh_key):
-        api_client = ApiClient(Configuration(host_remove_version(config.host)))
-        api = V3Api(api_client)
-        token = api.auth_refresh_token_create({"refresh": config.api_key["refresh"]})
+        tokens = send_json_request(
+            method="POST",
+            url=f"{host_remove_version(config.host)}/v3/auth/refresh-token/",
+            body={"refresh": refresh_key},
+        )
     else:
         if not config.username or not config.password:
             raise AuthenticationError(
-                "Cannot fetch a new access token because the refresh token is invalid."
+                "Cannot fetch a new access token because username/password were not supplied."
             )
-        token = get_auth_token(config.username, config.password, config.host)
-    return token.access, token.refresh
+        tokens = send_json_request(
+            method="POST",
+            url=f"{host_remove_version(config.host)}/v3/auth/token/",
+            body={"username": config.username, "password": config.password},
+        )
+    return tokens["access"], tokens["refresh"]
 
 
 def refresh_oauth2_token(issuer: str, config: Configuration):
