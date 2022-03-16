@@ -18,10 +18,20 @@ class AuthenticationError(Exception):
 
 
 def send_json_request(method, url, **kwargs):
+    """Helper function for sending a request and decoding the JSON response.
+
+    The request body, if supplied, will be automatically JSON-encoded.
+
+    The request has a default policy of 3 retries.
+
+    Raises an AuthenticationError if the response is not successful. Optionally
+    supply an 'error_msg' to change the message.
+    """
     headers = kwargs.pop("headers", {})
     error_msg = kwargs.pop("error_msg", "Error sending request")
     headers["Accept"] = "application/json"
     if "body" in kwargs:
+        assert not isinstance(kwargs["body"], (bytes, str))
         kwargs["body"] = json.dumps(kwargs["body"])
         headers["Content-Type"] = "application/json"
     resp = get_pool().request(method, url, headers=headers, **kwargs)

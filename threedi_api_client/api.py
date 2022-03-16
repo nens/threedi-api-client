@@ -6,7 +6,7 @@ try:
 except ImportError:
     AsyncApiClient = None
 
-from .auth import refresh_api_key, get_issuer
+from .auth import refresh_api_key
 from .config import Config, EnvironConfig
 from .versions import API_VERSIONS, host_has_version
 
@@ -14,10 +14,6 @@ import urllib3
 
 
 RETRY_AFTER_STATUS_CODES = frozenset({413, 429, 503, 504})
-
-
-def _drop_empty(dct):
-    return {k: v for (k, v) in dct.items() if v}
 
 
 class ThreediApi:
