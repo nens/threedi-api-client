@@ -19,15 +19,19 @@ class AuthenticationError(Exception):
 
 def send_json_request(method, url, **kwargs):
     headers = kwargs.pop("headers", {})
+    error_msg = kwargs.pop("error_msg", "Error sending request")
     headers["Accept"] = "application/json"
     if "body" in kwargs:
         kwargs["body"] = json.dumps(kwargs["body"])
         headers["Content-Type"] = "application/json"
     resp = get_pool().request(method, url, headers=headers, **kwargs)
     if resp.status not in (200, 201):
-        error_msg = kwargs.get("error_msg", "Error sending request")
         try:
-            detail = json.loads(resp.data)["detail"]
+            detail = json.loads(resp.data)
+            if "detail" in detail:
+                detail = detail["detail"]
+            elif "error" in detail:
+                detail = detail["error"]
         except Exception:
             detail = f"server responded with error code {resp.status}"
         raise AuthenticationError(f"{error_msg}: {detail}")
@@ -116,8 +120,14 @@ def oauth2_autodiscovery(issuer: str):
 
 def refresh_oauth2_token(issuer: str, config: Configuration):
     refresh_token = config.api_key.get("refresh")
-    if refresh_token is None:
-        return None, None
+    if not refresh_token:
+        raise AuthenticationError(
+            "Cannot fetch a new access token because THREEDI_API_REFRESH_TOKEN was not supplied."
+        )
+    if not config.api_key.get("client_id"):
+        raise AuthenticationError(
+            "Cannot fetch a new access token because THREEDI_API_CLIENT_ID was not supplied."
+        )
 
     # send the refresh token request
     token_url = oauth2_autodiscovery(issuer)["token_endpoint"]

@@ -160,12 +160,6 @@ class ThreediApi:
                 "configuration values."
             )
 
-        if tokens and get_issuer(access_token) and not client_id:
-            raise ValueError(
-                "In case an OAuth2 token is provided ThreediAPI requires a "
-                "THREEDI_API_CLIENT_ID configuration value."
-            )
-
         # Determine whether there is a version in the host
         if host_has_version(host):
             raise ValueError(

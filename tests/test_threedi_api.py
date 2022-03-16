@@ -107,7 +107,7 @@ def test_init_missing_config(key, config):
 
 
 @pytest.mark.parametrize(
-    "key", ["THREEDI_API_HOST", "THREEDI_API_ACCESS_TOKEN", "THREEDI_API_REFRESH_TOKEN", "THREEDI_API_CLIENT_ID"]
+    "key", ["THREEDI_API_HOST", "THREEDI_API_ACCESS_TOKEN", "THREEDI_API_REFRESH_TOKEN"]
 )
 def test_init_missing_oauth2_config(key, oauth2_config):
     del oauth2_config[key]
