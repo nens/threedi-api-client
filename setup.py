@@ -36,17 +36,16 @@ def get_version():
 
 
 requirements = [
-    "certifi>=2019.3.9",
-    "urllib3>=1.15",
-    "pyjwt>=1.7.1",
-    "six>=1.10",
-    "python-dateutil",
+    'certifi>=2019.3.9',
+    'urllib3>=1.15',
+    'six>=1.10',
+    'python-dateutil',
 ]
 
 aio_requirements = ["aiohttp>=3.6.3", "aiofiles"]
 
 # Note: mock contains a backport of AsyncMock
-test_requirements = ["pytest", "pytest-asyncio", "mock"]
+test_requirements = ["pytest", "pytest-asyncio", "mock", 'pyjwt']
 
 
 setup(

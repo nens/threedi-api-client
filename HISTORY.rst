@@ -5,7 +5,8 @@ History
 4.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added OAuth2 token and OAuth2 token refresh capability (for both public
+  and private clients).
 
 
 4.0.0 (2022-02-11)

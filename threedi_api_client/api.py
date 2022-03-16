@@ -136,21 +136,21 @@ class ThreediApi:
             user_config = EnvironConfig()
 
         host = user_config.get("THREEDI_API_HOST")
-        username = user_config.get("THREEDI_API_USERNAME")
-        if not all(x for x in (host, username)):
+        if not host:
             raise ValueError(
-                "ThreediApi requires the THREEDI_API_HOST, THREEDI_API_USERNAME, "
-                "configuration values."
+                "ThreediApi requires the THREEDI_API_HOST configuration value."
             )
 
         # Get the config variables
+        username = user_config.get("THREEDI_API_USERNAME")
         password = user_config.get("THREEDI_API_PASSWORD")
         access_token = user_config.get("THREEDI_API_ACCESS_TOKEN")
         refresh_token = user_config.get("THREEDI_API_REFRESH_TOKEN")
+        client_secret = user_config.get("THREEDI_API_CLIENT_SECRET")
 
+        basic = all(x for x in (username, password))
         tokens = all(x for x in (access_token, refresh_token))
-
-        if tokens and password or (not tokens and not password):
+        if tokens and basic or (not tokens and not basic):
             raise ValueError(
                 "ThreediAPI requires either THREEDI_API_PASSWORD or "
                 "THREEDI_API_ACCESS_TOKEN and THREEDI_API_REFRESH_TOKEN as "
@@ -168,7 +168,11 @@ class ThreediApi:
             host=host,
             username=username,
             password=password,
-            api_key={"Authorization": access_token, "refresh": refresh_token},
+            api_key={
+                "Authorization": access_token,
+                "refresh": refresh_token,
+                "client_secret": client_secret,
+            },
             api_key_prefix={"Authorization": "Bearer"},
         )
         configuration.refresh_api_key_hook = refresh_api_key
