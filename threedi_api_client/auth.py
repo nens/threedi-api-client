@@ -11,7 +11,7 @@ from .openapi import Configuration
 from .versions import host_remove_version
 
 # Get new token REFRESH_TIME_DELTA before it really expires.
-REFRESH_TIME_DELTA = timedelta(days=5).total_seconds()
+REFRESH_TIME_DELTA = timedelta(minutes=5).total_seconds()
 
 
 class AuthenticationError(Exception):
