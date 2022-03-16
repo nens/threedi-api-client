@@ -50,9 +50,8 @@ def configuration_oauth2():
     return Configuration(
         host="host",
         api_key={
-            "Authorization": get_token({"iss": "cognito", "exp": 0}),
+            "Authorization": get_token({"iss": "cognito", "client_id": "cid", "exp": 0}),
             "refresh": "my-refresh",
-            "client_id": "cid",
         },
     )
 

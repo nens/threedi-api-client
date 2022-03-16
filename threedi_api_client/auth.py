@@ -2,6 +2,7 @@ import base64
 import json
 from datetime import datetime, timedelta
 from typing import Tuple
+from functools import lru_cache
 
 import urllib3
 
@@ -10,7 +11,7 @@ from .openapi import Configuration
 from .versions import host_remove_version
 
 # Get new token REFRESH_TIME_DELTA before it really expires.
-REFRESH_TIME_DELTA = timedelta(minutes=5).total_seconds()
+REFRESH_TIME_DELTA = timedelta(days=5).total_seconds()
 
 
 class AuthenticationError(Exception):
@@ -48,6 +49,7 @@ def send_json_request(method, url, **kwargs):
     return json.loads(resp.data.decode("ISO-8859-1"))
 
 
+@lru_cache(1)
 def decode_jwt(token):
     """Decode a JWT without checking its signature"""
     # JWT consists of {header}.{payload}.{signature}
@@ -81,6 +83,18 @@ def get_issuer(token: str) -> bool:
         return
 
     return payload.get("iss")
+
+
+def get_client_id(token: str) -> str:
+    if token is None:
+        return
+
+    try:
+        payload = decode_jwt(token)
+    except Exception:
+        return
+
+    return payload.get("client_id")
 
 
 def refresh_api_key(config: Configuration):
@@ -134,9 +148,10 @@ def refresh_oauth2_token(issuer: str, config: Configuration):
         raise AuthenticationError(
             "Cannot fetch a new access token because THREEDI_API_REFRESH_TOKEN was not supplied."
         )
-    if not config.api_key.get("client_id"):
+    client_id = get_client_id(config.api_key.get("Authorization"))
+    if not client_id:
         raise AuthenticationError(
-            "Cannot fetch a new access token because THREEDI_API_CLIENT_ID was not supplied."
+            "Cannot fetch a new access token because the access token does not contain a client_id."
         )
 
     # send the refresh token request
@@ -144,7 +159,7 @@ def refresh_oauth2_token(issuer: str, config: Configuration):
     fields = {"grant_type": "refresh_token", "refresh_token": refresh_token}
 
     # include client id and optionally secret in headers/body
-    client_id = config.api_key.get("client_id")
+    client_id = get_client_id(config.api_key.get("Authorization"))
     client_secret = config.api_key.get("client_secret")
     if client_secret:
         # Include id + secret in headers using basic auth

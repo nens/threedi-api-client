@@ -146,7 +146,6 @@ class ThreediApi:
         password = user_config.get("THREEDI_API_PASSWORD")
         access_token = user_config.get("THREEDI_API_ACCESS_TOKEN")
         refresh_token = user_config.get("THREEDI_API_REFRESH_TOKEN")
-        client_id = user_config.get("THREEDI_API_CLIENT_ID")
         client_secret = user_config.get("THREEDI_API_CLIENT_SECRET")
 
         basic = all(x for x in (username, password))
@@ -172,7 +171,6 @@ class ThreediApi:
             api_key={
                 "Authorization": access_token,
                 "refresh": refresh_token,
-                "client_id": client_id,
                 "client_secret": client_secret,
             },
             api_key_prefix={"Authorization": "Bearer"},

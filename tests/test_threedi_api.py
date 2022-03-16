@@ -40,7 +40,6 @@ def oauth2_config():
         "THREEDI_API_USERNAME": "username",
         "THREEDI_API_ACCESS_TOKEN": "token",
         "THREEDI_API_REFRESH_TOKEN": "refresh_token",
-        "THREEDI_API_CLIENT_ID": "abc123"
     }
 
 
