@@ -11,7 +11,7 @@ from threedi_api_client.openapi.api import V3Api
 from threedi_api_client.versions import API_VERSIONS
 
 
-V3AlphaApi = API_VERSIONS['v3-alpha']
+V3AlphaApi = API_VERSIONS["v3-alpha"]
 
 
 @pytest.fixture
@@ -29,20 +29,19 @@ def token_config():
         "THREEDI_API_HOST": "localhost:8000",
         "THREEDI_API_USERNAME": "username",
         "THREEDI_API_ACCESS_TOKEN": "token",
-        "THREEDI_API_REFRESH_TOKEN": "refresh_token"
+        "THREEDI_API_REFRESH_TOKEN": "refresh_token",
     }
 
 
 @pytest.fixture
 def oauth2_config():
-    with mock.patch("threedi_api_client.api.get_issuer", return_value="cognito"):
-        yield {
-            "THREEDI_API_HOST": "localhost:8000",
-            "THREEDI_API_USERNAME": "username",
-            "THREEDI_API_ACCESS_TOKEN": "token",
-            "THREEDI_API_REFRESH_TOKEN": "refresh_token",
-            "THREEDI_API_CLIENT_ID": "abc123"
-        }
+    yield {
+        "THREEDI_API_HOST": "localhost:8000",
+        "THREEDI_API_USERNAME": "username",
+        "THREEDI_API_ACCESS_TOKEN": "token",
+        "THREEDI_API_REFRESH_TOKEN": "refresh_token",
+        "THREEDI_API_CLIENT_ID": "abc123"
+    }
 
 
 @pytest.fixture
@@ -72,21 +71,26 @@ def test_init_from_env_vars(monkeypatch):
     assert not config.api_key['Authorization']
     assert not config.api_key['refresh']
 
+
 def test_init_with_tokens(token_config):
     config = ThreediApi(config=token_config)._api.api_client.configuration
 
     assert config.username
     assert config.password is None
-    assert config.api_key['Authorization']
-    assert config.api_key['refresh']
+    assert config.api_key["Authorization"]
+    assert config.api_key["refresh"]
+
 
 def test_init_with_password_and_token_disallowed(config):
     config.update(
-        {"THREEDI_API_ACCESS_TOKEN": "token",
-         "THREEDI_API_REFRESH_TOKEN": "refresh_token"}
+        {
+            "THREEDI_API_ACCESS_TOKEN": "token",
+            "THREEDI_API_REFRESH_TOKEN": "refresh_token",
+        }
     )
     with pytest.raises(ValueError):
         ThreediApi(config=config)
+
 
 def test_init_from_config(config):
     api = ThreediApi(config=config)

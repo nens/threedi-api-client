@@ -34,20 +34,27 @@ class BasicPostProcessing(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'simulation': 'str',
-        'scenario_name': 'str',
-        'process_basic_results': 'bool',
-        'result_uuid': 'str'
+        "simulation": "str",
+        "scenario_name": "str",
+        "process_basic_results": "bool",
+        "result_uuid": "str",
     }
 
     attribute_map = {
-        'simulation': 'simulation',
-        'scenario_name': 'scenario_name',
-        'process_basic_results': 'process_basic_results',
-        'result_uuid': 'result_uuid'
+        "simulation": "simulation",
+        "scenario_name": "scenario_name",
+        "process_basic_results": "process_basic_results",
+        "result_uuid": "result_uuid",
     }
 
-    def __init__(self, simulation=None, scenario_name=None, process_basic_results=None, result_uuid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        simulation=None,
+        scenario_name=None,
+        process_basic_results=None,
+        result_uuid=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """BasicPostProcessing - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -109,12 +116,22 @@ class BasicPostProcessing(object):
         :param scenario_name: The scenario_name of this BasicPostProcessing.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                scenario_name is not None and len(scenario_name) > 128):
-            raise ValueError("Invalid value for `scenario_name`, length must be less than or equal to `128`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                scenario_name is not None and len(scenario_name) < 1):
-            raise ValueError("Invalid value for `scenario_name`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and scenario_name is not None
+            and len(scenario_name) > 128
+        ):
+            raise ValueError(
+                "Invalid value for `scenario_name`, length must be less than or equal to `128`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and scenario_name is not None
+            and len(scenario_name) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `scenario_name`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._scenario_name = scenario_name
 
@@ -167,18 +184,20 @@ class BasicPostProcessing(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

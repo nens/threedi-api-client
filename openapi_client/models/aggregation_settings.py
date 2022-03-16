@@ -34,22 +34,30 @@ class AggregationSettings(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'name': 'str',
-        'flow_variable': 'str',
-        'method': 'str',
-        'interval': 'float'
+        "url": "str",
+        "name": "str",
+        "flow_variable": "str",
+        "method": "str",
+        "interval": "float",
     }
 
     attribute_map = {
-        'url': 'url',
-        'name': 'name',
-        'flow_variable': 'flow_variable',
-        'method': 'method',
-        'interval': 'interval'
+        "url": "url",
+        "name": "name",
+        "flow_variable": "flow_variable",
+        "method": "method",
+        "interval": "interval",
     }
 
-    def __init__(self, url=None, name=None, flow_variable=None, method=None, interval=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        name=None,
+        flow_variable=None,
+        method=None,
+        interval=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """AggregationSettings - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -110,9 +118,14 @@ class AggregationSettings(object):
         :param name: The name of this AggregationSettings.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) > 120):
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `120`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and name is not None
+            and len(name) > 120
+        ):
+            raise ValueError(
+                "Invalid value for `name`, length must be less than or equal to `120`"
+            )  # noqa: E501
 
         self._name = name
 
@@ -136,13 +149,36 @@ class AggregationSettings(object):
         :param flow_variable: The flow_variable of this AggregationSettings.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and flow_variable is None:  # noqa: E501
-            raise ValueError("Invalid value for `flow_variable`, must not be `None`")  # noqa: E501
-        allowed_values = ["water_level", "flow_velocity", "discharge", "volume", "pump_discharge", "wet_cross_section", "lateral_discharge", "wet_surface", "rain", "simple_infiltration", "leakage", "interception", "surface_source_sink_discharge"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and flow_variable not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and flow_variable is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `flow_variable` ({0}), must be one of {1}"  # noqa: E501
-                .format(flow_variable, allowed_values)
+                "Invalid value for `flow_variable`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = [
+            "water_level",
+            "flow_velocity",
+            "discharge",
+            "volume",
+            "pump_discharge",
+            "wet_cross_section",
+            "lateral_discharge",
+            "wet_surface",
+            "rain",
+            "simple_infiltration",
+            "leakage",
+            "interception",
+            "surface_source_sink_discharge",
+        ]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and flow_variable not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `flow_variable` ({0}), must be one of {1}".format(  # noqa: E501
+                    flow_variable, allowed_values
+                )
             )
 
         self._flow_variable = flow_variable
@@ -167,13 +203,30 @@ class AggregationSettings(object):
         :param method: The method of this AggregationSettings.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and method is None:  # noqa: E501
-            raise ValueError("Invalid value for `method`, must not be `None`")  # noqa: E501
-        allowed_values = ["min", "max", "avg", "cum", "cum_positive", "cum_negative", "current", "sum"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and method not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and method is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `method` ({0}), must be one of {1}"  # noqa: E501
-                .format(method, allowed_values)
+                "Invalid value for `method`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = [
+            "min",
+            "max",
+            "avg",
+            "cum",
+            "cum_positive",
+            "cum_negative",
+            "current",
+            "sum",
+        ]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and method not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `method` ({0}), must be one of {1}".format(  # noqa: E501
+                    method, allowed_values
+                )
             )
 
         self._method = method
@@ -198,8 +251,12 @@ class AggregationSettings(object):
         :param interval: The interval of this AggregationSettings.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and interval is None:  # noqa: E501
-            raise ValueError("Invalid value for `interval`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and interval is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `interval`, must not be `None`"
+            )  # noqa: E501
 
         self._interval = interval
 
@@ -210,18 +267,20 @@ class AggregationSettings(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

@@ -34,20 +34,27 @@ class Action(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'name': 'str',
-        'duration': 'int',
-        'timeout': 'int',
-        'max_rate': 'float'
+        "name": "str",
+        "duration": "int",
+        "timeout": "int",
+        "max_rate": "float",
     }
 
     attribute_map = {
-        'name': 'name',
-        'duration': 'duration',
-        'timeout': 'timeout',
-        'max_rate': 'max_rate'
+        "name": "name",
+        "duration": "duration",
+        "timeout": "timeout",
+        "max_rate": "max_rate",
     }
 
-    def __init__(self, name=None, duration=None, timeout=None, max_rate=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        name=None,
+        duration=None,
+        timeout=None,
+        max_rate=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """Action - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -85,13 +92,27 @@ class Action(object):
         :param name: The name of this Action.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        allowed_values = ["initialize", "start", "pause", "shutdown", "queue"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and name not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and name is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `name` ({0}), must be one of {1}"  # noqa: E501
-                .format(name, allowed_values)
+                "Invalid value for `name`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = [
+            "initialize",
+            "start",
+            "pause",
+            "shutdown",
+            "queue",
+        ]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and name not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `name` ({0}), must be one of {1}".format(  # noqa: E501
+                    name, allowed_values
+                )
             )
 
         self._name = name
@@ -116,9 +137,14 @@ class Action(object):
         :param duration: The duration of this Action.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                duration is not None and duration < 1):  # noqa: E501
-            raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and duration is not None
+            and duration < 1
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `duration`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
 
         self._duration = duration
 
@@ -142,9 +168,14 @@ class Action(object):
         :param timeout: The timeout of this Action.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                timeout is not None and timeout < 30):  # noqa: E501
-            raise ValueError("Invalid value for `timeout`, must be a value greater than or equal to `30`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and timeout is not None
+            and timeout < 30
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `timeout`, must be a value greater than or equal to `30`"
+            )  # noqa: E501
 
         self._timeout = timeout
 
@@ -168,9 +199,14 @@ class Action(object):
         :param max_rate: The max_rate of this Action.  # noqa: E501
         :type: float
         """
-        if (self.local_vars_configuration.client_side_validation and
-                max_rate is not None and max_rate < 1):  # noqa: E501
-            raise ValueError("Invalid value for `max_rate`, must be a value greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and max_rate is not None
+            and max_rate < 1
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `max_rate`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
 
         self._max_rate = max_rate
 
@@ -181,18 +217,20 @@ class Action(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

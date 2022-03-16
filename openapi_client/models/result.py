@@ -34,18 +34,24 @@ class Result(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'basic': 'bool',
-        'damage_estimation': 'bool',
-        'arrival_time': 'bool'
+        "basic": "bool",
+        "damage_estimation": "bool",
+        "arrival_time": "bool",
     }
 
     attribute_map = {
-        'basic': 'basic',
-        'damage_estimation': 'damage_estimation',
-        'arrival_time': 'arrival_time'
+        "basic": "basic",
+        "damage_estimation": "damage_estimation",
+        "arrival_time": "arrival_time",
     }
 
-    def __init__(self, basic=None, damage_estimation=None, arrival_time=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        basic=None,
+        damage_estimation=None,
+        arrival_time=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """Result - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -78,8 +84,12 @@ class Result(object):
         :param basic: The basic of this Result.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and basic is None:  # noqa: E501
-            raise ValueError("Invalid value for `basic`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and basic is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `basic`, must not be `None`"
+            )  # noqa: E501
 
         self._basic = basic
 
@@ -101,8 +111,13 @@ class Result(object):
         :param damage_estimation: The damage_estimation of this Result.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and damage_estimation is None:  # noqa: E501
-            raise ValueError("Invalid value for `damage_estimation`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and damage_estimation is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `damage_estimation`, must not be `None`"
+            )  # noqa: E501
 
         self._damage_estimation = damage_estimation
 
@@ -124,8 +139,13 @@ class Result(object):
         :param arrival_time: The arrival_time of this Result.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and arrival_time is None:  # noqa: E501
-            raise ValueError("Invalid value for `arrival_time`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and arrival_time is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `arrival_time`, must not be `None`"
+            )  # noqa: E501
 
         self._arrival_time = arrival_time
 
@@ -136,18 +156,20 @@ class Result(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

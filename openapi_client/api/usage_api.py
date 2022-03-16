@@ -19,10 +19,7 @@ import re  # noqa: F401
 import six
 
 from openapi_client.api_client import ApiClient
-from openapi_client.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
-)
+from openapi_client.exceptions import ApiTypeError, ApiValueError  # noqa: F401
 
 
 class UsageApi(object):
@@ -102,7 +99,7 @@ class UsageApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.usage_list_with_http_info(**kwargs)  # noqa: E501
 
     def usage_list_with_http_info(self, **kwargs):  # noqa: E501
@@ -176,162 +173,386 @@ class UsageApi(object):
         local_var_params = locals()
 
         all_params = [
-            'started__gt',
-            'started__gte',
-            'started__lt',
-            'started__lte',
-            'started__date',
-            'started__date__gt',
-            'started__date__gte',
-            'started__date__lt',
-            'started__date__lte',
-            'started__year',
-            'started__year__gt',
-            'started__year__gte',
-            'started__year__lt',
-            'started__year__lte',
-            'started__month',
-            'started__month__lte',
-            'finished__gt',
-            'finished__gte',
-            'finished__lt',
-            'finished__lte',
-            'finished__date',
-            'finished__date__gt',
-            'finished__date__gte',
-            'finished__date__lt',
-            'finished__date__lte',
-            'finished__year',
-            'finished__year__gt',
-            'finished__year__gte',
-            'finished__year__lt',
-            'finished__year__lte',
-            'finished__month',
-            'finished__month__lte',
-            'total_time',
-            'total_time__gt',
-            'total_time__gte',
-            'total_time__lt',
-            'total_time__lte',
-            'total_time__isnull',
-            'simulation__user__username',
-            'simulation__type__live',
-            'simulation__organisation__name__istartswith',
-            'simulation__organisation__unique_id',
-            'limit',
-            'offset'
+            "started__gt",
+            "started__gte",
+            "started__lt",
+            "started__lte",
+            "started__date",
+            "started__date__gt",
+            "started__date__gte",
+            "started__date__lt",
+            "started__date__lte",
+            "started__year",
+            "started__year__gt",
+            "started__year__gte",
+            "started__year__lt",
+            "started__year__lte",
+            "started__month",
+            "started__month__lte",
+            "finished__gt",
+            "finished__gte",
+            "finished__lt",
+            "finished__lte",
+            "finished__date",
+            "finished__date__gt",
+            "finished__date__gte",
+            "finished__date__lt",
+            "finished__date__lte",
+            "finished__year",
+            "finished__year__gt",
+            "finished__year__gte",
+            "finished__year__lt",
+            "finished__year__lte",
+            "finished__month",
+            "finished__month__lte",
+            "total_time",
+            "total_time__gt",
+            "total_time__gte",
+            "total_time__lt",
+            "total_time__lte",
+            "total_time__isnull",
+            "simulation__user__username",
+            "simulation__type__live",
+            "simulation__organisation__name__istartswith",
+            "simulation__organisation__unique_id",
+            "limit",
+            "offset",
         ]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method usage_list" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'started__gt' in local_var_params and local_var_params['started__gt'] is not None:  # noqa: E501
-            query_params.append(('started__gt', local_var_params['started__gt']))  # noqa: E501
-        if 'started__gte' in local_var_params and local_var_params['started__gte'] is not None:  # noqa: E501
-            query_params.append(('started__gte', local_var_params['started__gte']))  # noqa: E501
-        if 'started__lt' in local_var_params and local_var_params['started__lt'] is not None:  # noqa: E501
-            query_params.append(('started__lt', local_var_params['started__lt']))  # noqa: E501
-        if 'started__lte' in local_var_params and local_var_params['started__lte'] is not None:  # noqa: E501
-            query_params.append(('started__lte', local_var_params['started__lte']))  # noqa: E501
-        if 'started__date' in local_var_params and local_var_params['started__date'] is not None:  # noqa: E501
-            query_params.append(('started__date', local_var_params['started__date']))  # noqa: E501
-        if 'started__date__gt' in local_var_params and local_var_params['started__date__gt'] is not None:  # noqa: E501
-            query_params.append(('started__date__gt', local_var_params['started__date__gt']))  # noqa: E501
-        if 'started__date__gte' in local_var_params and local_var_params['started__date__gte'] is not None:  # noqa: E501
-            query_params.append(('started__date__gte', local_var_params['started__date__gte']))  # noqa: E501
-        if 'started__date__lt' in local_var_params and local_var_params['started__date__lt'] is not None:  # noqa: E501
-            query_params.append(('started__date__lt', local_var_params['started__date__lt']))  # noqa: E501
-        if 'started__date__lte' in local_var_params and local_var_params['started__date__lte'] is not None:  # noqa: E501
-            query_params.append(('started__date__lte', local_var_params['started__date__lte']))  # noqa: E501
-        if 'started__year' in local_var_params and local_var_params['started__year'] is not None:  # noqa: E501
-            query_params.append(('started__year', local_var_params['started__year']))  # noqa: E501
-        if 'started__year__gt' in local_var_params and local_var_params['started__year__gt'] is not None:  # noqa: E501
-            query_params.append(('started__year__gt', local_var_params['started__year__gt']))  # noqa: E501
-        if 'started__year__gte' in local_var_params and local_var_params['started__year__gte'] is not None:  # noqa: E501
-            query_params.append(('started__year__gte', local_var_params['started__year__gte']))  # noqa: E501
-        if 'started__year__lt' in local_var_params and local_var_params['started__year__lt'] is not None:  # noqa: E501
-            query_params.append(('started__year__lt', local_var_params['started__year__lt']))  # noqa: E501
-        if 'started__year__lte' in local_var_params and local_var_params['started__year__lte'] is not None:  # noqa: E501
-            query_params.append(('started__year__lte', local_var_params['started__year__lte']))  # noqa: E501
-        if 'started__month' in local_var_params and local_var_params['started__month'] is not None:  # noqa: E501
-            query_params.append(('started__month', local_var_params['started__month']))  # noqa: E501
-        if 'started__month__lte' in local_var_params and local_var_params['started__month__lte'] is not None:  # noqa: E501
-            query_params.append(('started__month__lte', local_var_params['started__month__lte']))  # noqa: E501
-        if 'finished__gt' in local_var_params and local_var_params['finished__gt'] is not None:  # noqa: E501
-            query_params.append(('finished__gt', local_var_params['finished__gt']))  # noqa: E501
-        if 'finished__gte' in local_var_params and local_var_params['finished__gte'] is not None:  # noqa: E501
-            query_params.append(('finished__gte', local_var_params['finished__gte']))  # noqa: E501
-        if 'finished__lt' in local_var_params and local_var_params['finished__lt'] is not None:  # noqa: E501
-            query_params.append(('finished__lt', local_var_params['finished__lt']))  # noqa: E501
-        if 'finished__lte' in local_var_params and local_var_params['finished__lte'] is not None:  # noqa: E501
-            query_params.append(('finished__lte', local_var_params['finished__lte']))  # noqa: E501
-        if 'finished__date' in local_var_params and local_var_params['finished__date'] is not None:  # noqa: E501
-            query_params.append(('finished__date', local_var_params['finished__date']))  # noqa: E501
-        if 'finished__date__gt' in local_var_params and local_var_params['finished__date__gt'] is not None:  # noqa: E501
-            query_params.append(('finished__date__gt', local_var_params['finished__date__gt']))  # noqa: E501
-        if 'finished__date__gte' in local_var_params and local_var_params['finished__date__gte'] is not None:  # noqa: E501
-            query_params.append(('finished__date__gte', local_var_params['finished__date__gte']))  # noqa: E501
-        if 'finished__date__lt' in local_var_params and local_var_params['finished__date__lt'] is not None:  # noqa: E501
-            query_params.append(('finished__date__lt', local_var_params['finished__date__lt']))  # noqa: E501
-        if 'finished__date__lte' in local_var_params and local_var_params['finished__date__lte'] is not None:  # noqa: E501
-            query_params.append(('finished__date__lte', local_var_params['finished__date__lte']))  # noqa: E501
-        if 'finished__year' in local_var_params and local_var_params['finished__year'] is not None:  # noqa: E501
-            query_params.append(('finished__year', local_var_params['finished__year']))  # noqa: E501
-        if 'finished__year__gt' in local_var_params and local_var_params['finished__year__gt'] is not None:  # noqa: E501
-            query_params.append(('finished__year__gt', local_var_params['finished__year__gt']))  # noqa: E501
-        if 'finished__year__gte' in local_var_params and local_var_params['finished__year__gte'] is not None:  # noqa: E501
-            query_params.append(('finished__year__gte', local_var_params['finished__year__gte']))  # noqa: E501
-        if 'finished__year__lt' in local_var_params and local_var_params['finished__year__lt'] is not None:  # noqa: E501
-            query_params.append(('finished__year__lt', local_var_params['finished__year__lt']))  # noqa: E501
-        if 'finished__year__lte' in local_var_params and local_var_params['finished__year__lte'] is not None:  # noqa: E501
-            query_params.append(('finished__year__lte', local_var_params['finished__year__lte']))  # noqa: E501
-        if 'finished__month' in local_var_params and local_var_params['finished__month'] is not None:  # noqa: E501
-            query_params.append(('finished__month', local_var_params['finished__month']))  # noqa: E501
-        if 'finished__month__lte' in local_var_params and local_var_params['finished__month__lte'] is not None:  # noqa: E501
-            query_params.append(('finished__month__lte', local_var_params['finished__month__lte']))  # noqa: E501
-        if 'total_time' in local_var_params and local_var_params['total_time'] is not None:  # noqa: E501
-            query_params.append(('total_time', local_var_params['total_time']))  # noqa: E501
-        if 'total_time__gt' in local_var_params and local_var_params['total_time__gt'] is not None:  # noqa: E501
-            query_params.append(('total_time__gt', local_var_params['total_time__gt']))  # noqa: E501
-        if 'total_time__gte' in local_var_params and local_var_params['total_time__gte'] is not None:  # noqa: E501
-            query_params.append(('total_time__gte', local_var_params['total_time__gte']))  # noqa: E501
-        if 'total_time__lt' in local_var_params and local_var_params['total_time__lt'] is not None:  # noqa: E501
-            query_params.append(('total_time__lt', local_var_params['total_time__lt']))  # noqa: E501
-        if 'total_time__lte' in local_var_params and local_var_params['total_time__lte'] is not None:  # noqa: E501
-            query_params.append(('total_time__lte', local_var_params['total_time__lte']))  # noqa: E501
-        if 'total_time__isnull' in local_var_params and local_var_params['total_time__isnull'] is not None:  # noqa: E501
-            query_params.append(('total_time__isnull', local_var_params['total_time__isnull']))  # noqa: E501
-        if 'simulation__user__username' in local_var_params and local_var_params['simulation__user__username'] is not None:  # noqa: E501
-            query_params.append(('simulation__user__username', local_var_params['simulation__user__username']))  # noqa: E501
-        if 'simulation__type__live' in local_var_params and local_var_params['simulation__type__live'] is not None:  # noqa: E501
-            query_params.append(('simulation__type__live', local_var_params['simulation__type__live']))  # noqa: E501
-        if 'simulation__organisation__name__istartswith' in local_var_params and local_var_params['simulation__organisation__name__istartswith'] is not None:  # noqa: E501
-            query_params.append(('simulation__organisation__name__istartswith', local_var_params['simulation__organisation__name__istartswith']))  # noqa: E501
-        if 'simulation__organisation__unique_id' in local_var_params and local_var_params['simulation__organisation__unique_id'] is not None:  # noqa: E501
-            query_params.append(('simulation__organisation__unique_id', local_var_params['simulation__organisation__unique_id']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if (
+            "started__gt" in local_var_params
+            and local_var_params["started__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__gt", local_var_params["started__gt"])
+            )  # noqa: E501
+        if (
+            "started__gte" in local_var_params
+            and local_var_params["started__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__gte", local_var_params["started__gte"])
+            )  # noqa: E501
+        if (
+            "started__lt" in local_var_params
+            and local_var_params["started__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__lt", local_var_params["started__lt"])
+            )  # noqa: E501
+        if (
+            "started__lte" in local_var_params
+            and local_var_params["started__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__lte", local_var_params["started__lte"])
+            )  # noqa: E501
+        if (
+            "started__date" in local_var_params
+            and local_var_params["started__date"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__date", local_var_params["started__date"])
+            )  # noqa: E501
+        if (
+            "started__date__gt" in local_var_params
+            and local_var_params["started__date__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__date__gt", local_var_params["started__date__gt"])
+            )  # noqa: E501
+        if (
+            "started__date__gte" in local_var_params
+            and local_var_params["started__date__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__date__gte", local_var_params["started__date__gte"])
+            )  # noqa: E501
+        if (
+            "started__date__lt" in local_var_params
+            and local_var_params["started__date__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__date__lt", local_var_params["started__date__lt"])
+            )  # noqa: E501
+        if (
+            "started__date__lte" in local_var_params
+            and local_var_params["started__date__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__date__lte", local_var_params["started__date__lte"])
+            )  # noqa: E501
+        if (
+            "started__year" in local_var_params
+            and local_var_params["started__year"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__year", local_var_params["started__year"])
+            )  # noqa: E501
+        if (
+            "started__year__gt" in local_var_params
+            and local_var_params["started__year__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__year__gt", local_var_params["started__year__gt"])
+            )  # noqa: E501
+        if (
+            "started__year__gte" in local_var_params
+            and local_var_params["started__year__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__year__gte", local_var_params["started__year__gte"])
+            )  # noqa: E501
+        if (
+            "started__year__lt" in local_var_params
+            and local_var_params["started__year__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__year__lt", local_var_params["started__year__lt"])
+            )  # noqa: E501
+        if (
+            "started__year__lte" in local_var_params
+            and local_var_params["started__year__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__year__lte", local_var_params["started__year__lte"])
+            )  # noqa: E501
+        if (
+            "started__month" in local_var_params
+            and local_var_params["started__month"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__month", local_var_params["started__month"])
+            )  # noqa: E501
+        if (
+            "started__month__lte" in local_var_params
+            and local_var_params["started__month__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__month__lte", local_var_params["started__month__lte"])
+            )  # noqa: E501
+        if (
+            "finished__gt" in local_var_params
+            and local_var_params["finished__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__gt", local_var_params["finished__gt"])
+            )  # noqa: E501
+        if (
+            "finished__gte" in local_var_params
+            and local_var_params["finished__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__gte", local_var_params["finished__gte"])
+            )  # noqa: E501
+        if (
+            "finished__lt" in local_var_params
+            and local_var_params["finished__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__lt", local_var_params["finished__lt"])
+            )  # noqa: E501
+        if (
+            "finished__lte" in local_var_params
+            and local_var_params["finished__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__lte", local_var_params["finished__lte"])
+            )  # noqa: E501
+        if (
+            "finished__date" in local_var_params
+            and local_var_params["finished__date"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__date", local_var_params["finished__date"])
+            )  # noqa: E501
+        if (
+            "finished__date__gt" in local_var_params
+            and local_var_params["finished__date__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__date__gt", local_var_params["finished__date__gt"])
+            )  # noqa: E501
+        if (
+            "finished__date__gte" in local_var_params
+            and local_var_params["finished__date__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__date__gte", local_var_params["finished__date__gte"])
+            )  # noqa: E501
+        if (
+            "finished__date__lt" in local_var_params
+            and local_var_params["finished__date__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__date__lt", local_var_params["finished__date__lt"])
+            )  # noqa: E501
+        if (
+            "finished__date__lte" in local_var_params
+            and local_var_params["finished__date__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__date__lte", local_var_params["finished__date__lte"])
+            )  # noqa: E501
+        if (
+            "finished__year" in local_var_params
+            and local_var_params["finished__year"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__year", local_var_params["finished__year"])
+            )  # noqa: E501
+        if (
+            "finished__year__gt" in local_var_params
+            and local_var_params["finished__year__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__year__gt", local_var_params["finished__year__gt"])
+            )  # noqa: E501
+        if (
+            "finished__year__gte" in local_var_params
+            and local_var_params["finished__year__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__year__gte", local_var_params["finished__year__gte"])
+            )  # noqa: E501
+        if (
+            "finished__year__lt" in local_var_params
+            and local_var_params["finished__year__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__year__lt", local_var_params["finished__year__lt"])
+            )  # noqa: E501
+        if (
+            "finished__year__lte" in local_var_params
+            and local_var_params["finished__year__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__year__lte", local_var_params["finished__year__lte"])
+            )  # noqa: E501
+        if (
+            "finished__month" in local_var_params
+            and local_var_params["finished__month"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__month", local_var_params["finished__month"])
+            )  # noqa: E501
+        if (
+            "finished__month__lte" in local_var_params
+            and local_var_params["finished__month__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__month__lte", local_var_params["finished__month__lte"])
+            )  # noqa: E501
+        if (
+            "total_time" in local_var_params
+            and local_var_params["total_time"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("total_time", local_var_params["total_time"])
+            )  # noqa: E501
+        if (
+            "total_time__gt" in local_var_params
+            and local_var_params["total_time__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("total_time__gt", local_var_params["total_time__gt"])
+            )  # noqa: E501
+        if (
+            "total_time__gte" in local_var_params
+            and local_var_params["total_time__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("total_time__gte", local_var_params["total_time__gte"])
+            )  # noqa: E501
+        if (
+            "total_time__lt" in local_var_params
+            and local_var_params["total_time__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("total_time__lt", local_var_params["total_time__lt"])
+            )  # noqa: E501
+        if (
+            "total_time__lte" in local_var_params
+            and local_var_params["total_time__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("total_time__lte", local_var_params["total_time__lte"])
+            )  # noqa: E501
+        if (
+            "total_time__isnull" in local_var_params
+            and local_var_params["total_time__isnull"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("total_time__isnull", local_var_params["total_time__isnull"])
+            )  # noqa: E501
+        if (
+            "simulation__user__username" in local_var_params
+            and local_var_params["simulation__user__username"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "simulation__user__username",
+                    local_var_params["simulation__user__username"],
+                )
+            )  # noqa: E501
+        if (
+            "simulation__type__live" in local_var_params
+            and local_var_params["simulation__type__live"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("simulation__type__live", local_var_params["simulation__type__live"])
+            )  # noqa: E501
+        if (
+            "simulation__organisation__name__istartswith" in local_var_params
+            and local_var_params["simulation__organisation__name__istartswith"]
+            is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "simulation__organisation__name__istartswith",
+                    local_var_params["simulation__organisation__name__istartswith"],
+                )
+            )  # noqa: E501
+        if (
+            "simulation__organisation__unique_id" in local_var_params
+            and local_var_params["simulation__organisation__unique_id"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "simulation__organisation__unique_id",
+                    local_var_params["simulation__organisation__unique_id"],
+                )
+            )  # noqa: E501
+        if (
+            "limit" in local_var_params and local_var_params["limit"] is not None
+        ):  # noqa: E501
+            query_params.append(("limit", local_var_params["limit"]))  # noqa: E501
+        if (
+            "offset" in local_var_params and local_var_params["offset"] is not None
+        ):  # noqa: E501
+            query_params.append(("offset", local_var_params["offset"]))  # noqa: E501
 
         header_params = {}
 
@@ -340,27 +561,32 @@ class UsageApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/usage/', 'GET',
+            "/usage/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20061',  # noqa: E501
+            response_type="InlineResponse20061",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def usage_read(self, id, **kwargs):  # noqa: E501
         """View to display overview of ran simulations.  # noqa: E501
@@ -384,7 +610,7 @@ class UsageApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.usage_read_with_http_info(id, **kwargs)  # noqa: E501
 
     def usage_read_with_http_info(self, id, **kwargs):  # noqa: E501
@@ -414,36 +640,37 @@ class UsageApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method usage_read" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `usage_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `usage_read`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -454,27 +681,32 @@ class UsageApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/usage/{id}/', 'GET',
+            "/usage/{id}/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Usage',  # noqa: E501
+            response_type="Usage",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def usage_statistics(self, **kwargs):  # noqa: E501
         """Usage statistics like total session count, average session duration and such.  # noqa: E501
@@ -541,7 +773,7 @@ class UsageApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.usage_statistics_with_http_info(**kwargs)  # noqa: E501
 
     def usage_statistics_with_http_info(self, **kwargs):  # noqa: E501
@@ -615,162 +847,386 @@ class UsageApi(object):
         local_var_params = locals()
 
         all_params = [
-            'started__gt',
-            'started__gte',
-            'started__lt',
-            'started__lte',
-            'started__date',
-            'started__date__gt',
-            'started__date__gte',
-            'started__date__lt',
-            'started__date__lte',
-            'started__year',
-            'started__year__gt',
-            'started__year__gte',
-            'started__year__lt',
-            'started__year__lte',
-            'started__month',
-            'started__month__lte',
-            'finished__gt',
-            'finished__gte',
-            'finished__lt',
-            'finished__lte',
-            'finished__date',
-            'finished__date__gt',
-            'finished__date__gte',
-            'finished__date__lt',
-            'finished__date__lte',
-            'finished__year',
-            'finished__year__gt',
-            'finished__year__gte',
-            'finished__year__lt',
-            'finished__year__lte',
-            'finished__month',
-            'finished__month__lte',
-            'total_time',
-            'total_time__gt',
-            'total_time__gte',
-            'total_time__lt',
-            'total_time__lte',
-            'total_time__isnull',
-            'simulation__user__username',
-            'simulation__type__live',
-            'simulation__organisation__name__istartswith',
-            'simulation__organisation__unique_id',
-            'limit',
-            'offset'
+            "started__gt",
+            "started__gte",
+            "started__lt",
+            "started__lte",
+            "started__date",
+            "started__date__gt",
+            "started__date__gte",
+            "started__date__lt",
+            "started__date__lte",
+            "started__year",
+            "started__year__gt",
+            "started__year__gte",
+            "started__year__lt",
+            "started__year__lte",
+            "started__month",
+            "started__month__lte",
+            "finished__gt",
+            "finished__gte",
+            "finished__lt",
+            "finished__lte",
+            "finished__date",
+            "finished__date__gt",
+            "finished__date__gte",
+            "finished__date__lt",
+            "finished__date__lte",
+            "finished__year",
+            "finished__year__gt",
+            "finished__year__gte",
+            "finished__year__lt",
+            "finished__year__lte",
+            "finished__month",
+            "finished__month__lte",
+            "total_time",
+            "total_time__gt",
+            "total_time__gte",
+            "total_time__lt",
+            "total_time__lte",
+            "total_time__isnull",
+            "simulation__user__username",
+            "simulation__type__live",
+            "simulation__organisation__name__istartswith",
+            "simulation__organisation__unique_id",
+            "limit",
+            "offset",
         ]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method usage_statistics" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'started__gt' in local_var_params and local_var_params['started__gt'] is not None:  # noqa: E501
-            query_params.append(('started__gt', local_var_params['started__gt']))  # noqa: E501
-        if 'started__gte' in local_var_params and local_var_params['started__gte'] is not None:  # noqa: E501
-            query_params.append(('started__gte', local_var_params['started__gte']))  # noqa: E501
-        if 'started__lt' in local_var_params and local_var_params['started__lt'] is not None:  # noqa: E501
-            query_params.append(('started__lt', local_var_params['started__lt']))  # noqa: E501
-        if 'started__lte' in local_var_params and local_var_params['started__lte'] is not None:  # noqa: E501
-            query_params.append(('started__lte', local_var_params['started__lte']))  # noqa: E501
-        if 'started__date' in local_var_params and local_var_params['started__date'] is not None:  # noqa: E501
-            query_params.append(('started__date', local_var_params['started__date']))  # noqa: E501
-        if 'started__date__gt' in local_var_params and local_var_params['started__date__gt'] is not None:  # noqa: E501
-            query_params.append(('started__date__gt', local_var_params['started__date__gt']))  # noqa: E501
-        if 'started__date__gte' in local_var_params and local_var_params['started__date__gte'] is not None:  # noqa: E501
-            query_params.append(('started__date__gte', local_var_params['started__date__gte']))  # noqa: E501
-        if 'started__date__lt' in local_var_params and local_var_params['started__date__lt'] is not None:  # noqa: E501
-            query_params.append(('started__date__lt', local_var_params['started__date__lt']))  # noqa: E501
-        if 'started__date__lte' in local_var_params and local_var_params['started__date__lte'] is not None:  # noqa: E501
-            query_params.append(('started__date__lte', local_var_params['started__date__lte']))  # noqa: E501
-        if 'started__year' in local_var_params and local_var_params['started__year'] is not None:  # noqa: E501
-            query_params.append(('started__year', local_var_params['started__year']))  # noqa: E501
-        if 'started__year__gt' in local_var_params and local_var_params['started__year__gt'] is not None:  # noqa: E501
-            query_params.append(('started__year__gt', local_var_params['started__year__gt']))  # noqa: E501
-        if 'started__year__gte' in local_var_params and local_var_params['started__year__gte'] is not None:  # noqa: E501
-            query_params.append(('started__year__gte', local_var_params['started__year__gte']))  # noqa: E501
-        if 'started__year__lt' in local_var_params and local_var_params['started__year__lt'] is not None:  # noqa: E501
-            query_params.append(('started__year__lt', local_var_params['started__year__lt']))  # noqa: E501
-        if 'started__year__lte' in local_var_params and local_var_params['started__year__lte'] is not None:  # noqa: E501
-            query_params.append(('started__year__lte', local_var_params['started__year__lte']))  # noqa: E501
-        if 'started__month' in local_var_params and local_var_params['started__month'] is not None:  # noqa: E501
-            query_params.append(('started__month', local_var_params['started__month']))  # noqa: E501
-        if 'started__month__lte' in local_var_params and local_var_params['started__month__lte'] is not None:  # noqa: E501
-            query_params.append(('started__month__lte', local_var_params['started__month__lte']))  # noqa: E501
-        if 'finished__gt' in local_var_params and local_var_params['finished__gt'] is not None:  # noqa: E501
-            query_params.append(('finished__gt', local_var_params['finished__gt']))  # noqa: E501
-        if 'finished__gte' in local_var_params and local_var_params['finished__gte'] is not None:  # noqa: E501
-            query_params.append(('finished__gte', local_var_params['finished__gte']))  # noqa: E501
-        if 'finished__lt' in local_var_params and local_var_params['finished__lt'] is not None:  # noqa: E501
-            query_params.append(('finished__lt', local_var_params['finished__lt']))  # noqa: E501
-        if 'finished__lte' in local_var_params and local_var_params['finished__lte'] is not None:  # noqa: E501
-            query_params.append(('finished__lte', local_var_params['finished__lte']))  # noqa: E501
-        if 'finished__date' in local_var_params and local_var_params['finished__date'] is not None:  # noqa: E501
-            query_params.append(('finished__date', local_var_params['finished__date']))  # noqa: E501
-        if 'finished__date__gt' in local_var_params and local_var_params['finished__date__gt'] is not None:  # noqa: E501
-            query_params.append(('finished__date__gt', local_var_params['finished__date__gt']))  # noqa: E501
-        if 'finished__date__gte' in local_var_params and local_var_params['finished__date__gte'] is not None:  # noqa: E501
-            query_params.append(('finished__date__gte', local_var_params['finished__date__gte']))  # noqa: E501
-        if 'finished__date__lt' in local_var_params and local_var_params['finished__date__lt'] is not None:  # noqa: E501
-            query_params.append(('finished__date__lt', local_var_params['finished__date__lt']))  # noqa: E501
-        if 'finished__date__lte' in local_var_params and local_var_params['finished__date__lte'] is not None:  # noqa: E501
-            query_params.append(('finished__date__lte', local_var_params['finished__date__lte']))  # noqa: E501
-        if 'finished__year' in local_var_params and local_var_params['finished__year'] is not None:  # noqa: E501
-            query_params.append(('finished__year', local_var_params['finished__year']))  # noqa: E501
-        if 'finished__year__gt' in local_var_params and local_var_params['finished__year__gt'] is not None:  # noqa: E501
-            query_params.append(('finished__year__gt', local_var_params['finished__year__gt']))  # noqa: E501
-        if 'finished__year__gte' in local_var_params and local_var_params['finished__year__gte'] is not None:  # noqa: E501
-            query_params.append(('finished__year__gte', local_var_params['finished__year__gte']))  # noqa: E501
-        if 'finished__year__lt' in local_var_params and local_var_params['finished__year__lt'] is not None:  # noqa: E501
-            query_params.append(('finished__year__lt', local_var_params['finished__year__lt']))  # noqa: E501
-        if 'finished__year__lte' in local_var_params and local_var_params['finished__year__lte'] is not None:  # noqa: E501
-            query_params.append(('finished__year__lte', local_var_params['finished__year__lte']))  # noqa: E501
-        if 'finished__month' in local_var_params and local_var_params['finished__month'] is not None:  # noqa: E501
-            query_params.append(('finished__month', local_var_params['finished__month']))  # noqa: E501
-        if 'finished__month__lte' in local_var_params and local_var_params['finished__month__lte'] is not None:  # noqa: E501
-            query_params.append(('finished__month__lte', local_var_params['finished__month__lte']))  # noqa: E501
-        if 'total_time' in local_var_params and local_var_params['total_time'] is not None:  # noqa: E501
-            query_params.append(('total_time', local_var_params['total_time']))  # noqa: E501
-        if 'total_time__gt' in local_var_params and local_var_params['total_time__gt'] is not None:  # noqa: E501
-            query_params.append(('total_time__gt', local_var_params['total_time__gt']))  # noqa: E501
-        if 'total_time__gte' in local_var_params and local_var_params['total_time__gte'] is not None:  # noqa: E501
-            query_params.append(('total_time__gte', local_var_params['total_time__gte']))  # noqa: E501
-        if 'total_time__lt' in local_var_params and local_var_params['total_time__lt'] is not None:  # noqa: E501
-            query_params.append(('total_time__lt', local_var_params['total_time__lt']))  # noqa: E501
-        if 'total_time__lte' in local_var_params and local_var_params['total_time__lte'] is not None:  # noqa: E501
-            query_params.append(('total_time__lte', local_var_params['total_time__lte']))  # noqa: E501
-        if 'total_time__isnull' in local_var_params and local_var_params['total_time__isnull'] is not None:  # noqa: E501
-            query_params.append(('total_time__isnull', local_var_params['total_time__isnull']))  # noqa: E501
-        if 'simulation__user__username' in local_var_params and local_var_params['simulation__user__username'] is not None:  # noqa: E501
-            query_params.append(('simulation__user__username', local_var_params['simulation__user__username']))  # noqa: E501
-        if 'simulation__type__live' in local_var_params and local_var_params['simulation__type__live'] is not None:  # noqa: E501
-            query_params.append(('simulation__type__live', local_var_params['simulation__type__live']))  # noqa: E501
-        if 'simulation__organisation__name__istartswith' in local_var_params and local_var_params['simulation__organisation__name__istartswith'] is not None:  # noqa: E501
-            query_params.append(('simulation__organisation__name__istartswith', local_var_params['simulation__organisation__name__istartswith']))  # noqa: E501
-        if 'simulation__organisation__unique_id' in local_var_params and local_var_params['simulation__organisation__unique_id'] is not None:  # noqa: E501
-            query_params.append(('simulation__organisation__unique_id', local_var_params['simulation__organisation__unique_id']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if (
+            "started__gt" in local_var_params
+            and local_var_params["started__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__gt", local_var_params["started__gt"])
+            )  # noqa: E501
+        if (
+            "started__gte" in local_var_params
+            and local_var_params["started__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__gte", local_var_params["started__gte"])
+            )  # noqa: E501
+        if (
+            "started__lt" in local_var_params
+            and local_var_params["started__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__lt", local_var_params["started__lt"])
+            )  # noqa: E501
+        if (
+            "started__lte" in local_var_params
+            and local_var_params["started__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__lte", local_var_params["started__lte"])
+            )  # noqa: E501
+        if (
+            "started__date" in local_var_params
+            and local_var_params["started__date"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__date", local_var_params["started__date"])
+            )  # noqa: E501
+        if (
+            "started__date__gt" in local_var_params
+            and local_var_params["started__date__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__date__gt", local_var_params["started__date__gt"])
+            )  # noqa: E501
+        if (
+            "started__date__gte" in local_var_params
+            and local_var_params["started__date__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__date__gte", local_var_params["started__date__gte"])
+            )  # noqa: E501
+        if (
+            "started__date__lt" in local_var_params
+            and local_var_params["started__date__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__date__lt", local_var_params["started__date__lt"])
+            )  # noqa: E501
+        if (
+            "started__date__lte" in local_var_params
+            and local_var_params["started__date__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__date__lte", local_var_params["started__date__lte"])
+            )  # noqa: E501
+        if (
+            "started__year" in local_var_params
+            and local_var_params["started__year"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__year", local_var_params["started__year"])
+            )  # noqa: E501
+        if (
+            "started__year__gt" in local_var_params
+            and local_var_params["started__year__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__year__gt", local_var_params["started__year__gt"])
+            )  # noqa: E501
+        if (
+            "started__year__gte" in local_var_params
+            and local_var_params["started__year__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__year__gte", local_var_params["started__year__gte"])
+            )  # noqa: E501
+        if (
+            "started__year__lt" in local_var_params
+            and local_var_params["started__year__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__year__lt", local_var_params["started__year__lt"])
+            )  # noqa: E501
+        if (
+            "started__year__lte" in local_var_params
+            and local_var_params["started__year__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__year__lte", local_var_params["started__year__lte"])
+            )  # noqa: E501
+        if (
+            "started__month" in local_var_params
+            and local_var_params["started__month"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__month", local_var_params["started__month"])
+            )  # noqa: E501
+        if (
+            "started__month__lte" in local_var_params
+            and local_var_params["started__month__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("started__month__lte", local_var_params["started__month__lte"])
+            )  # noqa: E501
+        if (
+            "finished__gt" in local_var_params
+            and local_var_params["finished__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__gt", local_var_params["finished__gt"])
+            )  # noqa: E501
+        if (
+            "finished__gte" in local_var_params
+            and local_var_params["finished__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__gte", local_var_params["finished__gte"])
+            )  # noqa: E501
+        if (
+            "finished__lt" in local_var_params
+            and local_var_params["finished__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__lt", local_var_params["finished__lt"])
+            )  # noqa: E501
+        if (
+            "finished__lte" in local_var_params
+            and local_var_params["finished__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__lte", local_var_params["finished__lte"])
+            )  # noqa: E501
+        if (
+            "finished__date" in local_var_params
+            and local_var_params["finished__date"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__date", local_var_params["finished__date"])
+            )  # noqa: E501
+        if (
+            "finished__date__gt" in local_var_params
+            and local_var_params["finished__date__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__date__gt", local_var_params["finished__date__gt"])
+            )  # noqa: E501
+        if (
+            "finished__date__gte" in local_var_params
+            and local_var_params["finished__date__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__date__gte", local_var_params["finished__date__gte"])
+            )  # noqa: E501
+        if (
+            "finished__date__lt" in local_var_params
+            and local_var_params["finished__date__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__date__lt", local_var_params["finished__date__lt"])
+            )  # noqa: E501
+        if (
+            "finished__date__lte" in local_var_params
+            and local_var_params["finished__date__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__date__lte", local_var_params["finished__date__lte"])
+            )  # noqa: E501
+        if (
+            "finished__year" in local_var_params
+            and local_var_params["finished__year"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__year", local_var_params["finished__year"])
+            )  # noqa: E501
+        if (
+            "finished__year__gt" in local_var_params
+            and local_var_params["finished__year__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__year__gt", local_var_params["finished__year__gt"])
+            )  # noqa: E501
+        if (
+            "finished__year__gte" in local_var_params
+            and local_var_params["finished__year__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__year__gte", local_var_params["finished__year__gte"])
+            )  # noqa: E501
+        if (
+            "finished__year__lt" in local_var_params
+            and local_var_params["finished__year__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__year__lt", local_var_params["finished__year__lt"])
+            )  # noqa: E501
+        if (
+            "finished__year__lte" in local_var_params
+            and local_var_params["finished__year__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__year__lte", local_var_params["finished__year__lte"])
+            )  # noqa: E501
+        if (
+            "finished__month" in local_var_params
+            and local_var_params["finished__month"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__month", local_var_params["finished__month"])
+            )  # noqa: E501
+        if (
+            "finished__month__lte" in local_var_params
+            and local_var_params["finished__month__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("finished__month__lte", local_var_params["finished__month__lte"])
+            )  # noqa: E501
+        if (
+            "total_time" in local_var_params
+            and local_var_params["total_time"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("total_time", local_var_params["total_time"])
+            )  # noqa: E501
+        if (
+            "total_time__gt" in local_var_params
+            and local_var_params["total_time__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("total_time__gt", local_var_params["total_time__gt"])
+            )  # noqa: E501
+        if (
+            "total_time__gte" in local_var_params
+            and local_var_params["total_time__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("total_time__gte", local_var_params["total_time__gte"])
+            )  # noqa: E501
+        if (
+            "total_time__lt" in local_var_params
+            and local_var_params["total_time__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("total_time__lt", local_var_params["total_time__lt"])
+            )  # noqa: E501
+        if (
+            "total_time__lte" in local_var_params
+            and local_var_params["total_time__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("total_time__lte", local_var_params["total_time__lte"])
+            )  # noqa: E501
+        if (
+            "total_time__isnull" in local_var_params
+            and local_var_params["total_time__isnull"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("total_time__isnull", local_var_params["total_time__isnull"])
+            )  # noqa: E501
+        if (
+            "simulation__user__username" in local_var_params
+            and local_var_params["simulation__user__username"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "simulation__user__username",
+                    local_var_params["simulation__user__username"],
+                )
+            )  # noqa: E501
+        if (
+            "simulation__type__live" in local_var_params
+            and local_var_params["simulation__type__live"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("simulation__type__live", local_var_params["simulation__type__live"])
+            )  # noqa: E501
+        if (
+            "simulation__organisation__name__istartswith" in local_var_params
+            and local_var_params["simulation__organisation__name__istartswith"]
+            is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "simulation__organisation__name__istartswith",
+                    local_var_params["simulation__organisation__name__istartswith"],
+                )
+            )  # noqa: E501
+        if (
+            "simulation__organisation__unique_id" in local_var_params
+            and local_var_params["simulation__organisation__unique_id"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "simulation__organisation__unique_id",
+                    local_var_params["simulation__organisation__unique_id"],
+                )
+            )  # noqa: E501
+        if (
+            "limit" in local_var_params and local_var_params["limit"] is not None
+        ):  # noqa: E501
+            query_params.append(("limit", local_var_params["limit"]))  # noqa: E501
+        if (
+            "offset" in local_var_params and local_var_params["offset"] is not None
+        ):  # noqa: E501
+            query_params.append(("offset", local_var_params["offset"]))  # noqa: E501
 
         header_params = {}
 
@@ -779,24 +1235,29 @@ class UsageApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/usage/statistics/', 'GET',
+            "/usage/statistics/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UsageStatistics',  # noqa: E501
+            response_type="UsageStatistics",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

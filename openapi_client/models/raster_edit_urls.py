@@ -33,17 +33,13 @@ class RasterEditUrls(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    openapi_types = {
-        'raster_type': 'str',
-        'url': 'str'
-    }
+    openapi_types = {"raster_type": "str", "url": "str"}
 
-    attribute_map = {
-        'raster_type': 'raster_type',
-        'url': 'url'
-    }
+    attribute_map = {"raster_type": "raster_type", "url": "url"}
 
-    def __init__(self, raster_type=None, url=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self, raster_type=None, url=None, local_vars_configuration=None
+    ):  # noqa: E501
         """RasterEditUrls - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,11 +70,20 @@ class RasterEditUrls(object):
         :param raster_type: The raster_type of this RasterEditUrls.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and raster_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `raster_type`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                raster_type is not None and len(raster_type) < 1):
-            raise ValueError("Invalid value for `raster_type`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and raster_type is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `raster_type`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and raster_type is not None
+            and len(raster_type) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `raster_type`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._raster_type = raster_type
 
@@ -100,8 +105,12 @@ class RasterEditUrls(object):
         :param url: The url of this RasterEditUrls.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and url is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `url`, must not be `None`"
+            )  # noqa: E501
 
         self._url = url
 
@@ -112,18 +121,20 @@ class RasterEditUrls(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

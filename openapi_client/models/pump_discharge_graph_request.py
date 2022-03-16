@@ -34,22 +34,30 @@ class PumpDischargeGraphRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'start_time': 'int',
-        'history_points_limit': 'int',
-        'subscribe': 'bool',
-        'subscribe_rate_limit': 'float',
-        'pump_id': 'int'
+        "start_time": "int",
+        "history_points_limit": "int",
+        "subscribe": "bool",
+        "subscribe_rate_limit": "float",
+        "pump_id": "int",
     }
 
     attribute_map = {
-        'start_time': 'start_time',
-        'history_points_limit': 'history_points_limit',
-        'subscribe': 'subscribe',
-        'subscribe_rate_limit': 'subscribe_rate_limit',
-        'pump_id': 'pump_id'
+        "start_time": "start_time",
+        "history_points_limit": "history_points_limit",
+        "subscribe": "subscribe",
+        "subscribe_rate_limit": "subscribe_rate_limit",
+        "pump_id": "pump_id",
     }
 
-    def __init__(self, start_time=None, history_points_limit=None, subscribe=None, subscribe_rate_limit=None, pump_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        start_time=None,
+        history_points_limit=None,
+        subscribe=None,
+        subscribe_rate_limit=None,
+        pump_id=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """PumpDischargeGraphRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -90,11 +98,20 @@ class PumpDischargeGraphRequest(object):
         :param start_time: The start_time of this PumpDischargeGraphRequest.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and start_time is None:  # noqa: E501
-            raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                start_time is not None and start_time < 0):  # noqa: E501
-            raise ValueError("Invalid value for `start_time`, must be a value greater than or equal to `0`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and start_time is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `start_time`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and start_time is not None
+            and start_time < 0
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `start_time`, must be a value greater than or equal to `0`"
+            )  # noqa: E501
 
         self._start_time = start_time
 
@@ -118,12 +135,22 @@ class PumpDischargeGraphRequest(object):
         :param history_points_limit: The history_points_limit of this PumpDischargeGraphRequest.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                history_points_limit is not None and history_points_limit > 500):  # noqa: E501
-            raise ValueError("Invalid value for `history_points_limit`, must be a value less than or equal to `500`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                history_points_limit is not None and history_points_limit < 1):  # noqa: E501
-            raise ValueError("Invalid value for `history_points_limit`, must be a value greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and history_points_limit is not None
+            and history_points_limit > 500
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `history_points_limit`, must be a value less than or equal to `500`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and history_points_limit is not None
+            and history_points_limit < 1
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `history_points_limit`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
 
         self._history_points_limit = history_points_limit
 
@@ -147,8 +174,12 @@ class PumpDischargeGraphRequest(object):
         :param subscribe: The subscribe of this PumpDischargeGraphRequest.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and subscribe is None:  # noqa: E501
-            raise ValueError("Invalid value for `subscribe`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and subscribe is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `subscribe`, must not be `None`"
+            )  # noqa: E501
 
         self._subscribe = subscribe
 
@@ -172,12 +203,22 @@ class PumpDischargeGraphRequest(object):
         :param subscribe_rate_limit: The subscribe_rate_limit of this PumpDischargeGraphRequest.  # noqa: E501
         :type: float
         """
-        if (self.local_vars_configuration.client_side_validation and
-                subscribe_rate_limit is not None and subscribe_rate_limit > 2):  # noqa: E501
-            raise ValueError("Invalid value for `subscribe_rate_limit`, must be a value less than or equal to `2`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                subscribe_rate_limit is not None and subscribe_rate_limit < 0.25):  # noqa: E501
-            raise ValueError("Invalid value for `subscribe_rate_limit`, must be a value greater than or equal to `0.25`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and subscribe_rate_limit is not None
+            and subscribe_rate_limit > 2
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `subscribe_rate_limit`, must be a value less than or equal to `2`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and subscribe_rate_limit is not None
+            and subscribe_rate_limit < 0.25
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `subscribe_rate_limit`, must be a value greater than or equal to `0.25`"
+            )  # noqa: E501
 
         self._subscribe_rate_limit = subscribe_rate_limit
 
@@ -199,11 +240,20 @@ class PumpDischargeGraphRequest(object):
         :param pump_id: The pump_id of this PumpDischargeGraphRequest.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and pump_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `pump_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                pump_id is not None and pump_id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `pump_id`, must be a value greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and pump_id is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `pump_id`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and pump_id is not None
+            and pump_id < 1
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `pump_id`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
 
         self._pump_id = pump_id
 
@@ -214,18 +264,20 @@ class PumpDischargeGraphRequest(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

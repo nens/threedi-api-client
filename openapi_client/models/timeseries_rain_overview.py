@@ -34,32 +34,45 @@ class TimeseriesRainOverview(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'simulation': 'str',
-        'offset': 'int',
-        'duration': 'int',
-        'interpolate': 'bool',
-        'values': 'list[list[float]]',
-        'units': 'str',
-        'constant': 'bool',
-        'uid': 'str',
-        'id': 'int'
+        "url": "str",
+        "simulation": "str",
+        "offset": "int",
+        "duration": "int",
+        "interpolate": "bool",
+        "values": "list[list[float]]",
+        "units": "str",
+        "constant": "bool",
+        "uid": "str",
+        "id": "int",
     }
 
     attribute_map = {
-        'url': 'url',
-        'simulation': 'simulation',
-        'offset': 'offset',
-        'duration': 'duration',
-        'interpolate': 'interpolate',
-        'values': 'values',
-        'units': 'units',
-        'constant': 'constant',
-        'uid': 'uid',
-        'id': 'id'
+        "url": "url",
+        "simulation": "simulation",
+        "offset": "offset",
+        "duration": "duration",
+        "interpolate": "interpolate",
+        "values": "values",
+        "units": "units",
+        "constant": "constant",
+        "uid": "uid",
+        "id": "id",
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, duration=None, interpolate=None, values=None, units=None, constant=None, uid=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        simulation=None,
+        offset=None,
+        duration=None,
+        interpolate=None,
+        values=None,
+        units=None,
+        constant=None,
+        uid=None,
+        id=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """TimeseriesRainOverview - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -157,14 +170,28 @@ class TimeseriesRainOverview(object):
         :param offset: The offset of this TimeseriesRainOverview.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and offset is None:  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                offset is not None and offset > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                offset is not None and offset < 0):  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must be a value greater than or equal to `0`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and offset is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and offset is not None
+            and offset > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and offset is not None
+            and offset < 0
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must be a value greater than or equal to `0`"
+            )  # noqa: E501
 
         self._offset = offset
 
@@ -232,8 +259,12 @@ class TimeseriesRainOverview(object):
         :param values: The values of this TimeseriesRainOverview.  # noqa: E501
         :type: list[list[float]]
         """
-        if self.local_vars_configuration.client_side_validation and values is None:  # noqa: E501
-            raise ValueError("Invalid value for `values`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and values is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `values`, must not be `None`"
+            )  # noqa: E501
 
         self._values = values
 
@@ -257,13 +288,21 @@ class TimeseriesRainOverview(object):
         :param units: The units of this TimeseriesRainOverview.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and units is None:  # noqa: E501
-            raise ValueError("Invalid value for `units`, must not be `None`")  # noqa: E501
-        allowed_values = ["m/s"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and units is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
-                .format(units, allowed_values)
+                "Invalid value for `units`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = ["m/s"]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and units not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `units` ({0}), must be one of {1}".format(  # noqa: E501
+                    units, allowed_values
+                )
             )
 
         self._units = units
@@ -338,18 +377,20 @@ class TimeseriesRainOverview(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

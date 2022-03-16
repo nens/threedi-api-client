@@ -65,7 +65,9 @@ def test_download_fileobj_two_chunks(pool, responses_double):
 
     callback_func = mock.Mock()
 
-    download_fileobj("some-url", stream, chunk_size=64, pool=pool, callback_func=callback_func)
+    download_fileobj(
+        "some-url", stream, chunk_size=64, pool=pool, callback_func=callback_func
+    )
 
     (_, kwargs1), (_, kwargs2) = pool.request.call_args_list
     assert kwargs1["headers"] == {"Range": "bytes=0-63"}
@@ -77,6 +79,7 @@ def test_download_fileobj_two_chunks(pool, responses_double):
 
     assert args1 == (63, 65)
     assert args2 == (65, 65)
+
 
 def test_download_fileobj_no_multipart(pool, responses_single):
     """The remote server does not support range requests"""
@@ -169,7 +172,13 @@ def test_upload_fileobj_callback(pool, fileobj, upload_response):
     pool.request.return_value = upload_response
     callback_func = mock.Mock()
 
-    upload_fileobj("some-url", fileobj, chunk_size=chunk_size, pool=pool, callback_func=callback_func)
+    upload_fileobj(
+        "some-url",
+        fileobj,
+        chunk_size=chunk_size,
+        pool=pool,
+        callback_func=callback_func,
+    )
 
     # base64.b64encode(hashlib.md5(b"X" * 39).digest()).decode()
     expected_md5 = "Q2zMNJgyazDIkoSqvpOqVg=="

@@ -34,26 +34,36 @@ class ResultFile(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'simulation': 'str',
-        'filename': 'str',
-        'description': 'str',
-        'created': 'datetime',
-        'file': 'FileReadOnly',
-        'id': 'int'
+        "url": "str",
+        "simulation": "str",
+        "filename": "str",
+        "description": "str",
+        "created": "datetime",
+        "file": "FileReadOnly",
+        "id": "int",
     }
 
     attribute_map = {
-        'url': 'url',
-        'simulation': 'simulation',
-        'filename': 'filename',
-        'description': 'description',
-        'created': 'created',
-        'file': 'file',
-        'id': 'id'
+        "url": "url",
+        "simulation": "simulation",
+        "filename": "filename",
+        "description": "description",
+        "created": "created",
+        "file": "file",
+        "id": "id",
     }
 
-    def __init__(self, url=None, simulation=None, filename=None, description=None, created=None, file=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        simulation=None,
+        filename=None,
+        description=None,
+        created=None,
+        file=None,
+        id=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """ResultFile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -140,14 +150,28 @@ class ResultFile(object):
         :param filename: The filename of this ResultFile.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and filename is None:  # noqa: E501
-            raise ValueError("Invalid value for `filename`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                filename is not None and len(filename) > 255):
-            raise ValueError("Invalid value for `filename`, length must be less than or equal to `255`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                filename is not None and len(filename) < 1):
-            raise ValueError("Invalid value for `filename`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and filename is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `filename`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and filename is not None
+            and len(filename) > 255
+        ):
+            raise ValueError(
+                "Invalid value for `filename`, length must be less than or equal to `255`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and filename is not None
+            and len(filename) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `filename`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._filename = filename
 
@@ -190,8 +214,12 @@ class ResultFile(object):
         :param created: The created of this ResultFile.  # noqa: E501
         :type: datetime
         """
-        if self.local_vars_configuration.client_side_validation and created is None:  # noqa: E501
-            raise ValueError("Invalid value for `created`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and created is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `created`, must not be `None`"
+            )  # noqa: E501
 
         self._created = created
 
@@ -244,18 +272,20 @@ class ResultFile(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

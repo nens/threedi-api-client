@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.11.1   3Di core release: 2.2.3  deployed on:  02:06PM (UTC) on January 13, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 2.17.1   3Di core release: 2.2.5  deployed on:  12:36PM (UTC) on February 11, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -21,7 +21,7 @@ import six
 from threedi_api_client.openapi.api_client import ApiClient
 from threedi_api_client.openapi.exceptions import (  # noqa: F401
     ApiTypeError,
-    ApiValueError
+    ApiValueError,
 )
 
 
@@ -59,7 +59,7 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.schematisations_create_with_http_info(data, **kwargs)  # noqa: E501
 
     def schematisations_create_with_http_info(self, data, **kwargs):  # noqa: E501
@@ -89,30 +89,32 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'data'
-        ]
+        all_params = ["data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_create" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `schematisations_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -126,34 +128,42 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/', 'POST',
+            "/v3-beta/schematisations/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Schematisation',  # noqa: E501
+            response_type="Schematisation",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def schematisations_delete(self, id, **kwargs):  # noqa: E501
         """schematisations_delete  # noqa: E501
@@ -177,7 +187,7 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.schematisations_delete_with_http_info(id, **kwargs)  # noqa: E501
 
     def schematisations_delete_with_http_info(self, id, **kwargs):  # noqa: E501
@@ -207,36 +217,37 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_delete" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -247,10 +258,11 @@ class V3BetaApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{id}/', 'DELETE',
+            "/v3-beta/schematisations/{id}/",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -259,11 +271,14 @@ class V3BetaApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def schematisations_latest_revision(self, id, **kwargs):  # noqa: E501
         """Get the latest committed revision.  # noqa: E501
@@ -287,10 +302,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_latest_revision_with_http_info(id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_latest_revision_with_http_info(
+            id, **kwargs
+        )  # noqa: E501
 
-    def schematisations_latest_revision_with_http_info(self, id, **kwargs):  # noqa: E501
+    def schematisations_latest_revision_with_http_info(
+        self, id, **kwargs
+    ):  # noqa: E501
         """Get the latest committed revision.  # noqa: E501
 
         For retrieving all revisions use: `/schematisations/{id}/revisions`  # noqa: E501
@@ -317,36 +336,37 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_latest_revision" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_latest_revision`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_latest_revision`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -357,27 +377,32 @@ class V3BetaApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{id}/latest_revision/', 'GET',
+            "/v3-beta/schematisations/{id}/latest-revision/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='SchematisationRevision',  # noqa: E501
+            response_type="SchematisationRevision",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def schematisations_list(self, **kwargs):  # noqa: E501
         """schematisations_list  # noqa: E501
@@ -495,7 +520,7 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.schematisations_list_with_http_info(**kwargs)  # noqa: E501
 
     def schematisations_list_with_http_info(self, **kwargs):  # noqa: E501
@@ -620,315 +645,822 @@ class V3BetaApi(object):
         local_var_params = locals()
 
         all_params = [
-            'created__range',
-            'created__date',
-            'created__date__gt',
-            'created__date__gte',
-            'created__date__lt',
-            'created__date__lte',
-            'created__year',
-            'created__year__gt',
-            'created__year__gte',
-            'created__year__lt',
-            'created__year__lte',
-            'created__month',
-            'created__month__lte',
-            'created__day',
-            'created__day__lt',
-            'created__week',
-            'created__week_day',
-            'created__quarter',
-            'created__time',
-            'created__hour',
-            'created__minute',
-            'created__second',
-            'created__isnull',
-            'last_updated__range',
-            'last_updated__date',
-            'last_updated__date__gt',
-            'last_updated__date__gte',
-            'last_updated__date__lt',
-            'last_updated__date__lte',
-            'last_updated__year',
-            'last_updated__year__gt',
-            'last_updated__year__gte',
-            'last_updated__year__lt',
-            'last_updated__year__lte',
-            'last_updated__month',
-            'last_updated__month__lte',
-            'last_updated__day',
-            'last_updated__day__lt',
-            'last_updated__week',
-            'last_updated__week_day',
-            'last_updated__quarter',
-            'last_updated__time',
-            'last_updated__hour',
-            'last_updated__minute',
-            'last_updated__second',
-            'last_updated__isnull',
-            'created_by__username',
-            'created_by__username__iexact',
-            'created_by__username__contains',
-            'created_by__username__icontains',
-            'created_by__username__in',
-            'created_by__username__startswith',
-            'created_by__username__istartswith',
-            'created_by__username__endswith',
-            'created_by__username__regex',
-            'name',
-            'name__iexact',
-            'name__contains',
-            'name__icontains',
-            'name__in',
-            'name__startswith',
-            'name__istartswith',
-            'name__endswith',
-            'name__regex',
-            'slug',
-            'slug__iexact',
-            'slug__contains',
-            'slug__icontains',
-            'slug__in',
-            'slug__startswith',
-            'slug__istartswith',
-            'slug__endswith',
-            'slug__regex',
-            'owner__name',
-            'owner__name__iexact',
-            'owner__name__contains',
-            'owner__name__icontains',
-            'owner__name__in',
-            'owner__name__startswith',
-            'owner__name__istartswith',
-            'owner__name__endswith',
-            'owner__name__regex',
-            'owner__unique_id',
-            'owner__unique_id__iexact',
-            'owner__unique_id__contains',
-            'owner__unique_id__icontains',
-            'owner__unique_id__in',
-            'owner__unique_id__startswith',
-            'owner__unique_id__istartswith',
-            'owner__unique_id__endswith',
-            'owner__unique_id__regex',
-            'tags__in',
-            'ordering',
-            'limit',
-            'offset'
+            "created__range",
+            "created__date",
+            "created__date__gt",
+            "created__date__gte",
+            "created__date__lt",
+            "created__date__lte",
+            "created__year",
+            "created__year__gt",
+            "created__year__gte",
+            "created__year__lt",
+            "created__year__lte",
+            "created__month",
+            "created__month__lte",
+            "created__day",
+            "created__day__lt",
+            "created__week",
+            "created__week_day",
+            "created__quarter",
+            "created__time",
+            "created__hour",
+            "created__minute",
+            "created__second",
+            "created__isnull",
+            "last_updated__range",
+            "last_updated__date",
+            "last_updated__date__gt",
+            "last_updated__date__gte",
+            "last_updated__date__lt",
+            "last_updated__date__lte",
+            "last_updated__year",
+            "last_updated__year__gt",
+            "last_updated__year__gte",
+            "last_updated__year__lt",
+            "last_updated__year__lte",
+            "last_updated__month",
+            "last_updated__month__lte",
+            "last_updated__day",
+            "last_updated__day__lt",
+            "last_updated__week",
+            "last_updated__week_day",
+            "last_updated__quarter",
+            "last_updated__time",
+            "last_updated__hour",
+            "last_updated__minute",
+            "last_updated__second",
+            "last_updated__isnull",
+            "created_by__username",
+            "created_by__username__iexact",
+            "created_by__username__contains",
+            "created_by__username__icontains",
+            "created_by__username__in",
+            "created_by__username__startswith",
+            "created_by__username__istartswith",
+            "created_by__username__endswith",
+            "created_by__username__regex",
+            "name",
+            "name__iexact",
+            "name__contains",
+            "name__icontains",
+            "name__in",
+            "name__startswith",
+            "name__istartswith",
+            "name__endswith",
+            "name__regex",
+            "slug",
+            "slug__iexact",
+            "slug__contains",
+            "slug__icontains",
+            "slug__in",
+            "slug__startswith",
+            "slug__istartswith",
+            "slug__endswith",
+            "slug__regex",
+            "owner__name",
+            "owner__name__iexact",
+            "owner__name__contains",
+            "owner__name__icontains",
+            "owner__name__in",
+            "owner__name__startswith",
+            "owner__name__istartswith",
+            "owner__name__endswith",
+            "owner__name__regex",
+            "owner__unique_id",
+            "owner__unique_id__iexact",
+            "owner__unique_id__contains",
+            "owner__unique_id__icontains",
+            "owner__unique_id__in",
+            "owner__unique_id__startswith",
+            "owner__unique_id__istartswith",
+            "owner__unique_id__endswith",
+            "owner__unique_id__regex",
+            "tags__in",
+            "ordering",
+            "limit",
+            "offset",
         ]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_list" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'created__range' in local_var_params and local_var_params['created__range'] is not None:  # noqa: E501
-            query_params.append(('created__range', local_var_params['created__range']))  # noqa: E501
-        if 'created__date' in local_var_params and local_var_params['created__date'] is not None:  # noqa: E501
-            query_params.append(('created__date', local_var_params['created__date']))  # noqa: E501
-        if 'created__date__gt' in local_var_params and local_var_params['created__date__gt'] is not None:  # noqa: E501
-            query_params.append(('created__date__gt', local_var_params['created__date__gt']))  # noqa: E501
-        if 'created__date__gte' in local_var_params and local_var_params['created__date__gte'] is not None:  # noqa: E501
-            query_params.append(('created__date__gte', local_var_params['created__date__gte']))  # noqa: E501
-        if 'created__date__lt' in local_var_params and local_var_params['created__date__lt'] is not None:  # noqa: E501
-            query_params.append(('created__date__lt', local_var_params['created__date__lt']))  # noqa: E501
-        if 'created__date__lte' in local_var_params and local_var_params['created__date__lte'] is not None:  # noqa: E501
-            query_params.append(('created__date__lte', local_var_params['created__date__lte']))  # noqa: E501
-        if 'created__year' in local_var_params and local_var_params['created__year'] is not None:  # noqa: E501
-            query_params.append(('created__year', local_var_params['created__year']))  # noqa: E501
-        if 'created__year__gt' in local_var_params and local_var_params['created__year__gt'] is not None:  # noqa: E501
-            query_params.append(('created__year__gt', local_var_params['created__year__gt']))  # noqa: E501
-        if 'created__year__gte' in local_var_params and local_var_params['created__year__gte'] is not None:  # noqa: E501
-            query_params.append(('created__year__gte', local_var_params['created__year__gte']))  # noqa: E501
-        if 'created__year__lt' in local_var_params and local_var_params['created__year__lt'] is not None:  # noqa: E501
-            query_params.append(('created__year__lt', local_var_params['created__year__lt']))  # noqa: E501
-        if 'created__year__lte' in local_var_params and local_var_params['created__year__lte'] is not None:  # noqa: E501
-            query_params.append(('created__year__lte', local_var_params['created__year__lte']))  # noqa: E501
-        if 'created__month' in local_var_params and local_var_params['created__month'] is not None:  # noqa: E501
-            query_params.append(('created__month', local_var_params['created__month']))  # noqa: E501
-        if 'created__month__lte' in local_var_params and local_var_params['created__month__lte'] is not None:  # noqa: E501
-            query_params.append(('created__month__lte', local_var_params['created__month__lte']))  # noqa: E501
-        if 'created__day' in local_var_params and local_var_params['created__day'] is not None:  # noqa: E501
-            query_params.append(('created__day', local_var_params['created__day']))  # noqa: E501
-        if 'created__day__lt' in local_var_params and local_var_params['created__day__lt'] is not None:  # noqa: E501
-            query_params.append(('created__day__lt', local_var_params['created__day__lt']))  # noqa: E501
-        if 'created__week' in local_var_params and local_var_params['created__week'] is not None:  # noqa: E501
-            query_params.append(('created__week', local_var_params['created__week']))  # noqa: E501
-        if 'created__week_day' in local_var_params and local_var_params['created__week_day'] is not None:  # noqa: E501
-            query_params.append(('created__week_day', local_var_params['created__week_day']))  # noqa: E501
-        if 'created__quarter' in local_var_params and local_var_params['created__quarter'] is not None:  # noqa: E501
-            query_params.append(('created__quarter', local_var_params['created__quarter']))  # noqa: E501
-        if 'created__time' in local_var_params and local_var_params['created__time'] is not None:  # noqa: E501
-            query_params.append(('created__time', local_var_params['created__time']))  # noqa: E501
-        if 'created__hour' in local_var_params and local_var_params['created__hour'] is not None:  # noqa: E501
-            query_params.append(('created__hour', local_var_params['created__hour']))  # noqa: E501
-        if 'created__minute' in local_var_params and local_var_params['created__minute'] is not None:  # noqa: E501
-            query_params.append(('created__minute', local_var_params['created__minute']))  # noqa: E501
-        if 'created__second' in local_var_params and local_var_params['created__second'] is not None:  # noqa: E501
-            query_params.append(('created__second', local_var_params['created__second']))  # noqa: E501
-        if 'created__isnull' in local_var_params and local_var_params['created__isnull'] is not None:  # noqa: E501
-            query_params.append(('created__isnull', local_var_params['created__isnull']))  # noqa: E501
-        if 'last_updated__range' in local_var_params and local_var_params['last_updated__range'] is not None:  # noqa: E501
-            query_params.append(('last_updated__range', local_var_params['last_updated__range']))  # noqa: E501
-        if 'last_updated__date' in local_var_params and local_var_params['last_updated__date'] is not None:  # noqa: E501
-            query_params.append(('last_updated__date', local_var_params['last_updated__date']))  # noqa: E501
-        if 'last_updated__date__gt' in local_var_params and local_var_params['last_updated__date__gt'] is not None:  # noqa: E501
-            query_params.append(('last_updated__date__gt', local_var_params['last_updated__date__gt']))  # noqa: E501
-        if 'last_updated__date__gte' in local_var_params and local_var_params['last_updated__date__gte'] is not None:  # noqa: E501
-            query_params.append(('last_updated__date__gte', local_var_params['last_updated__date__gte']))  # noqa: E501
-        if 'last_updated__date__lt' in local_var_params and local_var_params['last_updated__date__lt'] is not None:  # noqa: E501
-            query_params.append(('last_updated__date__lt', local_var_params['last_updated__date__lt']))  # noqa: E501
-        if 'last_updated__date__lte' in local_var_params and local_var_params['last_updated__date__lte'] is not None:  # noqa: E501
-            query_params.append(('last_updated__date__lte', local_var_params['last_updated__date__lte']))  # noqa: E501
-        if 'last_updated__year' in local_var_params and local_var_params['last_updated__year'] is not None:  # noqa: E501
-            query_params.append(('last_updated__year', local_var_params['last_updated__year']))  # noqa: E501
-        if 'last_updated__year__gt' in local_var_params and local_var_params['last_updated__year__gt'] is not None:  # noqa: E501
-            query_params.append(('last_updated__year__gt', local_var_params['last_updated__year__gt']))  # noqa: E501
-        if 'last_updated__year__gte' in local_var_params and local_var_params['last_updated__year__gte'] is not None:  # noqa: E501
-            query_params.append(('last_updated__year__gte', local_var_params['last_updated__year__gte']))  # noqa: E501
-        if 'last_updated__year__lt' in local_var_params and local_var_params['last_updated__year__lt'] is not None:  # noqa: E501
-            query_params.append(('last_updated__year__lt', local_var_params['last_updated__year__lt']))  # noqa: E501
-        if 'last_updated__year__lte' in local_var_params and local_var_params['last_updated__year__lte'] is not None:  # noqa: E501
-            query_params.append(('last_updated__year__lte', local_var_params['last_updated__year__lte']))  # noqa: E501
-        if 'last_updated__month' in local_var_params and local_var_params['last_updated__month'] is not None:  # noqa: E501
-            query_params.append(('last_updated__month', local_var_params['last_updated__month']))  # noqa: E501
-        if 'last_updated__month__lte' in local_var_params and local_var_params['last_updated__month__lte'] is not None:  # noqa: E501
-            query_params.append(('last_updated__month__lte', local_var_params['last_updated__month__lte']))  # noqa: E501
-        if 'last_updated__day' in local_var_params and local_var_params['last_updated__day'] is not None:  # noqa: E501
-            query_params.append(('last_updated__day', local_var_params['last_updated__day']))  # noqa: E501
-        if 'last_updated__day__lt' in local_var_params and local_var_params['last_updated__day__lt'] is not None:  # noqa: E501
-            query_params.append(('last_updated__day__lt', local_var_params['last_updated__day__lt']))  # noqa: E501
-        if 'last_updated__week' in local_var_params and local_var_params['last_updated__week'] is not None:  # noqa: E501
-            query_params.append(('last_updated__week', local_var_params['last_updated__week']))  # noqa: E501
-        if 'last_updated__week_day' in local_var_params and local_var_params['last_updated__week_day'] is not None:  # noqa: E501
-            query_params.append(('last_updated__week_day', local_var_params['last_updated__week_day']))  # noqa: E501
-        if 'last_updated__quarter' in local_var_params and local_var_params['last_updated__quarter'] is not None:  # noqa: E501
-            query_params.append(('last_updated__quarter', local_var_params['last_updated__quarter']))  # noqa: E501
-        if 'last_updated__time' in local_var_params and local_var_params['last_updated__time'] is not None:  # noqa: E501
-            query_params.append(('last_updated__time', local_var_params['last_updated__time']))  # noqa: E501
-        if 'last_updated__hour' in local_var_params and local_var_params['last_updated__hour'] is not None:  # noqa: E501
-            query_params.append(('last_updated__hour', local_var_params['last_updated__hour']))  # noqa: E501
-        if 'last_updated__minute' in local_var_params and local_var_params['last_updated__minute'] is not None:  # noqa: E501
-            query_params.append(('last_updated__minute', local_var_params['last_updated__minute']))  # noqa: E501
-        if 'last_updated__second' in local_var_params and local_var_params['last_updated__second'] is not None:  # noqa: E501
-            query_params.append(('last_updated__second', local_var_params['last_updated__second']))  # noqa: E501
-        if 'last_updated__isnull' in local_var_params and local_var_params['last_updated__isnull'] is not None:  # noqa: E501
-            query_params.append(('last_updated__isnull', local_var_params['last_updated__isnull']))  # noqa: E501
-        if 'created_by__username' in local_var_params and local_var_params['created_by__username'] is not None:  # noqa: E501
-            query_params.append(('created_by__username', local_var_params['created_by__username']))  # noqa: E501
-        if 'created_by__username__iexact' in local_var_params and local_var_params['created_by__username__iexact'] is not None:  # noqa: E501
-            query_params.append(('created_by__username__iexact', local_var_params['created_by__username__iexact']))  # noqa: E501
-        if 'created_by__username__contains' in local_var_params and local_var_params['created_by__username__contains'] is not None:  # noqa: E501
-            query_params.append(('created_by__username__contains', local_var_params['created_by__username__contains']))  # noqa: E501
-        if 'created_by__username__icontains' in local_var_params and local_var_params['created_by__username__icontains'] is not None:  # noqa: E501
-            query_params.append(('created_by__username__icontains', local_var_params['created_by__username__icontains']))  # noqa: E501
-        if 'created_by__username__in' in local_var_params and local_var_params['created_by__username__in'] is not None:  # noqa: E501
-            query_params.append(('created_by__username__in', local_var_params['created_by__username__in']))  # noqa: E501
-        if 'created_by__username__startswith' in local_var_params and local_var_params['created_by__username__startswith'] is not None:  # noqa: E501
-            query_params.append(('created_by__username__startswith', local_var_params['created_by__username__startswith']))  # noqa: E501
-        if 'created_by__username__istartswith' in local_var_params and local_var_params['created_by__username__istartswith'] is not None:  # noqa: E501
-            query_params.append(('created_by__username__istartswith', local_var_params['created_by__username__istartswith']))  # noqa: E501
-        if 'created_by__username__endswith' in local_var_params and local_var_params['created_by__username__endswith'] is not None:  # noqa: E501
-            query_params.append(('created_by__username__endswith', local_var_params['created_by__username__endswith']))  # noqa: E501
-        if 'created_by__username__regex' in local_var_params and local_var_params['created_by__username__regex'] is not None:  # noqa: E501
-            query_params.append(('created_by__username__regex', local_var_params['created_by__username__regex']))  # noqa: E501
-        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
-            query_params.append(('name', local_var_params['name']))  # noqa: E501
-        if 'name__iexact' in local_var_params and local_var_params['name__iexact'] is not None:  # noqa: E501
-            query_params.append(('name__iexact', local_var_params['name__iexact']))  # noqa: E501
-        if 'name__contains' in local_var_params and local_var_params['name__contains'] is not None:  # noqa: E501
-            query_params.append(('name__contains', local_var_params['name__contains']))  # noqa: E501
-        if 'name__icontains' in local_var_params and local_var_params['name__icontains'] is not None:  # noqa: E501
-            query_params.append(('name__icontains', local_var_params['name__icontains']))  # noqa: E501
-        if 'name__in' in local_var_params and local_var_params['name__in'] is not None:  # noqa: E501
-            query_params.append(('name__in', local_var_params['name__in']))  # noqa: E501
-        if 'name__startswith' in local_var_params and local_var_params['name__startswith'] is not None:  # noqa: E501
-            query_params.append(('name__startswith', local_var_params['name__startswith']))  # noqa: E501
-        if 'name__istartswith' in local_var_params and local_var_params['name__istartswith'] is not None:  # noqa: E501
-            query_params.append(('name__istartswith', local_var_params['name__istartswith']))  # noqa: E501
-        if 'name__endswith' in local_var_params and local_var_params['name__endswith'] is not None:  # noqa: E501
-            query_params.append(('name__endswith', local_var_params['name__endswith']))  # noqa: E501
-        if 'name__regex' in local_var_params and local_var_params['name__regex'] is not None:  # noqa: E501
-            query_params.append(('name__regex', local_var_params['name__regex']))  # noqa: E501
-        if 'slug' in local_var_params and local_var_params['slug'] is not None:  # noqa: E501
-            query_params.append(('slug', local_var_params['slug']))  # noqa: E501
-        if 'slug__iexact' in local_var_params and local_var_params['slug__iexact'] is not None:  # noqa: E501
-            query_params.append(('slug__iexact', local_var_params['slug__iexact']))  # noqa: E501
-        if 'slug__contains' in local_var_params and local_var_params['slug__contains'] is not None:  # noqa: E501
-            query_params.append(('slug__contains', local_var_params['slug__contains']))  # noqa: E501
-        if 'slug__icontains' in local_var_params and local_var_params['slug__icontains'] is not None:  # noqa: E501
-            query_params.append(('slug__icontains', local_var_params['slug__icontains']))  # noqa: E501
-        if 'slug__in' in local_var_params and local_var_params['slug__in'] is not None:  # noqa: E501
-            query_params.append(('slug__in', local_var_params['slug__in']))  # noqa: E501
-        if 'slug__startswith' in local_var_params and local_var_params['slug__startswith'] is not None:  # noqa: E501
-            query_params.append(('slug__startswith', local_var_params['slug__startswith']))  # noqa: E501
-        if 'slug__istartswith' in local_var_params and local_var_params['slug__istartswith'] is not None:  # noqa: E501
-            query_params.append(('slug__istartswith', local_var_params['slug__istartswith']))  # noqa: E501
-        if 'slug__endswith' in local_var_params and local_var_params['slug__endswith'] is not None:  # noqa: E501
-            query_params.append(('slug__endswith', local_var_params['slug__endswith']))  # noqa: E501
-        if 'slug__regex' in local_var_params and local_var_params['slug__regex'] is not None:  # noqa: E501
-            query_params.append(('slug__regex', local_var_params['slug__regex']))  # noqa: E501
-        if 'owner__name' in local_var_params and local_var_params['owner__name'] is not None:  # noqa: E501
-            query_params.append(('owner__name', local_var_params['owner__name']))  # noqa: E501
-        if 'owner__name__iexact' in local_var_params and local_var_params['owner__name__iexact'] is not None:  # noqa: E501
-            query_params.append(('owner__name__iexact', local_var_params['owner__name__iexact']))  # noqa: E501
-        if 'owner__name__contains' in local_var_params and local_var_params['owner__name__contains'] is not None:  # noqa: E501
-            query_params.append(('owner__name__contains', local_var_params['owner__name__contains']))  # noqa: E501
-        if 'owner__name__icontains' in local_var_params and local_var_params['owner__name__icontains'] is not None:  # noqa: E501
-            query_params.append(('owner__name__icontains', local_var_params['owner__name__icontains']))  # noqa: E501
-        if 'owner__name__in' in local_var_params and local_var_params['owner__name__in'] is not None:  # noqa: E501
-            query_params.append(('owner__name__in', local_var_params['owner__name__in']))  # noqa: E501
-        if 'owner__name__startswith' in local_var_params and local_var_params['owner__name__startswith'] is not None:  # noqa: E501
-            query_params.append(('owner__name__startswith', local_var_params['owner__name__startswith']))  # noqa: E501
-        if 'owner__name__istartswith' in local_var_params and local_var_params['owner__name__istartswith'] is not None:  # noqa: E501
-            query_params.append(('owner__name__istartswith', local_var_params['owner__name__istartswith']))  # noqa: E501
-        if 'owner__name__endswith' in local_var_params and local_var_params['owner__name__endswith'] is not None:  # noqa: E501
-            query_params.append(('owner__name__endswith', local_var_params['owner__name__endswith']))  # noqa: E501
-        if 'owner__name__regex' in local_var_params and local_var_params['owner__name__regex'] is not None:  # noqa: E501
-            query_params.append(('owner__name__regex', local_var_params['owner__name__regex']))  # noqa: E501
-        if 'owner__unique_id' in local_var_params and local_var_params['owner__unique_id'] is not None:  # noqa: E501
-            query_params.append(('owner__unique_id', local_var_params['owner__unique_id']))  # noqa: E501
-        if 'owner__unique_id__iexact' in local_var_params and local_var_params['owner__unique_id__iexact'] is not None:  # noqa: E501
-            query_params.append(('owner__unique_id__iexact', local_var_params['owner__unique_id__iexact']))  # noqa: E501
-        if 'owner__unique_id__contains' in local_var_params and local_var_params['owner__unique_id__contains'] is not None:  # noqa: E501
-            query_params.append(('owner__unique_id__contains', local_var_params['owner__unique_id__contains']))  # noqa: E501
-        if 'owner__unique_id__icontains' in local_var_params and local_var_params['owner__unique_id__icontains'] is not None:  # noqa: E501
-            query_params.append(('owner__unique_id__icontains', local_var_params['owner__unique_id__icontains']))  # noqa: E501
-        if 'owner__unique_id__in' in local_var_params and local_var_params['owner__unique_id__in'] is not None:  # noqa: E501
-            query_params.append(('owner__unique_id__in', local_var_params['owner__unique_id__in']))  # noqa: E501
-        if 'owner__unique_id__startswith' in local_var_params and local_var_params['owner__unique_id__startswith'] is not None:  # noqa: E501
-            query_params.append(('owner__unique_id__startswith', local_var_params['owner__unique_id__startswith']))  # noqa: E501
-        if 'owner__unique_id__istartswith' in local_var_params and local_var_params['owner__unique_id__istartswith'] is not None:  # noqa: E501
-            query_params.append(('owner__unique_id__istartswith', local_var_params['owner__unique_id__istartswith']))  # noqa: E501
-        if 'owner__unique_id__endswith' in local_var_params and local_var_params['owner__unique_id__endswith'] is not None:  # noqa: E501
-            query_params.append(('owner__unique_id__endswith', local_var_params['owner__unique_id__endswith']))  # noqa: E501
-        if 'owner__unique_id__regex' in local_var_params and local_var_params['owner__unique_id__regex'] is not None:  # noqa: E501
-            query_params.append(('owner__unique_id__regex', local_var_params['owner__unique_id__regex']))  # noqa: E501
-        if 'tags__in' in local_var_params and local_var_params['tags__in'] is not None:  # noqa: E501
-            query_params.append(('tags__in', local_var_params['tags__in']))  # noqa: E501
-        if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
-            query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if (
+            "created__range" in local_var_params
+            and local_var_params["created__range"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__range", local_var_params["created__range"])
+            )  # noqa: E501
+        if (
+            "created__date" in local_var_params
+            and local_var_params["created__date"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__date", local_var_params["created__date"])
+            )  # noqa: E501
+        if (
+            "created__date__gt" in local_var_params
+            and local_var_params["created__date__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__date__gt", local_var_params["created__date__gt"])
+            )  # noqa: E501
+        if (
+            "created__date__gte" in local_var_params
+            and local_var_params["created__date__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__date__gte", local_var_params["created__date__gte"])
+            )  # noqa: E501
+        if (
+            "created__date__lt" in local_var_params
+            and local_var_params["created__date__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__date__lt", local_var_params["created__date__lt"])
+            )  # noqa: E501
+        if (
+            "created__date__lte" in local_var_params
+            and local_var_params["created__date__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__date__lte", local_var_params["created__date__lte"])
+            )  # noqa: E501
+        if (
+            "created__year" in local_var_params
+            and local_var_params["created__year"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__year", local_var_params["created__year"])
+            )  # noqa: E501
+        if (
+            "created__year__gt" in local_var_params
+            and local_var_params["created__year__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__year__gt", local_var_params["created__year__gt"])
+            )  # noqa: E501
+        if (
+            "created__year__gte" in local_var_params
+            and local_var_params["created__year__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__year__gte", local_var_params["created__year__gte"])
+            )  # noqa: E501
+        if (
+            "created__year__lt" in local_var_params
+            and local_var_params["created__year__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__year__lt", local_var_params["created__year__lt"])
+            )  # noqa: E501
+        if (
+            "created__year__lte" in local_var_params
+            and local_var_params["created__year__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__year__lte", local_var_params["created__year__lte"])
+            )  # noqa: E501
+        if (
+            "created__month" in local_var_params
+            and local_var_params["created__month"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__month", local_var_params["created__month"])
+            )  # noqa: E501
+        if (
+            "created__month__lte" in local_var_params
+            and local_var_params["created__month__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__month__lte", local_var_params["created__month__lte"])
+            )  # noqa: E501
+        if (
+            "created__day" in local_var_params
+            and local_var_params["created__day"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__day", local_var_params["created__day"])
+            )  # noqa: E501
+        if (
+            "created__day__lt" in local_var_params
+            and local_var_params["created__day__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__day__lt", local_var_params["created__day__lt"])
+            )  # noqa: E501
+        if (
+            "created__week" in local_var_params
+            and local_var_params["created__week"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__week", local_var_params["created__week"])
+            )  # noqa: E501
+        if (
+            "created__week_day" in local_var_params
+            and local_var_params["created__week_day"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__week_day", local_var_params["created__week_day"])
+            )  # noqa: E501
+        if (
+            "created__quarter" in local_var_params
+            and local_var_params["created__quarter"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__quarter", local_var_params["created__quarter"])
+            )  # noqa: E501
+        if (
+            "created__time" in local_var_params
+            and local_var_params["created__time"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__time", local_var_params["created__time"])
+            )  # noqa: E501
+        if (
+            "created__hour" in local_var_params
+            and local_var_params["created__hour"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__hour", local_var_params["created__hour"])
+            )  # noqa: E501
+        if (
+            "created__minute" in local_var_params
+            and local_var_params["created__minute"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__minute", local_var_params["created__minute"])
+            )  # noqa: E501
+        if (
+            "created__second" in local_var_params
+            and local_var_params["created__second"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__second", local_var_params["created__second"])
+            )  # noqa: E501
+        if (
+            "created__isnull" in local_var_params
+            and local_var_params["created__isnull"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__isnull", local_var_params["created__isnull"])
+            )  # noqa: E501
+        if (
+            "last_updated__range" in local_var_params
+            and local_var_params["last_updated__range"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__range", local_var_params["last_updated__range"])
+            )  # noqa: E501
+        if (
+            "last_updated__date" in local_var_params
+            and local_var_params["last_updated__date"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__date", local_var_params["last_updated__date"])
+            )  # noqa: E501
+        if (
+            "last_updated__date__gt" in local_var_params
+            and local_var_params["last_updated__date__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__date__gt", local_var_params["last_updated__date__gt"])
+            )  # noqa: E501
+        if (
+            "last_updated__date__gte" in local_var_params
+            and local_var_params["last_updated__date__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__date__gte", local_var_params["last_updated__date__gte"])
+            )  # noqa: E501
+        if (
+            "last_updated__date__lt" in local_var_params
+            and local_var_params["last_updated__date__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__date__lt", local_var_params["last_updated__date__lt"])
+            )  # noqa: E501
+        if (
+            "last_updated__date__lte" in local_var_params
+            and local_var_params["last_updated__date__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__date__lte", local_var_params["last_updated__date__lte"])
+            )  # noqa: E501
+        if (
+            "last_updated__year" in local_var_params
+            and local_var_params["last_updated__year"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__year", local_var_params["last_updated__year"])
+            )  # noqa: E501
+        if (
+            "last_updated__year__gt" in local_var_params
+            and local_var_params["last_updated__year__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__year__gt", local_var_params["last_updated__year__gt"])
+            )  # noqa: E501
+        if (
+            "last_updated__year__gte" in local_var_params
+            and local_var_params["last_updated__year__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__year__gte", local_var_params["last_updated__year__gte"])
+            )  # noqa: E501
+        if (
+            "last_updated__year__lt" in local_var_params
+            and local_var_params["last_updated__year__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__year__lt", local_var_params["last_updated__year__lt"])
+            )  # noqa: E501
+        if (
+            "last_updated__year__lte" in local_var_params
+            and local_var_params["last_updated__year__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__year__lte", local_var_params["last_updated__year__lte"])
+            )  # noqa: E501
+        if (
+            "last_updated__month" in local_var_params
+            and local_var_params["last_updated__month"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__month", local_var_params["last_updated__month"])
+            )  # noqa: E501
+        if (
+            "last_updated__month__lte" in local_var_params
+            and local_var_params["last_updated__month__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "last_updated__month__lte",
+                    local_var_params["last_updated__month__lte"],
+                )
+            )  # noqa: E501
+        if (
+            "last_updated__day" in local_var_params
+            and local_var_params["last_updated__day"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__day", local_var_params["last_updated__day"])
+            )  # noqa: E501
+        if (
+            "last_updated__day__lt" in local_var_params
+            and local_var_params["last_updated__day__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__day__lt", local_var_params["last_updated__day__lt"])
+            )  # noqa: E501
+        if (
+            "last_updated__week" in local_var_params
+            and local_var_params["last_updated__week"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__week", local_var_params["last_updated__week"])
+            )  # noqa: E501
+        if (
+            "last_updated__week_day" in local_var_params
+            and local_var_params["last_updated__week_day"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__week_day", local_var_params["last_updated__week_day"])
+            )  # noqa: E501
+        if (
+            "last_updated__quarter" in local_var_params
+            and local_var_params["last_updated__quarter"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__quarter", local_var_params["last_updated__quarter"])
+            )  # noqa: E501
+        if (
+            "last_updated__time" in local_var_params
+            and local_var_params["last_updated__time"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__time", local_var_params["last_updated__time"])
+            )  # noqa: E501
+        if (
+            "last_updated__hour" in local_var_params
+            and local_var_params["last_updated__hour"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__hour", local_var_params["last_updated__hour"])
+            )  # noqa: E501
+        if (
+            "last_updated__minute" in local_var_params
+            and local_var_params["last_updated__minute"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__minute", local_var_params["last_updated__minute"])
+            )  # noqa: E501
+        if (
+            "last_updated__second" in local_var_params
+            and local_var_params["last_updated__second"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__second", local_var_params["last_updated__second"])
+            )  # noqa: E501
+        if (
+            "last_updated__isnull" in local_var_params
+            and local_var_params["last_updated__isnull"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("last_updated__isnull", local_var_params["last_updated__isnull"])
+            )  # noqa: E501
+        if (
+            "created_by__username" in local_var_params
+            and local_var_params["created_by__username"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created_by__username", local_var_params["created_by__username"])
+            )  # noqa: E501
+        if (
+            "created_by__username__iexact" in local_var_params
+            and local_var_params["created_by__username__iexact"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "created_by__username__iexact",
+                    local_var_params["created_by__username__iexact"],
+                )
+            )  # noqa: E501
+        if (
+            "created_by__username__contains" in local_var_params
+            and local_var_params["created_by__username__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "created_by__username__contains",
+                    local_var_params["created_by__username__contains"],
+                )
+            )  # noqa: E501
+        if (
+            "created_by__username__icontains" in local_var_params
+            and local_var_params["created_by__username__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "created_by__username__icontains",
+                    local_var_params["created_by__username__icontains"],
+                )
+            )  # noqa: E501
+        if (
+            "created_by__username__in" in local_var_params
+            and local_var_params["created_by__username__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "created_by__username__in",
+                    local_var_params["created_by__username__in"],
+                )
+            )  # noqa: E501
+        if (
+            "created_by__username__startswith" in local_var_params
+            and local_var_params["created_by__username__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "created_by__username__startswith",
+                    local_var_params["created_by__username__startswith"],
+                )
+            )  # noqa: E501
+        if (
+            "created_by__username__istartswith" in local_var_params
+            and local_var_params["created_by__username__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "created_by__username__istartswith",
+                    local_var_params["created_by__username__istartswith"],
+                )
+            )  # noqa: E501
+        if (
+            "created_by__username__endswith" in local_var_params
+            and local_var_params["created_by__username__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "created_by__username__endswith",
+                    local_var_params["created_by__username__endswith"],
+                )
+            )  # noqa: E501
+        if (
+            "created_by__username__regex" in local_var_params
+            and local_var_params["created_by__username__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "created_by__username__regex",
+                    local_var_params["created_by__username__regex"],
+                )
+            )  # noqa: E501
+        if (
+            "name" in local_var_params and local_var_params["name"] is not None
+        ):  # noqa: E501
+            query_params.append(("name", local_var_params["name"]))  # noqa: E501
+        if (
+            "name__iexact" in local_var_params
+            and local_var_params["name__iexact"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__iexact", local_var_params["name__iexact"])
+            )  # noqa: E501
+        if (
+            "name__contains" in local_var_params
+            and local_var_params["name__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__contains", local_var_params["name__contains"])
+            )  # noqa: E501
+        if (
+            "name__icontains" in local_var_params
+            and local_var_params["name__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__icontains", local_var_params["name__icontains"])
+            )  # noqa: E501
+        if (
+            "name__in" in local_var_params and local_var_params["name__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__in", local_var_params["name__in"])
+            )  # noqa: E501
+        if (
+            "name__startswith" in local_var_params
+            and local_var_params["name__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__startswith", local_var_params["name__startswith"])
+            )  # noqa: E501
+        if (
+            "name__istartswith" in local_var_params
+            and local_var_params["name__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__istartswith", local_var_params["name__istartswith"])
+            )  # noqa: E501
+        if (
+            "name__endswith" in local_var_params
+            and local_var_params["name__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__endswith", local_var_params["name__endswith"])
+            )  # noqa: E501
+        if (
+            "name__regex" in local_var_params
+            and local_var_params["name__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__regex", local_var_params["name__regex"])
+            )  # noqa: E501
+        if (
+            "slug" in local_var_params and local_var_params["slug"] is not None
+        ):  # noqa: E501
+            query_params.append(("slug", local_var_params["slug"]))  # noqa: E501
+        if (
+            "slug__iexact" in local_var_params
+            and local_var_params["slug__iexact"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("slug__iexact", local_var_params["slug__iexact"])
+            )  # noqa: E501
+        if (
+            "slug__contains" in local_var_params
+            and local_var_params["slug__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("slug__contains", local_var_params["slug__contains"])
+            )  # noqa: E501
+        if (
+            "slug__icontains" in local_var_params
+            and local_var_params["slug__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("slug__icontains", local_var_params["slug__icontains"])
+            )  # noqa: E501
+        if (
+            "slug__in" in local_var_params and local_var_params["slug__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("slug__in", local_var_params["slug__in"])
+            )  # noqa: E501
+        if (
+            "slug__startswith" in local_var_params
+            and local_var_params["slug__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("slug__startswith", local_var_params["slug__startswith"])
+            )  # noqa: E501
+        if (
+            "slug__istartswith" in local_var_params
+            and local_var_params["slug__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("slug__istartswith", local_var_params["slug__istartswith"])
+            )  # noqa: E501
+        if (
+            "slug__endswith" in local_var_params
+            and local_var_params["slug__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("slug__endswith", local_var_params["slug__endswith"])
+            )  # noqa: E501
+        if (
+            "slug__regex" in local_var_params
+            and local_var_params["slug__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("slug__regex", local_var_params["slug__regex"])
+            )  # noqa: E501
+        if (
+            "owner__name" in local_var_params
+            and local_var_params["owner__name"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("owner__name", local_var_params["owner__name"])
+            )  # noqa: E501
+        if (
+            "owner__name__iexact" in local_var_params
+            and local_var_params["owner__name__iexact"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("owner__name__iexact", local_var_params["owner__name__iexact"])
+            )  # noqa: E501
+        if (
+            "owner__name__contains" in local_var_params
+            and local_var_params["owner__name__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("owner__name__contains", local_var_params["owner__name__contains"])
+            )  # noqa: E501
+        if (
+            "owner__name__icontains" in local_var_params
+            and local_var_params["owner__name__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("owner__name__icontains", local_var_params["owner__name__icontains"])
+            )  # noqa: E501
+        if (
+            "owner__name__in" in local_var_params
+            and local_var_params["owner__name__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("owner__name__in", local_var_params["owner__name__in"])
+            )  # noqa: E501
+        if (
+            "owner__name__startswith" in local_var_params
+            and local_var_params["owner__name__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("owner__name__startswith", local_var_params["owner__name__startswith"])
+            )  # noqa: E501
+        if (
+            "owner__name__istartswith" in local_var_params
+            and local_var_params["owner__name__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "owner__name__istartswith",
+                    local_var_params["owner__name__istartswith"],
+                )
+            )  # noqa: E501
+        if (
+            "owner__name__endswith" in local_var_params
+            and local_var_params["owner__name__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("owner__name__endswith", local_var_params["owner__name__endswith"])
+            )  # noqa: E501
+        if (
+            "owner__name__regex" in local_var_params
+            and local_var_params["owner__name__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("owner__name__regex", local_var_params["owner__name__regex"])
+            )  # noqa: E501
+        if (
+            "owner__unique_id" in local_var_params
+            and local_var_params["owner__unique_id"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("owner__unique_id", local_var_params["owner__unique_id"])
+            )  # noqa: E501
+        if (
+            "owner__unique_id__iexact" in local_var_params
+            and local_var_params["owner__unique_id__iexact"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "owner__unique_id__iexact",
+                    local_var_params["owner__unique_id__iexact"],
+                )
+            )  # noqa: E501
+        if (
+            "owner__unique_id__contains" in local_var_params
+            and local_var_params["owner__unique_id__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "owner__unique_id__contains",
+                    local_var_params["owner__unique_id__contains"],
+                )
+            )  # noqa: E501
+        if (
+            "owner__unique_id__icontains" in local_var_params
+            and local_var_params["owner__unique_id__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "owner__unique_id__icontains",
+                    local_var_params["owner__unique_id__icontains"],
+                )
+            )  # noqa: E501
+        if (
+            "owner__unique_id__in" in local_var_params
+            and local_var_params["owner__unique_id__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("owner__unique_id__in", local_var_params["owner__unique_id__in"])
+            )  # noqa: E501
+        if (
+            "owner__unique_id__startswith" in local_var_params
+            and local_var_params["owner__unique_id__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "owner__unique_id__startswith",
+                    local_var_params["owner__unique_id__startswith"],
+                )
+            )  # noqa: E501
+        if (
+            "owner__unique_id__istartswith" in local_var_params
+            and local_var_params["owner__unique_id__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "owner__unique_id__istartswith",
+                    local_var_params["owner__unique_id__istartswith"],
+                )
+            )  # noqa: E501
+        if (
+            "owner__unique_id__endswith" in local_var_params
+            and local_var_params["owner__unique_id__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "owner__unique_id__endswith",
+                    local_var_params["owner__unique_id__endswith"],
+                )
+            )  # noqa: E501
+        if (
+            "owner__unique_id__regex" in local_var_params
+            and local_var_params["owner__unique_id__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("owner__unique_id__regex", local_var_params["owner__unique_id__regex"])
+            )  # noqa: E501
+        if (
+            "tags__in" in local_var_params and local_var_params["tags__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("tags__in", local_var_params["tags__in"])
+            )  # noqa: E501
+        if (
+            "ordering" in local_var_params and local_var_params["ordering"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("ordering", local_var_params["ordering"])
+            )  # noqa: E501
+        if (
+            "limit" in local_var_params and local_var_params["limit"] is not None
+        ):  # noqa: E501
+            query_params.append(("limit", local_var_params["limit"]))  # noqa: E501
+        if (
+            "offset" in local_var_params and local_var_params["offset"] is not None
+        ):  # noqa: E501
+            query_params.append(("offset", local_var_params["offset"]))  # noqa: E501
 
         header_params = {}
 
@@ -937,27 +1469,32 @@ class V3BetaApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/', 'GET',
+            "/v3-beta/schematisations/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200',  # noqa: E501
+            response_type="InlineResponse200",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def schematisations_partial_update(self, id, data, **kwargs):  # noqa: E501
         """schematisations_partial_update  # noqa: E501
@@ -982,10 +1519,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_partial_update_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_partial_update_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
-    def schematisations_partial_update_with_http_info(self, id, data, **kwargs):  # noqa: E501
+    def schematisations_partial_update_with_http_info(
+        self, id, data, **kwargs
+    ):  # noqa: E501
         """schematisations_partial_update  # noqa: E501
 
         Manage schematisations  # noqa: E501
@@ -1013,41 +1554,45 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_partial_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `schematisations_partial_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -1057,34 +1602,42 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{id}/', 'PATCH',
+            "/v3-beta/schematisations/{id}/",
+            "PATCH",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Schematisation',  # noqa: E501
+            response_type="Schematisation",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def schematisations_read(self, id, **kwargs):  # noqa: E501
         """schematisations_read  # noqa: E501
@@ -1108,7 +1661,7 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.schematisations_read_with_http_info(id, **kwargs)  # noqa: E501
 
     def schematisations_read_with_http_info(self, id, **kwargs):  # noqa: E501
@@ -1138,36 +1691,37 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_read" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_read`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -1178,29 +1732,36 @@ class V3BetaApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{id}/', 'GET',
+            "/v3-beta/schematisations/{id}/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Schematisation',  # noqa: E501
+            response_type="Schematisation",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_check(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_check(
+        self, id, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_check  # noqa: E501
 
         Manage revisions of schematisations.  # noqa: E501
@@ -1224,10 +1785,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_check_with_http_info(id, schematisation_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_check_with_http_info(
+            id, schematisation_pk, data, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_check_with_http_info(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_check_with_http_info(
+        self, id, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_check  # noqa: E501
 
         Manage revisions of schematisations.  # noqa: E501
@@ -1256,48 +1821,57 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'schematisation_pk',
-            'data'
-        ]
+        all_params = ["id", "schematisation_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_check" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_check`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_check`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_check`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_check`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_revisions_check`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `schematisations_revisions_check`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -1307,36 +1881,46 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/check/', 'POST',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/check/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RevisionTask',  # noqa: E501
+            response_type="RevisionTask",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_commit(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_commit(
+        self, id, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """Commit the revision  # noqa: E501
 
         The `commit_message` can be used to describe the changes.  The `force_as` parameter allows to override the default behaviour of committing the revision with the already assigned revision number.  In case another user has already committed a revision with the same number, an HTTP 409 status code is returned.  In this case you can either: 1) Save the revision with a higher revision number using    `force_as` = `new_revision`, effectively overwriting changes    from the other user. 2) Save the revision under a new schematisation using    `force_as` = `new_schematisation` and specifying    a `schematisation_name`.  If you want to merge your changes with the changes from the other user, you need to download his/hers revision locally and merge it yourselves.  # noqa: E501
@@ -1360,10 +1944,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_commit_with_http_info(id, schematisation_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_commit_with_http_info(
+            id, schematisation_pk, data, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_commit_with_http_info(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_commit_with_http_info(
+        self, id, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """Commit the revision  # noqa: E501
 
         The `commit_message` can be used to describe the changes.  The `force_as` parameter allows to override the default behaviour of committing the revision with the already assigned revision number.  In case another user has already committed a revision with the same number, an HTTP 409 status code is returned.  In this case you can either: 1) Save the revision with a higher revision number using    `force_as` = `new_revision`, effectively overwriting changes    from the other user. 2) Save the revision under a new schematisation using    `force_as` = `new_schematisation` and specifying    a `schematisation_name`.  If you want to merge your changes with the changes from the other user, you need to download his/hers revision locally and merge it yourselves.  # noqa: E501
@@ -1392,48 +1980,57 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'schematisation_pk',
-            'data'
-        ]
+        all_params = ["id", "schematisation_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_commit" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_commit`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_commit`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_commit`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_commit`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_revisions_commit`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `schematisations_revisions_commit`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -1443,36 +2040,46 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/commit/', 'POST',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/commit/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='SchematisationRevision',  # noqa: E501
+            response_type="SchematisationRevision",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_create(self, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_create(
+        self, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """Create a new revision  # noqa: E501
 
         Creates a clone of the last committed revision (if present) by default except when empty=true is passed in the data.  # noqa: E501
@@ -1495,10 +2102,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_create_with_http_info(schematisation_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_create_with_http_info(
+            schematisation_pk, data, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_create_with_http_info(self, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_create_with_http_info(
+        self, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """Create a new revision  # noqa: E501
 
         Creates a clone of the last committed revision (if present) by default except when empty=true is passed in the data.  # noqa: E501
@@ -1526,41 +2137,48 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'schematisation_pk',
-            'data'
-        ]
+        all_params = ["schematisation_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_create" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_create`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_revisions_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `schematisations_revisions_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -1570,36 +2188,46 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/', 'POST',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='SchematisationRevision',  # noqa: E501
+            response_type="SchematisationRevision",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_create_threedimodel(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_create_threedimodel(
+        self, id, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_create_threedimodel  # noqa: E501
 
         Manage revisions of schematisations.  # noqa: E501
@@ -1623,10 +2251,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_create_threedimodel_with_http_info(id, schematisation_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_create_threedimodel_with_http_info(
+            id, schematisation_pk, data, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_create_threedimodel_with_http_info(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_create_threedimodel_with_http_info(
+        self, id, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_create_threedimodel  # noqa: E501
 
         Manage revisions of schematisations.  # noqa: E501
@@ -1655,48 +2287,57 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'schematisation_pk',
-            'data'
-        ]
+        all_params = ["id", "schematisation_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_create_threedimodel" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_create_threedimodel`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_create_threedimodel`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_create_threedimodel`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_create_threedimodel`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_revisions_create_threedimodel`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `schematisations_revisions_create_threedimodel`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -1706,36 +2347,46 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/create_threedimodel/', 'POST',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/create-threedimodel/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
+            response_type="ThreediModel",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_delete(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_delete(
+        self, id, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_delete  # noqa: E501
 
         Provide the revision id to delete the revision  # noqa: E501
@@ -1759,10 +2410,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_delete_with_http_info(id, schematisation_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_delete_with_http_info(
+            id, schematisation_pk, data, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_delete_with_http_info(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_delete_with_http_info(
+        self, id, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_delete  # noqa: E501
 
         Provide the revision id to delete the revision  # noqa: E501
@@ -1791,48 +2446,57 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'schematisation_pk',
-            'data'
-        ]
+        all_params = ["id", "schematisation_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_delete" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_delete`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_delete`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_revisions_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `schematisations_revisions_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -1842,17 +2506,21 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/', 'DELETE',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -1861,11 +2529,14 @@ class V3BetaApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def schematisations_revisions_list(self, schematisation_pk, **kwargs):  # noqa: E501
         """schematisations_revisions_list  # noqa: E501
@@ -1949,6 +2620,7 @@ class V3BetaApi(object):
         :param str committed:
         :param str archived:
         :param str is_valid:
+        :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1962,10 +2634,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_list_with_http_info(schematisation_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_list_with_http_info(
+            schematisation_pk, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_list_with_http_info(self, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_list_with_http_info(
+        self, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_list  # noqa: E501
 
         Manage revisions of schematisations.  # noqa: E501
@@ -2047,6 +2723,7 @@ class V3BetaApi(object):
         :param str committed:
         :param str archived:
         :param str is_valid:
+        :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -2066,256 +2743,745 @@ class V3BetaApi(object):
         local_var_params = locals()
 
         all_params = [
-            'schematisation_pk',
-            'number',
-            'commit_message',
-            'commit_message__iexact',
-            'commit_message__contains',
-            'commit_message__icontains',
-            'commit_message__in',
-            'commit_message__startswith',
-            'commit_message__istartswith',
-            'commit_message__endswith',
-            'commit_message__regex',
-            'schematisation__id',
-            'schematisation__slug',
-            'schematisation__slug__iexact',
-            'schematisation__slug__contains',
-            'schematisation__slug__icontains',
-            'schematisation__slug__in',
-            'schematisation__slug__startswith',
-            'schematisation__slug__istartswith',
-            'schematisation__slug__endswith',
-            'schematisation__slug__regex',
-            'schematisation__owner__name',
-            'schematisation__owner__name__iexact',
-            'schematisation__owner__name__contains',
-            'schematisation__owner__name__icontains',
-            'schematisation__owner__name__in',
-            'schematisation__owner__name__startswith',
-            'schematisation__owner__name__istartswith',
-            'schematisation__owner__name__endswith',
-            'schematisation__owner__name__regex',
-            'schematisation__owner__unique_id',
-            'schematisation__owner__unique_id__iexact',
-            'schematisation__owner__unique_id__contains',
-            'schematisation__owner__unique_id__icontains',
-            'schematisation__owner__unique_id__in',
-            'schematisation__owner__unique_id__startswith',
-            'schematisation__owner__unique_id__istartswith',
-            'schematisation__owner__unique_id__endswith',
-            'schematisation__owner__unique_id__regex',
-            'commit_user__username',
-            'commit_user__username__iexact',
-            'commit_user__username__contains',
-            'commit_user__username__icontains',
-            'commit_user__username__in',
-            'commit_user__username__startswith',
-            'commit_user__username__istartswith',
-            'commit_user__username__endswith',
-            'commit_user__username__regex',
-            'commit_date',
-            'commit_date__gt',
-            'commit_date__gte',
-            'commit_date__lt',
-            'commit_date__lte',
-            'commit_date__date',
-            'commit_date__date__gt',
-            'commit_date__date__gte',
-            'commit_date__date__lt',
-            'commit_date__date__lte',
-            'commit_date__year',
-            'commit_date__year__gt',
-            'commit_date__year__gte',
-            'commit_date__year__lt',
-            'commit_date__year__lte',
-            'commit_date__month',
-            'commit_date__month__lte',
-            'commit_date__day',
-            'commit_date__day__lt',
-            'commit_date__week',
-            'commit_date__week_day',
-            'committed',
-            'archived',
-            'is_valid',
-            'limit',
-            'offset'
+            "schematisation_pk",
+            "number",
+            "commit_message",
+            "commit_message__iexact",
+            "commit_message__contains",
+            "commit_message__icontains",
+            "commit_message__in",
+            "commit_message__startswith",
+            "commit_message__istartswith",
+            "commit_message__endswith",
+            "commit_message__regex",
+            "schematisation__id",
+            "schematisation__slug",
+            "schematisation__slug__iexact",
+            "schematisation__slug__contains",
+            "schematisation__slug__icontains",
+            "schematisation__slug__in",
+            "schematisation__slug__startswith",
+            "schematisation__slug__istartswith",
+            "schematisation__slug__endswith",
+            "schematisation__slug__regex",
+            "schematisation__owner__name",
+            "schematisation__owner__name__iexact",
+            "schematisation__owner__name__contains",
+            "schematisation__owner__name__icontains",
+            "schematisation__owner__name__in",
+            "schematisation__owner__name__startswith",
+            "schematisation__owner__name__istartswith",
+            "schematisation__owner__name__endswith",
+            "schematisation__owner__name__regex",
+            "schematisation__owner__unique_id",
+            "schematisation__owner__unique_id__iexact",
+            "schematisation__owner__unique_id__contains",
+            "schematisation__owner__unique_id__icontains",
+            "schematisation__owner__unique_id__in",
+            "schematisation__owner__unique_id__startswith",
+            "schematisation__owner__unique_id__istartswith",
+            "schematisation__owner__unique_id__endswith",
+            "schematisation__owner__unique_id__regex",
+            "commit_user__username",
+            "commit_user__username__iexact",
+            "commit_user__username__contains",
+            "commit_user__username__icontains",
+            "commit_user__username__in",
+            "commit_user__username__startswith",
+            "commit_user__username__istartswith",
+            "commit_user__username__endswith",
+            "commit_user__username__regex",
+            "commit_date",
+            "commit_date__gt",
+            "commit_date__gte",
+            "commit_date__lt",
+            "commit_date__lte",
+            "commit_date__date",
+            "commit_date__date__gt",
+            "commit_date__date__gte",
+            "commit_date__date__lt",
+            "commit_date__date__lte",
+            "commit_date__year",
+            "commit_date__year__gt",
+            "commit_date__year__gte",
+            "commit_date__year__lt",
+            "commit_date__year__lte",
+            "commit_date__month",
+            "commit_date__month__lte",
+            "commit_date__day",
+            "commit_date__day__lt",
+            "commit_date__week",
+            "commit_date__week_day",
+            "committed",
+            "archived",
+            "is_valid",
+            "ordering",
+            "limit",
+            "offset",
         ]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_list" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_list`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_list`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
-        if 'number' in local_var_params and local_var_params['number'] is not None:  # noqa: E501
-            query_params.append(('number', local_var_params['number']))  # noqa: E501
-        if 'commit_message' in local_var_params and local_var_params['commit_message'] is not None:  # noqa: E501
-            query_params.append(('commit_message', local_var_params['commit_message']))  # noqa: E501
-        if 'commit_message__iexact' in local_var_params and local_var_params['commit_message__iexact'] is not None:  # noqa: E501
-            query_params.append(('commit_message__iexact', local_var_params['commit_message__iexact']))  # noqa: E501
-        if 'commit_message__contains' in local_var_params and local_var_params['commit_message__contains'] is not None:  # noqa: E501
-            query_params.append(('commit_message__contains', local_var_params['commit_message__contains']))  # noqa: E501
-        if 'commit_message__icontains' in local_var_params and local_var_params['commit_message__icontains'] is not None:  # noqa: E501
-            query_params.append(('commit_message__icontains', local_var_params['commit_message__icontains']))  # noqa: E501
-        if 'commit_message__in' in local_var_params and local_var_params['commit_message__in'] is not None:  # noqa: E501
-            query_params.append(('commit_message__in', local_var_params['commit_message__in']))  # noqa: E501
-        if 'commit_message__startswith' in local_var_params and local_var_params['commit_message__startswith'] is not None:  # noqa: E501
-            query_params.append(('commit_message__startswith', local_var_params['commit_message__startswith']))  # noqa: E501
-        if 'commit_message__istartswith' in local_var_params and local_var_params['commit_message__istartswith'] is not None:  # noqa: E501
-            query_params.append(('commit_message__istartswith', local_var_params['commit_message__istartswith']))  # noqa: E501
-        if 'commit_message__endswith' in local_var_params and local_var_params['commit_message__endswith'] is not None:  # noqa: E501
-            query_params.append(('commit_message__endswith', local_var_params['commit_message__endswith']))  # noqa: E501
-        if 'commit_message__regex' in local_var_params and local_var_params['commit_message__regex'] is not None:  # noqa: E501
-            query_params.append(('commit_message__regex', local_var_params['commit_message__regex']))  # noqa: E501
-        if 'schematisation__id' in local_var_params and local_var_params['schematisation__id'] is not None:  # noqa: E501
-            query_params.append(('schematisation__id', local_var_params['schematisation__id']))  # noqa: E501
-        if 'schematisation__slug' in local_var_params and local_var_params['schematisation__slug'] is not None:  # noqa: E501
-            query_params.append(('schematisation__slug', local_var_params['schematisation__slug']))  # noqa: E501
-        if 'schematisation__slug__iexact' in local_var_params and local_var_params['schematisation__slug__iexact'] is not None:  # noqa: E501
-            query_params.append(('schematisation__slug__iexact', local_var_params['schematisation__slug__iexact']))  # noqa: E501
-        if 'schematisation__slug__contains' in local_var_params and local_var_params['schematisation__slug__contains'] is not None:  # noqa: E501
-            query_params.append(('schematisation__slug__contains', local_var_params['schematisation__slug__contains']))  # noqa: E501
-        if 'schematisation__slug__icontains' in local_var_params and local_var_params['schematisation__slug__icontains'] is not None:  # noqa: E501
-            query_params.append(('schematisation__slug__icontains', local_var_params['schematisation__slug__icontains']))  # noqa: E501
-        if 'schematisation__slug__in' in local_var_params and local_var_params['schematisation__slug__in'] is not None:  # noqa: E501
-            query_params.append(('schematisation__slug__in', local_var_params['schematisation__slug__in']))  # noqa: E501
-        if 'schematisation__slug__startswith' in local_var_params and local_var_params['schematisation__slug__startswith'] is not None:  # noqa: E501
-            query_params.append(('schematisation__slug__startswith', local_var_params['schematisation__slug__startswith']))  # noqa: E501
-        if 'schematisation__slug__istartswith' in local_var_params and local_var_params['schematisation__slug__istartswith'] is not None:  # noqa: E501
-            query_params.append(('schematisation__slug__istartswith', local_var_params['schematisation__slug__istartswith']))  # noqa: E501
-        if 'schematisation__slug__endswith' in local_var_params and local_var_params['schematisation__slug__endswith'] is not None:  # noqa: E501
-            query_params.append(('schematisation__slug__endswith', local_var_params['schematisation__slug__endswith']))  # noqa: E501
-        if 'schematisation__slug__regex' in local_var_params and local_var_params['schematisation__slug__regex'] is not None:  # noqa: E501
-            query_params.append(('schematisation__slug__regex', local_var_params['schematisation__slug__regex']))  # noqa: E501
-        if 'schematisation__owner__name' in local_var_params and local_var_params['schematisation__owner__name'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__name', local_var_params['schematisation__owner__name']))  # noqa: E501
-        if 'schematisation__owner__name__iexact' in local_var_params and local_var_params['schematisation__owner__name__iexact'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__name__iexact', local_var_params['schematisation__owner__name__iexact']))  # noqa: E501
-        if 'schematisation__owner__name__contains' in local_var_params and local_var_params['schematisation__owner__name__contains'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__name__contains', local_var_params['schematisation__owner__name__contains']))  # noqa: E501
-        if 'schematisation__owner__name__icontains' in local_var_params and local_var_params['schematisation__owner__name__icontains'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__name__icontains', local_var_params['schematisation__owner__name__icontains']))  # noqa: E501
-        if 'schematisation__owner__name__in' in local_var_params and local_var_params['schematisation__owner__name__in'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__name__in', local_var_params['schematisation__owner__name__in']))  # noqa: E501
-        if 'schematisation__owner__name__startswith' in local_var_params and local_var_params['schematisation__owner__name__startswith'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__name__startswith', local_var_params['schematisation__owner__name__startswith']))  # noqa: E501
-        if 'schematisation__owner__name__istartswith' in local_var_params and local_var_params['schematisation__owner__name__istartswith'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__name__istartswith', local_var_params['schematisation__owner__name__istartswith']))  # noqa: E501
-        if 'schematisation__owner__name__endswith' in local_var_params and local_var_params['schematisation__owner__name__endswith'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__name__endswith', local_var_params['schematisation__owner__name__endswith']))  # noqa: E501
-        if 'schematisation__owner__name__regex' in local_var_params and local_var_params['schematisation__owner__name__regex'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__name__regex', local_var_params['schematisation__owner__name__regex']))  # noqa: E501
-        if 'schematisation__owner__unique_id' in local_var_params and local_var_params['schematisation__owner__unique_id'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__unique_id', local_var_params['schematisation__owner__unique_id']))  # noqa: E501
-        if 'schematisation__owner__unique_id__iexact' in local_var_params and local_var_params['schematisation__owner__unique_id__iexact'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__unique_id__iexact', local_var_params['schematisation__owner__unique_id__iexact']))  # noqa: E501
-        if 'schematisation__owner__unique_id__contains' in local_var_params and local_var_params['schematisation__owner__unique_id__contains'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__unique_id__contains', local_var_params['schematisation__owner__unique_id__contains']))  # noqa: E501
-        if 'schematisation__owner__unique_id__icontains' in local_var_params and local_var_params['schematisation__owner__unique_id__icontains'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__unique_id__icontains', local_var_params['schematisation__owner__unique_id__icontains']))  # noqa: E501
-        if 'schematisation__owner__unique_id__in' in local_var_params and local_var_params['schematisation__owner__unique_id__in'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__unique_id__in', local_var_params['schematisation__owner__unique_id__in']))  # noqa: E501
-        if 'schematisation__owner__unique_id__startswith' in local_var_params and local_var_params['schematisation__owner__unique_id__startswith'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__unique_id__startswith', local_var_params['schematisation__owner__unique_id__startswith']))  # noqa: E501
-        if 'schematisation__owner__unique_id__istartswith' in local_var_params and local_var_params['schematisation__owner__unique_id__istartswith'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__unique_id__istartswith', local_var_params['schematisation__owner__unique_id__istartswith']))  # noqa: E501
-        if 'schematisation__owner__unique_id__endswith' in local_var_params and local_var_params['schematisation__owner__unique_id__endswith'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__unique_id__endswith', local_var_params['schematisation__owner__unique_id__endswith']))  # noqa: E501
-        if 'schematisation__owner__unique_id__regex' in local_var_params and local_var_params['schematisation__owner__unique_id__regex'] is not None:  # noqa: E501
-            query_params.append(('schematisation__owner__unique_id__regex', local_var_params['schematisation__owner__unique_id__regex']))  # noqa: E501
-        if 'commit_user__username' in local_var_params and local_var_params['commit_user__username'] is not None:  # noqa: E501
-            query_params.append(('commit_user__username', local_var_params['commit_user__username']))  # noqa: E501
-        if 'commit_user__username__iexact' in local_var_params and local_var_params['commit_user__username__iexact'] is not None:  # noqa: E501
-            query_params.append(('commit_user__username__iexact', local_var_params['commit_user__username__iexact']))  # noqa: E501
-        if 'commit_user__username__contains' in local_var_params and local_var_params['commit_user__username__contains'] is not None:  # noqa: E501
-            query_params.append(('commit_user__username__contains', local_var_params['commit_user__username__contains']))  # noqa: E501
-        if 'commit_user__username__icontains' in local_var_params and local_var_params['commit_user__username__icontains'] is not None:  # noqa: E501
-            query_params.append(('commit_user__username__icontains', local_var_params['commit_user__username__icontains']))  # noqa: E501
-        if 'commit_user__username__in' in local_var_params and local_var_params['commit_user__username__in'] is not None:  # noqa: E501
-            query_params.append(('commit_user__username__in', local_var_params['commit_user__username__in']))  # noqa: E501
-        if 'commit_user__username__startswith' in local_var_params and local_var_params['commit_user__username__startswith'] is not None:  # noqa: E501
-            query_params.append(('commit_user__username__startswith', local_var_params['commit_user__username__startswith']))  # noqa: E501
-        if 'commit_user__username__istartswith' in local_var_params and local_var_params['commit_user__username__istartswith'] is not None:  # noqa: E501
-            query_params.append(('commit_user__username__istartswith', local_var_params['commit_user__username__istartswith']))  # noqa: E501
-        if 'commit_user__username__endswith' in local_var_params and local_var_params['commit_user__username__endswith'] is not None:  # noqa: E501
-            query_params.append(('commit_user__username__endswith', local_var_params['commit_user__username__endswith']))  # noqa: E501
-        if 'commit_user__username__regex' in local_var_params and local_var_params['commit_user__username__regex'] is not None:  # noqa: E501
-            query_params.append(('commit_user__username__regex', local_var_params['commit_user__username__regex']))  # noqa: E501
-        if 'commit_date' in local_var_params and local_var_params['commit_date'] is not None:  # noqa: E501
-            query_params.append(('commit_date', local_var_params['commit_date']))  # noqa: E501
-        if 'commit_date__gt' in local_var_params and local_var_params['commit_date__gt'] is not None:  # noqa: E501
-            query_params.append(('commit_date__gt', local_var_params['commit_date__gt']))  # noqa: E501
-        if 'commit_date__gte' in local_var_params and local_var_params['commit_date__gte'] is not None:  # noqa: E501
-            query_params.append(('commit_date__gte', local_var_params['commit_date__gte']))  # noqa: E501
-        if 'commit_date__lt' in local_var_params and local_var_params['commit_date__lt'] is not None:  # noqa: E501
-            query_params.append(('commit_date__lt', local_var_params['commit_date__lt']))  # noqa: E501
-        if 'commit_date__lte' in local_var_params and local_var_params['commit_date__lte'] is not None:  # noqa: E501
-            query_params.append(('commit_date__lte', local_var_params['commit_date__lte']))  # noqa: E501
-        if 'commit_date__date' in local_var_params and local_var_params['commit_date__date'] is not None:  # noqa: E501
-            query_params.append(('commit_date__date', local_var_params['commit_date__date']))  # noqa: E501
-        if 'commit_date__date__gt' in local_var_params and local_var_params['commit_date__date__gt'] is not None:  # noqa: E501
-            query_params.append(('commit_date__date__gt', local_var_params['commit_date__date__gt']))  # noqa: E501
-        if 'commit_date__date__gte' in local_var_params and local_var_params['commit_date__date__gte'] is not None:  # noqa: E501
-            query_params.append(('commit_date__date__gte', local_var_params['commit_date__date__gte']))  # noqa: E501
-        if 'commit_date__date__lt' in local_var_params and local_var_params['commit_date__date__lt'] is not None:  # noqa: E501
-            query_params.append(('commit_date__date__lt', local_var_params['commit_date__date__lt']))  # noqa: E501
-        if 'commit_date__date__lte' in local_var_params and local_var_params['commit_date__date__lte'] is not None:  # noqa: E501
-            query_params.append(('commit_date__date__lte', local_var_params['commit_date__date__lte']))  # noqa: E501
-        if 'commit_date__year' in local_var_params and local_var_params['commit_date__year'] is not None:  # noqa: E501
-            query_params.append(('commit_date__year', local_var_params['commit_date__year']))  # noqa: E501
-        if 'commit_date__year__gt' in local_var_params and local_var_params['commit_date__year__gt'] is not None:  # noqa: E501
-            query_params.append(('commit_date__year__gt', local_var_params['commit_date__year__gt']))  # noqa: E501
-        if 'commit_date__year__gte' in local_var_params and local_var_params['commit_date__year__gte'] is not None:  # noqa: E501
-            query_params.append(('commit_date__year__gte', local_var_params['commit_date__year__gte']))  # noqa: E501
-        if 'commit_date__year__lt' in local_var_params and local_var_params['commit_date__year__lt'] is not None:  # noqa: E501
-            query_params.append(('commit_date__year__lt', local_var_params['commit_date__year__lt']))  # noqa: E501
-        if 'commit_date__year__lte' in local_var_params and local_var_params['commit_date__year__lte'] is not None:  # noqa: E501
-            query_params.append(('commit_date__year__lte', local_var_params['commit_date__year__lte']))  # noqa: E501
-        if 'commit_date__month' in local_var_params and local_var_params['commit_date__month'] is not None:  # noqa: E501
-            query_params.append(('commit_date__month', local_var_params['commit_date__month']))  # noqa: E501
-        if 'commit_date__month__lte' in local_var_params and local_var_params['commit_date__month__lte'] is not None:  # noqa: E501
-            query_params.append(('commit_date__month__lte', local_var_params['commit_date__month__lte']))  # noqa: E501
-        if 'commit_date__day' in local_var_params and local_var_params['commit_date__day'] is not None:  # noqa: E501
-            query_params.append(('commit_date__day', local_var_params['commit_date__day']))  # noqa: E501
-        if 'commit_date__day__lt' in local_var_params and local_var_params['commit_date__day__lt'] is not None:  # noqa: E501
-            query_params.append(('commit_date__day__lt', local_var_params['commit_date__day__lt']))  # noqa: E501
-        if 'commit_date__week' in local_var_params and local_var_params['commit_date__week'] is not None:  # noqa: E501
-            query_params.append(('commit_date__week', local_var_params['commit_date__week']))  # noqa: E501
-        if 'commit_date__week_day' in local_var_params and local_var_params['commit_date__week_day'] is not None:  # noqa: E501
-            query_params.append(('commit_date__week_day', local_var_params['commit_date__week_day']))  # noqa: E501
-        if 'committed' in local_var_params and local_var_params['committed'] is not None:  # noqa: E501
-            query_params.append(('committed', local_var_params['committed']))  # noqa: E501
-        if 'archived' in local_var_params and local_var_params['archived'] is not None:  # noqa: E501
-            query_params.append(('archived', local_var_params['archived']))  # noqa: E501
-        if 'is_valid' in local_var_params and local_var_params['is_valid'] is not None:  # noqa: E501
-            query_params.append(('is_valid', local_var_params['is_valid']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if (
+            "number" in local_var_params and local_var_params["number"] is not None
+        ):  # noqa: E501
+            query_params.append(("number", local_var_params["number"]))  # noqa: E501
+        if (
+            "commit_message" in local_var_params
+            and local_var_params["commit_message"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_message", local_var_params["commit_message"])
+            )  # noqa: E501
+        if (
+            "commit_message__iexact" in local_var_params
+            and local_var_params["commit_message__iexact"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_message__iexact", local_var_params["commit_message__iexact"])
+            )  # noqa: E501
+        if (
+            "commit_message__contains" in local_var_params
+            and local_var_params["commit_message__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "commit_message__contains",
+                    local_var_params["commit_message__contains"],
+                )
+            )  # noqa: E501
+        if (
+            "commit_message__icontains" in local_var_params
+            and local_var_params["commit_message__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "commit_message__icontains",
+                    local_var_params["commit_message__icontains"],
+                )
+            )  # noqa: E501
+        if (
+            "commit_message__in" in local_var_params
+            and local_var_params["commit_message__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_message__in", local_var_params["commit_message__in"])
+            )  # noqa: E501
+        if (
+            "commit_message__startswith" in local_var_params
+            and local_var_params["commit_message__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "commit_message__startswith",
+                    local_var_params["commit_message__startswith"],
+                )
+            )  # noqa: E501
+        if (
+            "commit_message__istartswith" in local_var_params
+            and local_var_params["commit_message__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "commit_message__istartswith",
+                    local_var_params["commit_message__istartswith"],
+                )
+            )  # noqa: E501
+        if (
+            "commit_message__endswith" in local_var_params
+            and local_var_params["commit_message__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "commit_message__endswith",
+                    local_var_params["commit_message__endswith"],
+                )
+            )  # noqa: E501
+        if (
+            "commit_message__regex" in local_var_params
+            and local_var_params["commit_message__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_message__regex", local_var_params["commit_message__regex"])
+            )  # noqa: E501
+        if (
+            "schematisation__id" in local_var_params
+            and local_var_params["schematisation__id"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("schematisation__id", local_var_params["schematisation__id"])
+            )  # noqa: E501
+        if (
+            "schematisation__slug" in local_var_params
+            and local_var_params["schematisation__slug"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("schematisation__slug", local_var_params["schematisation__slug"])
+            )  # noqa: E501
+        if (
+            "schematisation__slug__iexact" in local_var_params
+            and local_var_params["schematisation__slug__iexact"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__slug__iexact",
+                    local_var_params["schematisation__slug__iexact"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__slug__contains" in local_var_params
+            and local_var_params["schematisation__slug__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__slug__contains",
+                    local_var_params["schematisation__slug__contains"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__slug__icontains" in local_var_params
+            and local_var_params["schematisation__slug__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__slug__icontains",
+                    local_var_params["schematisation__slug__icontains"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__slug__in" in local_var_params
+            and local_var_params["schematisation__slug__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__slug__in",
+                    local_var_params["schematisation__slug__in"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__slug__startswith" in local_var_params
+            and local_var_params["schematisation__slug__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__slug__startswith",
+                    local_var_params["schematisation__slug__startswith"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__slug__istartswith" in local_var_params
+            and local_var_params["schematisation__slug__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__slug__istartswith",
+                    local_var_params["schematisation__slug__istartswith"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__slug__endswith" in local_var_params
+            and local_var_params["schematisation__slug__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__slug__endswith",
+                    local_var_params["schematisation__slug__endswith"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__slug__regex" in local_var_params
+            and local_var_params["schematisation__slug__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__slug__regex",
+                    local_var_params["schematisation__slug__regex"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__name" in local_var_params
+            and local_var_params["schematisation__owner__name"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__name",
+                    local_var_params["schematisation__owner__name"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__name__iexact" in local_var_params
+            and local_var_params["schematisation__owner__name__iexact"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__name__iexact",
+                    local_var_params["schematisation__owner__name__iexact"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__name__contains" in local_var_params
+            and local_var_params["schematisation__owner__name__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__name__contains",
+                    local_var_params["schematisation__owner__name__contains"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__name__icontains" in local_var_params
+            and local_var_params["schematisation__owner__name__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__name__icontains",
+                    local_var_params["schematisation__owner__name__icontains"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__name__in" in local_var_params
+            and local_var_params["schematisation__owner__name__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__name__in",
+                    local_var_params["schematisation__owner__name__in"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__name__startswith" in local_var_params
+            and local_var_params["schematisation__owner__name__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__name__startswith",
+                    local_var_params["schematisation__owner__name__startswith"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__name__istartswith" in local_var_params
+            and local_var_params["schematisation__owner__name__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__name__istartswith",
+                    local_var_params["schematisation__owner__name__istartswith"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__name__endswith" in local_var_params
+            and local_var_params["schematisation__owner__name__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__name__endswith",
+                    local_var_params["schematisation__owner__name__endswith"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__name__regex" in local_var_params
+            and local_var_params["schematisation__owner__name__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__name__regex",
+                    local_var_params["schematisation__owner__name__regex"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__unique_id" in local_var_params
+            and local_var_params["schematisation__owner__unique_id"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__unique_id",
+                    local_var_params["schematisation__owner__unique_id"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__unique_id__iexact" in local_var_params
+            and local_var_params["schematisation__owner__unique_id__iexact"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__unique_id__iexact",
+                    local_var_params["schematisation__owner__unique_id__iexact"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__unique_id__contains" in local_var_params
+            and local_var_params["schematisation__owner__unique_id__contains"]
+            is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__unique_id__contains",
+                    local_var_params["schematisation__owner__unique_id__contains"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__unique_id__icontains" in local_var_params
+            and local_var_params["schematisation__owner__unique_id__icontains"]
+            is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__unique_id__icontains",
+                    local_var_params["schematisation__owner__unique_id__icontains"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__unique_id__in" in local_var_params
+            and local_var_params["schematisation__owner__unique_id__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__unique_id__in",
+                    local_var_params["schematisation__owner__unique_id__in"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__unique_id__startswith" in local_var_params
+            and local_var_params["schematisation__owner__unique_id__startswith"]
+            is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__unique_id__startswith",
+                    local_var_params["schematisation__owner__unique_id__startswith"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__unique_id__istartswith" in local_var_params
+            and local_var_params["schematisation__owner__unique_id__istartswith"]
+            is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__unique_id__istartswith",
+                    local_var_params["schematisation__owner__unique_id__istartswith"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__unique_id__endswith" in local_var_params
+            and local_var_params["schematisation__owner__unique_id__endswith"]
+            is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__unique_id__endswith",
+                    local_var_params["schematisation__owner__unique_id__endswith"],
+                )
+            )  # noqa: E501
+        if (
+            "schematisation__owner__unique_id__regex" in local_var_params
+            and local_var_params["schematisation__owner__unique_id__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "schematisation__owner__unique_id__regex",
+                    local_var_params["schematisation__owner__unique_id__regex"],
+                )
+            )  # noqa: E501
+        if (
+            "commit_user__username" in local_var_params
+            and local_var_params["commit_user__username"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_user__username", local_var_params["commit_user__username"])
+            )  # noqa: E501
+        if (
+            "commit_user__username__iexact" in local_var_params
+            and local_var_params["commit_user__username__iexact"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "commit_user__username__iexact",
+                    local_var_params["commit_user__username__iexact"],
+                )
+            )  # noqa: E501
+        if (
+            "commit_user__username__contains" in local_var_params
+            and local_var_params["commit_user__username__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "commit_user__username__contains",
+                    local_var_params["commit_user__username__contains"],
+                )
+            )  # noqa: E501
+        if (
+            "commit_user__username__icontains" in local_var_params
+            and local_var_params["commit_user__username__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "commit_user__username__icontains",
+                    local_var_params["commit_user__username__icontains"],
+                )
+            )  # noqa: E501
+        if (
+            "commit_user__username__in" in local_var_params
+            and local_var_params["commit_user__username__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "commit_user__username__in",
+                    local_var_params["commit_user__username__in"],
+                )
+            )  # noqa: E501
+        if (
+            "commit_user__username__startswith" in local_var_params
+            and local_var_params["commit_user__username__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "commit_user__username__startswith",
+                    local_var_params["commit_user__username__startswith"],
+                )
+            )  # noqa: E501
+        if (
+            "commit_user__username__istartswith" in local_var_params
+            and local_var_params["commit_user__username__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "commit_user__username__istartswith",
+                    local_var_params["commit_user__username__istartswith"],
+                )
+            )  # noqa: E501
+        if (
+            "commit_user__username__endswith" in local_var_params
+            and local_var_params["commit_user__username__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "commit_user__username__endswith",
+                    local_var_params["commit_user__username__endswith"],
+                )
+            )  # noqa: E501
+        if (
+            "commit_user__username__regex" in local_var_params
+            and local_var_params["commit_user__username__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "commit_user__username__regex",
+                    local_var_params["commit_user__username__regex"],
+                )
+            )  # noqa: E501
+        if (
+            "commit_date" in local_var_params
+            and local_var_params["commit_date"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date", local_var_params["commit_date"])
+            )  # noqa: E501
+        if (
+            "commit_date__gt" in local_var_params
+            and local_var_params["commit_date__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__gt", local_var_params["commit_date__gt"])
+            )  # noqa: E501
+        if (
+            "commit_date__gte" in local_var_params
+            and local_var_params["commit_date__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__gte", local_var_params["commit_date__gte"])
+            )  # noqa: E501
+        if (
+            "commit_date__lt" in local_var_params
+            and local_var_params["commit_date__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__lt", local_var_params["commit_date__lt"])
+            )  # noqa: E501
+        if (
+            "commit_date__lte" in local_var_params
+            and local_var_params["commit_date__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__lte", local_var_params["commit_date__lte"])
+            )  # noqa: E501
+        if (
+            "commit_date__date" in local_var_params
+            and local_var_params["commit_date__date"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__date", local_var_params["commit_date__date"])
+            )  # noqa: E501
+        if (
+            "commit_date__date__gt" in local_var_params
+            and local_var_params["commit_date__date__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__date__gt", local_var_params["commit_date__date__gt"])
+            )  # noqa: E501
+        if (
+            "commit_date__date__gte" in local_var_params
+            and local_var_params["commit_date__date__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__date__gte", local_var_params["commit_date__date__gte"])
+            )  # noqa: E501
+        if (
+            "commit_date__date__lt" in local_var_params
+            and local_var_params["commit_date__date__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__date__lt", local_var_params["commit_date__date__lt"])
+            )  # noqa: E501
+        if (
+            "commit_date__date__lte" in local_var_params
+            and local_var_params["commit_date__date__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__date__lte", local_var_params["commit_date__date__lte"])
+            )  # noqa: E501
+        if (
+            "commit_date__year" in local_var_params
+            and local_var_params["commit_date__year"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__year", local_var_params["commit_date__year"])
+            )  # noqa: E501
+        if (
+            "commit_date__year__gt" in local_var_params
+            and local_var_params["commit_date__year__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__year__gt", local_var_params["commit_date__year__gt"])
+            )  # noqa: E501
+        if (
+            "commit_date__year__gte" in local_var_params
+            and local_var_params["commit_date__year__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__year__gte", local_var_params["commit_date__year__gte"])
+            )  # noqa: E501
+        if (
+            "commit_date__year__lt" in local_var_params
+            and local_var_params["commit_date__year__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__year__lt", local_var_params["commit_date__year__lt"])
+            )  # noqa: E501
+        if (
+            "commit_date__year__lte" in local_var_params
+            and local_var_params["commit_date__year__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__year__lte", local_var_params["commit_date__year__lte"])
+            )  # noqa: E501
+        if (
+            "commit_date__month" in local_var_params
+            and local_var_params["commit_date__month"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__month", local_var_params["commit_date__month"])
+            )  # noqa: E501
+        if (
+            "commit_date__month__lte" in local_var_params
+            and local_var_params["commit_date__month__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__month__lte", local_var_params["commit_date__month__lte"])
+            )  # noqa: E501
+        if (
+            "commit_date__day" in local_var_params
+            and local_var_params["commit_date__day"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__day", local_var_params["commit_date__day"])
+            )  # noqa: E501
+        if (
+            "commit_date__day__lt" in local_var_params
+            and local_var_params["commit_date__day__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__day__lt", local_var_params["commit_date__day__lt"])
+            )  # noqa: E501
+        if (
+            "commit_date__week" in local_var_params
+            and local_var_params["commit_date__week"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__week", local_var_params["commit_date__week"])
+            )  # noqa: E501
+        if (
+            "commit_date__week_day" in local_var_params
+            and local_var_params["commit_date__week_day"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("commit_date__week_day", local_var_params["commit_date__week_day"])
+            )  # noqa: E501
+        if (
+            "committed" in local_var_params
+            and local_var_params["committed"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("committed", local_var_params["committed"])
+            )  # noqa: E501
+        if (
+            "archived" in local_var_params and local_var_params["archived"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("archived", local_var_params["archived"])
+            )  # noqa: E501
+        if (
+            "is_valid" in local_var_params and local_var_params["is_valid"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("is_valid", local_var_params["is_valid"])
+            )  # noqa: E501
+        if (
+            "ordering" in local_var_params and local_var_params["ordering"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("ordering", local_var_params["ordering"])
+            )  # noqa: E501
+        if (
+            "limit" in local_var_params and local_var_params["limit"] is not None
+        ):  # noqa: E501
+            query_params.append(("limit", local_var_params["limit"]))  # noqa: E501
+        if (
+            "offset" in local_var_params and local_var_params["offset"] is not None
+        ):  # noqa: E501
+            query_params.append(("offset", local_var_params["offset"]))  # noqa: E501
 
         header_params = {}
 
@@ -2324,29 +3490,36 @@ class V3BetaApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/', 'GET',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2001',  # noqa: E501
+            response_type="InlineResponse2001",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_rasters_create(self, revision_pk, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_rasters_create(
+        self, revision_pk, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """Endpoint for creating a raster linked to a revision.  # noqa: E501
 
         Every raster type can be created/uploaded only once.  Optional md5sum can be added to detect if the file already has been uploaded and automatically perform de-duplication.  # noqa: E501
@@ -2370,10 +3543,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_rasters_create_with_http_info(revision_pk, schematisation_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_rasters_create_with_http_info(
+            revision_pk, schematisation_pk, data, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_rasters_create_with_http_info(self, revision_pk, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_rasters_create_with_http_info(
+        self, revision_pk, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """Endpoint for creating a raster linked to a revision.  # noqa: E501
 
         Every raster type can be created/uploaded only once.  Optional md5sum can be added to detect if the file already has been uploaded and automatically perform de-duplication.  # noqa: E501
@@ -2402,48 +3579,58 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'revision_pk',
-            'schematisation_pk',
-            'data'
-        ]
+        all_params = ["revision_pk", "schematisation_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_rasters_create" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'revision_pk' is set
-        if self.api_client.client_side_validation and ('revision_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['revision_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `revision_pk` when calling `schematisations_revisions_rasters_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "revision_pk" not in local_var_params
+            or local_var_params["revision_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `revision_pk` when calling `schematisations_revisions_rasters_create`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_rasters_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_rasters_create`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_revisions_rasters_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `schematisations_revisions_rasters_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'revision_pk' in local_var_params:
-            path_params['revision_pk'] = local_var_params['revision_pk']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "revision_pk" in local_var_params:
+            path_params["revision_pk"] = local_var_params["revision_pk"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -2453,36 +3640,46 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/', 'POST',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RevisionRaster',  # noqa: E501
+            response_type="RevisionRaster",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_rasters_delete(self, id, revision_pk, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_rasters_delete(
+        self, id, revision_pk, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_rasters_delete  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2505,10 +3702,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_rasters_delete_with_http_info(id, revision_pk, schematisation_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_rasters_delete_with_http_info(
+            id, revision_pk, schematisation_pk, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_rasters_delete_with_http_info(self, id, revision_pk, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_rasters_delete_with_http_info(
+        self, id, revision_pk, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_rasters_delete  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2536,50 +3737,59 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'revision_pk',
-            'schematisation_pk'
-        ]
+        all_params = ["id", "revision_pk", "schematisation_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_rasters_delete" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_rasters_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_rasters_delete`"
+            )  # noqa: E501
         # verify the required parameter 'revision_pk' is set
-        if self.api_client.client_side_validation and ('revision_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['revision_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `revision_pk` when calling `schematisations_revisions_rasters_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "revision_pk" not in local_var_params
+            or local_var_params["revision_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `revision_pk` when calling `schematisations_revisions_rasters_delete`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_rasters_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_rasters_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'revision_pk' in local_var_params:
-            path_params['revision_pk'] = local_var_params['revision_pk']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "revision_pk" in local_var_params:
+            path_params["revision_pk"] = local_var_params["revision_pk"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -2590,10 +3800,11 @@ class V3BetaApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/', 'DELETE',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -2602,13 +3813,18 @@ class V3BetaApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_rasters_download(self, id, revision_pk, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_rasters_download(
+        self, id, revision_pk, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_rasters_download  # noqa: E501
 
         Endpoint for downloading files.  # noqa: E501
@@ -2632,10 +3848,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_rasters_download_with_http_info(id, revision_pk, schematisation_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_rasters_download_with_http_info(
+            id, revision_pk, schematisation_pk, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_rasters_download_with_http_info(self, id, revision_pk, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_rasters_download_with_http_info(
+        self, id, revision_pk, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_rasters_download  # noqa: E501
 
         Endpoint for downloading files.  # noqa: E501
@@ -2664,50 +3884,59 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'revision_pk',
-            'schematisation_pk'
-        ]
+        all_params = ["id", "revision_pk", "schematisation_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_rasters_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_rasters_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_rasters_download`"
+            )  # noqa: E501
         # verify the required parameter 'revision_pk' is set
-        if self.api_client.client_side_validation and ('revision_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['revision_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `revision_pk` when calling `schematisations_revisions_rasters_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "revision_pk" not in local_var_params
+            or local_var_params["revision_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `revision_pk` when calling `schematisations_revisions_rasters_download`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_rasters_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_rasters_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'revision_pk' in local_var_params:
-            path_params['revision_pk'] = local_var_params['revision_pk']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "revision_pk" in local_var_params:
+            path_params["revision_pk"] = local_var_params["revision_pk"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -2718,29 +3947,36 @@ class V3BetaApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/download/', 'GET',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_rasters_list(self, revision_pk, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_rasters_list(
+        self, revision_pk, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_rasters_list  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2764,10 +4000,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_rasters_list_with_http_info(revision_pk, schematisation_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_rasters_list_with_http_info(
+            revision_pk, schematisation_pk, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_rasters_list_with_http_info(self, revision_pk, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_rasters_list_with_http_info(
+        self, revision_pk, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_rasters_list  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2796,51 +4036,60 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'revision_pk',
-            'schematisation_pk',
-            'limit',
-            'offset'
-        ]
+        all_params = ["revision_pk", "schematisation_pk", "limit", "offset"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_rasters_list" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'revision_pk' is set
-        if self.api_client.client_side_validation and ('revision_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['revision_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `revision_pk` when calling `schematisations_revisions_rasters_list`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "revision_pk" not in local_var_params
+            or local_var_params["revision_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `revision_pk` when calling `schematisations_revisions_rasters_list`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_rasters_list`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_rasters_list`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'revision_pk' in local_var_params:
-            path_params['revision_pk'] = local_var_params['revision_pk']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "revision_pk" in local_var_params:
+            path_params["revision_pk"] = local_var_params["revision_pk"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if (
+            "limit" in local_var_params and local_var_params["limit"] is not None
+        ):  # noqa: E501
+            query_params.append(("limit", local_var_params["limit"]))  # noqa: E501
+        if (
+            "offset" in local_var_params and local_var_params["offset"] is not None
+        ):  # noqa: E501
+            query_params.append(("offset", local_var_params["offset"]))  # noqa: E501
 
         header_params = {}
 
@@ -2849,29 +4098,36 @@ class V3BetaApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/', 'GET',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2002',  # noqa: E501
+            response_type="InlineResponse2002",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_rasters_partial_update(self, id, revision_pk, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_rasters_partial_update(
+        self, id, revision_pk, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_rasters_partial_update  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2895,10 +4151,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_rasters_partial_update_with_http_info(id, revision_pk, schematisation_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_rasters_partial_update_with_http_info(
+            id, revision_pk, schematisation_pk, data, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_rasters_partial_update_with_http_info(self, id, revision_pk, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_rasters_partial_update_with_http_info(
+        self, id, revision_pk, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_rasters_partial_update  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2927,55 +4187,67 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'revision_pk',
-            'schematisation_pk',
-            'data'
-        ]
+        all_params = ["id", "revision_pk", "schematisation_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_rasters_partial_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_rasters_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_rasters_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'revision_pk' is set
-        if self.api_client.client_side_validation and ('revision_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['revision_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `revision_pk` when calling `schematisations_revisions_rasters_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "revision_pk" not in local_var_params
+            or local_var_params["revision_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `revision_pk` when calling `schematisations_revisions_rasters_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_rasters_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_rasters_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_revisions_rasters_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `schematisations_revisions_rasters_partial_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'revision_pk' in local_var_params:
-            path_params['revision_pk'] = local_var_params['revision_pk']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "revision_pk" in local_var_params:
+            path_params["revision_pk"] = local_var_params["revision_pk"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -2985,36 +4257,46 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/', 'PATCH',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/",
+            "PATCH",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RevisionRaster',  # noqa: E501
+            response_type="RevisionRaster",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_rasters_read(self, id, revision_pk, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_rasters_read(
+        self, id, revision_pk, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_rasters_read  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -3037,10 +4319,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_rasters_read_with_http_info(id, revision_pk, schematisation_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_rasters_read_with_http_info(
+            id, revision_pk, schematisation_pk, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_rasters_read_with_http_info(self, id, revision_pk, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_rasters_read_with_http_info(
+        self, id, revision_pk, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_rasters_read  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -3068,50 +4354,59 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'revision_pk',
-            'schematisation_pk'
-        ]
+        all_params = ["id", "revision_pk", "schematisation_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_rasters_read" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_rasters_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_rasters_read`"
+            )  # noqa: E501
         # verify the required parameter 'revision_pk' is set
-        if self.api_client.client_side_validation and ('revision_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['revision_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `revision_pk` when calling `schematisations_revisions_rasters_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "revision_pk" not in local_var_params
+            or local_var_params["revision_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `revision_pk` when calling `schematisations_revisions_rasters_read`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_rasters_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_rasters_read`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'revision_pk' in local_var_params:
-            path_params['revision_pk'] = local_var_params['revision_pk']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "revision_pk" in local_var_params:
+            path_params["revision_pk"] = local_var_params["revision_pk"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -3122,29 +4417,36 @@ class V3BetaApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/', 'GET',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RevisionRaster',  # noqa: E501
+            response_type="RevisionRaster",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_rasters_update(self, id, revision_pk, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_rasters_update(
+        self, id, revision_pk, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_rasters_update  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -3168,10 +4470,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_rasters_update_with_http_info(id, revision_pk, schematisation_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_rasters_update_with_http_info(
+            id, revision_pk, schematisation_pk, data, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_rasters_update_with_http_info(self, id, revision_pk, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_rasters_update_with_http_info(
+        self, id, revision_pk, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_rasters_update  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -3200,55 +4506,67 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'revision_pk',
-            'schematisation_pk',
-            'data'
-        ]
+        all_params = ["id", "revision_pk", "schematisation_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_rasters_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_rasters_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_rasters_update`"
+            )  # noqa: E501
         # verify the required parameter 'revision_pk' is set
-        if self.api_client.client_side_validation and ('revision_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['revision_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `revision_pk` when calling `schematisations_revisions_rasters_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "revision_pk" not in local_var_params
+            or local_var_params["revision_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `revision_pk` when calling `schematisations_revisions_rasters_update`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_rasters_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_rasters_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_revisions_rasters_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `schematisations_revisions_rasters_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'revision_pk' in local_var_params:
-            path_params['revision_pk'] = local_var_params['revision_pk']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "revision_pk" in local_var_params:
+            path_params["revision_pk"] = local_var_params["revision_pk"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -3258,36 +4576,46 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/', 'PUT',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/",
+            "PUT",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RevisionRaster',  # noqa: E501
+            response_type="RevisionRaster",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_rasters_upload(self, id, revision_pk, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_rasters_upload(
+        self, id, revision_pk, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_rasters_upload  # noqa: E501
 
         Endpoint for uploading a raster.  # noqa: E501
@@ -3312,10 +4640,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_rasters_upload_with_http_info(id, revision_pk, schematisation_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_rasters_upload_with_http_info(
+            id, revision_pk, schematisation_pk, data, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_rasters_upload_with_http_info(self, id, revision_pk, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_rasters_upload_with_http_info(
+        self, id, revision_pk, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_rasters_upload  # noqa: E501
 
         Endpoint for uploading a raster.  # noqa: E501
@@ -3345,55 +4677,67 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'revision_pk',
-            'schematisation_pk',
-            'data'
-        ]
+        all_params = ["id", "revision_pk", "schematisation_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_rasters_upload" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_rasters_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_rasters_upload`"
+            )  # noqa: E501
         # verify the required parameter 'revision_pk' is set
-        if self.api_client.client_side_validation and ('revision_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['revision_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `revision_pk` when calling `schematisations_revisions_rasters_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "revision_pk" not in local_var_params
+            or local_var_params["revision_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `revision_pk` when calling `schematisations_revisions_rasters_upload`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_rasters_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_rasters_upload`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_revisions_rasters_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `schematisations_revisions_rasters_upload`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'revision_pk' in local_var_params:
-            path_params['revision_pk'] = local_var_params['revision_pk']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "revision_pk" in local_var_params:
+            path_params["revision_pk"] = local_var_params["revision_pk"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -3403,36 +4747,46 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/upload/', 'POST',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/upload/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type="Upload",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_read(self, id, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_read(
+        self, id, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_read  # noqa: E501
 
         Manage revisions of schematisations.  # noqa: E501
@@ -3455,10 +4809,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_read_with_http_info(id, schematisation_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_read_with_http_info(
+            id, schematisation_pk, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_read_with_http_info(self, id, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_read_with_http_info(
+        self, id, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_read  # noqa: E501
 
         Manage revisions of schematisations.  # noqa: E501
@@ -3486,43 +4844,49 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'schematisation_pk'
-        ]
+        all_params = ["id", "schematisation_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_read" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_read`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_read`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -3533,29 +4897,36 @@ class V3BetaApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/', 'GET',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='SchematisationRevision',  # noqa: E501
+            response_type="SchematisationRevision",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_sqlite_delete(self, id, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_sqlite_delete(
+        self, id, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_sqlite_delete  # noqa: E501
 
         Manage revisions of schematisations.  # noqa: E501
@@ -3578,10 +4949,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_sqlite_delete_with_http_info(id, schematisation_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_sqlite_delete_with_http_info(
+            id, schematisation_pk, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_sqlite_delete_with_http_info(self, id, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_sqlite_delete_with_http_info(
+        self, id, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_sqlite_delete  # noqa: E501
 
         Manage revisions of schematisations.  # noqa: E501
@@ -3609,43 +4984,49 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'schematisation_pk'
-        ]
+        all_params = ["id", "schematisation_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_sqlite_delete" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_sqlite_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_sqlite_delete`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_sqlite_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_sqlite_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -3656,10 +5037,11 @@ class V3BetaApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/sqlite/delete/', 'DELETE',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/sqlite/delete/",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -3668,13 +5050,18 @@ class V3BetaApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_sqlite_download(self, id, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_sqlite_download(
+        self, id, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_sqlite_download  # noqa: E501
 
         Endpoint for downloading files.  # noqa: E501
@@ -3697,10 +5084,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_sqlite_download_with_http_info(id, schematisation_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_sqlite_download_with_http_info(
+            id, schematisation_pk, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_sqlite_download_with_http_info(self, id, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_sqlite_download_with_http_info(
+        self, id, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_sqlite_download  # noqa: E501
 
         Endpoint for downloading files.  # noqa: E501
@@ -3728,43 +5119,49 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'schematisation_pk'
-        ]
+        all_params = ["id", "schematisation_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_sqlite_download" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_sqlite_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_sqlite_download`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_sqlite_download`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_sqlite_download`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -3775,29 +5172,36 @@ class V3BetaApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/sqlite/download/', 'GET',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/sqlite/download/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Download',  # noqa: E501
+            response_type="Download",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_sqlite_upload(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_sqlite_upload(
+        self, id, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """Endpoint for uploading the sqlite file.  # noqa: E501
 
         The file should preferably be zipped (deflate).  Replaces the present sqlite file if there already exists one.  Optional md5sum can be added to detect if the file already has been uploaded and perform de-duplication. (md5sum of the compressed sqlite file)  # noqa: E501
@@ -3821,10 +5225,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_sqlite_upload_with_http_info(id, schematisation_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_sqlite_upload_with_http_info(
+            id, schematisation_pk, data, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_sqlite_upload_with_http_info(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_sqlite_upload_with_http_info(
+        self, id, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """Endpoint for uploading the sqlite file.  # noqa: E501
 
         The file should preferably be zipped (deflate).  Replaces the present sqlite file if there already exists one.  Optional md5sum can be added to detect if the file already has been uploaded and perform de-duplication. (md5sum of the compressed sqlite file)  # noqa: E501
@@ -3853,48 +5261,57 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'schematisation_pk',
-            'data'
-        ]
+        all_params = ["id", "schematisation_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_sqlite_upload" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_sqlite_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_sqlite_upload`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_sqlite_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_sqlite_upload`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_revisions_sqlite_upload`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `schematisations_revisions_sqlite_upload`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -3904,36 +5321,46 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/sqlite/upload/', 'POST',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/sqlite/upload/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Upload',  # noqa: E501
+            response_type="Upload",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_tasks_create(self, revision_pk, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_tasks_create(
+        self, revision_pk, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_tasks_create  # noqa: E501
 
         View revision tasks  # noqa: E501
@@ -3957,10 +5384,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_tasks_create_with_http_info(revision_pk, schematisation_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_tasks_create_with_http_info(
+            revision_pk, schematisation_pk, data, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_tasks_create_with_http_info(self, revision_pk, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_tasks_create_with_http_info(
+        self, revision_pk, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_tasks_create  # noqa: E501
 
         View revision tasks  # noqa: E501
@@ -3989,48 +5420,58 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'revision_pk',
-            'schematisation_pk',
-            'data'
-        ]
+        all_params = ["revision_pk", "schematisation_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_tasks_create" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'revision_pk' is set
-        if self.api_client.client_side_validation and ('revision_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['revision_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `revision_pk` when calling `schematisations_revisions_tasks_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "revision_pk" not in local_var_params
+            or local_var_params["revision_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `revision_pk` when calling `schematisations_revisions_tasks_create`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_tasks_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_tasks_create`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_revisions_tasks_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `schematisations_revisions_tasks_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'revision_pk' in local_var_params:
-            path_params['revision_pk'] = local_var_params['revision_pk']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "revision_pk" in local_var_params:
+            path_params["revision_pk"] = local_var_params["revision_pk"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -4040,36 +5481,46 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/', 'POST',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RevisionTask',  # noqa: E501
+            response_type="RevisionTask",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_tasks_delete(self, id, revision_pk, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_tasks_delete(
+        self, id, revision_pk, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_tasks_delete  # noqa: E501
 
         View revision tasks  # noqa: E501
@@ -4093,10 +5544,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_tasks_delete_with_http_info(id, revision_pk, schematisation_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_tasks_delete_with_http_info(
+            id, revision_pk, schematisation_pk, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_tasks_delete_with_http_info(self, id, revision_pk, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_tasks_delete_with_http_info(
+        self, id, revision_pk, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_tasks_delete  # noqa: E501
 
         View revision tasks  # noqa: E501
@@ -4125,50 +5580,59 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'revision_pk',
-            'schematisation_pk'
-        ]
+        all_params = ["id", "revision_pk", "schematisation_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_tasks_delete" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_tasks_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_tasks_delete`"
+            )  # noqa: E501
         # verify the required parameter 'revision_pk' is set
-        if self.api_client.client_side_validation and ('revision_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['revision_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `revision_pk` when calling `schematisations_revisions_tasks_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "revision_pk" not in local_var_params
+            or local_var_params["revision_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `revision_pk` when calling `schematisations_revisions_tasks_delete`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_tasks_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_tasks_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'revision_pk' in local_var_params:
-            path_params['revision_pk'] = local_var_params['revision_pk']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "revision_pk" in local_var_params:
+            path_params["revision_pk"] = local_var_params["revision_pk"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -4179,10 +5643,11 @@ class V3BetaApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/{id}/', 'DELETE',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/{id}/",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -4191,13 +5656,18 @@ class V3BetaApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_tasks_list(self, revision_pk, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_tasks_list(
+        self, revision_pk, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_tasks_list  # noqa: E501
 
         View revision tasks  # noqa: E501
@@ -4222,10 +5692,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_tasks_list_with_http_info(revision_pk, schematisation_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_tasks_list_with_http_info(
+            revision_pk, schematisation_pk, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_tasks_list_with_http_info(self, revision_pk, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_tasks_list_with_http_info(
+        self, revision_pk, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_tasks_list  # noqa: E501
 
         View revision tasks  # noqa: E501
@@ -4255,51 +5729,60 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'revision_pk',
-            'schematisation_pk',
-            'limit',
-            'offset'
-        ]
+        all_params = ["revision_pk", "schematisation_pk", "limit", "offset"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_tasks_list" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'revision_pk' is set
-        if self.api_client.client_side_validation and ('revision_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['revision_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `revision_pk` when calling `schematisations_revisions_tasks_list`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "revision_pk" not in local_var_params
+            or local_var_params["revision_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `revision_pk` when calling `schematisations_revisions_tasks_list`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_tasks_list`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_tasks_list`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'revision_pk' in local_var_params:
-            path_params['revision_pk'] = local_var_params['revision_pk']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "revision_pk" in local_var_params:
+            path_params["revision_pk"] = local_var_params["revision_pk"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if (
+            "limit" in local_var_params and local_var_params["limit"] is not None
+        ):  # noqa: E501
+            query_params.append(("limit", local_var_params["limit"]))  # noqa: E501
+        if (
+            "offset" in local_var_params and local_var_params["offset"] is not None
+        ):  # noqa: E501
+            query_params.append(("offset", local_var_params["offset"]))  # noqa: E501
 
         header_params = {}
 
@@ -4308,29 +5791,36 @@ class V3BetaApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/', 'GET',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2003',  # noqa: E501
+            response_type="InlineResponse2003",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_tasks_partial_update(self, id, revision_pk, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_tasks_partial_update(
+        self, id, revision_pk, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_tasks_partial_update  # noqa: E501
 
         View revision tasks  # noqa: E501
@@ -4355,10 +5845,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_tasks_partial_update_with_http_info(id, revision_pk, schematisation_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_tasks_partial_update_with_http_info(
+            id, revision_pk, schematisation_pk, data, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_tasks_partial_update_with_http_info(self, id, revision_pk, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_tasks_partial_update_with_http_info(
+        self, id, revision_pk, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_tasks_partial_update  # noqa: E501
 
         View revision tasks  # noqa: E501
@@ -4388,55 +5882,67 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'revision_pk',
-            'schematisation_pk',
-            'data'
-        ]
+        all_params = ["id", "revision_pk", "schematisation_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_tasks_partial_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_tasks_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_tasks_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'revision_pk' is set
-        if self.api_client.client_side_validation and ('revision_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['revision_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `revision_pk` when calling `schematisations_revisions_tasks_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "revision_pk" not in local_var_params
+            or local_var_params["revision_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `revision_pk` when calling `schematisations_revisions_tasks_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_tasks_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_tasks_partial_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_revisions_tasks_partial_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `schematisations_revisions_tasks_partial_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'revision_pk' in local_var_params:
-            path_params['revision_pk'] = local_var_params['revision_pk']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "revision_pk" in local_var_params:
+            path_params["revision_pk"] = local_var_params["revision_pk"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -4446,36 +5952,46 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/{id}/', 'PATCH',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/{id}/",
+            "PATCH",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RevisionTask',  # noqa: E501
+            response_type="RevisionTask",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_tasks_read(self, id, revision_pk, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_tasks_read(
+        self, id, revision_pk, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_tasks_read  # noqa: E501
 
         View revision tasks  # noqa: E501
@@ -4499,10 +6015,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_tasks_read_with_http_info(id, revision_pk, schematisation_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_tasks_read_with_http_info(
+            id, revision_pk, schematisation_pk, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_tasks_read_with_http_info(self, id, revision_pk, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_tasks_read_with_http_info(
+        self, id, revision_pk, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_tasks_read  # noqa: E501
 
         View revision tasks  # noqa: E501
@@ -4531,50 +6051,59 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'revision_pk',
-            'schematisation_pk'
-        ]
+        all_params = ["id", "revision_pk", "schematisation_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_tasks_read" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_tasks_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_tasks_read`"
+            )  # noqa: E501
         # verify the required parameter 'revision_pk' is set
-        if self.api_client.client_side_validation and ('revision_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['revision_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `revision_pk` when calling `schematisations_revisions_tasks_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "revision_pk" not in local_var_params
+            or local_var_params["revision_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `revision_pk` when calling `schematisations_revisions_tasks_read`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_tasks_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_tasks_read`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'revision_pk' in local_var_params:
-            path_params['revision_pk'] = local_var_params['revision_pk']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "revision_pk" in local_var_params:
+            path_params["revision_pk"] = local_var_params["revision_pk"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -4585,29 +6114,36 @@ class V3BetaApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/{id}/', 'GET',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/{id}/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RevisionTask',  # noqa: E501
+            response_type="RevisionTask",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_tasks_update(self, id, revision_pk, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_tasks_update(
+        self, id, revision_pk, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_tasks_update  # noqa: E501
 
         View revision tasks  # noqa: E501
@@ -4632,10 +6168,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_tasks_update_with_http_info(id, revision_pk, schematisation_pk, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_tasks_update_with_http_info(
+            id, revision_pk, schematisation_pk, data, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_tasks_update_with_http_info(self, id, revision_pk, schematisation_pk, data, **kwargs):  # noqa: E501
+    def schematisations_revisions_tasks_update_with_http_info(
+        self, id, revision_pk, schematisation_pk, data, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_tasks_update  # noqa: E501
 
         View revision tasks  # noqa: E501
@@ -4665,55 +6205,67 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'revision_pk',
-            'schematisation_pk',
-            'data'
-        ]
+        all_params = ["id", "revision_pk", "schematisation_pk", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_tasks_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_tasks_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_tasks_update`"
+            )  # noqa: E501
         # verify the required parameter 'revision_pk' is set
-        if self.api_client.client_side_validation and ('revision_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['revision_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `revision_pk` when calling `schematisations_revisions_tasks_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "revision_pk" not in local_var_params
+            or local_var_params["revision_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `revision_pk` when calling `schematisations_revisions_tasks_update`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_tasks_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_tasks_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_revisions_tasks_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `schematisations_revisions_tasks_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'revision_pk' in local_var_params:
-            path_params['revision_pk'] = local_var_params['revision_pk']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "revision_pk" in local_var_params:
+            path_params["revision_pk"] = local_var_params["revision_pk"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -4723,36 +6275,46 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/{id}/', 'PUT',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/{id}/",
+            "PUT",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RevisionTask',  # noqa: E501
+            response_type="RevisionTask",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
-    def schematisations_revisions_threedimodels(self, id, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_threedimodels(
+        self, id, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_threedimodels  # noqa: E501
 
         Manage revisions of schematisations.  # noqa: E501
@@ -4775,10 +6337,14 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_threedimodels_with_http_info(id, schematisation_pk, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_revisions_threedimodels_with_http_info(
+            id, schematisation_pk, **kwargs
+        )  # noqa: E501
 
-    def schematisations_revisions_threedimodels_with_http_info(self, id, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_threedimodels_with_http_info(
+        self, id, schematisation_pk, **kwargs
+    ):  # noqa: E501
         """schematisations_revisions_threedimodels  # noqa: E501
 
         Manage revisions of schematisations.  # noqa: E501
@@ -4806,43 +6372,49 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'schematisation_pk'
-        ]
+        all_params = ["id", "schematisation_pk"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_revisions_threedimodels" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_threedimodels`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_revisions_threedimodels`"
+            )  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_threedimodels`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "schematisation_pk" not in local_var_params
+            or local_var_params["schematisation_pk"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_threedimodels`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
+        if "schematisation_pk" in local_var_params:
+            path_params["schematisation_pk"] = local_var_params[
+                "schematisation_pk"
+            ]  # noqa: E501
 
         query_params = []
 
@@ -4853,27 +6425,32 @@ class V3BetaApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/threedimodels/', 'GET',
+            "/v3-beta/schematisations/{schematisation_pk}/revisions/{id}/threedimodels/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[ThreediModel]',  # noqa: E501
+            response_type="list[ThreediModel]",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def schematisations_update(self, id, data, **kwargs):  # noqa: E501
         """schematisations_update  # noqa: E501
@@ -4898,8 +6475,10 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.schematisations_update_with_http_info(id, data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.schematisations_update_with_http_info(
+            id, data, **kwargs
+        )  # noqa: E501
 
     def schematisations_update_with_http_info(self, id, data, **kwargs):  # noqa: E501
         """schematisations_update  # noqa: E501
@@ -4929,41 +6508,45 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id',
-            'data'
-        ]
+        all_params = ["id", "data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method schematisations_update" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `schematisations_update`"
+            )  # noqa: E501
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_update`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `schematisations_update`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -4973,34 +6556,42 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/schematisations/{id}/', 'PUT',
+            "/v3-beta/schematisations/{id}/",
+            "PUT",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Schematisation',  # noqa: E501
+            response_type="Schematisation",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def simulation_templates_create(self, data, **kwargs):  # noqa: E501
         """Create a (optionally cloned) simulation template from the given simulation.  # noqa: E501
@@ -5024,8 +6615,10 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.simulation_templates_create_with_http_info(data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.simulation_templates_create_with_http_info(
+            data, **kwargs
+        )  # noqa: E501
 
     def simulation_templates_create_with_http_info(self, data, **kwargs):  # noqa: E501
         """Create a (optionally cloned) simulation template from the given simulation.  # noqa: E501
@@ -5054,30 +6647,32 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'data'
-        ]
+        all_params = ["data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method simulation_templates_create" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `simulation_templates_create`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `simulation_templates_create`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -5091,34 +6686,42 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/simulation_templates/', 'POST',
+            "/v3-beta/simulation-templates/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Template',  # noqa: E501
+            response_type="Template",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def simulation_templates_delete(self, id, **kwargs):  # noqa: E501
         """simulation_templates_delete  # noqa: E501
@@ -5141,8 +6744,10 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.simulation_templates_delete_with_http_info(id, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.simulation_templates_delete_with_http_info(
+            id, **kwargs
+        )  # noqa: E501
 
     def simulation_templates_delete_with_http_info(self, id, **kwargs):  # noqa: E501
         """simulation_templates_delete  # noqa: E501
@@ -5170,36 +6775,37 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method simulation_templates_delete" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `simulation_templates_delete`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `simulation_templates_delete`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -5210,10 +6816,11 @@ class V3BetaApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/simulation_templates/{id}/', 'DELETE',
+            "/v3-beta/simulation-templates/{id}/",
+            "DELETE",
             path_params,
             query_params,
             header_params,
@@ -5222,11 +6829,14 @@ class V3BetaApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def simulation_templates_list(self, **kwargs):  # noqa: E501
         """simulation_templates_list  # noqa: E501
@@ -5284,7 +6894,7 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.simulation_templates_list_with_http_info(**kwargs)  # noqa: E501
 
     def simulation_templates_list_with_http_info(self, **kwargs):  # noqa: E501
@@ -5349,138 +6959,310 @@ class V3BetaApi(object):
         local_var_params = locals()
 
         all_params = [
-            'name',
-            'name__iexact',
-            'name__contains',
-            'name__icontains',
-            'name__in',
-            'name__startswith',
-            'name__istartswith',
-            'name__endswith',
-            'name__regex',
-            'uuid',
-            'uuid__iexact',
-            'uuid__contains',
-            'uuid__icontains',
-            'uuid__in',
-            'uuid__startswith',
-            'uuid__istartswith',
-            'uuid__endswith',
-            'uuid__regex',
-            'created__date',
-            'created__date__gt',
-            'created__date__gte',
-            'created__date__lt',
-            'created__date__lte',
-            'created__year',
-            'created__year__gt',
-            'created__year__gte',
-            'created__year__lt',
-            'created__year__lte',
-            'created__month',
-            'created__month__lte',
-            'created__day',
-            'created__day__lt',
-            'simulation__threedimodel__id',
-            'simulation__threedimodel__id__range',
-            'limit',
-            'offset'
+            "name",
+            "name__iexact",
+            "name__contains",
+            "name__icontains",
+            "name__in",
+            "name__startswith",
+            "name__istartswith",
+            "name__endswith",
+            "name__regex",
+            "uuid",
+            "uuid__iexact",
+            "uuid__contains",
+            "uuid__icontains",
+            "uuid__in",
+            "uuid__startswith",
+            "uuid__istartswith",
+            "uuid__endswith",
+            "uuid__regex",
+            "created__date",
+            "created__date__gt",
+            "created__date__gte",
+            "created__date__lt",
+            "created__date__lte",
+            "created__year",
+            "created__year__gt",
+            "created__year__gte",
+            "created__year__lt",
+            "created__year__lte",
+            "created__month",
+            "created__month__lte",
+            "created__day",
+            "created__day__lt",
+            "simulation__threedimodel__id",
+            "simulation__threedimodel__id__range",
+            "limit",
+            "offset",
         ]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method simulation_templates_list" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
-            query_params.append(('name', local_var_params['name']))  # noqa: E501
-        if 'name__iexact' in local_var_params and local_var_params['name__iexact'] is not None:  # noqa: E501
-            query_params.append(('name__iexact', local_var_params['name__iexact']))  # noqa: E501
-        if 'name__contains' in local_var_params and local_var_params['name__contains'] is not None:  # noqa: E501
-            query_params.append(('name__contains', local_var_params['name__contains']))  # noqa: E501
-        if 'name__icontains' in local_var_params and local_var_params['name__icontains'] is not None:  # noqa: E501
-            query_params.append(('name__icontains', local_var_params['name__icontains']))  # noqa: E501
-        if 'name__in' in local_var_params and local_var_params['name__in'] is not None:  # noqa: E501
-            query_params.append(('name__in', local_var_params['name__in']))  # noqa: E501
-        if 'name__startswith' in local_var_params and local_var_params['name__startswith'] is not None:  # noqa: E501
-            query_params.append(('name__startswith', local_var_params['name__startswith']))  # noqa: E501
-        if 'name__istartswith' in local_var_params and local_var_params['name__istartswith'] is not None:  # noqa: E501
-            query_params.append(('name__istartswith', local_var_params['name__istartswith']))  # noqa: E501
-        if 'name__endswith' in local_var_params and local_var_params['name__endswith'] is not None:  # noqa: E501
-            query_params.append(('name__endswith', local_var_params['name__endswith']))  # noqa: E501
-        if 'name__regex' in local_var_params and local_var_params['name__regex'] is not None:  # noqa: E501
-            query_params.append(('name__regex', local_var_params['name__regex']))  # noqa: E501
-        if 'uuid' in local_var_params and local_var_params['uuid'] is not None:  # noqa: E501
-            query_params.append(('uuid', local_var_params['uuid']))  # noqa: E501
-        if 'uuid__iexact' in local_var_params and local_var_params['uuid__iexact'] is not None:  # noqa: E501
-            query_params.append(('uuid__iexact', local_var_params['uuid__iexact']))  # noqa: E501
-        if 'uuid__contains' in local_var_params and local_var_params['uuid__contains'] is not None:  # noqa: E501
-            query_params.append(('uuid__contains', local_var_params['uuid__contains']))  # noqa: E501
-        if 'uuid__icontains' in local_var_params and local_var_params['uuid__icontains'] is not None:  # noqa: E501
-            query_params.append(('uuid__icontains', local_var_params['uuid__icontains']))  # noqa: E501
-        if 'uuid__in' in local_var_params and local_var_params['uuid__in'] is not None:  # noqa: E501
-            query_params.append(('uuid__in', local_var_params['uuid__in']))  # noqa: E501
-        if 'uuid__startswith' in local_var_params and local_var_params['uuid__startswith'] is not None:  # noqa: E501
-            query_params.append(('uuid__startswith', local_var_params['uuid__startswith']))  # noqa: E501
-        if 'uuid__istartswith' in local_var_params and local_var_params['uuid__istartswith'] is not None:  # noqa: E501
-            query_params.append(('uuid__istartswith', local_var_params['uuid__istartswith']))  # noqa: E501
-        if 'uuid__endswith' in local_var_params and local_var_params['uuid__endswith'] is not None:  # noqa: E501
-            query_params.append(('uuid__endswith', local_var_params['uuid__endswith']))  # noqa: E501
-        if 'uuid__regex' in local_var_params and local_var_params['uuid__regex'] is not None:  # noqa: E501
-            query_params.append(('uuid__regex', local_var_params['uuid__regex']))  # noqa: E501
-        if 'created__date' in local_var_params and local_var_params['created__date'] is not None:  # noqa: E501
-            query_params.append(('created__date', local_var_params['created__date']))  # noqa: E501
-        if 'created__date__gt' in local_var_params and local_var_params['created__date__gt'] is not None:  # noqa: E501
-            query_params.append(('created__date__gt', local_var_params['created__date__gt']))  # noqa: E501
-        if 'created__date__gte' in local_var_params and local_var_params['created__date__gte'] is not None:  # noqa: E501
-            query_params.append(('created__date__gte', local_var_params['created__date__gte']))  # noqa: E501
-        if 'created__date__lt' in local_var_params and local_var_params['created__date__lt'] is not None:  # noqa: E501
-            query_params.append(('created__date__lt', local_var_params['created__date__lt']))  # noqa: E501
-        if 'created__date__lte' in local_var_params and local_var_params['created__date__lte'] is not None:  # noqa: E501
-            query_params.append(('created__date__lte', local_var_params['created__date__lte']))  # noqa: E501
-        if 'created__year' in local_var_params and local_var_params['created__year'] is not None:  # noqa: E501
-            query_params.append(('created__year', local_var_params['created__year']))  # noqa: E501
-        if 'created__year__gt' in local_var_params and local_var_params['created__year__gt'] is not None:  # noqa: E501
-            query_params.append(('created__year__gt', local_var_params['created__year__gt']))  # noqa: E501
-        if 'created__year__gte' in local_var_params and local_var_params['created__year__gte'] is not None:  # noqa: E501
-            query_params.append(('created__year__gte', local_var_params['created__year__gte']))  # noqa: E501
-        if 'created__year__lt' in local_var_params and local_var_params['created__year__lt'] is not None:  # noqa: E501
-            query_params.append(('created__year__lt', local_var_params['created__year__lt']))  # noqa: E501
-        if 'created__year__lte' in local_var_params and local_var_params['created__year__lte'] is not None:  # noqa: E501
-            query_params.append(('created__year__lte', local_var_params['created__year__lte']))  # noqa: E501
-        if 'created__month' in local_var_params and local_var_params['created__month'] is not None:  # noqa: E501
-            query_params.append(('created__month', local_var_params['created__month']))  # noqa: E501
-        if 'created__month__lte' in local_var_params and local_var_params['created__month__lte'] is not None:  # noqa: E501
-            query_params.append(('created__month__lte', local_var_params['created__month__lte']))  # noqa: E501
-        if 'created__day' in local_var_params and local_var_params['created__day'] is not None:  # noqa: E501
-            query_params.append(('created__day', local_var_params['created__day']))  # noqa: E501
-        if 'created__day__lt' in local_var_params and local_var_params['created__day__lt'] is not None:  # noqa: E501
-            query_params.append(('created__day__lt', local_var_params['created__day__lt']))  # noqa: E501
-        if 'simulation__threedimodel__id' in local_var_params and local_var_params['simulation__threedimodel__id'] is not None:  # noqa: E501
-            query_params.append(('simulation__threedimodel__id', local_var_params['simulation__threedimodel__id']))  # noqa: E501
-        if 'simulation__threedimodel__id__range' in local_var_params and local_var_params['simulation__threedimodel__id__range'] is not None:  # noqa: E501
-            query_params.append(('simulation__threedimodel__id__range', local_var_params['simulation__threedimodel__id__range']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if (
+            "name" in local_var_params and local_var_params["name"] is not None
+        ):  # noqa: E501
+            query_params.append(("name", local_var_params["name"]))  # noqa: E501
+        if (
+            "name__iexact" in local_var_params
+            and local_var_params["name__iexact"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__iexact", local_var_params["name__iexact"])
+            )  # noqa: E501
+        if (
+            "name__contains" in local_var_params
+            and local_var_params["name__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__contains", local_var_params["name__contains"])
+            )  # noqa: E501
+        if (
+            "name__icontains" in local_var_params
+            and local_var_params["name__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__icontains", local_var_params["name__icontains"])
+            )  # noqa: E501
+        if (
+            "name__in" in local_var_params and local_var_params["name__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__in", local_var_params["name__in"])
+            )  # noqa: E501
+        if (
+            "name__startswith" in local_var_params
+            and local_var_params["name__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__startswith", local_var_params["name__startswith"])
+            )  # noqa: E501
+        if (
+            "name__istartswith" in local_var_params
+            and local_var_params["name__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__istartswith", local_var_params["name__istartswith"])
+            )  # noqa: E501
+        if (
+            "name__endswith" in local_var_params
+            and local_var_params["name__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__endswith", local_var_params["name__endswith"])
+            )  # noqa: E501
+        if (
+            "name__regex" in local_var_params
+            and local_var_params["name__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("name__regex", local_var_params["name__regex"])
+            )  # noqa: E501
+        if (
+            "uuid" in local_var_params and local_var_params["uuid"] is not None
+        ):  # noqa: E501
+            query_params.append(("uuid", local_var_params["uuid"]))  # noqa: E501
+        if (
+            "uuid__iexact" in local_var_params
+            and local_var_params["uuid__iexact"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("uuid__iexact", local_var_params["uuid__iexact"])
+            )  # noqa: E501
+        if (
+            "uuid__contains" in local_var_params
+            and local_var_params["uuid__contains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("uuid__contains", local_var_params["uuid__contains"])
+            )  # noqa: E501
+        if (
+            "uuid__icontains" in local_var_params
+            and local_var_params["uuid__icontains"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("uuid__icontains", local_var_params["uuid__icontains"])
+            )  # noqa: E501
+        if (
+            "uuid__in" in local_var_params and local_var_params["uuid__in"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("uuid__in", local_var_params["uuid__in"])
+            )  # noqa: E501
+        if (
+            "uuid__startswith" in local_var_params
+            and local_var_params["uuid__startswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("uuid__startswith", local_var_params["uuid__startswith"])
+            )  # noqa: E501
+        if (
+            "uuid__istartswith" in local_var_params
+            and local_var_params["uuid__istartswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("uuid__istartswith", local_var_params["uuid__istartswith"])
+            )  # noqa: E501
+        if (
+            "uuid__endswith" in local_var_params
+            and local_var_params["uuid__endswith"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("uuid__endswith", local_var_params["uuid__endswith"])
+            )  # noqa: E501
+        if (
+            "uuid__regex" in local_var_params
+            and local_var_params["uuid__regex"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("uuid__regex", local_var_params["uuid__regex"])
+            )  # noqa: E501
+        if (
+            "created__date" in local_var_params
+            and local_var_params["created__date"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__date", local_var_params["created__date"])
+            )  # noqa: E501
+        if (
+            "created__date__gt" in local_var_params
+            and local_var_params["created__date__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__date__gt", local_var_params["created__date__gt"])
+            )  # noqa: E501
+        if (
+            "created__date__gte" in local_var_params
+            and local_var_params["created__date__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__date__gte", local_var_params["created__date__gte"])
+            )  # noqa: E501
+        if (
+            "created__date__lt" in local_var_params
+            and local_var_params["created__date__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__date__lt", local_var_params["created__date__lt"])
+            )  # noqa: E501
+        if (
+            "created__date__lte" in local_var_params
+            and local_var_params["created__date__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__date__lte", local_var_params["created__date__lte"])
+            )  # noqa: E501
+        if (
+            "created__year" in local_var_params
+            and local_var_params["created__year"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__year", local_var_params["created__year"])
+            )  # noqa: E501
+        if (
+            "created__year__gt" in local_var_params
+            and local_var_params["created__year__gt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__year__gt", local_var_params["created__year__gt"])
+            )  # noqa: E501
+        if (
+            "created__year__gte" in local_var_params
+            and local_var_params["created__year__gte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__year__gte", local_var_params["created__year__gte"])
+            )  # noqa: E501
+        if (
+            "created__year__lt" in local_var_params
+            and local_var_params["created__year__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__year__lt", local_var_params["created__year__lt"])
+            )  # noqa: E501
+        if (
+            "created__year__lte" in local_var_params
+            and local_var_params["created__year__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__year__lte", local_var_params["created__year__lte"])
+            )  # noqa: E501
+        if (
+            "created__month" in local_var_params
+            and local_var_params["created__month"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__month", local_var_params["created__month"])
+            )  # noqa: E501
+        if (
+            "created__month__lte" in local_var_params
+            and local_var_params["created__month__lte"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__month__lte", local_var_params["created__month__lte"])
+            )  # noqa: E501
+        if (
+            "created__day" in local_var_params
+            and local_var_params["created__day"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__day", local_var_params["created__day"])
+            )  # noqa: E501
+        if (
+            "created__day__lt" in local_var_params
+            and local_var_params["created__day__lt"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                ("created__day__lt", local_var_params["created__day__lt"])
+            )  # noqa: E501
+        if (
+            "simulation__threedimodel__id" in local_var_params
+            and local_var_params["simulation__threedimodel__id"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "simulation__threedimodel__id",
+                    local_var_params["simulation__threedimodel__id"],
+                )
+            )  # noqa: E501
+        if (
+            "simulation__threedimodel__id__range" in local_var_params
+            and local_var_params["simulation__threedimodel__id__range"] is not None
+        ):  # noqa: E501
+            query_params.append(
+                (
+                    "simulation__threedimodel__id__range",
+                    local_var_params["simulation__threedimodel__id__range"],
+                )
+            )  # noqa: E501
+        if (
+            "limit" in local_var_params and local_var_params["limit"] is not None
+        ):  # noqa: E501
+            query_params.append(("limit", local_var_params["limit"]))  # noqa: E501
+        if (
+            "offset" in local_var_params and local_var_params["offset"] is not None
+        ):  # noqa: E501
+            query_params.append(("offset", local_var_params["offset"]))  # noqa: E501
 
         header_params = {}
 
@@ -5489,27 +7271,32 @@ class V3BetaApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/simulation_templates/', 'GET',
+            "/v3-beta/simulation-templates/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2004',  # noqa: E501
+            response_type="InlineResponse2004",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def simulation_templates_read(self, id, **kwargs):  # noqa: E501
         """simulation_templates_read  # noqa: E501
@@ -5532,7 +7319,7 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.simulation_templates_read_with_http_info(id, **kwargs)  # noqa: E501
 
     def simulation_templates_read_with_http_info(self, id, **kwargs):  # noqa: E501
@@ -5561,36 +7348,37 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method simulation_templates_read" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `simulation_templates_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `simulation_templates_read`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -5601,27 +7389,32 @@ class V3BetaApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/simulation_templates/{id}/', 'GET',
+            "/v3-beta/simulation-templates/{id}/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Template',  # noqa: E501
+            response_type="Template",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def simulations_clone(self, id, **kwargs):  # noqa: E501
         """Clone the simulation.  # noqa: E501
@@ -5645,7 +7438,7 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.simulations_clone_with_http_info(id, **kwargs)  # noqa: E501
 
     def simulations_clone_with_http_info(self, id, **kwargs):  # noqa: E501
@@ -5675,36 +7468,37 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method simulations_clone" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `simulations_clone`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `simulations_clone`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -5715,27 +7509,32 @@ class V3BetaApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/simulations/{id}/clone/', 'POST',
+            "/v3-beta/simulations/{id}/clone/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Simulation',  # noqa: E501
+            response_type="Simulation",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def simulations_from_template(self, data, **kwargs):  # noqa: E501
         """Create a (new/cloned) simulation from a simulation template.  # noqa: E501
@@ -5759,8 +7558,10 @@ class V3BetaApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.simulations_from_template_with_http_info(data, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        return self.simulations_from_template_with_http_info(
+            data, **kwargs
+        )  # noqa: E501
 
     def simulations_from_template_with_http_info(self, data, **kwargs):  # noqa: E501
         """Create a (new/cloned) simulation from a simulation template.  # noqa: E501
@@ -5789,30 +7590,32 @@ class V3BetaApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'data'
-        ]
+        all_params = ["data"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method simulations_from_template" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `simulations_from_template`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "data" not in local_var_params
+            or local_var_params["data"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `data` when calling `simulations_from_template`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -5826,31 +7629,360 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
+        if "data" in local_var_params:
+            body_params = local_var_params["data"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/v3-beta/simulations/from_template/', 'POST',
+            "/v3-beta/simulations/from-template/",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Simulation',  # noqa: E501
+            response_type="Simulation",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def status_current_version(self, **kwargs):  # noqa: E501
+        """status_current_version  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.status_current_version(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: CurrentVersion
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        return self.status_current_version_with_http_info(**kwargs)  # noqa: E501
+
+    def status_current_version_with_http_info(self, **kwargs):  # noqa: E501
+        """status_current_version  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.status_current_version_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(CurrentVersion, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = []
+        all_params.extend(
+            [
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params["kwargs"]):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method status_current_version" % key
+                )
+            local_var_params[key] = val
+        del local_var_params["kwargs"]
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["Bearer"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/v3-beta/status/current-version/",
+            "GET",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="CurrentVersion",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def status_db(self, **kwargs):  # noqa: E501
+        """status_db  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.status_db(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Status
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        return self.status_db_with_http_info(**kwargs)  # noqa: E501
+
+    def status_db_with_http_info(self, **kwargs):  # noqa: E501
+        """status_db  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.status_db_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Status, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = []
+        all_params.extend(
+            [
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params["kwargs"]):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method status_db" % key
+                )
+            local_var_params[key] = val
+        del local_var_params["kwargs"]
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["Bearer"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/v3-beta/status/db/",
+            "GET",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="Status",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
+
+    def status_list(self, **kwargs):  # noqa: E501
+        """status_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.status_list(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Status
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs["_return_http_data_only"] = True
+        return self.status_list_with_http_info(**kwargs)  # noqa: E501
+
+    def status_list_with_http_info(self, **kwargs):  # noqa: E501
+        """status_list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.status_list_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Status, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = []
+        all_params.extend(
+            [
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params["kwargs"]):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method status_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params["kwargs"]
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ["Bearer"]  # noqa: E501
+
+        return self.api_client.call_api(
+            "/v3-beta/status/",
+            "GET",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type="Status",  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

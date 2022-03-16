@@ -34,22 +34,30 @@ class MeasureSpecification(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int',
-        'name': 'str',
-        'locations': 'list[MeasureLocation]',
-        'variable': 'str',
-        'operator': 'str'
+        "id": "int",
+        "name": "str",
+        "locations": "list[MeasureLocation]",
+        "variable": "str",
+        "operator": "str",
     }
 
     attribute_map = {
-        'id': 'id',
-        'name': 'name',
-        'locations': 'locations',
-        'variable': 'variable',
-        'operator': 'operator'
+        "id": "id",
+        "name": "name",
+        "locations": "locations",
+        "variable": "variable",
+        "operator": "operator",
     }
 
-    def __init__(self, id=None, name=None, locations=None, variable=None, operator=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        name=None,
+        locations=None,
+        variable=None,
+        operator=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """MeasureSpecification - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -109,9 +117,14 @@ class MeasureSpecification(object):
         :param name: The name of this MeasureSpecification.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) > 50):
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `50`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and name is not None
+            and len(name) > 50
+        ):
+            raise ValueError(
+                "Invalid value for `name`, length must be less than or equal to `50`"
+            )  # noqa: E501
 
         self._name = name
 
@@ -133,8 +146,12 @@ class MeasureSpecification(object):
         :param locations: The locations of this MeasureSpecification.  # noqa: E501
         :type: list[MeasureLocation]
         """
-        if self.local_vars_configuration.client_side_validation and locations is None:  # noqa: E501
-            raise ValueError("Invalid value for `locations`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and locations is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `locations`, must not be `None`"
+            )  # noqa: E501
 
         self._locations = locations
 
@@ -158,13 +175,21 @@ class MeasureSpecification(object):
         :param variable: The variable of this MeasureSpecification.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and variable is None:  # noqa: E501
-            raise ValueError("Invalid value for `variable`, must not be `None`")  # noqa: E501
-        allowed_values = ["s1", "vol1", "q", "u1"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and variable not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and variable is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `variable` ({0}), must be one of {1}"  # noqa: E501
-                .format(variable, allowed_values)
+                "Invalid value for `variable`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = ["s1", "vol1", "q", "u1"]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and variable not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `variable` ({0}), must be one of {1}".format(  # noqa: E501
+                    variable, allowed_values
+                )
             )
 
         self._variable = variable
@@ -189,13 +214,21 @@ class MeasureSpecification(object):
         :param operator: The operator of this MeasureSpecification.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and operator is None:  # noqa: E501
-            raise ValueError("Invalid value for `operator`, must not be `None`")  # noqa: E501
-        allowed_values = [">", ">=", "<", "<="]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and operator not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and operator is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `operator` ({0}), must be one of {1}"  # noqa: E501
-                .format(operator, allowed_values)
+                "Invalid value for `operator`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = [">", ">=", "<", "<="]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and operator not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `operator` ({0}), must be one of {1}".format(  # noqa: E501
+                    operator, allowed_values
+                )
             )
 
         self._operator = operator
@@ -207,18 +240,20 @@ class MeasureSpecification(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

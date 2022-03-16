@@ -34,36 +34,51 @@ class NetCDFTimeseriesRain(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'multiplier': 'float',
-        'simulation': 'str',
-        'offset': 'int',
-        'duration': 'int',
-        'timestamps': 'list[int]',
-        'interval': 'int',
-        'values_reference': 'str',
-        'fill_value': 'str',
-        'units': 'str',
-        'file': 'FileReadOnly',
-        'uid': 'str'
+        "url": "str",
+        "multiplier": "float",
+        "simulation": "str",
+        "offset": "int",
+        "duration": "int",
+        "timestamps": "list[int]",
+        "interval": "int",
+        "values_reference": "str",
+        "fill_value": "str",
+        "units": "str",
+        "file": "FileReadOnly",
+        "uid": "str",
     }
 
     attribute_map = {
-        'url': 'url',
-        'multiplier': 'multiplier',
-        'simulation': 'simulation',
-        'offset': 'offset',
-        'duration': 'duration',
-        'timestamps': 'timestamps',
-        'interval': 'interval',
-        'values_reference': 'values_reference',
-        'fill_value': 'fill_value',
-        'units': 'units',
-        'file': 'file',
-        'uid': 'uid'
+        "url": "url",
+        "multiplier": "multiplier",
+        "simulation": "simulation",
+        "offset": "offset",
+        "duration": "duration",
+        "timestamps": "timestamps",
+        "interval": "interval",
+        "values_reference": "values_reference",
+        "fill_value": "fill_value",
+        "units": "units",
+        "file": "file",
+        "uid": "uid",
     }
 
-    def __init__(self, url=None, multiplier=None, simulation=None, offset=None, duration=None, timestamps=None, interval=None, values_reference=None, fill_value=None, units=None, file=None, uid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        multiplier=None,
+        simulation=None,
+        offset=None,
+        duration=None,
+        timestamps=None,
+        interval=None,
+        values_reference=None,
+        fill_value=None,
+        units=None,
+        file=None,
+        uid=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """NetCDFTimeseriesRain - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -185,12 +200,22 @@ class NetCDFTimeseriesRain(object):
         :param offset: The offset of this NetCDFTimeseriesRain.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                offset is not None and offset > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                offset is not None and offset < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and offset is not None
+            and offset > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and offset is not None
+            and offset < -2147483648
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must be a value greater than or equal to `-2147483648`"
+            )  # noqa: E501
 
         self._offset = offset
 
@@ -214,12 +239,22 @@ class NetCDFTimeseriesRain(object):
         :param duration: The duration of this NetCDFTimeseriesRain.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                duration is not None and duration > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `duration`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                duration is not None and duration < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and duration is not None
+            and duration > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `duration`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and duration is not None
+            and duration < -2147483648
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `duration`, must be a value greater than or equal to `-2147483648`"
+            )  # noqa: E501
 
         self._duration = duration
 
@@ -266,12 +301,22 @@ class NetCDFTimeseriesRain(object):
         :param interval: The interval of this NetCDFTimeseriesRain.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                interval is not None and interval > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `interval`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                interval is not None and interval < 0):  # noqa: E501
-            raise ValueError("Invalid value for `interval`, must be a value greater than or equal to `0`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and interval is not None
+            and interval > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `interval`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and interval is not None
+            and interval < 0
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `interval`, must be a value greater than or equal to `0`"
+            )  # noqa: E501
 
         self._interval = interval
 
@@ -293,9 +338,14 @@ class NetCDFTimeseriesRain(object):
         :param values_reference: The values_reference of this NetCDFTimeseriesRain.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                values_reference is not None and len(values_reference) > 255):
-            raise ValueError("Invalid value for `values_reference`, length must be less than or equal to `255`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and values_reference is not None
+            and len(values_reference) > 255
+        ):
+            raise ValueError(
+                "Invalid value for `values_reference`, length must be less than or equal to `255`"
+            )  # noqa: E501
 
         self._values_reference = values_reference
 
@@ -317,12 +367,22 @@ class NetCDFTimeseriesRain(object):
         :param fill_value: The fill_value of this NetCDFTimeseriesRain.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                fill_value is not None and len(fill_value) > 128):
-            raise ValueError("Invalid value for `fill_value`, length must be less than or equal to `128`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                fill_value is not None and len(fill_value) < 1):
-            raise ValueError("Invalid value for `fill_value`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and fill_value is not None
+            and len(fill_value) > 128
+        ):
+            raise ValueError(
+                "Invalid value for `fill_value`, length must be less than or equal to `128`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and fill_value is not None
+            and len(fill_value) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `fill_value`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._fill_value = fill_value
 
@@ -344,13 +404,21 @@ class NetCDFTimeseriesRain(object):
         :param units: The units of this NetCDFTimeseriesRain.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and units is None:  # noqa: E501
-            raise ValueError("Invalid value for `units`, must not be `None`")  # noqa: E501
-        allowed_values = ["mm", "mm/h"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and units is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
-                .format(units, allowed_values)
+                "Invalid value for `units`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = ["mm", "mm/h"]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and units not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `units` ({0}), must be one of {1}".format(  # noqa: E501
+                    units, allowed_values
+                )
             )
 
         self._units = units
@@ -404,18 +472,20 @@ class NetCDFTimeseriesRain(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

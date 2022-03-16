@@ -34,26 +34,36 @@ class TwoDWaterRaster(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'simulation': 'str',
-        'aggregation_method': 'str',
-        'initial_waterlevel': 'str',
-        'initial_waterlevel_id': 'str',
-        'uid': 'str',
-        'id': 'int'
+        "url": "str",
+        "simulation": "str",
+        "aggregation_method": "str",
+        "initial_waterlevel": "str",
+        "initial_waterlevel_id": "str",
+        "uid": "str",
+        "id": "int",
     }
 
     attribute_map = {
-        'url': 'url',
-        'simulation': 'simulation',
-        'aggregation_method': 'aggregation_method',
-        'initial_waterlevel': 'initial_waterlevel',
-        'initial_waterlevel_id': 'initial_waterlevel_id',
-        'uid': 'uid',
-        'id': 'id'
+        "url": "url",
+        "simulation": "simulation",
+        "aggregation_method": "aggregation_method",
+        "initial_waterlevel": "initial_waterlevel",
+        "initial_waterlevel_id": "initial_waterlevel_id",
+        "uid": "uid",
+        "id": "id",
     }
 
-    def __init__(self, url=None, simulation=None, aggregation_method=None, initial_waterlevel=None, initial_waterlevel_id=None, uid=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        simulation=None,
+        aggregation_method=None,
+        initial_waterlevel=None,
+        initial_waterlevel_id=None,
+        uid=None,
+        id=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """TwoDWaterRaster - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -141,13 +151,22 @@ class TwoDWaterRaster(object):
         :param aggregation_method: The aggregation_method of this TwoDWaterRaster.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and aggregation_method is None:  # noqa: E501
-            raise ValueError("Invalid value for `aggregation_method`, must not be `None`")  # noqa: E501
-        allowed_values = ["mean", "max", "min"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and aggregation_method not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and aggregation_method is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `aggregation_method` ({0}), must be one of {1}"  # noqa: E501
-                .format(aggregation_method, allowed_values)
+                "Invalid value for `aggregation_method`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = ["mean", "max", "min"]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and aggregation_method not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `aggregation_method` ({0}), must be one of {1}".format(  # noqa: E501
+                    aggregation_method, allowed_values
+                )
             )
 
         self._aggregation_method = aggregation_method
@@ -170,8 +189,13 @@ class TwoDWaterRaster(object):
         :param initial_waterlevel: The initial_waterlevel of this TwoDWaterRaster.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and initial_waterlevel is None:  # noqa: E501
-            raise ValueError("Invalid value for `initial_waterlevel`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and initial_waterlevel is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `initial_waterlevel`, must not be `None`"
+            )  # noqa: E501
 
         self._initial_waterlevel = initial_waterlevel
 
@@ -245,18 +269,20 @@ class TwoDWaterRaster(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

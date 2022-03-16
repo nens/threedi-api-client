@@ -19,10 +19,7 @@ import re  # noqa: F401
 import six
 
 from openapi_client.api_client import ApiClient
-from openapi_client.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
-)
+from openapi_client.exceptions import ApiTypeError, ApiValueError  # noqa: F401
 
 
 class RolesApi(object):
@@ -60,7 +57,7 @@ class RolesApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.roles_list_with_http_info(**kwargs)  # noqa: E501
 
     def roles_list_with_http_info(self, **kwargs):  # noqa: E501
@@ -91,37 +88,38 @@ class RolesApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'limit',
-            'offset'
-        ]
+        all_params = ["limit", "offset"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method roles_list" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if (
+            "limit" in local_var_params and local_var_params["limit"] is not None
+        ):  # noqa: E501
+            query_params.append(("limit", local_var_params["limit"]))  # noqa: E501
+        if (
+            "offset" in local_var_params and local_var_params["offset"] is not None
+        ):  # noqa: E501
+            query_params.append(("offset", local_var_params["offset"]))  # noqa: E501
 
         header_params = {}
 
@@ -130,27 +128,32 @@ class RolesApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/roles/', 'GET',
+            "/roles/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2008',  # noqa: E501
+            response_type="InlineResponse2008",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )
 
     def roles_read(self, id, **kwargs):  # noqa: E501
         """roles_read  # noqa: E501
@@ -174,7 +177,7 @@ class RolesApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         return self.roles_read_with_http_info(id, **kwargs)  # noqa: E501
 
     def roles_read_with_http_info(self, id, **kwargs):  # noqa: E501
@@ -204,36 +207,37 @@ class RolesApi(object):
 
         local_var_params = locals()
 
-        all_params = [
-            'id'
-        ]
+        all_params = ["id"]
         all_params.extend(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
+                "async_req",
+                "_return_http_data_only",
+                "_preload_content",
+                "_request_timeout",
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(local_var_params["kwargs"]):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method roles_read" % key
                 )
             local_var_params[key] = val
-        del local_var_params['kwargs']
+        del local_var_params["kwargs"]
         # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `roles_read`")  # noqa: E501
+        if self.api_client.client_side_validation and (
+            "id" not in local_var_params or local_var_params["id"] is None  # noqa: E501
+        ):  # noqa: E501
+            raise ApiValueError(
+                "Missing the required parameter `id` when calling `roles_read`"
+            )  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
+        if "id" in local_var_params:
+            path_params["id"] = local_var_params["id"]  # noqa: E501
 
         query_params = []
 
@@ -244,24 +248,29 @@ class RolesApi(object):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['Bearer']  # noqa: E501
+        auth_settings = ["Bearer"]  # noqa: E501
 
         return self.api_client.call_api(
-            '/roles/{id}/', 'GET',
+            "/roles/{id}/",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Role',  # noqa: E501
+            response_type="Role",  # noqa: E501
             auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            async_req=local_var_params.get("async_req"),
+            _return_http_data_only=local_var_params.get(
+                "_return_http_data_only"
+            ),  # noqa: E501
+            _preload_content=local_var_params.get("_preload_content", True),
+            _request_timeout=local_var_params.get("_request_timeout"),
+            collection_formats=collection_formats,
+        )

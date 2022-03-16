@@ -34,26 +34,36 @@ class MeasureLocation(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int',
-        'weight': 'str',
-        'content_type': 'str',
-        'content_pk': 'int',
-        'grid_id': 'int',
-        'state': 'str',
-        'state_detail': 'object'
+        "id": "int",
+        "weight": "str",
+        "content_type": "str",
+        "content_pk": "int",
+        "grid_id": "int",
+        "state": "str",
+        "state_detail": "object",
     }
 
     attribute_map = {
-        'id': 'id',
-        'weight': 'weight',
-        'content_type': 'content_type',
-        'content_pk': 'content_pk',
-        'grid_id': 'grid_id',
-        'state': 'state',
-        'state_detail': 'state_detail'
+        "id": "id",
+        "weight": "weight",
+        "content_type": "content_type",
+        "content_pk": "content_pk",
+        "grid_id": "grid_id",
+        "state": "state",
+        "state_detail": "state_detail",
     }
 
-    def __init__(self, id=None, weight=None, content_type=None, content_pk=None, grid_id=None, state=None, state_detail=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        weight=None,
+        content_type=None,
+        content_pk=None,
+        grid_id=None,
+        state=None,
+        state_detail=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """MeasureLocation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -118,8 +128,12 @@ class MeasureLocation(object):
         :param weight: The weight of this MeasureLocation.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and weight is None:  # noqa: E501
-            raise ValueError("Invalid value for `weight`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and weight is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `weight`, must not be `None`"
+            )  # noqa: E501
 
         self._weight = weight
 
@@ -143,13 +157,29 @@ class MeasureLocation(object):
         :param content_type: The content_type of this MeasureLocation.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and content_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `content_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["v2_connection_node", "v2_pipe", "v2_orifice", "v2_culvert", "v2_channel", "v2_weir"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and content_type not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and content_type is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `content_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(content_type, allowed_values)
+                "Invalid value for `content_type`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = [
+            "v2_connection_node",
+            "v2_pipe",
+            "v2_orifice",
+            "v2_culvert",
+            "v2_channel",
+            "v2_weir",
+        ]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and content_type not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `content_type` ({0}), must be one of {1}".format(  # noqa: E501
+                    content_type, allowed_values
+                )
             )
 
         self._content_type = content_type
@@ -172,14 +202,28 @@ class MeasureLocation(object):
         :param content_pk: The content_pk of this MeasureLocation.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and content_pk is None:  # noqa: E501
-            raise ValueError("Invalid value for `content_pk`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                content_pk is not None and content_pk > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `content_pk`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                content_pk is not None and content_pk < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `content_pk`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and content_pk is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `content_pk`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and content_pk is not None
+            and content_pk > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `content_pk`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and content_pk is not None
+            and content_pk < -2147483648
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `content_pk`, must be a value greater than or equal to `-2147483648`"
+            )  # noqa: E501
 
         self._content_pk = content_pk
 
@@ -201,12 +245,22 @@ class MeasureLocation(object):
         :param grid_id: The grid_id of this MeasureLocation.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                grid_id is not None and grid_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `grid_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                grid_id is not None and grid_id < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `grid_id`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and grid_id is not None
+            and grid_id > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `grid_id`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and grid_id is not None
+            and grid_id < -2147483648
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `grid_id`, must be a value greater than or equal to `-2147483648`"
+            )  # noqa: E501
 
         self._grid_id = grid_id
 
@@ -229,10 +283,14 @@ class MeasureLocation(object):
         :type: str
         """
         allowed_values = ["processing", "valid", "invalid"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and state not in allowed_values
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
-                .format(state, allowed_values)
+                "Invalid value for `state` ({0}), must be one of {1}".format(  # noqa: E501
+                    state, allowed_values
+                )
             )
 
         self._state = state
@@ -265,18 +323,20 @@ class MeasureLocation(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

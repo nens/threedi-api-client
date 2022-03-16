@@ -34,44 +34,63 @@ class Simulation(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'slug': 'str',
-        'uuid': 'str',
-        'name': 'str',
-        'tags': 'str',
-        'created': 'str',
-        'threedimodel': 'str',
-        'organisation': 'str',
-        'organisation_name': 'str',
-        'user': 'str',
-        'start_datetime': 'datetime',
-        'end_datetime': 'datetime',
-        'duration': 'int',
-        'duration_humanized': 'str',
-        'threedimodel_id': 'int',
-        'id': 'int'
+        "url": "str",
+        "slug": "str",
+        "uuid": "str",
+        "name": "str",
+        "tags": "str",
+        "created": "str",
+        "threedimodel": "str",
+        "organisation": "str",
+        "organisation_name": "str",
+        "user": "str",
+        "start_datetime": "datetime",
+        "end_datetime": "datetime",
+        "duration": "int",
+        "duration_humanized": "str",
+        "threedimodel_id": "int",
+        "id": "int",
     }
 
     attribute_map = {
-        'url': 'url',
-        'slug': 'slug',
-        'uuid': 'uuid',
-        'name': 'name',
-        'tags': 'tags',
-        'created': 'created',
-        'threedimodel': 'threedimodel',
-        'organisation': 'organisation',
-        'organisation_name': 'organisation_name',
-        'user': 'user',
-        'start_datetime': 'start_datetime',
-        'end_datetime': 'end_datetime',
-        'duration': 'duration',
-        'duration_humanized': 'duration_humanized',
-        'threedimodel_id': 'threedimodel_id',
-        'id': 'id'
+        "url": "url",
+        "slug": "slug",
+        "uuid": "uuid",
+        "name": "name",
+        "tags": "tags",
+        "created": "created",
+        "threedimodel": "threedimodel",
+        "organisation": "organisation",
+        "organisation_name": "organisation_name",
+        "user": "user",
+        "start_datetime": "start_datetime",
+        "end_datetime": "end_datetime",
+        "duration": "duration",
+        "duration_humanized": "duration_humanized",
+        "threedimodel_id": "threedimodel_id",
+        "id": "id",
     }
 
-    def __init__(self, url=None, slug=None, uuid=None, name=None, tags=None, created=None, threedimodel=None, organisation=None, organisation_name=None, user=None, start_datetime=None, end_datetime=None, duration=None, duration_humanized=None, threedimodel_id=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        slug=None,
+        uuid=None,
+        name=None,
+        tags=None,
+        created=None,
+        threedimodel=None,
+        organisation=None,
+        organisation_name=None,
+        user=None,
+        start_datetime=None,
+        end_datetime=None,
+        duration=None,
+        duration_humanized=None,
+        threedimodel_id=None,
+        id=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """Simulation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -163,12 +182,22 @@ class Simulation(object):
         :param slug: The slug of this Simulation.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and len(slug) < 1):
-            raise ValueError("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and not re.search(r'^[-a-zA-Z0-9_]+$', slug)):  # noqa: E501
-            raise ValueError(r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and slug is not None
+            and len(slug) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `slug`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and slug is not None
+            and not re.search(r"^[-a-zA-Z0-9_]+$", slug)
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`"
+            )  # noqa: E501
 
         self._slug = slug
 
@@ -211,14 +240,28 @@ class Simulation(object):
         :param name: The name of this Simulation.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) > 128):
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `128`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and name is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `name`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and name is not None
+            and len(name) > 128
+        ):
+            raise ValueError(
+                "Invalid value for `name`, length must be less than or equal to `128`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and name is not None
+            and len(name) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `name`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._name = name
 
@@ -284,8 +327,13 @@ class Simulation(object):
         :param threedimodel: The threedimodel of this Simulation.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and threedimodel is None:  # noqa: E501
-            raise ValueError("Invalid value for `threedimodel`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and threedimodel is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `threedimodel`, must not be `None`"
+            )  # noqa: E501
 
         self._threedimodel = threedimodel
 
@@ -309,8 +357,13 @@ class Simulation(object):
         :param organisation: The organisation of this Simulation.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and organisation is None:  # noqa: E501
-            raise ValueError("Invalid value for `organisation`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and organisation is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `organisation`, must not be `None`"
+            )  # noqa: E501
 
         self._organisation = organisation
 
@@ -355,9 +408,14 @@ class Simulation(object):
         :param user: The user of this Simulation.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                user is not None and not re.search(r'^[\w.@+-]+$', user)):  # noqa: E501
-            raise ValueError(r"Invalid value for `user`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and user is not None
+            and not re.search(r"^[\w.@+-]+$", user)
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `user`, must be a follow pattern or equal to `/^[\w.@+-]+$/`"
+            )  # noqa: E501
 
         self._user = user
 
@@ -379,8 +437,13 @@ class Simulation(object):
         :param start_datetime: The start_datetime of this Simulation.  # noqa: E501
         :type: datetime
         """
-        if self.local_vars_configuration.client_side_validation and start_datetime is None:  # noqa: E501
-            raise ValueError("Invalid value for `start_datetime`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and start_datetime is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `start_datetime`, must not be `None`"
+            )  # noqa: E501
 
         self._start_datetime = start_datetime
 
@@ -496,18 +559,20 @@ class Simulation(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

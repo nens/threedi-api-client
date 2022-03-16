@@ -2,11 +2,35 @@
 History
 =======
 
-4.0.0b3 (unreleased)
---------------------
+4.0.1 (unreleased)
+------------------
 
 - Added OAuth2 token and OAuth2 token refresh capability (for both public
   and private clients).
+
+
+4.0.0 (2022-02-11)
+------------------
+
+- First stable release with new `ThreediApi` client included
+
+- Show warning when data fetched from API cannot be succesfully valided by the client-side validation.
+
+
+4.0.0b4 (2022-01-26)
+--------------------
+
+- Renamed `simulation_templates` to `simulation-templates`
+
+
+4.0.0b3 (2022-01-26)
+--------------------
+
+- Added Threedimodel `is_valid` field as alias for `inp_success`
+
+- Added Simulation `threedicore_version` field and `cloned_from` field
+
+- Added `status` endpoints and `version` endpoints
 
 
 4.0.0b2 (2022-01-17)

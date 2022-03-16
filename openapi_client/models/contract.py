@@ -34,28 +34,39 @@ class Contract(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'id': 'int',
-        'organisation': 'str',
-        'organisation_name': 'str',
-        'hours_bought': 'int',
-        'hours_used': 'float',
-        'session_limit': 'int',
-        'current_sessions': 'str'
+        "url": "str",
+        "id": "int",
+        "organisation": "str",
+        "organisation_name": "str",
+        "hours_bought": "int",
+        "hours_used": "float",
+        "session_limit": "int",
+        "current_sessions": "str",
     }
 
     attribute_map = {
-        'url': 'url',
-        'id': 'id',
-        'organisation': 'organisation',
-        'organisation_name': 'organisation_name',
-        'hours_bought': 'hours_bought',
-        'hours_used': 'hours_used',
-        'session_limit': 'session_limit',
-        'current_sessions': 'current_sessions'
+        "url": "url",
+        "id": "id",
+        "organisation": "organisation",
+        "organisation_name": "organisation_name",
+        "hours_bought": "hours_bought",
+        "hours_used": "hours_used",
+        "session_limit": "session_limit",
+        "current_sessions": "current_sessions",
     }
 
-    def __init__(self, url=None, id=None, organisation=None, organisation_name=None, hours_bought=None, hours_used=None, session_limit=None, current_sessions=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        id=None,
+        organisation=None,
+        organisation_name=None,
+        hours_bought=None,
+        hours_used=None,
+        session_limit=None,
+        current_sessions=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """Contract - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -147,8 +158,13 @@ class Contract(object):
         :param organisation: The organisation of this Contract.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and organisation is None:  # noqa: E501
-            raise ValueError("Invalid value for `organisation`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and organisation is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `organisation`, must not be `None`"
+            )  # noqa: E501
 
         self._organisation = organisation
 
@@ -191,8 +207,13 @@ class Contract(object):
         :param hours_bought: The hours_bought of this Contract.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and hours_bought is None:  # noqa: E501
-            raise ValueError("Invalid value for `hours_bought`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and hours_bought is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `hours_bought`, must not be `None`"
+            )  # noqa: E501
 
         self._hours_bought = hours_bought
 
@@ -235,14 +256,29 @@ class Contract(object):
         :param session_limit: The session_limit of this Contract.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and session_limit is None:  # noqa: E501
-            raise ValueError("Invalid value for `session_limit`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                session_limit is not None and session_limit > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `session_limit`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                session_limit is not None and session_limit < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `session_limit`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and session_limit is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `session_limit`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and session_limit is not None
+            and session_limit > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `session_limit`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and session_limit is not None
+            and session_limit < -2147483648
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `session_limit`, must be a value greater than or equal to `-2147483648`"
+            )  # noqa: E501
 
         self._session_limit = session_limit
 
@@ -274,18 +310,20 @@ class Contract(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

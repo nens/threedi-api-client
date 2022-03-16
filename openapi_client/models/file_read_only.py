@@ -34,30 +34,42 @@ class FileReadOnly(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'filename': 'str',
-        'state': 'str',
-        'state_description': 'str',
-        'type': 'str',
-        'size': 'int',
-        'etag': 'str',
-        'expiry_date': 'date',
-        'id': 'int'
+        "url": "str",
+        "filename": "str",
+        "state": "str",
+        "state_description": "str",
+        "type": "str",
+        "size": "int",
+        "etag": "str",
+        "expiry_date": "date",
+        "id": "int",
     }
 
     attribute_map = {
-        'url': 'url',
-        'filename': 'filename',
-        'state': 'state',
-        'state_description': 'state_description',
-        'type': 'type',
-        'size': 'size',
-        'etag': 'etag',
-        'expiry_date': 'expiry_date',
-        'id': 'id'
+        "url": "url",
+        "filename": "filename",
+        "state": "state",
+        "state_description": "state_description",
+        "type": "type",
+        "size": "size",
+        "etag": "etag",
+        "expiry_date": "expiry_date",
+        "id": "id",
     }
 
-    def __init__(self, url=None, filename=None, state=None, state_description=None, type=None, size=None, etag=None, expiry_date=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        filename=None,
+        state=None,
+        state_description=None,
+        type=None,
+        size=None,
+        etag=None,
+        expiry_date=None,
+        id=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """FileReadOnly - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -130,9 +142,14 @@ class FileReadOnly(object):
         :param filename: The filename of this FileReadOnly.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                filename is not None and len(filename) < 1):
-            raise ValueError("Invalid value for `filename`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and filename is not None
+            and len(filename) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `filename`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._filename = filename
 
@@ -154,11 +171,21 @@ class FileReadOnly(object):
         :param state: The state of this FileReadOnly.  # noqa: E501
         :type: str
         """
-        allowed_values = ["created", "uploaded", "processed", "error", "removed"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
+        allowed_values = [
+            "created",
+            "uploaded",
+            "processed",
+            "error",
+            "removed",
+        ]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and state not in allowed_values
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
-                .format(state, allowed_values)
+                "Invalid value for `state` ({0}), must be one of {1}".format(  # noqa: E501
+                    state, allowed_values
+                )
             )
 
         self._state = state
@@ -181,9 +208,14 @@ class FileReadOnly(object):
         :param state_description: The state_description of this FileReadOnly.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                state_description is not None and len(state_description) > 512):
-            raise ValueError("Invalid value for `state_description`, length must be less than or equal to `512`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and state_description is not None
+            and len(state_description) > 512
+        ):
+            raise ValueError(
+                "Invalid value for `state_description`, length must be less than or equal to `512`"
+            )  # noqa: E501
 
         self._state_description = state_description
 
@@ -205,11 +237,26 @@ class FileReadOnly(object):
         :param type: The type of this FileReadOnly.  # noqa: E501
         :type: str
         """
-        allowed_values = ["timeseries", "rastertimeseries", "savedstate", "results", "rasters", "gridadmin", "geojson", "initialwaterlevel", "bulklateral", "bulk_boundaryconditions"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+        allowed_values = [
+            "timeseries",
+            "rastertimeseries",
+            "savedstate",
+            "results",
+            "rasters",
+            "gridadmin",
+            "geojson",
+            "initialwaterlevel",
+            "bulklateral",
+            "bulk_boundaryconditions",
+        ]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and type not in allowed_values
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
+                "Invalid value for `type` ({0}), must be one of {1}".format(  # noqa: E501
+                    type, allowed_values
+                )
             )
 
         self._type = type
@@ -257,9 +304,14 @@ class FileReadOnly(object):
         :param etag: The etag of this FileReadOnly.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                etag is not None and len(etag) > 256):
-            raise ValueError("Invalid value for `etag`, length must be less than or equal to `256`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and etag is not None
+            and len(etag) > 256
+        ):
+            raise ValueError(
+                "Invalid value for `etag`, length must be less than or equal to `256`"
+            )  # noqa: E501
 
         self._etag = etag
 
@@ -312,18 +364,20 @@ class FileReadOnly(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

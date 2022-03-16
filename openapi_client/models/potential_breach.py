@@ -34,26 +34,36 @@ class PotentialBreach(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'connected_pnt_id': 'int',
-        'levee_material': 'str',
-        'line_id': 'int',
-        'maximum_breach_depth': 'float',
-        'threedimodel': 'str',
-        'id': 'int'
+        "url": "str",
+        "connected_pnt_id": "int",
+        "levee_material": "str",
+        "line_id": "int",
+        "maximum_breach_depth": "float",
+        "threedimodel": "str",
+        "id": "int",
     }
 
     attribute_map = {
-        'url': 'url',
-        'connected_pnt_id': 'connected_pnt_id',
-        'levee_material': 'levee_material',
-        'line_id': 'line_id',
-        'maximum_breach_depth': 'maximum_breach_depth',
-        'threedimodel': 'threedimodel',
-        'id': 'id'
+        "url": "url",
+        "connected_pnt_id": "connected_pnt_id",
+        "levee_material": "levee_material",
+        "line_id": "line_id",
+        "maximum_breach_depth": "maximum_breach_depth",
+        "threedimodel": "threedimodel",
+        "id": "id",
     }
 
-    def __init__(self, url=None, connected_pnt_id=None, levee_material=None, line_id=None, maximum_breach_depth=None, threedimodel=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        connected_pnt_id=None,
+        levee_material=None,
+        line_id=None,
+        maximum_breach_depth=None,
+        threedimodel=None,
+        id=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """PotentialBreach - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -118,14 +128,29 @@ class PotentialBreach(object):
         :param connected_pnt_id: The connected_pnt_id of this PotentialBreach.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and connected_pnt_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `connected_pnt_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                connected_pnt_id is not None and connected_pnt_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `connected_pnt_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                connected_pnt_id is not None and connected_pnt_id < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `connected_pnt_id`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and connected_pnt_id is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `connected_pnt_id`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and connected_pnt_id is not None
+            and connected_pnt_id > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `connected_pnt_id`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and connected_pnt_id is not None
+            and connected_pnt_id < -2147483648
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `connected_pnt_id`, must be a value greater than or equal to `-2147483648`"
+            )  # noqa: E501
 
         self._connected_pnt_id = connected_pnt_id
 
@@ -147,13 +172,22 @@ class PotentialBreach(object):
         :param levee_material: The levee_material of this PotentialBreach.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and levee_material is None:  # noqa: E501
-            raise ValueError("Invalid value for `levee_material`, must not be `None`")  # noqa: E501
-        allowed_values = ["sand", "clay"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and levee_material not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and levee_material is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `levee_material` ({0}), must be one of {1}"  # noqa: E501
-                .format(levee_material, allowed_values)
+                "Invalid value for `levee_material`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = ["sand", "clay"]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and levee_material not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `levee_material` ({0}), must be one of {1}".format(  # noqa: E501
+                    levee_material, allowed_values
+                )
             )
 
         self._levee_material = levee_material
@@ -176,14 +210,28 @@ class PotentialBreach(object):
         :param line_id: The line_id of this PotentialBreach.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and line_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `line_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                line_id is not None and line_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `line_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                line_id is not None and line_id < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `line_id`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and line_id is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `line_id`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and line_id is not None
+            and line_id > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `line_id`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and line_id is not None
+            and line_id < -2147483648
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `line_id`, must be a value greater than or equal to `-2147483648`"
+            )  # noqa: E501
 
         self._line_id = line_id
 
@@ -205,8 +253,13 @@ class PotentialBreach(object):
         :param maximum_breach_depth: The maximum_breach_depth of this PotentialBreach.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and maximum_breach_depth is None:  # noqa: E501
-            raise ValueError("Invalid value for `maximum_breach_depth`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and maximum_breach_depth is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `maximum_breach_depth`, must not be `None`"
+            )  # noqa: E501
 
         self._maximum_breach_depth = maximum_breach_depth
 
@@ -259,18 +312,20 @@ class PotentialBreach(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

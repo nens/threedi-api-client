@@ -99,7 +99,9 @@ async def test_download_fileobj_two_chunks(aio_request, responses_double):
 
     callback_func = AsyncMock()
 
-    await download_fileobj("some-url", stream, chunk_size=64, callback_func=callback_func)
+    await download_fileobj(
+        "some-url", stream, chunk_size=64, callback_func=callback_func
+    )
 
     (_, kwargs1), (_, kwargs2) = aio_request.call_args_list
     assert kwargs1["headers"] == {"Range": "bytes=0-63"}
@@ -271,16 +273,16 @@ async def test_upload_fileobj(
 
 
 @pytest.mark.asyncio
-async def test_upload_fileobj_callback(
-    aio_request, fileobj, upload_response
-):
+async def test_upload_fileobj_callback(aio_request, fileobj, upload_response):
     expected_body = [b"X" * 16, b"X" * 16, b"X" * 7]
-    chunk_size = 16 
+    chunk_size = 16
 
     callback_func = AsyncMock()
 
     aio_request.return_value = upload_response
-    await upload_fileobj("some-url", fileobj, chunk_size=chunk_size, callback_func=callback_func)
+    await upload_fileobj(
+        "some-url", fileobj, chunk_size=chunk_size, callback_func=callback_func
+    )
 
     # base64.b64encode(hashlib.md5(b"X" * 39).digest()).decode()
     expected_md5 = "Q2zMNJgyazDIkoSqvpOqVg=="

@@ -34,60 +34,87 @@ class ThreediModel(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'id': 'int',
-        'user': 'str',
-        'inpy_version': 'str',
-        'revision': 'str',
-        'revision_hash': 'str',
-        'revision_number': 'str',
-        'revision_commit_date': 'str',
-        'repository_slug': 'str',
-        'name': 'str',
-        'slug': 'str',
-        'disabled': 'bool',
-        'epsg': 'int',
-        'inp_success': 'bool',
-        'description': 'str',
-        'storage_space': 'int',
-        'storage_space_humanized': 'str',
-        'model_ini': 'str',
-        'breach_count': 'str',
-        'extent_two_d': 'Extent',
-        'extent_one_d': 'Extent',
-        'extent_zero_d': 'Extent',
-        'nodes_count': 'int',
-        'lines_count': 'int'
+        "url": "str",
+        "id": "int",
+        "user": "str",
+        "inpy_version": "str",
+        "revision": "str",
+        "revision_hash": "str",
+        "revision_number": "str",
+        "revision_commit_date": "str",
+        "repository_slug": "str",
+        "name": "str",
+        "slug": "str",
+        "disabled": "bool",
+        "epsg": "int",
+        "inp_success": "bool",
+        "description": "str",
+        "storage_space": "int",
+        "storage_space_humanized": "str",
+        "model_ini": "str",
+        "breach_count": "str",
+        "extent_two_d": "Extent",
+        "extent_one_d": "Extent",
+        "extent_zero_d": "Extent",
+        "nodes_count": "int",
+        "lines_count": "int",
     }
 
     attribute_map = {
-        'url': 'url',
-        'id': 'id',
-        'user': 'user',
-        'inpy_version': 'inpy_version',
-        'revision': 'revision',
-        'revision_hash': 'revision_hash',
-        'revision_number': 'revision_number',
-        'revision_commit_date': 'revision_commit_date',
-        'repository_slug': 'repository_slug',
-        'name': 'name',
-        'slug': 'slug',
-        'disabled': 'disabled',
-        'epsg': 'epsg',
-        'inp_success': 'inp_success',
-        'description': 'description',
-        'storage_space': 'storage_space',
-        'storage_space_humanized': 'storage_space_humanized',
-        'model_ini': 'model_ini',
-        'breach_count': 'breach_count',
-        'extent_two_d': 'extent_two_d',
-        'extent_one_d': 'extent_one_d',
-        'extent_zero_d': 'extent_zero_d',
-        'nodes_count': 'nodes_count',
-        'lines_count': 'lines_count'
+        "url": "url",
+        "id": "id",
+        "user": "user",
+        "inpy_version": "inpy_version",
+        "revision": "revision",
+        "revision_hash": "revision_hash",
+        "revision_number": "revision_number",
+        "revision_commit_date": "revision_commit_date",
+        "repository_slug": "repository_slug",
+        "name": "name",
+        "slug": "slug",
+        "disabled": "disabled",
+        "epsg": "epsg",
+        "inp_success": "inp_success",
+        "description": "description",
+        "storage_space": "storage_space",
+        "storage_space_humanized": "storage_space_humanized",
+        "model_ini": "model_ini",
+        "breach_count": "breach_count",
+        "extent_two_d": "extent_two_d",
+        "extent_one_d": "extent_one_d",
+        "extent_zero_d": "extent_zero_d",
+        "nodes_count": "nodes_count",
+        "lines_count": "lines_count",
     }
 
-    def __init__(self, url=None, id=None, user=None, inpy_version=None, revision=None, revision_hash=None, revision_number=None, revision_commit_date=None, repository_slug=None, name=None, slug=None, disabled=None, epsg=None, inp_success=None, description=None, storage_space=None, storage_space_humanized=None, model_ini=None, breach_count=None, extent_two_d=None, extent_one_d=None, extent_zero_d=None, nodes_count=None, lines_count=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        id=None,
+        user=None,
+        inpy_version=None,
+        revision=None,
+        revision_hash=None,
+        revision_number=None,
+        revision_commit_date=None,
+        repository_slug=None,
+        name=None,
+        slug=None,
+        disabled=None,
+        epsg=None,
+        inp_success=None,
+        description=None,
+        storage_space=None,
+        storage_space_humanized=None,
+        model_ini=None,
+        breach_count=None,
+        extent_two_d=None,
+        extent_one_d=None,
+        extent_zero_d=None,
+        nodes_count=None,
+        lines_count=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """ThreediModel - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -242,8 +269,13 @@ class ThreediModel(object):
         :param inpy_version: The inpy_version of this ThreediModel.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and inpy_version is None:  # noqa: E501
-            raise ValueError("Invalid value for `inpy_version`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and inpy_version is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `inpy_version`, must not be `None`"
+            )  # noqa: E501
 
         self._inpy_version = inpy_version
 
@@ -265,8 +297,12 @@ class ThreediModel(object):
         :param revision: The revision of this ThreediModel.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and revision is None:  # noqa: E501
-            raise ValueError("Invalid value for `revision`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and revision is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `revision`, must not be `None`"
+            )  # noqa: E501
 
         self._revision = revision
 
@@ -372,9 +408,14 @@ class ThreediModel(object):
         :param name: The name of this ThreediModel.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and name is not None
+            and len(name) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `name`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._name = name
 
@@ -396,17 +437,36 @@ class ThreediModel(object):
         :param slug: The slug of this ThreediModel.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and slug is None:  # noqa: E501
-            raise ValueError("Invalid value for `slug`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and len(slug) > 255):
-            raise ValueError("Invalid value for `slug`, length must be less than or equal to `255`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and len(slug) < 1):
-            raise ValueError("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and not re.search(r'^[-a-zA-Z0-9_]+$', slug)):  # noqa: E501
-            raise ValueError(r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and slug is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `slug`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and slug is not None
+            and len(slug) > 255
+        ):
+            raise ValueError(
+                "Invalid value for `slug`, length must be less than or equal to `255`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and slug is not None
+            and len(slug) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `slug`, length must be greater than or equal to `1`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and slug is not None
+            and not re.search(r"^[-a-zA-Z0-9_]+$", slug)
+        ):  # noqa: E501
+            raise ValueError(
+                r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`"
+            )  # noqa: E501
 
         self._slug = slug
 
@@ -451,14 +511,28 @@ class ThreediModel(object):
         :param epsg: The epsg of this ThreediModel.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and epsg is None:  # noqa: E501
-            raise ValueError("Invalid value for `epsg`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                epsg is not None and epsg > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `epsg`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                epsg is not None and epsg < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `epsg`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and epsg is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `epsg`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and epsg is not None
+            and epsg > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `epsg`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and epsg is not None
+            and epsg < -2147483648
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `epsg`, must be a value greater than or equal to `-2147483648`"
+            )  # noqa: E501
 
         self._epsg = epsg
 
@@ -528,12 +602,22 @@ class ThreediModel(object):
         :param storage_space: The storage_space of this ThreediModel.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                storage_space is not None and storage_space > 9223372036854775807):  # noqa: E501
-            raise ValueError("Invalid value for `storage_space`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                storage_space is not None and storage_space < -9223372036854775808):  # noqa: E501
-            raise ValueError("Invalid value for `storage_space`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and storage_space is not None
+            and storage_space > 9223372036854775807
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `storage_space`, must be a value less than or equal to `9223372036854775807`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and storage_space is not None
+            and storage_space < -9223372036854775808
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `storage_space`, must be a value greater than or equal to `-9223372036854775808`"
+            )  # noqa: E501
 
         self._storage_space = storage_space
 
@@ -576,14 +660,28 @@ class ThreediModel(object):
         :param model_ini: The model_ini of this ThreediModel.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and model_ini is None:  # noqa: E501
-            raise ValueError("Invalid value for `model_ini`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                model_ini is not None and len(model_ini) > 512):
-            raise ValueError("Invalid value for `model_ini`, length must be less than or equal to `512`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                model_ini is not None and len(model_ini) < 1):
-            raise ValueError("Invalid value for `model_ini`, length must be greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and model_ini is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `model_ini`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and model_ini is not None
+            and len(model_ini) > 512
+        ):
+            raise ValueError(
+                "Invalid value for `model_ini`, length must be less than or equal to `512`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and model_ini is not None
+            and len(model_ini) < 1
+        ):
+            raise ValueError(
+                "Invalid value for `model_ini`, length must be greater than or equal to `1`"
+            )  # noqa: E501
 
         self._model_ini = model_ini
 
@@ -689,12 +787,22 @@ class ThreediModel(object):
         :param nodes_count: The nodes_count of this ThreediModel.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                nodes_count is not None and nodes_count > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `nodes_count`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                nodes_count is not None and nodes_count < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `nodes_count`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and nodes_count is not None
+            and nodes_count > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `nodes_count`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and nodes_count is not None
+            and nodes_count < -2147483648
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `nodes_count`, must be a value greater than or equal to `-2147483648`"
+            )  # noqa: E501
 
         self._nodes_count = nodes_count
 
@@ -716,12 +824,22 @@ class ThreediModel(object):
         :param lines_count: The lines_count of this ThreediModel.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                lines_count is not None and lines_count > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `lines_count`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                lines_count is not None and lines_count < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `lines_count`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and lines_count is not None
+            and lines_count > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `lines_count`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and lines_count is not None
+            and lines_count < -2147483648
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `lines_count`, must be a value greater than or equal to `-2147483648`"
+            )  # noqa: E501
 
         self._lines_count = lines_count
 
@@ -732,18 +850,20 @@ class ThreediModel(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

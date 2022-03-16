@@ -34,46 +34,66 @@ class MemoryStructureControl(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int',
-        'url': 'str',
-        'offset': 'int',
-        'duration': 'int',
-        'measure_specification': 'MeasureSpecification',
-        'structure_id': 'int',
-        'structure_type': 'str',
-        'type': 'str',
-        'value': 'list[float]',
-        'state': 'str',
-        'state_detail': 'object',
-        'grid_id': 'int',
-        'uid': 'str',
-        'upper_threshold': 'float',
-        'lower_threshold': 'float',
-        'is_active': 'bool',
-        'is_inverse': 'bool'
+        "id": "int",
+        "url": "str",
+        "offset": "int",
+        "duration": "int",
+        "measure_specification": "MeasureSpecification",
+        "structure_id": "int",
+        "structure_type": "str",
+        "type": "str",
+        "value": "list[float]",
+        "state": "str",
+        "state_detail": "object",
+        "grid_id": "int",
+        "uid": "str",
+        "upper_threshold": "float",
+        "lower_threshold": "float",
+        "is_active": "bool",
+        "is_inverse": "bool",
     }
 
     attribute_map = {
-        'id': 'id',
-        'url': 'url',
-        'offset': 'offset',
-        'duration': 'duration',
-        'measure_specification': 'measure_specification',
-        'structure_id': 'structure_id',
-        'structure_type': 'structure_type',
-        'type': 'type',
-        'value': 'value',
-        'state': 'state',
-        'state_detail': 'state_detail',
-        'grid_id': 'grid_id',
-        'uid': 'uid',
-        'upper_threshold': 'upper_threshold',
-        'lower_threshold': 'lower_threshold',
-        'is_active': 'is_active',
-        'is_inverse': 'is_inverse'
+        "id": "id",
+        "url": "url",
+        "offset": "offset",
+        "duration": "duration",
+        "measure_specification": "measure_specification",
+        "structure_id": "structure_id",
+        "structure_type": "structure_type",
+        "type": "type",
+        "value": "value",
+        "state": "state",
+        "state_detail": "state_detail",
+        "grid_id": "grid_id",
+        "uid": "uid",
+        "upper_threshold": "upper_threshold",
+        "lower_threshold": "lower_threshold",
+        "is_active": "is_active",
+        "is_inverse": "is_inverse",
     }
 
-    def __init__(self, id=None, url=None, offset=None, duration=None, measure_specification=None, structure_id=None, structure_type=None, type=None, value=None, state=None, state_detail=None, grid_id=None, uid=None, upper_threshold=None, lower_threshold=None, is_active=None, is_inverse=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        url=None,
+        offset=None,
+        duration=None,
+        measure_specification=None,
+        structure_id=None,
+        structure_type=None,
+        type=None,
+        value=None,
+        state=None,
+        state_detail=None,
+        grid_id=None,
+        uid=None,
+        upper_threshold=None,
+        lower_threshold=None,
+        is_active=None,
+        is_inverse=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """MemoryStructureControl - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -185,14 +205,28 @@ class MemoryStructureControl(object):
         :param offset: The offset of this MemoryStructureControl.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and offset is None:  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                offset is not None and offset > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                offset is not None and offset < 0):  # noqa: E501
-            raise ValueError("Invalid value for `offset`, must be a value greater than or equal to `0`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and offset is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and offset is not None
+            and offset > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and offset is not None
+            and offset < 0
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `offset`, must be a value greater than or equal to `0`"
+            )  # noqa: E501
 
         self._offset = offset
 
@@ -216,12 +250,22 @@ class MemoryStructureControl(object):
         :param duration: The duration of this MemoryStructureControl.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                duration is not None and duration > 9223372036854775807):  # noqa: E501
-            raise ValueError("Invalid value for `duration`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                duration is not None and duration < -9223372036854775808):  # noqa: E501
-            raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and duration is not None
+            and duration > 9223372036854775807
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `duration`, must be a value less than or equal to `9223372036854775807`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and duration is not None
+            and duration < -9223372036854775808
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `duration`, must be a value greater than or equal to `-9223372036854775808`"
+            )  # noqa: E501
 
         self._duration = duration
 
@@ -243,8 +287,13 @@ class MemoryStructureControl(object):
         :param measure_specification: The measure_specification of this MemoryStructureControl.  # noqa: E501
         :type: MeasureSpecification
         """
-        if self.local_vars_configuration.client_side_validation and measure_specification is None:  # noqa: E501
-            raise ValueError("Invalid value for `measure_specification`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and measure_specification is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `measure_specification`, must not be `None`"
+            )  # noqa: E501
 
         self._measure_specification = measure_specification
 
@@ -266,12 +315,22 @@ class MemoryStructureControl(object):
         :param structure_id: The structure_id of this MemoryStructureControl.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                structure_id is not None and structure_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `structure_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                structure_id is not None and structure_id < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `structure_id`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and structure_id is not None
+            and structure_id > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `structure_id`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and structure_id is not None
+            and structure_id < -2147483648
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `structure_id`, must be a value greater than or equal to `-2147483648`"
+            )  # noqa: E501
 
         self._structure_id = structure_id
 
@@ -293,13 +352,29 @@ class MemoryStructureControl(object):
         :param structure_type: The structure_type of this MemoryStructureControl.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and structure_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `structure_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["v2_pumpstation", "v2_pipe", "v2_orifice", "v2_culvert", "v2_weir", "v2_channel"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and structure_type not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and structure_type is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `structure_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(structure_type, allowed_values)
+                "Invalid value for `structure_type`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = [
+            "v2_pumpstation",
+            "v2_pipe",
+            "v2_orifice",
+            "v2_culvert",
+            "v2_weir",
+            "v2_channel",
+        ]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and structure_type not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `structure_type` ({0}), must be one of {1}".format(  # noqa: E501
+                    structure_type, allowed_values
+                )
             )
 
         self._structure_type = structure_type
@@ -322,13 +397,25 @@ class MemoryStructureControl(object):
         :param type: The type of this MemoryStructureControl.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["set_discharge_coefficients", "set_crest_level", "set_pump_capacity"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and type is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
+                "Invalid value for `type`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = [
+            "set_discharge_coefficients",
+            "set_crest_level",
+            "set_pump_capacity",
+        ]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and type not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}".format(  # noqa: E501
+                    type, allowed_values
+                )
             )
 
         self._type = type
@@ -353,8 +440,12 @@ class MemoryStructureControl(object):
         :param value: The value of this MemoryStructureControl.  # noqa: E501
         :type: list[float]
         """
-        if self.local_vars_configuration.client_side_validation and value is None:  # noqa: E501
-            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and value is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `value`, must not be `None`"
+            )  # noqa: E501
 
         self._value = value
 
@@ -377,10 +468,14 @@ class MemoryStructureControl(object):
         :type: str
         """
         allowed_values = ["processing", "valid", "invalid"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and state not in allowed_values
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
-                .format(state, allowed_values)
+                "Invalid value for `state` ({0}), must be one of {1}".format(  # noqa: E501
+                    state, allowed_values
+                )
             )
 
         self._state = state
@@ -424,12 +519,22 @@ class MemoryStructureControl(object):
         :param grid_id: The grid_id of this MemoryStructureControl.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                grid_id is not None and grid_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `grid_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                grid_id is not None and grid_id < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `grid_id`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and grid_id is not None
+            and grid_id > 2147483647
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `grid_id`, must be a value less than or equal to `2147483647`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and grid_id is not None
+            and grid_id < -2147483648
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `grid_id`, must be a value greater than or equal to `-2147483648`"
+            )  # noqa: E501
 
         self._grid_id = grid_id
 
@@ -553,18 +658,20 @@ class MemoryStructureControl(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

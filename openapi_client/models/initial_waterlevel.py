@@ -34,24 +34,33 @@ class InitialWaterlevel(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'threedimodel': 'str',
-        'file': 'FileReadOnly',
-        'source_raster': 'str',
-        'id': 'int',
-        'source_raster_id': 'str'
+        "url": "str",
+        "threedimodel": "str",
+        "file": "FileReadOnly",
+        "source_raster": "str",
+        "id": "int",
+        "source_raster_id": "str",
     }
 
     attribute_map = {
-        'url': 'url',
-        'threedimodel': 'threedimodel',
-        'file': 'file',
-        'source_raster': 'source_raster',
-        'id': 'id',
-        'source_raster_id': 'source_raster_id'
+        "url": "url",
+        "threedimodel": "threedimodel",
+        "file": "file",
+        "source_raster": "source_raster",
+        "id": "id",
+        "source_raster_id": "source_raster_id",
     }
 
-    def __init__(self, url=None, threedimodel=None, file=None, source_raster=None, id=None, source_raster_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        url=None,
+        threedimodel=None,
+        file=None,
+        source_raster=None,
+        id=None,
+        source_raster_id=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """InitialWaterlevel - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -158,8 +167,13 @@ class InitialWaterlevel(object):
         :param source_raster: The source_raster of this InitialWaterlevel.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and source_raster is None:  # noqa: E501
-            raise ValueError("Invalid value for `source_raster`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and source_raster is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `source_raster`, must not be `None`"
+            )  # noqa: E501
 
         self._source_raster = source_raster
 
@@ -212,18 +226,20 @@ class InitialWaterlevel(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

@@ -34,20 +34,27 @@ class InlineResponse20028(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'count': 'int',
-        'next': 'str',
-        'previous': 'str',
-        'results': 'list[LizardTimeseriesRain]'
+        "count": "int",
+        "next": "str",
+        "previous": "str",
+        "results": "list[LizardTimeseriesRain]",
     }
 
     attribute_map = {
-        'count': 'count',
-        'next': 'next',
-        'previous': 'previous',
-        'results': 'results'
+        "count": "count",
+        "next": "next",
+        "previous": "previous",
+        "results": "results",
     }
 
-    def __init__(self, count=None, next=None, previous=None, results=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        count=None,
+        next=None,
+        previous=None,
+        results=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """InlineResponse20028 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -82,8 +89,12 @@ class InlineResponse20028(object):
         :param count: The count of this InlineResponse20028.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
-            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and count is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `count`, must not be `None`"
+            )  # noqa: E501
 
         self._count = count
 
@@ -147,8 +158,12 @@ class InlineResponse20028(object):
         :param results: The results of this InlineResponse20028.  # noqa: E501
         :type: list[LizardTimeseriesRain]
         """
-        if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
-            raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and results is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `results`, must not be `None`"
+            )  # noqa: E501
 
         self._results = results
 
@@ -159,18 +174,20 @@ class InlineResponse20028(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

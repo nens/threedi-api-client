@@ -34,24 +34,33 @@ class DamagePostProcessing(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'basic_post_processing': 'int',
-        'cost_type': 'str',
-        'flood_month': 'str',
-        'inundation_period': 'float',
-        'repair_time_infrastructure': 'int',
-        'repair_time_buildings': 'int'
+        "basic_post_processing": "int",
+        "cost_type": "str",
+        "flood_month": "str",
+        "inundation_period": "float",
+        "repair_time_infrastructure": "int",
+        "repair_time_buildings": "int",
     }
 
     attribute_map = {
-        'basic_post_processing': 'basic_post_processing',
-        'cost_type': 'cost_type',
-        'flood_month': 'flood_month',
-        'inundation_period': 'inundation_period',
-        'repair_time_infrastructure': 'repair_time_infrastructure',
-        'repair_time_buildings': 'repair_time_buildings'
+        "basic_post_processing": "basic_post_processing",
+        "cost_type": "cost_type",
+        "flood_month": "flood_month",
+        "inundation_period": "inundation_period",
+        "repair_time_infrastructure": "repair_time_infrastructure",
+        "repair_time_buildings": "repair_time_buildings",
     }
 
-    def __init__(self, basic_post_processing=None, cost_type=None, flood_month=None, inundation_period=None, repair_time_infrastructure=None, repair_time_buildings=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        basic_post_processing=None,
+        cost_type=None,
+        flood_month=None,
+        inundation_period=None,
+        repair_time_infrastructure=None,
+        repair_time_buildings=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """DamagePostProcessing - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -114,13 +123,21 @@ class DamagePostProcessing(object):
         :param cost_type: The cost_type of this DamagePostProcessing.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and cost_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `cost_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["min", "avg", "max"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and cost_type not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and cost_type is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `cost_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(cost_type, allowed_values)
+                "Invalid value for `cost_type`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = ["min", "avg", "max"]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and cost_type not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `cost_type` ({0}), must be one of {1}".format(  # noqa: E501
+                    cost_type, allowed_values
+                )
             )
 
         self._cost_type = cost_type
@@ -143,13 +160,34 @@ class DamagePostProcessing(object):
         :param flood_month: The flood_month of this DamagePostProcessing.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and flood_month is None:  # noqa: E501
-            raise ValueError("Invalid value for `flood_month`, must not be `None`")  # noqa: E501
-        allowed_values = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and flood_month not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and flood_month is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `flood_month` ({0}), must be one of {1}"  # noqa: E501
-                .format(flood_month, allowed_values)
+                "Invalid value for `flood_month`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = [
+            "jan",
+            "feb",
+            "mar",
+            "apr",
+            "may",
+            "jun",
+            "jul",
+            "aug",
+            "sep",
+            "oct",
+            "nov",
+            "dec",
+        ]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and flood_month not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `flood_month` ({0}), must be one of {1}".format(  # noqa: E501
+                    flood_month, allowed_values
+                )
             )
 
         self._flood_month = flood_month
@@ -174,11 +212,21 @@ class DamagePostProcessing(object):
         :param inundation_period: The inundation_period of this DamagePostProcessing.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and inundation_period is None:  # noqa: E501
-            raise ValueError("Invalid value for `inundation_period`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                inundation_period is not None and inundation_period < 1):  # noqa: E501
-            raise ValueError("Invalid value for `inundation_period`, must be a value greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and inundation_period is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `inundation_period`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and inundation_period is not None
+            and inundation_period < 1
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `inundation_period`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
 
         self._inundation_period = inundation_period
 
@@ -202,14 +250,29 @@ class DamagePostProcessing(object):
         :param repair_time_infrastructure: The repair_time_infrastructure of this DamagePostProcessing.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and repair_time_infrastructure is None:  # noqa: E501
-            raise ValueError("Invalid value for `repair_time_infrastructure`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                repair_time_infrastructure is not None and repair_time_infrastructure > 240):  # noqa: E501
-            raise ValueError("Invalid value for `repair_time_infrastructure`, must be a value less than or equal to `240`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                repair_time_infrastructure is not None and repair_time_infrastructure < 1):  # noqa: E501
-            raise ValueError("Invalid value for `repair_time_infrastructure`, must be a value greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and repair_time_infrastructure is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `repair_time_infrastructure`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and repair_time_infrastructure is not None
+            and repair_time_infrastructure > 240
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `repair_time_infrastructure`, must be a value less than or equal to `240`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and repair_time_infrastructure is not None
+            and repair_time_infrastructure < 1
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `repair_time_infrastructure`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
 
         self._repair_time_infrastructure = repair_time_infrastructure
 
@@ -233,14 +296,29 @@ class DamagePostProcessing(object):
         :param repair_time_buildings: The repair_time_buildings of this DamagePostProcessing.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and repair_time_buildings is None:  # noqa: E501
-            raise ValueError("Invalid value for `repair_time_buildings`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                repair_time_buildings is not None and repair_time_buildings > 240):  # noqa: E501
-            raise ValueError("Invalid value for `repair_time_buildings`, must be a value less than or equal to `240`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                repair_time_buildings is not None and repair_time_buildings < 1):  # noqa: E501
-            raise ValueError("Invalid value for `repair_time_buildings`, must be a value greater than or equal to `1`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and repair_time_buildings is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `repair_time_buildings`, must not be `None`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and repair_time_buildings is not None
+            and repair_time_buildings > 240
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `repair_time_buildings`, must be a value less than or equal to `240`"
+            )  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and repair_time_buildings is not None
+            and repair_time_buildings < 1
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `repair_time_buildings`, must be a value greater than or equal to `1`"
+            )  # noqa: E501
 
         self._repair_time_buildings = repair_time_buildings
 
@@ -251,18 +329,20 @@ class DamagePostProcessing(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

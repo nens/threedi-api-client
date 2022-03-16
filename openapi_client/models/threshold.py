@@ -33,17 +33,13 @@ class Threshold(object):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    openapi_types = {
-        'variable': 'str',
-        'value': 'float'
-    }
+    openapi_types = {"variable": "str", "value": "float"}
 
-    attribute_map = {
-        'variable': 'variable',
-        'value': 'value'
-    }
+    attribute_map = {"variable": "variable", "value": "value"}
 
-    def __init__(self, variable=None, value=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self, variable=None, value=None, local_vars_configuration=None
+    ):  # noqa: E501
         """Threshold - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,13 +70,21 @@ class Threshold(object):
         :param variable: The variable of this Threshold.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and variable is None:  # noqa: E501
-            raise ValueError("Invalid value for `variable`, must not be `None`")  # noqa: E501
-        allowed_values = ["s1", "u1"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and variable not in allowed_values:  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and variable is None
+        ):  # noqa: E501
             raise ValueError(
-                "Invalid value for `variable` ({0}), must be one of {1}"  # noqa: E501
-                .format(variable, allowed_values)
+                "Invalid value for `variable`, must not be `None`"
+            )  # noqa: E501
+        allowed_values = ["s1", "u1"]  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and variable not in allowed_values
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `variable` ({0}), must be one of {1}".format(  # noqa: E501
+                    variable, allowed_values
+                )
             )
 
         self._variable = variable
@@ -103,8 +107,12 @@ class Threshold(object):
         :param value: The value of this Threshold.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and value is None:  # noqa: E501
-            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation and value is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `value`, must not be `None`"
+            )  # noqa: E501
 
         self._value = value
 
@@ -115,18 +123,20 @@ class Threshold(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 

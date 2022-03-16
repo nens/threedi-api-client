@@ -34,20 +34,27 @@ class PhysicalSettings(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int',
-        'simulation_id': 'int',
-        'use_advection_1d': 'int',
-        'use_advection_2d': 'int'
+        "id": "int",
+        "simulation_id": "int",
+        "use_advection_1d": "int",
+        "use_advection_2d": "int",
     }
 
     attribute_map = {
-        'id': 'id',
-        'simulation_id': 'simulation_id',
-        'use_advection_1d': 'use_advection_1d',
-        'use_advection_2d': 'use_advection_2d'
+        "id": "id",
+        "simulation_id": "simulation_id",
+        "use_advection_1d": "use_advection_1d",
+        "use_advection_2d": "use_advection_2d",
     }
 
-    def __init__(self, id=None, simulation_id=None, use_advection_1d=None, use_advection_2d=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+        self,
+        id=None,
+        simulation_id=None,
+        use_advection_1d=None,
+        use_advection_2d=None,
+        local_vars_configuration=None,
+    ):  # noqa: E501
         """PhysicalSettings - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -128,8 +135,13 @@ class PhysicalSettings(object):
         :param use_advection_1d: The use_advection_1d of this PhysicalSettings.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and use_advection_1d is None:  # noqa: E501
-            raise ValueError("Invalid value for `use_advection_1d`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and use_advection_1d is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `use_advection_1d`, must not be `None`"
+            )  # noqa: E501
 
         self._use_advection_1d = use_advection_1d
 
@@ -153,8 +165,13 @@ class PhysicalSettings(object):
         :param use_advection_2d: The use_advection_2d of this PhysicalSettings.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and use_advection_2d is None:  # noqa: E501
-            raise ValueError("Invalid value for `use_advection_2d`, must not be `None`")  # noqa: E501
+        if (
+            self.local_vars_configuration.client_side_validation
+            and use_advection_2d is None
+        ):  # noqa: E501
+            raise ValueError(
+                "Invalid value for `use_advection_2d`, must not be `None`"
+            )  # noqa: E501
 
         self._use_advection_2d = use_advection_2d
 
@@ -165,18 +182,20 @@ class PhysicalSettings(object):
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
 
