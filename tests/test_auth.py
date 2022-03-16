@@ -100,7 +100,8 @@ def test_refresh_simplejwt_username_password(
     assert kwargs == {
         "method": "POST",
         "url": "host/v3/auth/token/",
-        "body": {"password": "topsecret", "username": "harry"},
+        "json_body": {"password": "topsecret", "username": "harry"},
+        "error_msg": "Cannot fetch an access token",
     }
     assert access == "a"
     assert refresh == "b"
@@ -117,7 +118,8 @@ def test_refresh_simplejwt_token(send_json_request, configuration_simplejwt):
     assert kwargs == {
         "method": "POST",
         "url": "host/v3/auth/refresh-token/",
-        "body": {"refresh": configuration_simplejwt.api_key["refresh"]},
+        "json_body": {"refresh": configuration_simplejwt.api_key["refresh"]},
+        "error_msg": "Cannot refresh the access token",
     }
 
     assert access == "a"

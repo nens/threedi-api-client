@@ -17,11 +17,11 @@ class AuthenticationError(Exception):
     pass
 
 
-def send_json_request(method, url, body, error_msg):
+def send_json_request(method, url, json_body, error_msg):
     resp = get_pool().request(
         method,
         url,
-        body=json.dumps(body),
+        body=json.dumps(json_body) if json_body is not None else None,
         headers={"Content-Type": "application/json", "Accept": "application/json"},
     )
     if resp.status not in (200, 201):
@@ -83,11 +83,11 @@ def refresh_api_key(config: Configuration):
 
 def refresh_simplejwt_token(config: Configuration) -> Tuple[str, str]:
     refresh_key = config.api_key.get("refresh")
-    if True:  # is_token_usable(refresh_key):
+    if is_token_usable(refresh_key):
         tokens = send_json_request(
             method="POST",
             url=f"{host_remove_version(config.host)}/v3/auth/refresh-token/",
-            body={"refresh": refresh_key},
+            json_body={"refresh": refresh_key},
             error_msg="Cannot refresh the access token",
         )
     else:
@@ -98,13 +98,14 @@ def refresh_simplejwt_token(config: Configuration) -> Tuple[str, str]:
         tokens = send_json_request(
             method="POST",
             url=f"{host_remove_version(config.host)}/v3/auth/token/",
-            body={"username": config.username, "password": config.password},
+            json_body={"username": config.username, "password": config.password},
             error_msg="Cannot fetch an access token",
         )
     return tokens["access"], tokens["refresh"]
 
 
-#def _oauth2_autodiscovery(issuer: str):
+def _oauth2_autodiscovery(issuer: str):
+    pass
 
 
 def refresh_oauth2_token(issuer: str, config: Configuration):
