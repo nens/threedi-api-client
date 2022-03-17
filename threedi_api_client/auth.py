@@ -12,6 +12,7 @@ from .versions import host_remove_version
 
 # Get new token REFRESH_TIME_DELTA before it really expires.
 REFRESH_TIME_DELTA = timedelta(minutes=5).total_seconds()
+REQUEST_TIMEOUT = 5  # seconds
 
 
 class AuthenticationError(Exception):
@@ -35,7 +36,9 @@ def send_json_request(method, url, **kwargs):
         assert not isinstance(kwargs["body"], (bytes, str))
         kwargs["body"] = json.dumps(kwargs["body"])
         headers["Content-Type"] = "application/json"
-    resp = get_pool().request(method, url, headers=headers, **kwargs)
+    resp = get_pool().request(
+        method, url, headers=headers, timeout=REQUEST_TIMEOUT, **kwargs
+    )
     if resp.status not in (200, 201):
         try:
             detail = json.loads(resp.data)
