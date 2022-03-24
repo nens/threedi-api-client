@@ -110,6 +110,15 @@ def refresh_api_key(config: Configuration):
     config.api_key = {"Authorization": access_token, "refresh": refresh_token}
 
 
+def get_auth_token(username: str, password: str, api_host: str):
+    return send_json_request(
+        method="POST",
+        url=f"{host_remove_version(api_host)}/v3/auth/token/",
+        body={"username": username, "password": password},
+        error_msg="Cannot fetch an access token",
+    )
+
+
 def refresh_simplejwt_token(config: Configuration) -> Tuple[str, str]:
     refresh_key = config.api_key.get("refresh")
     if is_token_usable(refresh_key):
@@ -124,12 +133,7 @@ def refresh_simplejwt_token(config: Configuration) -> Tuple[str, str]:
             raise AuthenticationError(
                 "Cannot fetch a new access token because username/password were not supplied."
             )
-        tokens = send_json_request(
-            method="POST",
-            url=f"{host_remove_version(config.host)}/v3/auth/token/",
-            body={"username": config.username, "password": config.password},
-            error_msg="Cannot fetch an access token",
-        )
+        tokens = get_auth_token(config.username, config.password, config.host)
     return tokens["access"], tokens["refresh"]
 
 
