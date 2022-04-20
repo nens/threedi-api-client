@@ -155,13 +155,10 @@ def test_upload_fileobj(pool, fileobj, upload_response, chunk_size, expected_bod
     pool.request.return_value = upload_response
     upload_fileobj("some-url", fileobj, chunk_size=chunk_size, pool=pool)
 
-    # base64.b64encode(hashlib.md5(b"X" * 39).digest()).decode()
-    expected_md5 = "Q2zMNJgyazDIkoSqvpOqVg=="
-
     args, kwargs = pool.request.call_args
     assert args == ("PUT", "some-url")
     assert list(kwargs["body"]) == expected_body
-    assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
+    assert kwargs["headers"] == {"Content-Length": "39"}
     assert kwargs["timeout"] == DEFAULT_UPLOAD_TIMEOUT
 
 
@@ -180,13 +177,10 @@ def test_upload_fileobj_callback(pool, fileobj, upload_response):
         callback_func=callback_func,
     )
 
-    # base64.b64encode(hashlib.md5(b"X" * 39).digest()).decode()
-    expected_md5 = "Q2zMNJgyazDIkoSqvpOqVg=="
-
     args, kwargs = pool.request.call_args
     assert args == ("PUT", "some-url")
     assert list(kwargs["body"]) == expected_body
-    assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
+    assert kwargs["headers"] == {"Content-Length": "39"}
     assert kwargs["timeout"] == DEFAULT_UPLOAD_TIMEOUT
 
     # Check callback_func

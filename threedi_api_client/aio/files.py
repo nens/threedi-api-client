@@ -286,9 +286,6 @@ async def upload_file(
 ) -> int:
     """Upload a file at specified file path to a url.
 
-    The upload is accompanied by an MD5 hash so that the file server checks
-    the integrity of the file.
-
     Args:
         url: The url to upload to.
         file_path: The file path to read data from.
@@ -298,8 +295,9 @@ async def upload_file(
             By default, there is no total timeout, but only socket connect timeout
             of 5 seconds and a socket read timeout of 10 minutes.
         connector: An optional aiohttp connector to support connection pooling.
-        md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
-            have access to it. Otherwise this function will compute it for you.
+        md5: The MD5 digest (binary) of the file. Supply the MD5 to enable server-side
+            integrity check. Note that when using presigned urls in AWS S3, the md5 hash
+            should be included in the signing procedure.
         executor: The ThreadPoolExecutor to execute local file I/O and MD5 hashing
             in. If not supplied, default executor is used.
         retries: Total number of retries per request.
@@ -359,7 +357,7 @@ async def _iter_chunks(
         yield data
 
 
-async def _compute_md5(
+async def compute_md5(
     fileobj,
     chunk_size: int,
     executor: Optional[ThreadPoolExecutor] = None,
@@ -417,9 +415,6 @@ async def upload_fileobj(
 ) -> int:
     """Upload a file object to a url.
 
-    The upload is accompanied by an MD5 hash so that the file server checks
-    the integrity of the file.
-
     Args:
         url: The url to upload to.
         fileobj: The (binary) file object to read from, supporting async I/O.
@@ -429,8 +424,9 @@ async def upload_fileobj(
             By default, there is no total timeout, but only socket connect timeout
             of 5 seconds and a socket read timeout of 10 minutes.
         connector: An optional aiohttp connector to support connection pooling.
-        md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
-            have access to it. Otherwise this function will compute it for you.
+        md5: The MD5 digest (binary) of the file. Supply the MD5 to enable server-side
+            integrity check. Note that when using presigned urls in AWS S3, the md5 hash
+            should be included in the signing procedure.
         executor: The ThreadPoolExecutor to execute MD5 hashing in. If not
             supplied, default executor is used.
         retries: Total number of retries per request.
@@ -463,10 +459,6 @@ async def upload_fileobj(
             "The file object is not in binary mode. Please open with mode='rb'."
         )
 
-    # For computing the MD5 we need to do an extra pass on the file.
-    if md5 is None:
-        md5 = await _compute_md5(fileobj, chunk_size, executor=executor)
-
     file_size = await fileobj.seek(0, 2)  # go to EOF to get the file size
     if file_size == 0:
         raise IOError("The file object is empty.")
@@ -474,8 +466,9 @@ async def upload_fileobj(
     # Tested: both Content-Length and Content-MD5 are checked by Minio
     headers = {
         "Content-Length": str(file_size),
-        "Content-MD5": base64.b64encode(md5).decode(),
     }
+    if md5 is not None:
+        headers["Content-MD5"] = base64.b64encode(md5).decode()
 
     async with aiohttp.ClientSession(connector=connector) as client:
         request = partial(
