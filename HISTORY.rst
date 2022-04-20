@@ -8,6 +8,10 @@ History
 - Added OAuth2 token and OAuth2 token refresh capability (for both public
   and private clients).
 
+- Allow usage of the API client without supplying a refresh token.
+
+- Added automatic refresh for OAuth2 tokens obtained through the client credentials grant.
+
 
 4.0.0 (2022-02-11)
 ------------------

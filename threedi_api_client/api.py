@@ -24,7 +24,17 @@ class ThreediApi:
     Consult the docstrings of these methods for further information
 
     ThreediApi requires a hostname and user credentials. These can either be stored in
-    a ``.env`` file, supplied via environment variables, or passed as a config dictionairy.
+    a ``.env`` file, supplied via environment variables, or passed as a config dictionary.
+
+    Alternatively, supply an ACCESS_TOKEN. If the ACCESS_TOKEN has expired, there are 3 methods
+    implemented for automatic token renewal:
+
+    - refresh token without client secret: supply a REFRESH_TOKEN
+    - refresh token with client secret: supply a REFRESH_TOKEN and CLIENT_SECRET
+    - client credentials flow: supply a CLIENT_SECRET
+
+    For the client_credentials flow, direct usage of ``threedi_api_client.auth.refresh_oauth2_token``
+    is recommended to fetch the initial access token.
 
     1) A sample ``.env`` file could look like this::
 
@@ -149,7 +159,7 @@ class ThreediApi:
         client_secret = user_config.get("THREEDI_API_CLIENT_SECRET")
 
         basic = all(x for x in (username, password))
-        tokens = all(x for x in (access_token, refresh_token))
+        tokens = bool(access_token)
         if tokens and basic or (not tokens and not basic):
             raise ValueError(
                 "ThreediAPI requires either THREEDI_API_PASSWORD or "
