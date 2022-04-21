@@ -12,6 +12,10 @@ History
   urls cannot be used with custom headers (like Content-MD5) unless they are included
   in the signing procedure.
 
+- Allow usage of the API client without supplying a refresh token.
+
+- Added automatic refresh for OAuth2 tokens obtained through the client credentials grant.
+
 
 4.0.0 (2022-02-11)
 ------------------

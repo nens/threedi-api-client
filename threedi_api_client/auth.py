@@ -1,7 +1,7 @@
 import base64
 import json
 from datetime import datetime, timedelta
-from typing import Tuple
+from typing import Tuple, Optional
 from functools import lru_cache
 
 import urllib3
@@ -76,7 +76,7 @@ def is_token_usable(token: str) -> bool:
     return sec_left >= REFRESH_TIME_DELTA
 
 
-def get_issuer(token: str) -> bool:
+def get_issuer(token: str) -> Optional[str]:
     if token is None:
         return
 
@@ -88,7 +88,7 @@ def get_issuer(token: str) -> bool:
     return payload.get("iss")
 
 
-def get_client_id(token: str) -> str:
+def get_client_id(token: str) -> Optional[str]:
     if token is None:
         return
 
@@ -100,17 +100,36 @@ def get_client_id(token: str) -> str:
     return payload.get("client_id")
 
 
-def refresh_api_key(config: Configuration):
-    """Refreshes the access key if it is expired"""
-    api_key = config.api_key.get("Authorization")
-    if is_token_usable(api_key):
+def get_scope(token: str) -> Optional[str]:
+    if token is None:
         return
-    issuer = get_issuer(api_key)
+
+    try:
+        payload = decode_jwt(token)
+    except Exception:
+        return
+
+    return payload.get("scope")
+
+
+def refresh_api_key(config: Configuration):
+    """Refreshes the access token if it is expired"""
+    access_token = config.api_key.get("Authorization")
+    if is_token_usable(access_token):
+        return
+    issuer = get_issuer(access_token)
     if issuer is None:
         access_token, refresh_token = refresh_simplejwt_token(config)
+        config.api_key["refresh"] = refresh_token
     else:
-        access_token, refresh_token = refresh_oauth2_token(issuer, config)
-    config.api_key = {"Authorization": access_token, "refresh": refresh_token}
+        access_token = refresh_oauth2_token(
+            issuer=get_issuer(access_token),
+            client_id=get_client_id(access_token),
+            scope=get_scope(access_token),
+            client_secret=config.api_key.get("client_secret"),
+            refresh_token=config.api_key.get("refresh"),
+        )
+    config.api_key["Authorization"] = access_token
 
 
 def get_auth_token(username: str, password: str, api_host: str):
@@ -149,25 +168,38 @@ def oauth2_autodiscovery(issuer: str):
     )
 
 
-def refresh_oauth2_token(issuer: str, config: Configuration):
-    refresh_token = config.api_key.get("refresh")
-    if not refresh_token:
+def refresh_oauth2_token(
+    issuer: str,
+    client_id: str,
+    client_secret: Optional[str] = None,
+    refresh_token: Optional[str] = None,
+    scope: Optional[str] = None,
+):
+    """Refresh an OAuth2 access token.
+
+    If no refresh_token is supplied, then the client credentials flow is taken. A client_secret
+    is required in that case. Otherwise, just use the refresh token flow.
+
+    The scope can be supplied when using the client credentials flow.
+    """
+    if refresh_token:
+        grant_type = "refresh_token"
+    else:
+        grant_type = "client_credentials"
+
+    if not client_secret and grant_type == "client_credentials":
         raise AuthenticationError(
-            "Cannot fetch a new access token because THREEDI_API_REFRESH_TOKEN was not supplied."
-        )
-    client_id = get_client_id(config.api_key.get("Authorization"))
-    if not client_id:
-        raise AuthenticationError(
-            "Cannot fetch a new access token because the access token does not contain a client_id."
+            "Cannot fetch an access token because THREEDI_API_REFESH_TOKEN and/or "
+            "THREEDI_API_CLIENT_SECRET where not supplied."
         )
 
     # send the refresh token request
     token_url = oauth2_autodiscovery(issuer)["token_endpoint"]
-    fields = {"grant_type": "refresh_token", "refresh_token": refresh_token}
+    fields = {"grant_type": grant_type}
+    if grant_type == "refresh_token":
+        fields["refresh_token"] = refresh_token
 
     # include client id and optionally secret in headers/body
-    client_id = get_client_id(config.api_key.get("Authorization"))
-    client_secret = config.api_key.get("client_secret")
     if client_secret:
         # Include id + secret in headers using basic auth
         headers = urllib3.make_headers(basic_auth=f"{client_id}:{client_secret}")
@@ -175,6 +207,10 @@ def refresh_oauth2_token(issuer: str, config: Configuration):
         # Include only id (in body)
         headers = {}
         fields["client_id"] = client_id
+
+    # include scope (for client credentials only)
+    if grant_type == "client_credentials" and scope:
+        fields["scope"] = scope
 
     tokens = send_json_request(
         method="POST",
@@ -184,5 +220,4 @@ def refresh_oauth2_token(issuer: str, config: Configuration):
         encode_multipart=False,
         error_msg="Failed to refresh the access token",
     )
-    access_token = tokens["access_token"]
-    return access_token, refresh_token
+    return tokens["access_token"]
