@@ -35,6 +35,15 @@ def get_pool(retries: int = 3, backoff_factor: float = 1.0) -> urllib3.PoolManag
     )
 
 
+def compute_md5(fileobj: BinaryIO, chunk_size: int = 16777216):
+    """Compute the MD5 checksum of a file object."""
+    fileobj.seek(0)
+    hasher = hashlib.md5()
+    for chunk in _iter_chunks(fileobj, chunk_size=chunk_size):
+        hasher.update(chunk)
+    return hasher.digest()
+
+
 def download_file(
     url: str,
     target: Path,
@@ -61,7 +70,7 @@ def download_file(
             for example: def callback(bytes_downloaded: int, total_bytes: int) -> None
 
     Returns:
-        Tuple of file path, total number of uploaded bytes.
+        Tuple of file path, total number of downloaded bytes.
 
     Raises:
         threedi_api_client.openapi.ApiException: raised on unexpected server
@@ -197,9 +206,6 @@ def upload_file(
 ) -> int:
     """Upload a file at specified file path to a url.
 
-    The upload is accompanied by an MD5 hash so that the file server checks
-    the integrity of the file.
-
     Args:
         url: The url to upload to.
         file_path: The file path to read data from.
@@ -209,8 +215,9 @@ def upload_file(
             5 seconds and a read timeout of 10 minutes.
         pool: If not supplied, a default connection pool will be
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
-        md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
-            have access to it. Otherwise this function will compute it for you.
+        md5: The MD5 digest (binary) of the file. Supply the MD5 to enable server-side
+            integrity check. Note that when using presigned urls in AWS S3, the md5 hash
+            should be included in the signing procedure.
         callback_func: optional function used to receive: bytes_uploaded, total_bytes
             for example: def callback(bytes_uploaded: int, total_bytes: int) -> None
 
@@ -274,9 +281,6 @@ def upload_fileobj(
 ) -> int:
     """Upload a file object to a url.
 
-    The upload is accompanied by an MD5 hash so that the file server checks
-    the integrity of the file.
-
     Args:
         url: The url to upload to.
         fileobj: The (binary) file object to read from.
@@ -286,8 +290,9 @@ def upload_fileobj(
             5 seconds and a read timeout of 10 minutes.
         pool: If not supplied, a default connection pool will be
             created with a retry policy of 3 retries after 1, 2, 4 seconds.
-        md5: The MD5 digest (binary) of the file. Supply the MD5 if you already
-            have access to it. Otherwise this function will compute it for you.
+        md5: The MD5 digest (binary) of the file. Supply the MD5 to enable server-side
+            integrity check. Note that when using presigned urls in AWS S3, the md5 hash
+            should be included in the signing procedure.
         callback_func: optional function used to receive: bytes_uploaded, total_bytes
             for example: def callback(bytes_uploaded: int, total_bytes: int) -> None
 
@@ -316,17 +321,7 @@ def upload_fileobj(
             "The file object is not in binary mode. Please open with mode='rb'."
         )
 
-    # For computing the MD5 we need to do an extra pass on the file.
-    if md5 is None:
-        fileobj.seek(0)
-        hasher = hashlib.md5()
-        for chunk in _iter_chunks(fileobj, chunk_size=chunk_size):
-            hasher.update(chunk)
-        md5 = hasher.digest()
-        file_size = fileobj.tell()
-    else:
-        file_size = fileobj.seek(0, 2)  # go to EOF
-
+    file_size = fileobj.seek(0, 2)  # go to EOF
     if file_size == 0:
         raise IOError("The file object is empty.")
 
@@ -342,11 +337,13 @@ def upload_fileobj(
             callback_func(uploaded_bytes, file_size)
 
     iterable = _iter_chunks(fileobj, chunk_size=chunk_size, callback_func=callback)
+
     # Tested: both Content-Length and Content-MD5 are checked by Minio
     headers = {
         "Content-Length": str(file_size),
-        "Content-MD5": base64.b64encode(md5).decode(),
     }
+    if md5 is not None:
+        headers["Content-MD5"] = base64.b64encode(md5).decode()
     response = pool.request(
         "PUT",
         url,

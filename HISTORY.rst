@@ -8,6 +8,10 @@ History
 - Added OAuth2 token and OAuth2 token refresh capability (for both public
   and private clients).
 
+- Make server-side MD5 check optional to account for the fact that S3 presigned
+  urls cannot be used with custom headers (like Content-MD5) unless they are included
+  in the signing procedure.
+
 - Allow usage of the API client without supplying a refresh token.
 
 - Added automatic refresh for OAuth2 tokens obtained through the client credentials grant.

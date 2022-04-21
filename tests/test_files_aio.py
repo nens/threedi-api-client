@@ -262,13 +262,10 @@ async def test_upload_fileobj(
     aio_request.return_value = upload_response
     await upload_fileobj("some-url", fileobj, chunk_size=chunk_size)
 
-    # base64.b64encode(hashlib.md5(b"X" * 39).digest()).decode()
-    expected_md5 = "Q2zMNJgyazDIkoSqvpOqVg=="
-
     args, kwargs = aio_request.call_args
     assert args == ("PUT", "some-url")
     assert [x async for x in kwargs["data"]] == expected_body
-    assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
+    assert kwargs["headers"] == {"Content-Length": "39"}
     assert kwargs["timeout"] == DEFAULT_UPLOAD_TIMEOUT
 
 
@@ -284,13 +281,10 @@ async def test_upload_fileobj_callback(aio_request, fileobj, upload_response):
         "some-url", fileobj, chunk_size=chunk_size, callback_func=callback_func
     )
 
-    # base64.b64encode(hashlib.md5(b"X" * 39).digest()).decode()
-    expected_md5 = "Q2zMNJgyazDIkoSqvpOqVg=="
-
     args, kwargs = aio_request.call_args
     assert args == ("PUT", "some-url")
     assert [x async for x in kwargs["data"]] == expected_body
-    assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
+    assert kwargs["headers"] == {"Content-Length": "39"}
     assert kwargs["timeout"] == DEFAULT_UPLOAD_TIMEOUT
 
     # Check callback_func
