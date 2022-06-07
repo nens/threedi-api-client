@@ -23,15 +23,17 @@ class ThreediApi:
     all named according to the pattern ``{resource}_{action}``, for example ``simulations_list``.
     Consult the docstrings of these methods for further information
 
-    ThreediApi requires a hostname and user credentials. These can either be stored in
+    ThreediApi requires a THREEDI_API_HOST and user credentials (THREEDI_API_USERNAME, THREEDI_API_PASSWORD). These can either be stored in
     a ``.env`` file, supplied via environment variables, or passed as a config dictionary.
 
-    Alternatively, supply an ACCESS_TOKEN. If the ACCESS_TOKEN has expired, there are 3 methods
+    Alternatively, supply an THREEDI_API_ACCESS_TOKEN. If the THREEDI_API_ACCESS_TOKEN has expired, there are 3 methods
     implemented for automatic token renewal:
 
-    - refresh token without client secret: supply a REFRESH_TOKEN
-    - refresh token with client secret: supply a REFRESH_TOKEN and CLIENT_SECRET
-    - client credentials flow: supply a CLIENT_SECRET
+    - refresh token without client secret: supply a THREEDI_API_REFRESH_TOKEN
+    - refresh token with client secret: supply a THREEDI_API_REFRESH_TOKEN and THREEDI_API_CLIENT_SECRET
+    - client credentials flow: supply a THREEDI_API_CLIENT_SECRET
+
+    For personal api token authentication supply a THREEDI_API_PERSONAL_API_TOKEN.
 
     For the client_credentials flow, direct usage of ``threedi_api_client.auth.refresh_oauth2_token``
     is recommended to fetch the initial access token.
@@ -158,12 +160,18 @@ class ThreediApi:
         refresh_token = user_config.get("THREEDI_API_REFRESH_TOKEN")
         client_secret = user_config.get("THREEDI_API_CLIENT_SECRET")
 
+        personal_api_token = user_config.get("THREEDI_API_PERSONAL_API_TOKEN")
+
         basic = all(x for x in (username, password))
         tokens = bool(access_token)
-        if tokens and basic or (not tokens and not basic):
+        is_personal_api_token = bool(personal_api_token)
+
+        if sum([basic, tokens, is_personal_api_token]) != 1:
             raise ValueError(
-                "ThreediAPI requires either THREEDI_API_PASSWORD or "
-                "THREEDI_API_ACCESS_TOKEN and THREEDI_API_REFRESH_TOKEN as "
+                "ThreediAPI requires either "
+                "THREEDI_API_USERNAME and THREEDI_API_PASSWORD or "
+                "THREEDI_API_ACCESS_TOKEN and THREEDI_API_REFRESH_TOKEN or "
+                "THREEDI_API_PERSONAL_API_TOKEN as "
                 "configuration values."
             )
 
@@ -174,18 +182,26 @@ class ThreediApi:
                 f"version is not included."
             )
 
-        configuration = Configuration(
-            host=host,
-            username=username,
-            password=password,
-            api_key={
-                "Authorization": access_token,
-                "refresh": refresh_token,
-                "client_secret": client_secret,
-            },
-            api_key_prefix={"Authorization": "Bearer"},
-        )
-        configuration.refresh_api_key_hook = refresh_api_key
+        if is_personal_api_token:
+            configuration = Configuration(
+                host=host,
+                username="__key__",
+                password=personal_api_token
+            )
+        else:
+            configuration = Configuration(
+                host=host,
+                username=username,
+                password=password,
+                api_key={
+                    "Authorization": access_token,
+                    "refresh": refresh_token,
+                    "client_secret": client_secret,
+                },
+                api_key_prefix={"Authorization": "Bearer"},
+            )
+            configuration.refresh_api_key_hook = refresh_api_key
+
         configuration.retries = retries
 
         if asynchronous:

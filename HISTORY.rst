@@ -5,6 +5,8 @@ History
 4.0.1 (unreleased)
 ------------------
 
+- Support personal api tokens authentication.
+
 - Added OAuth2 token and OAuth2 token refresh capability (for both public
   and private clients).
 

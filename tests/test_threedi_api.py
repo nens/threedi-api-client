@@ -44,6 +44,15 @@ def oauth2_config():
 
 
 @pytest.fixture
+def personal_api_config():
+    return {
+        "THREEDI_API_HOST": "localhost:8000",
+        "THREEDI_API_PERSONAL_API_TOKEN": "personal_api_token",
+    }
+
+
+
+@pytest.fixture
 def v3_api(config):
     return ThreediApi(config=config)
 
@@ -202,3 +211,17 @@ def test_dispatch_func(v3_api):
 
     assert result is api_func.return_value
     api_func.assert_called_with("foo", foo="bar")
+
+
+def test_init_with_personal_api_token(personal_api_config):
+    api = ThreediApi(config=personal_api_config)
+    assert isinstance(api._api, V3Api)
+    assert isinstance(api._client, ApiClient)
+    assert api.api_client.configuration.auth_settings() == {
+        'Basic': {
+            'type': 'basic',
+            'in': 'header',
+            'key': 'Authorization',
+            'value': "Basic X19rZXlfXzpwZXJzb25hbF9hcGlfdG9rZW4="  # base_64 __key__:personal_api_token 
+        }
+    }
