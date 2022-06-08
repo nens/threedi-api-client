@@ -2,7 +2,7 @@
 History
 =======
 
-4.0.1 (unreleased)
+4.0.1 (2022-06-08)
 ------------------
 
 - Support personal api tokens authentication.
