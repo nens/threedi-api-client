@@ -5,7 +5,8 @@ History
 4.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Support S3 (object storage) temp-urls in upload/download functions in aio/files.py by
+  disabling the automatic addition of the 'content-type' header by aiohttp.
 
 
 4.0.1 (2022-06-08)
