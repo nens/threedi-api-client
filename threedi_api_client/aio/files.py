@@ -220,7 +220,7 @@ async def download_fileobj(
         "retries": retries,
         "backoff_factor": backoff_factor,
     }
-    async with aiohttp.ClientSession(connector=connector) as client:
+    async with aiohttp.ClientSession(connector=connector, skip_auto_headers={'content-type'}) as client:
         # start with a single chunk to learn the total file size
         response, file_size = await _download_request(
             client, 0, chunk_size, **request_kwargs
@@ -467,10 +467,8 @@ async def upload_fileobj(
     headers = {
         "Content-Length": str(file_size),
     }
-    if md5 is not None:
-        headers["Content-MD5"] = base64.b64encode(md5).decode()
 
-    async with aiohttp.ClientSession(connector=connector) as client:
+    async with aiohttp.ClientSession(connector=connector, skip_auto_headers={'content-type'}) as client:
         request = partial(
             _upload_request,
             client,

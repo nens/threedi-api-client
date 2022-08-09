@@ -299,11 +299,8 @@ async def test_upload_fileobj_with_md5(aio_request, fileobj, upload_response):
     aio_request.return_value = upload_response
     await upload_fileobj("some-url", fileobj, md5=b"abcd")
 
-    # base64.b64encode(b"abcd")).decode()
-    expected_md5 = "YWJjZA=="
-
     args, kwargs = aio_request.call_args
-    assert kwargs["headers"] == {"Content-Length": "39", "Content-MD5": expected_md5}
+    assert kwargs["headers"] == {"Content-Length": "39"}
 
 
 @pytest.mark.asyncio
