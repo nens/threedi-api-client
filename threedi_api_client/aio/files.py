@@ -20,7 +20,7 @@ RETRY_STATUSES = frozenset({413, 429, 503})  # like in urllib3
 DEFAULT_CONN_LIMIT = 4  # for downloads only (which are parrallel)
 # only timeout on the socket, not on Python code (like urllib3)
 DEFAULT_DOWNLOAD_TIMEOUT = aiohttp.ClientTimeout(
-    total=None, sock_connect=5.0, sock_read=5.0
+    total=None, sock_connect=5.0, sock_read=60.0
 )
 # Default upload timeout has an increased socket read timeout, because MinIO
 # takes very long for completing the upload for larger files. The limit of 10 minutes
