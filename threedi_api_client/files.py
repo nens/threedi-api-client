@@ -12,10 +12,11 @@ import urllib3
 from threedi_api_client.openapi import ApiException
 
 CONTENT_RANGE_REGEXP = re.compile(r"^bytes (\d+)-(\d+)/(\d+|\*)$")
-# Default upload timeout has an increased socket read timeout, because MinIO
-# takes very long for completing the upload for larger files. The limit of 10 minutes
-# should accomodate files up to 150 GB.
-DEFAULT_UPLOAD_TIMEOUT = urllib3.Timeout(connect=5.0, read=600.0)
+# Default upload timeout is high because 1) the connect timeout is the transfer of
+# the first complete chunk (of max 16 MB) and 2) the read timeout may encompass the completion of
+# a very large file at the last chunk. The read timeout of 10 minutes
+# should accomodate files up to 150 GB and the connect timeout should accomodate a 500 kB/s transfer.
+DEFAULT_UPLOAD_TIMEOUT = urllib3.Timeout(connect=30.0, read=600.0)
 
 
 logger = logging.getLogger(__name__)
@@ -340,7 +341,7 @@ def upload_fileobj(
 
     # Tested: both Content-Length and Content-MD5 are checked by Minio
     headers = {
-        "Content-Length": str(file_size),
+       "Content-Length": str(file_size),
     }
     if md5 is not None:
         headers["Content-MD5"] = base64.b64encode(md5).decode()
