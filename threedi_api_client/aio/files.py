@@ -22,11 +22,12 @@ DEFAULT_CONN_LIMIT = 4  # for downloads only (which are parrallel)
 DEFAULT_DOWNLOAD_TIMEOUT = aiohttp.ClientTimeout(
     total=None, sock_connect=5.0, sock_read=60.0
 )
-# Default upload timeout has an increased socket read timeout, because MinIO
-# takes very long for completing the upload for larger files. The limit of 10 minutes
-# should accomodate files up to 150 GB.
+# Default upload timeout is high because 1) the connect timeout is the transfer of
+# the first complete chunk (of max 16 MB) and 2) the read timeout may encompass the completion of
+# a very large file at the last chunk. The read timeout of 10 minutes
+# should accomodate files up to 150 GB and the connect timeout should accomodate a 500 kB/s transfer.
 DEFAULT_UPLOAD_TIMEOUT = aiohttp.ClientTimeout(
-    total=None, sock_connect=5.0, sock_read=600.0
+    total=None, sock_connect=30.0, sock_read=600.0
 )
 
 logger = logging.getLogger(__name__)

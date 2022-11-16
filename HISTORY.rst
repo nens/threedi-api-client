@@ -10,6 +10,8 @@ History
 
 - Increase default socket read timeout for (async) downloads to 60 seconds.
 
+- Increase default socket connect timeout for uploads to 30 seconds.
+
 
 4.0.1 (2022-06-08)
 ------------------
