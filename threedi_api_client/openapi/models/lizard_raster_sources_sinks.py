@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.19.3   3Di core release: 2.2.11  deployed on:  10:31AM (UTC) on June 01, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.0.8   3Di core release: 2.3.1  deployed on:  01:12PM (UTC) on November 15, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -47,7 +47,8 @@ class LizardRasterSourcesSinks(object):
         'store_path': 'str',
         'id': 'int',
         'uid': 'str',
-        'user': 'str'
+        'user': 'str',
+        'user_id': 'int'
     }
 
     attribute_map = {
@@ -62,10 +63,11 @@ class LizardRasterSourcesSinks(object):
         'store_path': 'store_path',
         'id': 'id',
         'uid': 'uid',
-        'user': 'user'
+        'user': 'user',
+        'user_id': 'user_id'
     }
 
-    def __init__(self, url=None, offset=None, duration=None, reference_uuid=None, start_datetime=None, simulation=None, interval=None, origin_offset=None, store_path=None, id=None, uid=None, user=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, offset=None, duration=None, reference_uuid=None, start_datetime=None, simulation=None, interval=None, origin_offset=None, store_path=None, id=None, uid=None, user=None, user_id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """LizardRasterSourcesSinks - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -86,6 +88,7 @@ class LizardRasterSourcesSinks(object):
         self._id = None
         self._uid = None
         self._user = None
+        self._user_id = None
         self.discriminator = None
 
         if url is not None:
@@ -108,6 +111,8 @@ class LizardRasterSourcesSinks(object):
             self.uid = uid
         if user is not None:
             self.user = user
+        if user_id is not None:
+            self.user_id = user_id
 
     @property
     def url(self):
@@ -391,6 +396,27 @@ class LizardRasterSourcesSinks(object):
         """
 
         self._user = user
+
+    @property
+    def user_id(self):
+        """Gets the user_id of this LizardRasterSourcesSinks.  # noqa: E501
+
+
+        :return: The user_id of this LizardRasterSourcesSinks.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_id
+
+    @user_id.setter
+    def user_id(self, user_id):
+        """Sets the user_id of this LizardRasterSourcesSinks.
+
+
+        :param user_id: The user_id of this LizardRasterSourcesSinks.  # noqa: E501
+        :type: int
+        """
+
+        self._user_id = user_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

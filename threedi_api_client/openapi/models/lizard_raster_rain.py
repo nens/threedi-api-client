@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.19.3   3Di core release: 2.2.11  deployed on:  10:31AM (UTC) on June 01, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.0.8   3Di core release: 2.3.1  deployed on:  01:12PM (UTC) on November 15, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -47,6 +47,7 @@ class LizardRasterRain(object):
         'multiplier': 'float',
         'interval': 'int',
         'user': 'str',
+        'user_id': 'int',
         'origin_offset': 'int',
         'store_path': 'str',
         'id': 'int'
@@ -64,12 +65,13 @@ class LizardRasterRain(object):
         'multiplier': 'multiplier',
         'interval': 'interval',
         'user': 'user',
+        'user_id': 'user_id',
         'origin_offset': 'origin_offset',
         'store_path': 'store_path',
         'id': 'id'
     }
 
-    def __init__(self, url=None, uid=None, offset=None, duration=None, units=None, reference_uuid=None, start_datetime=None, simulation=None, multiplier=None, interval=None, user=None, origin_offset=None, store_path=None, id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, uid=None, offset=None, duration=None, units=None, reference_uuid=None, start_datetime=None, simulation=None, multiplier=None, interval=None, user=None, user_id=None, origin_offset=None, store_path=None, id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """LizardRasterRain - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -89,6 +91,7 @@ class LizardRasterRain(object):
         self._multiplier = None
         self._interval = None
         self._user = None
+        self._user_id = None
         self._origin_offset = None
         self._store_path = None
         self._id = None
@@ -112,6 +115,8 @@ class LizardRasterRain(object):
             self.interval = interval
         if user is not None:
             self.user = user
+        if user_id is not None:
+            self.user_id = user_id
         if origin_offset is not None:
             self.origin_offset = origin_offset
         if store_path is not None:
@@ -383,6 +388,27 @@ class LizardRasterRain(object):
         """
 
         self._user = user
+
+    @property
+    def user_id(self):
+        """Gets the user_id of this LizardRasterRain.  # noqa: E501
+
+
+        :return: The user_id of this LizardRasterRain.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_id
+
+    @user_id.setter
+    def user_id(self, user_id):
+        """Sets the user_id of this LizardRasterRain.
+
+
+        :param user_id: The user_id of this LizardRasterRain.  # noqa: E501
+        :type: int
+        """
+
+        self._user_id = user_id
 
     @property
     def origin_offset(self):

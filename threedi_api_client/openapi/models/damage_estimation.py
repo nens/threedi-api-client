@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.19.3   3Di core release: 2.2.11  deployed on:  10:31AM (UTC) on June 01, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.0.8   3Di core release: 2.3.1  deployed on:  01:12PM (UTC) on November 15, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -59,7 +59,7 @@ class DamageEstimation(object):
         'repair_time_buildings': 'repair_time_buildings'
     }
 
-    def __init__(self, damage_table='3Di-V1', elevation_raster_uuid='36588275-f3e3-4120-8c1e-602f7ae85386', landcover_raster_uuid='a80a6d31-f539-4037-9765-4fb880654424', road_rail_raster_uuid='e40c1b96-e71f-462c-8acb-59a3a8b7db89', cost_type=None, flood_month=None, inundation_period=None, repair_time_infrastructure=None, repair_time_buildings=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, damage_table='3Di-V1', elevation_raster_uuid='36588275-f3e3-4120-8c1e-602f7ae85386', landcover_raster_uuid='717478ef-099d-41d8-971d-8b4309e59d92', road_rail_raster_uuid='e40c1b96-e71f-462c-8acb-59a3a8b7db89', cost_type=None, flood_month=None, inundation_period=None, repair_time_infrastructure=None, repair_time_buildings=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """DamageEstimation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

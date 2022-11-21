@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.19.3   3Di core release: 2.2.11  deployed on:  10:31AM (UTC) on June 01, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.0.8   3Di core release: 2.3.1  deployed on:  01:12PM (UTC) on November 15, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -425,7 +425,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2001
+        :return: InlineResponse2002
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -471,7 +471,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2001, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2002, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -585,7 +585,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2001',  # noqa: E501
+            response_type='InlineResponse2002',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -698,6 +698,124 @@ class V3Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='User',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def auth_users_tokens(self, id, **kwargs):  # noqa: E501
+        """auth_users_tokens  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_users_tokens(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this user. (required)
+        :param list[str] required_scopes:
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: UserTokens
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.auth_users_tokens_with_http_info(id, **kwargs)  # noqa: E501
+
+    def auth_users_tokens_with_http_info(self, id, **kwargs):  # noqa: E501
+        """auth_users_tokens  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auth_users_tokens_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this user. (required)
+        :param list[str] required_scopes:
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(UserTokens, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'required_scopes'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method auth_users_tokens" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `auth_users_tokens`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+        if 'required_scopes' in local_var_params and local_var_params['required_scopes'] is not None:  # noqa: E501
+            query_params.append(('required_scopes', local_var_params['required_scopes']))  # noqa: E501
+            collection_formats['required_scopes'] = 'csv'  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/auth/users/{id}/tokens/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='UserTokens',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -978,7 +1096,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2002
+        :return: InlineResponse2003
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1032,7 +1150,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2002, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2003, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1170,7 +1288,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2002',  # noqa: E501
+            response_type='InlineResponse2003',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1916,7 +2034,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2003
+        :return: InlineResponse2004
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1957,7 +2075,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2003, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2004, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2056,7 +2174,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2003',  # noqa: E501
+            response_type='InlineResponse2004',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2829,7 +2947,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2004
+        :return: InlineResponse2005
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2884,7 +3002,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2004, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2005, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3025,7 +3143,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2004',  # noqa: E501
+            response_type='InlineResponse2005',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3439,7 +3557,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2005
+        :return: InlineResponse2006
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3486,7 +3604,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2005, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2006, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3603,7 +3721,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2005',  # noqa: E501
+            response_type='InlineResponse2006',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3877,7 +3995,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2006
+        :return: InlineResponse2007
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3924,7 +4042,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2006, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2007, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4045,7 +4163,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2006',  # noqa: E501
+            response_type='InlineResponse2007',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -4586,7 +4704,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2007
+        :return: InlineResponse2008
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4641,7 +4759,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2007, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2008, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4782,7 +4900,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2007',  # noqa: E501
+            response_type='InlineResponse2008',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5184,7 +5302,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2008
+        :return: InlineResponse2009
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5245,7 +5363,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2008, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2009, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5404,7 +5522,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2008',  # noqa: E501
+            response_type='InlineResponse2009',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6304,7 +6422,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2009
+        :return: InlineResponse20010
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6381,7 +6499,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2009, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20010, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6588,7 +6706,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2009',  # noqa: E501
+            response_type='InlineResponse20010',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7097,7 +7215,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20010
+        :return: InlineResponse20011
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7125,7 +7243,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20010, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20011, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7185,7 +7303,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20010',  # noqa: E501
+            response_type='InlineResponse20011',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7761,7 +7879,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20011
+        :return: InlineResponse20012
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7882,7 +8000,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20011, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20012, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8221,7 +8339,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20011',  # noqa: E501
+            response_type='InlineResponse20012',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9193,6 +9311,7 @@ class V3Api(object):
         :param str committed:
         :param str archived:
         :param str is_valid:
+        :param str has_threedimodel:
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -9203,7 +9322,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20012
+        :return: InlineResponse20013
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9292,6 +9411,7 @@ class V3Api(object):
         :param str committed:
         :param str archived:
         :param str is_valid:
+        :param str has_threedimodel:
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -9304,7 +9424,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20012, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20013, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9384,6 +9504,7 @@ class V3Api(object):
             'committed',
             'archived',
             'is_valid',
+            'has_threedimodel',
             'ordering',
             'limit',
             'offset'
@@ -9559,6 +9680,8 @@ class V3Api(object):
             query_params.append(('archived', local_var_params['archived']))  # noqa: E501
         if 'is_valid' in local_var_params and local_var_params['is_valid'] is not None:  # noqa: E501
             query_params.append(('is_valid', local_var_params['is_valid']))  # noqa: E501
+        if 'has_threedimodel' in local_var_params and local_var_params['has_threedimodel'] is not None:  # noqa: E501
+            query_params.append(('has_threedimodel', local_var_params['has_threedimodel']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -9587,7 +9710,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20012',  # noqa: E501
+            response_type='InlineResponse20013',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10009,7 +10132,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20013
+        :return: InlineResponse20014
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10038,7 +10161,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20013, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20014, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10112,7 +10235,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20013',  # noqa: E501
+            response_type='InlineResponse20014',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -11467,7 +11590,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20014
+        :return: InlineResponse20015
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11497,7 +11620,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20014, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20015, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11571,7 +11694,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20014',  # noqa: E501
+            response_type='InlineResponse20015',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12529,7 +12652,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20015
+        :return: InlineResponse20016
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12590,7 +12713,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20015, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20016, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12752,7 +12875,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20015',  # noqa: E501
+            response_type='InlineResponse20016',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -13624,7 +13747,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20018
+        :return: InlineResponse20019
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13653,7 +13776,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20018, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20019, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13720,7 +13843,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20018',  # noqa: E501
+            response_type='InlineResponse20019',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -14521,7 +14644,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20019
+        :return: InlineResponse20020
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14550,7 +14673,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20019, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20020, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14617,7 +14740,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20019',  # noqa: E501
+            response_type='InlineResponse20020',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -15760,7 +15883,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20020
+        :return: InlineResponse20021
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -15788,7 +15911,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20020, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20021, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -15855,7 +15978,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20020',  # noqa: E501
+            response_type='InlineResponse20021',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -16648,7 +16771,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20021
+        :return: InlineResponse20022
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16677,7 +16800,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20021, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20022, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16744,7 +16867,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20021',  # noqa: E501
+            response_type='InlineResponse20022',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -17409,7 +17532,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20022
+        :return: InlineResponse20023
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17438,7 +17561,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20022, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20023, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17505,7 +17628,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20022',  # noqa: E501
+            response_type='InlineResponse20023',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -18424,7 +18547,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20023
+        :return: InlineResponse20024
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -18452,7 +18575,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20023, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20024, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -18519,7 +18642,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20023',  # noqa: E501
+            response_type='InlineResponse20024',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -19310,7 +19433,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20024
+        :return: InlineResponse20025
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19339,7 +19462,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20024, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20025, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19406,7 +19529,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20024',  # noqa: E501
+            response_type='InlineResponse20025',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -20203,7 +20326,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20025
+        :return: InlineResponse20026
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -20232,7 +20355,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20025, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20026, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -20299,7 +20422,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20025',  # noqa: E501
+            response_type='InlineResponse20026',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -20964,7 +21087,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20026
+        :return: InlineResponse20027
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -20993,7 +21116,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20026, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20027, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -21060,7 +21183,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20026',  # noqa: E501
+            response_type='InlineResponse20027',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -21455,7 +21578,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20027
+        :return: InlineResponse20028
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -21484,7 +21607,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20027, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20028, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -21551,7 +21674,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20027',  # noqa: E501
+            response_type='InlineResponse20028',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -21825,7 +21948,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20028
+        :return: InlineResponse20029
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -21854,7 +21977,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20028, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20029, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -21921,7 +22044,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20028',  # noqa: E501
+            response_type='InlineResponse20029',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -22709,7 +22832,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20029
+        :return: InlineResponse20030
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -22738,7 +22861,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20029, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20030, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -22805,7 +22928,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20029',  # noqa: E501
+            response_type='InlineResponse20030',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -23470,7 +23593,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20030
+        :return: InlineResponse20031
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -23499,7 +23622,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20030, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20031, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -23566,7 +23689,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20030',  # noqa: E501
+            response_type='InlineResponse20031',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -24231,7 +24354,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20031
+        :return: InlineResponse20032
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -24260,7 +24383,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20031, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20032, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -24327,7 +24450,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20031',  # noqa: E501
+            response_type='InlineResponse20032',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -24992,7 +25115,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20032
+        :return: InlineResponse20033
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -25021,7 +25144,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20032, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20033, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -25088,7 +25211,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20032',  # noqa: E501
+            response_type='InlineResponse20033',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -25753,7 +25876,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20033
+        :return: InlineResponse20034
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -25782,7 +25905,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20033, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20034, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -25849,7 +25972,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20033',  # noqa: E501
+            response_type='InlineResponse20034',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -26514,7 +26637,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20034
+        :return: InlineResponse20035
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -26543,7 +26666,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20034, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20035, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -26610,7 +26733,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20034',  # noqa: E501
+            response_type='InlineResponse20035',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -26884,7 +27007,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20035
+        :return: InlineResponse20036
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -26913,7 +27036,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20035, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20036, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -26980,7 +27103,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20035',  # noqa: E501
+            response_type='InlineResponse20036',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -27645,7 +27768,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20036
+        :return: InlineResponse20037
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -27674,7 +27797,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20036, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20037, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -27741,7 +27864,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20036',  # noqa: E501
+            response_type='InlineResponse20037',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -28797,7 +28920,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20037
+        :return: InlineResponse20038
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -28826,7 +28949,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20037, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20038, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -28893,7 +29016,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20037',  # noqa: E501
+            response_type='InlineResponse20038',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -29681,7 +29804,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20038
+        :return: InlineResponse20039
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -29710,7 +29833,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20038, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20039, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -29777,7 +29900,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20038',  # noqa: E501
+            response_type='InlineResponse20039',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -30442,7 +30565,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20039
+        :return: InlineResponse20040
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -30471,7 +30594,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20039, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20040, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -30538,7 +30661,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20039',  # noqa: E501
+            response_type='InlineResponse20040',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -31203,7 +31326,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20040
+        :return: InlineResponse20041
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -31232,7 +31355,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20040, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20041, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -31299,7 +31422,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20040',  # noqa: E501
+            response_type='InlineResponse20041',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -31964,7 +32087,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20041
+        :return: InlineResponse20042
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -31993,7 +32116,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20041, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20042, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -32060,7 +32183,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20041',  # noqa: E501
+            response_type='InlineResponse20042',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -32334,7 +32457,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20042
+        :return: InlineResponse20043
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -32363,7 +32486,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20042, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20043, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -32430,7 +32553,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20042',  # noqa: E501
+            response_type='InlineResponse20043',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -33095,7 +33218,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20043
+        :return: InlineResponse20044
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -33124,7 +33247,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20043, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20044, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -33191,7 +33314,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20043',  # noqa: E501
+            response_type='InlineResponse20044',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -34101,7 +34224,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20044
+        :return: InlineResponse20045
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -34129,7 +34252,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20044, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20045, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -34196,7 +34319,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20044',  # noqa: E501
+            response_type='InlineResponse20045',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -34987,7 +35110,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20045
+        :return: InlineResponse20046
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -35016,7 +35139,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20045, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20046, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -35083,7 +35206,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20045',  # noqa: E501
+            response_type='InlineResponse20046',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -35880,7 +36003,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20046
+        :return: InlineResponse20047
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -35909,7 +36032,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20046, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20047, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -35976,7 +36099,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20046',  # noqa: E501
+            response_type='InlineResponse20047',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -36773,7 +36896,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20047
+        :return: InlineResponse20048
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -36802,7 +36925,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20047, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20048, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -36869,7 +36992,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20047',  # noqa: E501
+            response_type='InlineResponse20048',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -37666,7 +37789,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20048
+        :return: InlineResponse20049
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -37695,7 +37818,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20048, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20049, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -37762,7 +37885,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20048',  # noqa: E501
+            response_type='InlineResponse20049',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -38431,7 +38554,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20049
+        :return: InlineResponse20050
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -38460,7 +38583,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20049, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20050, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -38527,7 +38650,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20049',  # noqa: E501
+            response_type='InlineResponse20050',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -39314,7 +39437,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20050
+        :return: InlineResponse20051
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -39343,7 +39466,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20050, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20051, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -39410,7 +39533,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20050',  # noqa: E501
+            response_type='InlineResponse20051',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -40079,7 +40202,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20051
+        :return: InlineResponse20052
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -40108,7 +40231,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20051, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20052, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -40175,7 +40298,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20051',  # noqa: E501
+            response_type='InlineResponse20052',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -40844,7 +40967,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20052
+        :return: InlineResponse20053
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -40873,7 +40996,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20052, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20053, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -40940,7 +41063,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20052',  # noqa: E501
+            response_type='InlineResponse20053',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -41609,7 +41732,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20053
+        :return: InlineResponse20054
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -41638,7 +41761,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20053, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20054, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -41705,7 +41828,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20053',  # noqa: E501
+            response_type='InlineResponse20054',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -42374,7 +42497,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20054
+        :return: InlineResponse20055
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -42403,7 +42526,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20054, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20055, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -42470,7 +42593,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20054',  # noqa: E501
+            response_type='InlineResponse20055',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -43139,7 +43262,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20055
+        :return: InlineResponse20056
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -43168,7 +43291,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20055, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20056, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -43235,7 +43358,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20055',  # noqa: E501
+            response_type='InlineResponse20056',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -43904,7 +44027,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20056
+        :return: InlineResponse20057
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -43933,7 +44056,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20056, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20057, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -44000,7 +44123,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20056',  # noqa: E501
+            response_type='InlineResponse20057',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -44669,7 +44792,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20057
+        :return: InlineResponse20058
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -44698,7 +44821,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20057, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20058, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -44765,7 +44888,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20057',  # noqa: E501
+            response_type='InlineResponse20058',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -45434,7 +45557,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20058
+        :return: InlineResponse20059
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -45463,7 +45586,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20058, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20059, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -45530,7 +45653,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20058',  # noqa: E501
+            response_type='InlineResponse20059',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -45991,7 +46114,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20016
+        :return: InlineResponse20017
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -46058,7 +46181,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20016, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20017, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -46235,7 +46358,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20016',  # noqa: E501
+            response_type='InlineResponse20017',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -46387,7 +46510,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20017
+        :return: InlineResponse20018
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -46415,7 +46538,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20017, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20018, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -46475,7 +46598,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20017',  # noqa: E501
+            response_type='InlineResponse20018',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -47108,7 +47231,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20059
+        :return: InlineResponse20060
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -47137,7 +47260,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20059, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20060, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -47204,7 +47327,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20059',  # noqa: E501
+            response_type='InlineResponse20060',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -49460,7 +49583,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20060
+        :return: InlineResponse20061
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -49488,7 +49611,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20060, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20061, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -49555,7 +49678,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20060',  # noqa: E501
+            response_type='InlineResponse20061',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -49953,7 +50076,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20061
+        :return: InlineResponse20062
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -49982,7 +50105,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20061, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20062, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -50049,7 +50172,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20061',  # noqa: E501
+            response_type='InlineResponse20062',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -52268,7 +52391,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20062
+        :return: InlineResponse20063
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -52296,7 +52419,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20062, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20063, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -52363,7 +52486,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20062',  # noqa: E501
+            response_type='InlineResponse20063',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -53530,6 +53653,133 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def simulations_visualisations_rain_graph_create(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """Get a websocket URL returning node rain (graph) data.  # noqa: E501
+
+        The websocket-url in the response returns binary data messages consisting of timestamp and rain float32 data. The values are alternated like: [timestamp, rain, timestamp_2, rain_2... timestamp_N, rain_N]  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_visualisations_rain_graph_create(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param RainGraphRequest data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: RainGraph
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulations_visualisations_rain_graph_create_with_http_info(simulation_pk, data, **kwargs)  # noqa: E501
+
+    def simulations_visualisations_rain_graph_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
+        """Get a websocket URL returning node rain (graph) data.  # noqa: E501
+
+        The websocket-url in the response returns binary data messages consisting of timestamp and rain float32 data. The values are alternated like: [timestamp, rain, timestamp_2, rain_2... timestamp_N, rain_N]  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulations_visualisations_rain_graph_create_with_http_info(simulation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str simulation_pk: (required)
+        :param RainGraphRequest data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(RainGraph, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'simulation_pk',
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulations_visualisations_rain_graph_create" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'simulation_pk' is set
+        if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
+                                                        local_var_params['simulation_pk'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `simulations_visualisations_rain_graph_create`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `simulations_visualisations_rain_graph_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'simulation_pk' in local_var_params:
+            path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/simulations/{simulation_pk}/visualisations/rain_graph/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='RainGraph',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def simulations_visualisations_tms_list(self, layer, simulation_pk, **kwargs):  # noqa: E501
         """simulations_visualisations_tms_list  # noqa: E501
 
@@ -54184,7 +54434,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20063
+        :return: InlineResponse20064
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -54213,7 +54463,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20063, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20064, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -54280,7 +54530,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20063',  # noqa: E501
+            response_type='InlineResponse20064',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -54316,6 +54566,7 @@ class V3Api(object):
         :param str simulation__name__istartswith:
         :param str simulation__name__endswith:
         :param str simulation__name__regex:
+        :param str simulation__compute_cluster__name:
         :param str simulation__threedimodel__slug:
         :param str simulation__threedimodel__slug__iexact:
         :param str simulation__threedimodel__slug__contains:
@@ -54374,7 +54625,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20062
+        :return: InlineResponse20063
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -54409,6 +54660,7 @@ class V3Api(object):
         :param str simulation__name__istartswith:
         :param str simulation__name__endswith:
         :param str simulation__name__regex:
+        :param str simulation__compute_cluster__name:
         :param str simulation__threedimodel__slug:
         :param str simulation__threedimodel__slug__iexact:
         :param str simulation__threedimodel__slug__contains:
@@ -54469,7 +54721,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20062, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20063, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -54495,6 +54747,7 @@ class V3Api(object):
             'simulation__name__istartswith',
             'simulation__name__endswith',
             'simulation__name__regex',
+            'simulation__compute_cluster__name',
             'simulation__threedimodel__slug',
             'simulation__threedimodel__slug__iexact',
             'simulation__threedimodel__slug__contains',
@@ -54606,6 +54859,8 @@ class V3Api(object):
             query_params.append(('simulation__name__endswith', local_var_params['simulation__name__endswith']))  # noqa: E501
         if 'simulation__name__regex' in local_var_params and local_var_params['simulation__name__regex'] is not None:  # noqa: E501
             query_params.append(('simulation__name__regex', local_var_params['simulation__name__regex']))  # noqa: E501
+        if 'simulation__compute_cluster__name' in local_var_params and local_var_params['simulation__compute_cluster__name'] is not None:  # noqa: E501
+            query_params.append(('simulation__compute_cluster__name', local_var_params['simulation__compute_cluster__name']))  # noqa: E501
         if 'simulation__threedimodel__slug' in local_var_params and local_var_params['simulation__threedimodel__slug'] is not None:  # noqa: E501
             query_params.append(('simulation__threedimodel__slug', local_var_params['simulation__threedimodel__slug']))  # noqa: E501
         if 'simulation__threedimodel__slug__iexact' in local_var_params and local_var_params['simulation__threedimodel__slug__iexact'] is not None:  # noqa: E501
@@ -54730,7 +54985,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20062',  # noqa: E501
+            response_type='InlineResponse20063',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -54878,6 +55133,7 @@ class V3Api(object):
         :param str simulation__name__istartswith:
         :param str simulation__name__endswith:
         :param str simulation__name__regex:
+        :param str simulation__compute_cluster__name:
         :param str simulation__threedimodel__slug:
         :param str simulation__threedimodel__slug__iexact:
         :param str simulation__threedimodel__slug__contains:
@@ -54971,6 +55227,7 @@ class V3Api(object):
         :param str simulation__name__istartswith:
         :param str simulation__name__endswith:
         :param str simulation__name__regex:
+        :param str simulation__compute_cluster__name:
         :param str simulation__threedimodel__slug:
         :param str simulation__threedimodel__slug__iexact:
         :param str simulation__threedimodel__slug__contains:
@@ -55057,6 +55314,7 @@ class V3Api(object):
             'simulation__name__istartswith',
             'simulation__name__endswith',
             'simulation__name__regex',
+            'simulation__compute_cluster__name',
             'simulation__threedimodel__slug',
             'simulation__threedimodel__slug__iexact',
             'simulation__threedimodel__slug__contains',
@@ -55168,6 +55426,8 @@ class V3Api(object):
             query_params.append(('simulation__name__endswith', local_var_params['simulation__name__endswith']))  # noqa: E501
         if 'simulation__name__regex' in local_var_params and local_var_params['simulation__name__regex'] is not None:  # noqa: E501
             query_params.append(('simulation__name__regex', local_var_params['simulation__name__regex']))  # noqa: E501
+        if 'simulation__compute_cluster__name' in local_var_params and local_var_params['simulation__compute_cluster__name'] is not None:  # noqa: E501
+            query_params.append(('simulation__compute_cluster__name', local_var_params['simulation__compute_cluster__name']))  # noqa: E501
         if 'simulation__threedimodel__slug' in local_var_params and local_var_params['simulation__threedimodel__slug'] is not None:  # noqa: E501
             query_params.append(('simulation__threedimodel__slug', local_var_params['simulation__threedimodel__slug']))  # noqa: E501
         if 'simulation__threedimodel__slug__iexact' in local_var_params and local_var_params['simulation__threedimodel__slug__iexact'] is not None:  # noqa: E501
@@ -55566,7 +55826,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20065
+        :return: InlineResponse20066
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -55595,7 +55855,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20065, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20066, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -55662,7 +55922,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20065',  # noqa: E501
+            response_type='InlineResponse20066',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -57051,6 +57311,133 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def threedimodels_flowlines_geojson_upload(self, id, data, **kwargs):  # noqa: E501
+        """threedimodels_flowlines_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_flowlines_geojson_upload(id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_flowlines_geojson_upload_with_http_info(id, data, **kwargs)  # noqa: E501
+
+    def threedimodels_flowlines_geojson_upload_with_http_info(self, id, data, **kwargs):  # noqa: E501
+        """threedimodels_flowlines_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_flowlines_geojson_upload_with_http_info(id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_flowlines_geojson_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_flowlines_geojson_upload`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_flowlines_geojson_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/flowlines/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def threedimodels_geojson_breaches_download(self, id, **kwargs):  # noqa: E501
         """threedimodels_geojson_breaches_download  # noqa: E501
 
@@ -57607,6 +57994,120 @@ class V3Api(object):
 
         return self.api_client.call_api(
             '/v3/threedimodels/{id}/geojson/all/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geojson_flowlines_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_flowlines_download  # noqa: E501
+
+        Note that this is a subset of all lines  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_flowlines_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geojson_flowlines_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_geojson_flowlines_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_flowlines_download  # noqa: E501
+
+        Note that this is a subset of all lines  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_flowlines_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geojson_flowlines_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_flowlines_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/flowlines/download/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -59062,7 +59563,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20066
+        :return: InlineResponse20067
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -59091,7 +59592,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20066, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20067, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -59158,7 +59659,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20066',  # noqa: E501
+            response_type='InlineResponse20067',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -59932,7 +60433,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20064
+        :return: InlineResponse20065
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -60049,7 +60550,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20064, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20065, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -60376,7 +60877,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20064',  # noqa: E501
+            response_type='InlineResponse20065',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -61170,7 +61671,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20067
+        :return: InlineResponse20068
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -61211,7 +61712,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20067, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20068, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -61314,7 +61815,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20067',  # noqa: E501
+            response_type='InlineResponse20068',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -62365,7 +62866,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20068
+        :return: InlineResponse20069
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -62412,7 +62913,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20068, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20069, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -62533,7 +63034,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20068',  # noqa: E501
+            response_type='InlineResponse20069',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -63326,7 +63827,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20069
+        :return: InlineResponse20070
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -63356,7 +63857,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20069, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20070, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -63426,7 +63927,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20069',  # noqa: E501
+            response_type='InlineResponse20070',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -64064,7 +64565,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20070
+        :return: InlineResponse20071
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -64093,7 +64594,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20070, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20071, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -64160,7 +64661,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20070',  # noqa: E501
+            response_type='InlineResponse20071',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -64922,7 +65423,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20071
+        :return: InlineResponse20072
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -65036,7 +65537,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20071, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20072, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -65354,7 +65855,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20071',  # noqa: E501
+            response_type='InlineResponse20072',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

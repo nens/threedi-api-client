@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.19.3   3Di core release: 2.2.11  deployed on:  10:31AM (UTC) on June 01, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.0.8   3Di core release: 2.3.1  deployed on:  01:12PM (UTC) on November 15, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,14 +36,16 @@ class Refresh(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'refresh': 'str'
+        'refresh': 'str',
+        'access': 'str'
     }
 
     attribute_map = {
-        'refresh': 'refresh'
+        'refresh': 'refresh',
+        'access': 'access'
     }
 
-    def __init__(self, refresh=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, refresh=None, access=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Refresh - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,9 +55,12 @@ class Refresh(object):
         self._fetched_from_api = fetched_from_api
 
         self._refresh = None
+        self._access = None
         self.discriminator = None
 
         self.refresh = refresh
+        if access is not None:
+            self.access = access
 
     @property
     def refresh(self):
@@ -82,6 +87,30 @@ class Refresh(object):
             self.__handle_validation_error("Invalid value for `refresh`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._refresh = refresh
+
+    @property
+    def access(self):
+        """Gets the access of this Refresh.  # noqa: E501
+
+
+        :return: The access of this Refresh.  # noqa: E501
+        :rtype: str
+        """
+        return self._access
+
+    @access.setter
+    def access(self, access):
+        """Sets the access of this Refresh.
+
+
+        :param access: The access of this Refresh.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                access is not None and len(access) < 1):
+            self.__handle_validation_error("Invalid value for `access`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._access = access
 
     def to_dict(self):
         """Returns the model properties as a dict"""

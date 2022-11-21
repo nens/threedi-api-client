@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.19.3   3Di core release: 2.2.11  deployed on:  10:31AM (UTC) on June 01, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.0.8   3Di core release: 2.3.1  deployed on:  01:12PM (UTC) on November 15, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -67,6 +67,7 @@ class Event(object):
         'timedstructurecontrols': 'list[TimedStructureControl]',
         'filestructurecontrols': 'list[FileStructureControl]',
         'rasteredits': 'list[RasterEdit]',
+        'obstacleedits': 'list[ObstacleEdit]',
         'localrain': 'list[LocalRain]',
         'wind': 'list[Wind]',
         'initial_winddragcoefficient': 'WindDragCoefficient'
@@ -104,12 +105,13 @@ class Event(object):
         'timedstructurecontrols': 'timedstructurecontrols',
         'filestructurecontrols': 'filestructurecontrols',
         'rasteredits': 'rasteredits',
+        'obstacleedits': 'obstacleedits',
         'localrain': 'localrain',
         'wind': 'wind',
         'initial_winddragcoefficient': 'initial_winddragcoefficient'
     }
 
-    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, leakage=None, filetimeseriesleakage=None, filerasterleakage=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_onedwaterlevelfile=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, filelaterals=None, fileboundaryconditions=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, filestructurecontrols=None, rasteredits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, leakage=None, filetimeseriesleakage=None, filerasterleakage=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_onedwaterlevelfile=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, filelaterals=None, fileboundaryconditions=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, filestructurecontrols=None, rasteredits=None, obstacleedits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -149,6 +151,7 @@ class Event(object):
         self._timedstructurecontrols = None
         self._filestructurecontrols = None
         self._rasteredits = None
+        self._obstacleedits = None
         self._localrain = None
         self._wind = None
         self._initial_winddragcoefficient = None
@@ -216,6 +219,8 @@ class Event(object):
             self.filestructurecontrols = filestructurecontrols
         if rasteredits is not None:
             self.rasteredits = rasteredits
+        if obstacleedits is not None:
+            self.obstacleedits = obstacleedits
         if localrain is not None:
             self.localrain = localrain
         if wind is not None:
@@ -873,6 +878,27 @@ class Event(object):
         """
 
         self._rasteredits = rasteredits
+
+    @property
+    def obstacleedits(self):
+        """Gets the obstacleedits of this Event.  # noqa: E501
+
+
+        :return: The obstacleedits of this Event.  # noqa: E501
+        :rtype: list[ObstacleEdit]
+        """
+        return self._obstacleedits
+
+    @obstacleedits.setter
+    def obstacleedits(self, obstacleedits):
+        """Sets the obstacleedits of this Event.
+
+
+        :param obstacleedits: The obstacleedits of this Event.  # noqa: E501
+        :type: list[ObstacleEdit]
+        """
+
+        self._obstacleedits = obstacleedits
 
     @property
     def localrain(self):
