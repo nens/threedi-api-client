@@ -14,6 +14,8 @@ History
 
 - Make the sync and async ApiException the same.
 
+- Improved support for HTTP proxies with async API client.
+
 - Support the November 2022 API (3.0) release.
 
 
