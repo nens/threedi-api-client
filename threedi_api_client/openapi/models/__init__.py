@@ -4,7 +4,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.19.3   3Di core release: 2.2.11  deployed on:  10:31AM (UTC) on June 01, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.0.8   3Di core release: 2.3.1  deployed on:  01:12PM (UTC) on November 15, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -132,6 +132,7 @@ from threedi_api_client.openapi.models.inline_response20069 import InlineRespons
 from threedi_api_client.openapi.models.inline_response2007 import InlineResponse2007
 from threedi_api_client.openapi.models.inline_response20070 import InlineResponse20070
 from threedi_api_client.openapi.models.inline_response20071 import InlineResponse20071
+from threedi_api_client.openapi.models.inline_response20072 import InlineResponse20072
 from threedi_api_client.openapi.models.inline_response2008 import InlineResponse2008
 from threedi_api_client.openapi.models.inline_response2009 import InlineResponse2009
 from threedi_api_client.openapi.models.inpy_version import InpyVersion
@@ -153,6 +154,7 @@ from threedi_api_client.openapi.models.net_cdf_timeseries_leakage import NetCDFT
 from threedi_api_client.openapi.models.net_cdf_timeseries_rain import NetCDFTimeseriesRain
 from threedi_api_client.openapi.models.net_cdf_timeseries_sources_sinks import NetCDFTimeseriesSourcesSinks
 from threedi_api_client.openapi.models.numerical_settings import NumericalSettings
+from threedi_api_client.openapi.models.obstacle_edit import ObstacleEdit
 from threedi_api_client.openapi.models.one_d_water_level import OneDWaterLevel
 from threedi_api_client.openapi.models.one_d_water_level_file import OneDWaterLevelFile
 from threedi_api_client.openapi.models.one_d_water_level_predefined import OneDWaterLevelPredefined
@@ -173,6 +175,8 @@ from threedi_api_client.openapi.models.profile import Profile
 from threedi_api_client.openapi.models.progress import Progress
 from threedi_api_client.openapi.models.pump_discharge_graph import PumpDischargeGraph
 from threedi_api_client.openapi.models.pump_discharge_graph_request import PumpDischargeGraphRequest
+from threedi_api_client.openapi.models.rain_graph import RainGraph
+from threedi_api_client.openapi.models.rain_graph_request import RainGraphRequest
 from threedi_api_client.openapi.models.raster import Raster
 from threedi_api_client.openapi.models.raster_create import RasterCreate
 from threedi_api_client.openapi.models.raster_edit import RasterEdit
@@ -228,6 +232,7 @@ from threedi_api_client.openapi.models.upload_event_file import UploadEventFile
 from threedi_api_client.openapi.models.usage import Usage
 from threedi_api_client.openapi.models.usage_statistics import UsageStatistics
 from threedi_api_client.openapi.models.user import User
+from threedi_api_client.openapi.models.user_tokens import UserTokens
 from threedi_api_client.openapi.models.water_flow_graph_request import WaterFlowGraphRequest
 from threedi_api_client.openapi.models.water_graph import WaterGraph
 from threedi_api_client.openapi.models.water_level_graph_request import WaterLevelGraphRequest

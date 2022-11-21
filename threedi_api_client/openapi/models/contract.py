@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 2.19.3   3Di core release: 2.2.11  deployed on:  10:31AM (UTC) on June 01, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.0.8   3Di core release: 2.3.1  deployed on:  01:12PM (UTC) on November 15, 2022  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,11 +40,13 @@ class Contract(object):
         'id': 'int',
         'organisation': 'str',
         'organisation_name': 'str',
+        'scope': 'str',
         'hours_bought': 'int',
         'hours_used': 'float',
         'session_limit': 'int',
         'current_sessions': 'str',
-        'threedimodel_limit': 'int'
+        'threedimodel_limit': 'int',
+        'created_by': 'str'
     }
 
     attribute_map = {
@@ -52,14 +54,16 @@ class Contract(object):
         'id': 'id',
         'organisation': 'organisation',
         'organisation_name': 'organisation_name',
+        'scope': 'scope',
         'hours_bought': 'hours_bought',
         'hours_used': 'hours_used',
         'session_limit': 'session_limit',
         'current_sessions': 'current_sessions',
-        'threedimodel_limit': 'threedimodel_limit'
+        'threedimodel_limit': 'threedimodel_limit',
+        'created_by': 'created_by'
     }
 
-    def __init__(self, url=None, id=None, organisation=None, organisation_name=None, hours_bought=None, hours_used=None, session_limit=None, current_sessions=None, threedimodel_limit=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, id=None, organisation=None, organisation_name=None, scope=None, hours_bought=None, hours_used=None, session_limit=None, current_sessions=None, threedimodel_limit=None, created_by=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Contract - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,11 +76,13 @@ class Contract(object):
         self._id = None
         self._organisation = None
         self._organisation_name = None
+        self._scope = None
         self._hours_bought = None
         self._hours_used = None
         self._session_limit = None
         self._current_sessions = None
         self._threedimodel_limit = None
+        self._created_by = None
         self.discriminator = None
 
         if url is not None:
@@ -86,6 +92,8 @@ class Contract(object):
         self.organisation = organisation
         if organisation_name is not None:
             self.organisation_name = organisation_name
+        if scope is not None:
+            self.scope = scope
         self.hours_bought = hours_bought
         if hours_used is not None:
             self.hours_used = hours_used
@@ -94,6 +102,7 @@ class Contract(object):
             self.current_sessions = current_sessions
         if threedimodel_limit is not None:
             self.threedimodel_limit = threedimodel_limit
+        self.created_by = created_by
 
     @property
     def url(self):
@@ -182,6 +191,32 @@ class Contract(object):
         """
 
         self._organisation_name = organisation_name
+
+    @property
+    def scope(self):
+        """Gets the scope of this Contract.  # noqa: E501
+
+        A space-separated list of scopes (options: basic simulate create lizardrain lizardprocess manageusers managecontracts)  # noqa: E501
+
+        :return: The scope of this Contract.  # noqa: E501
+        :rtype: str
+        """
+        return self._scope
+
+    @scope.setter
+    def scope(self, scope):
+        """Sets the scope of this Contract.
+
+        A space-separated list of scopes (options: basic simulate create lizardrain lizardprocess manageusers managecontracts)  # noqa: E501
+
+        :param scope: The scope of this Contract.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                scope is not None and len(scope) < 1):
+            self.__handle_validation_error("Invalid value for `scope`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._scope = scope
 
     @property
     def hours_bought(self):
@@ -305,6 +340,31 @@ class Contract(object):
             self.__handle_validation_error("Invalid value for `threedimodel_limit`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._threedimodel_limit = threedimodel_limit
+
+    @property
+    def created_by(self):
+        """Gets the created_by of this Contract.  # noqa: E501
+
+        The unique_id of an organisation  # noqa: E501
+
+        :return: The created_by of this Contract.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_by
+
+    @created_by.setter
+    def created_by(self, created_by):
+        """Sets the created_by of this Contract.
+
+        The unique_id of an organisation  # noqa: E501
+
+        :param created_by: The created_by of this Contract.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and created_by is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `created_by`, must not be `None`")  # noqa: E501
+
+        self._created_by = created_by
 
     def to_dict(self):
         """Returns the model properties as a dict"""

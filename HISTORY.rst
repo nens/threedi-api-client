@@ -2,7 +2,13 @@
 History
 =======
 
-4.0.2 (unreleased)
+4.1.1 (unreleased)
+------------------
+
+- Nothing changed yet.
+
+
+4.1.0 (2022-11-21)
 ------------------
 
 - Support S3 (object storage) temp-urls in upload/download functions in aio/files.py by
@@ -13,6 +19,10 @@ History
 - Increase default socket connect timeout for uploads to 30 seconds.
 
 - Make the sync and async ApiException the same.
+
+- Improved support for HTTP proxies with async API client.
+
+- Support the November 2022 API (3.0) release.
 
 
 4.0.1 (2022-06-08)

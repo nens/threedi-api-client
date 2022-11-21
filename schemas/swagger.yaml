@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest stable version: v3) 
-     Framework release: 2.19.3 
-     3Di core release: 2.2.11 
-    deployed on:  10:31AM (UTC) on June 01, 2022
+     Framework release: 3.0.8 
+     3Di core release: 2.3.1 
+    deployed on:  01:12PM (UTC) on November 15, 2022
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -141,6 +141,192 @@ paths:
         - v3-beta
     parameters:
       - name: prefix
+        in: path
+        required: true
+        type: string
+  /v3-beta/simulations/{simulation_pk}/events/obstacle-edits/:
+    get:
+      operationId: simulations_events_obstacle-edits_list
+      description: A simple ViewSet for viewing obstacle edits
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ObstacleEdit'
+      tags:
+        - v3-beta
+    post:
+      operationId: simulations_events_obstacle-edits_create
+      description: A simple ViewSet for viewing obstacle edits
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ObstacleEdit'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/ObstacleEdit'
+      tags:
+        - v3-beta
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /v3-beta/simulations/{simulation_pk}/events/obstacle-edits/{id}/:
+    get:
+      operationId: simulations_events_obstacle-edits_read
+      description: A simple ViewSet for viewing obstacle edits
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ObstacleEdit'
+      tags:
+        - v3-beta
+    put:
+      operationId: simulations_events_obstacle-edits_update
+      description: A simple ViewSet for viewing obstacle edits
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ObstacleEdit'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ObstacleEdit'
+      tags:
+        - v3-beta
+    patch:
+      operationId: simulations_events_obstacle-edits_partial_update
+      description: |-
+        when the simulation has started only the duration parameter might
+        be patched
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ObstacleEdit'
+      responses:
+        '200':
+          description: Successfully patched the resource
+        '409':
+          description: Conflict with the current simulation status
+      tags:
+        - v3-beta
+    delete:
+      operationId: simulations_events_obstacle-edits_delete
+      description: |-
+        destroy resource only if the event has not yet been applied to
+        the associated simulation
+      parameters: []
+      responses:
+        '204':
+          description: Successfully deleted the resource
+        '409':
+          description: Conflict with the current simulation status
+      tags:
+        - v3-beta
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this obstacle edit.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /v3-beta/simulations/{simulation_pk}/events/obstacle-edits/{id}/processed/:
+    put:
+      operationId: simulations_events_obstacle-edits_processed
+      description: A simple ViewSet for viewing obstacle edits
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/BaseEventState'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Event is already processed
+      tags:
+        - v3-beta
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this obstacle edit.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /v3-beta/simulations/{simulation_pk}/events/obstacle-edits/{id}/register_related_rasters/:
+    get:
+      operationId: simulations_events_obstacle-edits_register_related_rasters
+      summary: |-
+        Register all related rasters in the results-api and return
+        read_bbox urls of the registered rasters
+      description: |-
+        Skips registering of related rasters when the simulation is not in the
+        state 'starting' or 'initialized'. In this case the urls will be empty
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RasterEditUrls'
+      tags:
+        - v3-beta
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this obstacle edit.
+        required: true
+        type: integer
+      - name: simulation_pk
         in: path
         required: true
         type: string
@@ -395,6 +581,32 @@ paths:
           description: ''
           schema:
             $ref: '#/definitions/User'
+      tags:
+        - v3
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this user.
+        required: true
+        type: integer
+  /v3/auth/users/{id}/tokens/:
+    get:
+      operationId: auth_users_tokens
+      description: ''
+      parameters:
+        - name: required_scopes
+          in: query
+          required: false
+          type: array
+          items:
+            type: string
+            minLength: 1
+          default: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/UserTokens'
       tags:
         - v3
     parameters:
@@ -3464,6 +3676,11 @@ paths:
           required: false
           type: string
         - name: is_valid
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: has_threedimodel
           in: query
           description: ''
           required: false
@@ -12550,6 +12767,33 @@ paths:
         in: path
         required: true
         type: string
+  /v3/simulations/{simulation_pk}/visualisations/rain_graph/:
+    post:
+      operationId: simulations_visualisations_rain_graph_create
+      summary: Get a websocket URL returning node rain (graph) data.
+      description: |-
+        The websocket-url in the response returns binary data
+        messages consisting of timestamp and rain float32 data.
+        The values are alternated like:
+        [timestamp, rain, timestamp_2, rain_2... timestamp_N, rain_N]
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RainGraphRequest'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/RainGraph'
+      tags:
+        - v3
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
   /v3/simulations/{simulation_pk}/visualisations/water_flow_graph/:
     post:
       operationId: simulations_visualisations_water_flow_graph_create
@@ -12878,6 +13122,11 @@ paths:
           required: false
           type: string
         - name: simulation__name__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__compute_cluster__name
           in: query
           description: ''
           required: false
@@ -13261,6 +13510,11 @@ paths:
           required: false
           type: string
         - name: simulation__name__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: simulation__compute_cluster__name
           in: query
           description: ''
           required: false
@@ -14319,6 +14573,51 @@ paths:
   /v3/threedimodels/{id}/geojson/culverts/upload/:
     post:
       operationId: threedimodels_culverts_geojson_upload
+      description: A simple ViewSet for viewing threedimodels
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Upload'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Upload'
+      tags:
+        - v3
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /v3/threedimodels/{id}/geojson/flowlines/download/:
+    get:
+      operationId: threedimodels_geojson_flowlines_download
+      description: Note that this is a subset of all lines
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Download'
+        '400':
+          description: File is not uploaded yet or has been removed
+        '404':
+          description: File not found
+      tags:
+        - v3
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /v3/threedimodels/{id}/geojson/flowlines/upload/:
+    post:
+      operationId: threedimodels_flowlines_geojson_upload
       description: A simple ViewSet for viewing threedimodels
       parameters:
         - name: data
@@ -16755,7 +17054,9 @@ definitions:
         minLength: 1
       scope:
         title: Scope
-        description: A space-separated list of {endpoint|*}:{read|readwrite}.
+        description: "A space-separated list of scopes (options: basic simulate create\
+          \ lizardrain lizardprocess manageusers managecontracts). Alternatively,\
+          \ use '*:readwrite' for all scopes."
         type: string
         minLength: 1
       name:
@@ -16800,7 +17101,9 @@ definitions:
         minLength: 1
       scope:
         title: Scope
-        description: A space-separated list of {endpoint|*}:{read|readwrite}.
+        description: "A space-separated list of scopes (options: basic simulate create\
+          \ lizardrain lizardprocess manageusers managecontracts). Alternatively,\
+          \ use '*:readwrite' for all scopes."
         type: string
         minLength: 1
       name:
@@ -16844,6 +17147,119 @@ definitions:
         type: string
         readOnly: true
         minLength: 1
+  ObstacleEdit:
+    required:
+      - offset
+      - value
+      - linestring
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+        readOnly: true
+      offset:
+        title: Offset
+        description: offset of event in simulation in seconds
+        type: integer
+        maximum: 2147483647
+        minimum: 0
+      value:
+        title: Value
+        description: Absolute or relative height (in meters)  to use for the linestring
+        type: number
+      linestring:
+        title: Linestring
+        type: object
+        description: Linestring (epsg:4326) specified in wkt or geojson. Coordinates
+          in longitude, latitude order.
+        required:
+          - type
+          - coordinates
+        properties:
+          type:
+            title: type
+            description: Type should always be 'linestring' or 'LINESTRING'
+            type: string
+            default: Linestring
+          coordinates:
+            title: coordinates
+            description: List of coordinates. (longitude, latitude order)
+            type: array
+            items:
+              type: array
+              items:
+                type: number
+              minItems: 2
+              maxItems: 2
+            minItems: 2
+        example:
+          type: LineString
+          coordinates:
+            - - 4.668275805499175
+              - 52.619558913867856
+            - - 4.73849433310911
+              - 52.66453976184968
+      relative:
+        title: Relative
+        description: Process the value as a relative height, default is absolute
+        type: boolean
+      state:
+        title: State
+        type: string
+        enum:
+          - processing
+          - valid
+          - invalid
+        readOnly: true
+      state_detail:
+        title: State detail
+        type: object
+        readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
+        readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+  BaseEventState:
+    required:
+      - state
+      - state_detail
+    type: object
+    properties:
+      state:
+        title: State
+        type: string
+        enum:
+          - processing
+          - valid
+          - invalid
+      state_detail:
+        title: State detail
+        type: object
+  RasterEditUrls:
+    required:
+      - raster_type
+      - url
+    type: object
+    properties:
+      raster_type:
+        title: Raster type
+        type: string
+        minLength: 1
+      url:
+        title: Url
+        type: string
   Status:
     type: object
     properties:
@@ -16901,6 +17317,11 @@ definitions:
         title: Refresh
         type: string
         minLength: 1
+      access:
+        title: Access
+        type: string
+        readOnly: true
+        minLength: 1
   Tokens:
     type: object
     properties:
@@ -16923,11 +17344,53 @@ definitions:
         title: Password
         type: string
         minLength: 1
+  UserTokens:
+    required:
+      - user
+      - external_user_id
+    type: object
+    properties:
+      user:
+        title: User
+        type: integer
+      external_user_id:
+        title: External user id
+        description: The user ID in the external identity provider, which is present
+          as the 'sub' field in tokens.
+        type: string
+        maxLength: 255
+        minLength: 1
+      created:
+        title: Created
+        type: string
+        format: date-time
+        readOnly: true
+      last_modified:
+        title: Last modified
+        description: The last time this remote user logged in.
+        type: string
+        format: date-time
+        readOnly: true
+      id_token:
+        title: Id token
+        description: The most recent ID token provided by the external identity provider.
+        type: string
+      access_token:
+        title: Access token
+        description: The most recent access token provided by the external identity
+          provider.
+        type: string
+      refresh_token:
+        title: Refresh token
+        description: The most recent refresh token provided by the external identity
+          provider.
+        type: string
   Contract:
     required:
       - organisation
       - hours_bought
       - session_limit
+      - created_by
     type: object
     properties:
       url:
@@ -16947,6 +17410,13 @@ definitions:
         title: Organisation name
         type: string
         readOnly: true
+      scope:
+        title: Scope
+        description: 'A space-separated list of scopes (options: basic simulate create
+          lizardrain lizardprocess manageusers managecontracts)'
+        type: string
+        readOnly: true
+        minLength: 1
       hours_bought:
         title: Hours bought
         type: integer
@@ -16970,6 +17440,10 @@ definitions:
         type: integer
         maximum: 32767
         minimum: 0
+      created_by:
+        title: Organisation.unique_id
+        type: string
+        description: The unique_id of an organisation
   File:
     required:
       - filename
@@ -17911,6 +18385,10 @@ definitions:
         title: Is valid
         type: boolean
         readOnly: true
+      has_threedimodel:
+        title: Has threedimodel
+        type: boolean
+        readOnly: true
   CreateRevision:
     type: object
     properties:
@@ -18567,6 +19045,10 @@ definitions:
         title: User
         type: string
         readOnly: true
+      user_id:
+        title: User id
+        type: integer
+        readOnly: true
       origin_offset:
         title: Origin offset
         type: integer
@@ -18875,6 +19357,10 @@ definitions:
       user:
         title: User
         type: string
+        readOnly: true
+      user_id:
+        title: User id
+        type: integer
         readOnly: true
   LizardTimeseriesSourcesSinks:
     required:
@@ -20226,6 +20712,7 @@ definitions:
   TableStructureControl:
     required:
       - offset
+      - duration
       - measure_specification
       - structure_type
       - type
@@ -20315,6 +20802,7 @@ definitions:
   MemoryStructureControl:
     required:
       - offset
+      - duration
       - measure_specification
       - structure_type
       - type
@@ -20970,6 +21458,11 @@ definitions:
         items:
           $ref: '#/definitions/RasterEdit'
         readOnly: true
+      obstacleedits:
+        type: array
+        items:
+          $ref: '#/definitions/ObstacleEdit'
+        readOnly: true
       localrain:
         type: array
         items:
@@ -21143,22 +21636,6 @@ definitions:
         title: Uuid
         type: string
         format: uuid
-  BaseEventState:
-    required:
-      - state
-      - state_detail
-    type: object
-    properties:
-      state:
-        title: State
-        type: string
-        enum:
-          - processing
-          - valid
-          - invalid
-      state_detail:
-        title: State detail
-        type: object
   ConstantLateral:
     required:
       - offset
@@ -22158,19 +22635,6 @@ definitions:
         type: string
         format: uuid
         readOnly: true
-  RasterEditUrls:
-    required:
-      - raster_type
-      - url
-    type: object
-    properties:
-      raster_type:
-        title: Raster type
-        type: string
-        minLength: 1
-      url:
-        title: Url
-        type: string
   ConstantSourcesSinks:
     required:
       - offset
@@ -22827,7 +23291,7 @@ definitions:
         title: Landcover raster uuid
         type: string
         readOnly: true
-        default: a80a6d31-f539-4037-9765-4fb880654424
+        default: 717478ef-099d-41d8-971d-8b4309e59d92
       road_rail_raster_uuid:
         title: Road rail raster uuid
         type: string
@@ -23576,6 +24040,50 @@ definitions:
         type: integer
         minimum: 1
   PumpDischargeGraph:
+    required:
+      - url
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        minLength: 1
+  RainGraphRequest:
+    required:
+      - start_time
+      - subscribe
+      - node_id
+    type: object
+    properties:
+      start_time:
+        title: Start time
+        description: simulation time in seconds
+        type: integer
+        minimum: 0
+      history_points_limit:
+        title: History points limit
+        description: Maximum number of points of history to return
+        type: integer
+        default: 200
+        maximum: 500
+        minimum: 1
+      subscribe:
+        title: Subscribe
+        description: Subscribe for new results during simulation
+        type: boolean
+      subscribe_rate_limit:
+        title: Subscribe rate limit
+        description: Max number of items per second for subscription
+        type: number
+        default: 0.5
+        maximum: 2
+        minimum: 0.25
+      node_id:
+        title: Node id
+        type: integer
+        minimum: 1
+  RainGraph:
     required:
       - url
     type: object
