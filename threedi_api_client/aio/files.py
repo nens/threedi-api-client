@@ -221,7 +221,11 @@ async def download_fileobj(
         "retries": retries,
         "backoff_factor": backoff_factor,
     }
-    async with aiohttp.ClientSession(connector=connector, skip_auto_headers={'content-type'}) as client:
+    async with aiohttp.ClientSession(
+            connector=connector,
+            skip_auto_headers={'content-type'},
+            trust_env=True,
+    ) as client:
         # start with a single chunk to learn the total file size
         response, file_size = await _download_request(
             client, 0, chunk_size, **request_kwargs
@@ -469,7 +473,11 @@ async def upload_fileobj(
         "Content-Length": str(file_size),
     }
 
-    async with aiohttp.ClientSession(connector=connector, skip_auto_headers={'content-type'}) as client:
+    async with aiohttp.ClientSession(
+            connector=connector,
+            skip_auto_headers={'content-type'},
+            trust_env=True,
+    ) as client:
         request = partial(
             _upload_request,
             client,

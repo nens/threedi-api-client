@@ -74,7 +74,7 @@ class RESTClientObject(object):
         self.proxy_headers = configuration.proxy_headers
 
         # https pool manager
-        self.pool_manager = aiohttp.ClientSession(connector=connector)
+        self.pool_manager = aiohttp.ClientSession(connector=connector, trust_env=True)
 
     async def close(self):
         await self.pool_manager.close()
