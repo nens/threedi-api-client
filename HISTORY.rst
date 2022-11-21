@@ -12,6 +12,8 @@ History
 
 - Increase default socket connect timeout for uploads to 30 seconds.
 
+- Make the sync and async ApiException the same.
+
 
 4.0.1 (2022-06-08)
 ------------------
