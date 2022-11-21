@@ -2,7 +2,7 @@
 History
 =======
 
-4.1.0 (unreleased)
+4.1.0 (2022-11-21)
 ------------------
 
 - Support S3 (object storage) temp-urls in upload/download functions in aio/files.py by
