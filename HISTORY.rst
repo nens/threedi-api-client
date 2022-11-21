@@ -2,7 +2,7 @@
 History
 =======
 
-4.1.1 (unreleased)
+4.1.1 (2022-11-21)
 ------------------
 
 - Also improve support for HTTP proxies for async upload/download functionality.
