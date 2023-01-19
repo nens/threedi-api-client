@@ -5,7 +5,6 @@
 
 from setuptools import setup, find_packages
 import codecs
-import re
 import os
 import pathlib
 
@@ -37,15 +36,15 @@ def get_version():
 
 requirements = [
     'certifi>=2019.3.9',
-    'urllib3>=1.15',
+    'urllib3>=1.24,<2.1',
     'six>=1.10',
     'python-dateutil',
 ]
 
-aio_requirements = ["aiohttp>=3.6.3", "aiofiles"]
+aio_requirements = ["aiohttp>=3.6.3", "aiofiles>=0.6"]
 
 # Note: mock contains a backport of AsyncMock
-test_requirements = ["pytest", "pytest-asyncio<0.19", "mock", 'pyjwt']
+test_requirements = ["pytest", "pytest-asyncio", "mock ; python_version<'3.8'", 'pyjwt']
 
 
 setup(
@@ -56,10 +55,7 @@ setup(
         "Intended Audience :: Developers",
         "License :: OSI Approved :: BSD License",
         "Natural Language :: English",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3",
     ],
     description="client for the threedi API",
     install_requires=requirements,
@@ -76,7 +72,7 @@ setup(
             "threedi_api_client.*",
         ]
     ),
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     extras_require={
         "aio": aio_requirements,
         "test": test_requirements,

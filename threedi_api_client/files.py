@@ -271,6 +271,28 @@ def _iter_chunks(
         yield data
 
 
+class _SeekableChunkIterator:
+    """A chunk iterator that can be rewinded in case of urllib3 retries."""
+    def __init__(
+        self,
+        fileobj: BinaryIO,
+        chunk_size: int,
+        callback_func: Optional[Callable[[int], None]] = None,
+    ):
+        self.fileobj = fileobj
+        self.chunk_size = chunk_size
+        self.callback_func = callback_func
+
+    def seek(self, pos: int):
+        return self.fileobj.seek(pos)
+
+    def tell(self):
+        return self.fileobj.tell()
+
+    def __iter__(self):
+        return _iter_chunks(self.fileobj, self.chunk_size, self.callback_func)
+
+
 def upload_fileobj(
     url: str,
     fileobj: BinaryIO,
@@ -337,7 +359,9 @@ def upload_fileobj(
                 uploaded_bytes = file_size
             callback_func(uploaded_bytes, file_size)
 
-    iterable = _iter_chunks(fileobj, chunk_size=chunk_size, callback_func=callback)
+    iterable = _SeekableChunkIterator(
+        fileobj, chunk_size=chunk_size, callback_func=callback,
+    )
 
     # Tested: both Content-Length and Content-MD5 are checked by Minio
     headers = {

@@ -2,11 +2,15 @@ import io
 from concurrent.futures import ThreadPoolExecutor
 
 import pytest
+import pytest_asyncio
 from aiofiles.threadpool import AsyncBufferedIOBase
 
-# note: unittest.mock has no asyncio support in Python < 3.7,
-# but luckily mock backported it:
-from mock import AsyncMock, DEFAULT, Mock, patch
+try:
+    from unittest.mock import AsyncMock, DEFAULT, Mock, patch
+except ImportError:
+    # Python 3.7
+    from mock.mock import AsyncMock, DEFAULT, Mock, patch
+
 
 from threedi_api_client.openapi import ApiException
 from threedi_api_client.aio.files import (
@@ -38,13 +42,13 @@ class AsyncBytesIO:
         return self._io.write(*args, **kwargs)
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def aio_request():
     with patch("aiohttp.ClientSession.request", new_callable=AsyncMock) as aio_request:
         yield aio_request
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def response_error():
     # mimics aiohttp.ClientResponse
     response = AsyncMock()
@@ -52,7 +56,7 @@ async def response_error():
     return response
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def responses_single():
     # mimics aiohttp.ClientResponse
     response = AsyncMock()
@@ -62,7 +66,7 @@ async def responses_single():
     return [response]
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def responses_double():
     # mimics aiohttp.ClientResponse
     response1 = AsyncMock()
@@ -231,14 +235,14 @@ async def test_download_file_directory(mocked_download_fileobj, tmp_path):
     assert args[1].name == str(tmp_path / "a.b")
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def upload_response():
     response = AsyncMock()
     response.status = 200
     return response
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def fileobj():
     stream = AsyncBytesIO()
     await stream.write(b"X" * 39)

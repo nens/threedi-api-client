@@ -9,8 +9,8 @@ threedi-api-client
 .. image:: https://img.shields.io/pypi/v/threedi-api-client.svg
         :target: https://pypi.python.org/pypi/threedi-api-client
 
-.. image:: https://github.com/nens/threedi-api-client/actions/workflows/main.yml/badge.svg
-        :target: https://github.com/nens/threedi-api-client/actions/workflows/main.yml
+.. image:: https://github.com/nens/threedi-api-client/actions/workflows/test.yml/badge.svg
+        :target: https://github.com/nens/threedi-api-client/actions/workflows/test.yml
 
 
 * A Python library for interfacing with the 3Di API
