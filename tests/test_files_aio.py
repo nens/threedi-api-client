@@ -4,9 +4,12 @@ from concurrent.futures import ThreadPoolExecutor
 import pytest
 from aiofiles.threadpool import AsyncBufferedIOBase
 
-# note: unittest.mock has no asyncio support in Python < 3.7,
-# but luckily mock backported it:
-from mock import AsyncMock, DEFAULT, Mock, patch
+try:
+    from unittest.mock import AsyncMock, DEFAULT, Mock, patch
+except ImportError:
+    # Python 3.7
+    from mock.mock import AsyncMock, DEFAULT, Mock, patch
+
 
 from threedi_api_client.openapi import ApiException
 from threedi_api_client.aio.files import (

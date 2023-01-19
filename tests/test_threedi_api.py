@@ -1,7 +1,11 @@
 from unittest import mock
 
 import pytest
-from mock import AsyncMock
+try:
+    from unittest.mock import AsyncMock
+except ImportError:
+    # Python 3.7
+    from mock.mock import AsyncMock
 
 from threedi_api_client import ThreediApi
 from threedi_api_client.aio.openapi.api_client import ApiClient as AsyncApiClient
