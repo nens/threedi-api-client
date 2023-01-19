@@ -41,7 +41,7 @@ requirements = [
     'python-dateutil',
 ]
 
-aio_requirements = ["aiohttp>=3.6.3", "aiofiles>=0.5"]
+aio_requirements = ["aiohttp>=3.6.3", "aiofiles>=0.6"]
 
 # Note: mock contains a backport of AsyncMock
 test_requirements = ["pytest", "pytest-asyncio", "mock ; python_version<'3.8'", 'pyjwt']
