@@ -5,7 +5,7 @@ History
 4.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix timeout when retrying uploads.
 
 
 4.1.1 (2022-11-21)
