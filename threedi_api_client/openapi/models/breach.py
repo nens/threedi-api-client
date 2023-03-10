@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.0.8   3Di core release: 2.3.1  deployed on:  01:12PM (UTC) on November 15, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.6   3Di core release: 2.3.6  deployed on:  07:54AM (UTC) on March 10, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -93,12 +93,15 @@ class Breach(object):
 
         if url is not None:
             self.url = url
-        self.potential_breach = potential_breach
+        if potential_breach is not None:
+            self.potential_breach = potential_breach
         if line_id is not None:
             self.line_id = line_id
         self.duration_till_max_depth = duration_till_max_depth
-        self.maximum_breach_depth = maximum_breach_depth
-        self.levee_material = levee_material
+        if maximum_breach_depth is not None:
+            self.maximum_breach_depth = maximum_breach_depth
+        if levee_material is not None:
+            self.levee_material = levee_material
         self.initial_width = initial_width
         self.discharge_coefficient_positive = discharge_coefficient_positive
         self.discharge_coefficient_negative = discharge_coefficient_negative
@@ -149,8 +152,6 @@ class Breach(object):
         :param potential_breach: The potential_breach of this Breach.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and potential_breach is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `potential_breach`, must not be `None`")  # noqa: E501
 
         self._potential_breach = potential_breach
 
@@ -158,6 +159,7 @@ class Breach(object):
     def line_id(self):
         """Gets the line_id of this Breach.  # noqa: E501
 
+        The id of the flowline ('levl' in the geojson)  # noqa: E501
 
         :return: The line_id of this Breach.  # noqa: E501
         :rtype: int
@@ -168,10 +170,17 @@ class Breach(object):
     def line_id(self, line_id):
         """Sets the line_id of this Breach.
 
+        The id of the flowline ('levl' in the geojson)  # noqa: E501
 
         :param line_id: The line_id of this Breach.  # noqa: E501
         :type: int
         """
+        if (self.local_vars_configuration.client_side_validation and
+                line_id is not None and line_id > 2147483647):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `line_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                line_id is not None and line_id < 0):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `line_id`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._line_id = line_id
 
@@ -179,7 +188,7 @@ class Breach(object):
     def duration_till_max_depth(self):
         """Gets the duration_till_max_depth of this Breach.  # noqa: E501
 
-        duration till maximum depth in seconds  # noqa: E501
+        Duration till maximum depth, in seconds  # noqa: E501
 
         :return: The duration_till_max_depth of this Breach.  # noqa: E501
         :rtype: int
@@ -190,7 +199,7 @@ class Breach(object):
     def duration_till_max_depth(self, duration_till_max_depth):
         """Sets the duration_till_max_depth of this Breach.
 
-        duration till maximum depth in seconds  # noqa: E501
+        Duration till maximum depth, in seconds  # noqa: E501
 
         :param duration_till_max_depth: The duration_till_max_depth of this Breach.  # noqa: E501
         :type: int
@@ -210,7 +219,7 @@ class Breach(object):
     def maximum_breach_depth(self):
         """Gets the maximum_breach_depth of this Breach.  # noqa: E501
 
-        Override the maximum_breach_depth of the potential breach  # noqa: E501
+        The maximum breach depth relative to the crest level, in meters  # noqa: E501
 
         :return: The maximum_breach_depth of this Breach.  # noqa: E501
         :rtype: float
@@ -221,7 +230,7 @@ class Breach(object):
     def maximum_breach_depth(self, maximum_breach_depth):
         """Sets the maximum_breach_depth of this Breach.
 
-        Override the maximum_breach_depth of the potential breach  # noqa: E501
+        The maximum breach depth relative to the crest level, in meters  # noqa: E501
 
         :param maximum_breach_depth: The maximum_breach_depth of this Breach.  # noqa: E501
         :type: float
@@ -233,7 +242,6 @@ class Breach(object):
     def levee_material(self):
         """Gets the levee_material of this Breach.  # noqa: E501
 
-        Override the levee_material of the potential breach  # noqa: E501
 
         :return: The levee_material of this Breach.  # noqa: E501
         :rtype: str
@@ -244,12 +252,11 @@ class Breach(object):
     def levee_material(self, levee_material):
         """Sets the levee_material of this Breach.
 
-        Override the levee_material of the potential breach  # noqa: E501
 
         :param levee_material: The levee_material of this Breach.  # noqa: E501
         :type: str
         """
-        allowed_values = [None,"sand", "clay"]  # noqa: E501
+        allowed_values = ["sand", "clay"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and levee_material not in allowed_values:  # noqa: E501
             self.__handle_validation_error(
                 "Invalid value for `levee_material` ({0}), must be one of {1}"  # noqa: E501

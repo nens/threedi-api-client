@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.0.8   3Di core release: 2.3.1  deployed on:  01:12PM (UTC) on November 15, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.6   3Di core release: 2.3.6  deployed on:  07:54AM (UTC) on March 10, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,6 +40,7 @@ class ThreediModel(object):
         'id': 'int',
         'user': 'str',
         'threedi_version': 'str',
+        'breach_count': 'int',
         'revision': 'str',
         'revision_id': 'int',
         'revision_hash': 'str',
@@ -57,7 +58,6 @@ class ThreediModel(object):
         'storage_space': 'int',
         'storage_space_humanized': 'str',
         'model_ini': 'str',
-        'breach_count': 'str',
         'extent_two_d': 'Extent',
         'extent_one_d': 'Extent',
         'extent_zero_d': 'Extent',
@@ -72,6 +72,7 @@ class ThreediModel(object):
         'id': 'id',
         'user': 'user',
         'threedi_version': 'threedi_version',
+        'breach_count': 'breach_count',
         'revision': 'revision',
         'revision_id': 'revision_id',
         'revision_hash': 'revision_hash',
@@ -89,7 +90,6 @@ class ThreediModel(object):
         'storage_space': 'storage_space',
         'storage_space_humanized': 'storage_space_humanized',
         'model_ini': 'model_ini',
-        'breach_count': 'breach_count',
         'extent_two_d': 'extent_two_d',
         'extent_one_d': 'extent_one_d',
         'extent_zero_d': 'extent_zero_d',
@@ -99,7 +99,7 @@ class ThreediModel(object):
         'inp_success': 'inp_success'
     }
 
-    def __init__(self, url=None, id=None, user=None, threedi_version=None, revision=None, revision_id=None, revision_hash=None, revision_number=None, revision_commit_date=None, schematisation_id=None, schematisation_name=None, repository_slug=None, name=None, slug=None, disabled=None, is_valid=None, epsg=None, description=None, storage_space=None, storage_space_humanized=None, model_ini=None, breach_count=None, extent_two_d=None, extent_one_d=None, extent_zero_d=None, nodes_count=None, lines_count=None, inpy_version=None, inp_success=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, id=None, user=None, threedi_version=None, breach_count=None, revision=None, revision_id=None, revision_hash=None, revision_number=None, revision_commit_date=None, schematisation_id=None, schematisation_name=None, repository_slug=None, name=None, slug=None, disabled=None, is_valid=None, epsg=None, description=None, storage_space=None, storage_space_humanized=None, model_ini=None, extent_two_d=None, extent_one_d=None, extent_zero_d=None, nodes_count=None, lines_count=None, inpy_version=None, inp_success=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """ThreediModel - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -112,6 +112,7 @@ class ThreediModel(object):
         self._id = None
         self._user = None
         self._threedi_version = None
+        self._breach_count = None
         self._revision = None
         self._revision_id = None
         self._revision_hash = None
@@ -129,7 +130,6 @@ class ThreediModel(object):
         self._storage_space = None
         self._storage_space_humanized = None
         self._model_ini = None
-        self._breach_count = None
         self._extent_two_d = None
         self._extent_one_d = None
         self._extent_zero_d = None
@@ -147,6 +147,7 @@ class ThreediModel(object):
             self.user = user
         if threedi_version is not None:
             self.threedi_version = threedi_version
+        self.breach_count = breach_count
         self.revision = revision
         if revision_id is not None:
             self.revision_id = revision_id
@@ -175,8 +176,6 @@ class ThreediModel(object):
         if storage_space_humanized is not None:
             self.storage_space_humanized = storage_space_humanized
         self.model_ini = model_ini
-        if breach_count is not None:
-            self.breach_count = breach_count
         if extent_two_d is not None:
             self.extent_two_d = extent_two_d
         if extent_one_d is not None:
@@ -279,6 +278,33 @@ class ThreediModel(object):
             self.__handle_validation_error("Invalid value for `threedi_version`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._threedi_version = threedi_version
+
+    @property
+    def breach_count(self):
+        """Gets the breach_count of this ThreediModel.  # noqa: E501
+
+
+        :return: The breach_count of this ThreediModel.  # noqa: E501
+        :rtype: int
+        """
+        return self._breach_count
+
+    @breach_count.setter
+    def breach_count(self, breach_count):
+        """Sets the breach_count of this ThreediModel.
+
+
+        :param breach_count: The breach_count of this ThreediModel.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                breach_count is not None and breach_count > 2147483647):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `breach_count`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                breach_count is not None and breach_count < -2147483648):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `breach_count`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+
+        self._breach_count = breach_count
 
     @property
     def revision(self):
@@ -675,27 +701,6 @@ class ThreediModel(object):
             self.__handle_validation_error("Invalid value for `model_ini`, length must be less than or equal to `512`")  # noqa: E501
 
         self._model_ini = model_ini
-
-    @property
-    def breach_count(self):
-        """Gets the breach_count of this ThreediModel.  # noqa: E501
-
-
-        :return: The breach_count of this ThreediModel.  # noqa: E501
-        :rtype: str
-        """
-        return self._breach_count
-
-    @breach_count.setter
-    def breach_count(self, breach_count):
-        """Sets the breach_count of this ThreediModel.
-
-
-        :param breach_count: The breach_count of this ThreediModel.  # noqa: E501
-        :type: str
-        """
-
-        self._breach_count = breach_count
 
     @property
     def extent_two_d(self):

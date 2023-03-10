@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.0.8   3Di core release: 2.3.1  deployed on:  01:12PM (UTC) on November 15, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.6   3Di core release: 2.3.6  deployed on:  07:54AM (UTC) on March 10, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -38,8 +38,11 @@ class InitialWaterlevel(object):
     openapi_types = {
         'url': 'str',
         'threedimodel': 'str',
+        'user_generated': 'bool',
         'file': 'FileReadOnly',
         'source_raster': 'str',
+        'state': 'str',
+        'state_detail': 'object',
         'id': 'int',
         'source_raster_id': 'int',
         'dimension': 'str'
@@ -48,14 +51,17 @@ class InitialWaterlevel(object):
     attribute_map = {
         'url': 'url',
         'threedimodel': 'threedimodel',
+        'user_generated': 'user_generated',
         'file': 'file',
         'source_raster': 'source_raster',
+        'state': 'state',
+        'state_detail': 'state_detail',
         'id': 'id',
         'source_raster_id': 'source_raster_id',
         'dimension': 'dimension'
     }
 
-    def __init__(self, url=None, threedimodel=None, file=None, source_raster=None, id=None, source_raster_id=None, dimension=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, threedimodel=None, user_generated=None, file=None, source_raster=None, state=None, state_detail=None, id=None, source_raster_id=None, dimension=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """InitialWaterlevel - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,8 +72,11 @@ class InitialWaterlevel(object):
 
         self._url = None
         self._threedimodel = None
+        self._user_generated = None
         self._file = None
         self._source_raster = None
+        self._state = None
+        self._state_detail = None
         self._id = None
         self._source_raster_id = None
         self._dimension = None
@@ -77,10 +86,16 @@ class InitialWaterlevel(object):
             self.url = url
         if threedimodel is not None:
             self.threedimodel = threedimodel
+        if user_generated is not None:
+            self.user_generated = user_generated
         if file is not None:
             self.file = file
         if source_raster is not None:
             self.source_raster = source_raster
+        if state is not None:
+            self.state = state
+        if state_detail is not None:
+            self.state_detail = state_detail
         if id is not None:
             self.id = id
         if source_raster_id is not None:
@@ -131,6 +146,27 @@ class InitialWaterlevel(object):
         self._threedimodel = threedimodel
 
     @property
+    def user_generated(self):
+        """Gets the user_generated of this InitialWaterlevel.  # noqa: E501
+
+
+        :return: The user_generated of this InitialWaterlevel.  # noqa: E501
+        :rtype: bool
+        """
+        return self._user_generated
+
+    @user_generated.setter
+    def user_generated(self, user_generated):
+        """Sets the user_generated of this InitialWaterlevel.
+
+
+        :param user_generated: The user_generated of this InitialWaterlevel.  # noqa: E501
+        :type: bool
+        """
+
+        self._user_generated = user_generated
+
+    @property
     def file(self):
         """Gets the file of this InitialWaterlevel.  # noqa: E501
 
@@ -171,6 +207,54 @@ class InitialWaterlevel(object):
         """
 
         self._source_raster = source_raster
+
+    @property
+    def state(self):
+        """Gets the state of this InitialWaterlevel.  # noqa: E501
+
+
+        :return: The state of this InitialWaterlevel.  # noqa: E501
+        :rtype: str
+        """
+        return self._state
+
+    @state.setter
+    def state(self, state):
+        """Sets the state of this InitialWaterlevel.
+
+
+        :param state: The state of this InitialWaterlevel.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["processing", "valid", "invalid"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
+            self.__handle_validation_error(
+                "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
+                .format(state, allowed_values)
+            )
+
+        self._state = state
+
+    @property
+    def state_detail(self):
+        """Gets the state_detail of this InitialWaterlevel.  # noqa: E501
+
+
+        :return: The state_detail of this InitialWaterlevel.  # noqa: E501
+        :rtype: object
+        """
+        return self._state_detail
+
+    @state_detail.setter
+    def state_detail(self, state_detail):
+        """Sets the state_detail of this InitialWaterlevel.
+
+
+        :param state_detail: The state_detail of this InitialWaterlevel.  # noqa: E501
+        :type: object
+        """
+
+        self._state_detail = state_detail
 
     @property
     def id(self):

@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest stable version: v3) 
-     Framework release: 3.0.8 
-     3Di core release: 2.3.1 
-    deployed on:  01:12PM (UTC) on November 15, 2022
+     Framework release: 3.2.6 
+     3Di core release: 2.3.6 
+    deployed on:  07:54AM (UTC) on March 10, 2023
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -141,6 +141,39 @@ paths:
         - v3-beta
     parameters:
       - name: prefix
+        in: path
+        required: true
+        type: string
+  /v3-beta/simulation-templates/{id}/copy-to-threedimodel/:
+    post:
+      operationId: simulation-templates_copy_to_threedimodel
+      summary: Copy simulation template to a threedimodel.
+      description: |-
+        {
+            "threedimodel": ThreediModel id
+            "name": name for the new template
+            "tags": extra tags, added to existing simulation template tags
+            "clone_events": clone events like rain/sources & sinks etc
+            "clone_initials": clone initial waterlevels
+            "clone_settings": clone simulation settings, like physical settings etc
+        }
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CopyToThreediModel'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/CopyToThreediModel'
+        '400':
+          description: validation errors
+      tags:
+        - v3-beta
+    parameters:
+      - name: id
         in: path
         required: true
         type: string
@@ -287,8 +320,6 @@ paths:
       responses:
         '200':
           description: OK
-        '400':
-          description: Event is already processed
       tags:
         - v3-beta
     parameters:
@@ -4812,6 +4843,11 @@ paths:
           description: ''
           required: false
           type: number
+        - name: organisation__unique_id
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: tags__in
           in: query
           description: ''
@@ -5585,11 +5621,8 @@ paths:
         the simulation and cannot be changed once the simulation is
         initialized.
 
-        Depending on whether the threedimodel is created from a schematisation
-        or via Inpy one of the following file formats needs to be used.
-
-        Example for threedimodels created from schematisations
-        ------------------------------------------------------
+        Example
+        -------
 
         **Notes**
         The ordering of the boundaries does not matter.
@@ -5618,43 +5651,6 @@ paths:
             {
                 "id": 3,
                 "type": "2D",
-                "interpolate": false,
-                "values": [
-                    [0, -2.4],
-                    [1300, 0,3],
-                    [3000, 1.2],
-                    [3600, 0]
-                ]
-            }
-        ]
-        ```
-
-        Example for threedimodels created via inpy
-        ------------------------------------------
-
-        **Notes**
-        2D boundaries need to be provided before 1D boundaries.
-        1D boundaries need to be in order of connectionnode id.
-        2D boundaries need to be in order of id (of the boundary).
-
-        ```
-        [
-            {
-                "interpolate": false,
-                "values": [
-                    [0, 0.5],
-                    [500, 0,8],
-                    [1000, 0]
-                ]
-            },
-            {
-                "interpolate": false,
-                "values": [
-                    [0, 0,3],
-                    [400, 0.1]
-                ]
-            },
-            {
                 "interpolate": false,
                 "values": [
                     [0, -2.4],
@@ -5789,8 +5785,6 @@ paths:
       responses:
         '200':
           description: OK
-        '400':
-          description: Event is already processed
       tags:
         - v3
     parameters:
@@ -6344,8 +6338,6 @@ paths:
       responses:
         '200':
           description: OK
-        '400':
-          description: Event is already processed
       tags:
         - v3
     parameters:
@@ -9205,8 +9197,6 @@ paths:
       responses:
         '200':
           description: OK
-        '400':
-          description: Event is already processed
       tags:
         - v3
     parameters:
@@ -14908,6 +14898,52 @@ paths:
         description: A unique integer value identifying this threedi model.
         required: true
         type: integer
+  /v3/threedimodels/{id}/geopackage/download/:
+    get:
+      operationId: threedimodels_geopackage_download
+      description: Endpoint for downloading geopackage file.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Download'
+        '400':
+          description: File is not uploaded yet or has been removed
+        '404':
+          description: File not found
+      tags:
+        - v3
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
+  /v3/threedimodels/{id}/geopackage/upload/:
+    post:
+      operationId: threedimodels_geopackage_upload
+      summary: Endpoint for uploading the gridadmin file
+      description: Replaces the gridadmin if there already exists one.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Upload'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Upload'
+      tags:
+        - v3
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this threedi model.
+        required: true
+        type: integer
   /v3/threedimodels/{id}/gridadmin/download/:
     get:
       operationId: threedimodels_gridadmin_download
@@ -15142,32 +15178,6 @@ paths:
         in: path
         required: true
         type: string
-  /v3/threedimodels/{threedimodel_pk}/bulk_potentialbreaches/:
-    post:
-      operationId: threedimodels_bulk_potentialbreaches_create
-      description: ''
-      parameters:
-        - name: data
-          in: body
-          required: true
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/PotentialBreach'
-      responses:
-        '201':
-          description: ''
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/PotentialBreach'
-      tags:
-        - v3
-    parameters:
-      - name: threedimodel_pk
-        in: path
-        required: true
-        type: string
   /v3/threedimodels/{threedimodel_pk}/bulk_rasters/:
     post:
       operationId: threedimodels_bulk_rasters_create
@@ -15198,16 +15208,13 @@ paths:
     get:
       operationId: threedimodels_initial_waterlevels_list
       description: |-
-        Initial waterlevels are determined for all nodes by aggregating
-        the values in `source_raster` per node using max, min and mean
-        operators. The resulting values are stored in a file linked under
-        `file`.
+        ## Description
+        Initial waterlevels on threedimodels can be used in a simulation to specify the initial
+        waterlevels on the 1D and/or 2D domain.
 
-        This file can be inspected using Python (3.7 or higher) using
-        the serializer in the asyncio_rpc package.(pip install asyncio_rpc)
-
-             from asyncio_rpc.serialization.msgpack import loadb
-             data = loadb(binary_file_data)
+        ### Initial waterlevels from schematisation
+        1D and 2D initial waterlevels in the schematisation are automatically picked up
+        during the creation of the threedimodel.
       parameters:
         - name: limit
           in: query
@@ -15246,17 +15253,33 @@ paths:
         - v3
     post:
       operationId: threedimodels_initial_waterlevels_create
+      summary: |-
+        ### Adding (extra) 1D initial waterlevels
+        Extra 1D initial waterlevels can be added by posting:
       description: |-
-        Initial waterlevels are determined for all nodes by aggregating
-        the values in `source_raster` per node using max, min and mean
-        operators. The resulting values are stored in a file linked under
-        `file`.
+        {"dimension": "one_d"}
 
-        This file can be inspected using Python (3.7 or higher) using
-        the serializer in the asyncio_rpc package.(pip install asyncio_rpc)
+        Using the 'id' value from the response, a JSON file needs to be uploaded via the PUT_URL retrieved from
+        `initial_waterlevels/{id}/upload/` in the following JSON format:
 
-             from asyncio_rpc.serialization.msgpack import loadb
-             data = loadb(binary_file_data)
+        Python code:
+
+            import json
+            file_contents = json.dumps({
+                "node_ids": [node_id_1, node_id2, ....],
+                "values" : [value_for_node_id_1, value_for_node_id_2, ...]
+            })
+
+            # Notes:
+            # - Omitted values are considered dry.
+            # - `node_ids` need to be sorted and unique
+            # - Make sure that the positions of the node_id's and values match.
+
+        ### Adding (extra) 2D initial waterlevels
+        2D initial waterlevels can be added by uploading an 'initial_waterlevel_file' Geotiff raster via `rasters/{id}/upload/`.
+        This automatically triggers the creation of a 2D initial waterlevel. The source raster is
+        linked as 'source_raster'. The values in the `source_raster` are aggregated per node using
+        max, min and mean operators. The resulting values are stored in a file linked under `file`.
       parameters:
         - name: data
           in: body
@@ -15279,16 +15302,13 @@ paths:
     get:
       operationId: threedimodels_initial_waterlevels_read
       description: |-
-        Initial waterlevels are determined for all nodes by aggregating
-        the values in `source_raster` per node using max, min and mean
-        operators. The resulting values are stored in a file linked under
-        `file`.
+        ## Description
+        Initial waterlevels on threedimodels can be used in a simulation to specify the initial
+        waterlevels on the 1D and/or 2D domain.
 
-        This file can be inspected using Python (3.7 or higher) using
-        the serializer in the asyncio_rpc package.(pip install asyncio_rpc)
-
-             from asyncio_rpc.serialization.msgpack import loadb
-             data = loadb(binary_file_data)
+        ### Initial waterlevels from schematisation
+        1D and 2D initial waterlevels in the schematisation are automatically picked up
+        during the creation of the threedimodel.
       parameters: []
       responses:
         '200':
@@ -15300,16 +15320,13 @@ paths:
     put:
       operationId: threedimodels_initial_waterlevels_update
       description: |-
-        Initial waterlevels are determined for all nodes by aggregating
-        the values in `source_raster` per node using max, min and mean
-        operators. The resulting values are stored in a file linked under
-        `file`.
+        ## Description
+        Initial waterlevels on threedimodels can be used in a simulation to specify the initial
+        waterlevels on the 1D and/or 2D domain.
 
-        This file can be inspected using Python (3.7 or higher) using
-        the serializer in the asyncio_rpc package.(pip install asyncio_rpc)
-
-             from asyncio_rpc.serialization.msgpack import loadb
-             data = loadb(binary_file_data)
+        ### Initial waterlevels from schematisation
+        1D and 2D initial waterlevels in the schematisation are automatically picked up
+        during the creation of the threedimodel.
       parameters:
         - name: data
           in: body
@@ -15326,16 +15343,13 @@ paths:
     patch:
       operationId: threedimodels_initial_waterlevels_partial_update
       description: |-
-        Initial waterlevels are determined for all nodes by aggregating
-        the values in `source_raster` per node using max, min and mean
-        operators. The resulting values are stored in a file linked under
-        `file`.
+        ## Description
+        Initial waterlevels on threedimodels can be used in a simulation to specify the initial
+        waterlevels on the 1D and/or 2D domain.
 
-        This file can be inspected using Python (3.7 or higher) using
-        the serializer in the asyncio_rpc package.(pip install asyncio_rpc)
-
-             from asyncio_rpc.serialization.msgpack import loadb
-             data = loadb(binary_file_data)
+        ### Initial waterlevels from schematisation
+        1D and 2D initial waterlevels in the schematisation are automatically picked up
+        during the creation of the threedimodel.
       parameters:
         - name: data
           in: body
@@ -15351,17 +15365,7 @@ paths:
         - v3
     delete:
       operationId: threedimodels_initial_waterlevels_delete
-      description: |-
-        Initial waterlevels are determined for all nodes by aggregating
-        the values in `source_raster` per node using max, min and mean
-        operators. The resulting values are stored in a file linked under
-        `file`.
-
-        This file can be inspected using Python (3.7 or higher) using
-        the serializer in the asyncio_rpc package.(pip install asyncio_rpc)
-
-             from asyncio_rpc.serialization.msgpack import loadb
-             data = loadb(binary_file_data)
+      description: Delete initial waterlevel
       parameters: []
       responses:
         '204':
@@ -15404,10 +15408,44 @@ paths:
         in: path
         required: true
         type: string
+  /v3/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/processed/:
+    put:
+      operationId: threedimodels_initial_waterlevels_processed
+      description: |-
+        ## Description
+        Initial waterlevels on threedimodels can be used in a simulation to specify the initial
+        waterlevels on the 1D and/or 2D domain.
+
+        ### Initial waterlevels from schematisation
+        1D and 2D initial waterlevels in the schematisation are automatically picked up
+        during the creation of the threedimodel.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/BaseEventState'
+      responses:
+        '200':
+          description: OK
+      tags:
+        - v3
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this initial waterlevel.
+        required: true
+        type: integer
+      - name: threedimodel_pk
+        in: path
+        required: true
+        type: string
   /v3/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/upload/:
     post:
       operationId: threedimodels_initial_waterlevels_upload
-      description: Endpoint for uploading a raster.
+      description: |-
+        Endpoint for uploading an initial waterlevel file, see the POST
+        endpoint for documentation about the file format.
       parameters:
         - name: data
           in: body
@@ -15562,47 +15600,6 @@ paths:
           description: ''
           schema:
             $ref: '#/definitions/PotentialBreach'
-      tags:
-        - v3
-    put:
-      operationId: threedimodels_potentialbreaches_update
-      description: A simple ViewSet for viewing breaches
-      parameters:
-        - name: data
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/PotentialBreach'
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/PotentialBreach'
-      tags:
-        - v3
-    patch:
-      operationId: threedimodels_potentialbreaches_partial_update
-      description: A simple ViewSet for viewing breaches
-      parameters:
-        - name: data
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/PotentialBreach'
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/PotentialBreach'
-      tags:
-        - v3
-    delete:
-      operationId: threedimodels_potentialbreaches_delete
-      description: A simple ViewSet for viewing breaches
-      parameters: []
-      responses:
-        '204':
-          description: ''
       tags:
         - v3
     parameters:
@@ -17147,6 +17144,36 @@ definitions:
         type: string
         readOnly: true
         minLength: 1
+  CopyToThreediModel:
+    required:
+      - threedimodel
+    type: object
+    properties:
+      threedimodel:
+        title: Threedimodel
+        type: integer
+      name:
+        title: Name
+        type: string
+        maxLength: 128
+        minLength: 1
+      tags:
+        type: array
+        items:
+          type: string
+          x-nullable: true
+      clone_events:
+        title: Clone events
+        type: boolean
+        default: true
+      clone_initials:
+        title: Clone initials
+        type: boolean
+        default: true
+      clone_settings:
+        title: Clone settings
+        type: boolean
+        default: true
   ObstacleEdit:
     required:
       - offset
@@ -17509,6 +17536,7 @@ definitions:
           - results
           - rasters
           - gridadmin
+          - geopackage
           - geojson
           - initialwaterlevel
           - bulklateral
@@ -17836,6 +17864,12 @@ definitions:
         type: string
         readOnly: true
         minLength: 1
+      breach_count:
+        title: Breach count
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+        x-nullable: true
       revision:
         title: Revision
         type: string
@@ -17914,10 +17948,6 @@ definitions:
         type: string
         maxLength: 512
         x-nullable: true
-      breach_count:
-        title: Breach count
-        type: string
-        readOnly: true
       extent_two_d:
         title: Extent
         type: object
@@ -18175,6 +18205,7 @@ definitions:
           - results
           - rasters
           - gridadmin
+          - geopackage
           - geojson
           - initialwaterlevel
           - bulklateral
@@ -18738,8 +18769,9 @@ definitions:
       threedicore_version:
         title: Threedicore version
         type: string
-        readOnly: true
+        maxLength: 16
         minLength: 1
+        x-nullable: true
       cloned_from:
         title: Cloned from
         type: string
@@ -18969,8 +19001,9 @@ definitions:
       threedicore_version:
         title: Threedicore version
         type: string
-        readOnly: true
+        maxLength: 16
         minLength: 1
+        x-nullable: true
       cloned_from:
         title: Cloned from
         type: string
@@ -19222,7 +19255,6 @@ definitions:
         readOnly: true
   Breach:
     required:
-      - potential_breach
       - duration_till_max_depth
       - initial_width
       - offset
@@ -19239,27 +19271,26 @@ definitions:
         format: uri
       line_id:
         title: Line id
+        description: The id of the flowline ('levl' in the geojson)
         type: integer
-        readOnly: true
+        maximum: 2147483647
+        minimum: 0
       duration_till_max_depth:
         title: Duration till max depth
-        description: duration till maximum depth in seconds
+        description: Duration till maximum depth, in seconds
         type: integer
         maximum: 2147483647
         minimum: 0
       maximum_breach_depth:
         title: Maximum breach depth
-        description: Override the maximum_breach_depth of the potential breach
+        description: The maximum breach depth relative to the crest level, in meters
         type: number
-        x-nullable: true
       levee_material:
         title: Levee material
-        description: Override the levee_material of the potential breach
         type: string
         enum:
           - sand
           - clay
-        x-nullable: true
       initial_width:
         title: Initial width
         description: initial width in meters
@@ -24445,47 +24476,6 @@ definitions:
         enum:
           - one_d
           - two_d
-  PotentialBreach:
-    required:
-      - connected_pnt_id
-      - levee_material
-      - line_id
-      - maximum_breach_depth
-    type: object
-    properties:
-      url:
-        title: Url
-        type: string
-        format: uri
-        readOnly: true
-      connected_pnt_id:
-        title: Connected pnt id
-        type: integer
-        maximum: 2147483647
-        minimum: -2147483648
-      levee_material:
-        title: Levee material
-        type: string
-        enum:
-          - sand
-          - clay
-      line_id:
-        title: Line id
-        type: integer
-        maximum: 2147483647
-        minimum: -2147483648
-      maximum_breach_depth:
-        title: Maximum breach depth
-        type: number
-      threedimodel:
-        title: Threedimodel
-        type: string
-        format: uri
-        readOnly: true
-      id:
-        title: ID
-        type: integer
-        readOnly: true
   Raster:
     required:
       - type
@@ -24602,12 +24592,27 @@ definitions:
         type: string
         format: uri
         readOnly: true
+      user_generated:
+        title: User generated
+        type: boolean
       file:
         $ref: '#/definitions/FileReadOnly'
       source_raster:
         title: Source raster
         type: string
         format: uri
+      state:
+        title: State
+        type: string
+        enum:
+          - processing
+          - valid
+          - invalid
+        readOnly: true
+      state_detail:
+        title: State detail
+        type: object
+        readOnly: true
       id:
         title: ID
         type: integer
@@ -24622,6 +24627,47 @@ definitions:
         enum:
           - one_d
           - two_d
+  PotentialBreach:
+    required:
+      - connected_pnt_id
+      - levee_material
+      - line_id
+      - maximum_breach_depth
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      connected_pnt_id:
+        title: Connected pnt id
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      levee_material:
+        title: Levee material
+        type: string
+        enum:
+          - sand
+          - clay
+      line_id:
+        title: Line id
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      maximum_breach_depth:
+        title: Maximum breach depth
+        type: number
+      threedimodel:
+        title: Threedimodel
+        type: string
+        format: uri
+        readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   ThreediModelSavedState:
     required:
       - name

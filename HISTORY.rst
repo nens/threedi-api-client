@@ -5,6 +5,8 @@ History
 4.1.2 (unreleased)
 ------------------
 
+- Updated to framework release 3.2.6
+
 - Fix timeout when retrying uploads.
 
 

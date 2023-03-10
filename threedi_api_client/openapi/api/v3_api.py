@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.0.8   3Di core release: 2.3.1  deployed on:  01:12PM (UTC) on November 15, 2022  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.6   3Di core release: 2.3.6  deployed on:  07:54AM (UTC) on March 10, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -15498,7 +15498,7 @@ class V3Api(object):
     def simulations_events_boundaryconditions_file_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """Endpoint for uploading a boundary-conditions file.  # noqa: E501
 
-        The format of the filename should be <filename>.<extension>, e.g.  `boundary_conditions_bergermeer.json`  Every leading and trailing spaces will be removed. Other spaces are converted to underscores and anything that is not an alphanumeric, dash, underscore, or dot will be removed as well.  The response provides a put_url which allows you to upload a file containing one or more boundary-conditions.  The uploaded file should be a JSON-file containing an array of boundary-conditions timeseries.  The file must contain a timeseries for each boundary condition in the threedimodel. This is validated after upload.  Boundary-conditions need to be added before initializing/starting the simulation and cannot be changed once the simulation is initialized.  Depending on whether the threedimodel is created from a schematisation or via Inpy one of the following file formats needs to be used.  Example for threedimodels created from schematisations ------------------------------------------------------  **Notes** The ordering of the boundaries does not matter.  ``` [     {         \"id\": 1,   # sqlite boundary_1d table id         \"type\": \"1D\",  # \"1D\" for 1d boundaries         \"interpolate\": false,         \"values\": [             [0, 0.5],             [500, 0,8],             [1000, 0]         ]     },     {         \"id\": 2,  # sqlite boundary_2d table id         \"type\": \"2D\", # \"2D\" for 2d boundaries         \"interpolate\": false,         \"values\": [             [0, 0,3],             [400, 0.1]         ]     },     {         \"id\": 3,         \"type\": \"2D\",         \"interpolate\": false,         \"values\": [             [0, -2.4],             [1300, 0,3],             [3000, 1.2],             [3600, 0]         ]     } ] ```  Example for threedimodels created via inpy ------------------------------------------  **Notes** 2D boundaries need to be provided before 1D boundaries. 1D boundaries need to be in order of connectionnode id. 2D boundaries need to be in order of id (of the boundary).  ``` [     {         \"interpolate\": false,         \"values\": [             [0, 0.5],             [500, 0,8],             [1000, 0]         ]     },     {         \"interpolate\": false,         \"values\": [             [0, 0,3],             [400, 0.1]         ]     },     {         \"interpolate\": false,         \"values\": [             [0, -2.4],             [1300, 0,3],             [3000, 1.2],             [3600, 0]         ]     } ] ```  # noqa: E501
+        The format of the filename should be <filename>.<extension>, e.g.  `boundary_conditions_bergermeer.json`  Every leading and trailing spaces will be removed. Other spaces are converted to underscores and anything that is not an alphanumeric, dash, underscore, or dot will be removed as well.  The response provides a put_url which allows you to upload a file containing one or more boundary-conditions.  The uploaded file should be a JSON-file containing an array of boundary-conditions timeseries.  The file must contain a timeseries for each boundary condition in the threedimodel. This is validated after upload.  Boundary-conditions need to be added before initializing/starting the simulation and cannot be changed once the simulation is initialized.  Example -------  **Notes** The ordering of the boundaries does not matter.  ``` [     {         \"id\": 1,   # sqlite boundary_1d table id         \"type\": \"1D\",  # \"1D\" for 1d boundaries         \"interpolate\": false,         \"values\": [             [0, 0.5],             [500, 0,8],             [1000, 0]         ]     },     {         \"id\": 2,  # sqlite boundary_2d table id         \"type\": \"2D\", # \"2D\" for 2d boundaries         \"interpolate\": false,         \"values\": [             [0, 0,3],             [400, 0.1]         ]     },     {         \"id\": 3,         \"type\": \"2D\",         \"interpolate\": false,         \"values\": [             [0, -2.4],             [1300, 0,3],             [3000, 1.2],             [3600, 0]         ]     } ] ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_boundaryconditions_file_create(simulation_pk, data, async_req=True)
@@ -15524,7 +15524,7 @@ class V3Api(object):
     def simulations_events_boundaryconditions_file_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """Endpoint for uploading a boundary-conditions file.  # noqa: E501
 
-        The format of the filename should be <filename>.<extension>, e.g.  `boundary_conditions_bergermeer.json`  Every leading and trailing spaces will be removed. Other spaces are converted to underscores and anything that is not an alphanumeric, dash, underscore, or dot will be removed as well.  The response provides a put_url which allows you to upload a file containing one or more boundary-conditions.  The uploaded file should be a JSON-file containing an array of boundary-conditions timeseries.  The file must contain a timeseries for each boundary condition in the threedimodel. This is validated after upload.  Boundary-conditions need to be added before initializing/starting the simulation and cannot be changed once the simulation is initialized.  Depending on whether the threedimodel is created from a schematisation or via Inpy one of the following file formats needs to be used.  Example for threedimodels created from schematisations ------------------------------------------------------  **Notes** The ordering of the boundaries does not matter.  ``` [     {         \"id\": 1,   # sqlite boundary_1d table id         \"type\": \"1D\",  # \"1D\" for 1d boundaries         \"interpolate\": false,         \"values\": [             [0, 0.5],             [500, 0,8],             [1000, 0]         ]     },     {         \"id\": 2,  # sqlite boundary_2d table id         \"type\": \"2D\", # \"2D\" for 2d boundaries         \"interpolate\": false,         \"values\": [             [0, 0,3],             [400, 0.1]         ]     },     {         \"id\": 3,         \"type\": \"2D\",         \"interpolate\": false,         \"values\": [             [0, -2.4],             [1300, 0,3],             [3000, 1.2],             [3600, 0]         ]     } ] ```  Example for threedimodels created via inpy ------------------------------------------  **Notes** 2D boundaries need to be provided before 1D boundaries. 1D boundaries need to be in order of connectionnode id. 2D boundaries need to be in order of id (of the boundary).  ``` [     {         \"interpolate\": false,         \"values\": [             [0, 0.5],             [500, 0,8],             [1000, 0]         ]     },     {         \"interpolate\": false,         \"values\": [             [0, 0,3],             [400, 0.1]         ]     },     {         \"interpolate\": false,         \"values\": [             [0, -2.4],             [1300, 0,3],             [3000, 1.2],             [3600, 0]         ]     } ] ```  # noqa: E501
+        The format of the filename should be <filename>.<extension>, e.g.  `boundary_conditions_bergermeer.json`  Every leading and trailing spaces will be removed. Other spaces are converted to underscores and anything that is not an alphanumeric, dash, underscore, or dot will be removed as well.  The response provides a put_url which allows you to upload a file containing one or more boundary-conditions.  The uploaded file should be a JSON-file containing an array of boundary-conditions timeseries.  The file must contain a timeseries for each boundary condition in the threedimodel. This is validated after upload.  Boundary-conditions need to be added before initializing/starting the simulation and cannot be changed once the simulation is initialized.  Example -------  **Notes** The ordering of the boundaries does not matter.  ``` [     {         \"id\": 1,   # sqlite boundary_1d table id         \"type\": \"1D\",  # \"1D\" for 1d boundaries         \"interpolate\": false,         \"values\": [             [0, 0.5],             [500, 0,8],             [1000, 0]         ]     },     {         \"id\": 2,  # sqlite boundary_2d table id         \"type\": \"2D\", # \"2D\" for 2d boundaries         \"interpolate\": false,         \"values\": [             [0, 0,3],             [400, 0.1]         ]     },     {         \"id\": 3,         \"type\": \"2D\",         \"interpolate\": false,         \"values\": [             [0, -2.4],             [1300, 0,3],             [3000, 1.2],             [3600, 0]         ]     } ] ```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_boundaryconditions_file_create_with_http_info(simulation_pk, data, async_req=True)
@@ -46102,6 +46102,7 @@ class V3Api(object):
         :param str user__username__istartswith:
         :param float threedimodel__id:
         :param float threedimodel__revision__id:
+        :param str organisation__unique_id:
         :param str tags__in:
         :param str is_template:
         :param str ordering: Which field to use when ordering the results.
@@ -46167,6 +46168,7 @@ class V3Api(object):
         :param str user__username__istartswith:
         :param float threedimodel__id:
         :param float threedimodel__revision__id:
+        :param str organisation__unique_id:
         :param str tags__in:
         :param str is_template:
         :param str ordering: Which field to use when ordering the results.
@@ -46225,6 +46227,7 @@ class V3Api(object):
             'user__username__istartswith',
             'threedimodel__id',
             'threedimodel__revision__id',
+            'organisation__unique_id',
             'tags__in',
             'is_template',
             'ordering',
@@ -46326,6 +46329,8 @@ class V3Api(object):
             query_params.append(('threedimodel__id', local_var_params['threedimodel__id']))  # noqa: E501
         if 'threedimodel__revision__id' in local_var_params and local_var_params['threedimodel__revision__id'] is not None:  # noqa: E501
             query_params.append(('threedimodel__revision__id', local_var_params['threedimodel__revision__id']))  # noqa: E501
+        if 'organisation__unique_id' in local_var_params and local_var_params['organisation__unique_id'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id', local_var_params['organisation__unique_id']))  # noqa: E501
         if 'tags__in' in local_var_params and local_var_params['tags__in'] is not None:  # noqa: E501
             query_params.append(('tags__in', local_var_params['tags__in']))  # noqa: E501
         if 'is_template' in local_var_params and local_var_params['is_template'] is not None:  # noqa: E501
@@ -56452,131 +56457,6 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def threedimodels_bulk_potentialbreaches_create(self, threedimodel_pk, data, **kwargs):  # noqa: E501
-        """threedimodels_bulk_potentialbreaches_create  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.threedimodels_bulk_potentialbreaches_create(threedimodel_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str threedimodel_pk: (required)
-        :param list[PotentialBreach] data: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: list[PotentialBreach]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_bulk_potentialbreaches_create_with_http_info(threedimodel_pk, data, **kwargs)  # noqa: E501
-
-    def threedimodels_bulk_potentialbreaches_create_with_http_info(self, threedimodel_pk, data, **kwargs):  # noqa: E501
-        """threedimodels_bulk_potentialbreaches_create  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.threedimodels_bulk_potentialbreaches_create_with_http_info(threedimodel_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str threedimodel_pk: (required)
-        :param list[PotentialBreach] data: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(list[PotentialBreach], status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'threedimodel_pk',
-            'data'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method threedimodels_bulk_potentialbreaches_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_bulk_potentialbreaches_create`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_bulk_potentialbreaches_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{threedimodel_pk}/bulk_potentialbreaches/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[PotentialBreach]',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def threedimodels_bulk_rasters_create(self, threedimodel_pk, data, **kwargs):  # noqa: E501
         """threedimodels_bulk_rasters_create  # noqa: E501
 
@@ -58933,6 +58813,247 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def threedimodels_geopackage_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geopackage_download  # noqa: E501
+
+        Endpoint for downloading geopackage file.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geopackage_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geopackage_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_geopackage_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geopackage_download  # noqa: E501
+
+        Endpoint for downloading geopackage file.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geopackage_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geopackage_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geopackage_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geopackage/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geopackage_upload(self, id, data, **kwargs):  # noqa: E501
+        """Endpoint for uploading the gridadmin file  # noqa: E501
+
+        Replaces the gridadmin if there already exists one.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geopackage_upload(id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geopackage_upload_with_http_info(id, data, **kwargs)  # noqa: E501
+
+    def threedimodels_geopackage_upload_with_http_info(self, id, data, **kwargs):  # noqa: E501
+        """Endpoint for uploading the gridadmin file  # noqa: E501
+
+        Replaces the gridadmin if there already exists one.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geopackage_upload_with_http_info(id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geopackage_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geopackage_upload`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_geopackage_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geopackage/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def threedimodels_gridadmin_download(self, id, **kwargs):  # noqa: E501
         """threedimodels_gridadmin_download  # noqa: E501
 
@@ -59175,9 +59296,9 @@ class V3Api(object):
             collection_formats=collection_formats)
 
     def threedimodels_initial_waterlevels_create(self, threedimodel_pk, data, **kwargs):  # noqa: E501
-        """threedimodels_initial_waterlevels_create  # noqa: E501
+        """### Adding (extra) 1D initial waterlevels Extra 1D initial waterlevels can be added by posting:  # noqa: E501
 
-        Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
+        {\"dimension\": \"one_d\"}  Using the 'id' value from the response, a JSON file needs to be uploaded via the PUT_URL retrieved from `initial_waterlevels/{id}/upload/` in the following JSON format:  Python code:      import json     file_contents = json.dumps({         \"node_ids\": [node_id_1, node_id2, ....],         \"values\" : [value_for_node_id_1, value_for_node_id_2, ...]     })      # Notes:     # - Omitted values are considered dry.     # - `node_ids` need to be sorted and unique     # - Make sure that the positions of the node_id's and values match.  ### Adding (extra) 2D initial waterlevels 2D initial waterlevels can be added by uploading an 'initial_waterlevel_file' Geotiff raster via `rasters/{id}/upload/`. This automatically triggers the creation of a 2D initial waterlevel. The source raster is linked as 'source_raster'. The values in the `source_raster` are aggregated per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_initial_waterlevels_create(threedimodel_pk, data, async_req=True)
@@ -59201,9 +59322,9 @@ class V3Api(object):
         return self.threedimodels_initial_waterlevels_create_with_http_info(threedimodel_pk, data, **kwargs)  # noqa: E501
 
     def threedimodels_initial_waterlevels_create_with_http_info(self, threedimodel_pk, data, **kwargs):  # noqa: E501
-        """threedimodels_initial_waterlevels_create  # noqa: E501
+        """### Adding (extra) 1D initial waterlevels Extra 1D initial waterlevels can be added by posting:  # noqa: E501
 
-        Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
+        {\"dimension\": \"one_d\"}  Using the 'id' value from the response, a JSON file needs to be uploaded via the PUT_URL retrieved from `initial_waterlevels/{id}/upload/` in the following JSON format:  Python code:      import json     file_contents = json.dumps({         \"node_ids\": [node_id_1, node_id2, ....],         \"values\" : [value_for_node_id_1, value_for_node_id_2, ...]     })      # Notes:     # - Omitted values are considered dry.     # - `node_ids` need to be sorted and unique     # - Make sure that the positions of the node_id's and values match.  ### Adding (extra) 2D initial waterlevels 2D initial waterlevels can be added by uploading an 'initial_waterlevel_file' Geotiff raster via `rasters/{id}/upload/`. This automatically triggers the creation of a 2D initial waterlevel. The source raster is linked as 'source_raster'. The values in the `source_raster` are aggregated per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_initial_waterlevels_create_with_http_info(threedimodel_pk, data, async_req=True)
@@ -59304,7 +59425,7 @@ class V3Api(object):
     def threedimodels_initial_waterlevels_delete(self, id, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_initial_waterlevels_delete  # noqa: E501
 
-        Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
+        Delete initial waterlevel  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_initial_waterlevels_delete(id, threedimodel_pk, async_req=True)
@@ -59330,7 +59451,7 @@ class V3Api(object):
     def threedimodels_initial_waterlevels_delete_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_initial_waterlevels_delete  # noqa: E501
 
-        Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
+        Delete initial waterlevel  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_initial_waterlevels_delete_with_http_info(id, threedimodel_pk, async_req=True)
@@ -59546,7 +59667,7 @@ class V3Api(object):
     def threedimodels_initial_waterlevels_list(self, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_initial_waterlevels_list  # noqa: E501
 
-        Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
+        ## Description Initial waterlevels on threedimodels can be used in a simulation to specify the initial waterlevels on the 1D and/or 2D domain.  ### Initial waterlevels from schematisation 1D and 2D initial waterlevels in the schematisation are automatically picked up during the creation of the threedimodel.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_initial_waterlevels_list(threedimodel_pk, async_req=True)
@@ -59573,7 +59694,7 @@ class V3Api(object):
     def threedimodels_initial_waterlevels_list_with_http_info(self, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_initial_waterlevels_list  # noqa: E501
 
-        Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
+        ## Description Initial waterlevels on threedimodels can be used in a simulation to specify the initial waterlevels on the 1D and/or 2D domain.  ### Initial waterlevels from schematisation 1D and 2D initial waterlevels in the schematisation are automatically picked up during the creation of the threedimodel.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_initial_waterlevels_list_with_http_info(threedimodel_pk, async_req=True)
@@ -59670,7 +59791,7 @@ class V3Api(object):
     def threedimodels_initial_waterlevels_partial_update(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
         """threedimodels_initial_waterlevels_partial_update  # noqa: E501
 
-        Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
+        ## Description Initial waterlevels on threedimodels can be used in a simulation to specify the initial waterlevels on the 1D and/or 2D domain.  ### Initial waterlevels from schematisation 1D and 2D initial waterlevels in the schematisation are automatically picked up during the creation of the threedimodel.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_initial_waterlevels_partial_update(id, threedimodel_pk, data, async_req=True)
@@ -59697,7 +59818,7 @@ class V3Api(object):
     def threedimodels_initial_waterlevels_partial_update_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
         """threedimodels_initial_waterlevels_partial_update  # noqa: E501
 
-        Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
+        ## Description Initial waterlevels on threedimodels can be used in a simulation to specify the initial waterlevels on the 1D and/or 2D domain.  ### Initial waterlevels from schematisation 1D and 2D initial waterlevels in the schematisation are automatically picked up during the creation of the threedimodel.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_initial_waterlevels_partial_update_with_http_info(id, threedimodel_pk, data, async_req=True)
@@ -59803,10 +59924,142 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def threedimodels_initial_waterlevels_processed(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+        """threedimodels_initial_waterlevels_processed  # noqa: E501
+
+        ## Description Initial waterlevels on threedimodels can be used in a simulation to specify the initial waterlevels on the 1D and/or 2D domain.  ### Initial waterlevels from schematisation 1D and 2D initial waterlevels in the schematisation are automatically picked up during the creation of the threedimodel.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_initial_waterlevels_processed(id, threedimodel_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this initial waterlevel. (required)
+        :param str threedimodel_pk: (required)
+        :param BaseEventState data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_initial_waterlevels_processed_with_http_info(id, threedimodel_pk, data, **kwargs)  # noqa: E501
+
+    def threedimodels_initial_waterlevels_processed_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
+        """threedimodels_initial_waterlevels_processed  # noqa: E501
+
+        ## Description Initial waterlevels on threedimodels can be used in a simulation to specify the initial waterlevels on the 1D and/or 2D domain.  ### Initial waterlevels from schematisation 1D and 2D initial waterlevels in the schematisation are automatically picked up during the creation of the threedimodel.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_initial_waterlevels_processed_with_http_info(id, threedimodel_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this initial waterlevel. (required)
+        :param str threedimodel_pk: (required)
+        :param BaseEventState data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'threedimodel_pk',
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_initial_waterlevels_processed" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_initial_waterlevels_processed`")  # noqa: E501
+        # verify the required parameter 'threedimodel_pk' is set
+        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
+                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_initial_waterlevels_processed`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_initial_waterlevels_processed`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'threedimodel_pk' in local_var_params:
+            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/processed/', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def threedimodels_initial_waterlevels_read(self, id, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_initial_waterlevels_read  # noqa: E501
 
-        Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
+        ## Description Initial waterlevels on threedimodels can be used in a simulation to specify the initial waterlevels on the 1D and/or 2D domain.  ### Initial waterlevels from schematisation 1D and 2D initial waterlevels in the schematisation are automatically picked up during the creation of the threedimodel.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_initial_waterlevels_read(id, threedimodel_pk, async_req=True)
@@ -59832,7 +60085,7 @@ class V3Api(object):
     def threedimodels_initial_waterlevels_read_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_initial_waterlevels_read  # noqa: E501
 
-        Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
+        ## Description Initial waterlevels on threedimodels can be used in a simulation to specify the initial waterlevels on the 1D and/or 2D domain.  ### Initial waterlevels from schematisation 1D and 2D initial waterlevels in the schematisation are automatically picked up during the creation of the threedimodel.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_initial_waterlevels_read_with_http_info(id, threedimodel_pk, async_req=True)
@@ -59929,7 +60182,7 @@ class V3Api(object):
     def threedimodels_initial_waterlevels_update(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
         """threedimodels_initial_waterlevels_update  # noqa: E501
 
-        Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
+        ## Description Initial waterlevels on threedimodels can be used in a simulation to specify the initial waterlevels on the 1D and/or 2D domain.  ### Initial waterlevels from schematisation 1D and 2D initial waterlevels in the schematisation are automatically picked up during the creation of the threedimodel.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_initial_waterlevels_update(id, threedimodel_pk, data, async_req=True)
@@ -59956,7 +60209,7 @@ class V3Api(object):
     def threedimodels_initial_waterlevels_update_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
         """threedimodels_initial_waterlevels_update  # noqa: E501
 
-        Initial waterlevels are determined for all nodes by aggregating the values in `source_raster` per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  This file can be inspected using Python (3.7 or higher) using the serializer in the asyncio_rpc package.(pip install asyncio_rpc)       from asyncio_rpc.serialization.msgpack import loadb      data = loadb(binary_file_data)  # noqa: E501
+        ## Description Initial waterlevels on threedimodels can be used in a simulation to specify the initial waterlevels on the 1D and/or 2D domain.  ### Initial waterlevels from schematisation 1D and 2D initial waterlevels in the schematisation are automatically picked up during the creation of the threedimodel.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_initial_waterlevels_update_with_http_info(id, threedimodel_pk, data, async_req=True)
@@ -60065,7 +60318,7 @@ class V3Api(object):
     def threedimodels_initial_waterlevels_upload(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
         """threedimodels_initial_waterlevels_upload  # noqa: E501
 
-        Endpoint for uploading a raster.  # noqa: E501
+        Endpoint for uploading an initial waterlevel file, see the POST endpoint for documentation about the file format.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_initial_waterlevels_upload(id, threedimodel_pk, data, async_req=True)
@@ -60092,7 +60345,7 @@ class V3Api(object):
     def threedimodels_initial_waterlevels_upload_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
         """threedimodels_initial_waterlevels_upload  # noqa: E501
 
-        Endpoint for uploading a raster.  # noqa: E501
+        Endpoint for uploading an initial waterlevel file, see the POST endpoint for documentation about the file format.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_initial_waterlevels_upload_with_http_info(id, threedimodel_pk, data, async_req=True)
@@ -61520,125 +61773,6 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def threedimodels_potentialbreaches_delete(self, id, threedimodel_pk, **kwargs):  # noqa: E501
-        """threedimodels_potentialbreaches_delete  # noqa: E501
-
-        A simple ViewSet for viewing breaches  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.threedimodels_potentialbreaches_delete(id, threedimodel_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this potential breach. (required)
-        :param str threedimodel_pk: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_potentialbreaches_delete_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
-
-    def threedimodels_potentialbreaches_delete_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
-        """threedimodels_potentialbreaches_delete  # noqa: E501
-
-        A simple ViewSet for viewing breaches  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.threedimodels_potentialbreaches_delete_with_http_info(id, threedimodel_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this potential breach. (required)
-        :param str threedimodel_pk: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedimodel_pk'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method threedimodels_potentialbreaches_delete" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_potentialbreaches_delete`")  # noqa: E501
-        # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_potentialbreaches_delete`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{threedimodel_pk}/potentialbreaches/{id}/', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def threedimodels_potentialbreaches_list(self, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_potentialbreaches_list  # noqa: E501
 
@@ -61823,142 +61957,6 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def threedimodels_potentialbreaches_partial_update(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
-        """threedimodels_potentialbreaches_partial_update  # noqa: E501
-
-        A simple ViewSet for viewing breaches  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.threedimodels_potentialbreaches_partial_update(id, threedimodel_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this potential breach. (required)
-        :param str threedimodel_pk: (required)
-        :param PotentialBreach data: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: PotentialBreach
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_potentialbreaches_partial_update_with_http_info(id, threedimodel_pk, data, **kwargs)  # noqa: E501
-
-    def threedimodels_potentialbreaches_partial_update_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
-        """threedimodels_potentialbreaches_partial_update  # noqa: E501
-
-        A simple ViewSet for viewing breaches  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.threedimodels_potentialbreaches_partial_update_with_http_info(id, threedimodel_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this potential breach. (required)
-        :param str threedimodel_pk: (required)
-        :param PotentialBreach data: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(PotentialBreach, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedimodel_pk',
-            'data'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method threedimodels_potentialbreaches_partial_update" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_potentialbreaches_partial_update`")  # noqa: E501
-        # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_potentialbreaches_partial_update`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_potentialbreaches_partial_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{threedimodel_pk}/potentialbreaches/{id}/', 'PATCH',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='PotentialBreach',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def threedimodels_potentialbreaches_read(self, id, threedimodel_pk, **kwargs):  # noqa: E501
         """threedimodels_potentialbreaches_read  # noqa: E501
 
@@ -62068,142 +62066,6 @@ class V3Api(object):
 
         return self.api_client.call_api(
             '/v3/threedimodels/{threedimodel_pk}/potentialbreaches/{id}/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='PotentialBreach',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def threedimodels_potentialbreaches_update(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
-        """threedimodels_potentialbreaches_update  # noqa: E501
-
-        A simple ViewSet for viewing breaches  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.threedimodels_potentialbreaches_update(id, threedimodel_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this potential breach. (required)
-        :param str threedimodel_pk: (required)
-        :param PotentialBreach data: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: PotentialBreach
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.threedimodels_potentialbreaches_update_with_http_info(id, threedimodel_pk, data, **kwargs)  # noqa: E501
-
-    def threedimodels_potentialbreaches_update_with_http_info(self, id, threedimodel_pk, data, **kwargs):  # noqa: E501
-        """threedimodels_potentialbreaches_update  # noqa: E501
-
-        A simple ViewSet for viewing breaches  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.threedimodels_potentialbreaches_update_with_http_info(id, threedimodel_pk, data, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this potential breach. (required)
-        :param str threedimodel_pk: (required)
-        :param PotentialBreach data: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(PotentialBreach, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedimodel_pk',
-            'data'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method threedimodels_potentialbreaches_update" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_potentialbreaches_update`")  # noqa: E501
-        # verify the required parameter 'threedimodel_pk' is set
-        if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `threedimodels_potentialbreaches_update`")  # noqa: E501
-        # verify the required parameter 'data' is set
-        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
-                                                        local_var_params['data'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `data` when calling `threedimodels_potentialbreaches_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'threedimodel_pk' in local_var_params:
-            path_params['threedimodel_pk'] = local_var_params['threedimodel_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in local_var_params:
-            body_params = local_var_params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{threedimodel_pk}/potentialbreaches/{id}/', 'PUT',
             path_params,
             query_params,
             header_params,
