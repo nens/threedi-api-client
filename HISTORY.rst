@@ -2,8 +2,8 @@
 History
 =======
 
-4.1.2 (unreleased)
-------------------
+4.1.2b (unreleased)
+-------------------
 
 - Updated to framework release 3.2.6
 
