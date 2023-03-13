@@ -2,7 +2,7 @@
 History
 =======
 
-4.1.2b (unreleased)
+4.1.2b (2023-03-13)
 -------------------
 
 - Updated to framework release 3.2.6
