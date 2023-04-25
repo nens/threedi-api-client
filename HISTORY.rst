@@ -5,7 +5,7 @@ History
 4.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Public release.
 
 
 4.1.2b (2023-03-13)
