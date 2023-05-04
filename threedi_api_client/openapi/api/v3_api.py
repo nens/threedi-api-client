@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.6   3Di core release: 2.3.6  deployed on:  07:54AM (UTC) on March 10, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.25   3Di core release: 2.4.1  deployed on:  12:00PM (UTC) on May 04, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -3548,6 +3548,7 @@ class V3Api(object):
         :param str unique_id__endswith:
         :param str unique_id__regex:
         :param str valid_contracts_only:
+        :param str logged_in_user_has_role:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3593,6 +3594,7 @@ class V3Api(object):
         :param str unique_id__endswith:
         :param str unique_id__regex:
         :param str valid_contracts_only:
+        :param str logged_in_user_has_role:
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -3631,6 +3633,7 @@ class V3Api(object):
             'unique_id__endswith',
             'unique_id__regex',
             'valid_contracts_only',
+            'logged_in_user_has_role',
             'limit',
             'offset'
         ]
@@ -3695,6 +3698,8 @@ class V3Api(object):
             query_params.append(('unique_id__regex', local_var_params['unique_id__regex']))  # noqa: E501
         if 'valid_contracts_only' in local_var_params and local_var_params['valid_contracts_only'] is not None:  # noqa: E501
             query_params.append(('valid_contracts_only', local_var_params['valid_contracts_only']))  # noqa: E501
+        if 'logged_in_user_has_role' in local_var_params and local_var_params['logged_in_user_has_role'] is not None:  # noqa: E501
+            query_params.append(('logged_in_user_has_role', local_var_params['logged_in_user_has_role']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
@@ -59296,9 +59301,9 @@ class V3Api(object):
             collection_formats=collection_formats)
 
     def threedimodels_initial_waterlevels_create(self, threedimodel_pk, data, **kwargs):  # noqa: E501
-        """### Adding (extra) 1D initial waterlevels Extra 1D initial waterlevels can be added by posting:  # noqa: E501
+        """Add new initial waterlevels  # noqa: E501
 
-        {\"dimension\": \"one_d\"}  Using the 'id' value from the response, a JSON file needs to be uploaded via the PUT_URL retrieved from `initial_waterlevels/{id}/upload/` in the following JSON format:  Python code:      import json     file_contents = json.dumps({         \"node_ids\": [node_id_1, node_id2, ....],         \"values\" : [value_for_node_id_1, value_for_node_id_2, ...]     })      # Notes:     # - Omitted values are considered dry.     # - `node_ids` need to be sorted and unique     # - Make sure that the positions of the node_id's and values match.  ### Adding (extra) 2D initial waterlevels 2D initial waterlevels can be added by uploading an 'initial_waterlevel_file' Geotiff raster via `rasters/{id}/upload/`. This automatically triggers the creation of a 2D initial waterlevel. The source raster is linked as 'source_raster'. The values in the `source_raster` are aggregated per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  # noqa: E501
+        ### Adding (extra) 1D initial waterlevels Extra 1D initial waterlevels can be added by posting:  {\"dimension\": \"one_d\"}  Using the 'id' value from the response, a JSON file needs to be uploaded via the PUT_URL retrieved from `initial_waterlevels/{id}/upload/` in the following JSON format:  Python code:      import json     file_contents = json.dumps({         \"node_ids\": [node_id_1, node_id2, ....],         \"values\" : [value_for_node_id_1, value_for_node_id_2, ...]     })      # Notes:     # - Omitted values are considered dry.     # - `node_ids` need to be sorted and unique     # - Make sure that the positions of the node_id's and values match.  ### Adding (extra) 2D initial waterlevels 2D initial waterlevels can be added by uploading an 'initial_waterlevel_file' Geotiff raster via `rasters/{id}/upload/`. This automatically triggers the creation of a 2D initial waterlevel. The source raster is linked as 'source_raster'. The values in the `source_raster` are aggregated per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_initial_waterlevels_create(threedimodel_pk, data, async_req=True)
@@ -59322,9 +59327,9 @@ class V3Api(object):
         return self.threedimodels_initial_waterlevels_create_with_http_info(threedimodel_pk, data, **kwargs)  # noqa: E501
 
     def threedimodels_initial_waterlevels_create_with_http_info(self, threedimodel_pk, data, **kwargs):  # noqa: E501
-        """### Adding (extra) 1D initial waterlevels Extra 1D initial waterlevels can be added by posting:  # noqa: E501
+        """Add new initial waterlevels  # noqa: E501
 
-        {\"dimension\": \"one_d\"}  Using the 'id' value from the response, a JSON file needs to be uploaded via the PUT_URL retrieved from `initial_waterlevels/{id}/upload/` in the following JSON format:  Python code:      import json     file_contents = json.dumps({         \"node_ids\": [node_id_1, node_id2, ....],         \"values\" : [value_for_node_id_1, value_for_node_id_2, ...]     })      # Notes:     # - Omitted values are considered dry.     # - `node_ids` need to be sorted and unique     # - Make sure that the positions of the node_id's and values match.  ### Adding (extra) 2D initial waterlevels 2D initial waterlevels can be added by uploading an 'initial_waterlevel_file' Geotiff raster via `rasters/{id}/upload/`. This automatically triggers the creation of a 2D initial waterlevel. The source raster is linked as 'source_raster'. The values in the `source_raster` are aggregated per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  # noqa: E501
+        ### Adding (extra) 1D initial waterlevels Extra 1D initial waterlevels can be added by posting:  {\"dimension\": \"one_d\"}  Using the 'id' value from the response, a JSON file needs to be uploaded via the PUT_URL retrieved from `initial_waterlevels/{id}/upload/` in the following JSON format:  Python code:      import json     file_contents = json.dumps({         \"node_ids\": [node_id_1, node_id2, ....],         \"values\" : [value_for_node_id_1, value_for_node_id_2, ...]     })      # Notes:     # - Omitted values are considered dry.     # - `node_ids` need to be sorted and unique     # - Make sure that the positions of the node_id's and values match.  ### Adding (extra) 2D initial waterlevels 2D initial waterlevels can be added by uploading an 'initial_waterlevel_file' Geotiff raster via `rasters/{id}/upload/`. This automatically triggers the creation of a 2D initial waterlevel. The source raster is linked as 'source_raster'. The values in the `source_raster` are aggregated per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.threedimodels_initial_waterlevels_create_with_http_info(threedimodel_pk, data, async_req=True)

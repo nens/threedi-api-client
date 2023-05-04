@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest stable version: v3) 
-     Framework release: 3.2.6 
-     3Di core release: 2.3.6 
-    deployed on:  07:54AM (UTC) on March 10, 2023
+     Framework release: 3.2.25 
+     3Di core release: 2.4.1 
+    deployed on:  12:00PM (UTC) on May 04, 2023
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -219,7 +219,7 @@ paths:
         - v3-beta
     post:
       operationId: simulations_events_obstacle-edits_create
-      description: A simple ViewSet for viewing obstacle edits
+      description: Create an obstacle edit
       parameters:
         - name: data
           in: body
@@ -1512,6 +1512,11 @@ paths:
           required: false
           type: string
         - name: valid_contracts_only
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: logged_in_user_has_role
           in: query
           description: ''
           required: false
@@ -15253,10 +15258,11 @@ paths:
         - v3
     post:
       operationId: threedimodels_initial_waterlevels_create
-      summary: |-
+      summary: Add new initial waterlevels
+      description: |-
         ### Adding (extra) 1D initial waterlevels
         Extra 1D initial waterlevels can be added by posting:
-      description: |-
+
         {"dimension": "one_d"}
 
         Using the 'id' value from the response, a JSON file needs to be uploaded via the PUT_URL retrieved from
@@ -17052,7 +17058,7 @@ definitions:
       scope:
         title: Scope
         description: "A space-separated list of scopes (options: basic simulate create\
-          \ lizardrain lizardprocess manageusers managecontracts). Alternatively,\
+          \ lizardrain lizardprocess manageusers managecontracts test). Alternatively,\
           \ use '*:readwrite' for all scopes."
         type: string
         minLength: 1
@@ -17099,7 +17105,7 @@ definitions:
       scope:
         title: Scope
         description: "A space-separated list of scopes (options: basic simulate create\
-          \ lizardrain lizardprocess manageusers managecontracts). Alternatively,\
+          \ lizardrain lizardprocess manageusers managecontracts test). Alternatively,\
           \ use '*:readwrite' for all scopes."
         type: string
         minLength: 1
@@ -17233,10 +17239,6 @@ definitions:
               - 52.619558913867856
             - - 4.73849433310911
               - 52.66453976184968
-      relative:
-        title: Relative
-        description: Process the value as a relative height, default is absolute
-        type: boolean
       state:
         title: State
         type: string
@@ -17440,10 +17442,15 @@ definitions:
       scope:
         title: Scope
         description: 'A space-separated list of scopes (options: basic simulate create
-          lizardrain lizardprocess manageusers managecontracts)'
+          lizardrain lizardprocess manageusers managecontracts test)'
         type: string
         readOnly: true
         minLength: 1
+      start_date:
+        title: Start date
+        type: string
+        format: date
+        x-nullable: true
       hours_bought:
         title: Hours bought
         type: integer
@@ -18282,6 +18289,10 @@ definitions:
           - infiltration_rate_file
           - max_infiltration_capacity_file
           - interception_file
+          - vegetation_height_file
+          - vegetation_drag_coefficient_file
+          - vegetation_stem_count_file
+          - vegetation_stem_diameter_file
       name:
         title: Name
         type: string
@@ -18614,6 +18625,10 @@ definitions:
           - infiltration_rate_file
           - max_infiltration_capacity_file
           - interception_file
+          - vegetation_height_file
+          - vegetation_drag_coefficient_file
+          - vegetation_stem_count_file
+          - vegetation_stem_diameter_file
       name:
         title: Name
         type: string
@@ -21544,6 +21559,16 @@ definitions:
         title: ComputeCluster.name
         description: The name of the compute cluster that runs/has run the simulation.
         type: string
+      simulation_runner:
+        title: Simulation runner
+        description: "Only allowed for name values: 'start', 'initialize' or 'queue\
+          \ Simulation runner version used to execute the simulation. If not filled\
+          \ in the default version is used. (Note: used for testing new calccore releases\
+          \ on the staging environment. On production only the default version can\
+          \ be picked)"
+        type: string
+        enum:
+          - 3.2.25-2.4.1
   Timeout:
     required:
       - timeout
@@ -24435,6 +24460,26 @@ definitions:
         type: string
         maxLength: 80
         minLength: 1
+      vegetation_height_file:
+        title: Vegetation height file
+        type: string
+        maxLength: 80
+        minLength: 1
+      vegetation_drag_coefficient_file:
+        title: Vegetation drag coefficient file
+        type: string
+        maxLength: 80
+        minLength: 1
+      vegetation_stem_count_file:
+        title: Vegetation stem count file
+        type: string
+        maxLength: 80
+        minLength: 1
+      vegetation_stem_diameter_file:
+        title: Vegetation stem diameter file
+        type: string
+        maxLength: 80
+        minLength: 1
   BoundaryCondition:
     required:
       - boundary_id
@@ -24508,6 +24553,10 @@ definitions:
           - infiltration_rate_file
           - max_infiltration_capacity_file
           - interception_file
+          - vegetation_height_file
+          - vegetation_drag_coefficient_file
+          - vegetation_stem_count_file
+          - vegetation_stem_diameter_file
       threedimodel:
         title: Threedimodel
         type: string

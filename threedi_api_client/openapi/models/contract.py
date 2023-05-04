@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.6   3Di core release: 2.3.6  deployed on:  07:54AM (UTC) on March 10, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.25   3Di core release: 2.4.1  deployed on:  12:00PM (UTC) on May 04, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -41,6 +41,7 @@ class Contract(object):
         'organisation': 'str',
         'organisation_name': 'str',
         'scope': 'str',
+        'start_date': 'date',
         'hours_bought': 'int',
         'hours_used': 'float',
         'session_limit': 'int',
@@ -55,6 +56,7 @@ class Contract(object):
         'organisation': 'organisation',
         'organisation_name': 'organisation_name',
         'scope': 'scope',
+        'start_date': 'start_date',
         'hours_bought': 'hours_bought',
         'hours_used': 'hours_used',
         'session_limit': 'session_limit',
@@ -63,7 +65,7 @@ class Contract(object):
         'created_by': 'created_by'
     }
 
-    def __init__(self, url=None, id=None, organisation=None, organisation_name=None, scope=None, hours_bought=None, hours_used=None, session_limit=None, current_sessions=None, threedimodel_limit=None, created_by=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, id=None, organisation=None, organisation_name=None, scope=None, start_date=None, hours_bought=None, hours_used=None, session_limit=None, current_sessions=None, threedimodel_limit=None, created_by=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Contract - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -77,6 +79,7 @@ class Contract(object):
         self._organisation = None
         self._organisation_name = None
         self._scope = None
+        self._start_date = None
         self._hours_bought = None
         self._hours_used = None
         self._session_limit = None
@@ -94,6 +97,7 @@ class Contract(object):
             self.organisation_name = organisation_name
         if scope is not None:
             self.scope = scope
+        self.start_date = start_date
         self.hours_bought = hours_bought
         if hours_used is not None:
             self.hours_used = hours_used
@@ -196,7 +200,7 @@ class Contract(object):
     def scope(self):
         """Gets the scope of this Contract.  # noqa: E501
 
-        A space-separated list of scopes (options: basic simulate create lizardrain lizardprocess manageusers managecontracts)  # noqa: E501
+        A space-separated list of scopes (options: basic simulate create lizardrain lizardprocess manageusers managecontracts test)  # noqa: E501
 
         :return: The scope of this Contract.  # noqa: E501
         :rtype: str
@@ -207,7 +211,7 @@ class Contract(object):
     def scope(self, scope):
         """Sets the scope of this Contract.
 
-        A space-separated list of scopes (options: basic simulate create lizardrain lizardprocess manageusers managecontracts)  # noqa: E501
+        A space-separated list of scopes (options: basic simulate create lizardrain lizardprocess manageusers managecontracts test)  # noqa: E501
 
         :param scope: The scope of this Contract.  # noqa: E501
         :type: str
@@ -217,6 +221,27 @@ class Contract(object):
             self.__handle_validation_error("Invalid value for `scope`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._scope = scope
+
+    @property
+    def start_date(self):
+        """Gets the start_date of this Contract.  # noqa: E501
+
+
+        :return: The start_date of this Contract.  # noqa: E501
+        :rtype: date
+        """
+        return self._start_date
+
+    @start_date.setter
+    def start_date(self, start_date):
+        """Sets the start_date of this Contract.
+
+
+        :param start_date: The start_date of this Contract.  # noqa: E501
+        :type: date
+        """
+
+        self._start_date = start_date
 
     @property
     def hours_bought(self):

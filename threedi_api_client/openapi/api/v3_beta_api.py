@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.6   3Di core release: 2.3.6  deployed on:  07:54AM (UTC) on March 10, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.25   3Di core release: 2.4.1  deployed on:  12:00PM (UTC) on May 04, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -738,7 +738,7 @@ class V3BetaApi(object):
     def simulations_events_obstacle_edits_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_obstacle_edits_create  # noqa: E501
 
-        A simple ViewSet for viewing obstacle edits  # noqa: E501
+        Create an obstacle edit  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_obstacle_edits_create(simulation_pk, data, async_req=True)
@@ -764,7 +764,7 @@ class V3BetaApi(object):
     def simulations_events_obstacle_edits_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_obstacle_edits_create  # noqa: E501
 
-        A simple ViewSet for viewing obstacle edits  # noqa: E501
+        Create an obstacle edit  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_obstacle_edits_create_with_http_info(simulation_pk, data, async_req=True)

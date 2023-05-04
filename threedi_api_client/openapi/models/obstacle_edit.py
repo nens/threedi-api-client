@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.6   3Di core release: 2.3.6  deployed on:  07:54AM (UTC) on March 10, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.25   3Di core release: 2.4.1  deployed on:  12:00PM (UTC) on May 04, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -41,7 +41,6 @@ class ObstacleEdit(object):
         'offset': 'int',
         'value': 'float',
         'linestring': 'Linestring',
-        'relative': 'bool',
         'state': 'str',
         'state_detail': 'object',
         'uid': 'str',
@@ -54,14 +53,13 @@ class ObstacleEdit(object):
         'offset': 'offset',
         'value': 'value',
         'linestring': 'linestring',
-        'relative': 'relative',
         'state': 'state',
         'state_detail': 'state_detail',
         'uid': 'uid',
         'id': 'id'
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, value=None, linestring=None, relative=None, state=None, state_detail=None, uid=None, id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, simulation=None, offset=None, value=None, linestring=None, state=None, state_detail=None, uid=None, id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """ObstacleEdit - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,7 +73,6 @@ class ObstacleEdit(object):
         self._offset = None
         self._value = None
         self._linestring = None
-        self._relative = None
         self._state = None
         self._state_detail = None
         self._uid = None
@@ -89,8 +86,6 @@ class ObstacleEdit(object):
         self.offset = offset
         self.value = value
         self.linestring = linestring
-        if relative is not None:
-            self.relative = relative
         if state is not None:
             self.state = state
         if state_detail is not None:
@@ -220,29 +215,6 @@ class ObstacleEdit(object):
             self.__handle_validation_error("Invalid value for `linestring`, must not be `None`")  # noqa: E501
 
         self._linestring = linestring
-
-    @property
-    def relative(self):
-        """Gets the relative of this ObstacleEdit.  # noqa: E501
-
-        Process the value as a relative height, default is absolute  # noqa: E501
-
-        :return: The relative of this ObstacleEdit.  # noqa: E501
-        :rtype: bool
-        """
-        return self._relative
-
-    @relative.setter
-    def relative(self, relative):
-        """Sets the relative of this ObstacleEdit.
-
-        Process the value as a relative height, default is absolute  # noqa: E501
-
-        :param relative: The relative of this ObstacleEdit.  # noqa: E501
-        :type: bool
-        """
-
-        self._relative = relative
 
     @property
     def state(self):

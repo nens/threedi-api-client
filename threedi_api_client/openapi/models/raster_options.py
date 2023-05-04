@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.6   3Di core release: 2.3.6  deployed on:  07:54AM (UTC) on March 10, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.25   3Di core release: 2.4.1  deployed on:  12:00PM (UTC) on May 04, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -52,7 +52,11 @@ class RasterOptions(object):
         'porosity_file': 'str',
         'infiltration_rate_file': 'str',
         'max_infiltration_capacity_file': 'str',
-        'interception_file': 'str'
+        'interception_file': 'str',
+        'vegetation_height_file': 'str',
+        'vegetation_drag_coefficient_file': 'str',
+        'vegetation_stem_count_file': 'str',
+        'vegetation_stem_diameter_file': 'str'
     }
 
     attribute_map = {
@@ -72,10 +76,14 @@ class RasterOptions(object):
         'porosity_file': 'porosity_file',
         'infiltration_rate_file': 'infiltration_rate_file',
         'max_infiltration_capacity_file': 'max_infiltration_capacity_file',
-        'interception_file': 'interception_file'
+        'interception_file': 'interception_file',
+        'vegetation_height_file': 'vegetation_height_file',
+        'vegetation_drag_coefficient_file': 'vegetation_drag_coefficient_file',
+        'vegetation_stem_count_file': 'vegetation_stem_count_file',
+        'vegetation_stem_diameter_file': 'vegetation_stem_diameter_file'
     }
 
-    def __init__(self, dem_file=None, dem_raw_file=None, equilibrium_infiltration_rate_file=None, frict_coef_file=None, initial_groundwater_level_file=None, initial_waterlevel_file=None, groundwater_hydro_connectivity_file=None, groundwater_impervious_layer_level_file=None, infiltration_decay_period_file=None, initial_infiltration_rate_file=None, leakage_file=None, phreatic_storage_capacity_file=None, hydraulic_conductivity_file=None, porosity_file=None, infiltration_rate_file=None, max_infiltration_capacity_file=None, interception_file=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, dem_file=None, dem_raw_file=None, equilibrium_infiltration_rate_file=None, frict_coef_file=None, initial_groundwater_level_file=None, initial_waterlevel_file=None, groundwater_hydro_connectivity_file=None, groundwater_impervious_layer_level_file=None, infiltration_decay_period_file=None, initial_infiltration_rate_file=None, leakage_file=None, phreatic_storage_capacity_file=None, hydraulic_conductivity_file=None, porosity_file=None, infiltration_rate_file=None, max_infiltration_capacity_file=None, interception_file=None, vegetation_height_file=None, vegetation_drag_coefficient_file=None, vegetation_stem_count_file=None, vegetation_stem_diameter_file=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """RasterOptions - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -101,6 +109,10 @@ class RasterOptions(object):
         self._infiltration_rate_file = None
         self._max_infiltration_capacity_file = None
         self._interception_file = None
+        self._vegetation_height_file = None
+        self._vegetation_drag_coefficient_file = None
+        self._vegetation_stem_count_file = None
+        self._vegetation_stem_diameter_file = None
         self.discriminator = None
 
         if dem_file is not None:
@@ -137,6 +149,14 @@ class RasterOptions(object):
             self.max_infiltration_capacity_file = max_infiltration_capacity_file
         if interception_file is not None:
             self.interception_file = interception_file
+        if vegetation_height_file is not None:
+            self.vegetation_height_file = vegetation_height_file
+        if vegetation_drag_coefficient_file is not None:
+            self.vegetation_drag_coefficient_file = vegetation_drag_coefficient_file
+        if vegetation_stem_count_file is not None:
+            self.vegetation_stem_count_file = vegetation_stem_count_file
+        if vegetation_stem_diameter_file is not None:
+            self.vegetation_stem_diameter_file = vegetation_stem_diameter_file
 
     @property
     def dem_file(self):
@@ -596,6 +616,114 @@ class RasterOptions(object):
             self.__handle_validation_error("Invalid value for `interception_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._interception_file = interception_file
+
+    @property
+    def vegetation_height_file(self):
+        """Gets the vegetation_height_file of this RasterOptions.  # noqa: E501
+
+
+        :return: The vegetation_height_file of this RasterOptions.  # noqa: E501
+        :rtype: str
+        """
+        return self._vegetation_height_file
+
+    @vegetation_height_file.setter
+    def vegetation_height_file(self, vegetation_height_file):
+        """Sets the vegetation_height_file of this RasterOptions.
+
+
+        :param vegetation_height_file: The vegetation_height_file of this RasterOptions.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                vegetation_height_file is not None and len(vegetation_height_file) > 80):
+            self.__handle_validation_error("Invalid value for `vegetation_height_file`, length must be less than or equal to `80`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                vegetation_height_file is not None and len(vegetation_height_file) < 1):
+            self.__handle_validation_error("Invalid value for `vegetation_height_file`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._vegetation_height_file = vegetation_height_file
+
+    @property
+    def vegetation_drag_coefficient_file(self):
+        """Gets the vegetation_drag_coefficient_file of this RasterOptions.  # noqa: E501
+
+
+        :return: The vegetation_drag_coefficient_file of this RasterOptions.  # noqa: E501
+        :rtype: str
+        """
+        return self._vegetation_drag_coefficient_file
+
+    @vegetation_drag_coefficient_file.setter
+    def vegetation_drag_coefficient_file(self, vegetation_drag_coefficient_file):
+        """Sets the vegetation_drag_coefficient_file of this RasterOptions.
+
+
+        :param vegetation_drag_coefficient_file: The vegetation_drag_coefficient_file of this RasterOptions.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                vegetation_drag_coefficient_file is not None and len(vegetation_drag_coefficient_file) > 80):
+            self.__handle_validation_error("Invalid value for `vegetation_drag_coefficient_file`, length must be less than or equal to `80`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                vegetation_drag_coefficient_file is not None and len(vegetation_drag_coefficient_file) < 1):
+            self.__handle_validation_error("Invalid value for `vegetation_drag_coefficient_file`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._vegetation_drag_coefficient_file = vegetation_drag_coefficient_file
+
+    @property
+    def vegetation_stem_count_file(self):
+        """Gets the vegetation_stem_count_file of this RasterOptions.  # noqa: E501
+
+
+        :return: The vegetation_stem_count_file of this RasterOptions.  # noqa: E501
+        :rtype: str
+        """
+        return self._vegetation_stem_count_file
+
+    @vegetation_stem_count_file.setter
+    def vegetation_stem_count_file(self, vegetation_stem_count_file):
+        """Sets the vegetation_stem_count_file of this RasterOptions.
+
+
+        :param vegetation_stem_count_file: The vegetation_stem_count_file of this RasterOptions.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                vegetation_stem_count_file is not None and len(vegetation_stem_count_file) > 80):
+            self.__handle_validation_error("Invalid value for `vegetation_stem_count_file`, length must be less than or equal to `80`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                vegetation_stem_count_file is not None and len(vegetation_stem_count_file) < 1):
+            self.__handle_validation_error("Invalid value for `vegetation_stem_count_file`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._vegetation_stem_count_file = vegetation_stem_count_file
+
+    @property
+    def vegetation_stem_diameter_file(self):
+        """Gets the vegetation_stem_diameter_file of this RasterOptions.  # noqa: E501
+
+
+        :return: The vegetation_stem_diameter_file of this RasterOptions.  # noqa: E501
+        :rtype: str
+        """
+        return self._vegetation_stem_diameter_file
+
+    @vegetation_stem_diameter_file.setter
+    def vegetation_stem_diameter_file(self, vegetation_stem_diameter_file):
+        """Sets the vegetation_stem_diameter_file of this RasterOptions.
+
+
+        :param vegetation_stem_diameter_file: The vegetation_stem_diameter_file of this RasterOptions.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                vegetation_stem_diameter_file is not None and len(vegetation_stem_diameter_file) > 80):
+            self.__handle_validation_error("Invalid value for `vegetation_stem_diameter_file`, length must be less than or equal to `80`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                vegetation_stem_diameter_file is not None and len(vegetation_stem_diameter_file) < 1):
+            self.__handle_validation_error("Invalid value for `vegetation_stem_diameter_file`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._vegetation_stem_diameter_file = vegetation_stem_diameter_file
 
     def to_dict(self):
         """Returns the model properties as a dict"""

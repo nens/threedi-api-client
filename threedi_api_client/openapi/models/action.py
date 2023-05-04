@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.6   3Di core release: 2.3.6  deployed on:  07:54AM (UTC) on March 10, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.25   3Di core release: 2.4.1  deployed on:  12:00PM (UTC) on May 04, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,8 @@ class Action(object):
         'duration': 'int',
         'timeout': 'int',
         'max_rate': 'float',
-        'compute_cluster': 'str'
+        'compute_cluster': 'str',
+        'simulation_runner': 'str'
     }
 
     attribute_map = {
@@ -48,10 +49,11 @@ class Action(object):
         'duration': 'duration',
         'timeout': 'timeout',
         'max_rate': 'max_rate',
-        'compute_cluster': 'compute_cluster'
+        'compute_cluster': 'compute_cluster',
+        'simulation_runner': 'simulation_runner'
     }
 
-    def __init__(self, name=None, duration=None, timeout=None, max_rate=None, compute_cluster=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, name=None, duration=None, timeout=None, max_rate=None, compute_cluster=None, simulation_runner=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Action - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +67,7 @@ class Action(object):
         self._timeout = None
         self._max_rate = None
         self._compute_cluster = None
+        self._simulation_runner = None
         self.discriminator = None
 
         self.name = name
@@ -76,6 +79,8 @@ class Action(object):
             self.max_rate = max_rate
         if compute_cluster is not None:
             self.compute_cluster = compute_cluster
+        if simulation_runner is not None:
+            self.simulation_runner = simulation_runner
 
     @property
     def name(self):
@@ -206,6 +211,35 @@ class Action(object):
         """
 
         self._compute_cluster = compute_cluster
+
+    @property
+    def simulation_runner(self):
+        """Gets the simulation_runner of this Action.  # noqa: E501
+
+        Only allowed for name values: 'start', 'initialize' or 'queue Simulation runner version used to execute the simulation. If not filled in the default version is used. (Note: used for testing new calccore releases on the staging environment. On production only the default version can be picked)  # noqa: E501
+
+        :return: The simulation_runner of this Action.  # noqa: E501
+        :rtype: str
+        """
+        return self._simulation_runner
+
+    @simulation_runner.setter
+    def simulation_runner(self, simulation_runner):
+        """Sets the simulation_runner of this Action.
+
+        Only allowed for name values: 'start', 'initialize' or 'queue Simulation runner version used to execute the simulation. If not filled in the default version is used. (Note: used for testing new calccore releases on the staging environment. On production only the default version can be picked)  # noqa: E501
+
+        :param simulation_runner: The simulation_runner of this Action.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["3.2.25-2.4.1"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and simulation_runner not in allowed_values:  # noqa: E501
+            self.__handle_validation_error(
+                "Invalid value for `simulation_runner` ({0}), must be one of {1}"  # noqa: E501
+                .format(simulation_runner, allowed_values)
+            )
+
+        self._simulation_runner = simulation_runner
 
     def to_dict(self):
         """Returns the model properties as a dict"""
