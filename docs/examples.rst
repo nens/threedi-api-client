@@ -139,20 +139,6 @@ If you want to see which events are defined on a given simulation
                    'values': [[0.0, 0.0006], [5000.0, 0.0]]}],
    'timeseriessourcessinks': []}
 
-To list all file resources, make use of the ``files_list`` method.
-
-.. code:: python
-
-       api.files_list()                                                                                                                
-       {'count': 3064,
-       'next': 'https://api.3di.live/v3.0/files/?limit=10&offset=10',
-       'previous': None,
-       'results': [{'bucket': '3di',
-               'etag': None,
-               'expiry_date': '2019-08-16',
-               'filename': 'precipitation_1.nc',
-               'id': 2,
-               ..
 
 Advanced usage
 ~~~~~~~~~~~~~~
@@ -161,11 +147,12 @@ See below for an example of uploading a rain raster.
 
 .. code:: python
 
+   from pathlib import Path
    from threedi_api_client.files import upload_file
 
    simulation_pk = 1
    filename = 'bergermeer_rasters_from_geotiffs.nc'
-   local_file_path = './data/bergermeer_rasters_from_geotiffs.nc'
+   local_file_path = Path('./data/bergermeer_rasters_from_geotiffs.nc')
 
    # Create rain raster upload resource in API
    # returns a 'file_upload' instance containing a
@@ -175,7 +162,7 @@ See below for an example of uploading a rain raster.
        filename, simulation_pk)
 
    # Upload the file
-   upload_file(local_file_path, file_upload.put_url)
+   upload_file(file_upload.put_url, local_file_path)
 
 
 Async client
@@ -193,20 +180,19 @@ For example, to asynchronously request files from the api:
 
    import asyncio
 
-   from threedi_api_client import ThreediApi
-
+   from threedi_api_client.api import ThreediApi
+   from threedi_api_client.openapi.api.v3_api import V3Api
 
    config = {
-       "THREEDI_API_HOST": "https://api.3di.live/v3.0",
-       "THREEDI_API_USERNAME": "black.sheep",
-       "THREEDI_API_PASSWORD": "myverysecretmehhh"
+       "THREEDI_API_HOST": "https://api.3di.live",
+       "THREEDI_API_PERSONAL_API_TOKEN": "your_personal_api_token_here"
    }
 
 
    async def main():
        async with ThreediApi(config=config) as api_client:
-           api = V3Api(api_client)
-           print(await api.files_list())
+           api_client: V3Api
+           print(await api_client.files_list())
 
 
    if __name__ == '__main__':
