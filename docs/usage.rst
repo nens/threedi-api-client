@@ -57,9 +57,8 @@ Applying the changes listed above, it is refactored to this:
     from threedi_api_client import ThreediApi
 
     config = {
-        "THREEDI_API_HOST": "https://api.3di.live"  # no version!
-        "THREEDI_API_USERNAME": "your.username"
-        "THREEDI_API_PASSWORD": "your.password"
+        "THREEDI_API_HOST": "https://api.3di.live",  # no version!
+        "THREEDI_API_PERSONAL_API_TOKEN": "your_personal_api_token_here"
     }
 
     with ThreediApi(config=config) as api:
