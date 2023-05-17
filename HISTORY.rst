@@ -6,6 +6,7 @@ History
 ------------------
 
 - Build the release with the build package instead of setuptools.
+- Rewrite release workflow to use a supported github action for github release.
 
 
 4.1.2 (2023-04-25)
