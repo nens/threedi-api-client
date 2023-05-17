@@ -5,7 +5,7 @@ History
 4.1.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Build the release with the build package instead of setuptools.
 
 
 4.1.2 (2023-04-25)
