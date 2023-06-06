@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.25   3Di core release: 2.4.1  deployed on:  12:00PM (UTC) on May 04, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.31   3Di core release: 2.4.3  deployed on:  07:16AM (UTC) on June 06, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -3549,6 +3549,7 @@ class V3Api(object):
         :param str unique_id__regex:
         :param str valid_contracts_only:
         :param str logged_in_user_has_role:
+        :param str contract__scope__in: Multiple values may be separated by commas.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3595,6 +3596,7 @@ class V3Api(object):
         :param str unique_id__regex:
         :param str valid_contracts_only:
         :param str logged_in_user_has_role:
+        :param str contract__scope__in: Multiple values may be separated by commas.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -3634,6 +3636,7 @@ class V3Api(object):
             'unique_id__regex',
             'valid_contracts_only',
             'logged_in_user_has_role',
+            'contract__scope__in',
             'limit',
             'offset'
         ]
@@ -3700,6 +3703,8 @@ class V3Api(object):
             query_params.append(('valid_contracts_only', local_var_params['valid_contracts_only']))  # noqa: E501
         if 'logged_in_user_has_role' in local_var_params and local_var_params['logged_in_user_has_role'] is not None:  # noqa: E501
             query_params.append(('logged_in_user_has_role', local_var_params['logged_in_user_has_role']))  # noqa: E501
+        if 'contract__scope__in' in local_var_params and local_var_params['contract__scope__in'] is not None:  # noqa: E501
+            query_params.append(('contract__scope__in', local_var_params['contract__scope__in']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501

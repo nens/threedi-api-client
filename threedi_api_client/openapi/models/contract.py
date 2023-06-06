@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.25   3Di core release: 2.4.1  deployed on:  12:00PM (UTC) on May 04, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.31   3Di core release: 2.4.3  deployed on:  07:16AM (UTC) on June 06, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -200,7 +200,7 @@ class Contract(object):
     def scope(self):
         """Gets the scope of this Contract.  # noqa: E501
 
-        A space-separated list of scopes (options: basic simulate create lizardrain lizardprocess manageusers managecontracts test)  # noqa: E501
+        A space-separated list of scopes (options: basic simulate create lizardrain lizardprocess manageusers managecontracts test livesite)  # noqa: E501
 
         :return: The scope of this Contract.  # noqa: E501
         :rtype: str
@@ -211,7 +211,7 @@ class Contract(object):
     def scope(self, scope):
         """Sets the scope of this Contract.
 
-        A space-separated list of scopes (options: basic simulate create lizardrain lizardprocess manageusers managecontracts test)  # noqa: E501
+        A space-separated list of scopes (options: basic simulate create lizardrain lizardprocess manageusers managecontracts test livesite)  # noqa: E501
 
         :param scope: The scope of this Contract.  # noqa: E501
         :type: str

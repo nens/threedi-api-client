@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.25   3Di core release: 2.4.1  deployed on:  12:00PM (UTC) on May 04, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.31   3Di core release: 2.4.3  deployed on:  07:16AM (UTC) on June 06, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -42,6 +42,8 @@ class SimulationStatus(object):
         'simulation_id': 'int',
         'simulation_name': 'str',
         'simulation_tags': 'list[str]',
+        'simulation_user_first_name': 'str',
+        'simulation_user_last_name': 'str',
         'threedimodel_slug': 'str',
         'threedimodel_id': 'int',
         'has_results': 'bool',
@@ -61,6 +63,8 @@ class SimulationStatus(object):
         'simulation_id': 'simulation_id',
         'simulation_name': 'simulation_name',
         'simulation_tags': 'simulation_tags',
+        'simulation_user_first_name': 'simulation_user_first_name',
+        'simulation_user_last_name': 'simulation_user_last_name',
         'threedimodel_slug': 'threedimodel_slug',
         'threedimodel_id': 'threedimodel_id',
         'has_results': 'has_results',
@@ -73,7 +77,7 @@ class SimulationStatus(object):
         'id': 'id'
     }
 
-    def __init__(self, url=None, name=None, simulation=None, simulation_id=None, simulation_name=None, simulation_tags=None, threedimodel_slug=None, threedimodel_id=None, has_results=None, created=None, expiry=None, time=None, paused=None, detail=None, exit_code=None, id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, name=None, simulation=None, simulation_id=None, simulation_name=None, simulation_tags=None, simulation_user_first_name=None, simulation_user_last_name=None, threedimodel_slug=None, threedimodel_id=None, has_results=None, created=None, expiry=None, time=None, paused=None, detail=None, exit_code=None, id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """SimulationStatus - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -88,6 +92,8 @@ class SimulationStatus(object):
         self._simulation_id = None
         self._simulation_name = None
         self._simulation_tags = None
+        self._simulation_user_first_name = None
+        self._simulation_user_last_name = None
         self._threedimodel_slug = None
         self._threedimodel_id = None
         self._has_results = None
@@ -111,6 +117,10 @@ class SimulationStatus(object):
             self.simulation_name = simulation_name
         if simulation_tags is not None:
             self.simulation_tags = simulation_tags
+        if simulation_user_first_name is not None:
+            self.simulation_user_first_name = simulation_user_first_name
+        if simulation_user_last_name is not None:
+            self.simulation_user_last_name = simulation_user_last_name
         if threedimodel_slug is not None:
             self.threedimodel_slug = threedimodel_slug
         if threedimodel_id is not None:
@@ -259,6 +269,48 @@ class SimulationStatus(object):
         """
 
         self._simulation_tags = simulation_tags
+
+    @property
+    def simulation_user_first_name(self):
+        """Gets the simulation_user_first_name of this SimulationStatus.  # noqa: E501
+
+
+        :return: The simulation_user_first_name of this SimulationStatus.  # noqa: E501
+        :rtype: str
+        """
+        return self._simulation_user_first_name
+
+    @simulation_user_first_name.setter
+    def simulation_user_first_name(self, simulation_user_first_name):
+        """Sets the simulation_user_first_name of this SimulationStatus.
+
+
+        :param simulation_user_first_name: The simulation_user_first_name of this SimulationStatus.  # noqa: E501
+        :type: str
+        """
+
+        self._simulation_user_first_name = simulation_user_first_name
+
+    @property
+    def simulation_user_last_name(self):
+        """Gets the simulation_user_last_name of this SimulationStatus.  # noqa: E501
+
+
+        :return: The simulation_user_last_name of this SimulationStatus.  # noqa: E501
+        :rtype: str
+        """
+        return self._simulation_user_last_name
+
+    @simulation_user_last_name.setter
+    def simulation_user_last_name(self, simulation_user_last_name):
+        """Sets the simulation_user_last_name of this SimulationStatus.
+
+
+        :param simulation_user_last_name: The simulation_user_last_name of this SimulationStatus.  # noqa: E501
+        :type: str
+        """
+
+        self._simulation_user_last_name = simulation_user_last_name
 
     @property
     def threedimodel_slug(self):
