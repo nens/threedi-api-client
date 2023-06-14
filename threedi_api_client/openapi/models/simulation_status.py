@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.31   3Di core release: 2.4.3  deployed on:  07:16AM (UTC) on June 06, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.34   3Di core release: 2.4.3  deployed on:  05:50PM (UTC) on June 14, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -41,6 +41,8 @@ class SimulationStatus(object):
         'simulation': 'str',
         'simulation_id': 'int',
         'simulation_name': 'str',
+        'simulation_user_email': 'str',
+        'simulation_organisation_unique_id': 'str',
         'simulation_tags': 'list[str]',
         'simulation_user_first_name': 'str',
         'simulation_user_last_name': 'str',
@@ -62,6 +64,8 @@ class SimulationStatus(object):
         'simulation': 'simulation',
         'simulation_id': 'simulation_id',
         'simulation_name': 'simulation_name',
+        'simulation_user_email': 'simulation_user_email',
+        'simulation_organisation_unique_id': 'simulation_organisation_unique_id',
         'simulation_tags': 'simulation_tags',
         'simulation_user_first_name': 'simulation_user_first_name',
         'simulation_user_last_name': 'simulation_user_last_name',
@@ -77,7 +81,7 @@ class SimulationStatus(object):
         'id': 'id'
     }
 
-    def __init__(self, url=None, name=None, simulation=None, simulation_id=None, simulation_name=None, simulation_tags=None, simulation_user_first_name=None, simulation_user_last_name=None, threedimodel_slug=None, threedimodel_id=None, has_results=None, created=None, expiry=None, time=None, paused=None, detail=None, exit_code=None, id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, name=None, simulation=None, simulation_id=None, simulation_name=None, simulation_user_email=None, simulation_organisation_unique_id=None, simulation_tags=None, simulation_user_first_name=None, simulation_user_last_name=None, threedimodel_slug=None, threedimodel_id=None, has_results=None, created=None, expiry=None, time=None, paused=None, detail=None, exit_code=None, id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """SimulationStatus - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -91,6 +95,8 @@ class SimulationStatus(object):
         self._simulation = None
         self._simulation_id = None
         self._simulation_name = None
+        self._simulation_user_email = None
+        self._simulation_organisation_unique_id = None
         self._simulation_tags = None
         self._simulation_user_first_name = None
         self._simulation_user_last_name = None
@@ -115,6 +121,10 @@ class SimulationStatus(object):
             self.simulation_id = simulation_id
         if simulation_name is not None:
             self.simulation_name = simulation_name
+        if simulation_user_email is not None:
+            self.simulation_user_email = simulation_user_email
+        if simulation_organisation_unique_id is not None:
+            self.simulation_organisation_unique_id = simulation_organisation_unique_id
         if simulation_tags is not None:
             self.simulation_tags = simulation_tags
         if simulation_user_first_name is not None:
@@ -248,6 +258,48 @@ class SimulationStatus(object):
         """
 
         self._simulation_name = simulation_name
+
+    @property
+    def simulation_user_email(self):
+        """Gets the simulation_user_email of this SimulationStatus.  # noqa: E501
+
+
+        :return: The simulation_user_email of this SimulationStatus.  # noqa: E501
+        :rtype: str
+        """
+        return self._simulation_user_email
+
+    @simulation_user_email.setter
+    def simulation_user_email(self, simulation_user_email):
+        """Sets the simulation_user_email of this SimulationStatus.
+
+
+        :param simulation_user_email: The simulation_user_email of this SimulationStatus.  # noqa: E501
+        :type: str
+        """
+
+        self._simulation_user_email = simulation_user_email
+
+    @property
+    def simulation_organisation_unique_id(self):
+        """Gets the simulation_organisation_unique_id of this SimulationStatus.  # noqa: E501
+
+
+        :return: The simulation_organisation_unique_id of this SimulationStatus.  # noqa: E501
+        :rtype: str
+        """
+        return self._simulation_organisation_unique_id
+
+    @simulation_organisation_unique_id.setter
+    def simulation_organisation_unique_id(self, simulation_organisation_unique_id):
+        """Sets the simulation_organisation_unique_id of this SimulationStatus.
+
+
+        :param simulation_organisation_unique_id: The simulation_organisation_unique_id of this SimulationStatus.  # noqa: E501
+        :type: str
+        """
+
+        self._simulation_organisation_unique_id = simulation_organisation_unique_id
 
     @property
     def simulation_tags(self):

@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest stable version: v3) 
-     Framework release: 3.2.31 
+     Framework release: 3.2.34 
      3Di core release: 2.4.3 
-    deployed on:  07:16AM (UTC) on June 06, 2023
+    deployed on:  05:50PM (UTC) on June 14, 2023
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -21573,7 +21573,7 @@ definitions:
           \ be picked)"
         type: string
         enum:
-          - 3.2.31-2.4.3
+          - 3.2.34-2.4.3
   Timeout:
     required:
       - timeout
@@ -23941,6 +23941,14 @@ definitions:
         readOnly: true
       simulation_name:
         title: Simulation name
+        type: string
+        readOnly: true
+      simulation_user_email:
+        title: Simulation user email
+        type: string
+        readOnly: true
+      simulation_organisation_unique_id:
+        title: Simulation organisation unique id
         type: string
         readOnly: true
       simulation_tags:

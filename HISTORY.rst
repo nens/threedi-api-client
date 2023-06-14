@@ -5,6 +5,7 @@ History
 4.1.3 (unreleased)
 ------------------
 
+- Release 3.2.34
 - Build the release with the build package instead of setuptools.
 - Rewrite release workflow to use a supported github action for github release.
 
