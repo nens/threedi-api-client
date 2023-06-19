@@ -5,7 +5,7 @@ History
 4.1.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Allow passing (extra) HTTP headers via `file_upload` function.
 
 
 4.1.3 (2023-06-14)

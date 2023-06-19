@@ -4,7 +4,7 @@ import logging
 import os
 import re
 from pathlib import Path
-from typing import BinaryIO, Optional, Tuple, Callable, Union
+from typing import BinaryIO, Optional, Tuple, Callable, Union, Dict
 from urllib.parse import urlparse
 
 import urllib3
@@ -204,6 +204,7 @@ def upload_file(
     pool: Optional[urllib3.PoolManager] = None,
     md5: Optional[bytes] = None,
     callback_func: Optional[Callable[[int, int], None]] = None,
+    headers: Optional[Dict] = None
 ) -> int:
     """Upload a file at specified file path to a url.
 
@@ -221,6 +222,7 @@ def upload_file(
             should be included in the signing procedure.
         callback_func: optional function used to receive: bytes_uploaded, total_bytes
             for example: def callback(bytes_uploaded: int, total_bytes: int) -> None
+        headers: optional extra headers for the PUT request.
 
     Returns:
         The total number of uploaded bytes.
@@ -248,6 +250,7 @@ def upload_file(
             pool=pool,
             md5=md5,
             callback_func=callback_func,
+            headers=headers,
         )
 
     return size
@@ -301,6 +304,7 @@ def upload_fileobj(
     pool: Optional[urllib3.PoolManager] = None,
     md5: Optional[bytes] = None,
     callback_func: Optional[Callable[[int, int], None]] = None,
+    headers: Optional[Dict] = None
 ) -> int:
     """Upload a file object to a url.
 
@@ -318,6 +322,7 @@ def upload_fileobj(
             should be included in the signing procedure.
         callback_func: optional function used to receive: bytes_uploaded, total_bytes
             for example: def callback(bytes_uploaded: int, total_bytes: int) -> None
+        headers: extra headers to pass in PUT request
 
     Returns:
         The total number of uploaded bytes.
@@ -363,12 +368,15 @@ def upload_fileobj(
         fileobj, chunk_size=chunk_size, callback_func=callback,
     )
 
+    if headers is None:
+        headers = {}
+
     # Tested: both Content-Length and Content-MD5 are checked by Minio
-    headers = {
-       "Content-Length": str(file_size),
-    }
+    headers["Content-Length"] = str(file_size)
+
     if md5 is not None:
         headers["Content-MD5"] = base64.b64encode(md5).decode()
+    
     response = pool.request(
         "PUT",
         url,
