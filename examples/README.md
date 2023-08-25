@@ -18,6 +18,7 @@ Basics:
 
 Advanced
 - [visualise a threedimodel](./visualise_threedimodel.ipynb)
+- [visualise results of 1D nodes of a threedimodel](./visualise_results_1D_nodes_threedimodel.ipynb)
 - [interact with simulations via websockets](./interact_via_websocket.ipynb)
 
 These notebooks only show the tip of the iceberg of what's possible with the 3Di api, but 
