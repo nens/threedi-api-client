@@ -5,7 +5,7 @@ History
 4.1.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Update to framework release 3.2.75
 
 
 4.1.4 (2023-06-19)
