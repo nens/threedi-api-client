@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest stable version: v3) 
-     Framework release: 3.2.34 
-     3Di core release: 2.4.3 
-    deployed on:  05:50PM (UTC) on June 14, 2023
+     Framework release: 3.2.65 
+     3Di core release: 3.2.1 
+    deployed on:  12:21PM (UTC) on October 03, 2023
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -3224,6 +3224,11 @@ paths:
           description: ''
           required: false
           type: string
+        - name: archived
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: ordering
           in: query
           description: Which field to use when ordering the results.
@@ -3327,9 +3332,7 @@ paths:
         - v3
     delete:
       operationId: schematisations_delete
-      description: |-
-        Schematisation can only be deleted when all commited revisions are
-        deleted.
+      description: Archive schematisation.
       parameters: []
       responses:
         '204':
@@ -3802,6 +3805,22 @@ paths:
             $ref: '#/definitions/SchematisationRevision'
       tags:
         - v3
+    patch:
+      operationId: schematisations_revisions_partial_update
+      description: Manage revisions of schematisations.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateRevision'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/UpdateRevision'
+      tags:
+        - v3
     delete:
       operationId: schematisations_revisions_delete
       description: Provide the revision id to delete the revision
@@ -3903,7 +3922,12 @@ paths:
     post:
       operationId: schematisations_revisions_create_threedimodel
       description: Manage revisions of schematisations.
-      parameters: []
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CreateThreedimodel'
       responses:
         '200':
           description: ''
@@ -4616,6 +4640,22 @@ paths:
             $ref: '#/definitions/Template'
       tags:
         - v3
+    patch:
+      operationId: simulation-templates_partial_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateTemplate'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/UpdateTemplate'
+      tags:
+        - v3
     delete:
       operationId: simulation-templates_delete
       description: ''
@@ -4673,6 +4713,11 @@ paths:
             ?created__year=1974&created__month=04
         ```
       parameters:
+        - name: id__contains
+          in: query
+          description: ''
+          required: false
+          type: number
         - name: name
           in: query
           description: ''
@@ -11540,7 +11585,7 @@ paths:
       responses:
         '404':
           description: resource arrival_time not found
-        '401':
+        '400':
           description: not allowed, Lizard already started post-processing
         '204':
           description: deleted resource arrival_time
@@ -11697,7 +11742,7 @@ paths:
       responses:
         '404':
           description: resource basic_post_processing not found
-        '401':
+        '400':
           description: not allowed, Lizard already started post-processing
         '204':
           description: deleted resource basic_post_processing
@@ -17585,6 +17630,10 @@ definitions:
         title: Get url
         type: string
         readOnly: true
+      is_internal:
+        title: Is internal
+        type: boolean
+        default: true
       etag:
         title: Etag
         description: Optional eTag (md5sum)
@@ -18163,6 +18212,11 @@ definitions:
         description: The creation date and time (only superusers can modify)
         type: string
         format: date-time
+      archived:
+        title: Archived
+        type: string
+        format: date-time
+        readOnly: true
       last_updated:
         title: Last updated
         type: string
@@ -18453,6 +18507,14 @@ definitions:
         description: An optional creation datetime (only superusers can modify)
         type: string
         format: date-time
+  UpdateRevision:
+    type: object
+    properties:
+      commit_message:
+        title: Commit message
+        type: string
+        minLength: 1
+        x-nullable: true
   DestroyRevision:
     required:
       - number
@@ -18552,6 +18614,20 @@ definitions:
         type: string
         maxLength: 128
         x-nullable: true
+  CreateThreedimodel:
+    type: object
+    properties:
+      inherit_from_previous_threedimodel:
+        title: Inherit from previous threedimodel
+        description: Try to inherit simulation templates from previous threedimodel
+          (in case of regenerate)
+        type: boolean
+        default: true
+      inherit_from_previous_revision:
+        title: Inherit from previous revision
+        description: Try to inherit simulation templates from previous revision
+        type: boolean
+        default: false
   SqliteFileUpload:
     required:
       - filename
@@ -18855,6 +18931,16 @@ definitions:
         title: Include settings
         type: boolean
         default: true
+  UpdateTemplate:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 255
+        minLength: 1
   FromTemplate:
     required:
       - template
@@ -20818,6 +20904,7 @@ definitions:
           - set_discharge_coefficients
           - set_crest_level
           - set_pump_capacity
+          - set_gate_level
       values:
         type: array
         items:
@@ -20908,6 +20995,7 @@ definitions:
           - set_discharge_coefficients
           - set_crest_level
           - set_pump_capacity
+          - set_gate_level
       value:
         description: 'list containing a single action values, e.g. [*action_value*].
           For type set_discharge_coefficients two action values need to be provided,
@@ -21005,6 +21093,7 @@ definitions:
           - set_discharge_coefficients
           - set_crest_level
           - set_pump_capacity
+          - set_gate_level
       structure_id:
         title: Structure id
         type: integer
@@ -21540,6 +21629,7 @@ definitions:
           - pause
           - shutdown
           - queue
+          - dequeue
       duration:
         title: Duration
         description: Only valid for name='start'. Run simulation for given duration
@@ -21573,7 +21663,7 @@ definitions:
           \ be picked)"
         type: string
         enum:
-          - 3.2.34-2.4.3
+          - 3.2.65-3.2.1
   Timeout:
     required:
       - timeout
@@ -24021,6 +24111,7 @@ definitions:
           - 4120
           - 4220
           - 4150
+          - 4280
           - 4240
           - 4270
           - 4230
@@ -24830,6 +24921,7 @@ definitions:
           - make_cog
           - make_geojson
           - make_simulation_templates
+          - inherit_simulation_templates
           - make_aggregations
       params:
         title: Params
@@ -24849,6 +24941,7 @@ definitions:
         title: Status
         type: string
         enum:
+          - created
           - pending
           - sent
           - received

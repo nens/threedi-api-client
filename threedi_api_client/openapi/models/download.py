@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.34   3Di core release: 2.4.3  deployed on:  05:50PM (UTC) on June 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.65   3Di core release: 3.2.1  deployed on:  12:21PM (UTC) on October 03, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,17 +37,19 @@ class Download(object):
     """
     openapi_types = {
         'get_url': 'str',
+        'is_internal': 'bool',
         'etag': 'str',
         'size': 'int'
     }
 
     attribute_map = {
         'get_url': 'get_url',
+        'is_internal': 'is_internal',
         'etag': 'etag',
         'size': 'size'
     }
 
-    def __init__(self, get_url=None, etag=None, size=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, get_url=None, is_internal=True, etag=None, size=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Download - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,12 +59,15 @@ class Download(object):
         self._fetched_from_api = fetched_from_api
 
         self._get_url = None
+        self._is_internal = None
         self._etag = None
         self._size = None
         self.discriminator = None
 
         if get_url is not None:
             self.get_url = get_url
+        if is_internal is not None:
+            self.is_internal = is_internal
         if etag is not None:
             self.etag = etag
         if size is not None:
@@ -88,6 +93,27 @@ class Download(object):
         """
 
         self._get_url = get_url
+
+    @property
+    def is_internal(self):
+        """Gets the is_internal of this Download.  # noqa: E501
+
+
+        :return: The is_internal of this Download.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_internal
+
+    @is_internal.setter
+    def is_internal(self, is_internal):
+        """Sets the is_internal of this Download.
+
+
+        :param is_internal: The is_internal of this Download.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_internal = is_internal
 
     @property
     def etag(self):

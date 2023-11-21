@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.34   3Di core release: 2.4.3  deployed on:  05:50PM (UTC) on June 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.65   3Di core release: 3.2.1  deployed on:  12:21PM (UTC) on October 03, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -7556,7 +7556,7 @@ class V3Api(object):
     def schematisations_delete(self, id, **kwargs):  # noqa: E501
         """schematisations_delete  # noqa: E501
 
-        Schematisation can only be deleted when all commited revisions are deleted.  # noqa: E501
+        Archive schematisation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.schematisations_delete(id, async_req=True)
@@ -7581,7 +7581,7 @@ class V3Api(object):
     def schematisations_delete_with_http_info(self, id, **kwargs):  # noqa: E501
         """schematisations_delete  # noqa: E501
 
-        Schematisation can only be deleted when all commited revisions are deleted.  # noqa: E501
+        Archive schematisation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.schematisations_delete_with_http_info(id, async_req=True)
@@ -7879,6 +7879,7 @@ class V3Api(object):
         :param str owner__unique_id__endswith:
         :param str owner__unique_id__regex:
         :param str tags__in:
+        :param str archived:
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -7998,6 +7999,7 @@ class V3Api(object):
         :param str owner__unique_id__endswith:
         :param str owner__unique_id__regex:
         :param str tags__in:
+        :param str archived:
         :param str ordering: Which field to use when ordering the results.
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -8110,6 +8112,7 @@ class V3Api(object):
             'owner__unique_id__endswith',
             'owner__unique_id__regex',
             'tags__in',
+            'archived',
             'ordering',
             'limit',
             'offset'
@@ -8321,6 +8324,8 @@ class V3Api(object):
             query_params.append(('owner__unique_id__regex', local_var_params['owner__unique_id__regex']))  # noqa: E501
         if 'tags__in' in local_var_params and local_var_params['tags__in'] is not None:  # noqa: E501
             query_params.append(('tags__in', local_var_params['tags__in']))  # noqa: E501
+        if 'archived' in local_var_params and local_var_params['archived'] is not None:  # noqa: E501
+            query_params.append(('archived', local_var_params['archived']))  # noqa: E501
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -8984,18 +8989,19 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def schematisations_revisions_create_threedimodel(self, id, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_create_threedimodel(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
         """schematisations_revisions_create_threedimodel  # noqa: E501
 
         Manage revisions of schematisations.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.schematisations_revisions_create_threedimodel(id, schematisation_pk, async_req=True)
+        >>> thread = api.schematisations_revisions_create_threedimodel(id, schematisation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this revision. (required)
         :param str schematisation_pk: (required)
+        :param CreateThreedimodel data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9008,20 +9014,21 @@ class V3Api(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.schematisations_revisions_create_threedimodel_with_http_info(id, schematisation_pk, **kwargs)  # noqa: E501
+        return self.schematisations_revisions_create_threedimodel_with_http_info(id, schematisation_pk, data, **kwargs)  # noqa: E501
 
-    def schematisations_revisions_create_threedimodel_with_http_info(self, id, schematisation_pk, **kwargs):  # noqa: E501
+    def schematisations_revisions_create_threedimodel_with_http_info(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
         """schematisations_revisions_create_threedimodel  # noqa: E501
 
         Manage revisions of schematisations.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.schematisations_revisions_create_threedimodel_with_http_info(id, schematisation_pk, async_req=True)
+        >>> thread = api.schematisations_revisions_create_threedimodel_with_http_info(id, schematisation_pk, data, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this revision. (required)
         :param str schematisation_pk: (required)
+        :param CreateThreedimodel data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9040,7 +9047,8 @@ class V3Api(object):
 
         all_params = [
             'id',
-            'schematisation_pk'
+            'schematisation_pk',
+            'data'
         ]
         all_params.extend(
             [
@@ -9067,6 +9075,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['schematisation_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_create_threedimodel`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_revisions_create_threedimodel`")  # noqa: E501
 
         collection_formats = {}
 
@@ -9084,8 +9096,14 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
 
         # Authentication setting
@@ -9721,6 +9739,142 @@ class V3Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='InlineResponse20013',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def schematisations_revisions_partial_update(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
+        """schematisations_revisions_partial_update  # noqa: E501
+
+        Manage revisions of schematisations.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.schematisations_revisions_partial_update(id, schematisation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this revision. (required)
+        :param str schematisation_pk: (required)
+        :param UpdateRevision data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: UpdateRevision
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.schematisations_revisions_partial_update_with_http_info(id, schematisation_pk, data, **kwargs)  # noqa: E501
+
+    def schematisations_revisions_partial_update_with_http_info(self, id, schematisation_pk, data, **kwargs):  # noqa: E501
+        """schematisations_revisions_partial_update  # noqa: E501
+
+        Manage revisions of schematisations.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.schematisations_revisions_partial_update_with_http_info(id, schematisation_pk, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this revision. (required)
+        :param str schematisation_pk: (required)
+        :param UpdateRevision data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(UpdateRevision, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'schematisation_pk',
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method schematisations_revisions_partial_update" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_partial_update`")  # noqa: E501
+        # verify the required parameter 'schematisation_pk' is set
+        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
+                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_partial_update`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `schematisations_revisions_partial_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'schematisation_pk' in local_var_params:
+            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/schematisations/{schematisation_pk}/revisions/{id}/', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='UpdateRevision',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12886,6 +13040,131 @@ class V3Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='InlineResponse20016',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def simulation_templates_partial_update(self, id, data, **kwargs):  # noqa: E501
+        """simulation_templates_partial_update  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulation_templates_partial_update(id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this template. (required)
+        :param UpdateTemplate data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: UpdateTemplate
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.simulation_templates_partial_update_with_http_info(id, data, **kwargs)  # noqa: E501
+
+    def simulation_templates_partial_update_with_http_info(self, id, data, **kwargs):  # noqa: E501
+        """simulation_templates_partial_update  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.simulation_templates_partial_update_with_http_info(id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this template. (required)
+        :param UpdateTemplate data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(UpdateTemplate, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method simulation_templates_partial_update" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `simulation_templates_partial_update`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `simulation_templates_partial_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/simulation-templates/{id}/', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='UpdateTemplate',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -46076,6 +46355,7 @@ class V3Api(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param float id__contains:
         :param str name:
         :param str name__iexact:
         :param str name__contains:
@@ -46142,6 +46422,7 @@ class V3Api(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param float id__contains:
         :param str name:
         :param str name__iexact:
         :param str name__contains:
@@ -46201,6 +46482,7 @@ class V3Api(object):
         local_var_params = locals()
 
         all_params = [
+            'id__contains',
             'name',
             'name__iexact',
             'name__contains',
@@ -46267,6 +46549,8 @@ class V3Api(object):
         path_params = {}
 
         query_params = []
+        if 'id__contains' in local_var_params and local_var_params['id__contains'] is not None:  # noqa: E501
+            query_params.append(('id__contains', local_var_params['id__contains']))  # noqa: E501
         if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
             query_params.append(('name', local_var_params['name']))  # noqa: E501
         if 'name__iexact' in local_var_params and local_var_params['name__iexact'] is not None:  # noqa: E501

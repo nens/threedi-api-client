@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.34   3Di core release: 2.4.3  deployed on:  05:50PM (UTC) on June 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.65   3Di core release: 3.2.1  deployed on:  12:21PM (UTC) on October 03, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -47,6 +47,7 @@ class Schematisation(object):
         'created_by_first_name': 'str',
         'created_by_last_name': 'str',
         'created': 'datetime',
+        'archived': 'datetime',
         'last_updated': 'datetime',
         'storage_usage': 'int',
         'threedimodel_limit': 'int'
@@ -64,12 +65,13 @@ class Schematisation(object):
         'created_by_first_name': 'created_by_first_name',
         'created_by_last_name': 'created_by_last_name',
         'created': 'created',
+        'archived': 'archived',
         'last_updated': 'last_updated',
         'storage_usage': 'storage_usage',
         'threedimodel_limit': 'threedimodel_limit'
     }
 
-    def __init__(self, url=None, id=None, owner=None, name=None, slug=None, tags=None, meta=None, created_by=None, created_by_first_name=None, created_by_last_name=None, created=None, last_updated=None, storage_usage=None, threedimodel_limit=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, id=None, owner=None, name=None, slug=None, tags=None, meta=None, created_by=None, created_by_first_name=None, created_by_last_name=None, created=None, archived=None, last_updated=None, storage_usage=None, threedimodel_limit=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Schematisation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -89,6 +91,7 @@ class Schematisation(object):
         self._created_by_first_name = None
         self._created_by_last_name = None
         self._created = None
+        self._archived = None
         self._last_updated = None
         self._storage_usage = None
         self._threedimodel_limit = None
@@ -114,6 +117,8 @@ class Schematisation(object):
             self.created_by_last_name = created_by_last_name
         if created is not None:
             self.created = created
+        if archived is not None:
+            self.archived = archived
         if last_updated is not None:
             self.last_updated = last_updated
         if storage_usage is not None:
@@ -381,6 +386,27 @@ class Schematisation(object):
         """
 
         self._created = created
+
+    @property
+    def archived(self):
+        """Gets the archived of this Schematisation.  # noqa: E501
+
+
+        :return: The archived of this Schematisation.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._archived
+
+    @archived.setter
+    def archived(self, archived):
+        """Sets the archived of this Schematisation.
+
+
+        :param archived: The archived of this Schematisation.  # noqa: E501
+        :type: datetime
+        """
+
+        self._archived = archived
 
     @property
     def last_updated(self):

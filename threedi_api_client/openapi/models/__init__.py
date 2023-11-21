@@ -4,7 +4,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.34   3Di core release: 2.4.3  deployed on:  05:50PM (UTC) on June 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.65   3Di core release: 3.2.1  deployed on:  12:21PM (UTC) on October 03, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,6 +36,7 @@ from threedi_api_client.openapi.models.contract import Contract
 from threedi_api_client.openapi.models.copy_to_threedi_model import CopyToThreediModel
 from threedi_api_client.openapi.models.create_revision import CreateRevision
 from threedi_api_client.openapi.models.create_template import CreateTemplate
+from threedi_api_client.openapi.models.create_threedimodel import CreateThreedimodel
 from threedi_api_client.openapi.models.current_status import CurrentStatus
 from threedi_api_client.openapi.models.current_version import CurrentVersion
 from threedi_api_client.openapi.models.damage_estimation import DamageEstimation
@@ -228,6 +229,8 @@ from threedi_api_client.openapi.models.timeseries_wind import TimeseriesWind
 from threedi_api_client.openapi.models.tokens import Tokens
 from threedi_api_client.openapi.models.two_d_water_level import TwoDWaterLevel
 from threedi_api_client.openapi.models.two_d_water_raster import TwoDWaterRaster
+from threedi_api_client.openapi.models.update_revision import UpdateRevision
+from threedi_api_client.openapi.models.update_template import UpdateTemplate
 from threedi_api_client.openapi.models.upload import Upload
 from threedi_api_client.openapi.models.upload_event_file import UploadEventFile
 from threedi_api_client.openapi.models.usage import Usage

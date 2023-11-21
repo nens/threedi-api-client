@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.34   3Di core release: 2.4.3  deployed on:  05:50PM (UTC) on June 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.2.65   3Di core release: 3.2.1  deployed on:  12:21PM (UTC) on October 03, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -311,7 +311,7 @@ class TableStructureControl(object):
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["set_discharge_coefficients", "set_crest_level", "set_pump_capacity"]  # noqa: E501
+        allowed_values = ["set_discharge_coefficients", "set_crest_level", "set_pump_capacity", "set_gate_level"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             self.__handle_validation_error(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
