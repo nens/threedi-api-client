@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.65   3Di core release: 3.2.1  deployed on:  12:21PM (UTC) on October 03, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,6 +36,7 @@ class Event(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'substances': 'list[Substance]',
         'lizardrasterrain': 'list[LizardRasterRain]',
         'lizardtimeseriesrain': 'list[LizardTimeseriesRain]',
         'timeseriesrain': 'list[TimeseriesRainOverview]',
@@ -55,6 +56,8 @@ class Event(object):
         'initial_onedwaterlevel': 'OneDWaterLevel',
         'initial_onedwaterlevelfile': 'OneDWaterLevelFile',
         'initial_twodwaterraster': 'TwoDWaterRaster',
+        'initial_oned_substance_concentrations': 'list[OneDSubstanceConcentration]',
+        'initial_twod_substance_concentrations': 'list[TwoDSubstanceConcentration]',
         'filerasterrain': 'list[FileRasterRain]',
         'filetimeseriesrain': 'list[FileTimeseriesRain]',
         'initial_savedstate': 'InitialSavedStateOverview',
@@ -74,6 +77,7 @@ class Event(object):
     }
 
     attribute_map = {
+        'substances': 'substances',
         'lizardrasterrain': 'lizardrasterrain',
         'lizardtimeseriesrain': 'lizardtimeseriesrain',
         'timeseriesrain': 'timeseriesrain',
@@ -93,6 +97,8 @@ class Event(object):
         'initial_onedwaterlevel': 'initial_onedwaterlevel',
         'initial_onedwaterlevelfile': 'initial_onedwaterlevelfile',
         'initial_twodwaterraster': 'initial_twodwaterraster',
+        'initial_oned_substance_concentrations': 'initial_oned_substance_concentrations',
+        'initial_twod_substance_concentrations': 'initial_twod_substance_concentrations',
         'filerasterrain': 'filerasterrain',
         'filetimeseriesrain': 'filetimeseriesrain',
         'initial_savedstate': 'initial_savedstate',
@@ -111,7 +117,7 @@ class Event(object):
         'initial_winddragcoefficient': 'initial_winddragcoefficient'
     }
 
-    def __init__(self, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, leakage=None, filetimeseriesleakage=None, filerasterleakage=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_onedwaterlevelfile=None, initial_twodwaterraster=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, filelaterals=None, fileboundaryconditions=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, filestructurecontrols=None, rasteredits=None, obstacleedits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, substances=None, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, leakage=None, filetimeseriesleakage=None, filerasterleakage=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_onedwaterlevelfile=None, initial_twodwaterraster=None, initial_oned_substance_concentrations=None, initial_twod_substance_concentrations=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, filelaterals=None, fileboundaryconditions=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, filestructurecontrols=None, rasteredits=None, obstacleedits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -120,6 +126,7 @@ class Event(object):
         # True if data is coming from API
         self._fetched_from_api = fetched_from_api
 
+        self._substances = None
         self._lizardrasterrain = None
         self._lizardtimeseriesrain = None
         self._timeseriesrain = None
@@ -139,6 +146,8 @@ class Event(object):
         self._initial_onedwaterlevel = None
         self._initial_onedwaterlevelfile = None
         self._initial_twodwaterraster = None
+        self._initial_oned_substance_concentrations = None
+        self._initial_twod_substance_concentrations = None
         self._filerasterrain = None
         self._filetimeseriesrain = None
         self._initial_savedstate = None
@@ -157,6 +166,8 @@ class Event(object):
         self._initial_winddragcoefficient = None
         self.discriminator = None
 
+        if substances is not None:
+            self.substances = substances
         if lizardrasterrain is not None:
             self.lizardrasterrain = lizardrasterrain
         if lizardtimeseriesrain is not None:
@@ -195,6 +206,10 @@ class Event(object):
             self.initial_onedwaterlevelfile = initial_onedwaterlevelfile
         if initial_twodwaterraster is not None:
             self.initial_twodwaterraster = initial_twodwaterraster
+        if initial_oned_substance_concentrations is not None:
+            self.initial_oned_substance_concentrations = initial_oned_substance_concentrations
+        if initial_twod_substance_concentrations is not None:
+            self.initial_twod_substance_concentrations = initial_twod_substance_concentrations
         if filerasterrain is not None:
             self.filerasterrain = filerasterrain
         if filetimeseriesrain is not None:
@@ -227,6 +242,27 @@ class Event(object):
             self.wind = wind
         if initial_winddragcoefficient is not None:
             self.initial_winddragcoefficient = initial_winddragcoefficient
+
+    @property
+    def substances(self):
+        """Gets the substances of this Event.  # noqa: E501
+
+
+        :return: The substances of this Event.  # noqa: E501
+        :rtype: list[Substance]
+        """
+        return self._substances
+
+    @substances.setter
+    def substances(self, substances):
+        """Sets the substances of this Event.
+
+
+        :param substances: The substances of this Event.  # noqa: E501
+        :type: list[Substance]
+        """
+
+        self._substances = substances
 
     @property
     def lizardrasterrain(self):
@@ -626,6 +662,48 @@ class Event(object):
         """
 
         self._initial_twodwaterraster = initial_twodwaterraster
+
+    @property
+    def initial_oned_substance_concentrations(self):
+        """Gets the initial_oned_substance_concentrations of this Event.  # noqa: E501
+
+
+        :return: The initial_oned_substance_concentrations of this Event.  # noqa: E501
+        :rtype: list[OneDSubstanceConcentration]
+        """
+        return self._initial_oned_substance_concentrations
+
+    @initial_oned_substance_concentrations.setter
+    def initial_oned_substance_concentrations(self, initial_oned_substance_concentrations):
+        """Sets the initial_oned_substance_concentrations of this Event.
+
+
+        :param initial_oned_substance_concentrations: The initial_oned_substance_concentrations of this Event.  # noqa: E501
+        :type: list[OneDSubstanceConcentration]
+        """
+
+        self._initial_oned_substance_concentrations = initial_oned_substance_concentrations
+
+    @property
+    def initial_twod_substance_concentrations(self):
+        """Gets the initial_twod_substance_concentrations of this Event.  # noqa: E501
+
+
+        :return: The initial_twod_substance_concentrations of this Event.  # noqa: E501
+        :rtype: list[TwoDSubstanceConcentration]
+        """
+        return self._initial_twod_substance_concentrations
+
+    @initial_twod_substance_concentrations.setter
+    def initial_twod_substance_concentrations(self, initial_twod_substance_concentrations):
+        """Sets the initial_twod_substance_concentrations of this Event.
+
+
+        :param initial_twod_substance_concentrations: The initial_twod_substance_concentrations of this Event.  # noqa: E501
+        :type: list[TwoDSubstanceConcentration]
+        """
+
+        self._initial_twod_substance_concentrations = initial_twod_substance_concentrations
 
     @property
     def filerasterrain(self):

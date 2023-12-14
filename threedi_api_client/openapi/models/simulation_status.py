@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.65   3Di core release: 3.2.1  deployed on:  12:21PM (UTC) on October 03, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -135,7 +135,8 @@ class SimulationStatus(object):
             self.threedimodel_slug = threedimodel_slug
         if threedimodel_id is not None:
             self.threedimodel_id = threedimodel_id
-        self.has_results = has_results
+        if has_results is not None:
+            self.has_results = has_results
         if created is not None:
             self.created = created
         self.expiry = expiry

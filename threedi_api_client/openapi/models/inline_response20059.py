@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.65   3Di core release: 3.2.1  deployed on:  12:21PM (UTC) on October 03, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -39,7 +39,7 @@ class InlineResponse20059(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[WindDragCoefficient]'
+        'results': 'list[TwoDWaterRaster]'
     }
 
     attribute_map = {
@@ -140,7 +140,7 @@ class InlineResponse20059(object):
 
 
         :return: The results of this InlineResponse20059.  # noqa: E501
-        :rtype: list[WindDragCoefficient]
+        :rtype: list[TwoDWaterRaster]
         """
         return self._results
 
@@ -150,7 +150,7 @@ class InlineResponse20059(object):
 
 
         :param results: The results of this InlineResponse20059.  # noqa: E501
-        :type: list[WindDragCoefficient]
+        :type: list[TwoDWaterRaster]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `results`, must not be `None`")  # noqa: E501

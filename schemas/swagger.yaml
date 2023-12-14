@@ -3,9 +3,9 @@ info:
   title: 3Di API
   description: |-
     3Di simulation API (latest stable version: v3) 
-     Framework release: 3.2.65 
-     3Di core release: 3.2.1 
-    deployed on:  12:21PM (UTC) on October 03, 2023
+     Framework release: 3.3.4 
+     3Di core release: 3.3.1 
+    deployed on:  08:44AM (UTC) on December 14, 2023
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -14,7 +14,7 @@ info:
   version: v3
 host: null
 schemes:
-  - https
+  - http
 basePath: /
 consumes:
   - application/json
@@ -361,6 +361,389 @@ paths:
         in: path
         required: true
         type: string
+  /v3-beta/simulations/{simulation_pk}/initial/1d_substance_concentrations/:
+    get:
+      operationId: simulations_initial_1d_substance_concentrations_list
+      description: Initial 1D substance concentration
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/OneDSubstanceConcentration'
+      tags:
+        - v3-beta
+    post:
+      operationId: simulations_initial_1d_substance_concentrations_create
+      description: |-
+        Start the simulation with a 1D (water quality) concentrations from a file. Applies the
+        given values to the predefined nodes subset "1D"
+        as described in the [threedigrid documentation] [ref]
+
+        [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/OneDSubstanceConcentration'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/OneDSubstanceConcentration'
+      tags:
+        - v3-beta
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /v3-beta/simulations/{simulation_pk}/initial/1d_substance_concentrations/{id}/:
+    get:
+      operationId: simulations_initial_1d_substance_concentrations_read
+      description: Initial 1D substance concentration
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/OneDSubstanceConcentration'
+      tags:
+        - v3-beta
+    put:
+      operationId: simulations_initial_1d_substance_concentrations_update
+      description: Initial 1D substance concentration
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/OneDSubstanceConcentration'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/OneDSubstanceConcentration'
+      tags:
+        - v3-beta
+    patch:
+      operationId: simulations_initial_1d_substance_concentrations_partial_update
+      description: Initial 1D substance concentration
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/OneDSubstanceConcentration'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/OneDSubstanceConcentration'
+      tags:
+        - v3-beta
+    delete:
+      operationId: simulations_initial_1d_substance_concentrations_delete
+      description: Initial 1D substance concentration
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - v3-beta
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this one d substance concentration.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /v3-beta/simulations/{simulation_pk}/initial/2d_substance_concentrations/:
+    get:
+      operationId: simulations_initial_2d_substance_concentrations_list
+      description: Initial 2D substance concentration
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/TwoDSubstanceConcentration'
+      tags:
+        - v3-beta
+    post:
+      operationId: simulations_initial_2d_substance_concentrations_create
+      description: |-
+        Start the simulation with 2D (water quality) concentrations derived from the raster by
+        using the aggregation method. Applies the resulting levels
+        to the predefined nodes subset "2D_OPEN_WATER"
+        as described in the [threedigrid documentation] [ref]
+
+        [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/TwoDSubstanceConcentration'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/TwoDSubstanceConcentration'
+      tags:
+        - v3-beta
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /v3-beta/simulations/{simulation_pk}/initial/2d_substance_concentrations/{id}/:
+    get:
+      operationId: simulations_initial_2d_substance_concentrations_read
+      description: Initial 2D substance concentration
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/TwoDSubstanceConcentration'
+      tags:
+        - v3-beta
+    put:
+      operationId: simulations_initial_2d_substance_concentrations_update
+      description: Initial 2D substance concentration
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/TwoDSubstanceConcentration'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/TwoDSubstanceConcentration'
+      tags:
+        - v3-beta
+    patch:
+      operationId: simulations_initial_2d_substance_concentrations_partial_update
+      description: Initial 2D substance concentration
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/TwoDSubstanceConcentration'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/TwoDSubstanceConcentration'
+      tags:
+        - v3-beta
+    delete:
+      operationId: simulations_initial_2d_substance_concentrations_delete
+      description: Initial 2D substance concentration
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - v3-beta
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this two d substance concentration.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /v3-beta/simulations/{simulation_pk}/substances/:
+    get:
+      operationId: simulations_substances_list
+      description: Water quality substances
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/Substance'
+      tags:
+        - v3-beta
+    post:
+      operationId: simulations_substances_create
+      description: Water quality substances
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Substance'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Substance'
+      tags:
+        - v3-beta
+    parameters:
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
+  /v3-beta/simulations/{simulation_pk}/substances/{id}/:
+    get:
+      operationId: simulations_substances_read
+      description: Water quality substances
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Substance'
+      tags:
+        - v3-beta
+    put:
+      operationId: simulations_substances_update
+      description: Water quality substances
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Substance'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Substance'
+      tags:
+        - v3-beta
+    patch:
+      operationId: simulations_substances_partial_update
+      description: Water quality substances
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Substance'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Substance'
+      tags:
+        - v3-beta
+    delete:
+      operationId: simulations_substances_delete
+      description: Water quality substances
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - v3-beta
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this substance.
+        required: true
+        type: integer
+      - name: simulation_pk
+        in: path
+        required: true
+        type: string
   /v3-beta/status/:
     get:
       operationId: status_list
@@ -387,6 +770,255 @@ paths:
       tags:
         - v3-beta
     parameters: []
+  /v3-beta/threedimodels/{threedimodel_pk}/initial_concentrations/:
+    get:
+      operationId: threedimodels_initial_concentrations_list
+      description: |-
+        ## Description
+        Initial substance concentrations on threedimodels can be used in a simulation to
+        specify the initial substance concentration on the 1D and/or 2D domain.
+      parameters:
+        - name: limit
+          in: query
+          description: Number of results to return per page.
+          required: false
+          type: integer
+        - name: offset
+          in: query
+          description: The initial index from which to return the results.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/InitialConcentration'
+      tags:
+        - v3-beta
+    post:
+      operationId: threedimodels_initial_concentrations_create
+      summary: Add new initial concentrations
+      description: |-
+        ### Adding (extra) 1D initial concentrations
+        Extra 1D initial concentrations can be added by posting:
+
+        {"dimension": "one_d"}
+
+        Using the 'id' value from the response, a JSON file needs to be uploaded via the
+        PUT_URL retrieved from `initial_concentrations/{id}/upload/` in the following
+        JSON format:
+
+        Python code:
+
+            import json
+            file_contents = json.dumps({
+                "node_ids": [node_id_1, node_id2, ....],
+                "values" : [value_for_node_id_1, value_for_node_id_2, ...]
+            })
+
+            # Notes:
+            # - Omitted values are considered dry.
+            # - `node_ids` need to be sorted and unique
+            # - Make sure that the positions of the node_id's and values match.
+
+        ### Adding (extra) 2D initial substance concentrations
+        2D initial concentrations can be added by uploading an
+        'initial_concentration_file' Geotiff raster via `rasters/{id}/upload/`
+        . This automatically triggers the creation of a 2D initial
+        concentration. The source raster is linked as 'source_raster'. The values in the
+         `source_raster` are aggregated per node using max, min and mean operators. The
+        resulting values are stored in a file linked under `file`.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/InitialConcentration'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/InitialConcentration'
+      tags:
+        - v3-beta
+    parameters:
+      - name: threedimodel_pk
+        in: path
+        required: true
+        type: string
+  /v3-beta/threedimodels/{threedimodel_pk}/initial_concentrations/{id}/:
+    get:
+      operationId: threedimodels_initial_concentrations_read
+      description: |-
+        ## Description
+        Initial substance concentrations on threedimodels can be used in a simulation to
+        specify the initial substance concentration on the 1D and/or 2D domain.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/InitialConcentration'
+      tags:
+        - v3-beta
+    put:
+      operationId: threedimodels_initial_concentrations_update
+      description: |-
+        ## Description
+        Initial substance concentrations on threedimodels can be used in a simulation to
+        specify the initial substance concentration on the 1D and/or 2D domain.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/InitialConcentration'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/InitialConcentration'
+      tags:
+        - v3-beta
+    patch:
+      operationId: threedimodels_initial_concentrations_partial_update
+      description: |-
+        ## Description
+        Initial substance concentrations on threedimodels can be used in a simulation to
+        specify the initial substance concentration on the 1D and/or 2D domain.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/InitialConcentration'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/InitialConcentration'
+      tags:
+        - v3-beta
+    delete:
+      operationId: threedimodels_initial_concentrations_delete
+      description: Delete initial substance concentration
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - v3-beta
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this initial concentration.
+        required: true
+        type: integer
+      - name: threedimodel_pk
+        in: path
+        required: true
+        type: string
+  /v3-beta/threedimodels/{threedimodel_pk}/initial_concentrations/{id}/download/:
+    get:
+      operationId: threedimodels_initial_concentrations_download
+      description: Endpoint for downloading files.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Download'
+        '400':
+          description: File is not uploaded yet or has been removed
+        '404':
+          description: File not found
+      tags:
+        - v3-beta
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this initial concentration.
+        required: true
+        type: integer
+      - name: threedimodel_pk
+        in: path
+        required: true
+        type: string
+  /v3-beta/threedimodels/{threedimodel_pk}/initial_concentrations/{id}/processed/:
+    put:
+      operationId: threedimodels_initial_concentrations_processed
+      description: |-
+        ## Description
+        Initial substance concentrations on threedimodels can be used in a simulation to
+        specify the initial substance concentration on the 1D and/or 2D domain.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/BaseEventState'
+      responses:
+        '200':
+          description: OK
+      tags:
+        - v3-beta
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this initial concentration.
+        required: true
+        type: integer
+      - name: threedimodel_pk
+        in: path
+        required: true
+        type: string
+  /v3-beta/threedimodels/{threedimodel_pk}/initial_concentrations/{id}/upload/:
+    post:
+      operationId: threedimodels_initial_concentrations_upload
+      description: |-
+        Endpoint for uploading an initial substance concentration file, see the POST
+        endpoint for documentation about the file format.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Upload'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Upload'
+      tags:
+        - v3-beta
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this initial concentration.
+        required: true
+        type: integer
+      - name: threedimodel_pk
+        in: path
+        required: true
+        type: string
   /v3/auth/profile/:
     get:
       operationId: auth_profile_list
@@ -5716,6 +6348,34 @@ paths:
             }
         ]
         ```
+
+        Example with (water quality) substances. **Note**, the substance concentrations
+        timesteps need to exactly match the boundary values timesteps
+        (0, 500, 1000 in example below).
+        ```
+        [
+            {
+                "id": 1,   # sqlite boundary_1d table id
+                "type": "1D",  # "1D" for 1d boundaries
+                "interpolate": false,
+                "values": [
+                    [0, 0.5],
+                    [500, 0,8],
+                    [1000, 0]
+                ]
+                "substances": [
+                    {
+                        "substance": 1,
+                        "concentrations": [
+                            [0, 0.1],
+                            [500, 0.2],
+                            [1000, 0]
+                        ]
+                    }
+                ]
+            }
+        ]
+        ```
       parameters:
         - name: data
           in: body
@@ -6267,6 +6927,23 @@ paths:
 
         The **hour** (not minutes or seconds) of the simulation `start_datetime` (UTC) is taken into consideration for the first timeseries value to use.
         Periodic laterals are intended for dry weather flow.
+
+        Example with (water quality) substances. **Note**: the substance concentrations
+        timesteps need to exactly match the lateral values timesteps
+        (0, 300 in example below).
+        ```
+        [
+          {
+            "offset": 100,
+            "values": [[0, 0.05], [300, 0]],
+            "units": "m3/s",
+            "connection_node": 5,
+            "substances": [
+                {"substance": 1, "concentrations": [[0, 0.1], [300, 0]]}
+            ]
+          }
+        ]
+        ```
       parameters:
         - name: data
           in: body
@@ -7582,12 +8259,12 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/Upload'
+            $ref: '#/definitions/UploadWithSubstances'
       responses:
         '201':
           description: ''
           schema:
-            $ref: '#/definitions/Upload'
+            $ref: '#/definitions/UploadWithSubstances'
       tags:
         - v3
     parameters:
@@ -7903,12 +8580,12 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/Upload'
+            $ref: '#/definitions/UploadWithSubstances'
       responses:
         '201':
           description: ''
           schema:
-            $ref: '#/definitions/Upload'
+            $ref: '#/definitions/UploadWithSubstances'
       tags:
         - v3
     parameters:
@@ -13947,6 +14624,11 @@ paths:
           description: ''
           required: false
           type: number
+        - name: id
+          in: query
+          description: ''
+          required: false
+          type: number
         - name: is_valid
           in: query
           description: ''
@@ -14083,6 +14765,16 @@ paths:
           required: false
           type: string
         - name: inpy_version__threedicore_version__regex
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__commit_user__username
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: revision__commit_user__username__istartswith
           in: query
           description: ''
           required: false
@@ -14277,6 +14969,11 @@ paths:
           description: ''
           required: false
           type: string
+        - name: revision__schematisation__tags__in
+          in: query
+          description: ''
+          required: false
+          type: string
         - name: disabled
           in: query
           description: ''
@@ -14288,6 +14985,11 @@ paths:
           required: false
           type: string
         - name: inpy_version__active
+          in: query
+          description: ''
+          required: false
+          type: string
+        - name: is_generating
           in: query
           description: ''
           required: false
@@ -16336,6 +17038,11 @@ paths:
           description: ''
           required: false
           type: string
+        - name: simulation__id
+          in: query
+          description: ''
+          required: false
+          type: number
         - name: simulation__name
           in: query
           description: ''
@@ -16816,6 +17523,11 @@ paths:
           description: ''
           required: false
           type: string
+        - name: simulation__id
+          in: query
+          description: ''
+          required: false
+          type: number
         - name: simulation__name
           in: query
           description: ''
@@ -17141,6 +17853,7 @@ definitions:
         type: string
         format: date
         readOnly: true
+        x-nullable: true
   PersonalAPIKeyWithSecret:
     required:
       - scope
@@ -17188,6 +17901,7 @@ definitions:
         type: string
         format: date
         readOnly: true
+        x-nullable: true
       key:
         title: Key
         description: The API key. Please store the key somewhere safe, you will not
@@ -17301,6 +18015,7 @@ definitions:
         title: State detail
         type: object
         readOnly: true
+        x-nullable: true
       uid:
         title: Uid
         type: string
@@ -17339,6 +18054,128 @@ definitions:
       url:
         title: Url
         type: string
+  OneDSubstanceConcentration:
+    required:
+      - substance
+      - initial_concentration
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+        readOnly: true
+      substance:
+        title: Substance
+        type: string
+        format: uri
+      substance_id:
+        title: Substance id
+        type: integer
+        readOnly: true
+      substance_name:
+        title: Substance name
+        type: string
+        readOnly: true
+      initial_concentration:
+        title: Initial concentration
+        type: string
+        format: uri
+      initial_concentration_id:
+        title: Initial concentration id
+        type: integer
+        readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
+        readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+  TwoDSubstanceConcentration:
+    required:
+      - aggregation_method
+      - substance
+      - initial_concentration
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+        readOnly: true
+      aggregation_method:
+        title: Aggregation method
+        type: string
+        enum:
+          - mean
+          - max
+          - min
+      substance:
+        title: Substance
+        type: string
+        format: uri
+      substance_id:
+        title: Substance id
+        type: integer
+        readOnly: true
+      substance_name:
+        title: Substance name
+        type: string
+        readOnly: true
+      initial_concentration:
+        title: Initial concentration
+        type: string
+        format: uri
+      initial_concentration_id:
+        title: Initial concentration id
+        type: integer
+        readOnly: true
+      uid:
+        title: Uid
+        type: string
+        format: uuid
+        readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+  Substance:
+    required:
+      - name
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      simulation:
+        title: Simulation
+        type: string
+        format: uri
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 1024
+        minLength: 1
+      id:
+        title: ID
+        type: integer
+        readOnly: true
   Status:
     type: object
     properties:
@@ -17357,6 +18194,174 @@ definitions:
         title: Threedicore version
         type: string
         readOnly: true
+  FileReadOnly:
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      filename:
+        title: Filename
+        type: string
+        readOnly: true
+        minLength: 1
+      state:
+        title: State
+        type: string
+        enum:
+          - created
+          - uploaded
+          - processed
+          - error
+          - removed
+        readOnly: true
+      state_description:
+        title: State description
+        type: string
+        maxLength: 512
+        x-nullable: true
+      type:
+        title: Type
+        type: string
+        enum:
+          - timeseries
+          - rastertimeseries
+          - savedstate
+          - results
+          - rasters
+          - gridadmin
+          - geopackage
+          - geojson
+          - initialwaterlevel
+          - initial_substance_concentration
+          - bulklateral
+          - bulkcontrol
+          - bulk_boundaryconditions
+          - sqlite
+          - tables
+        readOnly: true
+      size:
+        title: Size
+        description: Filesize in bytes
+        type: integer
+        readOnly: true
+        x-nullable: true
+      etag:
+        title: Etag
+        description: Optional eTag (md5sum)
+        type: string
+        maxLength: 256
+        x-nullable: true
+      expiry_date:
+        title: Expiry date
+        type: string
+        format: date
+        readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      meta:
+        title: Meta
+        type: object
+        readOnly: true
+        x-nullable: true
+  InitialConcentration:
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      threedimodel:
+        title: Threedimodel
+        type: string
+        format: uri
+        readOnly: true
+      user_generated:
+        title: User generated
+        type: boolean
+      file:
+        $ref: '#/definitions/FileReadOnly'
+      source_raster:
+        title: Source raster
+        type: string
+        format: uri
+      state:
+        title: State
+        type: string
+        enum:
+          - processing
+          - valid
+          - invalid
+        readOnly: true
+      state_detail:
+        title: State detail
+        type: object
+        readOnly: true
+        x-nullable: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      source_raster_id:
+        title: Source raster id
+        type: integer
+        readOnly: true
+      dimension:
+        title: Dimension
+        type: string
+        enum:
+          - one_d
+          - two_d
+  Download:
+    type: object
+    properties:
+      get_url:
+        title: Get url
+        type: string
+        readOnly: true
+      is_internal:
+        title: Is internal
+        type: boolean
+        default: true
+      etag:
+        title: Etag
+        description: Optional eTag (md5sum)
+        type: string
+        readOnly: true
+        minLength: 1
+        x-nullable: true
+      size:
+        title: Size
+        description: Filesize in bytes
+        type: integer
+        readOnly: true
+        x-nullable: true
+  Upload:
+    required:
+      - filename
+    type: object
+    properties:
+      put_url:
+        title: Put url
+        type: string
+        format: uri
+        readOnly: true
+        minLength: 1
+      filename:
+        title: Filename
+        type: string
+        maxLength: 255
+        minLength: 1
+      status:
+        title: Status
+        type: string
+        readOnly: true
+        minLength: 1
   User:
     required:
       - username
@@ -17596,6 +18601,7 @@ definitions:
           - geopackage
           - geojson
           - initialwaterlevel
+          - initial_substance_concentration
           - bulklateral
           - bulkcontrol
           - bulk_boundaryconditions
@@ -17621,28 +18627,6 @@ definitions:
         x-nullable: true
       id:
         title: ID
-        type: integer
-        readOnly: true
-  Download:
-    type: object
-    properties:
-      get_url:
-        title: Get url
-        type: string
-        readOnly: true
-      is_internal:
-        title: Is internal
-        type: boolean
-        default: true
-      etag:
-        title: Etag
-        description: Optional eTag (md5sum)
-        type: string
-        readOnly: true
-        minLength: 1
-      size:
-        title: Size
-        description: Filesize in bytes
         type: integer
         readOnly: true
   FileMeta:
@@ -17925,6 +18909,7 @@ definitions:
         type: string
         readOnly: true
         minLength: 1
+        x-nullable: true
       breach_count:
         title: Breach count
         type: integer
@@ -18217,11 +19202,13 @@ definitions:
         type: string
         format: date-time
         readOnly: true
+        x-nullable: true
       last_updated:
         title: Last updated
         type: string
         format: date-time
         readOnly: true
+        x-nullable: true
       storage_usage:
         title: Storage usage
         description: Automatically calculated.
@@ -18233,77 +19220,6 @@ definitions:
         type: integer
         maximum: 32767
         minimum: 0
-  FileReadOnly:
-    type: object
-    properties:
-      url:
-        title: Url
-        type: string
-        format: uri
-        readOnly: true
-      filename:
-        title: Filename
-        type: string
-        readOnly: true
-        minLength: 1
-      state:
-        title: State
-        type: string
-        enum:
-          - created
-          - uploaded
-          - processed
-          - error
-          - removed
-        readOnly: true
-      state_description:
-        title: State description
-        type: string
-        maxLength: 512
-        x-nullable: true
-      type:
-        title: Type
-        type: string
-        enum:
-          - timeseries
-          - rastertimeseries
-          - savedstate
-          - results
-          - rasters
-          - gridadmin
-          - geopackage
-          - geojson
-          - initialwaterlevel
-          - bulklateral
-          - bulkcontrol
-          - bulk_boundaryconditions
-          - sqlite
-          - tables
-        readOnly: true
-      size:
-        title: Size
-        description: Filesize in bytes
-        type: integer
-        readOnly: true
-      etag:
-        title: Etag
-        description: Optional eTag (md5sum)
-        type: string
-        maxLength: 256
-        x-nullable: true
-      expiry_date:
-        title: Expiry date
-        type: string
-        format: date
-        readOnly: true
-      id:
-        title: ID
-        type: integer
-        readOnly: true
-      meta:
-        title: Meta
-        type: object
-        readOnly: true
   Sqlite:
     type: object
     properties:
@@ -18367,6 +19283,7 @@ definitions:
         title: Epsg code
         type: integer
         readOnly: true
+        x-nullable: true
       extent:
         title: Extent
         type: object
@@ -18410,6 +19327,7 @@ definitions:
           title: Geotransform
           type: number
         readOnly: true
+        x-nullable: true
       unit:
         title: Unit
         type: string
@@ -18433,6 +19351,7 @@ definitions:
         type: string
         format: date-time
         readOnly: true
+        x-nullable: true
       schematisation:
         title: Schematisation
         type: string
@@ -18458,11 +19377,13 @@ definitions:
         type: string
         format: date-time
         readOnly: true
+        x-nullable: true
       commit_date:
         title: Commit date
         type: string
         format: date-time
         readOnly: true
+        x-nullable: true
       commit_user:
         title: User.username
         description: The username of a user
@@ -18482,10 +19403,12 @@ definitions:
         type: string
         readOnly: true
         minLength: 1
+        x-nullable: true
       is_valid:
         title: Is valid
         type: boolean
         readOnly: true
+        x-nullable: true
       has_threedimodel:
         title: Has threedimodel
         type: boolean
@@ -18654,27 +19577,6 @@ definitions:
         type: string
         maxLength: 256
         minLength: 1
-  Upload:
-    required:
-      - filename
-    type: object
-    properties:
-      put_url:
-        title: Put url
-        type: string
-        format: uri
-        readOnly: true
-        minLength: 1
-      filename:
-        title: Filename
-        type: string
-        maxLength: 255
-        minLength: 1
-      status:
-        title: Status
-        type: string
-        readOnly: true
-        minLength: 1
   RasterCreate:
     required:
       - type
@@ -18723,6 +19625,7 @@ definitions:
         title: Epsg code
         type: integer
         readOnly: true
+        x-nullable: true
       extent:
         title: Extent
         type: object
@@ -18766,6 +19669,7 @@ definitions:
           title: Geotransform
           type: number
         readOnly: true
+        x-nullable: true
       unit:
         title: Unit
         type: string
@@ -19120,6 +20024,52 @@ definitions:
         type: string
         readOnly: true
         description: The name of the compute cluster that runs/has run the simulation.
+  ForcingSubstance:
+    required:
+      - substance
+      - concentrations
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      substance:
+        title: Substance
+        type: string
+        format: uri
+      substance_id:
+        title: Substance id
+        type: integer
+        readOnly: true
+      substance_name:
+        title: Substance name
+        type: string
+        readOnly: true
+      concentrations:
+        type: array
+        items:
+          type: array
+          items:
+            type: number
+          description: Timestamp + value pair
+          example:
+            - 100
+            - 0.5
+          maxItems: 2
+          minItems: 2
+        maxItems: 300
+        title: Timeseries
+        description: 'Timeseries provided as a nested list. The inner list consists
+          of exactly 2 values: timestamp, value'
+        example:
+          - - 0
+            - 0.1
+          - - 100
+            - 0.5
+          - - 200
+            - 0
+        minItems: 1
   LizardRasterRain:
     required:
       - offset
@@ -19201,6 +20151,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/ForcingSubstance'
   LizardTimeseriesRain:
     required:
       - offset
@@ -19285,6 +20239,10 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/ForcingSubstance'
   TimeseriesRainOverview:
     required:
       - offset
@@ -19313,6 +20271,7 @@ definitions:
           (only allowed in conjunction with infinite simulations
         type: integer
         readOnly: true
+        x-nullable: true
       interpolate:
         title: Interpolate
         type: boolean
@@ -19359,6 +20318,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/ForcingSubstance'
   Breach:
     required:
       - duration_till_max_depth
@@ -20366,6 +21329,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/ForcingSubstance'
   FileTimeseriesRain:
     required:
       - units
@@ -20447,6 +21414,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/ForcingSubstance'
   Threshold:
     required:
       - variable
@@ -20656,10 +21627,12 @@ definitions:
         title: State detail
         type: object
         readOnly: true
+        x-nullable: true
       grid_id:
         title: Grid id
         type: integer
         readOnly: true
+        x-nullable: true
       uid:
         title: Uid
         type: string
@@ -20669,6 +21642,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/ForcingSubstance'
   FileLateral:
     required:
       - offset
@@ -20713,12 +21690,14 @@ definitions:
         title: State detail
         type: object
         readOnly: true
+        x-nullable: true
       periodic:
         title: Periodic
         type: string
         enum:
           - daily
         readOnly: true
+        x-nullable: true
   FileBoundaryCondition:
     type: object
     properties:
@@ -20755,6 +21734,7 @@ definitions:
         title: State detail
         type: object
         readOnly: true
+        x-nullable: true
   MeasureLocation:
     required:
       - weight
@@ -20804,6 +21784,7 @@ definitions:
         title: State detail
         type: object
         readOnly: true
+        x-nullable: true
   MeasureSpecification:
     required:
       - locations
@@ -20926,6 +21907,7 @@ definitions:
         title: State detail
         type: object
         readOnly: true
+        x-nullable: true
       grid_id:
         title: Grid id
         type: integer
@@ -21017,6 +21999,7 @@ definitions:
         title: State detail
         type: object
         readOnly: true
+        x-nullable: true
       grid_id:
         title: Grid id
         type: integer
@@ -21122,6 +22105,7 @@ definitions:
         title: State detail
         type: object
         readOnly: true
+        x-nullable: true
       grid_id:
         title: Grid id
         type: integer
@@ -21177,6 +22161,7 @@ definitions:
         title: State detail
         type: object
         readOnly: true
+        x-nullable: true
   RasterEdit:
     required:
       - raster
@@ -21373,6 +22358,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/ForcingSubstance'
   Wind:
     required:
       - offset
@@ -21470,6 +22459,11 @@ definitions:
   Event:
     type: object
     properties:
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/Substance'
+        readOnly: true
       lizardrasterrain:
         type: array
         items:
@@ -21544,6 +22538,16 @@ definitions:
         $ref: '#/definitions/OneDWaterLevelFile'
       initial_twodwaterraster:
         $ref: '#/definitions/TwoDWaterRaster'
+      initial_oned_substance_concentrations:
+        type: array
+        items:
+          $ref: '#/definitions/OneDSubstanceConcentration'
+        readOnly: true
+      initial_twod_substance_concentrations:
+        type: array
+        items:
+          $ref: '#/definitions/TwoDSubstanceConcentration'
+        readOnly: true
       filerasterrain:
         type: array
         items:
@@ -21663,7 +22667,7 @@ definitions:
           \ be picked)"
         type: string
         enum:
-          - 3.2.65-3.2.1
+          - 3.3.4-3.3.1
   Timeout:
     required:
       - timeout
@@ -21695,11 +22699,13 @@ definitions:
         type: string
         format: uri
         readOnly: true
+        x-nullable: true
       created:
         title: Created
         type: string
         format: date-time
         readOnly: true
+        x-nullable: true
       tags:
         title: tags
         type: array
@@ -21744,6 +22750,7 @@ definitions:
         type: string
         format: uri
         readOnly: true
+        x-nullable: true
       created:
         title: Created
         type: string
@@ -21873,10 +22880,12 @@ definitions:
         title: State detail
         type: object
         readOnly: true
+        x-nullable: true
       grid_id:
         title: Grid id
         type: integer
         readOnly: true
+        x-nullable: true
       uid:
         title: Uid
         type: string
@@ -21886,6 +22895,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/ForcingSubstance'
   GridEventState:
     required:
       - state
@@ -22038,10 +23051,12 @@ definitions:
         title: State detail
         type: object
         readOnly: true
+        x-nullable: true
       grid_id:
         title: Grid id
         type: integer
         readOnly: true
+        x-nullable: true
       id:
         title: ID
         type: integer
@@ -22051,6 +23066,10 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/ForcingSubstance'
   ConstantLeakage:
     required:
       - offset
@@ -22374,6 +23393,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/ForcingSubstance'
   ConstantLocalRain:
     required:
       - offset
@@ -22461,6 +23484,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/ForcingSubstance'
   TimeseriesLocalRain:
     required:
       - offset
@@ -22561,6 +23588,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/ForcingSubstance'
   NetCDFRasterRain:
     type: object
     properties:
@@ -22644,6 +23675,35 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/ForcingSubstance'
+  UploadWithSubstances:
+    required:
+      - filename
+    type: object
+    properties:
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/ForcingSubstance'
+      put_url:
+        title: Put url
+        type: string
+        format: uri
+        readOnly: true
+        minLength: 1
+      filename:
+        title: Filename
+        type: string
+        maxLength: 255
+        minLength: 1
+      status:
+        title: Status
+        type: string
+        readOnly: true
+        minLength: 1
   TimeseriesRain:
     required:
       - offset
@@ -22673,6 +23733,7 @@ definitions:
           (only allowed in conjunction with infinite simulations
         type: integer
         readOnly: true
+        x-nullable: true
       interpolate:
         title: Interpolate
         type: boolean
@@ -22715,6 +23776,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/ForcingSubstance'
   NetCDFTimeseriesRain:
     required:
       - units
@@ -22786,6 +23851,10 @@ definitions:
         type: string
         format: uuid
         readOnly: true
+      substances:
+        type: array
+        items:
+          $ref: '#/definitions/ForcingSubstance'
   ConstantSourcesSinks:
     required:
       - offset
@@ -23690,14 +24759,12 @@ definitions:
         minimum: 0.0
       cfl_strictness_factor_1d:
         title: Cfl strictness factor 1d
-        description: "Strictness of CFL (Courant\u2013Friedrichs\u2013Lewy) condition\
-          \ for 1D."
+        description: Strictness of CFL (Courant–Friedrichs–Lewy) condition for 1D.
         type: number
         minimum: 1e-14
       cfl_strictness_factor_2d:
         title: Cfl strictness factor 2d
-        description: "Strictness of CFL (Courant\u2013Friedrichs\u2013Lewy) condition\
-          \ for 2D."
+        description: Strictness of CFL (Courant–Friedrichs–Lewy) condition for 2D.
         type: number
         minimum: 1e-14
       convergence_eps:
@@ -24067,7 +25134,6 @@ definitions:
         title: Has results
         type: boolean
         readOnly: true
-        x-nullable: true
       created:
         title: Created
         type: string
@@ -24592,6 +25658,11 @@ definitions:
         type: string
         maxLength: 80
         minLength: 1
+      initial_concentration_file:
+        title: Initial concentration file
+        type: string
+        maxLength: 80
+        minLength: 1
   BoundaryCondition:
     required:
       - boundary_id
@@ -24669,11 +25740,13 @@ definitions:
           - vegetation_drag_coefficient_file
           - vegetation_stem_count_file
           - vegetation_stem_diameter_file
+          - initial_concentration_file
       threedimodel:
         title: Threedimodel
         type: string
         format: uri
         readOnly: true
+        x-nullable: true
       name:
         title: Name
         type: string
@@ -24774,6 +25847,7 @@ definitions:
         title: State detail
         type: object
         readOnly: true
+        x-nullable: true
       id:
         title: ID
         type: integer

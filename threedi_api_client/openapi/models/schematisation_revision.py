@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.65   3Di core release: 3.2.1  deployed on:  12:21PM (UTC) on October 03, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -104,8 +104,7 @@ class SchematisationRevision(object):
             self.url = url
         if id is not None:
             self.id = id
-        if created is not None:
-            self.created = created
+        self.created = created
         if schematisation is not None:
             self.schematisation = schematisation
         if schematisation_id is not None:
@@ -116,20 +115,16 @@ class SchematisationRevision(object):
             self.sqlite = sqlite
         if rasters is not None:
             self.rasters = rasters
-        if archived is not None:
-            self.archived = archived
-        if commit_date is not None:
-            self.commit_date = commit_date
+        self.archived = archived
+        self.commit_date = commit_date
         if commit_user is not None:
             self.commit_user = commit_user
         if commit_first_name is not None:
             self.commit_first_name = commit_first_name
         if commit_last_name is not None:
             self.commit_last_name = commit_last_name
-        if commit_message is not None:
-            self.commit_message = commit_message
-        if is_valid is not None:
-            self.is_valid = is_valid
+        self.commit_message = commit_message
+        self.is_valid = is_valid
         if has_threedimodel is not None:
             self.has_threedimodel = has_threedimodel
 

@@ -4,7 +4,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.65   3Di core release: 3.2.1  deployed on:  12:21PM (UTC) on October 03, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -57,10 +57,12 @@ from threedi_api_client.openapi.models.file_structure_control import FileStructu
 from threedi_api_client.openapi.models.file_timeseries_leakage import FileTimeseriesLeakage
 from threedi_api_client.openapi.models.file_timeseries_rain import FileTimeseriesRain
 from threedi_api_client.openapi.models.file_timeseries_sources_sinks import FileTimeseriesSourcesSinks
+from threedi_api_client.openapi.models.forcing_substance import ForcingSubstance
 from threedi_api_client.openapi.models.from_template import FromTemplate
 from threedi_api_client.openapi.models.grid_event_state import GridEventState
 from threedi_api_client.openapi.models.ground_water_level import GroundWaterLevel
 from threedi_api_client.openapi.models.ground_water_raster import GroundWaterRaster
+from threedi_api_client.openapi.models.initial_concentration import InitialConcentration
 from threedi_api_client.openapi.models.initial_saved_state import InitialSavedState
 from threedi_api_client.openapi.models.initial_saved_state_overview import InitialSavedStateOverview
 from threedi_api_client.openapi.models.initial_waterlevel import InitialWaterlevel
@@ -135,6 +137,10 @@ from threedi_api_client.openapi.models.inline_response2007 import InlineResponse
 from threedi_api_client.openapi.models.inline_response20070 import InlineResponse20070
 from threedi_api_client.openapi.models.inline_response20071 import InlineResponse20071
 from threedi_api_client.openapi.models.inline_response20072 import InlineResponse20072
+from threedi_api_client.openapi.models.inline_response20073 import InlineResponse20073
+from threedi_api_client.openapi.models.inline_response20074 import InlineResponse20074
+from threedi_api_client.openapi.models.inline_response20075 import InlineResponse20075
+from threedi_api_client.openapi.models.inline_response20076 import InlineResponse20076
 from threedi_api_client.openapi.models.inline_response2008 import InlineResponse2008
 from threedi_api_client.openapi.models.inline_response2009 import InlineResponse2009
 from threedi_api_client.openapi.models.inpy_version import InpyVersion
@@ -157,6 +163,7 @@ from threedi_api_client.openapi.models.net_cdf_timeseries_rain import NetCDFTime
 from threedi_api_client.openapi.models.net_cdf_timeseries_sources_sinks import NetCDFTimeseriesSourcesSinks
 from threedi_api_client.openapi.models.numerical_settings import NumericalSettings
 from threedi_api_client.openapi.models.obstacle_edit import ObstacleEdit
+from threedi_api_client.openapi.models.one_d_substance_concentration import OneDSubstanceConcentration
 from threedi_api_client.openapi.models.one_d_water_level import OneDWaterLevel
 from threedi_api_client.openapi.models.one_d_water_level_file import OneDWaterLevelFile
 from threedi_api_client.openapi.models.one_d_water_level_predefined import OneDWaterLevelPredefined
@@ -206,6 +213,7 @@ from threedi_api_client.openapi.models.sqlite import Sqlite
 from threedi_api_client.openapi.models.sqlite_file_upload import SqliteFileUpload
 from threedi_api_client.openapi.models.stable_threshold_saved_state import StableThresholdSavedState
 from threedi_api_client.openapi.models.status import Status
+from threedi_api_client.openapi.models.substance import Substance
 from threedi_api_client.openapi.models.tms import TMS
 from threedi_api_client.openapi.models.table_structure_control import TableStructureControl
 from threedi_api_client.openapi.models.template import Template
@@ -227,12 +235,14 @@ from threedi_api_client.openapi.models.timeseries_sources_sinks import Timeserie
 from threedi_api_client.openapi.models.timeseries_sources_sinks_overview import TimeseriesSourcesSinksOverview
 from threedi_api_client.openapi.models.timeseries_wind import TimeseriesWind
 from threedi_api_client.openapi.models.tokens import Tokens
+from threedi_api_client.openapi.models.two_d_substance_concentration import TwoDSubstanceConcentration
 from threedi_api_client.openapi.models.two_d_water_level import TwoDWaterLevel
 from threedi_api_client.openapi.models.two_d_water_raster import TwoDWaterRaster
 from threedi_api_client.openapi.models.update_revision import UpdateRevision
 from threedi_api_client.openapi.models.update_template import UpdateTemplate
 from threedi_api_client.openapi.models.upload import Upload
 from threedi_api_client.openapi.models.upload_event_file import UploadEventFile
+from threedi_api_client.openapi.models.upload_with_substances import UploadWithSubstances
 from threedi_api_client.openapi.models.usage import Usage
 from threedi_api_client.openapi.models.usage_statistics import UsageStatistics
 from threedi_api_client.openapi.models.user import User

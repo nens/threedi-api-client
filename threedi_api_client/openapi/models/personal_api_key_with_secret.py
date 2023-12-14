@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.65   3Di core release: 3.2.1  deployed on:  12:21PM (UTC) on October 03, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -88,8 +88,7 @@ class PersonalAPIKeyWithSecret(object):
             self.created = created
         if revoked is not None:
             self.revoked = revoked
-        if last_used is not None:
-            self.last_used = last_used
+        self.last_used = last_used
         if key is not None:
             self.key = key
         if message is not None:

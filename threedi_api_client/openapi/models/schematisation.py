@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.65   3Di core release: 3.2.1  deployed on:  12:21PM (UTC) on October 03, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -117,10 +117,8 @@ class Schematisation(object):
             self.created_by_last_name = created_by_last_name
         if created is not None:
             self.created = created
-        if archived is not None:
-            self.archived = archived
-        if last_updated is not None:
-            self.last_updated = last_updated
+        self.archived = archived
+        self.last_updated = last_updated
         if storage_usage is not None:
             self.storage_usage = storage_usage
         if threedimodel_limit is not None:

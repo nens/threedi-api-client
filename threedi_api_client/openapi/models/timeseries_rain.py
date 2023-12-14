@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.65   3Di core release: 3.2.1  deployed on:  12:21PM (UTC) on October 03, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -44,7 +44,8 @@ class TimeseriesRain(object):
         'values': 'list[list[float]]',
         'units': 'str',
         'uid': 'str',
-        'id': 'int'
+        'id': 'int',
+        'substances': 'list[ForcingSubstance]'
     }
 
     attribute_map = {
@@ -56,10 +57,11 @@ class TimeseriesRain(object):
         'values': 'values',
         'units': 'units',
         'uid': 'uid',
-        'id': 'id'
+        'id': 'id',
+        'substances': 'substances'
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, duration=None, interpolate=None, values=None, units=None, uid=None, id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, simulation=None, offset=None, duration=None, interpolate=None, values=None, units=None, uid=None, id=None, substances=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """TimeseriesRain - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -77,6 +79,7 @@ class TimeseriesRain(object):
         self._units = None
         self._uid = None
         self._id = None
+        self._substances = None
         self.discriminator = None
 
         if url is not None:
@@ -84,8 +87,7 @@ class TimeseriesRain(object):
         if simulation is not None:
             self.simulation = simulation
         self.offset = offset
-        if duration is not None:
-            self.duration = duration
+        self.duration = duration
         if interpolate is not None:
             self.interpolate = interpolate
         self.values = values
@@ -94,6 +96,8 @@ class TimeseriesRain(object):
             self.uid = uid
         if id is not None:
             self.id = id
+        if substances is not None:
+            self.substances = substances
 
     @property
     def url(self):
@@ -309,6 +313,27 @@ class TimeseriesRain(object):
         """
 
         self._id = id
+
+    @property
+    def substances(self):
+        """Gets the substances of this TimeseriesRain.  # noqa: E501
+
+
+        :return: The substances of this TimeseriesRain.  # noqa: E501
+        :rtype: list[ForcingSubstance]
+        """
+        return self._substances
+
+    @substances.setter
+    def substances(self, substances):
+        """Sets the substances of this TimeseriesRain.
+
+
+        :param substances: The substances of this TimeseriesRain.  # noqa: E501
+        :type: list[ForcingSubstance]
+        """
+
+        self._substances = substances
 
     def to_dict(self):
         """Returns the model properties as a dict"""

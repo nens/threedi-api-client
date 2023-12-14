@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.2.65   3Di core release: 3.2.1  deployed on:  12:21PM (UTC) on October 03, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -47,7 +47,8 @@ class NetCDFTimeseriesRain(object):
         'fill_value': 'str',
         'units': 'str',
         'file': 'FileReadOnly',
-        'uid': 'str'
+        'uid': 'str',
+        'substances': 'list[ForcingSubstance]'
     }
 
     attribute_map = {
@@ -62,10 +63,11 @@ class NetCDFTimeseriesRain(object):
         'fill_value': 'fill_value',
         'units': 'units',
         'file': 'file',
-        'uid': 'uid'
+        'uid': 'uid',
+        'substances': 'substances'
     }
 
-    def __init__(self, url=None, multiplier=None, simulation=None, offset=None, duration=None, timestamps=None, interval=None, values_reference=None, fill_value=None, units=None, file=None, uid=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, multiplier=None, simulation=None, offset=None, duration=None, timestamps=None, interval=None, values_reference=None, fill_value=None, units=None, file=None, uid=None, substances=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """NetCDFTimeseriesRain - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -86,6 +88,7 @@ class NetCDFTimeseriesRain(object):
         self._units = None
         self._file = None
         self._uid = None
+        self._substances = None
         self.discriminator = None
 
         if url is not None:
@@ -106,6 +109,8 @@ class NetCDFTimeseriesRain(object):
             self.file = file
         if uid is not None:
             self.uid = uid
+        if substances is not None:
+            self.substances = substances
 
     @property
     def url(self):
@@ -401,6 +406,27 @@ class NetCDFTimeseriesRain(object):
         """
 
         self._uid = uid
+
+    @property
+    def substances(self):
+        """Gets the substances of this NetCDFTimeseriesRain.  # noqa: E501
+
+
+        :return: The substances of this NetCDFTimeseriesRain.  # noqa: E501
+        :rtype: list[ForcingSubstance]
+        """
+        return self._substances
+
+    @substances.setter
+    def substances(self, substances):
+        """Sets the substances of this NetCDFTimeseriesRain.
+
+
+        :param substances: The substances of this NetCDFTimeseriesRain.  # noqa: E501
+        :type: list[ForcingSubstance]
+        """
+
+        self._substances = substances
 
     def to_dict(self):
         """Returns the model properties as a dict"""

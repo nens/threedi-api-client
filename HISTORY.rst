@@ -2,10 +2,10 @@
 History
 =======
 
-4.1.6 (unreleased)
-------------------
+4.1.6b (unreleased)
+-------------------
 
-- Nothing changed yet.
+- Water quality and other additions.
 
 
 4.1.5 (2023-11-21)

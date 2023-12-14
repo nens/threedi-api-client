@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.0   3Di core release: 3.3.0  deployed on:  08:58AM (UTC) on November 17, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,7 @@ class ForcingSubstance(object):
         'substance': 'str',
         'substance_id': 'int',
         'substance_name': 'str',
-        'concentration': 'float'
+        'concentrations': 'list[list[float]]'
     }
 
     attribute_map = {
@@ -48,10 +48,10 @@ class ForcingSubstance(object):
         'substance': 'substance',
         'substance_id': 'substance_id',
         'substance_name': 'substance_name',
-        'concentration': 'concentration'
+        'concentrations': 'concentrations'
     }
 
-    def __init__(self, id=None, substance=None, substance_id=None, substance_name=None, concentration=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, id=None, substance=None, substance_id=None, substance_name=None, concentrations=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """ForcingSubstance - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -64,7 +64,7 @@ class ForcingSubstance(object):
         self._substance = None
         self._substance_id = None
         self._substance_name = None
-        self._concentration = None
+        self._concentrations = None
         self.discriminator = None
 
         if id is not None:
@@ -74,7 +74,7 @@ class ForcingSubstance(object):
             self.substance_id = substance_id
         if substance_name is not None:
             self.substance_name = substance_name
-        self.concentration = concentration
+        self.concentrations = concentrations
 
     @property
     def id(self):
@@ -163,27 +163,29 @@ class ForcingSubstance(object):
         self._substance_name = substance_name
 
     @property
-    def concentration(self):
-        """Gets the concentration of this ForcingSubstance.  # noqa: E501
+    def concentrations(self):
+        """Gets the concentrations of this ForcingSubstance.  # noqa: E501
 
+        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
-        :return: The concentration of this ForcingSubstance.  # noqa: E501
-        :rtype: float
+        :return: The concentrations of this ForcingSubstance.  # noqa: E501
+        :rtype: list[list[float]]
         """
-        return self._concentration
+        return self._concentrations
 
-    @concentration.setter
-    def concentration(self, concentration):
-        """Sets the concentration of this ForcingSubstance.
+    @concentrations.setter
+    def concentrations(self, concentrations):
+        """Sets the concentrations of this ForcingSubstance.
 
+        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
-        :param concentration: The concentration of this ForcingSubstance.  # noqa: E501
-        :type: float
+        :param concentrations: The concentrations of this ForcingSubstance.  # noqa: E501
+        :type: list[list[float]]
         """
-        if self.local_vars_configuration.client_side_validation and concentration is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `concentration`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and concentrations is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `concentrations`, must not be `None`")  # noqa: E501
 
-        self._concentration = concentration
+        self._concentrations = concentrations
 
     def to_dict(self):
         """Returns the model properties as a dict"""
