@@ -2,7 +2,7 @@
 History
 =======
 
-4.1.6b (unreleased)
+4.1.6b (2023-12-14)
 -------------------
 
 - Water quality and other additions.
