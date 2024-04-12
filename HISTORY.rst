@@ -2,7 +2,7 @@
 History
 =======
 
-4.1.6 (unreleased)
+4.1.6 (2024-04-12)
 ------------------
 
 - Generated with generator version v4.4.0
