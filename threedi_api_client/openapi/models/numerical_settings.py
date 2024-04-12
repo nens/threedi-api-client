@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.24   3Di core release: 3.4.0  deployed on:  11:25AM (UTC) on March 19, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -62,6 +62,31 @@ class NumericalSettings(object):
         'use_nested_newton': 'bool',
         'flooding_threshold': 'float'
     }
+
+    required_fields = [
+       'pump_implicit_ratio',
+       'cfl_strictness_factor_1d',
+       'cfl_strictness_factor_2d',
+       'convergence_eps',
+       'convergence_cg',
+       'flow_direction_threshold',
+       'friction_shallow_water_depth_correction',
+       'general_numerical_threshold',
+       'limiter_waterlevel_gradient_1d',
+       'limiter_waterlevel_gradient_2d',
+       'limiter_slope_crossectional_area_2d',
+       'limiter_slope_friction_2d',
+       'max_non_linear_newton_iterations',
+       'max_degree_gauss_seidel',
+       'min_friction_velocity',
+       'min_surface_area',
+       'use_preconditioner_cg',
+       'preissmann_slot',
+       'limiter_slope_thin_water_layer',
+       'use_of_cg',
+       'use_nested_newton',
+       'flooding_threshold'
+    ]
 
     attribute_map = {
         'id': 'id',

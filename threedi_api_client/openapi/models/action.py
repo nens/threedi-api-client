@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.24   3Di core release: 3.4.0  deployed on:  11:25AM (UTC) on March 19, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -43,6 +43,10 @@ class Action(object):
         'compute_cluster': 'str',
         'simulation_runner': 'str'
     }
+
+    required_fields = [
+       'name',
+    ]
 
     attribute_map = {
         'name': 'name',
@@ -232,7 +236,7 @@ class Action(object):
         :param simulation_runner: The simulation_runner of this Action.  # noqa: E501
         :type: str
         """
-        allowed_values = ["3.3.4-3.3.1"]  # noqa: E501
+        allowed_values = ["3.3.24-3.4.0"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and simulation_runner not in allowed_values:  # noqa: E501
             self.__handle_validation_error(
                 "Invalid value for `simulation_runner` ({0}), must be one of {1}"  # noqa: E501

@@ -5,7 +5,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.24   3Di core release: 3.4.0  deployed on:  11:25AM (UTC) on March 19, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -77,6 +77,7 @@ from threedi_api_client.openapi.models.from_template import FromTemplate
 from threedi_api_client.openapi.models.grid_event_state import GridEventState
 from threedi_api_client.openapi.models.ground_water_level import GroundWaterLevel
 from threedi_api_client.openapi.models.ground_water_raster import GroundWaterRaster
+from threedi_api_client.openapi.models.ground_water_substance_concentration import GroundWaterSubstanceConcentration
 from threedi_api_client.openapi.models.initial_concentration import InitialConcentration
 from threedi_api_client.openapi.models.initial_saved_state import InitialSavedState
 from threedi_api_client.openapi.models.initial_saved_state_overview import InitialSavedStateOverview
@@ -156,6 +157,7 @@ from threedi_api_client.openapi.models.inline_response20073 import InlineRespons
 from threedi_api_client.openapi.models.inline_response20074 import InlineResponse20074
 from threedi_api_client.openapi.models.inline_response20075 import InlineResponse20075
 from threedi_api_client.openapi.models.inline_response20076 import InlineResponse20076
+from threedi_api_client.openapi.models.inline_response20077 import InlineResponse20077
 from threedi_api_client.openapi.models.inline_response2008 import InlineResponse2008
 from threedi_api_client.openapi.models.inline_response2009 import InlineResponse2009
 from threedi_api_client.openapi.models.inpy_version import InpyVersion
@@ -267,6 +269,7 @@ from threedi_api_client.openapi.models.water_graph import WaterGraph
 from threedi_api_client.openapi.models.water_level_graph_request import WaterLevelGraphRequest
 from threedi_api_client.openapi.models.water_level_profile import WaterLevelProfile
 from threedi_api_client.openapi.models.water_level_profile_request import WaterLevelProfileRequest
+from threedi_api_client.openapi.models.water_quality_settings import WaterQualitySettings
 from threedi_api_client.openapi.models.waterdepth import Waterdepth
 from threedi_api_client.openapi.models.wind import Wind
 from threedi_api_client.openapi.models.wind_drag_coefficient import WindDragCoefficient

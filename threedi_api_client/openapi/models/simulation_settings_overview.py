@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.24   3Di core release: 3.4.0  deployed on:  11:25AM (UTC) on March 19, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -39,17 +39,22 @@ class SimulationSettingsOverview(object):
         'physical_settings': 'PhysicalSettings',
         'numerical_settings': 'NumericalSettings',
         'time_step_settings': 'TimeStepSettings',
-        'aggregation_settings': 'list[AggregationSettings]'
+        'aggregation_settings': 'list[AggregationSettings]',
+        'water_quality_settings': 'WaterQualitySettings'
     }
+
+    required_fields = [
+    ]
 
     attribute_map = {
         'physical_settings': 'physical_settings',
         'numerical_settings': 'numerical_settings',
         'time_step_settings': 'time_step_settings',
-        'aggregation_settings': 'aggregation_settings'
+        'aggregation_settings': 'aggregation_settings',
+        'water_quality_settings': 'water_quality_settings'
     }
 
-    def __init__(self, physical_settings=None, numerical_settings=None, time_step_settings=None, aggregation_settings=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, physical_settings=None, numerical_settings=None, time_step_settings=None, aggregation_settings=None, water_quality_settings=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """SimulationSettingsOverview - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,6 +67,7 @@ class SimulationSettingsOverview(object):
         self._numerical_settings = None
         self._time_step_settings = None
         self._aggregation_settings = None
+        self._water_quality_settings = None
         self.discriminator = None
 
         if physical_settings is not None:
@@ -72,6 +78,8 @@ class SimulationSettingsOverview(object):
             self.time_step_settings = time_step_settings
         if aggregation_settings is not None:
             self.aggregation_settings = aggregation_settings
+        if water_quality_settings is not None:
+            self.water_quality_settings = water_quality_settings
 
     @property
     def physical_settings(self):
@@ -156,6 +164,27 @@ class SimulationSettingsOverview(object):
         """
 
         self._aggregation_settings = aggregation_settings
+
+    @property
+    def water_quality_settings(self):
+        """Gets the water_quality_settings of this SimulationSettingsOverview.  # noqa: E501
+
+
+        :return: The water_quality_settings of this SimulationSettingsOverview.  # noqa: E501
+        :rtype: WaterQualitySettings
+        """
+        return self._water_quality_settings
+
+    @water_quality_settings.setter
+    def water_quality_settings(self, water_quality_settings):
+        """Sets the water_quality_settings of this SimulationSettingsOverview.
+
+
+        :param water_quality_settings: The water_quality_settings of this SimulationSettingsOverview.  # noqa: E501
+        :type: WaterQualitySettings
+        """
+
+        self._water_quality_settings = water_quality_settings
 
     def to_dict(self):
         """Returns the model properties as a dict"""

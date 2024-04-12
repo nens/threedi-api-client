@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.24   3Di core release: 3.4.0  deployed on:  11:25AM (UTC) on March 19, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -43,6 +43,14 @@ class DamagePostProcessing(object):
         'repair_time_infrastructure': 'int',
         'repair_time_buildings': 'int'
     }
+
+    required_fields = [
+       'cost_type',
+       'flood_month',
+       'inundation_period',
+       'repair_time_infrastructure',
+       'repair_time_buildings'
+    ]
 
     attribute_map = {
         'basic_post_processing': 'basic_post_processing',

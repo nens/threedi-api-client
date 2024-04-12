@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.24   3Di core release: 3.4.0  deployed on:  11:25AM (UTC) on March 19, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -50,8 +50,12 @@ class NetCDFRasterSourcesSinks(object):
         'file': 'FileReadOnly',
         'fill_value': 'str',
         'id': 'int',
-        'uid': 'str'
+        'uid': 'str',
+        'substances': 'list[ForcingSubstance]'
     }
+
+    required_fields = [
+    ]
 
     attribute_map = {
         'url': 'url',
@@ -68,10 +72,11 @@ class NetCDFRasterSourcesSinks(object):
         'file': 'file',
         'fill_value': 'fill_value',
         'id': 'id',
-        'uid': 'uid'
+        'uid': 'uid',
+        'substances': 'substances'
     }
 
-    def __init__(self, url=None, multiplier=None, simulation=None, offset=None, duration=None, timestamps=None, interval=None, values_reference=None, units=None, geotransform=None, epsg_code=None, file=None, fill_value=None, id=None, uid=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, multiplier=None, simulation=None, offset=None, duration=None, timestamps=None, interval=None, values_reference=None, units=None, geotransform=None, epsg_code=None, file=None, fill_value=None, id=None, uid=None, substances=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """NetCDFRasterSourcesSinks - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -95,6 +100,7 @@ class NetCDFRasterSourcesSinks(object):
         self._fill_value = None
         self._id = None
         self._uid = None
+        self._substances = None
         self.discriminator = None
 
         if url is not None:
@@ -121,6 +127,8 @@ class NetCDFRasterSourcesSinks(object):
             self.id = id
         if uid is not None:
             self.uid = uid
+        if substances is not None:
+            self.substances = substances
 
     @property
     def url(self):
@@ -483,6 +491,27 @@ class NetCDFRasterSourcesSinks(object):
         """
 
         self._uid = uid
+
+    @property
+    def substances(self):
+        """Gets the substances of this NetCDFRasterSourcesSinks.  # noqa: E501
+
+
+        :return: The substances of this NetCDFRasterSourcesSinks.  # noqa: E501
+        :rtype: list[ForcingSubstance]
+        """
+        return self._substances
+
+    @substances.setter
+    def substances(self, substances):
+        """Sets the substances of this NetCDFRasterSourcesSinks.
+
+
+        :param substances: The substances of this NetCDFRasterSourcesSinks.  # noqa: E501
+        :type: list[ForcingSubstance]
+        """
+
+        self._substances = substances
 
     def to_dict(self):
         """Returns the model properties as a dict"""

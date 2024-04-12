@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.24   3Di core release: 3.4.0  deployed on:  11:25AM (UTC) on March 19, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -57,8 +57,12 @@ class RasterOptions(object):
         'vegetation_drag_coefficient_file': 'str',
         'vegetation_stem_count_file': 'str',
         'vegetation_stem_diameter_file': 'str',
-        'initial_concentration_file': 'str'
+        'initial_concentration_file': 'str',
+        'initial_groundwater_concentration_file': 'str'
     }
+
+    required_fields = [
+    ]
 
     attribute_map = {
         'dem_file': 'dem_file',
@@ -82,10 +86,11 @@ class RasterOptions(object):
         'vegetation_drag_coefficient_file': 'vegetation_drag_coefficient_file',
         'vegetation_stem_count_file': 'vegetation_stem_count_file',
         'vegetation_stem_diameter_file': 'vegetation_stem_diameter_file',
-        'initial_concentration_file': 'initial_concentration_file'
+        'initial_concentration_file': 'initial_concentration_file',
+        'initial_groundwater_concentration_file': 'initial_groundwater_concentration_file'
     }
 
-    def __init__(self, dem_file=None, dem_raw_file=None, equilibrium_infiltration_rate_file=None, frict_coef_file=None, initial_groundwater_level_file=None, initial_waterlevel_file=None, groundwater_hydro_connectivity_file=None, groundwater_impervious_layer_level_file=None, infiltration_decay_period_file=None, initial_infiltration_rate_file=None, leakage_file=None, phreatic_storage_capacity_file=None, hydraulic_conductivity_file=None, porosity_file=None, infiltration_rate_file=None, max_infiltration_capacity_file=None, interception_file=None, vegetation_height_file=None, vegetation_drag_coefficient_file=None, vegetation_stem_count_file=None, vegetation_stem_diameter_file=None, initial_concentration_file=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, dem_file=None, dem_raw_file=None, equilibrium_infiltration_rate_file=None, frict_coef_file=None, initial_groundwater_level_file=None, initial_waterlevel_file=None, groundwater_hydro_connectivity_file=None, groundwater_impervious_layer_level_file=None, infiltration_decay_period_file=None, initial_infiltration_rate_file=None, leakage_file=None, phreatic_storage_capacity_file=None, hydraulic_conductivity_file=None, porosity_file=None, infiltration_rate_file=None, max_infiltration_capacity_file=None, interception_file=None, vegetation_height_file=None, vegetation_drag_coefficient_file=None, vegetation_stem_count_file=None, vegetation_stem_diameter_file=None, initial_concentration_file=None, initial_groundwater_concentration_file=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """RasterOptions - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -116,6 +121,7 @@ class RasterOptions(object):
         self._vegetation_stem_count_file = None
         self._vegetation_stem_diameter_file = None
         self._initial_concentration_file = None
+        self._initial_groundwater_concentration_file = None
         self.discriminator = None
 
         if dem_file is not None:
@@ -162,6 +168,8 @@ class RasterOptions(object):
             self.vegetation_stem_diameter_file = vegetation_stem_diameter_file
         if initial_concentration_file is not None:
             self.initial_concentration_file = initial_concentration_file
+        if initial_groundwater_concentration_file is not None:
+            self.initial_groundwater_concentration_file = initial_groundwater_concentration_file
 
     @property
     def dem_file(self):
@@ -756,6 +764,33 @@ class RasterOptions(object):
             self.__handle_validation_error("Invalid value for `initial_concentration_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._initial_concentration_file = initial_concentration_file
+
+    @property
+    def initial_groundwater_concentration_file(self):
+        """Gets the initial_groundwater_concentration_file of this RasterOptions.  # noqa: E501
+
+
+        :return: The initial_groundwater_concentration_file of this RasterOptions.  # noqa: E501
+        :rtype: str
+        """
+        return self._initial_groundwater_concentration_file
+
+    @initial_groundwater_concentration_file.setter
+    def initial_groundwater_concentration_file(self, initial_groundwater_concentration_file):
+        """Sets the initial_groundwater_concentration_file of this RasterOptions.
+
+
+        :param initial_groundwater_concentration_file: The initial_groundwater_concentration_file of this RasterOptions.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                initial_groundwater_concentration_file is not None and len(initial_groundwater_concentration_file) > 80):
+            self.__handle_validation_error("Invalid value for `initial_groundwater_concentration_file`, length must be less than or equal to `80`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                initial_groundwater_concentration_file is not None and len(initial_groundwater_concentration_file) < 1):
+            self.__handle_validation_error("Invalid value for `initial_groundwater_concentration_file`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._initial_groundwater_concentration_file = initial_groundwater_concentration_file
 
     def to_dict(self):
         """Returns the model properties as a dict"""

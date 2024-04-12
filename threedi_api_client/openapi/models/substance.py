@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.24   3Di core release: 3.4.0  deployed on:  11:25AM (UTC) on March 19, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -39,17 +39,31 @@ class Substance(object):
         'url': 'str',
         'simulation': 'str',
         'name': 'str',
-        'id': 'int'
+        'id': 'int',
+        'growth_coefficient': 'float',
+        'decay_coefficient': 'float',
+        'numerical_diffusion_limiter': 'int',
+        'units': 'str',
+        'uid': 'str'
     }
+
+    required_fields = [
+       'name',
+    ]
 
     attribute_map = {
         'url': 'url',
         'simulation': 'simulation',
         'name': 'name',
-        'id': 'id'
+        'id': 'id',
+        'growth_coefficient': 'growth_coefficient',
+        'decay_coefficient': 'decay_coefficient',
+        'numerical_diffusion_limiter': 'numerical_diffusion_limiter',
+        'units': 'units',
+        'uid': 'uid'
     }
 
-    def __init__(self, url=None, simulation=None, name=None, id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, simulation=None, name=None, id=None, growth_coefficient=None, decay_coefficient=None, numerical_diffusion_limiter=None, units=None, uid=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Substance - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,6 +76,11 @@ class Substance(object):
         self._simulation = None
         self._name = None
         self._id = None
+        self._growth_coefficient = None
+        self._decay_coefficient = None
+        self._numerical_diffusion_limiter = None
+        self._units = None
+        self._uid = None
         self.discriminator = None
 
         if url is not None:
@@ -71,6 +90,16 @@ class Substance(object):
         self.name = name
         if id is not None:
             self.id = id
+        if growth_coefficient is not None:
+            self.growth_coefficient = growth_coefficient
+        if decay_coefficient is not None:
+            self.decay_coefficient = decay_coefficient
+        if numerical_diffusion_limiter is not None:
+            self.numerical_diffusion_limiter = numerical_diffusion_limiter
+        if units is not None:
+            self.units = units
+        if uid is not None:
+            self.uid = uid
 
     @property
     def url(self):
@@ -163,6 +192,131 @@ class Substance(object):
         """
 
         self._id = id
+
+    @property
+    def growth_coefficient(self):
+        """Gets the growth_coefficient of this Substance.  # noqa: E501
+
+        The growth coefficient for the substance.  # noqa: E501
+
+        :return: The growth_coefficient of this Substance.  # noqa: E501
+        :rtype: float
+        """
+        return self._growth_coefficient
+
+    @growth_coefficient.setter
+    def growth_coefficient(self, growth_coefficient):
+        """Sets the growth_coefficient of this Substance.
+
+        The growth coefficient for the substance.  # noqa: E501
+
+        :param growth_coefficient: The growth_coefficient of this Substance.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                growth_coefficient is not None and growth_coefficient < 0):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `growth_coefficient`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._growth_coefficient = growth_coefficient
+
+    @property
+    def decay_coefficient(self):
+        """Gets the decay_coefficient of this Substance.  # noqa: E501
+
+        The decay coefficient for the substance.  # noqa: E501
+
+        :return: The decay_coefficient of this Substance.  # noqa: E501
+        :rtype: float
+        """
+        return self._decay_coefficient
+
+    @decay_coefficient.setter
+    def decay_coefficient(self, decay_coefficient):
+        """Sets the decay_coefficient of this Substance.
+
+        The decay coefficient for the substance.  # noqa: E501
+
+        :param decay_coefficient: The decay_coefficient of this Substance.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                decay_coefficient is not None and decay_coefficient < 0):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `decay_coefficient`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._decay_coefficient = decay_coefficient
+
+    @property
+    def numerical_diffusion_limiter(self):
+        """Gets the numerical_diffusion_limiter of this Substance.  # noqa: E501
+
+        The numerical diffusion limiter for the substance.   Options:  0 = off 1 = standard   # noqa: E501
+
+        :return: The numerical_diffusion_limiter of this Substance.  # noqa: E501
+        :rtype: int
+        """
+        return self._numerical_diffusion_limiter
+
+    @numerical_diffusion_limiter.setter
+    def numerical_diffusion_limiter(self, numerical_diffusion_limiter):
+        """Sets the numerical_diffusion_limiter of this Substance.
+
+        The numerical diffusion limiter for the substance.   Options:  0 = off 1 = standard   # noqa: E501
+
+        :param numerical_diffusion_limiter: The numerical_diffusion_limiter of this Substance.  # noqa: E501
+        :type: int
+        """
+
+        self._numerical_diffusion_limiter = numerical_diffusion_limiter
+
+    @property
+    def units(self):
+        """Gets the units of this Substance.  # noqa: E501
+
+        The units of the substance.  # noqa: E501
+
+        :return: The units of this Substance.  # noqa: E501
+        :rtype: str
+        """
+        return self._units
+
+    @units.setter
+    def units(self, units):
+        """Sets the units of this Substance.
+
+        The units of the substance.  # noqa: E501
+
+        :param units: The units of this Substance.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                units is not None and len(units) > 16):
+            self.__handle_validation_error("Invalid value for `units`, length must be less than or equal to `16`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                units is not None and len(units) < 1):
+            self.__handle_validation_error("Invalid value for `units`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._units = units
+
+    @property
+    def uid(self):
+        """Gets the uid of this Substance.  # noqa: E501
+
+
+        :return: The uid of this Substance.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this Substance.
+
+
+        :param uid: The uid of this Substance.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

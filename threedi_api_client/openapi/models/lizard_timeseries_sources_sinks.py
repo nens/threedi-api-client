@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.24   3Di core release: 3.4.0  deployed on:  11:25AM (UTC) on March 19, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -43,9 +43,18 @@ class LizardTimeseriesSourcesSinks(object):
         'reference_uuid': 'str',
         'start_datetime': 'datetime',
         'interpolate': 'bool',
-        'values': 'list[list[float]]',
-        'uid': 'str'
+        'uid': 'str',
+        'substances': 'list[ForcingSubstance]',
+        'multiplier': 'float',
+        'units': 'str',
+        'values': 'list[list[float]]'
     }
+
+    required_fields = [
+       'offset',
+       'reference_uuid',
+       'start_datetime',
+    ]
 
     attribute_map = {
         'url': 'url',
@@ -55,11 +64,14 @@ class LizardTimeseriesSourcesSinks(object):
         'reference_uuid': 'reference_uuid',
         'start_datetime': 'start_datetime',
         'interpolate': 'interpolate',
-        'values': 'values',
-        'uid': 'uid'
+        'uid': 'uid',
+        'substances': 'substances',
+        'multiplier': 'multiplier',
+        'units': 'units',
+        'values': 'values'
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, duration=None, reference_uuid=None, start_datetime=None, interpolate=None, values=None, uid=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, simulation=None, offset=None, duration=None, reference_uuid=None, start_datetime=None, interpolate=None, uid=None, substances=None, multiplier=None, units=None, values=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """LizardTimeseriesSourcesSinks - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,8 +87,11 @@ class LizardTimeseriesSourcesSinks(object):
         self._reference_uuid = None
         self._start_datetime = None
         self._interpolate = None
-        self._values = None
         self._uid = None
+        self._substances = None
+        self._multiplier = None
+        self._units = None
+        self._values = None
         self.discriminator = None
 
         if url is not None:
@@ -89,10 +104,16 @@ class LizardTimeseriesSourcesSinks(object):
         self.start_datetime = start_datetime
         if interpolate is not None:
             self.interpolate = interpolate
-        if values is not None:
-            self.values = values
         if uid is not None:
             self.uid = uid
+        if substances is not None:
+            self.substances = substances
+        if multiplier is not None:
+            self.multiplier = multiplier
+        if units is not None:
+            self.units = units
+        if values is not None:
+            self.values = values
 
     @property
     def url(self):
@@ -270,6 +291,96 @@ class LizardTimeseriesSourcesSinks(object):
         self._interpolate = interpolate
 
     @property
+    def uid(self):
+        """Gets the uid of this LizardTimeseriesSourcesSinks.  # noqa: E501
+
+
+        :return: The uid of this LizardTimeseriesSourcesSinks.  # noqa: E501
+        :rtype: str
+        """
+        return self._uid
+
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this LizardTimeseriesSourcesSinks.
+
+
+        :param uid: The uid of this LizardTimeseriesSourcesSinks.  # noqa: E501
+        :type: str
+        """
+
+        self._uid = uid
+
+    @property
+    def substances(self):
+        """Gets the substances of this LizardTimeseriesSourcesSinks.  # noqa: E501
+
+
+        :return: The substances of this LizardTimeseriesSourcesSinks.  # noqa: E501
+        :rtype: list[ForcingSubstance]
+        """
+        return self._substances
+
+    @substances.setter
+    def substances(self, substances):
+        """Sets the substances of this LizardTimeseriesSourcesSinks.
+
+
+        :param substances: The substances of this LizardTimeseriesSourcesSinks.  # noqa: E501
+        :type: list[ForcingSubstance]
+        """
+
+        self._substances = substances
+
+    @property
+    def multiplier(self):
+        """Gets the multiplier of this LizardTimeseriesSourcesSinks.  # noqa: E501
+
+
+        :return: The multiplier of this LizardTimeseriesSourcesSinks.  # noqa: E501
+        :rtype: float
+        """
+        return self._multiplier
+
+    @multiplier.setter
+    def multiplier(self, multiplier):
+        """Sets the multiplier of this LizardTimeseriesSourcesSinks.
+
+
+        :param multiplier: The multiplier of this LizardTimeseriesSourcesSinks.  # noqa: E501
+        :type: float
+        """
+
+        self._multiplier = multiplier
+
+    @property
+    def units(self):
+        """Gets the units of this LizardTimeseriesSourcesSinks.  # noqa: E501
+
+
+        :return: The units of this LizardTimeseriesSourcesSinks.  # noqa: E501
+        :rtype: str
+        """
+        return self._units
+
+    @units.setter
+    def units(self, units):
+        """Sets the units of this LizardTimeseriesSourcesSinks.
+
+
+        :param units: The units of this LizardTimeseriesSourcesSinks.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["mm/duration", "mm/h", "m/s"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
+            self.__handle_validation_error(
+                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
+                .format(units, allowed_values)
+            )
+
+        self._units = units
+
+    @property
     def values(self):
         """Gets the values of this LizardTimeseriesSourcesSinks.  # noqa: E501
 
@@ -291,27 +402,6 @@ class LizardTimeseriesSourcesSinks(object):
         """
 
         self._values = values
-
-    @property
-    def uid(self):
-        """Gets the uid of this LizardTimeseriesSourcesSinks.  # noqa: E501
-
-
-        :return: The uid of this LizardTimeseriesSourcesSinks.  # noqa: E501
-        :rtype: str
-        """
-        return self._uid
-
-    @uid.setter
-    def uid(self, uid):
-        """Sets the uid of this LizardTimeseriesSourcesSinks.
-
-
-        :param uid: The uid of this LizardTimeseriesSourcesSinks.  # noqa: E501
-        :type: str
-        """
-
-        self._uid = uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

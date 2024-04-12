@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.24   3Di core release: 3.4.0  deployed on:  11:25AM (UTC) on March 19, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -48,8 +48,17 @@ class LizardRasterSourcesSinks(object):
         'id': 'int',
         'uid': 'str',
         'user': 'str',
-        'user_id': 'int'
+        'user_id': 'int',
+        'substances': 'list[ForcingSubstance]',
+        'multiplier': 'float',
+        'units': 'str'
     }
+
+    required_fields = [
+       'offset',
+       'reference_uuid',
+       'start_datetime',
+    ]
 
     attribute_map = {
         'url': 'url',
@@ -64,10 +73,13 @@ class LizardRasterSourcesSinks(object):
         'id': 'id',
         'uid': 'uid',
         'user': 'user',
-        'user_id': 'user_id'
+        'user_id': 'user_id',
+        'substances': 'substances',
+        'multiplier': 'multiplier',
+        'units': 'units'
     }
 
-    def __init__(self, url=None, offset=None, duration=None, reference_uuid=None, start_datetime=None, simulation=None, interval=None, origin_offset=None, store_path=None, id=None, uid=None, user=None, user_id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, offset=None, duration=None, reference_uuid=None, start_datetime=None, simulation=None, interval=None, origin_offset=None, store_path=None, id=None, uid=None, user=None, user_id=None, substances=None, multiplier=None, units=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """LizardRasterSourcesSinks - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -89,6 +101,9 @@ class LizardRasterSourcesSinks(object):
         self._uid = None
         self._user = None
         self._user_id = None
+        self._substances = None
+        self._multiplier = None
+        self._units = None
         self.discriminator = None
 
         if url is not None:
@@ -113,6 +128,12 @@ class LizardRasterSourcesSinks(object):
             self.user = user
         if user_id is not None:
             self.user_id = user_id
+        if substances is not None:
+            self.substances = substances
+        if multiplier is not None:
+            self.multiplier = multiplier
+        if units is not None:
+            self.units = units
 
     @property
     def url(self):
@@ -417,6 +438,75 @@ class LizardRasterSourcesSinks(object):
         """
 
         self._user_id = user_id
+
+    @property
+    def substances(self):
+        """Gets the substances of this LizardRasterSourcesSinks.  # noqa: E501
+
+
+        :return: The substances of this LizardRasterSourcesSinks.  # noqa: E501
+        :rtype: list[ForcingSubstance]
+        """
+        return self._substances
+
+    @substances.setter
+    def substances(self, substances):
+        """Sets the substances of this LizardRasterSourcesSinks.
+
+
+        :param substances: The substances of this LizardRasterSourcesSinks.  # noqa: E501
+        :type: list[ForcingSubstance]
+        """
+
+        self._substances = substances
+
+    @property
+    def multiplier(self):
+        """Gets the multiplier of this LizardRasterSourcesSinks.  # noqa: E501
+
+
+        :return: The multiplier of this LizardRasterSourcesSinks.  # noqa: E501
+        :rtype: float
+        """
+        return self._multiplier
+
+    @multiplier.setter
+    def multiplier(self, multiplier):
+        """Sets the multiplier of this LizardRasterSourcesSinks.
+
+
+        :param multiplier: The multiplier of this LizardRasterSourcesSinks.  # noqa: E501
+        :type: float
+        """
+
+        self._multiplier = multiplier
+
+    @property
+    def units(self):
+        """Gets the units of this LizardRasterSourcesSinks.  # noqa: E501
+
+
+        :return: The units of this LizardRasterSourcesSinks.  # noqa: E501
+        :rtype: str
+        """
+        return self._units
+
+    @units.setter
+    def units(self, units):
+        """Sets the units of this LizardRasterSourcesSinks.
+
+
+        :param units: The units of this LizardRasterSourcesSinks.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["mm/duration", "mm/h", "m/s"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
+            self.__handle_validation_error(
+                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
+                .format(units, allowed_values)
+            )
+
+        self._units = units
 
     def to_dict(self):
         """Returns the model properties as a dict"""

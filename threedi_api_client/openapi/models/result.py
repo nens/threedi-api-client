@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.24   3Di core release: 3.4.0  deployed on:  11:25AM (UTC) on March 19, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,6 +40,12 @@ class Result(object):
         'damage_estimation': 'bool',
         'arrival_time': 'bool'
     }
+
+    required_fields = [
+       'basic',
+       'damage_estimation',
+       'arrival_time'
+    ]
 
     attribute_map = {
         'basic': 'basic',

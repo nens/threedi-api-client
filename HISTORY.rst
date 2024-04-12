@@ -5,7 +5,7 @@ History
 4.1.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Generated with generator version v4.4.0
 
 
 4.1.6b (2023-12-14)

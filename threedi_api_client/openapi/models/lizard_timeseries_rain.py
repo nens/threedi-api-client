@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.4   3Di core release: 3.3.1  deployed on:  08:44AM (UTC) on December 14, 2023  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.24   3Di core release: 3.4.0  deployed on:  11:25AM (UTC) on March 19, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,6 +40,7 @@ class LizardTimeseriesRain(object):
         'simulation': 'str',
         'offset': 'int',
         'duration': 'int',
+        'multiplier': 'float',
         'reference_uuid': 'str',
         'start_datetime': 'datetime',
         'interpolate': 'bool',
@@ -50,11 +51,18 @@ class LizardTimeseriesRain(object):
         'substances': 'list[ForcingSubstance]'
     }
 
+    required_fields = [
+       'offset',
+       'reference_uuid',
+       'start_datetime',
+    ]
+
     attribute_map = {
         'url': 'url',
         'simulation': 'simulation',
         'offset': 'offset',
         'duration': 'duration',
+        'multiplier': 'multiplier',
         'reference_uuid': 'reference_uuid',
         'start_datetime': 'start_datetime',
         'interpolate': 'interpolate',
@@ -65,7 +73,7 @@ class LizardTimeseriesRain(object):
         'substances': 'substances'
     }
 
-    def __init__(self, url=None, simulation=None, offset=None, duration=None, reference_uuid=None, start_datetime=None, interpolate=None, values=None, units=None, id=None, uid=None, substances=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, simulation=None, offset=None, duration=None, multiplier=None, reference_uuid=None, start_datetime=None, interpolate=None, values=None, units=None, id=None, uid=None, substances=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """LizardTimeseriesRain - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -78,6 +86,7 @@ class LizardTimeseriesRain(object):
         self._simulation = None
         self._offset = None
         self._duration = None
+        self._multiplier = None
         self._reference_uuid = None
         self._start_datetime = None
         self._interpolate = None
@@ -94,6 +103,8 @@ class LizardTimeseriesRain(object):
             self.simulation = simulation
         self.offset = offset
         self.duration = duration
+        if multiplier is not None:
+            self.multiplier = multiplier
         self.reference_uuid = reference_uuid
         self.start_datetime = start_datetime
         if interpolate is not None:
@@ -210,6 +221,27 @@ class LizardTimeseriesRain(object):
             self.__handle_validation_error("Invalid value for `duration`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
 
         self._duration = duration
+
+    @property
+    def multiplier(self):
+        """Gets the multiplier of this LizardTimeseriesRain.  # noqa: E501
+
+
+        :return: The multiplier of this LizardTimeseriesRain.  # noqa: E501
+        :rtype: float
+        """
+        return self._multiplier
+
+    @multiplier.setter
+    def multiplier(self, multiplier):
+        """Sets the multiplier of this LizardTimeseriesRain.
+
+
+        :param multiplier: The multiplier of this LizardTimeseriesRain.  # noqa: E501
+        :type: float
+        """
+
+        self._multiplier = multiplier
 
     @property
     def reference_uuid(self):
