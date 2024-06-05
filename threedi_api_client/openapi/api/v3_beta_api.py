@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.24   3Di core release: 3.4.0  deployed on:  11:25AM (UTC) on March 19, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.40   3Di core release: 3.4.4  deployed on:  07:09AM (UTC) on June 05, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -619,7 +619,7 @@ class V3BetaApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: (required)
-        :param CopyToThreediModel data: (required)
+        :param Template data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -627,7 +627,7 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: CopyToThreediModel
+        :return: Template
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -645,7 +645,7 @@ class V3BetaApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: (required)
-        :param CopyToThreediModel data: (required)
+        :param Template data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -655,7 +655,7 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(CopyToThreediModel, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Template, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -727,7 +727,7 @@ class V3BetaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CopyToThreediModel',  # noqa: E501
+            response_type='Template',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
