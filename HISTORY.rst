@@ -2,7 +2,7 @@
 History
 =======
 
-4.1.7 (unreleased)
+4.1.7 (2024-06-05)
 ------------------
 
 - started from field for simulation
