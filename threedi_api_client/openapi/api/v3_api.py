@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.24   3Di core release: 3.4.0  deployed on:  11:25AM (UTC) on March 19, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.40   3Di core release: 3.4.4  deployed on:  07:09AM (UTC) on June 05, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -39350,7 +39350,7 @@ class V3Api(object):
     def simulations_from_template(self, data, **kwargs):  # noqa: E501
         """Create a (new/cloned) simulation from a simulation template.  # noqa: E501
 
-        There are two options to specify the desired duration for the new simulation, either by using the ``end_datetime`` **or** the ``duration`` parameter.  {   \"template\":                  # source simulation template resource id   \"name\":                      # name for the new simulation.   \"tags\":                      # extra tags, added to existing simulation template tags.   \"organisation\":              # uuid of the organisation for which the                                  simulation is run   \"start_datetime\":            # datetime (in ISO 8601 (UTC) format) for the                                  simulation start, e.g. \"YYYY-MM-DDThh:mm:ss\"   \"end_datetime\":              # datetime (in ISO 8601 (UTC) format) for the                                  simulation end, e.g. \"YYYY-MM-DDThh:mm:ss\"   \"duration\":                  # in seconds, can be used instead of end_datetime   \"clone_events\":              # if true, clone events like rain/sources & sinks etc.   \"clone_initials\":            # if true, clone initial waterlevels   \"clone_settings\":            # if true, clone simulation settings, like physical settings etc.   \"threedimodel_id\":           # copy simulation template to threedimodel }  # noqa: E501
+        There are two options to specify the desired duration for the new simulation, either by using the ``end_datetime`` **or** the ``duration`` parameter.  {   \"template\":                  # source simulation template resource id   \"name\":                      # name for the new simulation.   \"tags\":                      # extra tags, added to existing simulation template tags.   \"organisation\":              # uuid of the organisation for which the                                  simulation is run   \"start_datetime\":            # datetime (in ISO 8601 (UTC) format) for the                                  simulation start, e.g. \"YYYY-MM-DDThh:mm:ss\"   \"end_datetime\":              # datetime (in ISO 8601 (UTC) format) for the                                  simulation end, e.g. \"YYYY-MM-DDThh:mm:ss\"   \"duration\":                  # in seconds, can be used instead of end_datetime   \"clone_events\":              # if true, clone events like rain/sources & sinks etc.   \"clone_initials\":            # if true, clone initial waterlevels   \"clone_settings\":            # if true, clone simulation settings, like physical settings etc.   \"threedimodel_id\":           # copy simulation template to threedimodel   \"started_from\":              # platform from which the simulation was started }  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_from_template(data, async_req=True)
@@ -39375,7 +39375,7 @@ class V3Api(object):
     def simulations_from_template_with_http_info(self, data, **kwargs):  # noqa: E501
         """Create a (new/cloned) simulation from a simulation template.  # noqa: E501
 
-        There are two options to specify the desired duration for the new simulation, either by using the ``end_datetime`` **or** the ``duration`` parameter.  {   \"template\":                  # source simulation template resource id   \"name\":                      # name for the new simulation.   \"tags\":                      # extra tags, added to existing simulation template tags.   \"organisation\":              # uuid of the organisation for which the                                  simulation is run   \"start_datetime\":            # datetime (in ISO 8601 (UTC) format) for the                                  simulation start, e.g. \"YYYY-MM-DDThh:mm:ss\"   \"end_datetime\":              # datetime (in ISO 8601 (UTC) format) for the                                  simulation end, e.g. \"YYYY-MM-DDThh:mm:ss\"   \"duration\":                  # in seconds, can be used instead of end_datetime   \"clone_events\":              # if true, clone events like rain/sources & sinks etc.   \"clone_initials\":            # if true, clone initial waterlevels   \"clone_settings\":            # if true, clone simulation settings, like physical settings etc.   \"threedimodel_id\":           # copy simulation template to threedimodel }  # noqa: E501
+        There are two options to specify the desired duration for the new simulation, either by using the ``end_datetime`` **or** the ``duration`` parameter.  {   \"template\":                  # source simulation template resource id   \"name\":                      # name for the new simulation.   \"tags\":                      # extra tags, added to existing simulation template tags.   \"organisation\":              # uuid of the organisation for which the                                  simulation is run   \"start_datetime\":            # datetime (in ISO 8601 (UTC) format) for the                                  simulation start, e.g. \"YYYY-MM-DDThh:mm:ss\"   \"end_datetime\":              # datetime (in ISO 8601 (UTC) format) for the                                  simulation end, e.g. \"YYYY-MM-DDThh:mm:ss\"   \"duration\":                  # in seconds, can be used instead of end_datetime   \"clone_events\":              # if true, clone events like rain/sources & sinks etc.   \"clone_initials\":            # if true, clone initial waterlevels   \"clone_settings\":            # if true, clone simulation settings, like physical settings etc.   \"threedimodel_id\":           # copy simulation template to threedimodel   \"started_from\":              # platform from which the simulation was started }  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_from_template_with_http_info(data, async_req=True)
@@ -46393,6 +46393,7 @@ class V3Api(object):
         :param str created__month__lte: created__month__lte
         :param str created__day: created__day
         :param str created__day__lt: created__day__lt
+        :param str started_from: started_from
         :param str user__username: user__username
         :param str user__username__istartswith: user__username__istartswith
         :param str threedimodel__id: threedimodel__id
@@ -46460,6 +46461,7 @@ class V3Api(object):
         :param str created__month__lte: created__month__lte
         :param str created__day: created__day
         :param str created__day__lt: created__day__lt
+        :param str started_from: started_from
         :param str user__username: user__username
         :param str user__username__istartswith: user__username__istartswith
         :param str threedimodel__id: threedimodel__id
@@ -46520,6 +46522,7 @@ class V3Api(object):
             'created__month__lte',
             'created__day',
             'created__day__lt',
+            'started_from',
             'user__username',
             'user__username__istartswith',
             'threedimodel__id',
@@ -46620,6 +46623,8 @@ class V3Api(object):
             query_params.append(('created__day', local_var_params['created__day']))  # noqa: E501
         if 'created__day__lt' in local_var_params and local_var_params['created__day__lt'] is not None:  # noqa: E501
             query_params.append(('created__day__lt', local_var_params['created__day__lt']))  # noqa: E501
+        if 'started_from' in local_var_params and local_var_params['started_from'] is not None:  # noqa: E501
+            query_params.append(('started_from', local_var_params['started_from']))  # noqa: E501
         if 'user__username' in local_var_params and local_var_params['user__username'] is not None:  # noqa: E501
             query_params.append(('user__username', local_var_params['user__username']))  # noqa: E501
         if 'user__username__istartswith' in local_var_params and local_var_params['user__username__istartswith'] is not None:  # noqa: E501

@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   title: 3Di API
   description: "3Di simulation API (latest stable version: v3) \n Framework release:
-    3.3.24 \n 3Di core release: 3.4.0 \ndeployed on:  11:25AM (UTC) on March 19, 2024"
+    3.3.40 \n 3Di core release: 3.4.4 \ndeployed on:  07:09AM (UTC) on June 05, 2024"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -159,12 +159,12 @@ paths:
         in: body
         required: true
         schema:
-          $ref: '#/definitions/CopyToThreediModel'
+          $ref: '#/definitions/Template'
       responses:
         '201':
           description: ''
           schema:
-            $ref: '#/definitions/CopyToThreediModel'
+            $ref: '#/definitions/Template'
         '400':
           description: validation errors
       tags:
@@ -5665,6 +5665,15 @@ paths:
         description: created__day__lt
         required: false
         type: string
+      - name: started_from
+        in: query
+        description: started_from
+        required: false
+        type: string
+        enum:
+        - ''
+        - 3Di Live
+        - 3Di Modeller Interface
       - name: user__username
         in: query
         description: user__username
@@ -5801,6 +5810,7 @@ paths:
           "clone_initials":            # if true, clone initial waterlevels
           "clone_settings":            # if true, clone simulation settings, like physical settings etc.
           "threedimodel_id":           # copy simulation template to threedimodel
+          "started_from":              # platform from which the simulation was started
         }
       parameters:
       - name: data
@@ -18260,36 +18270,140 @@ definitions:
         type: string
         readOnly: true
         minLength: 1
-  CopyToThreediModel:
+  Simulation:
     required:
+    - name
     - threedimodel
+    - organisation
+    - start_datetime
     type: object
     properties:
-      threedimodel:
-        title: Threedimodel
-        type: integer
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      slug:
+        title: Slug
+        type: string
+        format: slug
+        pattern: ^[-a-zA-Z0-9_]+$
+        readOnly: true
+        minLength: 1
+      uuid:
+        title: Uuid
+        type: string
+        format: uuid
+        readOnly: true
       name:
         title: Name
         type: string
         maxLength: 128
         minLength: 1
       tags:
+        title: tags
         type: array
+        description: tags provided as a list of strings
         items:
           type: string
-          x-nullable: true
-      clone_events:
-        title: Clone events
-        type: boolean
-        default: true
-      clone_initials:
-        title: Clone initials
-        type: boolean
-        default: true
-      clone_settings:
-        title: Clone settings
-        type: boolean
-        default: true
+        example:
+        - tag_1
+        - tag_2
+      created:
+        title: Created
+        type: string
+        readOnly: true
+      threedimodel:
+        title: Threedimodel.id
+        type: string
+        format: uri
+        description: The id of a threedimodel
+      organisation:
+        title: Organisation.unique_id
+        type: string
+        description: The unique_id of an organisation
+      organisation_name:
+        title: Organisation name
+        type: string
+        readOnly: true
+      user:
+        title: User.username
+        type: string
+        pattern: ^[\w.@+-]+$
+        readOnly: true
+        description: The username of a user
+      start_datetime:
+        title: Start datetime
+        type: string
+        format: date-time
+      end_datetime:
+        title: End datetime
+        type: string
+        format: date-time
+      duration:
+        title: Duration
+        type: integer
+      duration_humanized:
+        title: Duration humanized
+        type: string
+        readOnly: true
+      threedimodel_id:
+        title: Threedimodel id
+        type: integer
+        readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      threedicore_version:
+        title: Threedicore version
+        type: string
+        maxLength: 16
+        minLength: 1
+        x-nullable: true
+      cloned_from:
+        title: Cloned from
+        type: string
+        format: uri
+        readOnly: true
+      compute_cluster:
+        title: ComputeCluster.name
+        type: string
+        readOnly: true
+        description: The name of the compute cluster that runs/has run the simulation.
+      started_from:
+        title: Started from
+        type: string
+        enum:
+        - ''
+        - 3Di Live
+        - 3Di Modeller Interface
+  Template:
+    required:
+    - name
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 255
+        minLength: 1
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      created:
+        title: Created
+        type: string
+        format: date-time
+        readOnly: true
+      simulation:
+        $ref: '#/definitions/Simulation'
   ObstacleEdit:
     required:
     - offset
@@ -20111,133 +20225,6 @@ definitions:
         type: string
         maxLength: 256
         minLength: 1
-  Simulation:
-    required:
-    - name
-    - threedimodel
-    - organisation
-    - start_datetime
-    type: object
-    properties:
-      url:
-        title: Url
-        type: string
-        format: uri
-        readOnly: true
-      slug:
-        title: Slug
-        type: string
-        format: slug
-        pattern: ^[-a-zA-Z0-9_]+$
-        readOnly: true
-        minLength: 1
-      uuid:
-        title: Uuid
-        type: string
-        format: uuid
-        readOnly: true
-      name:
-        title: Name
-        type: string
-        maxLength: 128
-        minLength: 1
-      tags:
-        title: tags
-        type: array
-        description: tags provided as a list of strings
-        items:
-          type: string
-        example:
-        - tag_1
-        - tag_2
-      created:
-        title: Created
-        type: string
-        readOnly: true
-      threedimodel:
-        title: Threedimodel.id
-        type: string
-        format: uri
-        description: The id of a threedimodel
-      organisation:
-        title: Organisation.unique_id
-        type: string
-        description: The unique_id of an organisation
-      organisation_name:
-        title: Organisation name
-        type: string
-        readOnly: true
-      user:
-        title: User.username
-        type: string
-        pattern: ^[\w.@+-]+$
-        readOnly: true
-        description: The username of a user
-      start_datetime:
-        title: Start datetime
-        type: string
-        format: date-time
-      end_datetime:
-        title: End datetime
-        type: string
-        format: date-time
-      duration:
-        title: Duration
-        type: integer
-      duration_humanized:
-        title: Duration humanized
-        type: string
-        readOnly: true
-      threedimodel_id:
-        title: Threedimodel id
-        type: integer
-        readOnly: true
-      id:
-        title: ID
-        type: integer
-        readOnly: true
-      threedicore_version:
-        title: Threedicore version
-        type: string
-        maxLength: 16
-        minLength: 1
-        x-nullable: true
-      cloned_from:
-        title: Cloned from
-        type: string
-        format: uri
-        readOnly: true
-      compute_cluster:
-        title: ComputeCluster.name
-        type: string
-        readOnly: true
-        description: The name of the compute cluster that runs/has run the simulation.
-  Template:
-    required:
-    - name
-    type: object
-    properties:
-      url:
-        title: Url
-        type: string
-        format: uri
-        readOnly: true
-      name:
-        title: Name
-        type: string
-        maxLength: 255
-        minLength: 1
-      id:
-        title: ID
-        type: integer
-        readOnly: true
-      created:
-        title: Created
-        type: string
-        format: date-time
-        readOnly: true
-      simulation:
-        $ref: '#/definitions/Simulation'
   CreateTemplate:
     required:
     - name
@@ -20330,6 +20317,9 @@ definitions:
         title: Clone settings
         type: boolean
         default: true
+      started_from:
+        title: Started from
+        type: string
   PostProcessingQueue:
     required:
     - simulation
@@ -20454,6 +20444,13 @@ definitions:
         type: string
         readOnly: true
         description: The name of the compute cluster that runs/has run the simulation.
+      started_from:
+        title: Started from
+        type: string
+        enum:
+        - ''
+        - 3Di Live
+        - 3Di Modeller Interface
   ForcingSubstance:
     required:
     - substance
@@ -23160,7 +23157,8 @@ definitions:
           picked)'
         type: string
         enum:
-        - 3.3.24-3.4.0
+        - 3.3.40-3.4.4
+        - 3.2.17-2.3.6
   Timeout:
     required:
     - timeout

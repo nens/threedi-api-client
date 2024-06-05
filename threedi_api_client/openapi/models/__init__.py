@@ -4,7 +4,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.24   3Di core release: 3.4.0  deployed on:  11:25AM (UTC) on March 19, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.40   3Di core release: 3.4.4  deployed on:  07:09AM (UTC) on June 05, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -33,7 +33,6 @@ from threedi_api_client.openapi.models.constant_rain import ConstantRain
 from threedi_api_client.openapi.models.constant_sources_sinks import ConstantSourcesSinks
 from threedi_api_client.openapi.models.constant_wind import ConstantWind
 from threedi_api_client.openapi.models.contract import Contract
-from threedi_api_client.openapi.models.copy_to_threedi_model import CopyToThreediModel
 from threedi_api_client.openapi.models.create_revision import CreateRevision
 from threedi_api_client.openapi.models.create_template import CreateTemplate
 from threedi_api_client.openapi.models.create_threedimodel import CreateThreedimodel

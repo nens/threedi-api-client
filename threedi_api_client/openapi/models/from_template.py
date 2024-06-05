@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.24   3Di core release: 3.4.0  deployed on:  11:25AM (UTC) on March 19, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.3.40   3Di core release: 3.4.4  deployed on:  07:09AM (UTC) on June 05, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -46,7 +46,8 @@ class FromTemplate(object):
         'duration': 'int',
         'clone_events': 'bool',
         'clone_initials': 'bool',
-        'clone_settings': 'bool'
+        'clone_settings': 'bool',
+        'started_from': 'str'
     }
 
     required_fields = [
@@ -67,10 +68,11 @@ class FromTemplate(object):
         'duration': 'duration',
         'clone_events': 'clone_events',
         'clone_initials': 'clone_initials',
-        'clone_settings': 'clone_settings'
+        'clone_settings': 'clone_settings',
+        'started_from': 'started_from'
     }
 
-    def __init__(self, template=None, threedimodel=None, name=None, tags=None, organisation=None, start_datetime=None, end_datetime=None, duration=None, clone_events=True, clone_initials=True, clone_settings=True, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, template=None, threedimodel=None, name=None, tags=None, organisation=None, start_datetime=None, end_datetime=None, duration=None, clone_events=True, clone_initials=True, clone_settings=True, started_from=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """FromTemplate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -90,6 +92,7 @@ class FromTemplate(object):
         self._clone_events = None
         self._clone_initials = None
         self._clone_settings = None
+        self._started_from = None
         self.discriminator = None
 
         self.template = template
@@ -110,6 +113,8 @@ class FromTemplate(object):
             self.clone_initials = clone_initials
         if clone_settings is not None:
             self.clone_settings = clone_settings
+        if started_from is not None:
+            self.started_from = started_from
 
     @property
     def template(self):
@@ -362,6 +367,27 @@ class FromTemplate(object):
         """
 
         self._clone_settings = clone_settings
+
+    @property
+    def started_from(self):
+        """Gets the started_from of this FromTemplate.  # noqa: E501
+
+
+        :return: The started_from of this FromTemplate.  # noqa: E501
+        :rtype: str
+        """
+        return self._started_from
+
+    @started_from.setter
+    def started_from(self, started_from):
+        """Sets the started_from of this FromTemplate.
+
+
+        :param started_from: The started_from of this FromTemplate.  # noqa: E501
+        :type: str
+        """
+
+        self._started_from = started_from
 
     def to_dict(self):
         """Returns the model properties as a dict"""
