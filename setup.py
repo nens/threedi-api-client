@@ -39,6 +39,7 @@ requirements = [
     'urllib3>=1.24,<2.0',
     'six>=1.10',
     'python-dateutil',
+    'sphinx-rtd-theme',
 ]
 
 aio_requirements = ["aiohttp>=3.6.3", "aiofiles>=0.6"]
