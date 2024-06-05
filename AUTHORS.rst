@@ -5,9 +5,9 @@ Credits
 Development Lead
 ----------------
 
-* Lars Claussen <lars.claussen@nelen-schuurmans.nl>
+* Jelle Prins <jelle.prins@nelen-schuurmans.nl>
 
 Contributors
 ------------
 
-None yet. Why not be the first?
+* Daan van Ingen <daan.vaningen@nelen-schuurmans.nl>
