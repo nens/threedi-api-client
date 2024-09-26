@@ -6,7 +6,7 @@ History
 ------------------
 
 - Pin aiohttp to <3.10
-- Add test workflow for Python 3.12
+- Add test workflow for Python 3.12 and 3.13.0-rc.2
 
 
 4.1.7 (2024-06-05)
