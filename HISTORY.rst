@@ -5,7 +5,8 @@ History
 4.1.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Pin aiohttp to <3.10
+- Add test workflow for Python 3.12
 
 
 4.1.7 (2024-06-05)
