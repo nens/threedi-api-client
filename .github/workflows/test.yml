@@ -26,7 +26,7 @@ jobs:
             pins: "certifi==2022.* urllib3==1.26.* aiohttp==3.8.* aiofiles==0.8.*"
           # 2023
           - python: "3.11"
-            pins: "certifi==2023.* urllib3==2.1.* aiohttp==3.9.* aiofiles==23.2.*"
+            pins: "certifi==2023.* urllib3==1.26.* aiohttp==3.9.* aiofiles==23.2.*"
           # current
           - python: "3.12"
             pins: ""
