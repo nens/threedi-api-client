@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.40   3Di core release: 3.4.4  deployed on:  07:09AM (UTC) on June 05, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -51,7 +51,8 @@ class SchematisationRevision(object):
         'commit_last_name': 'str',
         'commit_message': 'str',
         'is_valid': 'bool',
-        'has_threedimodel': 'bool'
+        'has_threedimodel': 'bool',
+        'tags': 'list[str]'
     }
 
     required_fields = [
@@ -73,10 +74,11 @@ class SchematisationRevision(object):
         'commit_last_name': 'commit_last_name',
         'commit_message': 'commit_message',
         'is_valid': 'is_valid',
-        'has_threedimodel': 'has_threedimodel'
+        'has_threedimodel': 'has_threedimodel',
+        'tags': 'tags'
     }
 
-    def __init__(self, url=None, id=None, created=None, schematisation=None, schematisation_id=None, number=None, sqlite=None, rasters=None, archived=None, commit_date=None, commit_user=None, commit_first_name=None, commit_last_name=None, commit_message=None, is_valid=None, has_threedimodel=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, id=None, created=None, schematisation=None, schematisation_id=None, number=None, sqlite=None, rasters=None, archived=None, commit_date=None, commit_user=None, commit_first_name=None, commit_last_name=None, commit_message=None, is_valid=None, has_threedimodel=None, tags=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """SchematisationRevision - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -101,6 +103,7 @@ class SchematisationRevision(object):
         self._commit_message = None
         self._is_valid = None
         self._has_threedimodel = None
+        self._tags = None
         self.discriminator = None
 
         if url is not None:
@@ -130,6 +133,8 @@ class SchematisationRevision(object):
         self.is_valid = is_valid
         if has_threedimodel is not None:
             self.has_threedimodel = has_threedimodel
+        if tags is not None:
+            self.tags = tags
 
     @property
     def url(self):
@@ -474,6 +479,29 @@ class SchematisationRevision(object):
         """
 
         self._has_threedimodel = has_threedimodel
+
+    @property
+    def tags(self):
+        """Gets the tags of this SchematisationRevision.  # noqa: E501
+
+        tags provided as a list of strings  # noqa: E501
+
+        :return: The tags of this SchematisationRevision.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this SchematisationRevision.
+
+        tags provided as a list of strings  # noqa: E501
+
+        :param tags: The tags of this SchematisationRevision.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

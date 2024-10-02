@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.40   3Di core release: 3.4.4  deployed on:  07:09AM (UTC) on June 05, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,11 @@ class SimulationSettingsOverview(object):
         'numerical_settings': 'NumericalSettings',
         'time_step_settings': 'TimeStepSettings',
         'aggregation_settings': 'list[AggregationSettings]',
-        'water_quality_settings': 'WaterQualitySettings'
+        'output_settings': 'OutputSettings',
+        'customized_result_areas': 'list[CustomizedResultArea]',
+        'water_quality_settings': 'WaterQualitySettings',
+        'water_quality_output_settings': 'WaterQualityOutputSettings',
+        'water_quality_customized_result_areas': 'list[WaterQualityCustomizedResultArea]'
     }
 
     required_fields = [
@@ -51,10 +55,14 @@ class SimulationSettingsOverview(object):
         'numerical_settings': 'numerical_settings',
         'time_step_settings': 'time_step_settings',
         'aggregation_settings': 'aggregation_settings',
-        'water_quality_settings': 'water_quality_settings'
+        'output_settings': 'output_settings',
+        'customized_result_areas': 'customized_result_areas',
+        'water_quality_settings': 'water_quality_settings',
+        'water_quality_output_settings': 'water_quality_output_settings',
+        'water_quality_customized_result_areas': 'water_quality_customized_result_areas'
     }
 
-    def __init__(self, physical_settings=None, numerical_settings=None, time_step_settings=None, aggregation_settings=None, water_quality_settings=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, physical_settings=None, numerical_settings=None, time_step_settings=None, aggregation_settings=None, output_settings=None, customized_result_areas=None, water_quality_settings=None, water_quality_output_settings=None, water_quality_customized_result_areas=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """SimulationSettingsOverview - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,7 +75,11 @@ class SimulationSettingsOverview(object):
         self._numerical_settings = None
         self._time_step_settings = None
         self._aggregation_settings = None
+        self._output_settings = None
+        self._customized_result_areas = None
         self._water_quality_settings = None
+        self._water_quality_output_settings = None
+        self._water_quality_customized_result_areas = None
         self.discriminator = None
 
         if physical_settings is not None:
@@ -78,8 +90,16 @@ class SimulationSettingsOverview(object):
             self.time_step_settings = time_step_settings
         if aggregation_settings is not None:
             self.aggregation_settings = aggregation_settings
+        if output_settings is not None:
+            self.output_settings = output_settings
+        if customized_result_areas is not None:
+            self.customized_result_areas = customized_result_areas
         if water_quality_settings is not None:
             self.water_quality_settings = water_quality_settings
+        if water_quality_output_settings is not None:
+            self.water_quality_output_settings = water_quality_output_settings
+        if water_quality_customized_result_areas is not None:
+            self.water_quality_customized_result_areas = water_quality_customized_result_areas
 
     @property
     def physical_settings(self):
@@ -166,6 +186,48 @@ class SimulationSettingsOverview(object):
         self._aggregation_settings = aggregation_settings
 
     @property
+    def output_settings(self):
+        """Gets the output_settings of this SimulationSettingsOverview.  # noqa: E501
+
+
+        :return: The output_settings of this SimulationSettingsOverview.  # noqa: E501
+        :rtype: OutputSettings
+        """
+        return self._output_settings
+
+    @output_settings.setter
+    def output_settings(self, output_settings):
+        """Sets the output_settings of this SimulationSettingsOverview.
+
+
+        :param output_settings: The output_settings of this SimulationSettingsOverview.  # noqa: E501
+        :type: OutputSettings
+        """
+
+        self._output_settings = output_settings
+
+    @property
+    def customized_result_areas(self):
+        """Gets the customized_result_areas of this SimulationSettingsOverview.  # noqa: E501
+
+
+        :return: The customized_result_areas of this SimulationSettingsOverview.  # noqa: E501
+        :rtype: list[CustomizedResultArea]
+        """
+        return self._customized_result_areas
+
+    @customized_result_areas.setter
+    def customized_result_areas(self, customized_result_areas):
+        """Sets the customized_result_areas of this SimulationSettingsOverview.
+
+
+        :param customized_result_areas: The customized_result_areas of this SimulationSettingsOverview.  # noqa: E501
+        :type: list[CustomizedResultArea]
+        """
+
+        self._customized_result_areas = customized_result_areas
+
+    @property
     def water_quality_settings(self):
         """Gets the water_quality_settings of this SimulationSettingsOverview.  # noqa: E501
 
@@ -185,6 +247,48 @@ class SimulationSettingsOverview(object):
         """
 
         self._water_quality_settings = water_quality_settings
+
+    @property
+    def water_quality_output_settings(self):
+        """Gets the water_quality_output_settings of this SimulationSettingsOverview.  # noqa: E501
+
+
+        :return: The water_quality_output_settings of this SimulationSettingsOverview.  # noqa: E501
+        :rtype: WaterQualityOutputSettings
+        """
+        return self._water_quality_output_settings
+
+    @water_quality_output_settings.setter
+    def water_quality_output_settings(self, water_quality_output_settings):
+        """Sets the water_quality_output_settings of this SimulationSettingsOverview.
+
+
+        :param water_quality_output_settings: The water_quality_output_settings of this SimulationSettingsOverview.  # noqa: E501
+        :type: WaterQualityOutputSettings
+        """
+
+        self._water_quality_output_settings = water_quality_output_settings
+
+    @property
+    def water_quality_customized_result_areas(self):
+        """Gets the water_quality_customized_result_areas of this SimulationSettingsOverview.  # noqa: E501
+
+
+        :return: The water_quality_customized_result_areas of this SimulationSettingsOverview.  # noqa: E501
+        :rtype: list[WaterQualityCustomizedResultArea]
+        """
+        return self._water_quality_customized_result_areas
+
+    @water_quality_customized_result_areas.setter
+    def water_quality_customized_result_areas(self, water_quality_customized_result_areas):
+        """Sets the water_quality_customized_result_areas of this SimulationSettingsOverview.
+
+
+        :param water_quality_customized_result_areas: The water_quality_customized_result_areas of this SimulationSettingsOverview.  # noqa: E501
+        :type: list[WaterQualityCustomizedResultArea]
+        """
+
+        self._water_quality_customized_result_areas = water_quality_customized_result_areas
 
     def to_dict(self):
         """Returns the model properties as a dict"""

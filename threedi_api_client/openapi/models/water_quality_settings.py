@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.40   3Di core release: 3.4.4  deployed on:  07:09AM (UTC) on June 05, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,10 +37,10 @@ class WaterQualitySettings(object):
     """
     openapi_types = {
         'id': 'int',
+        'simulation_id': 'int',
         'time_step': 'float',
         'min_time_step': 'float',
         'max_time_step': 'float',
-        'output_time_step': 'float',
         'general_numerical_threshold': 'float',
         'max_number_of_multi_step': 'int',
         'max_gs_sweep_iterations': 'int',
@@ -53,10 +53,10 @@ class WaterQualitySettings(object):
 
     attribute_map = {
         'id': 'id',
+        'simulation_id': 'simulation_id',
         'time_step': 'time_step',
         'min_time_step': 'min_time_step',
         'max_time_step': 'max_time_step',
-        'output_time_step': 'output_time_step',
         'general_numerical_threshold': 'general_numerical_threshold',
         'max_number_of_multi_step': 'max_number_of_multi_step',
         'max_gs_sweep_iterations': 'max_gs_sweep_iterations',
@@ -64,7 +64,7 @@ class WaterQualitySettings(object):
         'diffusion_coefficient': 'diffusion_coefficient'
     }
 
-    def __init__(self, id=None, time_step=None, min_time_step=None, max_time_step=None, output_time_step=None, general_numerical_threshold=None, max_number_of_multi_step=None, max_gs_sweep_iterations=None, convergence_eps=None, diffusion_coefficient=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, id=None, simulation_id=None, time_step=None, min_time_step=None, max_time_step=None, general_numerical_threshold=None, max_number_of_multi_step=None, max_gs_sweep_iterations=None, convergence_eps=None, diffusion_coefficient=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """WaterQualitySettings - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,10 +74,10 @@ class WaterQualitySettings(object):
         self._fetched_from_api = fetched_from_api
 
         self._id = None
+        self._simulation_id = None
         self._time_step = None
         self._min_time_step = None
         self._max_time_step = None
-        self._output_time_step = None
         self._general_numerical_threshold = None
         self._max_number_of_multi_step = None
         self._max_gs_sweep_iterations = None
@@ -87,12 +87,12 @@ class WaterQualitySettings(object):
 
         if id is not None:
             self.id = id
+        if simulation_id is not None:
+            self.simulation_id = simulation_id
         if time_step is not None:
             self.time_step = time_step
         self.min_time_step = min_time_step
         self.max_time_step = max_time_step
-        if output_time_step is not None:
-            self.output_time_step = output_time_step
         if general_numerical_threshold is not None:
             self.general_numerical_threshold = general_numerical_threshold
         if max_number_of_multi_step is not None:
@@ -124,6 +124,27 @@ class WaterQualitySettings(object):
         """
 
         self._id = id
+
+    @property
+    def simulation_id(self):
+        """Gets the simulation_id of this WaterQualitySettings.  # noqa: E501
+
+
+        :return: The simulation_id of this WaterQualitySettings.  # noqa: E501
+        :rtype: int
+        """
+        return self._simulation_id
+
+    @simulation_id.setter
+    def simulation_id(self, simulation_id):
+        """Sets the simulation_id of this WaterQualitySettings.
+
+
+        :param simulation_id: The simulation_id of this WaterQualitySettings.  # noqa: E501
+        :type: int
+        """
+
+        self._simulation_id = simulation_id
 
     @property
     def time_step(self):
@@ -202,32 +223,6 @@ class WaterQualitySettings(object):
             self.__handle_validation_error("Invalid value for `max_time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
 
         self._max_time_step = max_time_step
-
-    @property
-    def output_time_step(self):
-        """Gets the output_time_step of this WaterQualitySettings.  # noqa: E501
-
-        The interval in seconds in which results are saved to disk.  # noqa: E501
-
-        :return: The output_time_step of this WaterQualitySettings.  # noqa: E501
-        :rtype: float
-        """
-        return self._output_time_step
-
-    @output_time_step.setter
-    def output_time_step(self, output_time_step):
-        """Sets the output_time_step of this WaterQualitySettings.
-
-        The interval in seconds in which results are saved to disk.  # noqa: E501
-
-        :param output_time_step: The output_time_step of this WaterQualitySettings.  # noqa: E501
-        :type: float
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                output_time_step is not None and output_time_step < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `output_time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
-
-        self._output_time_step = output_time_step
 
     @property
     def general_numerical_threshold(self):

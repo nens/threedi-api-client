@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.40   3Di core release: 3.4.4  deployed on:  07:09AM (UTC) on June 05, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -38,7 +38,8 @@ class CreateRevision(object):
     openapi_types = {
         'empty': 'bool',
         'number': 'int',
-        'created': 'datetime'
+        'created': 'datetime',
+        'tags': 'list[str]'
     }
 
     required_fields = [
@@ -47,10 +48,11 @@ class CreateRevision(object):
     attribute_map = {
         'empty': 'empty',
         'number': 'number',
-        'created': 'created'
+        'created': 'created',
+        'tags': 'tags'
     }
 
-    def __init__(self, empty=False, number=None, created=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, empty=False, number=None, created=None, tags=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """CreateRevision - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,6 +64,7 @@ class CreateRevision(object):
         self._empty = None
         self._number = None
         self._created = None
+        self._tags = None
         self.discriminator = None
 
         if empty is not None:
@@ -70,6 +73,8 @@ class CreateRevision(object):
             self.number = number
         if created is not None:
             self.created = created
+        if tags is not None:
+            self.tags = tags
 
     @property
     def empty(self):
@@ -139,6 +144,29 @@ class CreateRevision(object):
         """
 
         self._created = created
+
+    @property
+    def tags(self):
+        """Gets the tags of this CreateRevision.  # noqa: E501
+
+        tags provided as a list of strings  # noqa: E501
+
+        :return: The tags of this CreateRevision.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CreateRevision.
+
+        tags provided as a list of strings  # noqa: E501
+
+        :param tags: The tags of this CreateRevision.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

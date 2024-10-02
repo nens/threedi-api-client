@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.40   3Di core release: 3.4.4  deployed on:  07:09AM (UTC) on June 05, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,6 +40,7 @@ class Substance(object):
         'simulation': 'str',
         'name': 'str',
         'id': 'int',
+        'diffusion_coefficient': 'float',
         'growth_coefficient': 'float',
         'decay_coefficient': 'float',
         'numerical_diffusion_limiter': 'int',
@@ -56,6 +57,7 @@ class Substance(object):
         'simulation': 'simulation',
         'name': 'name',
         'id': 'id',
+        'diffusion_coefficient': 'diffusion_coefficient',
         'growth_coefficient': 'growth_coefficient',
         'decay_coefficient': 'decay_coefficient',
         'numerical_diffusion_limiter': 'numerical_diffusion_limiter',
@@ -63,7 +65,7 @@ class Substance(object):
         'uid': 'uid'
     }
 
-    def __init__(self, url=None, simulation=None, name=None, id=None, growth_coefficient=None, decay_coefficient=None, numerical_diffusion_limiter=None, units=None, uid=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, simulation=None, name=None, id=None, diffusion_coefficient=None, growth_coefficient=None, decay_coefficient=None, numerical_diffusion_limiter=None, units=None, uid=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Substance - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -76,6 +78,7 @@ class Substance(object):
         self._simulation = None
         self._name = None
         self._id = None
+        self._diffusion_coefficient = None
         self._growth_coefficient = None
         self._decay_coefficient = None
         self._numerical_diffusion_limiter = None
@@ -90,6 +93,8 @@ class Substance(object):
         self.name = name
         if id is not None:
             self.id = id
+        if diffusion_coefficient is not None:
+            self.diffusion_coefficient = diffusion_coefficient
         if growth_coefficient is not None:
             self.growth_coefficient = growth_coefficient
         if decay_coefficient is not None:
@@ -192,6 +197,35 @@ class Substance(object):
         """
 
         self._id = id
+
+    @property
+    def diffusion_coefficient(self):
+        """Gets the diffusion_coefficient of this Substance.  # noqa: E501
+
+        The diffusion coefficient (m2/s) for the substance.  # noqa: E501
+
+        :return: The diffusion_coefficient of this Substance.  # noqa: E501
+        :rtype: float
+        """
+        return self._diffusion_coefficient
+
+    @diffusion_coefficient.setter
+    def diffusion_coefficient(self, diffusion_coefficient):
+        """Sets the diffusion_coefficient of this Substance.
+
+        The diffusion coefficient (m2/s) for the substance.  # noqa: E501
+
+        :param diffusion_coefficient: The diffusion_coefficient of this Substance.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                diffusion_coefficient is not None and diffusion_coefficient > 1):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `diffusion_coefficient`, must be a value less than or equal to `1`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                diffusion_coefficient is not None and diffusion_coefficient < 0):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `diffusion_coefficient`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._diffusion_coefficient = diffusion_coefficient
 
     @property
     def growth_coefficient(self):

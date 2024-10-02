@@ -5,7 +5,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.40   3Di core release: 3.4.4  deployed on:  07:09AM (UTC) on June 05, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -53,6 +53,7 @@ from threedi_api_client.openapi.models.create_template import CreateTemplate
 from threedi_api_client.openapi.models.create_threedimodel import CreateThreedimodel
 from threedi_api_client.openapi.models.current_status import CurrentStatus
 from threedi_api_client.openapi.models.current_version import CurrentVersion
+from threedi_api_client.openapi.models.customized_result_area import CustomizedResultArea
 from threedi_api_client.openapi.models.damage_estimation import DamageEstimation
 from threedi_api_client.openapi.models.damage_post_processing import DamagePostProcessing
 from threedi_api_client.openapi.models.destroy_revision import DestroyRevision
@@ -157,7 +158,10 @@ from threedi_api_client.openapi.models.inline_response20074 import InlineRespons
 from threedi_api_client.openapi.models.inline_response20075 import InlineResponse20075
 from threedi_api_client.openapi.models.inline_response20076 import InlineResponse20076
 from threedi_api_client.openapi.models.inline_response20077 import InlineResponse20077
+from threedi_api_client.openapi.models.inline_response20078 import InlineResponse20078
+from threedi_api_client.openapi.models.inline_response20079 import InlineResponse20079
 from threedi_api_client.openapi.models.inline_response2008 import InlineResponse2008
+from threedi_api_client.openapi.models.inline_response20080 import InlineResponse20080
 from threedi_api_client.openapi.models.inline_response2009 import InlineResponse2009
 from threedi_api_client.openapi.models.inpy_version import InpyVersion
 from threedi_api_client.openapi.models.lateral import Lateral
@@ -185,8 +189,10 @@ from threedi_api_client.openapi.models.one_d_water_level_file import OneDWaterLe
 from threedi_api_client.openapi.models.one_d_water_level_predefined import OneDWaterLevelPredefined
 from threedi_api_client.openapi.models.organisation import Organisation
 from threedi_api_client.openapi.models.organisation_role import OrganisationRole
+from threedi_api_client.openapi.models.organisation_settings import OrganisationSettings
 from threedi_api_client.openapi.models.organisation_user import OrganisationUser
 from threedi_api_client.openapi.models.organisation_user_role_patch import OrganisationUserRolePatch
+from threedi_api_client.openapi.models.output_settings import OutputSettings
 from threedi_api_client.openapi.models.personal_api_key import PersonalAPIKey
 from threedi_api_client.openapi.models.personal_api_key_with_secret import PersonalAPIKeyWithSecret
 from threedi_api_client.openapi.models.physical_settings import PhysicalSettings
@@ -268,6 +274,8 @@ from threedi_api_client.openapi.models.water_graph import WaterGraph
 from threedi_api_client.openapi.models.water_level_graph_request import WaterLevelGraphRequest
 from threedi_api_client.openapi.models.water_level_profile import WaterLevelProfile
 from threedi_api_client.openapi.models.water_level_profile_request import WaterLevelProfileRequest
+from threedi_api_client.openapi.models.water_quality_customized_result_area import WaterQualityCustomizedResultArea
+from threedi_api_client.openapi.models.water_quality_output_settings import WaterQualityOutputSettings
 from threedi_api_client.openapi.models.water_quality_settings import WaterQualitySettings
 from threedi_api_client.openapi.models.waterdepth import Waterdepth
 from threedi_api_client.openapi.models.wind import Wind

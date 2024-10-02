@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.40   3Di core release: 3.4.4  deployed on:  07:09AM (UTC) on June 05, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,17 +36,19 @@ class UpdateRevision(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'commit_message': 'str'
+        'commit_message': 'str',
+        'tags': 'list[str]'
     }
 
     required_fields = [
     ]
 
     attribute_map = {
-        'commit_message': 'commit_message'
+        'commit_message': 'commit_message',
+        'tags': 'tags'
     }
 
-    def __init__(self, commit_message=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, commit_message=None, tags=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """UpdateRevision - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,9 +58,12 @@ class UpdateRevision(object):
         self._fetched_from_api = fetched_from_api
 
         self._commit_message = None
+        self._tags = None
         self.discriminator = None
 
         self.commit_message = commit_message
+        if tags is not None:
+            self.tags = tags
 
     @property
     def commit_message(self):
@@ -83,6 +88,29 @@ class UpdateRevision(object):
             self.__handle_validation_error("Invalid value for `commit_message`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._commit_message = commit_message
+
+    @property
+    def tags(self):
+        """Gets the tags of this UpdateRevision.  # noqa: E501
+
+        tags provided as a list of strings  # noqa: E501
+
+        :return: The tags of this UpdateRevision.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this UpdateRevision.
+
+        tags provided as a list of strings  # noqa: E501
+
+        :param tags: The tags of this UpdateRevision.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""
