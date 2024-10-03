@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.40   3Di core release: 3.4.4  deployed on:  07:09AM (UTC) on June 05, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -47,14 +47,15 @@ class Contract(object):
         'session_limit': 'int',
         'current_sessions': 'str',
         'threedimodel_limit': 'int',
-        'created_by': 'str'
+        'created_by': 'str',
+        'lizard_post_processing_organisation_unique_id': 'str'
     }
 
     required_fields = [
        'organisation',
        'hours_bought',
        'session_limit',
-       'created_by'
+       'created_by',
     ]
 
     attribute_map = {
@@ -69,10 +70,11 @@ class Contract(object):
         'session_limit': 'session_limit',
         'current_sessions': 'current_sessions',
         'threedimodel_limit': 'threedimodel_limit',
-        'created_by': 'created_by'
+        'created_by': 'created_by',
+        'lizard_post_processing_organisation_unique_id': 'lizard_post_processing_organisation_unique_id'
     }
 
-    def __init__(self, url=None, id=None, organisation=None, organisation_name=None, scope=None, start_date=None, hours_bought=None, hours_used=None, session_limit=None, current_sessions=None, threedimodel_limit=None, created_by=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, id=None, organisation=None, organisation_name=None, scope=None, start_date=None, hours_bought=None, hours_used=None, session_limit=None, current_sessions=None, threedimodel_limit=None, created_by=None, lizard_post_processing_organisation_unique_id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Contract - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -93,6 +95,7 @@ class Contract(object):
         self._current_sessions = None
         self._threedimodel_limit = None
         self._created_by = None
+        self._lizard_post_processing_organisation_unique_id = None
         self.discriminator = None
 
         if url is not None:
@@ -114,6 +117,7 @@ class Contract(object):
         if threedimodel_limit is not None:
             self.threedimodel_limit = threedimodel_limit
         self.created_by = created_by
+        self.lizard_post_processing_organisation_unique_id = lizard_post_processing_organisation_unique_id
 
     @property
     def url(self):
@@ -397,6 +401,27 @@ class Contract(object):
             self.__handle_validation_error("Invalid value for `created_by`, must not be `None`")  # noqa: E501
 
         self._created_by = created_by
+
+    @property
+    def lizard_post_processing_organisation_unique_id(self):
+        """Gets the lizard_post_processing_organisation_unique_id of this Contract.  # noqa: E501
+
+
+        :return: The lizard_post_processing_organisation_unique_id of this Contract.  # noqa: E501
+        :rtype: str
+        """
+        return self._lizard_post_processing_organisation_unique_id
+
+    @lizard_post_processing_organisation_unique_id.setter
+    def lizard_post_processing_organisation_unique_id(self, lizard_post_processing_organisation_unique_id):
+        """Sets the lizard_post_processing_organisation_unique_id of this Contract.
+
+
+        :param lizard_post_processing_organisation_unique_id: The lizard_post_processing_organisation_unique_id of this Contract.  # noqa: E501
+        :type: str
+        """
+
+        self._lizard_post_processing_organisation_unique_id = lizard_post_processing_organisation_unique_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

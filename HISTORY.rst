@@ -5,7 +5,9 @@ History
 4.1.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Release 3.4.3
+- Customized result files
+- Diffusion coefficient for water quality
 
 
 4.1.7 (2024-06-05)

@@ -2,7 +2,8 @@ swagger: '2.0'
 info:
   title: 3Di API
   description: "3Di simulation API (latest stable version: v3) \n Framework release:
-    3.3.40 \n 3Di core release: 3.4.4 \ndeployed on:  07:09AM (UTC) on June 05, 2024"
+    3.4.3 \n 3Di core release: 3.5.0 \ndeployed on:  03:07PM (UTC) on October 02,
+    2024"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -11,7 +12,7 @@ info:
   version: v3
 host: null
 schemes:
-- https
+- http
 basePath: /
 consumes:
 - application/json
@@ -2196,6 +2197,122 @@ paths:
     - name: id
       in: path
       description: A unique integer value identifying this inpy version.
+      required: true
+      type: integer
+  /v3/organisation-settings/:
+    get:
+      operationId: organisation-settings_list
+      description: API endpoint for interacting with organisation settings.
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      - name: offset
+        in: query
+        description: The initial index from which to return the results.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/OrganisationSettings'
+      tags:
+      - v3
+    post:
+      operationId: organisation-settings_create
+      description: API endpoint for interacting with organisation settings.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/OrganisationSettings'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/OrganisationSettings'
+      tags:
+      - v3
+    parameters: []
+  /v3/organisation-settings/{id}/:
+    get:
+      operationId: organisation-settings_read
+      description: API endpoint for interacting with organisation settings.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/OrganisationSettings'
+      tags:
+      - v3
+    put:
+      operationId: organisation-settings_update
+      description: API endpoint for interacting with organisation settings.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/OrganisationSettings'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/OrganisationSettings'
+      tags:
+      - v3
+    patch:
+      operationId: organisation-settings_partial_update
+      description: API endpoint for interacting with organisation settings.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/OrganisationSettings'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/OrganisationSettings'
+      tags:
+      - v3
+    delete:
+      operationId: organisation-settings_delete
+      description: API endpoint for interacting with organisation settings.
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v3
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this organisation settings.
       required: true
       type: integer
   /v3/organisations/:
@@ -13163,6 +13280,130 @@ paths:
       in: path
       required: true
       type: string
+  /v3/simulations/{simulation_pk}/settings/customized_result_areas/:
+    get:
+      operationId: simulations_settings_customized_result_areas_list
+      description: Water quality customized result area
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      - name: offset
+        in: query
+        description: The initial index from which to return the results.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/CustomizedResultArea'
+      tags:
+      - v3
+    post:
+      operationId: simulations_settings_customized_result_areas_create
+      description: Water quality customized result area
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/CustomizedResultArea'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/CustomizedResultArea'
+      tags:
+      - v3
+    parameters:
+    - name: simulation_pk
+      in: path
+      required: true
+      type: string
+  /v3/simulations/{simulation_pk}/settings/customized_result_areas/{id}/:
+    get:
+      operationId: simulations_settings_customized_result_areas_read
+      description: Water quality customized result area
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/CustomizedResultArea'
+      tags:
+      - v3
+    put:
+      operationId: simulations_settings_customized_result_areas_update
+      description: Water quality customized result area
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/CustomizedResultArea'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/CustomizedResultArea'
+      tags:
+      - v3
+    patch:
+      operationId: simulations_settings_customized_result_areas_partial_update
+      description: Water quality customized result area
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/CustomizedResultArea'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/CustomizedResultArea'
+      tags:
+      - v3
+    delete:
+      operationId: simulations_settings_customized_result_areas_delete
+      description: Water quality customized result area
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v3
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this customized result area.
+      required: true
+      type: integer
+    - name: simulation_pk
+      in: path
+      required: true
+      type: string
   /v3/simulations/{simulation_pk}/settings/numerical/:
     post:
       operationId: simulations_settings_numerical_create
@@ -13223,6 +13464,81 @@ paths:
     delete:
       operationId: simulations_settings_numerical_delete
       description: delete the numerical settings resource
+      parameters: []
+      responses:
+        '204':
+          description: Resource deleted successfully
+        '404':
+          description: Resource not found
+        '409':
+          description: Conflict with current state
+      tags:
+      - v3
+    parameters:
+    - name: simulation_pk
+      in: path
+      required: true
+      type: string
+  /v3/simulations/{simulation_pk}/settings/output_settings/:
+    post:
+      operationId: simulations_settings_output_settings_create
+      description: create a output settings resource
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/OutputSettings'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad request
+        '404':
+          description: Resource not found
+        '409':
+          description: Conflict with current state
+      tags:
+      - v3
+    put:
+      operationId: simulations_settings_output_settings_update
+      description: update the output settings resource
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/OutputSettings'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+        '409':
+          description: Conflict with current state
+      tags:
+      - v3
+    patch:
+      operationId: simulations_settings_output_settings_partial_update
+      description: update the output settings resource
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/OutputSettings'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+        '409':
+          description: Conflict with current state
+      tags:
+      - v3
+    delete:
+      operationId: simulations_settings_output_settings_delete
+      description: delete the output settings resource
       parameters: []
       responses:
         '204':
@@ -13410,7 +13726,7 @@ paths:
   /v3/simulations/{simulation_pk}/settings/water_quality/:
     post:
       operationId: simulations_settings_water_quality_create
-      description: Create a general settings resource.
+      description: Create a water quality settings resource.
       parameters:
       - name: data
         in: body
@@ -13430,7 +13746,7 @@ paths:
       - v3
     put:
       operationId: simulations_settings_water_quality_update
-      description: Update the general settings resource.
+      description: Update the water quality settings resource.
       parameters:
       - name: data
         in: body
@@ -13448,7 +13764,7 @@ paths:
       - v3
     patch:
       operationId: simulations_settings_water_quality_partial_update
-      description: Update the general settings resource.
+      description: Update the water quality settings resource.
       parameters:
       - name: data
         in: body
@@ -13466,7 +13782,207 @@ paths:
       - v3
     delete:
       operationId: simulations_settings_water_quality_delete
-      description: Delete the general settings resource.
+      description: Delete the water quality settings resource.
+      parameters: []
+      responses:
+        '204':
+          description: Resource deleted successfully
+        '404':
+          description: Resource not found
+        '409':
+          description: Conflict with current state
+      tags:
+      - v3
+    parameters:
+    - name: simulation_pk
+      in: path
+      required: true
+      type: string
+  /v3/simulations/{simulation_pk}/settings/water_quality_customized_result_areas/:
+    get:
+      operationId: simulations_settings_water_quality_customized_result_areas_list
+      description: Water quality customized result area
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      - name: offset
+        in: query
+        description: The initial index from which to return the results.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/WaterQualityCustomizedResultArea'
+      tags:
+      - v3
+    post:
+      operationId: simulations_settings_water_quality_customized_result_areas_create
+      description: Water quality customized result area
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/WaterQualityCustomizedResultArea'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/WaterQualityCustomizedResultArea'
+      tags:
+      - v3
+    parameters:
+    - name: simulation_pk
+      in: path
+      required: true
+      type: string
+  /v3/simulations/{simulation_pk}/settings/water_quality_customized_result_areas/{id}/:
+    get:
+      operationId: simulations_settings_water_quality_customized_result_areas_read
+      description: Water quality customized result area
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/WaterQualityCustomizedResultArea'
+      tags:
+      - v3
+    put:
+      operationId: simulations_settings_water_quality_customized_result_areas_update
+      description: Water quality customized result area
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/WaterQualityCustomizedResultArea'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/WaterQualityCustomizedResultArea'
+      tags:
+      - v3
+    patch:
+      operationId: simulations_settings_water_quality_customized_result_areas_partial_update
+      description: Water quality customized result area
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/WaterQualityCustomizedResultArea'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/WaterQualityCustomizedResultArea'
+      tags:
+      - v3
+    delete:
+      operationId: simulations_settings_water_quality_customized_result_areas_delete
+      description: Water quality customized result area
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v3
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this water quality customized
+        result area.
+      required: true
+      type: integer
+    - name: simulation_pk
+      in: path
+      required: true
+      type: string
+  /v3/simulations/{simulation_pk}/settings/water_quality_output_settings/:
+    post:
+      operationId: simulations_settings_water_quality_output_settings_create
+      description: Create a water quality output settings resource.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/WaterQualityOutputSettings'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad request
+        '404':
+          description: Resource not found
+        '409':
+          description: Conflict with current state
+      tags:
+      - v3
+    put:
+      operationId: simulations_settings_water_quality_output_settings_update
+      description: Update the water quality output settings resource.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/WaterQualityOutputSettings'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+        '409':
+          description: Conflict with current state
+      tags:
+      - v3
+    patch:
+      operationId: simulations_settings_water_quality_output_settings_partial_update
+      description: Update the water quality output settings resource.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/WaterQualityOutputSettings'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+        '409':
+          description: Conflict with current state
+      tags:
+      - v3
+    delete:
+      operationId: simulations_settings_water_quality_output_settings_delete
+      description: Delete the water quality output settings resource.
       parameters: []
       responses:
         '204':
@@ -16538,7 +17054,11 @@ paths:
   /v3/threedimodels/{threedimodel_pk}/potentialbreaches/:
     get:
       operationId: threedimodels_potentialbreaches_list
-      description: A simple ViewSet for viewing breaches
+      summary: A simple ViewSet for viewing breaches
+      description: |-
+        To get the potential breach from the geojson use the `content_pk` parameter to
+        filter the potential breaches endpoint:
+        `/potential_breaches/?connected_pnt_id={content_pk}`
       parameters:
       - name: connected_pnt_id
         in: query
@@ -16637,7 +17157,11 @@ paths:
       - v3
     post:
       operationId: threedimodels_potentialbreaches_create
-      description: A simple ViewSet for viewing breaches
+      summary: A simple ViewSet for viewing breaches
+      description: |-
+        To get the potential breach from the geojson use the `content_pk` parameter to
+        filter the potential breaches endpoint:
+        `/potential_breaches/?connected_pnt_id={content_pk}`
       parameters:
       - name: data
         in: body
@@ -16659,7 +17183,11 @@ paths:
   /v3/threedimodels/{threedimodel_pk}/potentialbreaches/{id}/:
     get:
       operationId: threedimodels_potentialbreaches_read
-      description: A simple ViewSet for viewing breaches
+      summary: A simple ViewSet for viewing breaches
+      description: |-
+        To get the potential breach from the geojson use the `content_pk` parameter to
+        filter the potential breaches endpoint:
+        `/potential_breaches/?connected_pnt_id={content_pk}`
       parameters: []
       responses:
         '200':
@@ -18689,6 +19217,12 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      diffusion_coefficient:
+        title: Diffusion coefficient
+        description: The diffusion coefficient (m2/s) for the substance.
+        type: number
+        maximum: 1.0
+        minimum: 0.0
       growth_coefficient:
         title: Growth coefficient
         description: The growth coefficient for the substance.
@@ -19075,6 +19609,11 @@ definitions:
         title: Organisation.unique_id
         type: string
         description: The unique_id of an organisation
+      lizard_post_processing_organisation_unique_id:
+        title: Lizard post processing organisation unique id
+        type: string
+        format: uuid
+        x-nullable: true
   File:
     required:
     - filename
@@ -19253,6 +19792,38 @@ definitions:
       active:
         title: Active
         type: boolean
+  OrganisationSettings:
+    required:
+    - organisation
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      organisation:
+        title: Organisation.unique_id
+        type: string
+        description: The unique_id of an organisation
+      organisation_name:
+        title: Organisation name
+        type: string
+        readOnly: true
+      historical_rain_radar_uuid:
+        title: Historical rain radar uuid
+        type: string
+        format: uuid
+        x-nullable: true
+      forecast_rain_radar_uuid:
+        title: Forecast rain radar uuid
+        type: string
+        format: uuid
+        x-nullable: true
   Organisation:
     required:
     - unique_id
@@ -19956,6 +20527,15 @@ definitions:
         title: Has threedimodel
         type: boolean
         readOnly: true
+      tags:
+        title: tags
+        type: array
+        description: tags provided as a list of strings
+        items:
+          type: string
+        example:
+        - tag_1
+        - tag_2
   CreateRevision:
     type: object
     properties:
@@ -19973,6 +20553,15 @@ definitions:
         description: An optional creation datetime (only superusers can modify)
         type: string
         format: date-time
+      tags:
+        title: tags
+        type: array
+        description: tags provided as a list of strings
+        items:
+          type: string
+        example:
+        - tag_1
+        - tag_2
   UpdateRevision:
     type: object
     properties:
@@ -19981,6 +20570,15 @@ definitions:
         type: string
         minLength: 1
         x-nullable: true
+      tags:
+        title: tags
+        type: array
+        description: tags provided as a list of strings
+        items:
+          type: string
+        example:
+        - tag_1
+        - tag_2
   DestroyRevision:
     required:
     - number
@@ -23157,7 +23755,7 @@ definitions:
           picked)'
         type: string
         enum:
-        - 3.3.40-3.4.4
+        - 3.4.3-3.5.0
         - 3.2.17-2.3.6
   Timeout:
     required:
@@ -25233,6 +25831,39 @@ definitions:
         title: Interval
         description: aggregation interval in seconds
         type: number
+  CustomizedResultArea:
+    required:
+    - name
+    - subsets
+    - geometry
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      name:
+        title: Name
+        description: Name of the customized results area.
+        type: string
+        maxLength: 255
+        minLength: 1
+      subsets:
+        description: The subsets for which the customized results area is defined.
+        type: array
+        items:
+          title: Subsets
+          type: string
+          enum:
+          - 1D
+          - 2D
+          - 1D2D
+          - GW
+      geometry:
+        title: Geometry
+        description: The geometry of the customized results area.
+        type: string
   NumericalSettings:
     required:
     - pump_implicit_ratio
@@ -25451,6 +26082,104 @@ definitions:
         type: number
         maximum: 0.05
         minimum: 0
+  OutputSettings:
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      simulation_id:
+        title: Simulation id
+        type: integer
+        readOnly: true
+      create_hydro_results:
+        title: Create hydro results
+        description: Create domain wide results file.
+        type: boolean
+      create_structure_control_results:
+        title: Create structure control results
+        description: Create structure control results file.
+        type: boolean
+      hydro_output_time_step:
+        title: Hydro output time step
+        description: Output time step in seconds.
+        type: number
+        minimum: 1.0e-14
+        x-nullable: true
+      hydro_output_start_time:
+        title: Hydro output start time
+        description: Output start time in seconds.
+        type: number
+        minimum: 0.0
+      hydro_output_end_time:
+        title: Hydro output end time
+        description: Output end time in seconds.
+        type: number
+        minimum: 1.0e-14
+      hydro_output_precision:
+        title: Hydro output precision
+        description: Single or double precision output.
+        type: integer
+        enum:
+        - 1
+        - 2
+      aggregation_output_precision:
+        title: Aggregation output precision
+        description: Single or double precision output for aggregation results.
+        type: integer
+        enum:
+        - 1
+        - 2
+      customized_hydro_output_time_step:
+        title: Customized hydro output time step
+        description: Customized hydro output time step in seconds.
+        type: number
+        minimum: 1.0e-14
+        x-nullable: true
+      customized_hydro_output_start_time:
+        title: Customized hydro output start time
+        description: Customized hydro output start time in seconds.
+        type: number
+        minimum: 0.0
+      customized_hydro_output_end_time:
+        title: Customized hydro output end time
+        description: Customized hydro output end time in seconds.
+        type: number
+        minimum: 1.0e-14
+      customized_hydro_output_precision:
+        title: Customized hydro output precision
+        description: Single or double precision output for customized hydro results.
+        type: integer
+        enum:
+        - 1
+        - 2
+      customized_hydro_output_variables:
+        description: The output variables for the customized results area.
+        type: array
+        items:
+          title: Customized hydro output variables
+          type: string
+          enum:
+          - s1
+          - vol
+          - su
+          - infiltration_rate_simpel
+          - rain
+          - q_lat
+          - q_sss
+          - ucx
+          - ucy
+          - leak
+          - intecepted_volume
+          - u1
+          - q
+          - au
+          - up1
+          - qp
+          - breach_depth
+          - breach_width
+          - q_pump
   PhysicalSettings:
     required:
     - use_advection_1d
@@ -25467,11 +26196,14 @@ definitions:
         readOnly: true
       use_advection_1d:
         title: Use advection 1d
-        description: "Options: \n0 = off\n1 = standard\n"
+        description: "Options: \n0 = off\n1 = momentum conservative\n2 = energy conservative\n3
+          = combined momentum and energy conservative\n"
         type: integer
         enum:
         - 0
         - 1
+        - 2
+        - 3
       use_advection_2d:
         title: Use advection 2d
         description: "Options: \n0 = off\n1 = standard\n"
@@ -25529,6 +26261,10 @@ definitions:
         title: ID
         type: integer
         readOnly: true
+      simulation_id:
+        title: Simulation id
+        type: integer
+        readOnly: true
       time_step:
         title: Time step
         description: Size of the water quality timestep in seconds.
@@ -25548,11 +26284,6 @@ definitions:
         type: number
         minimum: 1.0e-14
         x-nullable: true
-      output_time_step:
-        title: Output time step
-        description: The interval in seconds in which results are saved to disk.
-        type: number
-        minimum: 1.0e-14
       general_numerical_threshold:
         title: General numerical threshold
         description: The numerical threshold for the water quality simulation.
@@ -25581,6 +26312,103 @@ definitions:
         description: The diffusion coefficient for the water quality simulation.
         type: number
         minimum: 1.0e-14
+  WaterQualityOutputSettings:
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      simulation_id:
+        title: Simulation id
+        type: integer
+        readOnly: true
+      create_results:
+        title: Create results
+        description: Create domain wide results file.
+        type: boolean
+      output_time_step:
+        title: Output time step
+        description: Output time step in seconds.
+        type: number
+        minimum: 1.0e-14
+        x-nullable: true
+      output_start_time:
+        title: Output start time
+        description: Output start time in seconds.
+        type: number
+        minimum: 0.0
+      output_end_time:
+        title: Output end time
+        description: Output end time in seconds.
+        type: number
+        minimum: 1.0e-14
+      output_precision:
+        title: Output precision
+        description: Single or double precision output.
+        type: integer
+        enum:
+        - 1
+        - 2
+      customized_output_time_step:
+        title: Customized output time step
+        description: Customized output time step in seconds.
+        type: number
+        minimum: 1.0e-14
+        x-nullable: true
+      customized_output_start_time:
+        title: Customized output start time
+        description: Customized output start time in seconds.
+        type: number
+        minimum: 0.0
+      customized_output_end_time:
+        title: Customized output end time
+        description: Customized output end time in seconds.
+        type: number
+        minimum: 1.0e-14
+      customized_output_precision:
+        title: Customized output precision
+        description: Single or double precision output for customized results.
+        type: integer
+        enum:
+        - 1
+        - 2
+  WaterQualityCustomizedResultArea:
+    required:
+    - name
+    - subsets
+    - geometry
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      name:
+        title: Name
+        description: Name of the customized results area.
+        type: string
+        maxLength: 255
+        minLength: 1
+      subsets:
+        description: 'Subsets of the customized results area. Valid subsets are: 1D,
+          2D, 1D2D, GW.'
+        type: array
+        items:
+          title: Subsets
+          type: string
+          enum:
+          - 1D
+          - 2D
+          - 1D2D
+          - GW
+        maxItems: 4
+      geometry:
+        title: Geometry
+        description: Geometry of the customized results area, WKT format, must be
+          WGS84.
+        type: string
   SimulationSettingsOverview:
     type: object
     properties:
@@ -25595,8 +26423,22 @@ definitions:
         items:
           $ref: '#/definitions/AggregationSettings'
         readOnly: true
+      output_settings:
+        $ref: '#/definitions/OutputSettings'
+      customized_result_areas:
+        type: array
+        items:
+          $ref: '#/definitions/CustomizedResultArea'
+        readOnly: true
       water_quality_settings:
         $ref: '#/definitions/WaterQualitySettings'
+      water_quality_output_settings:
+        $ref: '#/definitions/WaterQualityOutputSettings'
+      water_quality_customized_result_areas:
+        type: array
+        items:
+          $ref: '#/definitions/WaterQualityCustomizedResultArea'
+        readOnly: true
   CurrentStatus:
     required:
     - id

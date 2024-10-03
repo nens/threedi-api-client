@@ -164,7 +164,8 @@ def test_init_nonexisting_version(config):
         ThreediApi(config=config, version="v1")
 
 
-def test_init_async(config):
+@pytest.mark.asyncio
+async def test_init_async(config):
     api = ThreediApi(config=config, asynchronous=True)
     assert isinstance(api._client, AsyncApiClient)
     assert api.asynchronous

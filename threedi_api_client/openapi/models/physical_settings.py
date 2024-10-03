@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.3.40   3Di core release: 3.4.4  deployed on:  07:09AM (UTC) on June 05, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -122,7 +122,7 @@ class PhysicalSettings(object):
     def use_advection_1d(self):
         """Gets the use_advection_1d of this PhysicalSettings.  # noqa: E501
 
-        Options:  0 = off 1 = standard   # noqa: E501
+        Options:  0 = off 1 = momentum conservative 2 = energy conservative 3 = combined momentum and energy conservative   # noqa: E501
 
         :return: The use_advection_1d of this PhysicalSettings.  # noqa: E501
         :rtype: int
@@ -133,7 +133,7 @@ class PhysicalSettings(object):
     def use_advection_1d(self, use_advection_1d):
         """Sets the use_advection_1d of this PhysicalSettings.
 
-        Options:  0 = off 1 = standard   # noqa: E501
+        Options:  0 = off 1 = momentum conservative 2 = energy conservative 3 = combined momentum and energy conservative   # noqa: E501
 
         :param use_advection_1d: The use_advection_1d of this PhysicalSettings.  # noqa: E501
         :type: int
