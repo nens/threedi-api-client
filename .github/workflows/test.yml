@@ -31,7 +31,7 @@ jobs:
           - python: "3.12"
             pins: ""
           # 3.13
-          - python: "3.13.0-rc.2"
+          - python: "3.13"
             pins: ""
 
     steps:
