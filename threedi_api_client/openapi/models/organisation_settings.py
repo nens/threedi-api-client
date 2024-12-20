@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.24   3Di core release: 3.5.4.1  deployed on:  08:40AM (UTC) on December 20, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,8 +40,8 @@ class OrganisationSettings(object):
         'id': 'int',
         'organisation': 'str',
         'organisation_name': 'str',
-        'historical_rain_radar_uuid': 'str',
-        'forecast_rain_radar_uuid': 'str'
+        'historical_rain_radar_uuids': 'list[str]',
+        'forecast_rain_radar_uuids': 'list[str]'
     }
 
     required_fields = [
@@ -53,11 +53,11 @@ class OrganisationSettings(object):
         'id': 'id',
         'organisation': 'organisation',
         'organisation_name': 'organisation_name',
-        'historical_rain_radar_uuid': 'historical_rain_radar_uuid',
-        'forecast_rain_radar_uuid': 'forecast_rain_radar_uuid'
+        'historical_rain_radar_uuids': 'historical_rain_radar_uuids',
+        'forecast_rain_radar_uuids': 'forecast_rain_radar_uuids'
     }
 
-    def __init__(self, url=None, id=None, organisation=None, organisation_name=None, historical_rain_radar_uuid=None, forecast_rain_radar_uuid=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, id=None, organisation=None, organisation_name=None, historical_rain_radar_uuids=None, forecast_rain_radar_uuids=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """OrganisationSettings - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -70,8 +70,8 @@ class OrganisationSettings(object):
         self._id = None
         self._organisation = None
         self._organisation_name = None
-        self._historical_rain_radar_uuid = None
-        self._forecast_rain_radar_uuid = None
+        self._historical_rain_radar_uuids = None
+        self._forecast_rain_radar_uuids = None
         self.discriminator = None
 
         if url is not None:
@@ -81,8 +81,10 @@ class OrganisationSettings(object):
         self.organisation = organisation
         if organisation_name is not None:
             self.organisation_name = organisation_name
-        self.historical_rain_radar_uuid = historical_rain_radar_uuid
-        self.forecast_rain_radar_uuid = forecast_rain_radar_uuid
+        if historical_rain_radar_uuids is not None:
+            self.historical_rain_radar_uuids = historical_rain_radar_uuids
+        if forecast_rain_radar_uuids is not None:
+            self.forecast_rain_radar_uuids = forecast_rain_radar_uuids
 
     @property
     def url(self):
@@ -173,46 +175,50 @@ class OrganisationSettings(object):
         self._organisation_name = organisation_name
 
     @property
-    def historical_rain_radar_uuid(self):
-        """Gets the historical_rain_radar_uuid of this OrganisationSettings.  # noqa: E501
+    def historical_rain_radar_uuids(self):
+        """Gets the historical_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
 
+        List of historical rain radar UUIDs  # noqa: E501
 
-        :return: The historical_rain_radar_uuid of this OrganisationSettings.  # noqa: E501
-        :rtype: str
+        :return: The historical_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._historical_rain_radar_uuid
+        return self._historical_rain_radar_uuids
 
-    @historical_rain_radar_uuid.setter
-    def historical_rain_radar_uuid(self, historical_rain_radar_uuid):
-        """Sets the historical_rain_radar_uuid of this OrganisationSettings.
+    @historical_rain_radar_uuids.setter
+    def historical_rain_radar_uuids(self, historical_rain_radar_uuids):
+        """Sets the historical_rain_radar_uuids of this OrganisationSettings.
 
+        List of historical rain radar UUIDs  # noqa: E501
 
-        :param historical_rain_radar_uuid: The historical_rain_radar_uuid of this OrganisationSettings.  # noqa: E501
-        :type: str
+        :param historical_rain_radar_uuids: The historical_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
+        :type: list[str]
         """
 
-        self._historical_rain_radar_uuid = historical_rain_radar_uuid
+        self._historical_rain_radar_uuids = historical_rain_radar_uuids
 
     @property
-    def forecast_rain_radar_uuid(self):
-        """Gets the forecast_rain_radar_uuid of this OrganisationSettings.  # noqa: E501
+    def forecast_rain_radar_uuids(self):
+        """Gets the forecast_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
 
+        List of forecast rain radar UUIDs  # noqa: E501
 
-        :return: The forecast_rain_radar_uuid of this OrganisationSettings.  # noqa: E501
-        :rtype: str
+        :return: The forecast_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._forecast_rain_radar_uuid
+        return self._forecast_rain_radar_uuids
 
-    @forecast_rain_radar_uuid.setter
-    def forecast_rain_radar_uuid(self, forecast_rain_radar_uuid):
-        """Sets the forecast_rain_radar_uuid of this OrganisationSettings.
+    @forecast_rain_radar_uuids.setter
+    def forecast_rain_radar_uuids(self, forecast_rain_radar_uuids):
+        """Sets the forecast_rain_radar_uuids of this OrganisationSettings.
 
+        List of forecast rain radar UUIDs  # noqa: E501
 
-        :param forecast_rain_radar_uuid: The forecast_rain_radar_uuid of this OrganisationSettings.  # noqa: E501
-        :type: str
+        :param forecast_rain_radar_uuids: The forecast_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
+        :type: list[str]
         """
 
-        self._forecast_rain_radar_uuid = forecast_rain_radar_uuid
+        self._forecast_rain_radar_uuids = forecast_rain_radar_uuids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

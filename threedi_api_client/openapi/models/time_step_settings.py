@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.24   3Di core release: 3.5.4.1  deployed on:  08:40AM (UTC) on December 20, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -49,7 +49,6 @@ class TimeStepSettings(object):
        'time_step',
        'min_time_step',
        'use_time_step_stretch',
-       'output_time_step'
     ]
 
     attribute_map = {
@@ -259,8 +258,6 @@ class TimeStepSettings(object):
         :param output_time_step: The output_time_step of this TimeStepSettings.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and output_time_step is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `output_time_step`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 output_time_step is not None and output_time_step < 1E-14):  # noqa: E501
             self.__handle_validation_error("Invalid value for `output_time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501

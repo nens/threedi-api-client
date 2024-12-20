@@ -7,6 +7,8 @@ History
 
 - Pin aiohttp to <3.10
 - Add test workflow for Python 3.12 and 3.13
+- Add ForcingSubstanceWithZone and AddUser
+- Release 3.4.24
 
 
 4.1.8 (2024-10-03)

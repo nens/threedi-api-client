@@ -2,8 +2,8 @@ swagger: '2.0'
 info:
   title: 3Di API
   description: "3Di simulation API (latest stable version: v3) \n Framework release:
-    3.4.3 \n 3Di core release: 3.5.0 \ndeployed on:  03:07PM (UTC) on October 02,
-    2024"
+    3.4.24 \n 3Di core release: 3.5.4.1 \ndeployed on:  08:40AM (UTC) on December
+    20, 2024"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -42,6 +42,136 @@ security:
 - Bearer: []
 - OAuth2: []
 paths:
+  /v3-beta/auth/users/:
+    post:
+      operationId: auth_users_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AddUser'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/AddUser'
+      tags:
+      - v3-beta
+    parameters: []
+  /v3-beta/auth/users/{user_pk}/personalapikeys/:
+    get:
+      operationId: auth_users_personalapikeys_list
+      description: Personal API keys are used for authentication without password.
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      - name: offset
+        in: query
+        description: The initial index from which to return the results.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/PersonalAPIKey'
+      tags:
+      - v3-beta
+    post:
+      operationId: auth_users_personalapikeys_create
+      description: Personal API keys are used for authentication without password.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/PersonalAPIKey'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/PersonalAPIKeyWithSecret'
+      tags:
+      - v3-beta
+    parameters:
+    - name: user_pk
+      in: path
+      required: true
+      type: string
+  /v3-beta/auth/users/{user_pk}/personalapikeys/{prefix}/:
+    get:
+      operationId: auth_users_personalapikeys_read
+      description: Personal API keys are used for authentication without password.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/PersonalAPIKey'
+      tags:
+      - v3-beta
+    delete:
+      operationId: auth_users_personalapikeys_delete
+      description: Personal API keys are used for authentication without password.
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v3-beta
+    parameters:
+    - name: prefix
+      in: path
+      required: true
+      type: string
+    - name: user_pk
+      in: path
+      required: true
+      type: string
+  /v3-beta/auth/users/{user_pk}/personalapikeys/{prefix}/revoke/:
+    post:
+      operationId: auth_users_personalapikeys_revoke
+      description: Revoke an API key and return the status.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/PersonalAPIKey'
+      tags:
+      - v3-beta
+    parameters:
+    - name: prefix
+      in: path
+      required: true
+      type: string
+    - name: user_pk
+      in: path
+      required: true
+      type: string
   /v3-beta/personalapikeys/:
     get:
       operationId: personalapikeys_list
@@ -1327,6 +1457,11 @@ paths:
         description: email__regex
         required: false
         type: string
+      - name: remote__external_user_id
+        in: query
+        description: remote__external_user_id
+        required: false
+        type: string
       - name: limit
         in: query
         description: Number of results to return per page.
@@ -2592,6 +2727,11 @@ paths:
         description: email__regex
         required: false
         type: string
+      - name: remote__external_user_id
+        in: query
+        description: remote__external_user_id
+        required: false
+        type: string
       - name: limit
         in: query
         description: Number of results to return per page.
@@ -2808,6 +2948,21 @@ paths:
       - name: organisation__name__regex
         in: query
         description: organisation__name__regex
+        required: false
+        type: string
+      - name: organisation__unique_id
+        in: query
+        description: organisation__unique_id
+        required: false
+        type: string
+      - name: user__id
+        in: query
+        description: user__id
+        required: false
+        type: string
+      - name: user__remote__external_user_id
+        in: query
+        description: user__remote__external_user_id
         required: false
         type: string
       - name: limit
@@ -15788,6 +15943,121 @@ paths:
         description: revision__schematisation__id
         required: false
         type: string
+      - name: created__range
+        in: query
+        description: created__range
+        required: false
+        type: string
+      - name: created__date
+        in: query
+        description: created__date
+        required: false
+        type: string
+      - name: created__date__gt
+        in: query
+        description: created__date__gt
+        required: false
+        type: string
+      - name: created__date__gte
+        in: query
+        description: created__date__gte
+        required: false
+        type: string
+      - name: created__date__lt
+        in: query
+        description: created__date__lt
+        required: false
+        type: string
+      - name: created__date__lte
+        in: query
+        description: created__date__lte
+        required: false
+        type: string
+      - name: created__year
+        in: query
+        description: created__year
+        required: false
+        type: string
+      - name: created__year__gt
+        in: query
+        description: created__year__gt
+        required: false
+        type: string
+      - name: created__year__gte
+        in: query
+        description: created__year__gte
+        required: false
+        type: string
+      - name: created__year__lt
+        in: query
+        description: created__year__lt
+        required: false
+        type: string
+      - name: created__year__lte
+        in: query
+        description: created__year__lte
+        required: false
+        type: string
+      - name: created__month
+        in: query
+        description: created__month
+        required: false
+        type: string
+      - name: created__month__lte
+        in: query
+        description: created__month__lte
+        required: false
+        type: string
+      - name: created__day
+        in: query
+        description: created__day
+        required: false
+        type: string
+      - name: created__day__lt
+        in: query
+        description: created__day__lt
+        required: false
+        type: string
+      - name: created__week
+        in: query
+        description: created__week
+        required: false
+        type: string
+      - name: created__week_day
+        in: query
+        description: created__week_day
+        required: false
+        type: string
+      - name: created__quarter
+        in: query
+        description: created__quarter
+        required: false
+        type: string
+      - name: created__time
+        in: query
+        description: created__time
+        required: false
+        type: string
+      - name: created__hour
+        in: query
+        description: created__hour
+        required: false
+        type: string
+      - name: created__minute
+        in: query
+        description: created__minute
+        required: false
+        type: string
+      - name: created__second
+        in: query
+        description: created__second
+        required: false
+        type: string
+      - name: created__isnull
+        in: query
+        description: created__isnull
+        required: false
+        type: string
       - name: revision__is_pinned
         in: query
         description: revision__is_pinned
@@ -18690,6 +18960,42 @@ paths:
       required: true
       type: integer
 definitions:
+  AddUser:
+    required:
+    - username
+    - email
+    - external_user_id
+    type: object
+    properties:
+      user_id:
+        title: User id
+        type: integer
+        readOnly: true
+      username:
+        title: Username
+        type: string
+        maxLength: 150
+        minLength: 1
+      first_name:
+        title: First name
+        type: string
+        maxLength: 150
+        minLength: 1
+      last_name:
+        title: Last name
+        type: string
+        maxLength: 150
+        minLength: 1
+      email:
+        title: Email
+        type: string
+        format: email
+        minLength: 1
+      external_user_id:
+        title: External user id
+        type: string
+        maxLength: 255
+        minLength: 1
   PersonalAPIKey:
     required:
     - scope
@@ -18704,8 +19010,8 @@ definitions:
       scope:
         title: Scope
         description: 'A space-separated list of scopes (options: basic simulate create
-          lizardrain lizardprocess manageusers managecontracts test livesite). Alternatively,
-          use ''*:readwrite'' for all scopes.'
+          lizardrain lizardprocess manageusers managecontracts test livesite waterquality).
+          Alternatively, use ''*:readwrite'' for all scopes.'
         type: string
         minLength: 1
       name:
@@ -18752,8 +19058,8 @@ definitions:
       scope:
         title: Scope
         description: 'A space-separated list of scopes (options: basic simulate create
-          lizardrain lizardprocess manageusers managecontracts test livesite). Alternatively,
-          use ''*:readwrite'' for all scopes.'
+          lizardrain lizardprocess manageusers managecontracts test livesite waterquality).
+          Alternatively, use ''*:readwrite'' for all scopes.'
         type: string
         minLength: 1
       name:
@@ -18829,11 +19135,11 @@ definitions:
         maxLength: 128
         minLength: 1
       tags:
-        title: tags
         type: array
-        description: tags provided as a list of strings
         items:
           type: string
+        title: tags
+        description: tags provided as a list of strings
         example:
         - tag_1
         - tag_2
@@ -19573,7 +19879,7 @@ definitions:
       scope:
         title: Scope
         description: 'A space-separated list of scopes (options: basic simulate create
-          lizardrain lizardprocess manageusers managecontracts test livesite)'
+          lizardrain lizardprocess manageusers managecontracts test livesite waterquality)'
         type: string
         readOnly: true
         minLength: 1
@@ -19814,16 +20120,20 @@ definitions:
         title: Organisation name
         type: string
         readOnly: true
-      historical_rain_radar_uuid:
-        title: Historical rain radar uuid
-        type: string
-        format: uuid
-        x-nullable: true
-      forecast_rain_radar_uuid:
-        title: Forecast rain radar uuid
-        type: string
-        format: uuid
-        x-nullable: true
+      historical_rain_radar_uuids:
+        description: List of historical rain radar UUIDs
+        type: array
+        items:
+          title: Historical rain radar uuids
+          type: string
+          format: uuid
+      forecast_rain_radar_uuids:
+        description: List of forecast rain radar UUIDs
+        type: array
+        items:
+          title: Forecast rain radar uuids
+          type: string
+          format: uuid
   Organisation:
     required:
     - unique_id
@@ -19852,6 +20162,10 @@ definitions:
     - organisation
     type: object
     properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
       url:
         title: Url
         type: string
@@ -20233,6 +20547,11 @@ definitions:
       inp_success:
         title: Inp success
         type: boolean
+      created:
+        title: Created
+        type: string
+        format: date-time
+        readOnly: true
   Role:
     required:
     - name
@@ -20280,11 +20599,11 @@ definitions:
         maxLength: 256
         minLength: 1
       tags:
-        title: tags
         type: array
-        description: tags provided as a list of strings
         items:
           type: string
+        title: tags
+        description: tags provided as a list of strings
         example:
         - tag_1
         - tag_2
@@ -20528,11 +20847,11 @@ definitions:
         type: boolean
         readOnly: true
       tags:
-        title: tags
         type: array
-        description: tags provided as a list of strings
         items:
           type: string
+        title: tags
+        description: tags provided as a list of strings
         example:
         - tag_1
         - tag_2
@@ -20554,11 +20873,11 @@ definitions:
         type: string
         format: date-time
       tags:
-        title: tags
         type: array
-        description: tags provided as a list of strings
         items:
           type: string
+        title: tags
+        description: tags provided as a list of strings
         example:
         - tag_1
         - tag_2
@@ -20571,11 +20890,11 @@ definitions:
         minLength: 1
         x-nullable: true
       tags:
-        title: tags
         type: array
-        description: tags provided as a list of strings
         items:
           type: string
+        title: tags
+        description: tags provided as a list of strings
         example:
         - tag_1
         - tag_2
@@ -20678,6 +20997,15 @@ definitions:
         type: string
         maxLength: 128
         x-nullable: true
+      tags:
+        type: array
+        items:
+          type: string
+        title: tags
+        description: tags provided as a list of strings
+        example:
+        - tag_1
+        - tag_2
   CreateThreedimodel:
     type: object
     properties:
@@ -20969,11 +21297,11 @@ definitions:
         maxLength: 128
         minLength: 1
       tags:
-        title: tags
         type: array
-        description: tags provided as a list of strings
         items:
           type: string
+        title: tags
+        description: tags provided as a list of strings
         example:
         - tag_1
         - tag_2
@@ -21271,6 +21599,92 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ForcingSubstance'
+  ForcingSubstanceWithZone:
+    required:
+    - substance
+    - concentrations
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      substance:
+        title: Substance
+        type: string
+        format: uri
+      substance_id:
+        title: Substance id
+        type: integer
+        readOnly: true
+      substance_name:
+        title: Substance name
+        type: string
+        readOnly: true
+      concentrations:
+        type: array
+        items:
+          type: array
+          items:
+            type: number
+          description: Timestamp + value pair
+          example:
+          - 100
+          - 0.5
+          maxItems: 2
+          minItems: 2
+        maxItems: 300
+        title: Timeseries
+        description: 'Timeseries provided as a nested list. The inner list consists
+          of exactly 2 values: timestamp, value'
+        example:
+        - - 0
+          - 0.1
+        - - 100
+          - 0.5
+        - - 200
+          - 0
+        minItems: 1
+      zone:
+        title: Polygon
+        type: object
+        description: Polygon specified in wkt or geojson, interior rings are not allowed.
+          Coordinates in longitude, latitude order.
+        required:
+        - type
+        - coordinates
+        properties:
+          type:
+            title: type
+            description: Type should always be 'Polygon'
+            type: string
+            default: Polygon
+          coordinates:
+            title: coordinates
+            description: List of coordinates (longitude, latitude order)
+            type: array
+            items:
+              type: array
+              items:
+                type: array
+                items:
+                  type: number
+                minItems: 2
+                maxItems: 2
+              minItems: 3
+            minItems: 1
+            maxItems: 1
+        example:
+          type: Polygon
+          coordinates:
+          - - - 4.695281
+              - 52.656047
+            - - 4.683754
+              - 52.655824
+            - - 4.683253
+              - 52.639063
+            - - 4.695281
+              - 52.656047
   TimeseriesRainOverview:
     required:
     - offset
@@ -21349,7 +21763,7 @@ definitions:
       substances:
         type: array
         items:
-          $ref: '#/definitions/ForcingSubstance'
+          $ref: '#/definitions/ForcingSubstanceWithZone'
   Breach:
     required:
     - duration_till_max_depth
@@ -22546,11 +22960,11 @@ definitions:
         minimum: 0
         x-nullable: true
       tags:
-        title: tags
         type: array
-        description: tags provided as a list of strings
         items:
           type: string
+        title: tags
+        description: tags provided as a list of strings
         example:
         - tag_1
         - tag_2
@@ -23444,7 +23858,7 @@ definitions:
       substances:
         type: array
         items:
-          $ref: '#/definitions/ForcingSubstance'
+          $ref: '#/definitions/ForcingSubstanceWithZone'
   Wind:
     required:
     - offset
@@ -23755,7 +24169,7 @@ definitions:
           picked)'
         type: string
         enum:
-        - 3.4.3-3.5.0
+        - 3.4.24-3.5.4.1
         - 3.2.17-2.3.6
   Timeout:
     required:
@@ -23796,11 +24210,11 @@ definitions:
         readOnly: true
         x-nullable: true
       tags:
-        title: tags
         type: array
-        description: tags provided as a list of strings
         items:
           type: string
+        title: tags
+        description: tags provided as a list of strings
         example:
         - tag_1
         - tag_2
@@ -23853,11 +24267,11 @@ definitions:
         minimum: 0
         x-nullable: true
       tags:
-        title: tags
         type: array
-        description: tags provided as a list of strings
         items:
           type: string
+        title: tags
+        description: tags provided as a list of strings
         example:
         - tag_1
         - tag_2
@@ -24526,7 +24940,7 @@ definitions:
       substances:
         type: array
         items:
-          $ref: '#/definitions/ForcingSubstance'
+          $ref: '#/definitions/ForcingSubstanceWithZone'
   ConstantLocalRain:
     required:
     - offset
@@ -24617,7 +25031,7 @@ definitions:
       substances:
         type: array
         items:
-          $ref: '#/definitions/ForcingSubstance'
+          $ref: '#/definitions/ForcingSubstanceWithZone'
   TimeseriesLocalRain:
     required:
     - offset
@@ -24721,7 +25135,7 @@ definitions:
       substances:
         type: array
         items:
-          $ref: '#/definitions/ForcingSubstance'
+          $ref: '#/definitions/ForcingSubstanceWithZone'
   NetCDFRasterRain:
     type: object
     properties:
@@ -24884,7 +25298,7 @@ definitions:
       substances:
         type: array
         items:
-          $ref: '#/definitions/ForcingSubstance'
+          $ref: '#/definitions/ForcingSubstanceWithZone'
   NetCDFTimeseriesRain:
     required:
     - units
@@ -25862,7 +26276,8 @@ definitions:
           - GW
       geometry:
         title: Geometry
-        description: The geometry of the customized results area.
+        description: The polygon of the customized results area in WKT format, must
+          be WGS84.
         type: string
   NumericalSettings:
     required:
@@ -26164,7 +26579,7 @@ definitions:
           - s1
           - vol
           - su
-          - infiltration_rate_simpel
+          - infiltration_rate_simple
           - rain
           - q_lat
           - q_sss
@@ -26216,7 +26631,6 @@ definitions:
     - time_step
     - min_time_step
     - use_time_step_stretch
-    - output_time_step
     type: object
     properties:
       id:
@@ -26254,6 +26668,7 @@ definitions:
         description: The interval in seconds in which results are saved to disk.
         type: number
         minimum: 1.0e-14
+        x-nullable: true
   WaterQualitySettings:
     type: object
     properties:
@@ -27343,11 +27758,11 @@ definitions:
         - stable_threshold
         - timed
       tags:
-        title: tags
         type: array
-        description: tags provided as a list of strings
         items:
           type: string
+        title: tags
+        description: tags provided as a list of strings
         example:
         - tag_1
         - tag_2

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.24   3Di core release: 3.5.4.1  deployed on:  08:40AM (UTC) on December 20, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,6 +36,7 @@ class OrganisationRole(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'int',
         'url': 'str',
         'user': 'str',
         'role': 'str',
@@ -50,6 +51,7 @@ class OrganisationRole(object):
     ]
 
     attribute_map = {
+        'id': 'id',
         'url': 'url',
         'user': 'user',
         'role': 'role',
@@ -57,7 +59,7 @@ class OrganisationRole(object):
         'organisation_name': 'organisation_name'
     }
 
-    def __init__(self, url=None, user=None, role=None, organisation=None, organisation_name=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, id=None, url=None, user=None, role=None, organisation=None, organisation_name=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """OrganisationRole - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +68,7 @@ class OrganisationRole(object):
         # True if data is coming from API
         self._fetched_from_api = fetched_from_api
 
+        self._id = None
         self._url = None
         self._user = None
         self._role = None
@@ -73,6 +76,8 @@ class OrganisationRole(object):
         self._organisation_name = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         if url is not None:
             self.url = url
         self.user = user
@@ -80,6 +85,27 @@ class OrganisationRole(object):
         self.organisation = organisation
         if organisation_name is not None:
             self.organisation_name = organisation_name
+
+    @property
+    def id(self):
+        """Gets the id of this OrganisationRole.  # noqa: E501
+
+
+        :return: The id of this OrganisationRole.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this OrganisationRole.
+
+
+        :param id: The id of this OrganisationRole.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
 
     @property
     def url(self):

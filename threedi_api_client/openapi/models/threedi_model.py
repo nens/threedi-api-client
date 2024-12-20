@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.24   3Di core release: 3.5.4.1  deployed on:  08:40AM (UTC) on December 20, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -64,7 +64,8 @@ class ThreediModel(object):
         'nodes_count': 'int',
         'lines_count': 'int',
         'inpy_version': 'str',
-        'inp_success': 'bool'
+        'inp_success': 'bool',
+        'created': 'datetime'
     }
 
     required_fields = [
@@ -102,10 +103,11 @@ class ThreediModel(object):
         'nodes_count': 'nodes_count',
         'lines_count': 'lines_count',
         'inpy_version': 'inpy_version',
-        'inp_success': 'inp_success'
+        'inp_success': 'inp_success',
+        'created': 'created'
     }
 
-    def __init__(self, url=None, id=None, user=None, threedi_version=None, breach_count=None, revision=None, revision_id=None, revision_hash=None, revision_number=None, revision_commit_date=None, schematisation_id=None, schematisation_name=None, repository_slug=None, name=None, slug=None, disabled=None, is_valid=None, epsg=None, description=None, storage_space=None, storage_space_humanized=None, model_ini=None, extent_two_d=None, extent_one_d=None, extent_zero_d=None, nodes_count=None, lines_count=None, inpy_version=None, inp_success=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, id=None, user=None, threedi_version=None, breach_count=None, revision=None, revision_id=None, revision_hash=None, revision_number=None, revision_commit_date=None, schematisation_id=None, schematisation_name=None, repository_slug=None, name=None, slug=None, disabled=None, is_valid=None, epsg=None, description=None, storage_space=None, storage_space_humanized=None, model_ini=None, extent_two_d=None, extent_one_d=None, extent_zero_d=None, nodes_count=None, lines_count=None, inpy_version=None, inp_success=None, created=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """ThreediModel - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -143,6 +145,7 @@ class ThreediModel(object):
         self._lines_count = None
         self._inpy_version = None
         self._inp_success = None
+        self._created = None
         self.discriminator = None
 
         if url is not None:
@@ -192,6 +195,8 @@ class ThreediModel(object):
         self.inpy_version = inpy_version
         if inp_success is not None:
             self.inp_success = inp_success
+        if created is not None:
+            self.created = created
 
     @property
     def url(self):
@@ -867,6 +872,27 @@ class ThreediModel(object):
         """
 
         self._inp_success = inp_success
+
+    @property
+    def created(self):
+        """Gets the created of this ThreediModel.  # noqa: E501
+
+
+        :return: The created of this ThreediModel.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """Sets the created of this ThreediModel.
+
+
+        :param created: The created of this ThreediModel.  # noqa: E501
+        :type: datetime
+        """
+
+        self._created = created
 
     def to_dict(self):
         """Returns the model properties as a dict"""

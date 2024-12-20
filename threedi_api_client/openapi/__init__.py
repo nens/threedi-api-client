@@ -5,7 +5,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.24   3Di core release: 3.5.4.1  deployed on:  08:40AM (UTC) on December 20, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -31,6 +31,7 @@ from threedi_api_client.openapi.exceptions import ApiKeyError
 from threedi_api_client.openapi.exceptions import ApiException
 # import models into sdk package
 from threedi_api_client.openapi.models.action import Action
+from threedi_api_client.openapi.models.add_user import AddUser
 from threedi_api_client.openapi.models.aggregation_settings import AggregationSettings
 from threedi_api_client.openapi.models.arrival_time_post_processing import ArrivalTimePostProcessing
 from threedi_api_client.openapi.models.authenticate import Authenticate
@@ -73,6 +74,7 @@ from threedi_api_client.openapi.models.file_timeseries_leakage import FileTimese
 from threedi_api_client.openapi.models.file_timeseries_rain import FileTimeseriesRain
 from threedi_api_client.openapi.models.file_timeseries_sources_sinks import FileTimeseriesSourcesSinks
 from threedi_api_client.openapi.models.forcing_substance import ForcingSubstance
+from threedi_api_client.openapi.models.forcing_substance_with_zone import ForcingSubstanceWithZone
 from threedi_api_client.openapi.models.from_template import FromTemplate
 from threedi_api_client.openapi.models.grid_event_state import GridEventState
 from threedi_api_client.openapi.models.ground_water_level import GroundWaterLevel

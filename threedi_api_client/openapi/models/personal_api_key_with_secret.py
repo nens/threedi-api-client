@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.24   3Di core release: 3.5.4.1  deployed on:  08:40AM (UTC) on December 20, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -127,7 +127,7 @@ class PersonalAPIKeyWithSecret(object):
     def scope(self):
         """Gets the scope of this PersonalAPIKeyWithSecret.  # noqa: E501
 
-        A space-separated list of scopes (options: basic simulate create lizardrain lizardprocess manageusers managecontracts test livesite). Alternatively, use '*:readwrite' for all scopes.  # noqa: E501
+        A space-separated list of scopes (options: basic simulate create lizardrain lizardprocess manageusers managecontracts test livesite waterquality). Alternatively, use '*:readwrite' for all scopes.  # noqa: E501
 
         :return: The scope of this PersonalAPIKeyWithSecret.  # noqa: E501
         :rtype: str
@@ -138,7 +138,7 @@ class PersonalAPIKeyWithSecret(object):
     def scope(self, scope):
         """Sets the scope of this PersonalAPIKeyWithSecret.
 
-        A space-separated list of scopes (options: basic simulate create lizardrain lizardprocess manageusers managecontracts test livesite). Alternatively, use '*:readwrite' for all scopes.  # noqa: E501
+        A space-separated list of scopes (options: basic simulate create lizardrain lizardprocess manageusers managecontracts test livesite waterquality). Alternatively, use '*:readwrite' for all scopes.  # noqa: E501
 
         :param scope: The scope of this PersonalAPIKeyWithSecret.  # noqa: E501
         :type: str

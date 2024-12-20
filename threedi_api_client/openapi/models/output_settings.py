@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.24   3Di core release: 3.5.4.1  deployed on:  08:40AM (UTC) on December 20, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -457,7 +457,7 @@ class OutputSettings(object):
         :param customized_hydro_output_variables: The customized_hydro_output_variables of this OutputSettings.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["s1", "vol", "su", "infiltration_rate_simpel", "rain", "q_lat", "q_sss", "ucx", "ucy", "leak", "intecepted_volume", "u1", "q", "au", "up1", "qp", "breach_depth", "breach_width", "q_pump"]  # noqa: E501
+        allowed_values = ["s1", "vol", "su", "infiltration_rate_simple", "rain", "q_lat", "q_sss", "ucx", "ucy", "leak", "intecepted_volume", "u1", "q", "au", "up1", "qp", "breach_depth", "breach_width", "q_pump"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(customized_hydro_output_variables).issubset(set(allowed_values))):  # noqa: E501
             self.__handle_validation_error(

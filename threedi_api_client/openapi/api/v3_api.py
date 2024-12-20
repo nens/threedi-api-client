@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.24   3Di core release: 3.5.4.1  deployed on:  08:40AM (UTC) on December 20, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -416,6 +416,7 @@ class V3Api(object):
         :param str email__istartswith: email__istartswith
         :param str email__endswith: email__endswith
         :param str email__regex: email__regex
+        :param str remote__external_user_id: remote__external_user_id
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -460,6 +461,7 @@ class V3Api(object):
         :param str email__istartswith: email__istartswith
         :param str email__endswith: email__endswith
         :param str email__regex: email__regex
+        :param str remote__external_user_id: remote__external_user_id
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -497,6 +499,7 @@ class V3Api(object):
             'email__istartswith',
             'email__endswith',
             'email__regex',
+            'remote__external_user_id',
             'limit',
             'offset'
         ]
@@ -559,6 +562,8 @@ class V3Api(object):
             query_params.append(('email__endswith', local_var_params['email__endswith']))  # noqa: E501
         if 'email__regex' in local_var_params and local_var_params['email__regex'] is not None:  # noqa: E501
             query_params.append(('email__regex', local_var_params['email__regex']))  # noqa: E501
+        if 'remote__external_user_id' in local_var_params and local_var_params['remote__external_user_id'] is not None:  # noqa: E501
+            query_params.append(('remote__external_user_id', local_var_params['remote__external_user_id']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
@@ -4707,6 +4712,7 @@ class V3Api(object):
         :param str email__istartswith: email__istartswith
         :param str email__endswith: email__endswith
         :param str email__regex: email__regex
+        :param str remote__external_user_id: remote__external_user_id
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4752,6 +4758,7 @@ class V3Api(object):
         :param str email__istartswith: email__istartswith
         :param str email__endswith: email__endswith
         :param str email__regex: email__regex
+        :param str remote__external_user_id: remote__external_user_id
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -4790,6 +4797,7 @@ class V3Api(object):
             'email__istartswith',
             'email__endswith',
             'email__regex',
+            'remote__external_user_id',
             'limit',
             'offset'
         ]
@@ -4858,6 +4866,8 @@ class V3Api(object):
             query_params.append(('email__endswith', local_var_params['email__endswith']))  # noqa: E501
         if 'email__regex' in local_var_params and local_var_params['email__regex'] is not None:  # noqa: E501
             query_params.append(('email__regex', local_var_params['email__regex']))  # noqa: E501
+        if 'remote__external_user_id' in local_var_params and local_var_params['remote__external_user_id'] is not None:  # noqa: E501
+            query_params.append(('remote__external_user_id', local_var_params['remote__external_user_id']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
@@ -5416,6 +5426,9 @@ class V3Api(object):
         :param str organisation__name__istartswith: organisation__name__istartswith
         :param str organisation__name__endswith: organisation__name__endswith
         :param str organisation__name__regex: organisation__name__regex
+        :param str organisation__unique_id: organisation__unique_id
+        :param str user__id: user__id
+        :param str user__remote__external_user_id: user__remote__external_user_id
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5469,6 +5482,9 @@ class V3Api(object):
         :param str organisation__name__istartswith: organisation__name__istartswith
         :param str organisation__name__endswith: organisation__name__endswith
         :param str organisation__name__regex: organisation__name__regex
+        :param str organisation__unique_id: organisation__unique_id
+        :param str user__id: user__id
+        :param str user__remote__external_user_id: user__remote__external_user_id
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
@@ -5515,6 +5531,9 @@ class V3Api(object):
             'organisation__name__istartswith',
             'organisation__name__endswith',
             'organisation__name__regex',
+            'organisation__unique_id',
+            'user__id',
+            'user__remote__external_user_id',
             'limit',
             'offset'
         ]
@@ -5595,6 +5614,12 @@ class V3Api(object):
             query_params.append(('organisation__name__endswith', local_var_params['organisation__name__endswith']))  # noqa: E501
         if 'organisation__name__regex' in local_var_params and local_var_params['organisation__name__regex'] is not None:  # noqa: E501
             query_params.append(('organisation__name__regex', local_var_params['organisation__name__regex']))  # noqa: E501
+        if 'organisation__unique_id' in local_var_params and local_var_params['organisation__unique_id'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id', local_var_params['organisation__unique_id']))  # noqa: E501
+        if 'user__id' in local_var_params and local_var_params['user__id'] is not None:  # noqa: E501
+            query_params.append(('user__id', local_var_params['user__id']))  # noqa: E501
+        if 'user__remote__external_user_id' in local_var_params and local_var_params['user__remote__external_user_id'] is not None:  # noqa: E501
+            query_params.append(('user__remote__external_user_id', local_var_params['user__remote__external_user_id']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
@@ -64657,6 +64682,29 @@ class V3Api(object):
         :param str revision__repository__organisation__unique_id__regex: revision__repository__organisation__unique_id__regex
         :param str revision__schematisation__owner__unique_id: revision__schematisation__owner__unique_id
         :param str revision__schematisation__id: revision__schematisation__id
+        :param str created__range: created__range
+        :param str created__date: created__date
+        :param str created__date__gt: created__date__gt
+        :param str created__date__gte: created__date__gte
+        :param str created__date__lt: created__date__lt
+        :param str created__date__lte: created__date__lte
+        :param str created__year: created__year
+        :param str created__year__gt: created__year__gt
+        :param str created__year__gte: created__year__gte
+        :param str created__year__lt: created__year__lt
+        :param str created__year__lte: created__year__lte
+        :param str created__month: created__month
+        :param str created__month__lte: created__month__lte
+        :param str created__day: created__day
+        :param str created__day__lt: created__day__lt
+        :param str created__week: created__week
+        :param str created__week_day: created__week_day
+        :param str created__quarter: created__quarter
+        :param str created__time: created__time
+        :param str created__hour: created__hour
+        :param str created__minute: created__minute
+        :param str created__second: created__second
+        :param str created__isnull: created__isnull
         :param str revision__is_pinned: revision__is_pinned
         :param str revision__schematisation__tags__in: revision__schematisation__tags__in
         :param str disabled: disabled
@@ -64777,6 +64825,29 @@ class V3Api(object):
         :param str revision__repository__organisation__unique_id__regex: revision__repository__organisation__unique_id__regex
         :param str revision__schematisation__owner__unique_id: revision__schematisation__owner__unique_id
         :param str revision__schematisation__id: revision__schematisation__id
+        :param str created__range: created__range
+        :param str created__date: created__date
+        :param str created__date__gt: created__date__gt
+        :param str created__date__gte: created__date__gte
+        :param str created__date__lt: created__date__lt
+        :param str created__date__lte: created__date__lte
+        :param str created__year: created__year
+        :param str created__year__gt: created__year__gt
+        :param str created__year__gte: created__year__gte
+        :param str created__year__lt: created__year__lt
+        :param str created__year__lte: created__year__lte
+        :param str created__month: created__month
+        :param str created__month__lte: created__month__lte
+        :param str created__day: created__day
+        :param str created__day__lt: created__day__lt
+        :param str created__week: created__week
+        :param str created__week_day: created__week_day
+        :param str created__quarter: created__quarter
+        :param str created__time: created__time
+        :param str created__hour: created__hour
+        :param str created__minute: created__minute
+        :param str created__second: created__second
+        :param str created__isnull: created__isnull
         :param str revision__is_pinned: revision__is_pinned
         :param str revision__schematisation__tags__in: revision__schematisation__tags__in
         :param str disabled: disabled
@@ -64890,6 +64961,29 @@ class V3Api(object):
             'revision__repository__organisation__unique_id__regex',
             'revision__schematisation__owner__unique_id',
             'revision__schematisation__id',
+            'created__range',
+            'created__date',
+            'created__date__gt',
+            'created__date__gte',
+            'created__date__lt',
+            'created__date__lte',
+            'created__year',
+            'created__year__gt',
+            'created__year__gte',
+            'created__year__lt',
+            'created__year__lte',
+            'created__month',
+            'created__month__lte',
+            'created__day',
+            'created__day__lt',
+            'created__week',
+            'created__week_day',
+            'created__quarter',
+            'created__time',
+            'created__hour',
+            'created__minute',
+            'created__second',
+            'created__isnull',
             'revision__is_pinned',
             'revision__schematisation__tags__in',
             'disabled',
@@ -65097,6 +65191,52 @@ class V3Api(object):
             query_params.append(('revision__schematisation__owner__unique_id', local_var_params['revision__schematisation__owner__unique_id']))  # noqa: E501
         if 'revision__schematisation__id' in local_var_params and local_var_params['revision__schematisation__id'] is not None:  # noqa: E501
             query_params.append(('revision__schematisation__id', local_var_params['revision__schematisation__id']))  # noqa: E501
+        if 'created__range' in local_var_params and local_var_params['created__range'] is not None:  # noqa: E501
+            query_params.append(('created__range', local_var_params['created__range']))  # noqa: E501
+        if 'created__date' in local_var_params and local_var_params['created__date'] is not None:  # noqa: E501
+            query_params.append(('created__date', local_var_params['created__date']))  # noqa: E501
+        if 'created__date__gt' in local_var_params and local_var_params['created__date__gt'] is not None:  # noqa: E501
+            query_params.append(('created__date__gt', local_var_params['created__date__gt']))  # noqa: E501
+        if 'created__date__gte' in local_var_params and local_var_params['created__date__gte'] is not None:  # noqa: E501
+            query_params.append(('created__date__gte', local_var_params['created__date__gte']))  # noqa: E501
+        if 'created__date__lt' in local_var_params and local_var_params['created__date__lt'] is not None:  # noqa: E501
+            query_params.append(('created__date__lt', local_var_params['created__date__lt']))  # noqa: E501
+        if 'created__date__lte' in local_var_params and local_var_params['created__date__lte'] is not None:  # noqa: E501
+            query_params.append(('created__date__lte', local_var_params['created__date__lte']))  # noqa: E501
+        if 'created__year' in local_var_params and local_var_params['created__year'] is not None:  # noqa: E501
+            query_params.append(('created__year', local_var_params['created__year']))  # noqa: E501
+        if 'created__year__gt' in local_var_params and local_var_params['created__year__gt'] is not None:  # noqa: E501
+            query_params.append(('created__year__gt', local_var_params['created__year__gt']))  # noqa: E501
+        if 'created__year__gte' in local_var_params and local_var_params['created__year__gte'] is not None:  # noqa: E501
+            query_params.append(('created__year__gte', local_var_params['created__year__gte']))  # noqa: E501
+        if 'created__year__lt' in local_var_params and local_var_params['created__year__lt'] is not None:  # noqa: E501
+            query_params.append(('created__year__lt', local_var_params['created__year__lt']))  # noqa: E501
+        if 'created__year__lte' in local_var_params and local_var_params['created__year__lte'] is not None:  # noqa: E501
+            query_params.append(('created__year__lte', local_var_params['created__year__lte']))  # noqa: E501
+        if 'created__month' in local_var_params and local_var_params['created__month'] is not None:  # noqa: E501
+            query_params.append(('created__month', local_var_params['created__month']))  # noqa: E501
+        if 'created__month__lte' in local_var_params and local_var_params['created__month__lte'] is not None:  # noqa: E501
+            query_params.append(('created__month__lte', local_var_params['created__month__lte']))  # noqa: E501
+        if 'created__day' in local_var_params and local_var_params['created__day'] is not None:  # noqa: E501
+            query_params.append(('created__day', local_var_params['created__day']))  # noqa: E501
+        if 'created__day__lt' in local_var_params and local_var_params['created__day__lt'] is not None:  # noqa: E501
+            query_params.append(('created__day__lt', local_var_params['created__day__lt']))  # noqa: E501
+        if 'created__week' in local_var_params and local_var_params['created__week'] is not None:  # noqa: E501
+            query_params.append(('created__week', local_var_params['created__week']))  # noqa: E501
+        if 'created__week_day' in local_var_params and local_var_params['created__week_day'] is not None:  # noqa: E501
+            query_params.append(('created__week_day', local_var_params['created__week_day']))  # noqa: E501
+        if 'created__quarter' in local_var_params and local_var_params['created__quarter'] is not None:  # noqa: E501
+            query_params.append(('created__quarter', local_var_params['created__quarter']))  # noqa: E501
+        if 'created__time' in local_var_params and local_var_params['created__time'] is not None:  # noqa: E501
+            query_params.append(('created__time', local_var_params['created__time']))  # noqa: E501
+        if 'created__hour' in local_var_params and local_var_params['created__hour'] is not None:  # noqa: E501
+            query_params.append(('created__hour', local_var_params['created__hour']))  # noqa: E501
+        if 'created__minute' in local_var_params and local_var_params['created__minute'] is not None:  # noqa: E501
+            query_params.append(('created__minute', local_var_params['created__minute']))  # noqa: E501
+        if 'created__second' in local_var_params and local_var_params['created__second'] is not None:  # noqa: E501
+            query_params.append(('created__second', local_var_params['created__second']))  # noqa: E501
+        if 'created__isnull' in local_var_params and local_var_params['created__isnull'] is not None:  # noqa: E501
+            query_params.append(('created__isnull', local_var_params['created__isnull']))  # noqa: E501
         if 'revision__is_pinned' in local_var_params and local_var_params['revision__is_pinned'] is not None:  # noqa: E501
             query_params.append(('revision__is_pinned', local_var_params['revision__is_pinned']))  # noqa: E501
         if 'revision__schematisation__tags__in' in local_var_params and local_var_params['revision__schematisation__tags__in'] is not None:  # noqa: E501

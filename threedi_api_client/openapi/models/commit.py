@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.3   3Di core release: 3.5.0  deployed on:  03:07PM (UTC) on October 02, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.24   3Di core release: 3.5.4.1  deployed on:  08:40AM (UTC) on December 20, 2024  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -41,7 +41,8 @@ class Commit(object):
         'schematisation_name': 'str',
         'commit_date': 'datetime',
         'commit_user': 'str',
-        'user': 'str'
+        'user': 'str',
+        'tags': 'list[str]'
     }
 
     required_fields = [
@@ -53,10 +54,11 @@ class Commit(object):
         'schematisation_name': 'schematisation_name',
         'commit_date': 'commit_date',
         'commit_user': 'commit_user',
-        'user': 'user'
+        'user': 'user',
+        'tags': 'tags'
     }
 
-    def __init__(self, commit_message=None, force_as=None, schematisation_name=None, commit_date=None, commit_user=None, user=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, commit_message=None, force_as=None, schematisation_name=None, commit_date=None, commit_user=None, user=None, tags=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Commit - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -71,6 +73,7 @@ class Commit(object):
         self._commit_date = None
         self._commit_user = None
         self._user = None
+        self._tags = None
         self.discriminator = None
 
         self.commit_message = commit_message
@@ -82,6 +85,8 @@ class Commit(object):
         if commit_user is not None:
             self.commit_user = commit_user
         self.user = user
+        if tags is not None:
+            self.tags = tags
 
     @property
     def commit_message(self):
@@ -235,6 +240,29 @@ class Commit(object):
             self.__handle_validation_error("Invalid value for `user`, length must be less than or equal to `128`")  # noqa: E501
 
         self._user = user
+
+    @property
+    def tags(self):
+        """Gets the tags of this Commit.  # noqa: E501
+
+        tags provided as a list of strings  # noqa: E501
+
+        :return: The tags of this Commit.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this Commit.
+
+        tags provided as a list of strings  # noqa: E501
+
+        :param tags: The tags of this Commit.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""
