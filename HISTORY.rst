@@ -2,8 +2,8 @@
 History
 =======
 
-4.1.9 (unreleased)
-------------------
+4.1.9.dev0 (2024-12-20)
+-----------------------
 
 - Pin aiohttp to <3.10
 - Add test workflow for Python 3.12 and 3.13
