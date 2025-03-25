@@ -5,7 +5,7 @@ History
 4.1.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Api version 3.4.40
 
 
 4.1.9.dev0 (2024-12-20)
