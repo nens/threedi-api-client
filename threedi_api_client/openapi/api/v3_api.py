@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.24   3Di core release: 3.5.4.1  deployed on:  08:40AM (UTC) on December 20, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.40   3Di core release: 3.6.6  deployed on:  02:50PM (UTC) on March 25, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -3534,7 +3534,7 @@ class V3Api(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param OrganisationSettings data: (required)
+        :param Settings data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3542,7 +3542,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: OrganisationSettings
+        :return: Settings
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3559,7 +3559,7 @@ class V3Api(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param OrganisationSettings data: (required)
+        :param Settings data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3569,7 +3569,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(OrganisationSettings, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Settings, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3634,7 +3634,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganisationSettings',  # noqa: E501
+            response_type='Settings',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3878,7 +3878,7 @@ class V3Api(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this organisation settings. (required)
-        :param OrganisationSettings data: (required)
+        :param Settings data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3886,7 +3886,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: OrganisationSettings
+        :return: Settings
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3904,7 +3904,7 @@ class V3Api(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this organisation settings. (required)
-        :param OrganisationSettings data: (required)
+        :param Settings data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3914,7 +3914,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(OrganisationSettings, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Settings, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3986,7 +3986,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganisationSettings',  # noqa: E501
+            response_type='Settings',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -4012,7 +4012,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: OrganisationSettings
+        :return: Settings
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4039,7 +4039,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(OrganisationSettings, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Settings, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4100,7 +4100,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganisationSettings',  # noqa: E501
+            response_type='Settings',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -4119,7 +4119,7 @@ class V3Api(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this organisation settings. (required)
-        :param OrganisationSettings data: (required)
+        :param Settings data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4127,7 +4127,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: OrganisationSettings
+        :return: Settings
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4145,7 +4145,7 @@ class V3Api(object):
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this organisation settings. (required)
-        :param OrganisationSettings data: (required)
+        :param Settings data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4155,7 +4155,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(OrganisationSettings, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Settings, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4227,7 +4227,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganisationSettings',  # noqa: E501
+            response_type='Settings',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -36770,7 +36770,7 @@ class V3Api(object):
     def simulations_events_structure_control_table_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_structure_control_table_create  # noqa: E501
 
-        A table structure control can used to apply a certain action, e.g increase the pump capacity of a pump station, based on the measured values of one or more locations.  **type**  *for weirs and orifices*  - set_crest_level - set_discharge_coefficients  *for culverts, channels and pipes*  - set_discharge_coefficients  *for pumps*  - set_pump_capacity (m3/s)  **values**  The action table consists of one or more value pairs (threshold, action_value)  To close/open or partially close/open a structure using the `set_discharge_coefficients` type the values must contain **three** values. For example `[[1.2, 0.5, 0.7]]`,  where     1.2 is the threshold value     0.5 the action value for the left flow direction     0.7 action value for the right flow direction  Please note: action values for `set_discharge_coefficients` type must be > 0.  For ALL operators threshold values must be ascending,  In most cases the measure location will be of type `v2_connection_node`. For this location type only the variables `s1` and `vol1` apply. If your measure location, however, is of any other type the variable must either be `q` or `u1`.   For both the target structure as well as for the measure location it is allowed to use a grid id as input directly. In this case we will check if the structure type associated with the given id matches with the grid administration data.  Nonetheless, we encourage you to use the structure id (that is the id of the structure in the model sqlite database) as input data. We will look up the corresponding grid id for you. If the validation holds, the state of the resource will be updated from `processing` to `valid`. Using the structure id will enable you to re-use the structure control resource after a model revision as a grid id will most likely change with every new grid generation.  # noqa: E501
+        A table structure control can used to apply a certain action, e.g increase the pump capacity of a pump station, based on the measured values of one or more locations.  **type**  *for weirs and orifices*  - set_crest_level - set_discharge_coefficients  *for culverts, channels and pipes*  - set_discharge_coefficients  *for pumps*  - set_pump_capacity (m3/s)  **values**  The action table consists of one or more value pairs (threshold, action_value)  To close/open or partially close/open a structure using the `set_discharge_coefficients` type the values must contain **three** values. For example `[[1.2, 0.5, 0.7]]`,  where     1.2 is the threshold value     0.5 the action value for the left flow direction     0.7 action value for the right flow direction  Please note: action values for `set_discharge_coefficients` type must be > 0.  For ALL operators threshold values must be ascending,  In most cases the measure location will be of type `v2_connection_node`. For this location type only the variables `s1` and `vol1` apply. If your measure location, however, is of any other type the variable must either be `q` or `u1`.  Note that the `v2_` prefixes are no longer used in the schematisations, but are required in the API.  For both the target structure as well as for the measure location it is allowed to use a grid id as input directly. In this case we will check if the structure type associated with the given id matches with the grid administration data.  Nonetheless, we encourage you to use the structure id (that is the id of the structure in the model sqlite database) as input data. We will look up the corresponding grid id for you. If the validation holds, the state of the resource will be updated from `processing` to `valid`. Using the structure id will enable you to re-use the structure control resource after a model revision as a grid id will most likely change with every new grid generation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_structure_control_table_create(simulation_pk, data, async_req=True)
@@ -36796,7 +36796,7 @@ class V3Api(object):
     def simulations_events_structure_control_table_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """simulations_events_structure_control_table_create  # noqa: E501
 
-        A table structure control can used to apply a certain action, e.g increase the pump capacity of a pump station, based on the measured values of one or more locations.  **type**  *for weirs and orifices*  - set_crest_level - set_discharge_coefficients  *for culverts, channels and pipes*  - set_discharge_coefficients  *for pumps*  - set_pump_capacity (m3/s)  **values**  The action table consists of one or more value pairs (threshold, action_value)  To close/open or partially close/open a structure using the `set_discharge_coefficients` type the values must contain **three** values. For example `[[1.2, 0.5, 0.7]]`,  where     1.2 is the threshold value     0.5 the action value for the left flow direction     0.7 action value for the right flow direction  Please note: action values for `set_discharge_coefficients` type must be > 0.  For ALL operators threshold values must be ascending,  In most cases the measure location will be of type `v2_connection_node`. For this location type only the variables `s1` and `vol1` apply. If your measure location, however, is of any other type the variable must either be `q` or `u1`.   For both the target structure as well as for the measure location it is allowed to use a grid id as input directly. In this case we will check if the structure type associated with the given id matches with the grid administration data.  Nonetheless, we encourage you to use the structure id (that is the id of the structure in the model sqlite database) as input data. We will look up the corresponding grid id for you. If the validation holds, the state of the resource will be updated from `processing` to `valid`. Using the structure id will enable you to re-use the structure control resource after a model revision as a grid id will most likely change with every new grid generation.  # noqa: E501
+        A table structure control can used to apply a certain action, e.g increase the pump capacity of a pump station, based on the measured values of one or more locations.  **type**  *for weirs and orifices*  - set_crest_level - set_discharge_coefficients  *for culverts, channels and pipes*  - set_discharge_coefficients  *for pumps*  - set_pump_capacity (m3/s)  **values**  The action table consists of one or more value pairs (threshold, action_value)  To close/open or partially close/open a structure using the `set_discharge_coefficients` type the values must contain **three** values. For example `[[1.2, 0.5, 0.7]]`,  where     1.2 is the threshold value     0.5 the action value for the left flow direction     0.7 action value for the right flow direction  Please note: action values for `set_discharge_coefficients` type must be > 0.  For ALL operators threshold values must be ascending,  In most cases the measure location will be of type `v2_connection_node`. For this location type only the variables `s1` and `vol1` apply. If your measure location, however, is of any other type the variable must either be `q` or `u1`.  Note that the `v2_` prefixes are no longer used in the schematisations, but are required in the API.  For both the target structure as well as for the measure location it is allowed to use a grid id as input directly. In this case we will check if the structure type associated with the given id matches with the grid administration data.  Nonetheless, we encourage you to use the structure id (that is the id of the structure in the model sqlite database) as input data. We will look up the corresponding grid id for you. If the validation holds, the state of the resource will be updated from `processing` to `valid`. Using the structure id will enable you to re-use the structure control resource after a model revision as a grid id will most likely change with every new grid generation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_events_structure_control_table_create_with_http_info(simulation_pk, data, async_req=True)
@@ -41734,7 +41734,7 @@ class V3Api(object):
     def simulations_initial1d_water_level_predefined_create(self, simulation_pk, data, **kwargs):  # noqa: E501
         """This endpoint is pending deprecation.  # noqa: E501
 
-        For threedimodels that came from a repository on models.lizard.net: Start the simulation with predefined 1D water levels. That is, use the initial water levels that have been specified in the ``v2_connection_nodes`` schema.  For threedimodels that came from a schematisation in this API, there might be a threedimodels/{}/initial_waterlevels 1D resource. If such a resource exists, there will also be a /file initial condition created. The /predefined resource will still be created but is ignored by the simulation.  # noqa: E501
+        For threedimodels that came from a repository on models.lizard.net: Start the simulation with predefined 1D water levels. That is, use the initial water levels that have been specified in the ``connection_nodes`` schema.  For threedimodels that came from a schematisation in this API, there might be a threedimodels/{}/initial_waterlevels 1D resource. If such a resource exists, there will also be a /file initial condition created. The /predefined resource will still be created but is ignored by the simulation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_initial1d_water_level_predefined_create(simulation_pk, data, async_req=True)
@@ -41760,7 +41760,7 @@ class V3Api(object):
     def simulations_initial1d_water_level_predefined_create_with_http_info(self, simulation_pk, data, **kwargs):  # noqa: E501
         """This endpoint is pending deprecation.  # noqa: E501
 
-        For threedimodels that came from a repository on models.lizard.net: Start the simulation with predefined 1D water levels. That is, use the initial water levels that have been specified in the ``v2_connection_nodes`` schema.  For threedimodels that came from a schematisation in this API, there might be a threedimodels/{}/initial_waterlevels 1D resource. If such a resource exists, there will also be a /file initial condition created. The /predefined resource will still be created but is ignored by the simulation.  # noqa: E501
+        For threedimodels that came from a repository on models.lizard.net: Start the simulation with predefined 1D water levels. That is, use the initial water levels that have been specified in the ``connection_nodes`` schema.  For threedimodels that came from a schematisation in this API, there might be a threedimodels/{}/initial_waterlevels 1D resource. If such a resource exists, there will also be a /file initial condition created. The /predefined resource will still be created but is ignored by the simulation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.simulations_initial1d_water_level_predefined_create_with_http_info(simulation_pk, data, async_req=True)

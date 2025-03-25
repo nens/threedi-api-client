@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.24   3Di core release: 3.5.4.1  deployed on:  08:40AM (UTC) on December 20, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.40   3Di core release: 3.6.6  deployed on:  02:50PM (UTC) on March 25, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -38,21 +38,23 @@ class Organisation(object):
     openapi_types = {
         'url': 'str',
         'unique_id': 'str',
-        'name': 'str'
+        'name': 'str',
+        'settings': 'OrganisationSettings'
     }
 
     required_fields = [
        'unique_id',
-       'name'
+       'name',
     ]
 
     attribute_map = {
         'url': 'url',
         'unique_id': 'unique_id',
-        'name': 'name'
+        'name': 'name',
+        'settings': 'settings'
     }
 
-    def __init__(self, url=None, unique_id=None, name=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, unique_id=None, name=None, settings=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Organisation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -64,12 +66,15 @@ class Organisation(object):
         self._url = None
         self._unique_id = None
         self._name = None
+        self._settings = None
         self.discriminator = None
 
         if url is not None:
             self.url = url
         self.unique_id = unique_id
         self.name = name
+        if settings is not None:
+            self.settings = settings
 
     @property
     def url(self):
@@ -149,6 +154,27 @@ class Organisation(object):
             self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def settings(self):
+        """Gets the settings of this Organisation.  # noqa: E501
+
+
+        :return: The settings of this Organisation.  # noqa: E501
+        :rtype: OrganisationSettings
+        """
+        return self._settings
+
+    @settings.setter
+    def settings(self, settings):
+        """Sets the settings of this Organisation.
+
+
+        :param settings: The settings of this Organisation.  # noqa: E501
+        :type: OrganisationSettings
+        """
+
+        self._settings = settings
 
     def to_dict(self):
         """Returns the model properties as a dict"""

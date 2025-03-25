@@ -2,8 +2,7 @@ swagger: '2.0'
 info:
   title: 3Di API
   description: "3Di simulation API (latest stable version: v3) \n Framework release:
-    3.4.24 \n 3Di core release: 3.5.4.1 \ndeployed on:  08:40AM (UTC) on December
-    20, 2024"
+    3.4.40 \n 3Di core release: 3.6.6 \ndeployed on:  02:50PM (UTC) on March 25, 2025"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -2371,7 +2370,7 @@ paths:
               results:
                 type: array
                 items:
-                  $ref: '#/definitions/OrganisationSettings'
+                  $ref: '#/definitions/settings'
       tags:
       - v3
     post:
@@ -2382,12 +2381,12 @@ paths:
         in: body
         required: true
         schema:
-          $ref: '#/definitions/OrganisationSettings'
+          $ref: '#/definitions/settings'
       responses:
         '201':
           description: ''
           schema:
-            $ref: '#/definitions/OrganisationSettings'
+            $ref: '#/definitions/settings'
       tags:
       - v3
     parameters: []
@@ -2400,7 +2399,7 @@ paths:
         '200':
           description: ''
           schema:
-            $ref: '#/definitions/OrganisationSettings'
+            $ref: '#/definitions/settings'
       tags:
       - v3
     put:
@@ -2411,12 +2410,12 @@ paths:
         in: body
         required: true
         schema:
-          $ref: '#/definitions/OrganisationSettings'
+          $ref: '#/definitions/settings'
       responses:
         '200':
           description: ''
           schema:
-            $ref: '#/definitions/OrganisationSettings'
+            $ref: '#/definitions/settings'
       tags:
       - v3
     patch:
@@ -2427,12 +2426,12 @@ paths:
         in: body
         required: true
         schema:
-          $ref: '#/definitions/OrganisationSettings'
+          $ref: '#/definitions/settings'
       responses:
         '200':
           description: ''
           schema:
-            $ref: '#/definitions/OrganisationSettings'
+            $ref: '#/definitions/settings'
       tags:
       - v3
     delete:
@@ -10616,6 +10615,8 @@ paths:
         measure location, however, is of any other type the variable must either
         be `q` or `u1`.
 
+        Note that the `v2_` prefixes are no longer used in the schematisations,
+        but are required in the API.
 
         For both the target structure as well as for the measure location it is
         allowed to use a grid id as input directly. In this case we will check
@@ -11551,7 +11552,7 @@ paths:
         For threedimodels that came from a repository on models.lizard.net:
         Start the simulation with predefined 1D water levels. That is,
         use the initial water levels that have been specified in the
-        ``v2_connection_nodes`` schema.
+        ``connection_nodes`` schema.
 
         For threedimodels that came from a schematisation in this API, there
         might be a threedimodels/{}/initial_waterlevels 1D resource. If such
@@ -19552,7 +19553,6 @@ definitions:
         description: The units of the substance.
         type: string
         maxLength: 16
-        minLength: 1
       uid:
         title: Uid
         type: string
@@ -20098,7 +20098,7 @@ definitions:
       active:
         title: Active
         type: boolean
-  OrganisationSettings:
+  settings:
     required:
     - organisation
     type: object
@@ -20134,6 +20134,17 @@ definitions:
           title: Forecast rain radar uuids
           type: string
           format: uuid
+  OrganisationSettings:
+    type: object
+    properties:
+      historical_rain_radar_uuids:
+        title: Historical rain radar uuids
+        type: string
+        readOnly: true
+      forecast_rain_radar_uuids:
+        title: Forecast rain radar uuids
+        type: string
+        readOnly: true
   Organisation:
     required:
     - unique_id
@@ -20155,6 +20166,8 @@ definitions:
         type: string
         maxLength: 255
         minLength: 1
+      settings:
+        $ref: '#/definitions/OrganisationSettings'
   OrganisationRole:
     required:
     - user
@@ -21511,6 +21524,7 @@ definitions:
   LizardTimeseriesRain:
     required:
     - offset
+    - duration
     - reference_uuid
     - start_datetime
     type: object
@@ -21837,6 +21851,7 @@ definitions:
   LizardRasterSourcesSinks:
     required:
     - offset
+    - duration
     - reference_uuid
     - start_datetime
     type: object
@@ -24169,7 +24184,7 @@ definitions:
           picked)'
         type: string
         enum:
-        - 3.4.24-3.5.4.1
+        - 3.4.40-3.6.6
         - 3.2.17-2.3.6
   Timeout:
     required:
@@ -26720,11 +26735,6 @@ definitions:
       convergence_eps:
         title: Convergence eps
         description: The convergence epsilon for the water quality simulation.
-        type: number
-        minimum: 1.0e-14
-      diffusion_coefficient:
-        title: Diffusion coefficient
-        description: The diffusion coefficient for the water quality simulation.
         type: number
         minimum: 1.0e-14
   WaterQualityOutputSettings:

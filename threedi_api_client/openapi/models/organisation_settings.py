@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.24   3Di core release: 3.5.4.1  deployed on:  08:40AM (UTC) on December 20, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.40   3Di core release: 3.6.6  deployed on:  02:50PM (UTC) on March 25, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,28 +36,19 @@ class OrganisationSettings(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str',
-        'id': 'int',
-        'organisation': 'str',
-        'organisation_name': 'str',
-        'historical_rain_radar_uuids': 'list[str]',
-        'forecast_rain_radar_uuids': 'list[str]'
+        'historical_rain_radar_uuids': 'str',
+        'forecast_rain_radar_uuids': 'str'
     }
 
     required_fields = [
-       'organisation',
     ]
 
     attribute_map = {
-        'url': 'url',
-        'id': 'id',
-        'organisation': 'organisation',
-        'organisation_name': 'organisation_name',
         'historical_rain_radar_uuids': 'historical_rain_radar_uuids',
         'forecast_rain_radar_uuids': 'forecast_rain_radar_uuids'
     }
 
-    def __init__(self, url=None, id=None, organisation=None, organisation_name=None, historical_rain_radar_uuids=None, forecast_rain_radar_uuids=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, historical_rain_radar_uuids=None, forecast_rain_radar_uuids=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """OrganisationSettings - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,122 +57,22 @@ class OrganisationSettings(object):
         # True if data is coming from API
         self._fetched_from_api = fetched_from_api
 
-        self._url = None
-        self._id = None
-        self._organisation = None
-        self._organisation_name = None
         self._historical_rain_radar_uuids = None
         self._forecast_rain_radar_uuids = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
-        if id is not None:
-            self.id = id
-        self.organisation = organisation
-        if organisation_name is not None:
-            self.organisation_name = organisation_name
         if historical_rain_radar_uuids is not None:
             self.historical_rain_radar_uuids = historical_rain_radar_uuids
         if forecast_rain_radar_uuids is not None:
             self.forecast_rain_radar_uuids = forecast_rain_radar_uuids
 
     @property
-    def url(self):
-        """Gets the url of this OrganisationSettings.  # noqa: E501
-
-
-        :return: The url of this OrganisationSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._url
-
-    @url.setter
-    def url(self, url):
-        """Sets the url of this OrganisationSettings.
-
-
-        :param url: The url of this OrganisationSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._url = url
-
-    @property
-    def id(self):
-        """Gets the id of this OrganisationSettings.  # noqa: E501
-
-
-        :return: The id of this OrganisationSettings.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this OrganisationSettings.
-
-
-        :param id: The id of this OrganisationSettings.  # noqa: E501
-        :type: int
-        """
-
-        self._id = id
-
-    @property
-    def organisation(self):
-        """Gets the organisation of this OrganisationSettings.  # noqa: E501
-
-        The unique_id of an organisation  # noqa: E501
-
-        :return: The organisation of this OrganisationSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._organisation
-
-    @organisation.setter
-    def organisation(self, organisation):
-        """Sets the organisation of this OrganisationSettings.
-
-        The unique_id of an organisation  # noqa: E501
-
-        :param organisation: The organisation of this OrganisationSettings.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and organisation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `organisation`, must not be `None`")  # noqa: E501
-
-        self._organisation = organisation
-
-    @property
-    def organisation_name(self):
-        """Gets the organisation_name of this OrganisationSettings.  # noqa: E501
-
-
-        :return: The organisation_name of this OrganisationSettings.  # noqa: E501
-        :rtype: str
-        """
-        return self._organisation_name
-
-    @organisation_name.setter
-    def organisation_name(self, organisation_name):
-        """Sets the organisation_name of this OrganisationSettings.
-
-
-        :param organisation_name: The organisation_name of this OrganisationSettings.  # noqa: E501
-        :type: str
-        """
-
-        self._organisation_name = organisation_name
-
-    @property
     def historical_rain_radar_uuids(self):
         """Gets the historical_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
 
-        List of historical rain radar UUIDs  # noqa: E501
 
         :return: The historical_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
-        :rtype: list[str]
+        :rtype: str
         """
         return self._historical_rain_radar_uuids
 
@@ -189,10 +80,9 @@ class OrganisationSettings(object):
     def historical_rain_radar_uuids(self, historical_rain_radar_uuids):
         """Sets the historical_rain_radar_uuids of this OrganisationSettings.
 
-        List of historical rain radar UUIDs  # noqa: E501
 
         :param historical_rain_radar_uuids: The historical_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
-        :type: list[str]
+        :type: str
         """
 
         self._historical_rain_radar_uuids = historical_rain_radar_uuids
@@ -201,10 +91,9 @@ class OrganisationSettings(object):
     def forecast_rain_radar_uuids(self):
         """Gets the forecast_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
 
-        List of forecast rain radar UUIDs  # noqa: E501
 
         :return: The forecast_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
-        :rtype: list[str]
+        :rtype: str
         """
         return self._forecast_rain_radar_uuids
 
@@ -212,10 +101,9 @@ class OrganisationSettings(object):
     def forecast_rain_radar_uuids(self, forecast_rain_radar_uuids):
         """Sets the forecast_rain_radar_uuids of this OrganisationSettings.
 
-        List of forecast rain radar UUIDs  # noqa: E501
 
         :param forecast_rain_radar_uuids: The forecast_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
-        :type: list[str]
+        :type: str
         """
 
         self._forecast_rain_radar_uuids = forecast_rain_radar_uuids

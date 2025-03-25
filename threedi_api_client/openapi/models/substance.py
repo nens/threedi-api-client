@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.24   3Di core release: 3.5.4.1  deployed on:  08:40AM (UTC) on December 20, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.40   3Di core release: 3.6.6  deployed on:  02:50PM (UTC) on March 25, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -325,9 +325,6 @@ class Substance(object):
         if (self.local_vars_configuration.client_side_validation and
                 units is not None and len(units) > 16):
             self.__handle_validation_error("Invalid value for `units`, length must be less than or equal to `16`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                units is not None and len(units) < 1):
-            self.__handle_validation_error("Invalid value for `units`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._units = units
 

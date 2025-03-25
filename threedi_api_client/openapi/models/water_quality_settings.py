@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.24   3Di core release: 3.5.4.1  deployed on:  08:40AM (UTC) on December 20, 2024  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.40   3Di core release: 3.6.6  deployed on:  02:50PM (UTC) on March 25, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -44,8 +44,7 @@ class WaterQualitySettings(object):
         'general_numerical_threshold': 'float',
         'max_number_of_multi_step': 'int',
         'max_gs_sweep_iterations': 'int',
-        'convergence_eps': 'float',
-        'diffusion_coefficient': 'float'
+        'convergence_eps': 'float'
     }
 
     required_fields = [
@@ -60,11 +59,10 @@ class WaterQualitySettings(object):
         'general_numerical_threshold': 'general_numerical_threshold',
         'max_number_of_multi_step': 'max_number_of_multi_step',
         'max_gs_sweep_iterations': 'max_gs_sweep_iterations',
-        'convergence_eps': 'convergence_eps',
-        'diffusion_coefficient': 'diffusion_coefficient'
+        'convergence_eps': 'convergence_eps'
     }
 
-    def __init__(self, id=None, simulation_id=None, time_step=None, min_time_step=None, max_time_step=None, general_numerical_threshold=None, max_number_of_multi_step=None, max_gs_sweep_iterations=None, convergence_eps=None, diffusion_coefficient=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, id=None, simulation_id=None, time_step=None, min_time_step=None, max_time_step=None, general_numerical_threshold=None, max_number_of_multi_step=None, max_gs_sweep_iterations=None, convergence_eps=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """WaterQualitySettings - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -82,7 +80,6 @@ class WaterQualitySettings(object):
         self._max_number_of_multi_step = None
         self._max_gs_sweep_iterations = None
         self._convergence_eps = None
-        self._diffusion_coefficient = None
         self.discriminator = None
 
         if id is not None:
@@ -101,8 +98,6 @@ class WaterQualitySettings(object):
             self.max_gs_sweep_iterations = max_gs_sweep_iterations
         if convergence_eps is not None:
             self.convergence_eps = convergence_eps
-        if diffusion_coefficient is not None:
-            self.diffusion_coefficient = diffusion_coefficient
 
     @property
     def id(self):
@@ -333,32 +328,6 @@ class WaterQualitySettings(object):
             self.__handle_validation_error("Invalid value for `convergence_eps`, must be a value greater than or equal to `1E-14`")  # noqa: E501
 
         self._convergence_eps = convergence_eps
-
-    @property
-    def diffusion_coefficient(self):
-        """Gets the diffusion_coefficient of this WaterQualitySettings.  # noqa: E501
-
-        The diffusion coefficient for the water quality simulation.  # noqa: E501
-
-        :return: The diffusion_coefficient of this WaterQualitySettings.  # noqa: E501
-        :rtype: float
-        """
-        return self._diffusion_coefficient
-
-    @diffusion_coefficient.setter
-    def diffusion_coefficient(self, diffusion_coefficient):
-        """Sets the diffusion_coefficient of this WaterQualitySettings.
-
-        The diffusion coefficient for the water quality simulation.  # noqa: E501
-
-        :param diffusion_coefficient: The diffusion_coefficient of this WaterQualitySettings.  # noqa: E501
-        :type: float
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                diffusion_coefficient is not None and diffusion_coefficient < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `diffusion_coefficient`, must be a value greater than or equal to `1E-14`")  # noqa: E501
-
-        self._diffusion_coefficient = diffusion_coefficient
 
     def to_dict(self):
         """Returns the model properties as a dict"""
