@@ -3,10 +3,11 @@
 
 """The setup script."""
 
-from setuptools import setup, find_packages
 import codecs
 import os
 import pathlib
+
+from setuptools import find_packages, setup
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -39,13 +40,14 @@ requirements = [
     'urllib3>=1.24,<2.0',
     'six>=1.10',
     'python-dateutil',
-    'sphinx-rtd-theme',
 ]
 
 aio_requirements = ["aiohttp>=3.6.3,<3.10", "aiofiles>=0.6"]
 
 # Note: mock contains a backport of AsyncMock
 test_requirements = ["pytest", "pytest-asyncio", "mock ; python_version<'3.8'", 'pyjwt']
+
+docs_requirements = ['sphinx-rtd-theme']
 
 
 setup(
@@ -77,6 +79,7 @@ setup(
     extras_require={
         "aio": aio_requirements,
         "test": test_requirements,
+        "docs": docs_requirements,
     },
     test_suite="tests",
     url="https://github.com/nens/threedi-api-client",
