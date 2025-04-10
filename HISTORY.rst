@@ -5,7 +5,7 @@ History
 4.1.10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Moved sphinx-rtd-theme to docs_requirement
 
 
 4.1.9 (2025-03-25)
