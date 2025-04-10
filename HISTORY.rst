@@ -2,7 +2,7 @@
 History
 =======
 
-4.1.10 (unreleased)
+4.1.10 (2025-04-10)
 -------------------
 
 - Moved sphinx-rtd-theme to docs_requirement
