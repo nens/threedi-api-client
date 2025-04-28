@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.40   3Di core release: 3.6.6  deployed on:  02:50PM (UTC) on March 25, 2025  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.44   3Di core release: 3.6.7  deployed on:  02:09PM (UTC) on April 16, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -20,9 +20,7 @@ import re
 import ssl
 
 import certifi
-# python 2 and python 3 compatibility library
-import six
-from six.moves.urllib.parse import urlencode
+from urllib.parse import urlencode
 import urllib3
 
 from threedi_api_client.openapi.exceptions import ApiException, ApiValueError
@@ -36,16 +34,15 @@ class RESTResponse(io.IOBase):
     def __init__(self, resp):
         self.urllib3_response = resp
         self.status = resp.status
-        self.reason = resp.reason
         self.data = resp.data
 
     def getheaders(self):
         """Returns a dictionary of the response headers."""
-        return self.urllib3_response.getheaders()
+        return self.urllib3_response.headers
 
     def getheader(self, name, default=None):
         """Returns a given response header."""
-        return self.urllib3_response.getheader(name, default)
+        return self.urllib3_response.headers.get(name, default)
 
 
 class RESTClientObject(object):
@@ -142,7 +139,7 @@ class RESTClientObject(object):
 
         timeout = None
         if _request_timeout:
-            if isinstance(_request_timeout, (int, ) if six.PY3 else (int, long)):  # noqa: E501,F821
+            if isinstance(_request_timeout, (int, )):  # noqa: E501,F821
                 timeout = urllib3.Timeout(total=_request_timeout)
             elif (isinstance(_request_timeout, tuple) and
                   len(_request_timeout) == 2):

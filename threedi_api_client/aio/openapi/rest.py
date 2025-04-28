@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.40   3Di core release: 3.6.6  deployed on:  02:50PM (UTC) on March 25, 2025  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.44   3Di core release: 3.6.7  deployed on:  02:09PM (UTC) on April 16, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -19,9 +19,7 @@ import ssl
 
 import aiohttp
 import certifi
-# python 2 and python 3 compatibility library
-from six.moves.urllib.parse import urlencode
-
+from urllib.parse import urlencode
 from threedi_api_client.aio.openapi.exceptions import ApiException, ApiValueError
 
 logger = logging.getLogger(__name__)
