@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.40   3Di core release: 3.6.6  deployed on:  02:50PM (UTC) on March 25, 2025  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.44   3Di core release: 3.6.7  deployed on:  02:09PM (UTC) on April 16, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -95,7 +95,7 @@ class Polygon(object):
     def coordinates(self):
         """Gets the coordinates of this Polygon.  # noqa: E501
 
-        List of coordinates (longitude, latitude order)  # noqa: E501
+        List of coordinates (longitude, latitude order) in SRID 4326.  # noqa: E501
 
         :return: The coordinates of this Polygon.  # noqa: E501
         :rtype: list[list[list[float]]]
@@ -106,7 +106,7 @@ class Polygon(object):
     def coordinates(self, coordinates):
         """Sets the coordinates of this Polygon.
 
-        List of coordinates (longitude, latitude order)  # noqa: E501
+        List of coordinates (longitude, latitude order) in SRID 4326.  # noqa: E501
 
         :param coordinates: The coordinates of this Polygon.  # noqa: E501
         :type: list[list[list[float]]]

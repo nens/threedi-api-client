@@ -37,7 +37,7 @@ def get_version():
 
 requirements = [
     'certifi>=2019.3.9',
-    'urllib3>=1.24,<2.0',
+    "urllib3>=2.0,<3.0.0",
     'six>=1.10',
     'python-dateutil',
 ]
