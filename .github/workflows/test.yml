@@ -2,54 +2,51 @@ name: Linux
 
 # Run on PR requests. And on master itself.
 on:
-  push:
-    branches:
-      - master
-  pull_request:
+    push:
+        branches:
+            - master
+    pull_request:
 
 jobs:
-  TestLinux:
-    name: Linux, Python ${{ matrix.python }}
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          # 2019
-          - python: 3.8
-            pins: "certifi==2019.* urllib3==1.24.* aiohttp==3.6.3 aiofiles==0.6.*"
-          # 2021
-          - python: 3.9
-            pins: "certifi==2021.* urllib3==1.26.6 aiohttp==3.7.* aiofiles==0.7.*"
-          # 2022
-          - python: "3.10"
-            pins: "certifi==2022.* urllib3==1.26.* aiohttp==3.8.* aiofiles==0.8.*"
-          # 2023
-          - python: "3.11"
-            pins: "certifi==2023.* urllib3==1.26.* aiohttp==3.9.* aiofiles==23.2.*"
-          # 2023
-          - python: "3.12"
-            pins: "certifi==2023.* urllib3==1.26.* aiohttp==3.9.* aiofiles==23.2.*"
-          # current
-          - python: "3.13"
-            pins: ""
+    TestLinux:
+        name: Linux, Python ${{ matrix.python }}
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    # 2021
+                    - python: 3.9
+                      pins: "certifi==2021.* urllib3==2.* aiohttp==3.7.* aiofiles==0.7.*"
+                    # 2022
+                    - python: "3.10"
+                      pins: "certifi==2022.* urllib3==2.* aiohttp==3.8.* aiofiles==0.8.*"
+                    # 2023
+                    - python: "3.11"
+                      pins: "certifi==2023.* urllib3==2.* aiohttp==3.9.* aiofiles==23.2.*"
+                    # 2023
+                    - python: "3.12"
+                      pins: "certifi==2023.* urllib3==2.* aiohttp==3.9.* aiofiles==23.2.*"
+                    # current
+                    - python: "3.13"
+                      pins: ""
 
-    steps:
-      - uses: actions/checkout@v4
+        steps:
+            - uses: actions/checkout@v4
 
-      - name: Set up Python ${{ matrix.python }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python }}
+            - name: Set up Python ${{ matrix.python }}
+              uses: actions/setup-python@v5
+              with:
+                  python-version: ${{ matrix.python }}
 
-      - name: Install python dependencies
-        shell: bash
-        run: |
-          pip install --disable-pip-version-check --upgrade pip setuptools wheel
-          pip install ${{ matrix.pins }} .[aio,test]
-          pip list
+            - name: Install python dependencies
+              shell: bash
+              run: |
+                  pip install --disable-pip-version-check --upgrade pip setuptools wheel
+                  pip install ${{ matrix.pins }} .[aio,test]
+                  pip list
 
-      - name: Run tests
-        shell: bash
-        run: |
-          pytest
+            - name: Run tests
+              shell: bash
+              run: |
+                  pytest
