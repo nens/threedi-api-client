@@ -5,7 +5,7 @@ History
 4.1.11 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Api version 3.4.46
 
 
 4.1.10 (2025-04-10)
