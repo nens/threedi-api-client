@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.49   3Di core release: 3.6.7  deployed on:  08:26AM (UTC) on May 01, 2025  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.76   3Di core release: 3.6.13  deployed on:  09:28AM (UTC) on October 29, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,7 +37,6 @@ class Substance(object):
     """
     openapi_types = {
         'url': 'str',
-        'simulation': 'str',
         'name': 'str',
         'id': 'int',
         'diffusion_coefficient': 'float',
@@ -54,7 +53,6 @@ class Substance(object):
 
     attribute_map = {
         'url': 'url',
-        'simulation': 'simulation',
         'name': 'name',
         'id': 'id',
         'diffusion_coefficient': 'diffusion_coefficient',
@@ -65,7 +63,7 @@ class Substance(object):
         'uid': 'uid'
     }
 
-    def __init__(self, url=None, simulation=None, name=None, id=None, diffusion_coefficient=None, growth_coefficient=None, decay_coefficient=None, numerical_diffusion_limiter=None, units=None, uid=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, name=None, id=None, diffusion_coefficient=None, growth_coefficient=None, decay_coefficient=None, numerical_diffusion_limiter=None, units=None, uid=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Substance - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,7 +73,6 @@ class Substance(object):
         self._fetched_from_api = fetched_from_api
 
         self._url = None
-        self._simulation = None
         self._name = None
         self._id = None
         self._diffusion_coefficient = None
@@ -88,8 +85,6 @@ class Substance(object):
 
         if url is not None:
             self.url = url
-        if simulation is not None:
-            self.simulation = simulation
         self.name = name
         if id is not None:
             self.id = id
@@ -126,27 +121,6 @@ class Substance(object):
         """
 
         self._url = url
-
-    @property
-    def simulation(self):
-        """Gets the simulation of this Substance.  # noqa: E501
-
-
-        :return: The simulation of this Substance.  # noqa: E501
-        :rtype: str
-        """
-        return self._simulation
-
-    @simulation.setter
-    def simulation(self, simulation):
-        """Sets the simulation of this Substance.
-
-
-        :param simulation: The simulation of this Substance.  # noqa: E501
-        :type: str
-        """
-
-        self._simulation = simulation
 
     @property
     def name(self):

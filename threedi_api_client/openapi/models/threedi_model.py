@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.49   3Di core release: 3.6.7  deployed on:  08:26AM (UTC) on May 01, 2025  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.76   3Di core release: 3.6.13  deployed on:  09:28AM (UTC) on October 29, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -157,16 +157,14 @@ class ThreediModel(object):
         self.threedi_version = threedi_version
         self.breach_count = breach_count
         self.revision = revision
-        if revision_id is not None:
-            self.revision_id = revision_id
+        self.revision_id = revision_id
         if revision_hash is not None:
             self.revision_hash = revision_hash
         if revision_number is not None:
             self.revision_number = revision_number
         if revision_commit_date is not None:
             self.revision_commit_date = revision_commit_date
-        if schematisation_id is not None:
-            self.schematisation_id = schematisation_id
+        self.schematisation_id = schematisation_id
         if schematisation_name is not None:
             self.schematisation_name = schematisation_name
         if repository_slug is not None:

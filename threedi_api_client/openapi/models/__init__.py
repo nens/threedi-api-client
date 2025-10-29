@@ -4,7 +4,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.49   3Di core release: 3.6.7  deployed on:  08:26AM (UTC) on May 01, 2025  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.76   3Di core release: 3.6.13  deployed on:  09:28AM (UTC) on October 29, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -26,6 +26,7 @@ from threedi_api_client.openapi.models.boundary_condition import BoundaryConditi
 from threedi_api_client.openapi.models.breach import Breach
 from threedi_api_client.openapi.models.breach_graph import BreachGraph
 from threedi_api_client.openapi.models.breach_graph_request import BreachGraphRequest
+from threedi_api_client.openapi.models.bulk_timeseries_rain import BulkTimeseriesRain
 from threedi_api_client.openapi.models.commit import Commit
 from threedi_api_client.openapi.models.constant_lateral import ConstantLateral
 from threedi_api_client.openapi.models.constant_leakage import ConstantLeakage
@@ -149,6 +150,7 @@ from threedi_api_client.openapi.models.inline_response20078 import InlineRespons
 from threedi_api_client.openapi.models.inline_response20079 import InlineResponse20079
 from threedi_api_client.openapi.models.inline_response2008 import InlineResponse2008
 from threedi_api_client.openapi.models.inline_response20080 import InlineResponse20080
+from threedi_api_client.openapi.models.inline_response20081 import InlineResponse20081
 from threedi_api_client.openapi.models.inline_response2009 import InlineResponse2009
 from threedi_api_client.openapi.models.inpy_version import InpyVersion
 from threedi_api_client.openapi.models.lateral import Lateral

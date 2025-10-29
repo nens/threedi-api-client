@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.49   3Di core release: 3.6.7  deployed on:  08:26AM (UTC) on May 01, 2025  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.76   3Di core release: 3.6.13  deployed on:  09:28AM (UTC) on October 29, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -39,7 +39,7 @@ class InlineResponse20058(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[OneDWaterLevelFile]'
+        'results': 'list[OneDWaterLevel]'
     }
 
     required_fields = [
@@ -145,7 +145,7 @@ class InlineResponse20058(object):
 
 
         :return: The results of this InlineResponse20058.  # noqa: E501
-        :rtype: list[OneDWaterLevelFile]
+        :rtype: list[OneDWaterLevel]
         """
         return self._results
 
@@ -155,7 +155,7 @@ class InlineResponse20058(object):
 
 
         :param results: The results of this InlineResponse20058.  # noqa: E501
-        :type: list[OneDWaterLevelFile]
+        :type: list[OneDWaterLevel]
         """
         if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `results`, must not be `None`")  # noqa: E501

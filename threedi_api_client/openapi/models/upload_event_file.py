@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.49   3Di core release: 3.6.7  deployed on:  08:26AM (UTC) on May 01, 2025  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.76   3Di core release: 3.6.13  deployed on:  09:28AM (UTC) on October 29, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,7 @@ class UploadEventFile(object):
         'filename': 'str',
         'status': 'str',
         'offset': 'int',
-        'periodic': 'str'
+        'epsg_code': 'int'
     }
 
     required_fields = [
@@ -53,10 +53,10 @@ class UploadEventFile(object):
         'filename': 'filename',
         'status': 'status',
         'offset': 'offset',
-        'periodic': 'periodic'
+        'epsg_code': 'epsg_code'
     }
 
-    def __init__(self, put_url=None, filename=None, status=None, offset=None, periodic=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, put_url=None, filename=None, status=None, offset=None, epsg_code=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """UploadEventFile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,7 +69,7 @@ class UploadEventFile(object):
         self._filename = None
         self._status = None
         self._offset = None
-        self._periodic = None
+        self._epsg_code = None
         self.discriminator = None
 
         if put_url is not None:
@@ -78,8 +78,8 @@ class UploadEventFile(object):
         if status is not None:
             self.status = status
         self.offset = offset
-        if periodic is not None:
-            self.periodic = periodic
+        if epsg_code is not None:
+            self.epsg_code = epsg_code
 
     @property
     def put_url(self):
@@ -185,31 +185,25 @@ class UploadEventFile(object):
         self._offset = offset
 
     @property
-    def periodic(self):
-        """Gets the periodic of this UploadEventFile.  # noqa: E501
+    def epsg_code(self):
+        """Gets the epsg_code of this UploadEventFile.  # noqa: E501
 
 
-        :return: The periodic of this UploadEventFile.  # noqa: E501
-        :rtype: str
+        :return: The epsg_code of this UploadEventFile.  # noqa: E501
+        :rtype: int
         """
-        return self._periodic
+        return self._epsg_code
 
-    @periodic.setter
-    def periodic(self, periodic):
-        """Sets the periodic of this UploadEventFile.
+    @epsg_code.setter
+    def epsg_code(self, epsg_code):
+        """Sets the epsg_code of this UploadEventFile.
 
 
-        :param periodic: The periodic of this UploadEventFile.  # noqa: E501
-        :type: str
+        :param epsg_code: The epsg_code of this UploadEventFile.  # noqa: E501
+        :type: int
         """
-        allowed_values = ["daily"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and periodic not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `periodic` ({0}), must be one of {1}"  # noqa: E501
-                .format(periodic, allowed_values)
-            )
 
-        self._periodic = periodic
+        self._epsg_code = epsg_code
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.49   3Di core release: 3.6.7  deployed on:  08:26AM (UTC) on May 01, 2025  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.76   3Di core release: 3.6.13  deployed on:  09:28AM (UTC) on October 29, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -100,8 +100,7 @@ class InitialConcentration(object):
         self.state_detail = state_detail
         if id is not None:
             self.id = id
-        if source_raster_id is not None:
-            self.source_raster_id = source_raster_id
+        self.source_raster_id = source_raster_id
         if dimension is not None:
             self.dimension = dimension
 

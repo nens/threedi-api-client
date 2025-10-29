@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.49   3Di core release: 3.6.7  deployed on:  08:26AM (UTC) on May 01, 2025  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.76   3Di core release: 3.6.13  deployed on:  09:28AM (UTC) on October 29, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,6 +40,7 @@ class Event(object):
         'lizardrasterrain': 'list[LizardRasterRain]',
         'lizardtimeseriesrain': 'list[LizardTimeseriesRain]',
         'timeseriesrain': 'list[TimeseriesRainOverview]',
+        'bulktimeseriesrain': 'list[BulkTimeseriesRain]',
         'breach': 'list[Breach]',
         'lizardrastersourcessinks': 'list[LizardRasterSourcesSinks]',
         'lizardtimeseriessourcessinks': 'list[LizardTimeseriesSourcesSinks]',
@@ -85,6 +86,7 @@ class Event(object):
         'lizardrasterrain': 'lizardrasterrain',
         'lizardtimeseriesrain': 'lizardtimeseriesrain',
         'timeseriesrain': 'timeseriesrain',
+        'bulktimeseriesrain': 'bulktimeseriesrain',
         'breach': 'breach',
         'lizardrastersourcessinks': 'lizardrastersourcessinks',
         'lizardtimeseriessourcessinks': 'lizardtimeseriessourcessinks',
@@ -122,7 +124,7 @@ class Event(object):
         'initial_winddragcoefficient': 'initial_winddragcoefficient'
     }
 
-    def __init__(self, substances=None, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, leakage=None, filetimeseriesleakage=None, filerasterleakage=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_onedwaterlevelfile=None, initial_twodwaterraster=None, initial_oned_substance_concentrations=None, initial_twod_substance_concentrations=None, initial_groundwater_substance_concentrations=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, filelaterals=None, fileboundaryconditions=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, filestructurecontrols=None, rasteredits=None, obstacleedits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, substances=None, lizardrasterrain=None, lizardtimeseriesrain=None, timeseriesrain=None, bulktimeseriesrain=None, breach=None, lizardrastersourcessinks=None, lizardtimeseriessourcessinks=None, filerastersourcessinks=None, filetimeseriessourcessinks=None, timeseriessourcessinks=None, leakage=None, filetimeseriesleakage=None, filerasterleakage=None, initial_twodwaterlevel=None, initial_onedwaterlevelpredefined=None, initial_groundwaterlevel=None, initial_groundwaterraster=None, initial_onedwaterlevel=None, initial_onedwaterlevelfile=None, initial_twodwaterraster=None, initial_oned_substance_concentrations=None, initial_twod_substance_concentrations=None, initial_groundwater_substance_concentrations=None, filerasterrain=None, filetimeseriesrain=None, initial_savedstate=None, savedstates=None, laterals=None, filelaterals=None, fileboundaryconditions=None, tablestructurecontrols=None, memorystructurecontrols=None, timedstructurecontrols=None, filestructurecontrols=None, rasteredits=None, obstacleedits=None, localrain=None, wind=None, initial_winddragcoefficient=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -135,6 +137,7 @@ class Event(object):
         self._lizardrasterrain = None
         self._lizardtimeseriesrain = None
         self._timeseriesrain = None
+        self._bulktimeseriesrain = None
         self._breach = None
         self._lizardrastersourcessinks = None
         self._lizardtimeseriessourcessinks = None
@@ -180,6 +183,8 @@ class Event(object):
             self.lizardtimeseriesrain = lizardtimeseriesrain
         if timeseriesrain is not None:
             self.timeseriesrain = timeseriesrain
+        if bulktimeseriesrain is not None:
+            self.bulktimeseriesrain = bulktimeseriesrain
         if breach is not None:
             self.breach = breach
         if lizardrastersourcessinks is not None:
@@ -334,6 +339,27 @@ class Event(object):
         """
 
         self._timeseriesrain = timeseriesrain
+
+    @property
+    def bulktimeseriesrain(self):
+        """Gets the bulktimeseriesrain of this Event.  # noqa: E501
+
+
+        :return: The bulktimeseriesrain of this Event.  # noqa: E501
+        :rtype: list[BulkTimeseriesRain]
+        """
+        return self._bulktimeseriesrain
+
+    @bulktimeseriesrain.setter
+    def bulktimeseriesrain(self, bulktimeseriesrain):
+        """Sets the bulktimeseriesrain of this Event.
+
+
+        :param bulktimeseriesrain: The bulktimeseriesrain of this Event.  # noqa: E501
+        :type: list[BulkTimeseriesRain]
+        """
+
+        self._bulktimeseriesrain = bulktimeseriesrain
 
     @property
     def breach(self):

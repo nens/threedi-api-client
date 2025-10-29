@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.49   3Di core release: 3.6.7  deployed on:  08:26AM (UTC) on May 01, 2025  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.76   3Di core release: 3.6.13  deployed on:  09:28AM (UTC) on October 29, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -216,7 +216,7 @@ class FileReadOnly(object):
         :param type: The type of this FileReadOnly.  # noqa: E501
         :type: str
         """
-        allowed_values = ["timeseries", "rastertimeseries", "savedstate", "results", "rasters", "gridadmin", "geopackage", "geojson", "initialwaterlevel", "initial_substance_concentration", "bulklateral", "bulkcontrol", "bulk_boundaryconditions", "sqlite", "tables"]  # noqa: E501
+        allowed_values = ["timeseries", "rastertimeseries", "savedstate", "results", "rasters", "gridadmin", "geopackage", "geojson", "initialwaterlevel", "initial_substance_concentration", "bulklateral", "bulkcontrol", "bulk_boundaryconditions", "sqlite", "tables", "bulktimeseriesrain"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             self.__handle_validation_error(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
