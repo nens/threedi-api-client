@@ -2,8 +2,8 @@
 History
 =======
 
-4.1.13 (unreleased)
--------------------
+4.1.13.dev0 (2025-10-29)
+------------------------
 
 - Api version 3.4.76
 - Bulk timeseries rain file endpoint
