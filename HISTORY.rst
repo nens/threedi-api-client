@@ -5,7 +5,7 @@ History
 4.1.14 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- API version 3.4.81
 
 
 4.1.13.dev0 (2025-10-29)
