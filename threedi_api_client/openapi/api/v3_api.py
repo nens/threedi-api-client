@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.81   3Di core release: 3.6.14  deployed on:  02:33PM (UTC) on November 12, 2025  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.81.1   3Di core release: 3.6.15  deployed on:  09:37AM (UTC) on November 13, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -19200,7 +19200,7 @@ class V3Api(object):
 
         :param async_req bool: execute request asynchronously
         :param str simulation_pk: (required)
-        :param UploadEventFile data: (required)
+        :param UploadLateralFile data: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -19208,7 +19208,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: UploadEventFile
+        :return: UploadLateralFile
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19226,7 +19226,7 @@ class V3Api(object):
 
         :param async_req bool: execute request asynchronously
         :param str simulation_pk: (required)
-        :param UploadEventFile data: (required)
+        :param UploadLateralFile data: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -19236,7 +19236,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(UploadEventFile, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(UploadLateralFile, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19308,7 +19308,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UploadEventFile',  # noqa: E501
+            response_type='UploadLateralFile',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

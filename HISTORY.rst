@@ -5,7 +5,7 @@ History
 4.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Upload lateral file resource
 
 
 4.2.0 (2025-11-12)
