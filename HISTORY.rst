@@ -5,7 +5,7 @@ History
 4.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add reason to rest response class
 
 
 4.2.1 (2025-11-13)
