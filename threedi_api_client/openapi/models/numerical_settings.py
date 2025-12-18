@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.81.1   3Di core release: 3.6.15  deployed on:  09:37AM (UTC) on November 13, 2025  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.82.3   3Di core release: 3.6.15  deployed on:  08:42AM (UTC) on December 18, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -334,8 +334,8 @@ class NumericalSettings(object):
                 convergence_eps is not None and convergence_eps > 0.0001):  # noqa: E501
             self.__handle_validation_error("Invalid value for `convergence_eps`, must be a value less than or equal to `0.0001`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                convergence_eps is not None and convergence_eps < 1E-7):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `convergence_eps`, must be a value greater than or equal to `1E-7`")  # noqa: E501
+                convergence_eps is not None and convergence_eps < 1E-11):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `convergence_eps`, must be a value greater than or equal to `1E-11`")  # noqa: E501
 
         self._convergence_eps = convergence_eps
 

@@ -2,8 +2,8 @@ swagger: '2.0'
 info:
   title: 3Di API
   description: "3Di simulation API (latest stable version: v3) \n Framework release:
-    3.4.81.1 \n 3Di core release: 3.6.15 \ndeployed on:  09:37AM (UTC) on November
-    13, 2025"
+    3.4.82.3 \n 3Di core release: 3.6.15 \ndeployed on:  08:42AM (UTC) on December
+    18, 2025"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -20204,6 +20204,11 @@ definitions:
         type: string
         format: email
         maxLength: 254
+      external_user_id:
+        title: External user id
+        type: string
+        readOnly: true
+        x-nullable: true
   Refresh:
     required:
     - refresh
@@ -24525,7 +24530,7 @@ definitions:
           picked)'
         type: string
         enum:
-        - 3.4.81.1-3.6.15
+        - 3.4.82.3-3.6.15
         - 3.2.17-2.3.6
   Timeout:
     required:
@@ -26690,7 +26695,7 @@ definitions:
           is 1.0e-5, due to numerical precision.
         type: number
         maximum: 0.0001
-        minimum: 1.0e-07
+        minimum: 1.0e-11
       convergence_cg:
         title: Convergence cg
         description: Convergence criterion of cg-method, suitable default is 1.0e-9,

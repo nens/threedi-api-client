@@ -3,7 +3,7 @@
 """
     3Di API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.81.1   3Di core release: 3.6.15  deployed on:  09:37AM (UTC) on November 13, 2025  # noqa: E501
+    3Di simulation API (latest stable version: v3)   Framework release: 3.4.82.3   3Di core release: 3.6.15  deployed on:  08:42AM (UTC) on December 18, 2025  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,8 @@ class User(object):
         'username': 'str',
         'first_name': 'str',
         'last_name': 'str',
-        'email': 'str'
+        'email': 'str',
+        'external_user_id': 'str'
     }
 
     required_fields = [
@@ -52,10 +53,11 @@ class User(object):
         'username': 'username',
         'first_name': 'first_name',
         'last_name': 'last_name',
-        'email': 'email'
+        'email': 'email',
+        'external_user_id': 'external_user_id'
     }
 
-    def __init__(self, id=None, username=None, first_name=None, last_name=None, email=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, id=None, username=None, first_name=None, last_name=None, email=None, external_user_id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """User - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class User(object):
         self._first_name = None
         self._last_name = None
         self._email = None
+        self._external_user_id = None
         self.discriminator = None
 
         if id is not None:
@@ -80,6 +83,7 @@ class User(object):
             self.last_name = last_name
         if email is not None:
             self.email = email
+        self.external_user_id = external_user_id
 
     @property
     def id(self):
@@ -207,6 +211,27 @@ class User(object):
             self.__handle_validation_error("Invalid value for `email`, length must be less than or equal to `254`")  # noqa: E501
 
         self._email = email
+
+    @property
+    def external_user_id(self):
+        """Gets the external_user_id of this User.  # noqa: E501
+
+
+        :return: The external_user_id of this User.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_user_id
+
+    @external_user_id.setter
+    def external_user_id(self, external_user_id):
+        """Sets the external_user_id of this User.
+
+
+        :param external_user_id: The external_user_id of this User.  # noqa: E501
+        :type: str
+        """
+
+        self._external_user_id = external_user_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
