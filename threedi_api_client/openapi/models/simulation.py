@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    3Di API
+    Rana simulation API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.82.3   3Di core release: 3.6.15  deployed on:  08:42AM (UTC) on December 18, 2025  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.91   Rana simulation core release: 3.6.17  deployed on:  03:10PM (UTC) on January 14, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -611,7 +611,7 @@ class Simulation(object):
         :param started_from: The started_from of this Simulation.  # noqa: E501
         :type: str
         """
-        allowed_values = ["", "3Di Live", "3Di Modeller Interface"]  # noqa: E501
+        allowed_values = ["", "3Di Live", "3Di Modeller Interface", "Rana Desktop Client"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and started_from not in allowed_values:  # noqa: E501
             self.__handle_validation_error(
                 "Invalid value for `started_from` ({0}), must be one of {1}"  # noqa: E501

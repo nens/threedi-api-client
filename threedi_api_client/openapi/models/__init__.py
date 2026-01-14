@@ -2,9 +2,9 @@
 
 # flake8: noqa
 """
-    3Di API
+    Rana simulation API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.82.3   3Di core release: 3.6.15  deployed on:  08:42AM (UTC) on December 18, 2025  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.91   Rana simulation core release: 3.6.17  deployed on:  03:10PM (UTC) on January 14, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl

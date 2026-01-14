@@ -1,9 +1,9 @@
 swagger: '2.0'
 info:
-  title: 3Di API
-  description: "3Di simulation API (latest stable version: v3) \n Framework release:
-    3.4.82.3 \n 3Di core release: 3.6.15 \ndeployed on:  08:42AM (UTC) on December
-    18, 2025"
+  title: Rana simulation API
+  description: "Rana simulation API (latest stable version: v3) \n Framework release:
+    3.4.91 \n Rana simulation core release: 3.6.17 \ndeployed on:  03:10PM (UTC) on
+    January 14, 2026"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -1712,6 +1712,11 @@ paths:
         description: email__regex
         required: false
         type: string
+      - name: is_active
+        in: query
+        description: is_active
+        required: false
+        type: string
       - name: remote__external_user_id
         in: query
         description: remote__external_user_id
@@ -2851,6 +2856,22 @@ paths:
                   $ref: '#/definitions/Organisation'
       tags:
       - v3
+    post:
+      operationId: organisations_create
+      description: Create organisation (superuser only).
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Organisation'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Organisation'
+      tags:
+      - v3
     parameters: []
   /v3/organisations/{unique_id}/:
     get:
@@ -2862,6 +2883,47 @@ paths:
           description: ''
           schema:
             $ref: '#/definitions/Organisation'
+      tags:
+      - v3
+    put:
+      operationId: organisations_update
+      description: Read-only API endpoint for interacting with organisations.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Organisation'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Organisation'
+      tags:
+      - v3
+    patch:
+      operationId: organisations_partial_update
+      description: Read-only API endpoint for interacting with organisations.
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Organisation'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Organisation'
+      tags:
+      - v3
+    delete:
+      operationId: organisations_delete
+      description: Read-only API endpoint for interacting with organisations.
+      parameters: []
+      responses:
+        '204':
+          description: ''
       tags:
       - v3
     parameters:
@@ -2981,6 +3043,11 @@ paths:
       - name: email__regex
         in: query
         description: email__regex
+        required: false
+        type: string
+      - name: is_active
+        in: query
+        description: is_active
         required: false
         type: string
       - name: remote__external_user_id
@@ -6202,6 +6269,7 @@ paths:
         - ''
         - 3Di Live
         - 3Di Modeller Interface
+        - Rana Desktop Client
       - name: user__username
         in: query
         description: user__username
@@ -19470,6 +19538,7 @@ definitions:
         - ''
         - 3Di Live
         - 3Di Modeller Interface
+        - Rana Desktop Client
   Template:
     required:
     - name
@@ -19995,11 +20064,12 @@ definitions:
       numerical_diffusion_limiter:
         title: Numerical diffusion limiter
         description: "The numerical diffusion limiter for the substance. \n Options:
-          \n0 = off\n1 = standard\n"
+          \n0 = off\n1 = standard\n2 = pulse conserving\n"
         type: integer
         enum:
         - 0
         - 1
+        - 2
       units:
         title: Units
         description: The units of the substance.
@@ -20486,7 +20556,6 @@ definitions:
         readOnly: true
   Organisation:
     required:
-    - unique_id
     - name
     type: object
     properties:
@@ -21731,6 +21800,7 @@ definitions:
         - ''
         - 3Di Live
         - 3Di Modeller Interface
+        - Rana Desktop Client
   ForcingSubstance:
     required:
     - substance
@@ -24530,7 +24600,7 @@ definitions:
           picked)'
         type: string
         enum:
-        - 3.4.82.3-3.6.15
+        - 3.4.91-3.6.17
         - 3.2.17-2.3.6
   Timeout:
     required:

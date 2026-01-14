@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    3Di API
+    Rana simulation API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.82.3   3Di core release: 3.6.15  deployed on:  08:42AM (UTC) on December 18, 2025  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.91   Rana simulation core release: 3.6.17  deployed on:  03:10PM (UTC) on January 14, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -257,7 +257,7 @@ class Substance(object):
     def numerical_diffusion_limiter(self):
         """Gets the numerical_diffusion_limiter of this Substance.  # noqa: E501
 
-        The numerical diffusion limiter for the substance.   Options:  0 = off 1 = standard   # noqa: E501
+        The numerical diffusion limiter for the substance.   Options:  0 = off 1 = standard 2 = pulse conserving   # noqa: E501
 
         :return: The numerical_diffusion_limiter of this Substance.  # noqa: E501
         :rtype: int
@@ -268,7 +268,7 @@ class Substance(object):
     def numerical_diffusion_limiter(self, numerical_diffusion_limiter):
         """Sets the numerical_diffusion_limiter of this Substance.
 
-        The numerical diffusion limiter for the substance.   Options:  0 = off 1 = standard   # noqa: E501
+        The numerical diffusion limiter for the substance.   Options:  0 = off 1 = standard 2 = pulse conserving   # noqa: E501
 
         :param numerical_diffusion_limiter: The numerical_diffusion_limiter of this Substance.  # noqa: E501
         :type: int

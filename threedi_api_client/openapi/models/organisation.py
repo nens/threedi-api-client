@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    3Di API
+    Rana simulation API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.82.3   3Di core release: 3.6.15  deployed on:  08:42AM (UTC) on December 18, 2025  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.91   Rana simulation core release: 3.6.17  deployed on:  03:10PM (UTC) on January 14, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -43,7 +43,6 @@ class Organisation(object):
     }
 
     required_fields = [
-       'unique_id',
        'name',
     ]
 
@@ -71,7 +70,8 @@ class Organisation(object):
 
         if url is not None:
             self.url = url
-        self.unique_id = unique_id
+        if unique_id is not None:
+            self.unique_id = unique_id
         self.name = name
         if settings is not None:
             self.settings = settings
@@ -115,8 +115,6 @@ class Organisation(object):
         :param unique_id: The unique_id of this Organisation.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and unique_id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `unique_id`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 unique_id is not None and len(unique_id) > 32):
             self.__handle_validation_error("Invalid value for `unique_id`, length must be less than or equal to `32`")  # noqa: E501

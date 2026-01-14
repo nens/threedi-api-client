@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    3Di API
+    Rana simulation API
 
-    3Di simulation API (latest stable version: v3)   Framework release: 3.4.82.3   3Di core release: 3.6.15  deployed on:  08:42AM (UTC) on December 18, 2025  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.91   Rana simulation core release: 3.6.17  deployed on:  03:10PM (UTC) on January 14, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -416,6 +416,7 @@ class V3Api(object):
         :param str email__istartswith: email__istartswith
         :param str email__endswith: email__endswith
         :param str email__regex: email__regex
+        :param str is_active: is_active
         :param str remote__external_user_id: remote__external_user_id
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -461,6 +462,7 @@ class V3Api(object):
         :param str email__istartswith: email__istartswith
         :param str email__endswith: email__endswith
         :param str email__regex: email__regex
+        :param str is_active: is_active
         :param str remote__external_user_id: remote__external_user_id
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -499,6 +501,7 @@ class V3Api(object):
             'email__istartswith',
             'email__endswith',
             'email__regex',
+            'is_active',
             'remote__external_user_id',
             'limit',
             'offset'
@@ -562,6 +565,8 @@ class V3Api(object):
             query_params.append(('email__endswith', local_var_params['email__endswith']))  # noqa: E501
         if 'email__regex' in local_var_params and local_var_params['email__regex'] is not None:  # noqa: E501
             query_params.append(('email__regex', local_var_params['email__regex']))  # noqa: E501
+        if 'is_active' in local_var_params and local_var_params['is_active'] is not None:  # noqa: E501
+            query_params.append(('is_active', local_var_params['is_active']))  # noqa: E501
         if 'remote__external_user_id' in local_var_params and local_var_params['remote__external_user_id'] is not None:  # noqa: E501
             query_params.append(('remote__external_user_id', local_var_params['remote__external_user_id']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -4235,6 +4240,234 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def organisations_create(self, data, **kwargs):  # noqa: E501
+        """organisations_create  # noqa: E501
+
+        Create organisation (superuser only).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.organisations_create(data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param Organisation data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Organisation
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.organisations_create_with_http_info(data, **kwargs)  # noqa: E501
+
+    def organisations_create_with_http_info(self, data, **kwargs):  # noqa: E501
+        """organisations_create  # noqa: E501
+
+        Create organisation (superuser only).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.organisations_create_with_http_info(data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param Organisation data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Organisation, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method organisations_create" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `organisations_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/organisations/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Organisation',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def organisations_delete(self, unique_id, **kwargs):  # noqa: E501
+        """organisations_delete  # noqa: E501
+
+        Read-only API endpoint for interacting with organisations.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.organisations_delete(unique_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str unique_id: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.organisations_delete_with_http_info(unique_id, **kwargs)  # noqa: E501
+
+    def organisations_delete_with_http_info(self, unique_id, **kwargs):  # noqa: E501
+        """organisations_delete  # noqa: E501
+
+        Read-only API endpoint for interacting with organisations.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.organisations_delete_with_http_info(unique_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str unique_id: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'unique_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method organisations_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'unique_id' is set
+        if self.api_client.client_side_validation and ('unique_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['unique_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `unique_id` when calling `organisations_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'unique_id' in local_var_params:
+            path_params['unique_id'] = local_var_params['unique_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/organisations/{unique_id}/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def organisations_list(self, **kwargs):  # noqa: E501
         """organisations_list  # noqa: E501
 
@@ -4448,6 +4681,133 @@ class V3Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='InlineResponse20013',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def organisations_partial_update(self, unique_id, data, **kwargs):  # noqa: E501
+        """organisations_partial_update  # noqa: E501
+
+        Read-only API endpoint for interacting with organisations.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.organisations_partial_update(unique_id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str unique_id: (required)
+        :param Organisation data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Organisation
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.organisations_partial_update_with_http_info(unique_id, data, **kwargs)  # noqa: E501
+
+    def organisations_partial_update_with_http_info(self, unique_id, data, **kwargs):  # noqa: E501
+        """organisations_partial_update  # noqa: E501
+
+        Read-only API endpoint for interacting with organisations.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.organisations_partial_update_with_http_info(unique_id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str unique_id: (required)
+        :param Organisation data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Organisation, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'unique_id',
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method organisations_partial_update" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'unique_id' is set
+        if self.api_client.client_side_validation and ('unique_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['unique_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `unique_id` when calling `organisations_partial_update`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `organisations_partial_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'unique_id' in local_var_params:
+            path_params['unique_id'] = local_var_params['unique_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/organisations/{unique_id}/', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Organisation',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -4683,6 +5043,133 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def organisations_update(self, unique_id, data, **kwargs):  # noqa: E501
+        """organisations_update  # noqa: E501
+
+        Read-only API endpoint for interacting with organisations.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.organisations_update(unique_id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str unique_id: (required)
+        :param Organisation data: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Organisation
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.organisations_update_with_http_info(unique_id, data, **kwargs)  # noqa: E501
+
+    def organisations_update_with_http_info(self, unique_id, data, **kwargs):  # noqa: E501
+        """organisations_update  # noqa: E501
+
+        Read-only API endpoint for interacting with organisations.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.organisations_update_with_http_info(unique_id, data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str unique_id: (required)
+        :param Organisation data: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Organisation, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'unique_id',
+            'data'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method organisations_update" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'unique_id' is set
+        if self.api_client.client_side_validation and ('unique_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['unique_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `unique_id` when calling `organisations_update`")  # noqa: E501
+        # verify the required parameter 'data' is set
+        if self.api_client.client_side_validation and ('data' not in local_var_params or  # noqa: E501
+                                                        local_var_params['data'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `data` when calling `organisations_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'unique_id' in local_var_params:
+            path_params['unique_id'] = local_var_params['unique_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in local_var_params:
+            body_params = local_var_params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Basic', 'Bearer', 'OAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/organisations/{unique_id}/', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Organisation',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def organisations_users_list(self, unique_id, **kwargs):  # noqa: E501
         """organisations_users_list  # noqa: E501
 
@@ -4712,6 +5199,7 @@ class V3Api(object):
         :param str email__istartswith: email__istartswith
         :param str email__endswith: email__endswith
         :param str email__regex: email__regex
+        :param str is_active: is_active
         :param str remote__external_user_id: remote__external_user_id
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -4758,6 +5246,7 @@ class V3Api(object):
         :param str email__istartswith: email__istartswith
         :param str email__endswith: email__endswith
         :param str email__regex: email__regex
+        :param str is_active: is_active
         :param str remote__external_user_id: remote__external_user_id
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
@@ -4797,6 +5286,7 @@ class V3Api(object):
             'email__istartswith',
             'email__endswith',
             'email__regex',
+            'is_active',
             'remote__external_user_id',
             'limit',
             'offset'
@@ -4866,6 +5356,8 @@ class V3Api(object):
             query_params.append(('email__endswith', local_var_params['email__endswith']))  # noqa: E501
         if 'email__regex' in local_var_params and local_var_params['email__regex'] is not None:  # noqa: E501
             query_params.append(('email__regex', local_var_params['email__regex']))  # noqa: E501
+        if 'is_active' in local_var_params and local_var_params['is_active'] is not None:  # noqa: E501
+            query_params.append(('is_active', local_var_params['is_active']))  # noqa: E501
         if 'remote__external_user_id' in local_var_params and local_var_params['remote__external_user_id'] is not None:  # noqa: E501
             query_params.append(('remote__external_user_id', local_var_params['remote__external_user_id']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
