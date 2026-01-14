@@ -1,4 +1,4 @@
 from .api import ThreediApi  # NOQA
 from .threedi_api_client import ThreediApiClient  # NOQA
 
-__version__ = "4.2.3"
+__version__ = "4.2.4.dev0"
