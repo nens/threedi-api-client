@@ -2,8 +2,8 @@ swagger: '2.0'
 info:
   title: Rana simulation API
   description: "Rana simulation API (latest stable version: v3) \n Framework release:
-    3.4.91 \n Rana simulation core release: 3.6.17 \ndeployed on:  03:10PM (UTC) on
-    January 14, 2026"
+    3.4.92 \n Rana simulation core release: 3.6.17 \ndeployed on:  10:44AM (UTC) on
+    January 19, 2026"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -20064,12 +20064,11 @@ definitions:
       numerical_diffusion_limiter:
         title: Numerical diffusion limiter
         description: "The numerical diffusion limiter for the substance. \n Options:
-          \n0 = off\n1 = standard\n2 = pulse conserving\n"
+          \n0 = off\n1 = standard\n"
         type: integer
         enum:
         - 0
         - 1
-        - 2
       units:
         title: Units
         description: The units of the substance.
@@ -24600,7 +24599,7 @@ definitions:
           picked)'
         type: string
         enum:
-        - 3.4.91-3.6.17
+        - 3.4.92-3.6.17
         - 3.2.17-2.3.6
   Timeout:
     required:

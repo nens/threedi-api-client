@@ -5,7 +5,7 @@ History
 4.2.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- API version 3.4.92 without pulse conserving numerical diffusion option.
 
 
 4.2.3 (2026-01-14)
