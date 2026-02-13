@@ -2,8 +2,8 @@ swagger: '2.0'
 info:
   title: Rana simulation API
   description: "Rana simulation API (latest stable version: v3) \n Framework release:
-    3.4.92 \n Rana simulation core release: 3.6.17 \ndeployed on:  10:44AM (UTC) on
-    January 19, 2026"
+    3.4.94 \n Rana simulation core release: 3.6.17 \ndeployed on:  01:05PM (UTC) on
+    February 13, 2026"
   termsOfService: ''
   contact:
     email: info@nelen-schuurmans.nl
@@ -20360,7 +20360,6 @@ definitions:
     - organisation
     - hours_bought
     - session_limit
-    - created_by
     type: object
     properties:
       url:
@@ -21074,6 +21073,11 @@ definitions:
         type: integer
         maximum: 32767
         minimum: 0
+      latest_revision_nr:
+        title: Latest revision nr
+        type: integer
+        readOnly: true
+        x-nullable: true
   Sqlite:
     type: object
     properties:
@@ -24599,7 +24603,7 @@ definitions:
           picked)'
         type: string
         enum:
-        - 3.4.92-3.6.17
+        - 3.4.94-3.6.17
         - 3.2.17-2.3.6
   Timeout:
     required:
@@ -27016,7 +27020,7 @@ definitions:
           - ucx
           - ucy
           - leak
-          - intecepted_volume
+          - intercepted_volume
           - u1
           - q
           - au

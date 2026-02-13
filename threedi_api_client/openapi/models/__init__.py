@@ -4,7 +4,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.92   Rana simulation core release: 3.6.17  deployed on:  10:44AM (UTC) on January 19, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.94   Rana simulation core release: 3.6.17  deployed on:  01:05PM (UTC) on February 13, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl

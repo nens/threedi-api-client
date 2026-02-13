@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.92   Rana simulation core release: 3.6.17  deployed on:  10:44AM (UTC) on January 19, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.94   Rana simulation core release: 3.6.17  deployed on:  01:05PM (UTC) on February 13, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -55,7 +55,6 @@ class Contract(object):
        'organisation',
        'hours_bought',
        'session_limit',
-       'created_by',
     ]
 
     attribute_map = {
@@ -116,7 +115,8 @@ class Contract(object):
             self.current_sessions = current_sessions
         if threedimodel_limit is not None:
             self.threedimodel_limit = threedimodel_limit
-        self.created_by = created_by
+        if created_by is not None:
+            self.created_by = created_by
         self.lizard_post_processing_organisation_unique_id = lizard_post_processing_organisation_unique_id
 
     @property
@@ -397,8 +397,6 @@ class Contract(object):
         :param created_by: The created_by of this Contract.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and created_by is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `created_by`, must not be `None`")  # noqa: E501
 
         self._created_by = created_by
 

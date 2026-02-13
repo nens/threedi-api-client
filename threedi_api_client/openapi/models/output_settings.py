@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.92   Rana simulation core release: 3.6.17  deployed on:  10:44AM (UTC) on January 19, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.94   Rana simulation core release: 3.6.17  deployed on:  01:05PM (UTC) on February 13, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -457,7 +457,7 @@ class OutputSettings(object):
         :param customized_hydro_output_variables: The customized_hydro_output_variables of this OutputSettings.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["s1", "vol", "su", "infiltration_rate_simple", "rain", "q_lat", "q_sss", "ucx", "ucy", "leak", "intecepted_volume", "u1", "q", "au", "up1", "qp", "breach_depth", "breach_width", "q_pump"]  # noqa: E501
+        allowed_values = ["s1", "vol", "su", "infiltration_rate_simple", "rain", "q_lat", "q_sss", "ucx", "ucy", "leak", "intercepted_volume", "u1", "q", "au", "up1", "qp", "breach_depth", "breach_width", "q_pump"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(customized_hydro_output_variables).issubset(set(allowed_values))):  # noqa: E501
             self.__handle_validation_error(

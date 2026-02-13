@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.92   Rana simulation core release: 3.6.17  deployed on:  10:44AM (UTC) on January 19, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.94   Rana simulation core release: 3.6.17  deployed on:  01:05PM (UTC) on February 13, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -236,7 +236,7 @@ class Action(object):
         :param simulation_runner: The simulation_runner of this Action.  # noqa: E501
         :type: str
         """
-        allowed_values = ["3.4.92-3.6.17", "3.2.17-2.3.6"]  # noqa: E501
+        allowed_values = ["3.4.94-3.6.17", "3.2.17-2.3.6"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and simulation_runner not in allowed_values:  # noqa: E501
             self.__handle_validation_error(
                 "Invalid value for `simulation_runner` ({0}), must be one of {1}"  # noqa: E501
