@@ -5,7 +5,7 @@ History
 4.2.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- API version 3.4.94
 
 
 4.2.4 (2026-01-19)
