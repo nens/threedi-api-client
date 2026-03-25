@@ -5,7 +5,8 @@ History
 4.2.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Api version 3.4.97
+- Debug result file output option
 
 
 4.2.5 (2026-02-13)

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.94   Rana simulation core release: 3.6.17  deployed on:  01:05PM (UTC) on February 13, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -49,7 +49,8 @@ class OutputSettings(object):
         'customized_hydro_output_start_time': 'float',
         'customized_hydro_output_end_time': 'float',
         'customized_hydro_output_precision': 'int',
-        'customized_hydro_output_variables': 'list[str]'
+        'customized_hydro_output_variables': 'list[str]',
+        'create_debug_hydro_results': 'bool'
     }
 
     required_fields = [
@@ -69,10 +70,11 @@ class OutputSettings(object):
         'customized_hydro_output_start_time': 'customized_hydro_output_start_time',
         'customized_hydro_output_end_time': 'customized_hydro_output_end_time',
         'customized_hydro_output_precision': 'customized_hydro_output_precision',
-        'customized_hydro_output_variables': 'customized_hydro_output_variables'
+        'customized_hydro_output_variables': 'customized_hydro_output_variables',
+        'create_debug_hydro_results': 'create_debug_hydro_results'
     }
 
-    def __init__(self, id=None, simulation_id=None, create_hydro_results=None, create_structure_control_results=None, hydro_output_time_step=None, hydro_output_start_time=None, hydro_output_end_time=None, hydro_output_precision=None, aggregation_output_precision=None, customized_hydro_output_time_step=None, customized_hydro_output_start_time=None, customized_hydro_output_end_time=None, customized_hydro_output_precision=None, customized_hydro_output_variables=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, id=None, simulation_id=None, create_hydro_results=None, create_structure_control_results=None, hydro_output_time_step=None, hydro_output_start_time=None, hydro_output_end_time=None, hydro_output_precision=None, aggregation_output_precision=None, customized_hydro_output_time_step=None, customized_hydro_output_start_time=None, customized_hydro_output_end_time=None, customized_hydro_output_precision=None, customized_hydro_output_variables=None, create_debug_hydro_results=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """OutputSettings - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -95,6 +97,7 @@ class OutputSettings(object):
         self._customized_hydro_output_end_time = None
         self._customized_hydro_output_precision = None
         self._customized_hydro_output_variables = None
+        self._create_debug_hydro_results = None
         self.discriminator = None
 
         if id is not None:
@@ -123,6 +126,8 @@ class OutputSettings(object):
             self.customized_hydro_output_precision = customized_hydro_output_precision
         if customized_hydro_output_variables is not None:
             self.customized_hydro_output_variables = customized_hydro_output_variables
+        if create_debug_hydro_results is not None:
+            self.create_debug_hydro_results = create_debug_hydro_results
 
     @property
     def id(self):
@@ -467,6 +472,29 @@ class OutputSettings(object):
             )
 
         self._customized_hydro_output_variables = customized_hydro_output_variables
+
+    @property
+    def create_debug_hydro_results(self):
+        """Gets the create_debug_hydro_results of this OutputSettings.  # noqa: E501
+
+        Create debug hydro results file.  # noqa: E501
+
+        :return: The create_debug_hydro_results of this OutputSettings.  # noqa: E501
+        :rtype: bool
+        """
+        return self._create_debug_hydro_results
+
+    @create_debug_hydro_results.setter
+    def create_debug_hydro_results(self, create_debug_hydro_results):
+        """Sets the create_debug_hydro_results of this OutputSettings.
+
+        Create debug hydro results file.  # noqa: E501
+
+        :param create_debug_hydro_results: The create_debug_hydro_results of this OutputSettings.  # noqa: E501
+        :type: bool
+        """
+
+        self._create_debug_hydro_results = create_debug_hydro_results
 
     def to_dict(self):
         """Returns the model properties as a dict"""
