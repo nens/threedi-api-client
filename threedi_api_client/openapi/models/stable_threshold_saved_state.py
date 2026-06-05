@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -48,6 +48,9 @@ class StableThresholdSavedState(object):
     }
 
     required_fields = [
+       'url',
+       'simulation',
+       'created',
        'thresholds',
     ]
 
@@ -83,8 +86,7 @@ class StableThresholdSavedState(object):
         self._uuid = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
+        self.url = url
         if name is not None:
             self.name = name
         self.simulation = simulation
@@ -116,6 +118,8 @@ class StableThresholdSavedState(object):
         :param url: The url of this StableThresholdSavedState.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -140,9 +144,6 @@ class StableThresholdSavedState(object):
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 80):
             self.__handle_validation_error("Invalid value for `name`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -192,7 +193,6 @@ class StableThresholdSavedState(object):
     def tags(self):
         """Gets the tags of this StableThresholdSavedState.  # noqa: E501
 
-        tags provided as a list of strings  # noqa: E501
 
         :return: The tags of this StableThresholdSavedState.  # noqa: E501
         :rtype: list[str]
@@ -203,7 +203,6 @@ class StableThresholdSavedState(object):
     def tags(self, tags):
         """Sets the tags of this StableThresholdSavedState.
 
-        tags provided as a list of strings  # noqa: E501
 
         :param tags: The tags of this StableThresholdSavedState.  # noqa: E501
         :type: list[str]

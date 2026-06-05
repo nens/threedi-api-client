@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -38,7 +38,7 @@ class GroundWaterRaster(object):
     openapi_types = {
         'url': 'str',
         'simulation': 'str',
-        'aggregation_method': 'str',
+        'aggregation_method': 'AggregationMethodEnum',
         'initial_waterlevel': 'str',
         'initial_waterlevel_id': 'int',
         'uid': 'str',
@@ -46,8 +46,13 @@ class GroundWaterRaster(object):
     }
 
     required_fields = [
+       'url',
+       'simulation',
        'aggregation_method',
        'initial_waterlevel',
+       'initial_waterlevel_id',
+       'uid',
+       'id'
     ]
 
     attribute_map = {
@@ -78,18 +83,13 @@ class GroundWaterRaster(object):
         self._id = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
-        if simulation is not None:
-            self.simulation = simulation
+        self.url = url
+        self.simulation = simulation
         self.aggregation_method = aggregation_method
         self.initial_waterlevel = initial_waterlevel
-        if initial_waterlevel_id is not None:
-            self.initial_waterlevel_id = initial_waterlevel_id
-        if uid is not None:
-            self.uid = uid
-        if id is not None:
-            self.id = id
+        self.initial_waterlevel_id = initial_waterlevel_id
+        self.uid = uid
+        self.id = id
 
     @property
     def url(self):
@@ -109,6 +109,8 @@ class GroundWaterRaster(object):
         :param url: The url of this GroundWaterRaster.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -130,6 +132,8 @@ class GroundWaterRaster(object):
         :param simulation: The simulation of this GroundWaterRaster.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -139,7 +143,7 @@ class GroundWaterRaster(object):
 
 
         :return: The aggregation_method of this GroundWaterRaster.  # noqa: E501
-        :rtype: str
+        :rtype: AggregationMethodEnum
         """
         return self._aggregation_method
 
@@ -149,16 +153,10 @@ class GroundWaterRaster(object):
 
 
         :param aggregation_method: The aggregation_method of this GroundWaterRaster.  # noqa: E501
-        :type: str
+        :type: AggregationMethodEnum
         """
         if self.local_vars_configuration.client_side_validation and aggregation_method is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `aggregation_method`, must not be `None`")  # noqa: E501
-        allowed_values = ["mean", "max", "min"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and aggregation_method not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `aggregation_method` ({0}), must be one of {1}"  # noqa: E501
-                .format(aggregation_method, allowed_values)
-            )
 
         self._aggregation_method = aggregation_method
 
@@ -203,6 +201,8 @@ class GroundWaterRaster(object):
         :param initial_waterlevel_id: The initial_waterlevel_id of this GroundWaterRaster.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and initial_waterlevel_id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `initial_waterlevel_id`, must not be `None`")  # noqa: E501
 
         self._initial_waterlevel_id = initial_waterlevel_id
 
@@ -224,6 +224,8 @@ class GroundWaterRaster(object):
         :param uid: The uid of this GroundWaterRaster.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 
@@ -245,6 +247,8 @@ class GroundWaterRaster(object):
         :param id: The id of this GroundWaterRaster.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

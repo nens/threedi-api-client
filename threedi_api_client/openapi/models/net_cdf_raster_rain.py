@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -45,7 +45,7 @@ class NetCDFRasterRain(object):
         'interval': 'int',
         'values_reference': 'str',
         'fill_value': 'str',
-        'units': 'str',
+        'units': 'RasterRainUnitsEnum',
         'geotransform': 'list[float]',
         'epsg_code': 'int',
         'file': 'FileReadOnly',
@@ -54,6 +54,9 @@ class NetCDFRasterRain(object):
     }
 
     required_fields = [
+       'url',
+       'simulation',
+       'uid',
     ]
 
     attribute_map = {
@@ -100,12 +103,10 @@ class NetCDFRasterRain(object):
         self._substances = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
+        self.url = url
         if multiplier is not None:
             self.multiplier = multiplier
-        if simulation is not None:
-            self.simulation = simulation
+        self.simulation = simulation
         self.offset = offset
         self.duration = duration
         self.timestamps = timestamps
@@ -113,15 +114,15 @@ class NetCDFRasterRain(object):
         self.values_reference = values_reference
         if fill_value is not None:
             self.fill_value = fill_value
-        self.units = units
+        if units is not None:
+            self.units = units
         if geotransform is not None:
             self.geotransform = geotransform
         if epsg_code is not None:
             self.epsg_code = epsg_code
         if file is not None:
             self.file = file
-        if uid is not None:
-            self.uid = uid
+        self.uid = uid
         if substances is not None:
             self.substances = substances
 
@@ -143,6 +144,8 @@ class NetCDFRasterRain(object):
         :param url: The url of this NetCDFRasterRain.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -185,6 +188,8 @@ class NetCDFRasterRain(object):
         :param simulation: The simulation of this NetCDFRasterRain.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -343,9 +348,6 @@ class NetCDFRasterRain(object):
         if (self.local_vars_configuration.client_side_validation and
                 fill_value is not None and len(fill_value) > 128):
             self.__handle_validation_error("Invalid value for `fill_value`, length must be less than or equal to `128`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                fill_value is not None and len(fill_value) < 1):
-            self.__handle_validation_error("Invalid value for `fill_value`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._fill_value = fill_value
 
@@ -355,7 +357,7 @@ class NetCDFRasterRain(object):
 
 
         :return: The units of this NetCDFRasterRain.  # noqa: E501
-        :rtype: str
+        :rtype: RasterRainUnitsEnum
         """
         return self._units
 
@@ -365,14 +367,8 @@ class NetCDFRasterRain(object):
 
 
         :param units: The units of this NetCDFRasterRain.  # noqa: E501
-        :type: str
+        :type: RasterRainUnitsEnum
         """
-        allowed_values = [None,"m/s", "mm", "mm/h", "mm/hr"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
-                .format(units, allowed_values)
-            )
 
         self._units = units
 
@@ -463,6 +459,8 @@ class NetCDFRasterRain(object):
         :param uid: The uid of this NetCDFRasterRain.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 

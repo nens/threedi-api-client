@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -86,9 +86,6 @@ class TMS(object):
         """
         if self.local_vars_configuration.client_side_validation and tms_url is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `tms_url`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                tms_url is not None and len(tms_url) < 1):
-            self.__handle_validation_error("Invalid value for `tms_url`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._tms_url = tms_url
 
@@ -112,9 +109,6 @@ class TMS(object):
         """
         if self.local_vars_configuration.client_side_validation and minmax_url is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `minmax_url`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                minmax_url is not None and len(minmax_url) < 1):
-            self.__handle_validation_error("Invalid value for `minmax_url`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._minmax_url = minmax_url
 

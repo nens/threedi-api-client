@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -41,10 +41,10 @@ class ConstantLateral(object):
         'offset': 'int',
         'duration': 'int',
         'value': 'float',
-        'units': 'str',
-        'point': 'Point',
+        'units': 'LateralUnitsEnum',
+        'point': 'ConstantLateralPoint',
         'connection_node': 'int',
-        'state': 'str',
+        'state': 'EventStateEnum',
         'state_detail': 'object',
         'grid_id': 'int',
         'uid': 'str',
@@ -53,10 +53,17 @@ class ConstantLateral(object):
     }
 
     required_fields = [
+       'url',
+       'simulation',
        'offset',
        'duration',
        'value',
        'units',
+       'state',
+       'state_detail',
+       'grid_id',
+       'uid',
+       'id',
     ]
 
     attribute_map = {
@@ -101,10 +108,8 @@ class ConstantLateral(object):
         self._substances = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
-        if simulation is not None:
-            self.simulation = simulation
+        self.url = url
+        self.simulation = simulation
         self.offset = offset
         self.duration = duration
         self.value = value
@@ -112,14 +117,11 @@ class ConstantLateral(object):
         if point is not None:
             self.point = point
         self.connection_node = connection_node
-        if state is not None:
-            self.state = state
+        self.state = state
         self.state_detail = state_detail
         self.grid_id = grid_id
-        if uid is not None:
-            self.uid = uid
-        if id is not None:
-            self.id = id
+        self.uid = uid
+        self.id = id
         if substances is not None:
             self.substances = substances
 
@@ -141,6 +143,8 @@ class ConstantLateral(object):
         :param url: The url of this ConstantLateral.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -162,6 +166,8 @@ class ConstantLateral(object):
         :param simulation: The simulation of this ConstantLateral.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -252,10 +258,10 @@ class ConstantLateral(object):
     def units(self):
         """Gets the units of this ConstantLateral.  # noqa: E501
 
-        'm3/s' (only option for now)  # noqa: E501
+        'm3/s' (only option for now)  * `m3/s` - m3/s  # noqa: E501
 
         :return: The units of this ConstantLateral.  # noqa: E501
-        :rtype: str
+        :rtype: LateralUnitsEnum
         """
         return self._units
 
@@ -263,19 +269,13 @@ class ConstantLateral(object):
     def units(self, units):
         """Sets the units of this ConstantLateral.
 
-        'm3/s' (only option for now)  # noqa: E501
+        'm3/s' (only option for now)  * `m3/s` - m3/s  # noqa: E501
 
         :param units: The units of this ConstantLateral.  # noqa: E501
-        :type: str
+        :type: LateralUnitsEnum
         """
         if self.local_vars_configuration.client_side_validation and units is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `units`, must not be `None`")  # noqa: E501
-        allowed_values = ["m3/s"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
-                .format(units, allowed_values)
-            )
 
         self._units = units
 
@@ -285,7 +285,7 @@ class ConstantLateral(object):
 
 
         :return: The point of this ConstantLateral.  # noqa: E501
-        :rtype: Point
+        :rtype: ConstantLateralPoint
         """
         return self._point
 
@@ -295,7 +295,7 @@ class ConstantLateral(object):
 
 
         :param point: The point of this ConstantLateral.  # noqa: E501
-        :type: Point
+        :type: ConstantLateralPoint
         """
 
         self._point = point
@@ -333,7 +333,7 @@ class ConstantLateral(object):
 
 
         :return: The state of this ConstantLateral.  # noqa: E501
-        :rtype: str
+        :rtype: EventStateEnum
         """
         return self._state
 
@@ -343,14 +343,10 @@ class ConstantLateral(object):
 
 
         :param state: The state of this ConstantLateral.  # noqa: E501
-        :type: str
+        :type: EventStateEnum
         """
-        allowed_values = ["processing", "valid", "invalid"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
-                .format(state, allowed_values)
-            )
+        if self.local_vars_configuration.client_side_validation and state is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `state`, must not be `None`")  # noqa: E501
 
         self._state = state
 
@@ -414,6 +410,8 @@ class ConstantLateral(object):
         :param uid: The uid of this ConstantLateral.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 
@@ -435,6 +433,8 @@ class ConstantLateral(object):
         :param id: The id of this ConstantLateral.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

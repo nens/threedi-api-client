@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -44,7 +44,10 @@ class Repository(object):
     }
 
     required_fields = [
+       'url',
+       'id',
        'slug',
+       'revision'
     ]
 
     attribute_map = {
@@ -71,15 +74,12 @@ class Repository(object):
         self._revision = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
-        if id is not None:
-            self.id = id
+        self.url = url
+        self.id = id
         if organisation is not None:
             self.organisation = organisation
         self.slug = slug
-        if revision is not None:
-            self.revision = revision
+        self.revision = revision
 
     @property
     def url(self):
@@ -99,6 +99,8 @@ class Repository(object):
         :param url: The url of this Repository.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -120,6 +122,8 @@ class Repository(object):
         :param id: The id of this Repository.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -127,7 +131,6 @@ class Repository(object):
     def organisation(self):
         """Gets the organisation of this Repository.  # noqa: E501
 
-        The unique_id of an organisation  # noqa: E501
 
         :return: The organisation of this Repository.  # noqa: E501
         :rtype: str
@@ -138,7 +141,6 @@ class Repository(object):
     def organisation(self, organisation):
         """Sets the organisation of this Repository.
 
-        The unique_id of an organisation  # noqa: E501
 
         :param organisation: The organisation of this Repository.  # noqa: E501
         :type: str
@@ -172,9 +174,6 @@ class Repository(object):
                 slug is not None and len(slug) > 255):
             self.__handle_validation_error("Invalid value for `slug`, length must be less than or equal to `255`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                slug is not None and len(slug) < 1):
-            self.__handle_validation_error("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
                 slug is not None and not re.search(r'^[-a-zA-Z0-9_]+$', slug)):  # noqa: E501
             self.__handle_validation_error(r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
@@ -198,6 +197,8 @@ class Repository(object):
         :param revision: The revision of this Repository.  # noqa: E501
         :type: list[str]
         """
+        if self.local_vars_configuration.client_side_validation and revision is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `revision`, must not be `None`")  # noqa: E501
 
         self._revision = revision
 

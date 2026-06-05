@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -44,7 +44,7 @@ class NetCDFTimeseriesLeakage(object):
         'timestamps': 'list[int]',
         'interval': 'int',
         'values_reference': 'str',
-        'units': 'str',
+        'units': 'TimeseriesRainMmUnitsEnum',
         'file': 'FileReadOnly',
         'fill_value': 'str',
         'id': 'int',
@@ -53,7 +53,11 @@ class NetCDFTimeseriesLeakage(object):
     }
 
     required_fields = [
+       'url',
+       'simulation',
        'units',
+       'id',
+       'uid',
     ]
 
     attribute_map = {
@@ -98,12 +102,10 @@ class NetCDFTimeseriesLeakage(object):
         self._substances = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
+        self.url = url
         if multiplier is not None:
             self.multiplier = multiplier
-        if simulation is not None:
-            self.simulation = simulation
+        self.simulation = simulation
         self.offset = offset
         self.duration = duration
         self.timestamps = timestamps
@@ -114,10 +116,8 @@ class NetCDFTimeseriesLeakage(object):
             self.file = file
         if fill_value is not None:
             self.fill_value = fill_value
-        if id is not None:
-            self.id = id
-        if uid is not None:
-            self.uid = uid
+        self.id = id
+        self.uid = uid
         if substances is not None:
             self.substances = substances
 
@@ -139,6 +139,8 @@ class NetCDFTimeseriesLeakage(object):
         :param url: The url of this NetCDFTimeseriesLeakage.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -181,6 +183,8 @@ class NetCDFTimeseriesLeakage(object):
         :param simulation: The simulation of this NetCDFTimeseriesLeakage.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -324,7 +328,7 @@ class NetCDFTimeseriesLeakage(object):
 
 
         :return: The units of this NetCDFTimeseriesLeakage.  # noqa: E501
-        :rtype: str
+        :rtype: TimeseriesRainMmUnitsEnum
         """
         return self._units
 
@@ -334,16 +338,10 @@ class NetCDFTimeseriesLeakage(object):
 
 
         :param units: The units of this NetCDFTimeseriesLeakage.  # noqa: E501
-        :type: str
+        :type: TimeseriesRainMmUnitsEnum
         """
         if self.local_vars_configuration.client_side_validation and units is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `units`, must not be `None`")  # noqa: E501
-        allowed_values = ["mm", "mm/h"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
-                .format(units, allowed_values)
-            )
 
         self._units = units
 
@@ -389,9 +387,6 @@ class NetCDFTimeseriesLeakage(object):
         if (self.local_vars_configuration.client_side_validation and
                 fill_value is not None and len(fill_value) > 128):
             self.__handle_validation_error("Invalid value for `fill_value`, length must be less than or equal to `128`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                fill_value is not None and len(fill_value) < 1):
-            self.__handle_validation_error("Invalid value for `fill_value`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._fill_value = fill_value
 
@@ -413,6 +408,8 @@ class NetCDFTimeseriesLeakage(object):
         :param id: The id of this NetCDFTimeseriesLeakage.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -434,6 +431,8 @@ class NetCDFTimeseriesLeakage(object):
         :param uid: The uid of this NetCDFTimeseriesLeakage.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 

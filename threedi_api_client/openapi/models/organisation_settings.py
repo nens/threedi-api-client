@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,11 +36,13 @@ class OrganisationSettings(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'historical_rain_radar_uuids': 'str',
-        'forecast_rain_radar_uuids': 'str'
+        'historical_rain_radar_uuids': 'list[str]',
+        'forecast_rain_radar_uuids': 'list[str]'
     }
 
     required_fields = [
+       'historical_rain_radar_uuids',
+       'forecast_rain_radar_uuids'
     ]
 
     attribute_map = {
@@ -61,10 +63,8 @@ class OrganisationSettings(object):
         self._forecast_rain_radar_uuids = None
         self.discriminator = None
 
-        if historical_rain_radar_uuids is not None:
-            self.historical_rain_radar_uuids = historical_rain_radar_uuids
-        if forecast_rain_radar_uuids is not None:
-            self.forecast_rain_radar_uuids = forecast_rain_radar_uuids
+        self.historical_rain_radar_uuids = historical_rain_radar_uuids
+        self.forecast_rain_radar_uuids = forecast_rain_radar_uuids
 
     @property
     def historical_rain_radar_uuids(self):
@@ -72,7 +72,7 @@ class OrganisationSettings(object):
 
 
         :return: The historical_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._historical_rain_radar_uuids
 
@@ -82,8 +82,10 @@ class OrganisationSettings(object):
 
 
         :param historical_rain_radar_uuids: The historical_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
+        if self.local_vars_configuration.client_side_validation and historical_rain_radar_uuids is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `historical_rain_radar_uuids`, must not be `None`")  # noqa: E501
 
         self._historical_rain_radar_uuids = historical_rain_radar_uuids
 
@@ -93,7 +95,7 @@ class OrganisationSettings(object):
 
 
         :return: The forecast_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._forecast_rain_radar_uuids
 
@@ -103,8 +105,10 @@ class OrganisationSettings(object):
 
 
         :param forecast_rain_radar_uuids: The forecast_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
+        if self.local_vars_configuration.client_side_validation and forecast_rain_radar_uuids is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `forecast_rain_radar_uuids`, must not be `None`")  # noqa: E501
 
         self._forecast_rain_radar_uuids = forecast_rain_radar_uuids
 

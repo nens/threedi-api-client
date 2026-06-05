@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,12 +36,12 @@ class Action(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'name': 'str',
+        'name': 'ActionNameEnum',
         'duration': 'int',
         'timeout': 'int',
         'max_rate': 'float',
         'compute_cluster': 'str',
-        'simulation_runner': 'str'
+        'simulation_runner': 'SimulationRunnerEnum'
     }
 
     required_fields = [
@@ -57,7 +57,7 @@ class Action(object):
         'simulation_runner': 'simulation_runner'
     }
 
-    def __init__(self, name=None, duration=None, timeout=None, max_rate=None, compute_cluster=None, simulation_runner=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, name=None, duration=None, timeout=300, max_rate=None, compute_cluster=None, simulation_runner=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Action - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -92,7 +92,7 @@ class Action(object):
 
 
         :return: The name of this Action.  # noqa: E501
-        :rtype: str
+        :rtype: ActionNameEnum
         """
         return self._name
 
@@ -102,16 +102,10 @@ class Action(object):
 
 
         :param name: The name of this Action.  # noqa: E501
-        :type: str
+        :type: ActionNameEnum
         """
         if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `name`, must not be `None`")  # noqa: E501
-        allowed_values = ["initialize", "start", "pause", "shutdown", "queue", "dequeue"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and name not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `name` ({0}), must be one of {1}"  # noqa: E501
-                .format(name, allowed_values)
-            )
 
         self._name = name
 
@@ -197,7 +191,7 @@ class Action(object):
     def compute_cluster(self):
         """Gets the compute_cluster of this Action.  # noqa: E501
 
-        The name of the compute cluster that runs/has run the simulation.  # noqa: E501
+        Only valid for name values: 'start', 'initialize' or 'queue' Compute cluster to start the session. If ommitted the first available cluster is used, starting with the default cluster.  # noqa: E501
 
         :return: The compute_cluster of this Action.  # noqa: E501
         :rtype: str
@@ -208,7 +202,7 @@ class Action(object):
     def compute_cluster(self, compute_cluster):
         """Sets the compute_cluster of this Action.
 
-        The name of the compute cluster that runs/has run the simulation.  # noqa: E501
+        Only valid for name values: 'start', 'initialize' or 'queue' Compute cluster to start the session. If ommitted the first available cluster is used, starting with the default cluster.  # noqa: E501
 
         :param compute_cluster: The compute_cluster of this Action.  # noqa: E501
         :type: str
@@ -220,10 +214,10 @@ class Action(object):
     def simulation_runner(self):
         """Gets the simulation_runner of this Action.  # noqa: E501
 
-        Only allowed for name values: 'start', 'initialize' or 'queue Simulation runner version used to execute the simulation. If not filled in the default version is used. (Note: used for testing new calccore releases on the staging environment. On production only the default version can be picked)  # noqa: E501
+        Only allowed for name values: 'start', 'initialize' or 'queue Simulation runner version used to execute the simulation. If not filled in the default version is used. (Note: used for testing new calccore releases on the staging environment. On production only the default version can be picked)  * `3.4.104-3.7.2` - 3.4.104-3.7.2 * `3.2.17-2.3.6` - 3.2.17-2.3.6  # noqa: E501
 
         :return: The simulation_runner of this Action.  # noqa: E501
-        :rtype: str
+        :rtype: SimulationRunnerEnum
         """
         return self._simulation_runner
 
@@ -231,17 +225,11 @@ class Action(object):
     def simulation_runner(self, simulation_runner):
         """Sets the simulation_runner of this Action.
 
-        Only allowed for name values: 'start', 'initialize' or 'queue Simulation runner version used to execute the simulation. If not filled in the default version is used. (Note: used for testing new calccore releases on the staging environment. On production only the default version can be picked)  # noqa: E501
+        Only allowed for name values: 'start', 'initialize' or 'queue Simulation runner version used to execute the simulation. If not filled in the default version is used. (Note: used for testing new calccore releases on the staging environment. On production only the default version can be picked)  * `3.4.104-3.7.2` - 3.4.104-3.7.2 * `3.2.17-2.3.6` - 3.2.17-2.3.6  # noqa: E501
 
         :param simulation_runner: The simulation_runner of this Action.  # noqa: E501
-        :type: str
+        :type: SimulationRunnerEnum
         """
-        allowed_values = ["3.4.97-3.7.1", "3.2.17-2.3.6"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and simulation_runner not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `simulation_runner` ({0}), must be one of {1}"  # noqa: E501
-                .format(simulation_runner, allowed_values)
-            )
 
         self._simulation_runner = simulation_runner
 

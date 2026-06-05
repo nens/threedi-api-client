@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,12 +37,14 @@ class PostProcessingStatus(object):
     """
     openapi_types = {
         'simulation': 'str',
-        'status': 'str',
+        'status': 'PostProcessingStatusEnum',
         'created': 'datetime'
     }
 
     required_fields = [
+       'simulation',
        'status',
+       'created'
     ]
 
     attribute_map = {
@@ -65,11 +67,9 @@ class PostProcessingStatus(object):
         self._created = None
         self.discriminator = None
 
-        if simulation is not None:
-            self.simulation = simulation
+        self.simulation = simulation
         self.status = status
-        if created is not None:
-            self.created = created
+        self.created = created
 
     @property
     def simulation(self):
@@ -89,6 +89,8 @@ class PostProcessingStatus(object):
         :param simulation: The simulation of this PostProcessingStatus.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -98,7 +100,7 @@ class PostProcessingStatus(object):
 
 
         :return: The status of this PostProcessingStatus.  # noqa: E501
-        :rtype: str
+        :rtype: PostProcessingStatusEnum
         """
         return self._status
 
@@ -108,16 +110,10 @@ class PostProcessingStatus(object):
 
 
         :param status: The status of this PostProcessingStatus.  # noqa: E501
-        :type: str
+        :type: PostProcessingStatusEnum
         """
         if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `status`, must not be `None`")  # noqa: E501
-        allowed_values = ["created", "requested", "archiving", "archiving_failed", "archived"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and status not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
-            )
 
         self._status = status
 
@@ -139,6 +135,8 @@ class PostProcessingStatus(object):
         :param created: The created of this PostProcessingStatus.  # noqa: E501
         :type: datetime
         """
+        if self.local_vars_configuration.client_side_validation and created is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `created`, must not be `None`")  # noqa: E501
 
         self._created = created
 

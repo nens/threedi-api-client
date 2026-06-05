@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -48,6 +48,15 @@ class SimulationSettingsOverview(object):
     }
 
     required_fields = [
+       'physical_settings',
+       'numerical_settings',
+       'time_step_settings',
+       'aggregation_settings',
+       'output_settings',
+       'customized_result_areas',
+       'water_quality_settings',
+       'water_quality_output_settings',
+       'water_quality_customized_result_areas'
     ]
 
     attribute_map = {
@@ -82,24 +91,15 @@ class SimulationSettingsOverview(object):
         self._water_quality_customized_result_areas = None
         self.discriminator = None
 
-        if physical_settings is not None:
-            self.physical_settings = physical_settings
-        if numerical_settings is not None:
-            self.numerical_settings = numerical_settings
-        if time_step_settings is not None:
-            self.time_step_settings = time_step_settings
-        if aggregation_settings is not None:
-            self.aggregation_settings = aggregation_settings
-        if output_settings is not None:
-            self.output_settings = output_settings
-        if customized_result_areas is not None:
-            self.customized_result_areas = customized_result_areas
-        if water_quality_settings is not None:
-            self.water_quality_settings = water_quality_settings
-        if water_quality_output_settings is not None:
-            self.water_quality_output_settings = water_quality_output_settings
-        if water_quality_customized_result_areas is not None:
-            self.water_quality_customized_result_areas = water_quality_customized_result_areas
+        self.physical_settings = physical_settings
+        self.numerical_settings = numerical_settings
+        self.time_step_settings = time_step_settings
+        self.aggregation_settings = aggregation_settings
+        self.output_settings = output_settings
+        self.customized_result_areas = customized_result_areas
+        self.water_quality_settings = water_quality_settings
+        self.water_quality_output_settings = water_quality_output_settings
+        self.water_quality_customized_result_areas = water_quality_customized_result_areas
 
     @property
     def physical_settings(self):
@@ -119,6 +119,8 @@ class SimulationSettingsOverview(object):
         :param physical_settings: The physical_settings of this SimulationSettingsOverview.  # noqa: E501
         :type: PhysicalSettings
         """
+        if self.local_vars_configuration.client_side_validation and physical_settings is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `physical_settings`, must not be `None`")  # noqa: E501
 
         self._physical_settings = physical_settings
 
@@ -140,6 +142,8 @@ class SimulationSettingsOverview(object):
         :param numerical_settings: The numerical_settings of this SimulationSettingsOverview.  # noqa: E501
         :type: NumericalSettings
         """
+        if self.local_vars_configuration.client_side_validation and numerical_settings is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `numerical_settings`, must not be `None`")  # noqa: E501
 
         self._numerical_settings = numerical_settings
 
@@ -161,6 +165,8 @@ class SimulationSettingsOverview(object):
         :param time_step_settings: The time_step_settings of this SimulationSettingsOverview.  # noqa: E501
         :type: TimeStepSettings
         """
+        if self.local_vars_configuration.client_side_validation and time_step_settings is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `time_step_settings`, must not be `None`")  # noqa: E501
 
         self._time_step_settings = time_step_settings
 
@@ -182,6 +188,8 @@ class SimulationSettingsOverview(object):
         :param aggregation_settings: The aggregation_settings of this SimulationSettingsOverview.  # noqa: E501
         :type: list[AggregationSettings]
         """
+        if self.local_vars_configuration.client_side_validation and aggregation_settings is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `aggregation_settings`, must not be `None`")  # noqa: E501
 
         self._aggregation_settings = aggregation_settings
 
@@ -203,6 +211,8 @@ class SimulationSettingsOverview(object):
         :param output_settings: The output_settings of this SimulationSettingsOverview.  # noqa: E501
         :type: OutputSettings
         """
+        if self.local_vars_configuration.client_side_validation and output_settings is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `output_settings`, must not be `None`")  # noqa: E501
 
         self._output_settings = output_settings
 
@@ -224,6 +234,8 @@ class SimulationSettingsOverview(object):
         :param customized_result_areas: The customized_result_areas of this SimulationSettingsOverview.  # noqa: E501
         :type: list[CustomizedResultArea]
         """
+        if self.local_vars_configuration.client_side_validation and customized_result_areas is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `customized_result_areas`, must not be `None`")  # noqa: E501
 
         self._customized_result_areas = customized_result_areas
 
@@ -245,6 +257,8 @@ class SimulationSettingsOverview(object):
         :param water_quality_settings: The water_quality_settings of this SimulationSettingsOverview.  # noqa: E501
         :type: WaterQualitySettings
         """
+        if self.local_vars_configuration.client_side_validation and water_quality_settings is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `water_quality_settings`, must not be `None`")  # noqa: E501
 
         self._water_quality_settings = water_quality_settings
 
@@ -266,6 +280,8 @@ class SimulationSettingsOverview(object):
         :param water_quality_output_settings: The water_quality_output_settings of this SimulationSettingsOverview.  # noqa: E501
         :type: WaterQualityOutputSettings
         """
+        if self.local_vars_configuration.client_side_validation and water_quality_output_settings is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `water_quality_output_settings`, must not be `None`")  # noqa: E501
 
         self._water_quality_output_settings = water_quality_output_settings
 
@@ -287,6 +303,8 @@ class SimulationSettingsOverview(object):
         :param water_quality_customized_result_areas: The water_quality_customized_result_areas of this SimulationSettingsOverview.  # noqa: E501
         :type: list[WaterQualityCustomizedResultArea]
         """
+        if self.local_vars_configuration.client_side_validation and water_quality_customized_result_areas is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `water_quality_customized_result_areas`, must not be `None`")  # noqa: E501
 
         self._water_quality_customized_result_areas = water_quality_customized_result_areas
 

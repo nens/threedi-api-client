@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -42,21 +42,27 @@ class TimedStructureControl(object):
         'offset': 'int',
         'duration': 'int',
         'value': 'list[float]',
-        'type': 'str',
+        'type': 'StructureControlActionTypeEnum',
         'structure_id': 'int',
-        'structure_type': 'str',
-        'state': 'str',
+        'structure_type': 'StructureTypeEnum',
+        'state': 'EventStateEnum',
         'state_detail': 'object',
         'grid_id': 'int',
         'uid': 'str'
     }
 
     required_fields = [
+       'id',
+       'url',
+       'simulation',
        'offset',
        'duration',
        'value',
        'type',
        'structure_type',
+       'state',
+       'state_detail',
+       'uid'
     ]
 
     attribute_map = {
@@ -99,24 +105,19 @@ class TimedStructureControl(object):
         self._uid = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
-        if url is not None:
-            self.url = url
-        if simulation is not None:
-            self.simulation = simulation
+        self.id = id
+        self.url = url
+        self.simulation = simulation
         self.offset = offset
         self.duration = duration
         self.value = value
         self.type = type
         self.structure_id = structure_id
         self.structure_type = structure_type
-        if state is not None:
-            self.state = state
+        self.state = state
         self.state_detail = state_detail
         self.grid_id = grid_id
-        if uid is not None:
-            self.uid = uid
+        self.uid = uid
 
     @property
     def id(self):
@@ -136,6 +137,8 @@ class TimedStructureControl(object):
         :param id: The id of this TimedStructureControl.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -157,6 +160,8 @@ class TimedStructureControl(object):
         :param url: The url of this TimedStructureControl.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -178,6 +183,8 @@ class TimedStructureControl(object):
         :param simulation: The simulation of this TimedStructureControl.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -267,7 +274,7 @@ class TimedStructureControl(object):
 
 
         :return: The type of this TimedStructureControl.  # noqa: E501
-        :rtype: str
+        :rtype: StructureControlActionTypeEnum
         """
         return self._type
 
@@ -277,16 +284,10 @@ class TimedStructureControl(object):
 
 
         :param type: The type of this TimedStructureControl.  # noqa: E501
-        :type: str
+        :type: StructureControlActionTypeEnum
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["set_discharge_coefficients", "set_crest_level", "set_pump_capacity", "set_gate_level"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
 
         self._type = type
 
@@ -323,7 +324,7 @@ class TimedStructureControl(object):
 
 
         :return: The structure_type of this TimedStructureControl.  # noqa: E501
-        :rtype: str
+        :rtype: StructureTypeEnum
         """
         return self._structure_type
 
@@ -333,16 +334,10 @@ class TimedStructureControl(object):
 
 
         :param structure_type: The structure_type of this TimedStructureControl.  # noqa: E501
-        :type: str
+        :type: StructureTypeEnum
         """
         if self.local_vars_configuration.client_side_validation and structure_type is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `structure_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["v2_pumpstation", "v2_pipe", "v2_orifice", "v2_culvert", "v2_weir", "v2_channel"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and structure_type not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `structure_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(structure_type, allowed_values)
-            )
 
         self._structure_type = structure_type
 
@@ -352,7 +347,7 @@ class TimedStructureControl(object):
 
 
         :return: The state of this TimedStructureControl.  # noqa: E501
-        :rtype: str
+        :rtype: EventStateEnum
         """
         return self._state
 
@@ -362,14 +357,10 @@ class TimedStructureControl(object):
 
 
         :param state: The state of this TimedStructureControl.  # noqa: E501
-        :type: str
+        :type: EventStateEnum
         """
-        allowed_values = ["processing", "valid", "invalid"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
-                .format(state, allowed_values)
-            )
+        if self.local_vars_configuration.client_side_validation and state is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `state`, must not be `None`")  # noqa: E501
 
         self._state = state
 
@@ -439,6 +430,8 @@ class TimedStructureControl(object):
         :param uid: The uid of this TimedStructureControl.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 

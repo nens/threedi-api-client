@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,7 @@ class LizardRasterRain(object):
         'uid': 'str',
         'offset': 'int',
         'duration': 'int',
-        'units': 'str',
+        'units': 'LizardUnitsEnum',
         'reference_uuid': 'str',
         'start_datetime': 'datetime',
         'simulation': 'str',
@@ -55,9 +55,18 @@ class LizardRasterRain(object):
     }
 
     required_fields = [
+       'url',
+       'uid',
        'offset',
        'reference_uuid',
        'start_datetime',
+       'simulation',
+       'interval',
+       'user',
+       'user_id',
+       'origin_offset',
+       'store_path',
+       'id',
     ]
 
     attribute_map = {
@@ -79,7 +88,7 @@ class LizardRasterRain(object):
         'substances': 'substances'
     }
 
-    def __init__(self, url=None, uid=None, offset=None, duration=None, units=None, reference_uuid=None, start_datetime=None, simulation=None, multiplier=None, interval=None, user=None, user_id=None, origin_offset=None, store_path=None, id=None, substances=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, uid=None, offset=None, duration=None, units=None, reference_uuid=None, start_datetime=None, simulation=None, multiplier=1.0, interval=None, user=None, user_id=None, origin_offset=None, store_path=None, id=None, substances=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """LizardRasterRain - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -106,32 +115,23 @@ class LizardRasterRain(object):
         self._substances = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
-        if uid is not None:
-            self.uid = uid
+        self.url = url
+        self.uid = uid
         self.offset = offset
         self.duration = duration
         if units is not None:
             self.units = units
         self.reference_uuid = reference_uuid
         self.start_datetime = start_datetime
-        if simulation is not None:
-            self.simulation = simulation
+        self.simulation = simulation
         if multiplier is not None:
             self.multiplier = multiplier
-        if interval is not None:
-            self.interval = interval
-        if user is not None:
-            self.user = user
-        if user_id is not None:
-            self.user_id = user_id
-        if origin_offset is not None:
-            self.origin_offset = origin_offset
-        if store_path is not None:
-            self.store_path = store_path
-        if id is not None:
-            self.id = id
+        self.interval = interval
+        self.user = user
+        self.user_id = user_id
+        self.origin_offset = origin_offset
+        self.store_path = store_path
+        self.id = id
         if substances is not None:
             self.substances = substances
 
@@ -153,6 +153,8 @@ class LizardRasterRain(object):
         :param url: The url of this LizardRasterRain.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -174,6 +176,8 @@ class LizardRasterRain(object):
         :param uid: The uid of this LizardRasterRain.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 
@@ -243,7 +247,7 @@ class LizardRasterRain(object):
 
 
         :return: The units of this LizardRasterRain.  # noqa: E501
-        :rtype: str
+        :rtype: LizardUnitsEnum
         """
         return self._units
 
@@ -253,14 +257,8 @@ class LizardRasterRain(object):
 
 
         :param units: The units of this LizardRasterRain.  # noqa: E501
-        :type: str
+        :type: LizardUnitsEnum
         """
-        allowed_values = ["mm/duration", "mm/h", "m/s"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
-                .format(units, allowed_values)
-            )
 
         self._units = units
 
@@ -287,9 +285,6 @@ class LizardRasterRain(object):
         if (self.local_vars_configuration.client_side_validation and
                 reference_uuid is not None and len(reference_uuid) > 40):
             self.__handle_validation_error("Invalid value for `reference_uuid`, length must be less than or equal to `40`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                reference_uuid is not None and len(reference_uuid) < 1):
-            self.__handle_validation_error("Invalid value for `reference_uuid`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._reference_uuid = reference_uuid
 
@@ -334,6 +329,8 @@ class LizardRasterRain(object):
         :param simulation: The simulation of this LizardRasterRain.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -376,6 +373,8 @@ class LizardRasterRain(object):
         :param interval: The interval of this LizardRasterRain.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and interval is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `interval`, must not be `None`")  # noqa: E501
 
         self._interval = interval
 
@@ -397,6 +396,8 @@ class LizardRasterRain(object):
         :param user: The user of this LizardRasterRain.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and user is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `user`, must not be `None`")  # noqa: E501
 
         self._user = user
 
@@ -418,6 +419,8 @@ class LizardRasterRain(object):
         :param user_id: The user_id of this LizardRasterRain.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and user_id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `user_id`, must not be `None`")  # noqa: E501
 
         self._user_id = user_id
 
@@ -439,6 +442,8 @@ class LizardRasterRain(object):
         :param origin_offset: The origin_offset of this LizardRasterRain.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and origin_offset is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `origin_offset`, must not be `None`")  # noqa: E501
 
         self._origin_offset = origin_offset
 
@@ -460,9 +465,8 @@ class LizardRasterRain(object):
         :param store_path: The store_path of this LizardRasterRain.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                store_path is not None and len(store_path) < 1):
-            self.__handle_validation_error("Invalid value for `store_path`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and store_path is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `store_path`, must not be `None`")  # noqa: E501
 
         self._store_path = store_path
 
@@ -484,6 +488,8 @@ class LizardRasterRain(object):
         :param id: The id of this LizardRasterRain.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

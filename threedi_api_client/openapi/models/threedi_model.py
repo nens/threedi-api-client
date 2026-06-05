@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -44,8 +44,8 @@ class ThreediModel(object):
         'revision': 'str',
         'revision_id': 'int',
         'revision_hash': 'str',
-        'revision_number': 'str',
-        'revision_commit_date': 'str',
+        'revision_number': 'int',
+        'revision_commit_date': 'datetime',
         'schematisation_id': 'int',
         'schematisation_name': 'str',
         'repository_slug': 'str',
@@ -58,9 +58,9 @@ class ThreediModel(object):
         'storage_space': 'int',
         'storage_space_humanized': 'str',
         'model_ini': 'str',
-        'extent_two_d': 'Extent',
-        'extent_one_d': 'Extent',
-        'extent_zero_d': 'Extent',
+        'extent_two_d': 'dict(str, object)',
+        'extent_one_d': 'dict(str, object)',
+        'extent_zero_d': 'dict(str, object)',
         'nodes_count': 'int',
         'lines_count': 'int',
         'inpy_version': 'str',
@@ -69,9 +69,22 @@ class ThreediModel(object):
     }
 
     required_fields = [
+       'url',
+       'id',
+       'user',
+       'threedi_version',
        'revision',
+       'revision_id',
+       'revision_hash',
+       'revision_number',
+       'revision_commit_date',
+       'schematisation_id',
+       'schematisation_name',
+       'repository_slug',
        'slug',
+       'storage_space_humanized',
        'inpy_version',
+       'created'
     ]
 
     attribute_map = {
@@ -148,27 +161,19 @@ class ThreediModel(object):
         self._created = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
-        if id is not None:
-            self.id = id
-        if user is not None:
-            self.user = user
+        self.url = url
+        self.id = id
+        self.user = user
         self.threedi_version = threedi_version
         self.breach_count = breach_count
         self.revision = revision
         self.revision_id = revision_id
-        if revision_hash is not None:
-            self.revision_hash = revision_hash
-        if revision_number is not None:
-            self.revision_number = revision_number
-        if revision_commit_date is not None:
-            self.revision_commit_date = revision_commit_date
+        self.revision_hash = revision_hash
+        self.revision_number = revision_number
+        self.revision_commit_date = revision_commit_date
         self.schematisation_id = schematisation_id
-        if schematisation_name is not None:
-            self.schematisation_name = schematisation_name
-        if repository_slug is not None:
-            self.repository_slug = repository_slug
+        self.schematisation_name = schematisation_name
+        self.repository_slug = repository_slug
         if name is not None:
             self.name = name
         self.slug = slug
@@ -179,8 +184,7 @@ class ThreediModel(object):
         self.description = description
         if storage_space is not None:
             self.storage_space = storage_space
-        if storage_space_humanized is not None:
-            self.storage_space_humanized = storage_space_humanized
+        self.storage_space_humanized = storage_space_humanized
         self.model_ini = model_ini
         if extent_two_d is not None:
             self.extent_two_d = extent_two_d
@@ -193,8 +197,7 @@ class ThreediModel(object):
         self.inpy_version = inpy_version
         if inp_success is not None:
             self.inp_success = inp_success
-        if created is not None:
-            self.created = created
+        self.created = created
 
     @property
     def url(self):
@@ -214,6 +217,8 @@ class ThreediModel(object):
         :param url: The url of this ThreediModel.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -235,6 +240,8 @@ class ThreediModel(object):
         :param id: The id of this ThreediModel.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -242,7 +249,6 @@ class ThreediModel(object):
     def user(self):
         """Gets the user of this ThreediModel.  # noqa: E501
 
-        The username of a user  # noqa: E501
 
         :return: The user of this ThreediModel.  # noqa: E501
         :rtype: str
@@ -253,7 +259,6 @@ class ThreediModel(object):
     def user(self, user):
         """Sets the user of this ThreediModel.
 
-        The username of a user  # noqa: E501
 
         :param user: The user of this ThreediModel.  # noqa: E501
         :type: str
@@ -281,9 +286,6 @@ class ThreediModel(object):
         :param threedi_version: The threedi_version of this ThreediModel.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                threedi_version is not None and len(threedi_version) < 1):
-            self.__handle_validation_error("Invalid value for `threedi_version`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._threedi_version = threedi_version
 
@@ -385,7 +387,7 @@ class ThreediModel(object):
 
 
         :return: The revision_number of this ThreediModel.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._revision_number
 
@@ -395,7 +397,7 @@ class ThreediModel(object):
 
 
         :param revision_number: The revision_number of this ThreediModel.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._revision_number = revision_number
@@ -406,7 +408,7 @@ class ThreediModel(object):
 
 
         :return: The revision_commit_date of this ThreediModel.  # noqa: E501
-        :rtype: str
+        :rtype: datetime
         """
         return self._revision_commit_date
 
@@ -416,7 +418,7 @@ class ThreediModel(object):
 
 
         :param revision_commit_date: The revision_commit_date of this ThreediModel.  # noqa: E501
-        :type: str
+        :type: datetime
         """
 
         self._revision_commit_date = revision_commit_date
@@ -502,9 +504,6 @@ class ThreediModel(object):
         :param name: The name of this ThreediModel.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -531,9 +530,6 @@ class ThreediModel(object):
         if (self.local_vars_configuration.client_side_validation and
                 slug is not None and len(slug) > 512):
             self.__handle_validation_error("Invalid value for `slug`, length must be less than or equal to `512`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and len(slug) < 1):
-            self.__handle_validation_error("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 slug is not None and not re.search(r'^[-a-zA-Z0-9_]+$', slug)):  # noqa: E501
             self.__handle_validation_error(r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
@@ -683,6 +679,8 @@ class ThreediModel(object):
         :param storage_space_humanized: The storage_space_humanized of this ThreediModel.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and storage_space_humanized is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `storage_space_humanized`, must not be `None`")  # noqa: E501
 
         self._storage_space_humanized = storage_space_humanized
 
@@ -716,7 +714,7 @@ class ThreediModel(object):
 
 
         :return: The extent_two_d of this ThreediModel.  # noqa: E501
-        :rtype: Extent
+        :rtype: dict(str, object)
         """
         return self._extent_two_d
 
@@ -726,7 +724,7 @@ class ThreediModel(object):
 
 
         :param extent_two_d: The extent_two_d of this ThreediModel.  # noqa: E501
-        :type: Extent
+        :type: dict(str, object)
         """
 
         self._extent_two_d = extent_two_d
@@ -737,7 +735,7 @@ class ThreediModel(object):
 
 
         :return: The extent_one_d of this ThreediModel.  # noqa: E501
-        :rtype: Extent
+        :rtype: dict(str, object)
         """
         return self._extent_one_d
 
@@ -747,7 +745,7 @@ class ThreediModel(object):
 
 
         :param extent_one_d: The extent_one_d of this ThreediModel.  # noqa: E501
-        :type: Extent
+        :type: dict(str, object)
         """
 
         self._extent_one_d = extent_one_d
@@ -758,7 +756,7 @@ class ThreediModel(object):
 
 
         :return: The extent_zero_d of this ThreediModel.  # noqa: E501
-        :rtype: Extent
+        :rtype: dict(str, object)
         """
         return self._extent_zero_d
 
@@ -768,7 +766,7 @@ class ThreediModel(object):
 
 
         :param extent_zero_d: The extent_zero_d of this ThreediModel.  # noqa: E501
-        :type: Extent
+        :type: dict(str, object)
         """
 
         self._extent_zero_d = extent_zero_d
@@ -889,6 +887,8 @@ class ThreediModel(object):
         :param created: The created of this ThreediModel.  # noqa: E501
         :type: datetime
         """
+        if self.local_vars_configuration.client_side_validation and created is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `created`, must not be `None`")  # noqa: E501
 
         self._created = created
 

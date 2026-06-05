@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,6 +40,7 @@ class ArrivalTimePostProcessing(object):
     }
 
     required_fields = [
+       'basic_post_processing'
     ]
 
     attribute_map = {
@@ -58,8 +59,7 @@ class ArrivalTimePostProcessing(object):
         self._basic_post_processing = None
         self.discriminator = None
 
-        if basic_post_processing is not None:
-            self.basic_post_processing = basic_post_processing
+        self.basic_post_processing = basic_post_processing
 
     @property
     def basic_post_processing(self):
@@ -79,6 +79,8 @@ class ArrivalTimePostProcessing(object):
         :param basic_post_processing: The basic_post_processing of this ArrivalTimePostProcessing.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and basic_post_processing is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `basic_post_processing`, must not be `None`")  # noqa: E501
 
         self._basic_post_processing = basic_post_processing
 

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -90,7 +90,7 @@ conf = threedi_api_client.aio.openapi.Configuration(
 
     _default = None
 
-    def __init__(self, host="http://localhost",
+    def __init__(self, host="https://api.3di.live",
                  api_key=None, api_key_prefix=None,
                  username=None, password=None,
                  discard_unknown_keys=False,
@@ -351,6 +351,13 @@ conf = threedi_api_client.aio.openapi.Configuration(
         """
         auth = {}
         if self.username is not None and self.password is not None:
+            auth['ApiKeyBasic'] = {
+                'type': 'basic',
+                'in': 'header',
+                'key': 'Authorization',
+                'value': self.get_basic_auth_token()
+            }
+        if self.username is not None and self.password is not None:
             auth['Basic'] = {
                 'type': 'basic',
                 'in': 'header',
@@ -370,6 +377,21 @@ conf = threedi_api_client.aio.openapi.Configuration(
                 'in': 'header',
                 'key': 'Authorization',
                 'value': 'Bearer ' + self.access_token
+            }
+        if self.access_token is not None:
+            auth['OAuth2Bearer'] = {
+                'type': 'bearer',
+                'in': 'header',
+                'format': 'OAuth2',
+                'key': 'Authorization',
+                'value': 'Bearer ' + self.access_token
+            }
+        if 'sessionid' in self.api_key:
+            auth['Session'] = {
+                'type': 'api_key',
+                'in': 'cookie',
+                'key': 'sessionid',
+                'value': self.get_api_key_with_prefix('sessionid')
             }
         return auth
 
@@ -392,7 +414,7 @@ conf = threedi_api_client.aio.openapi.Configuration(
         """
         return [
             {
-                'url': "/",
+                'url': "https://api.3di.live",
                 'description': "No description provided",
             }
         ]

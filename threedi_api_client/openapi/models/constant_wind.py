@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -43,7 +43,7 @@ class ConstantWind(object):
         'offset': 'int',
         'duration': 'int',
         'values': 'list[list[float]]',
-        'units': 'str',
+        'units': 'WindSpeedUnitsEnum',
         'speed_interpolate': 'bool',
         'speed_constant': 'bool',
         'direction_interpolate': 'bool',
@@ -53,7 +53,16 @@ class ConstantWind(object):
     }
 
     required_fields = [
+       'id',
+       'uid',
+       'url',
+       'simulation',
        'offset',
+       'values',
+       'speed_interpolate',
+       'speed_constant',
+       'direction_interpolate',
+       'direction_constant',
     ]
 
     attribute_map = {
@@ -98,28 +107,19 @@ class ConstantWind(object):
         self._direction_value = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
-        if uid is not None:
-            self.uid = uid
-        if url is not None:
-            self.url = url
-        if simulation is not None:
-            self.simulation = simulation
+        self.id = id
+        self.uid = uid
+        self.url = url
+        self.simulation = simulation
         self.offset = offset
         self.duration = duration
-        if values is not None:
-            self.values = values
+        self.values = values
         if units is not None:
             self.units = units
-        if speed_interpolate is not None:
-            self.speed_interpolate = speed_interpolate
-        if speed_constant is not None:
-            self.speed_constant = speed_constant
-        if direction_interpolate is not None:
-            self.direction_interpolate = direction_interpolate
-        if direction_constant is not None:
-            self.direction_constant = direction_constant
+        self.speed_interpolate = speed_interpolate
+        self.speed_constant = speed_constant
+        self.direction_interpolate = direction_interpolate
+        self.direction_constant = direction_constant
         if speed_value is not None:
             self.speed_value = speed_value
         if direction_value is not None:
@@ -143,6 +143,8 @@ class ConstantWind(object):
         :param id: The id of this ConstantWind.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -164,6 +166,8 @@ class ConstantWind(object):
         :param uid: The uid of this ConstantWind.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 
@@ -185,6 +189,8 @@ class ConstantWind(object):
         :param url: The url of this ConstantWind.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -206,6 +212,8 @@ class ConstantWind(object):
         :param simulation: The simulation of this ConstantWind.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -289,6 +297,8 @@ class ConstantWind(object):
         :param values: The values of this ConstantWind.  # noqa: E501
         :type: list[list[float]]
         """
+        if self.local_vars_configuration.client_side_validation and values is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `values`, must not be `None`")  # noqa: E501
 
         self._values = values
 
@@ -296,10 +306,10 @@ class ConstantWind(object):
     def units(self):
         """Gets the units of this ConstantWind.  # noqa: E501
 
-        wind speed unit (default 'm/s')  # noqa: E501
+        wind speed unit (default 'm/s')  * `m/s` - meter_per_second * `km/h` - kilometer_per_hour  # noqa: E501
 
         :return: The units of this ConstantWind.  # noqa: E501
-        :rtype: str
+        :rtype: WindSpeedUnitsEnum
         """
         return self._units
 
@@ -307,17 +317,11 @@ class ConstantWind(object):
     def units(self, units):
         """Sets the units of this ConstantWind.
 
-        wind speed unit (default 'm/s')  # noqa: E501
+        wind speed unit (default 'm/s')  * `m/s` - meter_per_second * `km/h` - kilometer_per_hour  # noqa: E501
 
         :param units: The units of this ConstantWind.  # noqa: E501
-        :type: str
+        :type: WindSpeedUnitsEnum
         """
-        allowed_values = ["m/s", "km/h"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
-                .format(units, allowed_values)
-            )
 
         self._units = units
 
@@ -341,6 +345,8 @@ class ConstantWind(object):
         :param speed_interpolate: The speed_interpolate of this ConstantWind.  # noqa: E501
         :type: bool
         """
+        if self.local_vars_configuration.client_side_validation and speed_interpolate is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `speed_interpolate`, must not be `None`")  # noqa: E501
 
         self._speed_interpolate = speed_interpolate
 
@@ -364,6 +370,8 @@ class ConstantWind(object):
         :param speed_constant: The speed_constant of this ConstantWind.  # noqa: E501
         :type: bool
         """
+        if self.local_vars_configuration.client_side_validation and speed_constant is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `speed_constant`, must not be `None`")  # noqa: E501
 
         self._speed_constant = speed_constant
 
@@ -387,6 +395,8 @@ class ConstantWind(object):
         :param direction_interpolate: The direction_interpolate of this ConstantWind.  # noqa: E501
         :type: bool
         """
+        if self.local_vars_configuration.client_side_validation and direction_interpolate is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `direction_interpolate`, must not be `None`")  # noqa: E501
 
         self._direction_interpolate = direction_interpolate
 
@@ -410,6 +420,8 @@ class ConstantWind(object):
         :param direction_constant: The direction_constant of this ConstantWind.  # noqa: E501
         :type: bool
         """
+        if self.local_vars_configuration.client_side_validation and direction_constant is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `direction_constant`, must not be `None`")  # noqa: E501
 
         self._direction_constant = direction_constant
 

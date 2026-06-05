@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,18 +40,21 @@ class ThreediModelSavedState(object):
         'url': 'str',
         'name': 'str',
         'created': 'datetime',
-        'type': 'str',
+        'type': 'ThreediModelSavedStateTypeEnum',
         'tags': 'list[str]',
         'used_in_simulation': 'str',
         'expiry': 'datetime',
         'time': 'int',
-        'variables': 'list[str]',
+        'variables': 'list[SavedStateVariableEnum]',
         'thresholds': 'list[float]'
     }
 
     required_fields = [
+       'id',
+       'url',
        'name',
        'type',
+       'used_in_simulation',
     ]
 
     attribute_map = {
@@ -90,17 +93,14 @@ class ThreediModelSavedState(object):
         self._thresholds = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
-        if url is not None:
-            self.url = url
+        self.id = id
+        self.url = url
         self.name = name
         self.created = created
         self.type = type
         if tags is not None:
             self.tags = tags
-        if used_in_simulation is not None:
-            self.used_in_simulation = used_in_simulation
+        self.used_in_simulation = used_in_simulation
         self.expiry = expiry
         self.time = time
         self.variables = variables
@@ -124,6 +124,8 @@ class ThreediModelSavedState(object):
         :param id: The id of this ThreediModelSavedState.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -145,6 +147,8 @@ class ThreediModelSavedState(object):
         :param url: The url of this ThreediModelSavedState.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -171,9 +175,6 @@ class ThreediModelSavedState(object):
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 80):
             self.__handle_validation_error("Invalid value for `name`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -204,7 +205,7 @@ class ThreediModelSavedState(object):
 
 
         :return: The type of this ThreediModelSavedState.  # noqa: E501
-        :rtype: str
+        :rtype: ThreediModelSavedStateTypeEnum
         """
         return self._type
 
@@ -214,16 +215,10 @@ class ThreediModelSavedState(object):
 
 
         :param type: The type of this ThreediModelSavedState.  # noqa: E501
-        :type: str
+        :type: ThreediModelSavedStateTypeEnum
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["stable_threshold", "timed"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
 
         self._type = type
 
@@ -231,7 +226,6 @@ class ThreediModelSavedState(object):
     def tags(self):
         """Gets the tags of this ThreediModelSavedState.  # noqa: E501
 
-        tags provided as a list of strings  # noqa: E501
 
         :return: The tags of this ThreediModelSavedState.  # noqa: E501
         :rtype: list[str]
@@ -242,7 +236,6 @@ class ThreediModelSavedState(object):
     def tags(self, tags):
         """Sets the tags of this ThreediModelSavedState.
 
-        tags provided as a list of strings  # noqa: E501
 
         :param tags: The tags of this ThreediModelSavedState.  # noqa: E501
         :type: list[str]
@@ -268,6 +261,8 @@ class ThreediModelSavedState(object):
         :param used_in_simulation: The used_in_simulation of this ThreediModelSavedState.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and used_in_simulation is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `used_in_simulation`, must not be `None`")  # noqa: E501
 
         self._used_in_simulation = used_in_simulation
 
@@ -327,7 +322,7 @@ class ThreediModelSavedState(object):
 
 
         :return: The variables of this ThreediModelSavedState.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[SavedStateVariableEnum]
         """
         return self._variables
 
@@ -337,16 +332,8 @@ class ThreediModelSavedState(object):
 
 
         :param variables: The variables of this ThreediModelSavedState.  # noqa: E501
-        :type: list[str]
+        :type: list[SavedStateVariableEnum]
         """
-        allowed_values = [None,"s1", "u1"]  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                not set(variables).issubset(set(allowed_values))):  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid values for `variables` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(variables) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
 
         self._variables = variables
 

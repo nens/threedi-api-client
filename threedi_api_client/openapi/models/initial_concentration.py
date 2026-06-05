@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -41,14 +41,21 @@ class InitialConcentration(object):
         'user_generated': 'bool',
         'file': 'FileReadOnly',
         'source_raster': 'str',
-        'state': 'str',
+        'state': 'EventStateEnum',
         'state_detail': 'object',
         'id': 'int',
         'source_raster_id': 'int',
-        'dimension': 'str'
+        'dimension': 'DimensionEnum'
     }
 
     required_fields = [
+       'url',
+       'threedimodel',
+       'file',
+       'state',
+       'state_detail',
+       'id',
+       'source_raster_id',
     ]
 
     attribute_map = {
@@ -85,21 +92,16 @@ class InitialConcentration(object):
         self._dimension = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
-        if threedimodel is not None:
-            self.threedimodel = threedimodel
+        self.url = url
+        self.threedimodel = threedimodel
         if user_generated is not None:
             self.user_generated = user_generated
-        if file is not None:
-            self.file = file
+        self.file = file
         if source_raster is not None:
             self.source_raster = source_raster
-        if state is not None:
-            self.state = state
+        self.state = state
         self.state_detail = state_detail
-        if id is not None:
-            self.id = id
+        self.id = id
         self.source_raster_id = source_raster_id
         if dimension is not None:
             self.dimension = dimension
@@ -122,6 +124,8 @@ class InitialConcentration(object):
         :param url: The url of this InitialConcentration.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -143,6 +147,8 @@ class InitialConcentration(object):
         :param threedimodel: The threedimodel of this InitialConcentration.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and threedimodel is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `threedimodel`, must not be `None`")  # noqa: E501
 
         self._threedimodel = threedimodel
 
@@ -185,6 +191,8 @@ class InitialConcentration(object):
         :param file: The file of this InitialConcentration.  # noqa: E501
         :type: FileReadOnly
         """
+        if self.local_vars_configuration.client_side_validation and file is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `file`, must not be `None`")  # noqa: E501
 
         self._file = file
 
@@ -215,7 +223,7 @@ class InitialConcentration(object):
 
 
         :return: The state of this InitialConcentration.  # noqa: E501
-        :rtype: str
+        :rtype: EventStateEnum
         """
         return self._state
 
@@ -225,14 +233,10 @@ class InitialConcentration(object):
 
 
         :param state: The state of this InitialConcentration.  # noqa: E501
-        :type: str
+        :type: EventStateEnum
         """
-        allowed_values = ["processing", "valid", "invalid"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
-                .format(state, allowed_values)
-            )
+        if self.local_vars_configuration.client_side_validation and state is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `state`, must not be `None`")  # noqa: E501
 
         self._state = state
 
@@ -275,6 +279,8 @@ class InitialConcentration(object):
         :param id: The id of this InitialConcentration.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -305,7 +311,7 @@ class InitialConcentration(object):
 
 
         :return: The dimension of this InitialConcentration.  # noqa: E501
-        :rtype: str
+        :rtype: DimensionEnum
         """
         return self._dimension
 
@@ -315,14 +321,8 @@ class InitialConcentration(object):
 
 
         :param dimension: The dimension of this InitialConcentration.  # noqa: E501
-        :type: str
+        :type: DimensionEnum
         """
-        allowed_values = ["one_d", "two_d"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and dimension not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `dimension` ({0}), must be one of {1}"  # noqa: E501
-                .format(dimension, allowed_values)
-            )
 
         self._dimension = dimension
 

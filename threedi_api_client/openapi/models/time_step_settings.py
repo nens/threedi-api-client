@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -46,6 +46,8 @@ class TimeStepSettings(object):
     }
 
     required_fields = [
+       'id',
+       'simulation_id',
        'time_step',
        'min_time_step',
        'use_time_step_stretch',
@@ -79,10 +81,8 @@ class TimeStepSettings(object):
         self._output_time_step = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
-        if simulation_id is not None:
-            self.simulation_id = simulation_id
+        self.id = id
+        self.simulation_id = simulation_id
         self.time_step = time_step
         self.min_time_step = min_time_step
         self.max_time_step = max_time_step
@@ -107,6 +107,8 @@ class TimeStepSettings(object):
         :param id: The id of this TimeStepSettings.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -128,6 +130,8 @@ class TimeStepSettings(object):
         :param simulation_id: The simulation_id of this TimeStepSettings.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and simulation_id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation_id`, must not be `None`")  # noqa: E501
 
         self._simulation_id = simulation_id
 
@@ -154,8 +158,8 @@ class TimeStepSettings(object):
         if self.local_vars_configuration.client_side_validation and time_step is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `time_step`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                time_step is not None and time_step < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                time_step is not None and time_step < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `time_step`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._time_step = time_step
 
@@ -182,8 +186,8 @@ class TimeStepSettings(object):
         if self.local_vars_configuration.client_side_validation and min_time_step is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `min_time_step`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                min_time_step is not None and min_time_step < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `min_time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                min_time_step is not None and min_time_step < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `min_time_step`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._min_time_step = min_time_step
 
@@ -208,8 +212,8 @@ class TimeStepSettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                max_time_step is not None and max_time_step < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `max_time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                max_time_step is not None and max_time_step < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `max_time_step`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._max_time_step = max_time_step
 
@@ -259,8 +263,8 @@ class TimeStepSettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                output_time_step is not None and output_time_step < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `output_time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                output_time_step is not None and output_time_step < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `output_time_step`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._output_time_step = output_time_step
 

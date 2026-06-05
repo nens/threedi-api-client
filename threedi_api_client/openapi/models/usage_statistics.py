@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -231,9 +231,6 @@ class UsageStatistics(object):
         """
         if self.local_vars_configuration.client_side_validation and duration_humanized is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `duration_humanized`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                duration_humanized is not None and len(duration_humanized) < 1):
-            self.__handle_validation_error("Invalid value for `duration_humanized`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._duration_humanized = duration_humanized
 

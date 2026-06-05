@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -42,14 +42,16 @@ class WaterQualityOutputSettings(object):
         'output_time_step': 'float',
         'output_start_time': 'float',
         'output_end_time': 'float',
-        'output_precision': 'int',
+        'output_precision': 'OutputPrecisionEnum',
         'customized_output_time_step': 'float',
         'customized_output_start_time': 'float',
         'customized_output_end_time': 'float',
-        'customized_output_precision': 'int'
+        'customized_output_precision': 'OutputPrecisionEnum'
     }
 
     required_fields = [
+       'id',
+       'simulation_id',
     ]
 
     attribute_map = {
@@ -88,10 +90,8 @@ class WaterQualityOutputSettings(object):
         self._customized_output_precision = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
-        if simulation_id is not None:
-            self.simulation_id = simulation_id
+        self.id = id
+        self.simulation_id = simulation_id
         if create_results is not None:
             self.create_results = create_results
         self.output_time_step = output_time_step
@@ -127,6 +127,8 @@ class WaterQualityOutputSettings(object):
         :param id: The id of this WaterQualityOutputSettings.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -148,6 +150,8 @@ class WaterQualityOutputSettings(object):
         :param simulation_id: The simulation_id of this WaterQualityOutputSettings.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and simulation_id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation_id`, must not be `None`")  # noqa: E501
 
         self._simulation_id = simulation_id
 
@@ -195,8 +199,8 @@ class WaterQualityOutputSettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                output_time_step is not None and output_time_step < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `output_time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                output_time_step is not None and output_time_step < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `output_time_step`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._output_time_step = output_time_step
 
@@ -221,8 +225,8 @@ class WaterQualityOutputSettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                output_start_time is not None and output_start_time < 0):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `output_start_time`, must be a value greater than or equal to `0`")  # noqa: E501
+                output_start_time is not None and output_start_time < 0.0):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `output_start_time`, must be a value greater than or equal to `0.0`")  # noqa: E501
 
         self._output_start_time = output_start_time
 
@@ -247,8 +251,8 @@ class WaterQualityOutputSettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                output_end_time is not None and output_end_time < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `output_end_time`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                output_end_time is not None and output_end_time < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `output_end_time`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._output_end_time = output_end_time
 
@@ -256,10 +260,10 @@ class WaterQualityOutputSettings(object):
     def output_precision(self):
         """Gets the output_precision of this WaterQualityOutputSettings.  # noqa: E501
 
-        Single or double precision output.  # noqa: E501
+        Single or double precision output.  * `1` - single * `2` - double  # noqa: E501
 
         :return: The output_precision of this WaterQualityOutputSettings.  # noqa: E501
-        :rtype: int
+        :rtype: OutputPrecisionEnum
         """
         return self._output_precision
 
@@ -267,10 +271,10 @@ class WaterQualityOutputSettings(object):
     def output_precision(self, output_precision):
         """Sets the output_precision of this WaterQualityOutputSettings.
 
-        Single or double precision output.  # noqa: E501
+        Single or double precision output.  * `1` - single * `2` - double  # noqa: E501
 
         :param output_precision: The output_precision of this WaterQualityOutputSettings.  # noqa: E501
-        :type: int
+        :type: OutputPrecisionEnum
         """
 
         self._output_precision = output_precision
@@ -296,8 +300,8 @@ class WaterQualityOutputSettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                customized_output_time_step is not None and customized_output_time_step < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `customized_output_time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                customized_output_time_step is not None and customized_output_time_step < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `customized_output_time_step`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._customized_output_time_step = customized_output_time_step
 
@@ -322,8 +326,8 @@ class WaterQualityOutputSettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                customized_output_start_time is not None and customized_output_start_time < 0):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `customized_output_start_time`, must be a value greater than or equal to `0`")  # noqa: E501
+                customized_output_start_time is not None and customized_output_start_time < 0.0):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `customized_output_start_time`, must be a value greater than or equal to `0.0`")  # noqa: E501
 
         self._customized_output_start_time = customized_output_start_time
 
@@ -348,8 +352,8 @@ class WaterQualityOutputSettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                customized_output_end_time is not None and customized_output_end_time < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `customized_output_end_time`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                customized_output_end_time is not None and customized_output_end_time < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `customized_output_end_time`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._customized_output_end_time = customized_output_end_time
 
@@ -357,10 +361,10 @@ class WaterQualityOutputSettings(object):
     def customized_output_precision(self):
         """Gets the customized_output_precision of this WaterQualityOutputSettings.  # noqa: E501
 
-        Single or double precision output for customized results.  # noqa: E501
+        Single or double precision output for customized results.  * `1` - single * `2` - double  # noqa: E501
 
         :return: The customized_output_precision of this WaterQualityOutputSettings.  # noqa: E501
-        :rtype: int
+        :rtype: OutputPrecisionEnum
         """
         return self._customized_output_precision
 
@@ -368,10 +372,10 @@ class WaterQualityOutputSettings(object):
     def customized_output_precision(self, customized_output_precision):
         """Sets the customized_output_precision of this WaterQualityOutputSettings.
 
-        Single or double precision output for customized results.  # noqa: E501
+        Single or double precision output for customized results.  * `1` - single * `2` - double  # noqa: E501
 
         :param customized_output_precision: The customized_output_precision of this WaterQualityOutputSettings.  # noqa: E501
-        :type: int
+        :type: OutputPrecisionEnum
         """
 
         self._customized_output_precision = customized_output_precision

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -38,11 +38,12 @@ class WaterQualityCustomizedResultArea(object):
     openapi_types = {
         'url': 'str',
         'name': 'str',
-        'subsets': 'list[str]',
-        'geometry': 'str'
+        'subsets': 'list[SubsetsEnum]',
+        'geometry': 'PatchedWaterQualityCustomizedResultAreaGeometry'
     }
 
     required_fields = [
+       'url',
        'name',
        'subsets',
        'geometry'
@@ -70,8 +71,7 @@ class WaterQualityCustomizedResultArea(object):
         self._geometry = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
+        self.url = url
         self.name = name
         self.subsets = subsets
         self.geometry = geometry
@@ -94,6 +94,8 @@ class WaterQualityCustomizedResultArea(object):
         :param url: The url of this WaterQualityCustomizedResultArea.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -122,9 +124,6 @@ class WaterQualityCustomizedResultArea(object):
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 255):
             self.__handle_validation_error("Invalid value for `name`, length must be less than or equal to `255`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -135,7 +134,7 @@ class WaterQualityCustomizedResultArea(object):
         Subsets of the customized results area. Valid subsets are: 1D, 2D, 1D2D, GW.  # noqa: E501
 
         :return: The subsets of this WaterQualityCustomizedResultArea.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[SubsetsEnum]
         """
         return self._subsets
 
@@ -146,18 +145,10 @@ class WaterQualityCustomizedResultArea(object):
         Subsets of the customized results area. Valid subsets are: 1D, 2D, 1D2D, GW.  # noqa: E501
 
         :param subsets: The subsets of this WaterQualityCustomizedResultArea.  # noqa: E501
-        :type: list[str]
+        :type: list[SubsetsEnum]
         """
         if self.local_vars_configuration.client_side_validation and subsets is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `subsets`, must not be `None`")  # noqa: E501
-        allowed_values = ["1D", "2D", "1D2D", "GW"]  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                not set(subsets).issubset(set(allowed_values))):  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid values for `subsets` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(subsets) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
 
         self._subsets = subsets
 
@@ -165,10 +156,9 @@ class WaterQualityCustomizedResultArea(object):
     def geometry(self):
         """Gets the geometry of this WaterQualityCustomizedResultArea.  # noqa: E501
 
-        Geometry of the customized results area, WKT format, must be WGS84.  # noqa: E501
 
         :return: The geometry of this WaterQualityCustomizedResultArea.  # noqa: E501
-        :rtype: str
+        :rtype: PatchedWaterQualityCustomizedResultAreaGeometry
         """
         return self._geometry
 
@@ -176,10 +166,9 @@ class WaterQualityCustomizedResultArea(object):
     def geometry(self, geometry):
         """Sets the geometry of this WaterQualityCustomizedResultArea.
 
-        Geometry of the customized results area, WKT format, must be WGS84.  # noqa: E501
 
         :param geometry: The geometry of this WaterQualityCustomizedResultArea.  # noqa: E501
-        :type: str
+        :type: PatchedWaterQualityCustomizedResultAreaGeometry
         """
         if self.local_vars_configuration.client_side_validation and geometry is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `geometry`, must not be `None`")  # noqa: E501

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -44,7 +44,10 @@ class ForcingSubstance(object):
     }
 
     required_fields = [
+       'id',
        'substance',
+       'substance_id',
+       'substance_name',
        'concentrations'
     ]
 
@@ -72,13 +75,10 @@ class ForcingSubstance(object):
         self._concentrations = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
+        self.id = id
         self.substance = substance
-        if substance_id is not None:
-            self.substance_id = substance_id
-        if substance_name is not None:
-            self.substance_name = substance_name
+        self.substance_id = substance_id
+        self.substance_name = substance_name
         self.concentrations = concentrations
 
     @property
@@ -99,6 +99,8 @@ class ForcingSubstance(object):
         :param id: The id of this ForcingSubstance.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -143,6 +145,8 @@ class ForcingSubstance(object):
         :param substance_id: The substance_id of this ForcingSubstance.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and substance_id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `substance_id`, must not be `None`")  # noqa: E501
 
         self._substance_id = substance_id
 
@@ -164,6 +168,8 @@ class ForcingSubstance(object):
         :param substance_name: The substance_name of this ForcingSubstance.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and substance_name is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `substance_name`, must not be `None`")  # noqa: E501
 
         self._substance_name = substance_name
 
@@ -171,7 +177,6 @@ class ForcingSubstance(object):
     def concentrations(self):
         """Gets the concentrations of this ForcingSubstance.  # noqa: E501
 
-        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
         :return: The concentrations of this ForcingSubstance.  # noqa: E501
         :rtype: list[list[float]]
@@ -182,7 +187,6 @@ class ForcingSubstance(object):
     def concentrations(self, concentrations):
         """Sets the concentrations of this ForcingSubstance.
 
-        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
         :param concentrations: The concentrations of this ForcingSubstance.  # noqa: E501
         :type: list[list[float]]

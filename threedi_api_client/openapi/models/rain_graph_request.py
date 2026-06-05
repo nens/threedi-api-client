@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -57,7 +57,7 @@ class RainGraphRequest(object):
         'node_id': 'node_id'
     }
 
-    def __init__(self, start_time=None, history_points_limit=None, subscribe=None, subscribe_rate_limit=None, node_id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, start_time=None, history_points_limit=200, subscribe=None, subscribe_rate_limit=0.5, node_id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """RainGraphRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

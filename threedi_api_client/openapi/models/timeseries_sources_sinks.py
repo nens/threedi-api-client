@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -41,7 +41,7 @@ class TimeseriesSourcesSinks(object):
         'offset': 'int',
         'interpolate': 'bool',
         'values': 'list[list[float]]',
-        'units': 'str',
+        'units': 'TimeseriesRainMsUnitEnum',
         'uid': 'str',
         'id': 'int',
         'multiplier': 'float',
@@ -49,9 +49,13 @@ class TimeseriesSourcesSinks(object):
     }
 
     required_fields = [
+       'url',
+       'simulation',
        'offset',
        'values',
        'units',
+       'uid',
+       'id',
     ]
 
     attribute_map = {
@@ -88,19 +92,15 @@ class TimeseriesSourcesSinks(object):
         self._substances = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
-        if simulation is not None:
-            self.simulation = simulation
+        self.url = url
+        self.simulation = simulation
         self.offset = offset
         if interpolate is not None:
             self.interpolate = interpolate
         self.values = values
         self.units = units
-        if uid is not None:
-            self.uid = uid
-        if id is not None:
-            self.id = id
+        self.uid = uid
+        self.id = id
         if multiplier is not None:
             self.multiplier = multiplier
         if substances is not None:
@@ -124,6 +124,8 @@ class TimeseriesSourcesSinks(object):
         :param url: The url of this TimeseriesSourcesSinks.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -145,6 +147,8 @@ class TimeseriesSourcesSinks(object):
         :param simulation: The simulation of this TimeseriesSourcesSinks.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -204,7 +208,6 @@ class TimeseriesSourcesSinks(object):
     def values(self):
         """Gets the values of this TimeseriesSourcesSinks.  # noqa: E501
 
-        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
         :return: The values of this TimeseriesSourcesSinks.  # noqa: E501
         :rtype: list[list[float]]
@@ -215,7 +218,6 @@ class TimeseriesSourcesSinks(object):
     def values(self, values):
         """Sets the values of this TimeseriesSourcesSinks.
 
-        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
         :param values: The values of this TimeseriesSourcesSinks.  # noqa: E501
         :type: list[list[float]]
@@ -229,10 +231,10 @@ class TimeseriesSourcesSinks(object):
     def units(self):
         """Gets the units of this TimeseriesSourcesSinks.  # noqa: E501
 
-        'm/s' (only option for now)  # noqa: E501
+        'm/s' (only option for now)  * `m/s` - m/s  # noqa: E501
 
         :return: The units of this TimeseriesSourcesSinks.  # noqa: E501
-        :rtype: str
+        :rtype: TimeseriesRainMsUnitEnum
         """
         return self._units
 
@@ -240,19 +242,13 @@ class TimeseriesSourcesSinks(object):
     def units(self, units):
         """Sets the units of this TimeseriesSourcesSinks.
 
-        'm/s' (only option for now)  # noqa: E501
+        'm/s' (only option for now)  * `m/s` - m/s  # noqa: E501
 
         :param units: The units of this TimeseriesSourcesSinks.  # noqa: E501
-        :type: str
+        :type: TimeseriesRainMsUnitEnum
         """
         if self.local_vars_configuration.client_side_validation and units is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `units`, must not be `None`")  # noqa: E501
-        allowed_values = ["m/s"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
-                .format(units, allowed_values)
-            )
 
         self._units = units
 
@@ -274,6 +270,8 @@ class TimeseriesSourcesSinks(object):
         :param uid: The uid of this TimeseriesSourcesSinks.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 
@@ -295,6 +293,8 @@ class TimeseriesSourcesSinks(object):
         :param id: The id of this TimeseriesSourcesSinks.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

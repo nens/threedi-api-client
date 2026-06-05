@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -44,7 +44,11 @@ class Template(object):
     }
 
     required_fields = [
+       'url',
        'name',
+       'id',
+       'created',
+       'simulation'
     ]
 
     attribute_map = {
@@ -71,15 +75,11 @@ class Template(object):
         self._simulation = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
+        self.url = url
         self.name = name
-        if id is not None:
-            self.id = id
-        if created is not None:
-            self.created = created
-        if simulation is not None:
-            self.simulation = simulation
+        self.id = id
+        self.created = created
+        self.simulation = simulation
 
     @property
     def url(self):
@@ -99,6 +99,8 @@ class Template(object):
         :param url: The url of this Template.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -125,9 +127,6 @@ class Template(object):
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 255):
             self.__handle_validation_error("Invalid value for `name`, length must be less than or equal to `255`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -149,6 +148,8 @@ class Template(object):
         :param id: The id of this Template.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -170,6 +171,8 @@ class Template(object):
         :param created: The created of this Template.  # noqa: E501
         :type: datetime
         """
+        if self.local_vars_configuration.client_side_validation and created is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `created`, must not be `None`")  # noqa: E501
 
         self._created = created
 
@@ -191,6 +194,8 @@ class Template(object):
         :param simulation: The simulation of this Template.  # noqa: E501
         :type: Simulation
         """
+        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 

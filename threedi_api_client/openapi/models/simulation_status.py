@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,7 +37,7 @@ class SimulationStatus(object):
     """
     openapi_types = {
         'url': 'str',
-        'name': 'str',
+        'name': 'SimulationStatusNameEnum',
         'simulation': 'str',
         'simulation_id': 'int',
         'simulation_name': 'str',
@@ -54,12 +54,27 @@ class SimulationStatus(object):
         'time': 'int',
         'paused': 'bool',
         'detail': 'object',
-        'exit_code': 'int',
+        'exit_code': 'OneOfExitCodeEnumNullEnum',
         'id': 'int'
     }
 
     required_fields = [
+       'url',
        'name',
+       'simulation',
+       'simulation_id',
+       'simulation_name',
+       'simulation_user_email',
+       'simulation_organisation_unique_id',
+       'simulation_tags',
+       'simulation_user_first_name',
+       'simulation_user_last_name',
+       'threedimodel_slug',
+       'threedimodel_id',
+       'has_results',
+       'created',
+       'expiry',
+       'id'
     ]
 
     attribute_map = {
@@ -116,39 +131,26 @@ class SimulationStatus(object):
         self._id = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
+        self.url = url
         self.name = name
-        if simulation is not None:
-            self.simulation = simulation
-        if simulation_id is not None:
-            self.simulation_id = simulation_id
-        if simulation_name is not None:
-            self.simulation_name = simulation_name
+        self.simulation = simulation
+        self.simulation_id = simulation_id
+        self.simulation_name = simulation_name
         self.simulation_user_email = simulation_user_email
-        if simulation_organisation_unique_id is not None:
-            self.simulation_organisation_unique_id = simulation_organisation_unique_id
-        if simulation_tags is not None:
-            self.simulation_tags = simulation_tags
-        if simulation_user_first_name is not None:
-            self.simulation_user_first_name = simulation_user_first_name
-        if simulation_user_last_name is not None:
-            self.simulation_user_last_name = simulation_user_last_name
-        if threedimodel_slug is not None:
-            self.threedimodel_slug = threedimodel_slug
-        if threedimodel_id is not None:
-            self.threedimodel_id = threedimodel_id
-        if has_results is not None:
-            self.has_results = has_results
-        if created is not None:
-            self.created = created
+        self.simulation_organisation_unique_id = simulation_organisation_unique_id
+        self.simulation_tags = simulation_tags
+        self.simulation_user_first_name = simulation_user_first_name
+        self.simulation_user_last_name = simulation_user_last_name
+        self.threedimodel_slug = threedimodel_slug
+        self.threedimodel_id = threedimodel_id
+        self.has_results = has_results
+        self.created = created
         self.expiry = expiry
         self.time = time
         self.paused = paused
         self.detail = detail
         self.exit_code = exit_code
-        if id is not None:
-            self.id = id
+        self.id = id
 
     @property
     def url(self):
@@ -168,6 +170,8 @@ class SimulationStatus(object):
         :param url: The url of this SimulationStatus.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -177,7 +181,7 @@ class SimulationStatus(object):
 
 
         :return: The name of this SimulationStatus.  # noqa: E501
-        :rtype: str
+        :rtype: SimulationStatusNameEnum
         """
         return self._name
 
@@ -187,16 +191,10 @@ class SimulationStatus(object):
 
 
         :param name: The name of this SimulationStatus.  # noqa: E501
-        :type: str
+        :type: SimulationStatusNameEnum
         """
         if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `name`, must not be `None`")  # noqa: E501
-        allowed_values = ["created", "starting", "initialized", "queued", "ended", "postprocessing", "finished", "crashed"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and name not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `name` ({0}), must be one of {1}"  # noqa: E501
-                .format(name, allowed_values)
-            )
 
         self._name = name
 
@@ -218,6 +216,8 @@ class SimulationStatus(object):
         :param simulation: The simulation of this SimulationStatus.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -239,6 +239,8 @@ class SimulationStatus(object):
         :param simulation_id: The simulation_id of this SimulationStatus.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and simulation_id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation_id`, must not be `None`")  # noqa: E501
 
         self._simulation_id = simulation_id
 
@@ -260,6 +262,8 @@ class SimulationStatus(object):
         :param simulation_name: The simulation_name of this SimulationStatus.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and simulation_name is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation_name`, must not be `None`")  # noqa: E501
 
         self._simulation_name = simulation_name
 
@@ -302,6 +306,8 @@ class SimulationStatus(object):
         :param simulation_organisation_unique_id: The simulation_organisation_unique_id of this SimulationStatus.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and simulation_organisation_unique_id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation_organisation_unique_id`, must not be `None`")  # noqa: E501
 
         self._simulation_organisation_unique_id = simulation_organisation_unique_id
 
@@ -323,6 +329,8 @@ class SimulationStatus(object):
         :param simulation_tags: The simulation_tags of this SimulationStatus.  # noqa: E501
         :type: list[str]
         """
+        if self.local_vars_configuration.client_side_validation and simulation_tags is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation_tags`, must not be `None`")  # noqa: E501
 
         self._simulation_tags = simulation_tags
 
@@ -344,6 +352,8 @@ class SimulationStatus(object):
         :param simulation_user_first_name: The simulation_user_first_name of this SimulationStatus.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and simulation_user_first_name is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation_user_first_name`, must not be `None`")  # noqa: E501
 
         self._simulation_user_first_name = simulation_user_first_name
 
@@ -365,6 +375,8 @@ class SimulationStatus(object):
         :param simulation_user_last_name: The simulation_user_last_name of this SimulationStatus.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and simulation_user_last_name is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation_user_last_name`, must not be `None`")  # noqa: E501
 
         self._simulation_user_last_name = simulation_user_last_name
 
@@ -386,6 +398,8 @@ class SimulationStatus(object):
         :param threedimodel_slug: The threedimodel_slug of this SimulationStatus.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and threedimodel_slug is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `threedimodel_slug`, must not be `None`")  # noqa: E501
 
         self._threedimodel_slug = threedimodel_slug
 
@@ -407,6 +421,8 @@ class SimulationStatus(object):
         :param threedimodel_id: The threedimodel_id of this SimulationStatus.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and threedimodel_id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `threedimodel_id`, must not be `None`")  # noqa: E501
 
         self._threedimodel_id = threedimodel_id
 
@@ -449,6 +465,8 @@ class SimulationStatus(object):
         :param created: The created of this SimulationStatus.  # noqa: E501
         :type: datetime
         """
+        if self.local_vars_configuration.client_side_validation and created is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `created`, must not be `None`")  # noqa: E501
 
         self._created = created
 
@@ -548,10 +566,10 @@ class SimulationStatus(object):
     def exit_code(self):
         """Gets the exit_code of this SimulationStatus.  # noqa: E501
 
-        only available for final statuses like 'finished' or 'crashed'. Gives detailed insight to the application state when the simulation finished  # noqa: E501
+        only available for final statuses like 'finished' or 'crashed'. Gives detailed insight to the application state when the simulation finished  * `1110` - user_shutdown_premature * `1210` - user_shutdown * `1240` - finished * `4161` - health_check_premature_container_error * `4262` - health_check_container_error * `4263` - health_check_initialized_error * `4264` - health_check_ended_error * `4265` - health_check_postprocessing_error * `4120` - initial_condition_worker_error * `4220` - event_worker_error * `4150` - container_startup_error * `4280` - out_of_resources * `4240` - calculation_core_error * `4270` - calculation_python_error * `4230` - api_ressource_error * `4231` - upload_request_error * `4232` - unfinished_tasks_error * `2150` - ignition_timeout * `2110` - initialized_paused_timeout * `2210` - paused_timeout * `2120` - initial_condition_worker_timeout * `2220` - event_worker_timeout * `2230` - enque_action_collection_timeout * `2240` - clear_event_data_timeout  # noqa: E501
 
         :return: The exit_code of this SimulationStatus.  # noqa: E501
-        :rtype: int
+        :rtype: OneOfExitCodeEnumNullEnum
         """
         return self._exit_code
 
@@ -559,10 +577,10 @@ class SimulationStatus(object):
     def exit_code(self, exit_code):
         """Sets the exit_code of this SimulationStatus.
 
-        only available for final statuses like 'finished' or 'crashed'. Gives detailed insight to the application state when the simulation finished  # noqa: E501
+        only available for final statuses like 'finished' or 'crashed'. Gives detailed insight to the application state when the simulation finished  * `1110` - user_shutdown_premature * `1210` - user_shutdown * `1240` - finished * `4161` - health_check_premature_container_error * `4262` - health_check_container_error * `4263` - health_check_initialized_error * `4264` - health_check_ended_error * `4265` - health_check_postprocessing_error * `4120` - initial_condition_worker_error * `4220` - event_worker_error * `4150` - container_startup_error * `4280` - out_of_resources * `4240` - calculation_core_error * `4270` - calculation_python_error * `4230` - api_ressource_error * `4231` - upload_request_error * `4232` - unfinished_tasks_error * `2150` - ignition_timeout * `2110` - initialized_paused_timeout * `2210` - paused_timeout * `2120` - initial_condition_worker_timeout * `2220` - event_worker_timeout * `2230` - enque_action_collection_timeout * `2240` - clear_event_data_timeout  # noqa: E501
 
         :param exit_code: The exit_code of this SimulationStatus.  # noqa: E501
-        :type: int
+        :type: OneOfExitCodeEnumNullEnum
         """
 
         self._exit_code = exit_code
@@ -585,6 +603,8 @@ class SimulationStatus(object):
         :param id: The id of this SimulationStatus.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

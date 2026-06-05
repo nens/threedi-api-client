@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -55,14 +55,25 @@ class Simulation(object):
         'threedicore_version': 'str',
         'cloned_from': 'str',
         'compute_cluster': 'str',
-        'started_from': 'str'
+        'started_from': 'OneOfStartedFromEnumBlankEnum'
     }
 
     required_fields = [
+       'url',
+       'slug',
+       'uuid',
        'name',
+       'created',
        'threedimodel',
        'organisation',
+       'organisation_name',
+       'user',
        'start_datetime',
+       'duration_humanized',
+       'threedimodel_id',
+       'id',
+       'cloned_from',
+       'compute_cluster',
     ]
 
     attribute_map = {
@@ -119,39 +130,28 @@ class Simulation(object):
         self._started_from = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
-        if slug is not None:
-            self.slug = slug
-        if uuid is not None:
-            self.uuid = uuid
+        self.url = url
+        self.slug = slug
+        self.uuid = uuid
         self.name = name
         if tags is not None:
             self.tags = tags
-        if created is not None:
-            self.created = created
+        self.created = created
         self.threedimodel = threedimodel
         self.organisation = organisation
-        if organisation_name is not None:
-            self.organisation_name = organisation_name
-        if user is not None:
-            self.user = user
+        self.organisation_name = organisation_name
+        self.user = user
         self.start_datetime = start_datetime
         if end_datetime is not None:
             self.end_datetime = end_datetime
         if duration is not None:
             self.duration = duration
-        if duration_humanized is not None:
-            self.duration_humanized = duration_humanized
-        if threedimodel_id is not None:
-            self.threedimodel_id = threedimodel_id
-        if id is not None:
-            self.id = id
+        self.duration_humanized = duration_humanized
+        self.threedimodel_id = threedimodel_id
+        self.id = id
         self.threedicore_version = threedicore_version
-        if cloned_from is not None:
-            self.cloned_from = cloned_from
-        if compute_cluster is not None:
-            self.compute_cluster = compute_cluster
+        self.cloned_from = cloned_from
+        self.compute_cluster = compute_cluster
         if started_from is not None:
             self.started_from = started_from
 
@@ -173,6 +173,8 @@ class Simulation(object):
         :param url: The url of this Simulation.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -194,9 +196,8 @@ class Simulation(object):
         :param slug: The slug of this Simulation.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and len(slug) < 1):
-            self.__handle_validation_error("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and slug is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `slug`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 slug is not None and not re.search(r'^[-a-zA-Z0-9_]+$', slug)):  # noqa: E501
             self.__handle_validation_error(r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
@@ -221,6 +222,8 @@ class Simulation(object):
         :param uuid: The uuid of this Simulation.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and uuid is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `uuid`, must not be `None`")  # noqa: E501
 
         self._uuid = uuid
 
@@ -247,9 +250,6 @@ class Simulation(object):
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 128):
             self.__handle_validation_error("Invalid value for `name`, length must be less than or equal to `128`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -257,7 +257,6 @@ class Simulation(object):
     def tags(self):
         """Gets the tags of this Simulation.  # noqa: E501
 
-        tags provided as a list of strings  # noqa: E501
 
         :return: The tags of this Simulation.  # noqa: E501
         :rtype: list[str]
@@ -268,7 +267,6 @@ class Simulation(object):
     def tags(self, tags):
         """Sets the tags of this Simulation.
 
-        tags provided as a list of strings  # noqa: E501
 
         :param tags: The tags of this Simulation.  # noqa: E501
         :type: list[str]
@@ -294,6 +292,8 @@ class Simulation(object):
         :param created: The created of this Simulation.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and created is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `created`, must not be `None`")  # noqa: E501
 
         self._created = created
 
@@ -301,7 +301,6 @@ class Simulation(object):
     def threedimodel(self):
         """Gets the threedimodel of this Simulation.  # noqa: E501
 
-        The id of a threedimodel  # noqa: E501
 
         :return: The threedimodel of this Simulation.  # noqa: E501
         :rtype: str
@@ -312,7 +311,6 @@ class Simulation(object):
     def threedimodel(self, threedimodel):
         """Sets the threedimodel of this Simulation.
 
-        The id of a threedimodel  # noqa: E501
 
         :param threedimodel: The threedimodel of this Simulation.  # noqa: E501
         :type: str
@@ -326,7 +324,6 @@ class Simulation(object):
     def organisation(self):
         """Gets the organisation of this Simulation.  # noqa: E501
 
-        The unique_id of an organisation  # noqa: E501
 
         :return: The organisation of this Simulation.  # noqa: E501
         :rtype: str
@@ -337,7 +334,6 @@ class Simulation(object):
     def organisation(self, organisation):
         """Sets the organisation of this Simulation.
 
-        The unique_id of an organisation  # noqa: E501
 
         :param organisation: The organisation of this Simulation.  # noqa: E501
         :type: str
@@ -365,6 +361,8 @@ class Simulation(object):
         :param organisation_name: The organisation_name of this Simulation.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and organisation_name is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `organisation_name`, must not be `None`")  # noqa: E501
 
         self._organisation_name = organisation_name
 
@@ -372,7 +370,7 @@ class Simulation(object):
     def user(self):
         """Gets the user of this Simulation.  # noqa: E501
 
-        The username of a user  # noqa: E501
+        Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.  # noqa: E501
 
         :return: The user of this Simulation.  # noqa: E501
         :rtype: str
@@ -383,14 +381,13 @@ class Simulation(object):
     def user(self, user):
         """Sets the user of this Simulation.
 
-        The username of a user  # noqa: E501
+        Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.  # noqa: E501
 
         :param user: The user of this Simulation.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                user is not None and not re.search(r'^[\w.@+-]+$', user)):  # noqa: E501
-            self.__handle_validation_error(r"Invalid value for `user`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and user is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `user`, must not be `None`")  # noqa: E501
 
         self._user = user
 
@@ -477,6 +474,8 @@ class Simulation(object):
         :param duration_humanized: The duration_humanized of this Simulation.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and duration_humanized is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `duration_humanized`, must not be `None`")  # noqa: E501
 
         self._duration_humanized = duration_humanized
 
@@ -498,6 +497,8 @@ class Simulation(object):
         :param threedimodel_id: The threedimodel_id of this Simulation.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and threedimodel_id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `threedimodel_id`, must not be `None`")  # noqa: E501
 
         self._threedimodel_id = threedimodel_id
 
@@ -519,6 +520,8 @@ class Simulation(object):
         :param id: The id of this Simulation.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -543,9 +546,6 @@ class Simulation(object):
         if (self.local_vars_configuration.client_side_validation and
                 threedicore_version is not None and len(threedicore_version) > 16):
             self.__handle_validation_error("Invalid value for `threedicore_version`, length must be less than or equal to `16`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                threedicore_version is not None and len(threedicore_version) < 1):
-            self.__handle_validation_error("Invalid value for `threedicore_version`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._threedicore_version = threedicore_version
 
@@ -567,6 +567,8 @@ class Simulation(object):
         :param cloned_from: The cloned_from of this Simulation.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and cloned_from is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `cloned_from`, must not be `None`")  # noqa: E501
 
         self._cloned_from = cloned_from
 
@@ -574,7 +576,6 @@ class Simulation(object):
     def compute_cluster(self):
         """Gets the compute_cluster of this Simulation.  # noqa: E501
 
-        The name of the compute cluster that runs/has run the simulation.  # noqa: E501
 
         :return: The compute_cluster of this Simulation.  # noqa: E501
         :rtype: str
@@ -585,11 +586,12 @@ class Simulation(object):
     def compute_cluster(self, compute_cluster):
         """Sets the compute_cluster of this Simulation.
 
-        The name of the compute cluster that runs/has run the simulation.  # noqa: E501
 
         :param compute_cluster: The compute_cluster of this Simulation.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and compute_cluster is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `compute_cluster`, must not be `None`")  # noqa: E501
 
         self._compute_cluster = compute_cluster
 
@@ -599,7 +601,7 @@ class Simulation(object):
 
 
         :return: The started_from of this Simulation.  # noqa: E501
-        :rtype: str
+        :rtype: OneOfStartedFromEnumBlankEnum
         """
         return self._started_from
 
@@ -609,14 +611,8 @@ class Simulation(object):
 
 
         :param started_from: The started_from of this Simulation.  # noqa: E501
-        :type: str
+        :type: OneOfStartedFromEnumBlankEnum
         """
-        allowed_values = ["", "3Di Live", "3Di Modeller Interface", "Rana Desktop Client"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and started_from not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `started_from` ({0}), must be one of {1}"  # noqa: E501
-                .format(started_from, allowed_values)
-            )
 
         self._started_from = started_from
 

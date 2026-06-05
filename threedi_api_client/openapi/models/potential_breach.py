@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -38,7 +38,7 @@ class PotentialBreach(object):
     openapi_types = {
         'url': 'str',
         'connected_pnt_id': 'int',
-        'levee_material': 'str',
+        'levee_material': 'LeveeMaterialEnum',
         'line_id': 'int',
         'maximum_breach_depth': 'float',
         'threedimodel': 'str',
@@ -46,10 +46,13 @@ class PotentialBreach(object):
     }
 
     required_fields = [
+       'url',
        'connected_pnt_id',
        'levee_material',
        'line_id',
        'maximum_breach_depth',
+       'threedimodel',
+       'id'
     ]
 
     attribute_map = {
@@ -80,16 +83,13 @@ class PotentialBreach(object):
         self._id = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
+        self.url = url
         self.connected_pnt_id = connected_pnt_id
         self.levee_material = levee_material
         self.line_id = line_id
         self.maximum_breach_depth = maximum_breach_depth
-        if threedimodel is not None:
-            self.threedimodel = threedimodel
-        if id is not None:
-            self.id = id
+        self.threedimodel = threedimodel
+        self.id = id
 
     @property
     def url(self):
@@ -109,6 +109,8 @@ class PotentialBreach(object):
         :param url: The url of this PotentialBreach.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -147,7 +149,7 @@ class PotentialBreach(object):
 
 
         :return: The levee_material of this PotentialBreach.  # noqa: E501
-        :rtype: str
+        :rtype: LeveeMaterialEnum
         """
         return self._levee_material
 
@@ -157,16 +159,10 @@ class PotentialBreach(object):
 
 
         :param levee_material: The levee_material of this PotentialBreach.  # noqa: E501
-        :type: str
+        :type: LeveeMaterialEnum
         """
         if self.local_vars_configuration.client_side_validation and levee_material is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `levee_material`, must not be `None`")  # noqa: E501
-        allowed_values = ["sand", "clay"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and levee_material not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `levee_material` ({0}), must be one of {1}"  # noqa: E501
-                .format(levee_material, allowed_values)
-            )
 
         self._levee_material = levee_material
 
@@ -240,6 +236,8 @@ class PotentialBreach(object):
         :param threedimodel: The threedimodel of this PotentialBreach.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and threedimodel is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `threedimodel`, must not be `None`")  # noqa: E501
 
         self._threedimodel = threedimodel
 
@@ -261,6 +259,8 @@ class PotentialBreach(object):
         :param id: The id of this PotentialBreach.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -45,8 +45,11 @@ class InpyVersion(object):
     }
 
     required_fields = [
+       'url',
        'threedi_version',
        'threedicore_version',
+       'slug',
+       'id',
     ]
 
     attribute_map = {
@@ -75,14 +78,11 @@ class InpyVersion(object):
         self._active = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
+        self.url = url
         self.threedi_version = threedi_version
         self.threedicore_version = threedicore_version
-        if slug is not None:
-            self.slug = slug
-        if id is not None:
-            self.id = id
+        self.slug = slug
+        self.id = id
         if active is not None:
             self.active = active
 
@@ -104,6 +104,8 @@ class InpyVersion(object):
         :param url: The url of this InpyVersion.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -130,9 +132,6 @@ class InpyVersion(object):
         if (self.local_vars_configuration.client_side_validation and
                 threedi_version is not None and len(threedi_version) > 80):
             self.__handle_validation_error("Invalid value for `threedi_version`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                threedi_version is not None and len(threedi_version) < 1):
-            self.__handle_validation_error("Invalid value for `threedi_version`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._threedi_version = threedi_version
 
@@ -159,9 +158,6 @@ class InpyVersion(object):
         if (self.local_vars_configuration.client_side_validation and
                 threedicore_version is not None and len(threedicore_version) > 80):
             self.__handle_validation_error("Invalid value for `threedicore_version`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                threedicore_version is not None and len(threedicore_version) < 1):
-            self.__handle_validation_error("Invalid value for `threedicore_version`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._threedicore_version = threedicore_version
 
@@ -183,9 +179,8 @@ class InpyVersion(object):
         :param slug: The slug of this InpyVersion.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and len(slug) < 1):
-            self.__handle_validation_error("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and slug is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `slug`, must not be `None`")  # noqa: E501
 
         self._slug = slug
 
@@ -207,6 +202,8 @@ class InpyVersion(object):
         :param id: The id of this InpyVersion.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

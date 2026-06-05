@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,7 +36,7 @@ class WaterLevelProfileRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'geometry': 'Linestring',
+        'geometry': 'dict(str, object)',
         'points_limit': 'int',
         'subscribe': 'bool',
         'subscribe_rate_limit': 'float'
@@ -54,7 +54,7 @@ class WaterLevelProfileRequest(object):
         'subscribe_rate_limit': 'subscribe_rate_limit'
     }
 
-    def __init__(self, geometry=None, points_limit=None, subscribe=None, subscribe_rate_limit=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, geometry=None, points_limit=100, subscribe=None, subscribe_rate_limit=0.5, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """WaterLevelProfileRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -80,9 +80,10 @@ class WaterLevelProfileRequest(object):
     def geometry(self):
         """Gets the geometry of this WaterLevelProfileRequest.  # noqa: E501
 
+        Linestring geometry to use (geojson format)  # noqa: E501
 
         :return: The geometry of this WaterLevelProfileRequest.  # noqa: E501
-        :rtype: Linestring
+        :rtype: dict(str, object)
         """
         return self._geometry
 
@@ -90,9 +91,10 @@ class WaterLevelProfileRequest(object):
     def geometry(self, geometry):
         """Sets the geometry of this WaterLevelProfileRequest.
 
+        Linestring geometry to use (geojson format)  # noqa: E501
 
         :param geometry: The geometry of this WaterLevelProfileRequest.  # noqa: E501
-        :type: Linestring
+        :type: dict(str, object)
         """
         if self.local_vars_configuration.client_side_validation and geometry is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `geometry`, must not be `None`")  # noqa: E501

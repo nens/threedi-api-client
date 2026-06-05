@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -48,8 +48,13 @@ class PersonalAPIKeyWithSecret(object):
     }
 
     required_fields = [
+       'prefix',
        'scope',
        'name',
+       'created',
+       'last_used',
+       'key',
+       'message'
     ]
 
     attribute_map = {
@@ -84,20 +89,16 @@ class PersonalAPIKeyWithSecret(object):
         self._message = None
         self.discriminator = None
 
-        if prefix is not None:
-            self.prefix = prefix
+        self.prefix = prefix
         self.scope = scope
         self.name = name
         self.expiry_date = expiry_date
-        if created is not None:
-            self.created = created
+        self.created = created
         if revoked is not None:
             self.revoked = revoked
         self.last_used = last_used
-        if key is not None:
-            self.key = key
-        if message is not None:
-            self.message = message
+        self.key = key
+        self.message = message
 
     @property
     def prefix(self):
@@ -117,9 +118,8 @@ class PersonalAPIKeyWithSecret(object):
         :param prefix: The prefix of this PersonalAPIKeyWithSecret.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                prefix is not None and len(prefix) < 1):
-            self.__handle_validation_error("Invalid value for `prefix`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and prefix is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `prefix`, must not be `None`")  # noqa: E501
 
         self._prefix = prefix
 
@@ -145,9 +145,6 @@ class PersonalAPIKeyWithSecret(object):
         """
         if self.local_vars_configuration.client_side_validation and scope is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `scope`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                scope is not None and len(scope) < 1):
-            self.__handle_validation_error("Invalid value for `scope`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._scope = scope
 
@@ -176,9 +173,6 @@ class PersonalAPIKeyWithSecret(object):
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 50):
             self.__handle_validation_error("Invalid value for `name`, length must be less than or equal to `50`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -223,6 +217,8 @@ class PersonalAPIKeyWithSecret(object):
         :param created: The created of this PersonalAPIKeyWithSecret.  # noqa: E501
         :type: datetime
         """
+        if self.local_vars_configuration.client_side_validation and created is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `created`, must not be `None`")  # noqa: E501
 
         self._created = created
 
@@ -292,9 +288,8 @@ class PersonalAPIKeyWithSecret(object):
         :param key: The key of this PersonalAPIKeyWithSecret.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                key is not None and len(key) < 1):
-            self.__handle_validation_error("Invalid value for `key`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and key is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `key`, must not be `None`")  # noqa: E501
 
         self._key = key
 
@@ -316,9 +311,8 @@ class PersonalAPIKeyWithSecret(object):
         :param message: The message of this PersonalAPIKeyWithSecret.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                message is not None and len(message) < 1):
-            self.__handle_validation_error("Invalid value for `message`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `message`, must not be `None`")  # noqa: E501
 
         self._message = message
 

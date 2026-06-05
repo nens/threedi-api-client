@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -42,13 +42,20 @@ class FileLateral(object):
         'simulation': 'str',
         'offset': 'int',
         'file': 'File',
-        'state': 'str',
-        'state_detail': 'object',
+        'state': 'EventStateEnum',
+        'state_detail': 'dict(str, object)',
         'periodic': 'str'
     }
 
     required_fields = [
+       'url',
+       'id',
+       'uid',
+       'simulation',
        'offset',
+       'state',
+       'state_detail',
+       'periodic'
     ]
 
     attribute_map = {
@@ -83,19 +90,14 @@ class FileLateral(object):
         self._periodic = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
-        if id is not None:
-            self.id = id
-        if uid is not None:
-            self.uid = uid
-        if simulation is not None:
-            self.simulation = simulation
+        self.url = url
+        self.id = id
+        self.uid = uid
+        self.simulation = simulation
         self.offset = offset
         if file is not None:
             self.file = file
-        if state is not None:
-            self.state = state
+        self.state = state
         self.state_detail = state_detail
         self.periodic = periodic
 
@@ -117,6 +119,8 @@ class FileLateral(object):
         :param url: The url of this FileLateral.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -138,6 +142,8 @@ class FileLateral(object):
         :param id: The id of this FileLateral.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -159,6 +165,8 @@ class FileLateral(object):
         :param uid: The uid of this FileLateral.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 
@@ -180,6 +188,8 @@ class FileLateral(object):
         :param simulation: The simulation of this FileLateral.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -241,7 +251,7 @@ class FileLateral(object):
 
 
         :return: The state of this FileLateral.  # noqa: E501
-        :rtype: str
+        :rtype: EventStateEnum
         """
         return self._state
 
@@ -251,14 +261,10 @@ class FileLateral(object):
 
 
         :param state: The state of this FileLateral.  # noqa: E501
-        :type: str
+        :type: EventStateEnum
         """
-        allowed_values = ["processing", "valid", "invalid"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
-                .format(state, allowed_values)
-            )
+        if self.local_vars_configuration.client_side_validation and state is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `state`, must not be `None`")  # noqa: E501
 
         self._state = state
 
@@ -268,7 +274,7 @@ class FileLateral(object):
 
 
         :return: The state_detail of this FileLateral.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, object)
         """
         return self._state_detail
 
@@ -278,7 +284,7 @@ class FileLateral(object):
 
 
         :param state_detail: The state_detail of this FileLateral.  # noqa: E501
-        :type: object
+        :type: dict(str, object)
         """
 
         self._state_detail = state_detail
@@ -301,12 +307,8 @@ class FileLateral(object):
         :param periodic: The periodic of this FileLateral.  # noqa: E501
         :type: str
         """
-        allowed_values = [None,"daily"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and periodic not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `periodic` ({0}), must be one of {1}"  # noqa: E501
-                .format(periodic, allowed_values)
-            )
+        if self.local_vars_configuration.client_side_validation and periodic is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `periodic`, must not be `None`")  # noqa: E501
 
         self._periodic = periodic
 

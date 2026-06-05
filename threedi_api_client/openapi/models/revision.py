@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -47,6 +47,8 @@ class Revision(object):
     }
 
     required_fields = [
+       'url',
+       'id',
        'repository',
     ]
 
@@ -80,10 +82,8 @@ class Revision(object):
         self._is_pinned = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
-        if id is not None:
-            self.id = id
+        self.url = url
+        self.id = id
         self.repository = repository
         if number is not None:
             self.number = number
@@ -110,6 +110,8 @@ class Revision(object):
         :param url: The url of this Revision.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -131,6 +133,8 @@ class Revision(object):
         :param id: The id of this Revision.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

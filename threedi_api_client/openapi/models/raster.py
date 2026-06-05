@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,20 +37,24 @@ class Raster(object):
     """
     openapi_types = {
         'url': 'str',
-        'type': 'str',
+        'type': 'RasterTypeEnum',
         'threedimodel': 'str',
         'name': 'str',
         'file': 'FileReadOnly',
         'id': 'int',
         'epsg_code': 'int',
-        'extent': 'Extent',
+        'extent': 'dict(str, object)',
         'geotransform': 'list[float]',
-        'unit': 'str'
+        'unit': 'UnitEnum'
     }
 
     required_fields = [
+       'url',
        'type',
+       'threedimodel',
        'name',
+       'file',
+       'id',
     ]
 
     attribute_map = {
@@ -87,20 +91,18 @@ class Raster(object):
         self._unit = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
+        self.url = url
         self.type = type
         self.threedimodel = threedimodel
         self.name = name
-        if file is not None:
-            self.file = file
-        if id is not None:
-            self.id = id
+        self.file = file
+        self.id = id
         self.epsg_code = epsg_code
         if extent is not None:
             self.extent = extent
         self.geotransform = geotransform
-        self.unit = unit
+        if unit is not None:
+            self.unit = unit
 
     @property
     def url(self):
@@ -120,6 +122,8 @@ class Raster(object):
         :param url: The url of this Raster.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -129,7 +133,7 @@ class Raster(object):
 
 
         :return: The type of this Raster.  # noqa: E501
-        :rtype: str
+        :rtype: RasterTypeEnum
         """
         return self._type
 
@@ -139,16 +143,10 @@ class Raster(object):
 
 
         :param type: The type of this Raster.  # noqa: E501
-        :type: str
+        :type: RasterTypeEnum
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["dem_file", "dem_raw_file", "equilibrium_infiltration_rate_file", "frict_coef_file", "initial_groundwater_level_file", "initial_waterlevel_file", "groundwater_hydro_connectivity_file", "groundwater_impervious_layer_level_file", "infiltration_decay_period_file", "initial_infiltration_rate_file", "leakage_file", "phreatic_storage_capacity_file", "hydraulic_conductivity_file", "porosity_file", "infiltration_rate_file", "max_infiltration_capacity_file", "interception_file", "vegetation_height_file", "vegetation_drag_coefficient_file", "vegetation_stem_count_file", "vegetation_stem_diameter_file", "initial_concentration_file", "initial_groundwater_concentration_file"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
 
         self._type = type
 
@@ -196,9 +194,6 @@ class Raster(object):
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 60):
             self.__handle_validation_error("Invalid value for `name`, length must be less than or equal to `60`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -220,6 +215,8 @@ class Raster(object):
         :param file: The file of this Raster.  # noqa: E501
         :type: FileReadOnly
         """
+        if self.local_vars_configuration.client_side_validation and file is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `file`, must not be `None`")  # noqa: E501
 
         self._file = file
 
@@ -241,6 +238,8 @@ class Raster(object):
         :param id: The id of this Raster.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -277,7 +276,7 @@ class Raster(object):
 
 
         :return: The extent of this Raster.  # noqa: E501
-        :rtype: Extent
+        :rtype: dict(str, object)
         """
         return self._extent
 
@@ -287,7 +286,7 @@ class Raster(object):
 
 
         :param extent: The extent of this Raster.  # noqa: E501
-        :type: Extent
+        :type: dict(str, object)
         """
 
         self._extent = extent
@@ -319,7 +318,7 @@ class Raster(object):
 
 
         :return: The unit of this Raster.  # noqa: E501
-        :rtype: str
+        :rtype: UnitEnum
         """
         return self._unit
 
@@ -329,14 +328,8 @@ class Raster(object):
 
 
         :param unit: The unit of this Raster.  # noqa: E501
-        :type: str
+        :type: UnitEnum
         """
-        allowed_values = [None,"meters"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and unit not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `unit` ({0}), must be one of {1}"  # noqa: E501
-                .format(unit, allowed_values)
-            )
 
         self._unit = unit
 

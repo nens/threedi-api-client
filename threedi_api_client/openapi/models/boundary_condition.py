@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,12 +40,15 @@ class BoundaryCondition(object):
         'url': 'str',
         'boundary_id': 'int',
         'threedimodel': 'str',
-        'type': 'str',
-        'dimension': 'str'
+        'type': 'BoundaryConditionTypeEnum',
+        'dimension': 'DimensionEnum'
     }
 
     required_fields = [
+       'id',
+       'url',
        'boundary_id',
+       'threedimodel',
        'type',
        'dimension'
     ]
@@ -76,13 +79,10 @@ class BoundaryCondition(object):
         self._dimension = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
-        if url is not None:
-            self.url = url
+        self.id = id
+        self.url = url
         self.boundary_id = boundary_id
-        if threedimodel is not None:
-            self.threedimodel = threedimodel
+        self.threedimodel = threedimodel
         self.type = type
         self.dimension = dimension
 
@@ -104,6 +104,8 @@ class BoundaryCondition(object):
         :param id: The id of this BoundaryCondition.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -125,6 +127,8 @@ class BoundaryCondition(object):
         :param url: The url of this BoundaryCondition.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -175,6 +179,8 @@ class BoundaryCondition(object):
         :param threedimodel: The threedimodel of this BoundaryCondition.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and threedimodel is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `threedimodel`, must not be `None`")  # noqa: E501
 
         self._threedimodel = threedimodel
 
@@ -184,7 +190,7 @@ class BoundaryCondition(object):
 
 
         :return: The type of this BoundaryCondition.  # noqa: E501
-        :rtype: str
+        :rtype: BoundaryConditionTypeEnum
         """
         return self._type
 
@@ -194,16 +200,10 @@ class BoundaryCondition(object):
 
 
         :param type: The type of this BoundaryCondition.  # noqa: E501
-        :type: str
+        :type: BoundaryConditionTypeEnum
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["velocity", "sommerfeldt", "riemann", "water_level", "discharge"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
 
         self._type = type
 
@@ -213,7 +213,7 @@ class BoundaryCondition(object):
 
 
         :return: The dimension of this BoundaryCondition.  # noqa: E501
-        :rtype: str
+        :rtype: DimensionEnum
         """
         return self._dimension
 
@@ -223,16 +223,10 @@ class BoundaryCondition(object):
 
 
         :param dimension: The dimension of this BoundaryCondition.  # noqa: E501
-        :type: str
+        :type: DimensionEnum
         """
         if self.local_vars_configuration.client_side_validation and dimension is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `dimension`, must not be `None`")  # noqa: E501
-        allowed_values = ["one_d", "two_d"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and dimension not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `dimension` ({0}), must be one of {1}"  # noqa: E501
-                .format(dimension, allowed_values)
-            )
 
         self._dimension = dimension
 

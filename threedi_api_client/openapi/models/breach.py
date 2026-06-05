@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -41,7 +41,7 @@ class Breach(object):
         'line_id': 'int',
         'duration_till_max_depth': 'int',
         'maximum_breach_depth': 'float',
-        'levee_material': 'str',
+        'levee_material': 'LeveeMaterialEnum',
         'initial_width': 'float',
         'discharge_coefficient_positive': 'float',
         'discharge_coefficient_negative': 'float',
@@ -52,9 +52,13 @@ class Breach(object):
     }
 
     required_fields = [
+       'url',
        'duration_till_max_depth',
        'initial_width',
+       'simulation',
        'offset',
+       'id',
+       'uid'
     ]
 
     attribute_map = {
@@ -97,8 +101,7 @@ class Breach(object):
         self._uid = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
+        self.url = url
         if potential_breach is not None:
             self.potential_breach = potential_breach
         if line_id is not None:
@@ -111,13 +114,10 @@ class Breach(object):
         self.initial_width = initial_width
         self.discharge_coefficient_positive = discharge_coefficient_positive
         self.discharge_coefficient_negative = discharge_coefficient_negative
-        if simulation is not None:
-            self.simulation = simulation
+        self.simulation = simulation
         self.offset = offset
-        if id is not None:
-            self.id = id
-        if uid is not None:
-            self.uid = uid
+        self.id = id
+        self.uid = uid
 
     @property
     def url(self):
@@ -137,6 +137,8 @@ class Breach(object):
         :param url: The url of this Breach.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -250,7 +252,7 @@ class Breach(object):
 
 
         :return: The levee_material of this Breach.  # noqa: E501
-        :rtype: str
+        :rtype: LeveeMaterialEnum
         """
         return self._levee_material
 
@@ -260,14 +262,8 @@ class Breach(object):
 
 
         :param levee_material: The levee_material of this Breach.  # noqa: E501
-        :type: str
+        :type: LeveeMaterialEnum
         """
-        allowed_values = ["sand", "clay"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and levee_material not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `levee_material` ({0}), must be one of {1}"  # noqa: E501
-                .format(levee_material, allowed_values)
-            )
 
         self._levee_material = levee_material
 
@@ -356,6 +352,8 @@ class Breach(object):
         :param simulation: The simulation of this Breach.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -408,6 +406,8 @@ class Breach(object):
         :param id: The id of this Breach.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -429,6 +429,8 @@ class Breach(object):
         :param uid: The uid of this Breach.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -84,9 +84,6 @@ class Authenticate(object):
         :param username: The username of this Authenticate.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                username is not None and len(username) < 1):
-            self.__handle_validation_error("Invalid value for `username`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._username = username
 
@@ -108,9 +105,6 @@ class Authenticate(object):
         :param password: The password of this Authenticate.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                password is not None and len(password) < 1):
-            self.__handle_validation_error("Invalid value for `password`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._password = password
 

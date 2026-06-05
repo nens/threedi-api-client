@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -45,6 +45,7 @@ class AddUser(object):
     }
 
     required_fields = [
+       'user_id',
        'username',
        'email',
        'external_user_id'
@@ -76,8 +77,7 @@ class AddUser(object):
         self._external_user_id = None
         self.discriminator = None
 
-        if user_id is not None:
-            self.user_id = user_id
+        self.user_id = user_id
         self.username = username
         if first_name is not None:
             self.first_name = first_name
@@ -104,6 +104,8 @@ class AddUser(object):
         :param user_id: The user_id of this AddUser.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and user_id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `user_id`, must not be `None`")  # noqa: E501
 
         self._user_id = user_id
 
@@ -130,9 +132,6 @@ class AddUser(object):
         if (self.local_vars_configuration.client_side_validation and
                 username is not None and len(username) > 150):
             self.__handle_validation_error("Invalid value for `username`, length must be less than or equal to `150`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                username is not None and len(username) < 1):
-            self.__handle_validation_error("Invalid value for `username`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._username = username
 
@@ -157,9 +156,6 @@ class AddUser(object):
         if (self.local_vars_configuration.client_side_validation and
                 first_name is not None and len(first_name) > 150):
             self.__handle_validation_error("Invalid value for `first_name`, length must be less than or equal to `150`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                first_name is not None and len(first_name) < 1):
-            self.__handle_validation_error("Invalid value for `first_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._first_name = first_name
 
@@ -184,9 +180,6 @@ class AddUser(object):
         if (self.local_vars_configuration.client_side_validation and
                 last_name is not None and len(last_name) > 150):
             self.__handle_validation_error("Invalid value for `last_name`, length must be less than or equal to `150`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                last_name is not None and len(last_name) < 1):
-            self.__handle_validation_error("Invalid value for `last_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._last_name = last_name
 
@@ -210,9 +203,6 @@ class AddUser(object):
         """
         if self.local_vars_configuration.client_side_validation and email is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `email`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                email is not None and len(email) < 1):
-            self.__handle_validation_error("Invalid value for `email`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._email = email
 
@@ -239,9 +229,6 @@ class AddUser(object):
         if (self.local_vars_configuration.client_side_validation and
                 external_user_id is not None and len(external_user_id) > 255):
             self.__handle_validation_error("Invalid value for `external_user_id`, length must be less than or equal to `255`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                external_user_id is not None and len(external_user_id) < 1):
-            self.__handle_validation_error("Invalid value for `external_user_id`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._external_user_id = external_user_id
 

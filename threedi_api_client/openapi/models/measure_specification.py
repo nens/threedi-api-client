@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -39,11 +39,12 @@ class MeasureSpecification(object):
         'id': 'int',
         'name': 'str',
         'locations': 'list[MeasureLocation]',
-        'variable': 'str',
-        'operator': 'str'
+        'variable': 'MeasureSpecificationVariableEnum',
+        'operator': 'OperatorEnum'
     }
 
     required_fields = [
+       'id',
        'locations',
        'variable',
        'operator'
@@ -73,8 +74,7 @@ class MeasureSpecification(object):
         self._operator = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
+        self.id = id
         if name is not None:
             self.name = name
         self.locations = locations
@@ -99,6 +99,8 @@ class MeasureSpecification(object):
         :param id: The id of this MeasureSpecification.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -153,10 +155,10 @@ class MeasureSpecification(object):
     def variable(self):
         """Gets the variable of this MeasureSpecification.  # noqa: E501
 
-        measurement variable, one of the following options:  s1 (waterlevel) vol1 (volume) q (discharge) u1 (velocity)   # noqa: E501
+        measurement variable, one of the following options:  s1 (waterlevel) vol1 (volume) q (discharge) u1 (velocity)   * `s1` - waterlevel * `vol1` - volume * `q` - discharge * `u1` - velocity  # noqa: E501
 
         :return: The variable of this MeasureSpecification.  # noqa: E501
-        :rtype: str
+        :rtype: MeasureSpecificationVariableEnum
         """
         return self._variable
 
@@ -164,19 +166,13 @@ class MeasureSpecification(object):
     def variable(self, variable):
         """Sets the variable of this MeasureSpecification.
 
-        measurement variable, one of the following options:  s1 (waterlevel) vol1 (volume) q (discharge) u1 (velocity)   # noqa: E501
+        measurement variable, one of the following options:  s1 (waterlevel) vol1 (volume) q (discharge) u1 (velocity)   * `s1` - waterlevel * `vol1` - volume * `q` - discharge * `u1` - velocity  # noqa: E501
 
         :param variable: The variable of this MeasureSpecification.  # noqa: E501
-        :type: str
+        :type: MeasureSpecificationVariableEnum
         """
         if self.local_vars_configuration.client_side_validation and variable is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `variable`, must not be `None`")  # noqa: E501
-        allowed_values = ["s1", "vol1", "q", "u1"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and variable not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `variable` ({0}), must be one of {1}"  # noqa: E501
-                .format(variable, allowed_values)
-            )
 
         self._variable = variable
 
@@ -184,10 +180,10 @@ class MeasureSpecification(object):
     def operator(self):
         """Gets the operator of this MeasureSpecification.  # noqa: E501
 
-        e.g. >, <, >=, <=  # noqa: E501
+        e.g. >, <, >=, <=  * `>` - greater_than * `>=` - greater_than_equal * `<` - less_than * `<=` - less_than_equal  # noqa: E501
 
         :return: The operator of this MeasureSpecification.  # noqa: E501
-        :rtype: str
+        :rtype: OperatorEnum
         """
         return self._operator
 
@@ -195,19 +191,13 @@ class MeasureSpecification(object):
     def operator(self, operator):
         """Sets the operator of this MeasureSpecification.
 
-        e.g. >, <, >=, <=  # noqa: E501
+        e.g. >, <, >=, <=  * `>` - greater_than * `>=` - greater_than_equal * `<` - less_than * `<=` - less_than_equal  # noqa: E501
 
         :param operator: The operator of this MeasureSpecification.  # noqa: E501
-        :type: str
+        :type: OperatorEnum
         """
         if self.local_vars_configuration.client_side_validation and operator is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `operator`, must not be `None`")  # noqa: E501
-        allowed_values = [">", ">=", "<", "<="]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and operator not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `operator` ({0}), must be one of {1}"  # noqa: E501
-                .format(operator, allowed_values)
-            )
 
         self._operator = operator
 
