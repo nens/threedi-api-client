@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,7 @@ class PatchedObstacleEdit(object):
         'simulation': 'str',
         'offset': 'int',
         'value': 'float',
-        'linestring': 'dict(str, object)',
+        'linestring': 'Linestring',
         'state': 'EventStateEnum',
         'state_detail': 'object',
         'uid': 'str',
@@ -200,7 +200,7 @@ class PatchedObstacleEdit(object):
 
 
         :return: The linestring of this PatchedObstacleEdit.  # noqa: E501
-        :rtype: dict(str, object)
+        :rtype: Linestring
         """
         return self._linestring
 
@@ -210,7 +210,7 @@ class PatchedObstacleEdit(object):
 
 
         :param linestring: The linestring of this PatchedObstacleEdit.  # noqa: E501
-        :type: dict(str, object)
+        :type: Linestring
         """
 
         self._linestring = linestring

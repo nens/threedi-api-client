@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -44,7 +44,6 @@ class AggregationSettings(object):
     }
 
     required_fields = [
-       'url',
        'flow_variable',
        'method',
        'interval'
@@ -74,7 +73,8 @@ class AggregationSettings(object):
         self._interval = None
         self.discriminator = None
 
-        self.url = url
+        if url is not None:
+            self.url = url
         self.name = name
         self.flow_variable = flow_variable
         self.method = method
@@ -98,8 +98,6 @@ class AggregationSettings(object):
         :param url: The url of this AggregationSettings.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 

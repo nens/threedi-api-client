@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -41,21 +41,17 @@ class RasterEdit(object):
         'raster': 'str',
         'offset': 'int',
         'value': 'float',
-        'polygon': 'ForcingSubstanceWithZoneZone',
+        'polygon': 'Polygon',
         'relative': 'bool',
         'uid': 'str',
         'id': 'int'
     }
 
     required_fields = [
-       'url',
-       'simulation',
        'raster',
        'offset',
        'value',
        'polygon',
-       'uid',
-       'id'
     ]
 
     attribute_map = {
@@ -90,16 +86,20 @@ class RasterEdit(object):
         self._id = None
         self.discriminator = None
 
-        self.url = url
-        self.simulation = simulation
+        if url is not None:
+            self.url = url
+        if simulation is not None:
+            self.simulation = simulation
         self.raster = raster
         self.offset = offset
         self.value = value
         self.polygon = polygon
         if relative is not None:
             self.relative = relative
-        self.uid = uid
-        self.id = id
+        if uid is not None:
+            self.uid = uid
+        if id is not None:
+            self.id = id
 
     @property
     def url(self):
@@ -119,8 +119,6 @@ class RasterEdit(object):
         :param url: The url of this RasterEdit.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -142,8 +140,6 @@ class RasterEdit(object):
         :param simulation: The simulation of this RasterEdit.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -232,7 +228,7 @@ class RasterEdit(object):
 
 
         :return: The polygon of this RasterEdit.  # noqa: E501
-        :rtype: ForcingSubstanceWithZoneZone
+        :rtype: Polygon
         """
         return self._polygon
 
@@ -242,7 +238,7 @@ class RasterEdit(object):
 
 
         :param polygon: The polygon of this RasterEdit.  # noqa: E501
-        :type: ForcingSubstanceWithZoneZone
+        :type: Polygon
         """
         if self.local_vars_configuration.client_side_validation and polygon is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `polygon`, must not be `None`")  # noqa: E501
@@ -290,8 +286,6 @@ class RasterEdit(object):
         :param uid: The uid of this RasterEdit.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 
@@ -313,8 +307,6 @@ class RasterEdit(object):
         :param id: The id of this RasterEdit.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

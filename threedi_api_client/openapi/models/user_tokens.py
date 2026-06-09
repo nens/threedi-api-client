@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -48,8 +48,6 @@ class UserTokens(object):
     required_fields = [
        'user',
        'external_user_id',
-       'created',
-       'last_modified',
     ]
 
     attribute_map = {
@@ -82,8 +80,10 @@ class UserTokens(object):
 
         self.user = user
         self.external_user_id = external_user_id
-        self.created = created
-        self.last_modified = last_modified
+        if created is not None:
+            self.created = created
+        if last_modified is not None:
+            self.last_modified = last_modified
         if id_token is not None:
             self.id_token = id_token
         if access_token is not None:
@@ -160,8 +160,6 @@ class UserTokens(object):
         :param created: The created of this UserTokens.  # noqa: E501
         :type: datetime
         """
-        if self.local_vars_configuration.client_side_validation and created is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `created`, must not be `None`")  # noqa: E501
 
         self._created = created
 
@@ -185,8 +183,6 @@ class UserTokens(object):
         :param last_modified: The last_modified of this UserTokens.  # noqa: E501
         :type: datetime
         """
-        if self.local_vars_configuration.client_side_validation and last_modified is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `last_modified`, must not be `None`")  # noqa: E501
 
         self._last_modified = last_modified
 

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -46,8 +46,6 @@ class TimeStepSettings(object):
     }
 
     required_fields = [
-       'id',
-       'simulation_id',
        'time_step',
        'min_time_step',
        'use_time_step_stretch',
@@ -81,8 +79,10 @@ class TimeStepSettings(object):
         self._output_time_step = None
         self.discriminator = None
 
-        self.id = id
-        self.simulation_id = simulation_id
+        if id is not None:
+            self.id = id
+        if simulation_id is not None:
+            self.simulation_id = simulation_id
         self.time_step = time_step
         self.min_time_step = min_time_step
         self.max_time_step = max_time_step
@@ -107,8 +107,6 @@ class TimeStepSettings(object):
         :param id: The id of this TimeStepSettings.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -130,8 +128,6 @@ class TimeStepSettings(object):
         :param simulation_id: The simulation_id of this TimeStepSettings.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and simulation_id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation_id`, must not be `None`")  # noqa: E501
 
         self._simulation_id = simulation_id
 

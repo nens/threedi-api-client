@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -42,7 +42,7 @@ class LocalRain(object):
         'duration': 'int',
         'interpolate': 'bool',
         'values': 'list[list[float]]',
-        'units': 'str',
+        'units': 'LocalRainUnitEnum',
         'constant': 'bool',
         'point': 'Point',
         'diameter': 'int',
@@ -272,10 +272,10 @@ class LocalRain(object):
     def units(self):
         """Gets the units of this LocalRain.  # noqa: E501
 
-        m/s is only option for now  # noqa: E501
+        m/s is only option for now  * `m/s` - meter_per_second * `mm/h` - millimeter_per_hour * `mm/min` - millimeter_per_minute  # noqa: E501
 
         :return: The units of this LocalRain.  # noqa: E501
-        :rtype: str
+        :rtype: LocalRainUnitEnum
         """
         return self._units
 
@@ -283,17 +283,11 @@ class LocalRain(object):
     def units(self, units):
         """Sets the units of this LocalRain.
 
-        m/s is only option for now  # noqa: E501
+        m/s is only option for now  * `m/s` - meter_per_second * `mm/h` - millimeter_per_hour * `mm/min` - millimeter_per_minute  # noqa: E501
 
         :param units: The units of this LocalRain.  # noqa: E501
-        :type: str
+        :type: LocalRainUnitEnum
         """
-        allowed_values = ["m/s", "mm/h", "mm/min"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
-                .format(units, allowed_values)
-            )
 
         self._units = units
 

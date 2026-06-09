@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -42,9 +42,7 @@ class PostProcessingStatus(object):
     }
 
     required_fields = [
-       'simulation',
        'status',
-       'created'
     ]
 
     attribute_map = {
@@ -67,9 +65,11 @@ class PostProcessingStatus(object):
         self._created = None
         self.discriminator = None
 
-        self.simulation = simulation
+        if simulation is not None:
+            self.simulation = simulation
         self.status = status
-        self.created = created
+        if created is not None:
+            self.created = created
 
     @property
     def simulation(self):
@@ -89,8 +89,6 @@ class PostProcessingStatus(object):
         :param simulation: The simulation of this PostProcessingStatus.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -135,8 +133,6 @@ class PostProcessingStatus(object):
         :param created: The created of this PostProcessingStatus.  # noqa: E501
         :type: datetime
         """
-        if self.local_vars_configuration.client_side_validation and created is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `created`, must not be `None`")  # noqa: E501
 
         self._created = created
 

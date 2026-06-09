@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -43,18 +43,14 @@ class Raster(object):
         'file': 'FileReadOnly',
         'id': 'int',
         'epsg_code': 'int',
-        'extent': 'dict(str, object)',
+        'extent': 'Extent',
         'geotransform': 'list[float]',
         'unit': 'UnitEnum'
     }
 
     required_fields = [
-       'url',
        'type',
-       'threedimodel',
        'name',
-       'file',
-       'id',
     ]
 
     attribute_map = {
@@ -91,12 +87,15 @@ class Raster(object):
         self._unit = None
         self.discriminator = None
 
-        self.url = url
+        if url is not None:
+            self.url = url
         self.type = type
         self.threedimodel = threedimodel
         self.name = name
-        self.file = file
-        self.id = id
+        if file is not None:
+            self.file = file
+        if id is not None:
+            self.id = id
         self.epsg_code = epsg_code
         if extent is not None:
             self.extent = extent
@@ -122,8 +121,6 @@ class Raster(object):
         :param url: The url of this Raster.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -215,8 +212,6 @@ class Raster(object):
         :param file: The file of this Raster.  # noqa: E501
         :type: FileReadOnly
         """
-        if self.local_vars_configuration.client_side_validation and file is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `file`, must not be `None`")  # noqa: E501
 
         self._file = file
 
@@ -238,8 +233,6 @@ class Raster(object):
         :param id: The id of this Raster.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -276,7 +269,7 @@ class Raster(object):
 
 
         :return: The extent of this Raster.  # noqa: E501
-        :rtype: dict(str, object)
+        :rtype: Extent
         """
         return self._extent
 
@@ -286,7 +279,7 @@ class Raster(object):
 
 
         :param extent: The extent of this Raster.  # noqa: E501
-        :type: dict(str, object)
+        :type: Extent
         """
 
         self._extent = extent

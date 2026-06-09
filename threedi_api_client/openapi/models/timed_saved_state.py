@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -50,13 +50,7 @@ class TimedSavedState(object):
     }
 
     required_fields = [
-       'url',
-       'simulation',
-       'created',
-       'created_time',
        'time',
-       'file',
-       'id',
     ]
 
     attribute_map = {
@@ -95,7 +89,8 @@ class TimedSavedState(object):
         self._uuid = None
         self.discriminator = None
 
-        self.url = url
+        if url is not None:
+            self.url = url
         if name is not None:
             self.name = name
         self.simulation = simulation
@@ -105,8 +100,10 @@ class TimedSavedState(object):
             self.tags = tags
         self.expiry = expiry
         self.time = time
-        self.file = file
-        self.id = id
+        if file is not None:
+            self.file = file
+        if id is not None:
+            self.id = id
         if uuid is not None:
             self.uuid = uuid
 
@@ -128,8 +125,6 @@ class TimedSavedState(object):
         :param url: The url of this TimedSavedState.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -226,6 +221,7 @@ class TimedSavedState(object):
     def tags(self):
         """Gets the tags of this TimedSavedState.  # noqa: E501
 
+        tags provided as a list of strings  # noqa: E501
 
         :return: The tags of this TimedSavedState.  # noqa: E501
         :rtype: list[str]
@@ -236,6 +232,7 @@ class TimedSavedState(object):
     def tags(self, tags):
         """Sets the tags of this TimedSavedState.
 
+        tags provided as a list of strings  # noqa: E501
 
         :param tags: The tags of this TimedSavedState.  # noqa: E501
         :type: list[str]
@@ -311,8 +308,6 @@ class TimedSavedState(object):
         :param file: The file of this TimedSavedState.  # noqa: E501
         :type: FileReadOnly
         """
-        if self.local_vars_configuration.client_side_validation and file is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `file`, must not be `None`")  # noqa: E501
 
         self._file = file
 
@@ -334,8 +329,6 @@ class TimedSavedState(object):
         :param id: The id of this TimedSavedState.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

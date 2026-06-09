@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -44,11 +44,6 @@ class SimulationChannel(object):
     }
 
     required_fields = [
-       'id',
-       'simulation',
-       'channel_name',
-       'created',
-       'state'
     ]
 
     attribute_map = {
@@ -75,11 +70,16 @@ class SimulationChannel(object):
         self._state = None
         self.discriminator = None
 
-        self.id = id
-        self.simulation = simulation
-        self.channel_name = channel_name
-        self.created = created
-        self.state = state
+        if id is not None:
+            self.id = id
+        if simulation is not None:
+            self.simulation = simulation
+        if channel_name is not None:
+            self.channel_name = channel_name
+        if created is not None:
+            self.created = created
+        if state is not None:
+            self.state = state
 
     @property
     def id(self):
@@ -99,8 +99,6 @@ class SimulationChannel(object):
         :param id: The id of this SimulationChannel.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -122,8 +120,6 @@ class SimulationChannel(object):
         :param simulation: The simulation of this SimulationChannel.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -145,8 +141,6 @@ class SimulationChannel(object):
         :param channel_name: The channel_name of this SimulationChannel.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and channel_name is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `channel_name`, must not be `None`")  # noqa: E501
 
         self._channel_name = channel_name
 
@@ -168,8 +162,6 @@ class SimulationChannel(object):
         :param created: The created of this SimulationChannel.  # noqa: E501
         :type: datetime
         """
-        if self.local_vars_configuration.client_side_validation and created is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `created`, must not be `None`")  # noqa: E501
 
         self._created = created
 
@@ -191,8 +183,6 @@ class SimulationChannel(object):
         :param state: The state of this SimulationChannel.  # noqa: E501
         :type: SimulationChannelStateEnum
         """
-        if self.local_vars_configuration.client_side_validation and state is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `state`, must not be `None`")  # noqa: E501
 
         self._state = state
 

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -136,9 +136,6 @@ class Download(object):
         :param etag: The etag of this Download.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                etag is not None and len(etag) < 1):
-            self.__handle_validation_error("Invalid value for `etag`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._etag = etag
 

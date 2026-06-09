@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -53,14 +53,10 @@ class File(object):
     }
 
     required_fields = [
-       'url',
-       'storage_name',
        'filename',
        'bucket',
-       'related_object',
        'type',
        'state',
-       'id'
     ]
 
     attribute_map = {
@@ -105,8 +101,10 @@ class File(object):
         self._id = None
         self.discriminator = None
 
-        self.url = url
-        self.storage_name = storage_name
+        if url is not None:
+            self.url = url
+        if storage_name is not None:
+            self.storage_name = storage_name
         self.filename = filename
         self.bucket = bucket
         self.prefix = prefix
@@ -114,12 +112,14 @@ class File(object):
         self.size = size
         if expiry_date is not None:
             self.expiry_date = expiry_date
-        self.related_object = related_object
+        if related_object is not None:
+            self.related_object = related_object
         self.type = type
         self.state = state
         self.state_description = state_description
         self.meta = meta
-        self.id = id
+        if id is not None:
+            self.id = id
 
     @property
     def url(self):
@@ -139,8 +139,6 @@ class File(object):
         :param url: The url of this File.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -162,8 +160,6 @@ class File(object):
         :param storage_name: The storage_name of this File.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and storage_name is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `storage_name`, must not be `None`")  # noqa: E501
 
         self._storage_name = storage_name
 
@@ -337,8 +333,6 @@ class File(object):
         :param related_object: The related_object of this File.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and related_object is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `related_object`, must not be `None`")  # noqa: E501
 
         self._related_object = related_object
 
@@ -451,8 +445,6 @@ class File(object):
         :param id: The id of this File.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

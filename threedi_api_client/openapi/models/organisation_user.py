@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -45,9 +45,7 @@ class OrganisationUser(object):
     }
 
     required_fields = [
-       'id',
        'username',
-       'roles'
     ]
 
     attribute_map = {
@@ -76,7 +74,8 @@ class OrganisationUser(object):
         self._roles = None
         self.discriminator = None
 
-        self.id = id
+        if id is not None:
+            self.id = id
         if first_name is not None:
             self.first_name = first_name
         if last_name is not None:
@@ -84,7 +83,8 @@ class OrganisationUser(object):
         self.username = username
         if email is not None:
             self.email = email
-        self.roles = roles
+        if roles is not None:
+            self.roles = roles
 
     @property
     def id(self):
@@ -104,8 +104,6 @@ class OrganisationUser(object):
         :param id: The id of this OrganisationUser.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -232,8 +230,6 @@ class OrganisationUser(object):
         :param roles: The roles of this OrganisationUser.  # noqa: E501
         :type: list[str]
         """
-        if self.local_vars_configuration.client_side_validation and roles is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `roles`, must not be `None`")  # noqa: E501
 
         self._roles = roles
 

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -45,10 +45,7 @@ class Settings(object):
     }
 
     required_fields = [
-       'url',
-       'id',
        'organisation',
-       'organisation_name',
     ]
 
     attribute_map = {
@@ -77,10 +74,13 @@ class Settings(object):
         self._forecast_rain_radar_uuids = None
         self.discriminator = None
 
-        self.url = url
-        self.id = id
+        if url is not None:
+            self.url = url
+        if id is not None:
+            self.id = id
         self.organisation = organisation
-        self.organisation_name = organisation_name
+        if organisation_name is not None:
+            self.organisation_name = organisation_name
         if historical_rain_radar_uuids is not None:
             self.historical_rain_radar_uuids = historical_rain_radar_uuids
         if forecast_rain_radar_uuids is not None:
@@ -104,8 +104,6 @@ class Settings(object):
         :param url: The url of this Settings.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -127,8 +125,6 @@ class Settings(object):
         :param id: The id of this Settings.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -136,6 +132,7 @@ class Settings(object):
     def organisation(self):
         """Gets the organisation of this Settings.  # noqa: E501
 
+        The unique_id of an organisation  # noqa: E501
 
         :return: The organisation of this Settings.  # noqa: E501
         :rtype: str
@@ -146,6 +143,7 @@ class Settings(object):
     def organisation(self, organisation):
         """Sets the organisation of this Settings.
 
+        The unique_id of an organisation  # noqa: E501
 
         :param organisation: The organisation of this Settings.  # noqa: E501
         :type: str
@@ -173,8 +171,6 @@ class Settings(object):
         :param organisation_name: The organisation_name of this Settings.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and organisation_name is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `organisation_name`, must not be `None`")  # noqa: E501
 
         self._organisation_name = organisation_name
 

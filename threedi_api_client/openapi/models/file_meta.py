@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -127,9 +127,6 @@ class FileMeta(object):
         if (self.local_vars_configuration.client_side_validation and
                 values_reference is not None and len(values_reference) > 255):
             self.__handle_validation_error("Invalid value for `values_reference`, length must be less than or equal to `255`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                values_reference is not None and len(values_reference) < 1):
-            self.__handle_validation_error("Invalid value for `values_reference`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._values_reference = values_reference
 
@@ -154,9 +151,6 @@ class FileMeta(object):
         if (self.local_vars_configuration.client_side_validation and
                 units is not None and len(units) > 64):
             self.__handle_validation_error("Invalid value for `units`, length must be less than or equal to `64`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                units is not None and len(units) < 1):
-            self.__handle_validation_error("Invalid value for `units`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._units = units
 
@@ -319,9 +313,6 @@ class FileMeta(object):
         if (self.local_vars_configuration.client_side_validation and
                 error is not None and len(error) > 512):
             self.__handle_validation_error("Invalid value for `error`, length must be less than or equal to `512`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                error is not None and len(error) < 1):
-            self.__handle_validation_error("Invalid value for `error`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._error = error
 
@@ -346,9 +337,6 @@ class FileMeta(object):
         if (self.local_vars_configuration.client_side_validation and
                 fill_value is not None and len(fill_value) > 128):
             self.__handle_validation_error("Invalid value for `fill_value`, length must be less than or equal to `128`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                fill_value is not None and len(fill_value) < 1):
-            self.__handle_validation_error("Invalid value for `fill_value`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._fill_value = fill_value
 

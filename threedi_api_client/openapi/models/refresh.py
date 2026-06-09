@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -42,7 +42,6 @@ class Refresh(object):
 
     required_fields = [
        'refresh',
-       'access'
     ]
 
     attribute_map = {
@@ -64,7 +63,8 @@ class Refresh(object):
         self.discriminator = None
 
         self.refresh = refresh
-        self.access = access
+        if access is not None:
+            self.access = access
 
     @property
     def refresh(self):
@@ -107,8 +107,6 @@ class Refresh(object):
         :param access: The access of this Refresh.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and access is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `access`, must not be `None`")  # noqa: E501
 
         self._access = access
 

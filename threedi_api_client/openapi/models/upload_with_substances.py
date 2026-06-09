@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -43,9 +43,7 @@ class UploadWithSubstances(object):
     }
 
     required_fields = [
-       'put_url',
        'filename',
-       'status'
     ]
 
     attribute_map = {
@@ -72,9 +70,11 @@ class UploadWithSubstances(object):
 
         if substances is not None:
             self.substances = substances
-        self.put_url = put_url
+        if put_url is not None:
+            self.put_url = put_url
         self.filename = filename
-        self.status = status
+        if status is not None:
+            self.status = status
 
     @property
     def substances(self):
@@ -115,8 +115,6 @@ class UploadWithSubstances(object):
         :param put_url: The put_url of this UploadWithSubstances.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and put_url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `put_url`, must not be `None`")  # noqa: E501
 
         self._put_url = put_url
 
@@ -164,8 +162,6 @@ class UploadWithSubstances(object):
         :param status: The status of this UploadWithSubstances.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -48,15 +48,6 @@ class DamageEstimation(object):
     }
 
     required_fields = [
-       'damage_table',
-       'elevation_raster_uuid',
-       'landcover_raster_uuid',
-       'road_rail_raster_uuid',
-       'cost_type',
-       'flood_month',
-       'inundation_period',
-       'repair_time_infrastructure',
-       'repair_time_buildings'
     ]
 
     attribute_map = {
@@ -91,15 +82,24 @@ class DamageEstimation(object):
         self._repair_time_buildings = None
         self.discriminator = None
 
-        self.damage_table = damage_table
-        self.elevation_raster_uuid = elevation_raster_uuid
-        self.landcover_raster_uuid = landcover_raster_uuid
-        self.road_rail_raster_uuid = road_rail_raster_uuid
-        self.cost_type = cost_type
-        self.flood_month = flood_month
-        self.inundation_period = inundation_period
-        self.repair_time_infrastructure = repair_time_infrastructure
-        self.repair_time_buildings = repair_time_buildings
+        if damage_table is not None:
+            self.damage_table = damage_table
+        if elevation_raster_uuid is not None:
+            self.elevation_raster_uuid = elevation_raster_uuid
+        if landcover_raster_uuid is not None:
+            self.landcover_raster_uuid = landcover_raster_uuid
+        if road_rail_raster_uuid is not None:
+            self.road_rail_raster_uuid = road_rail_raster_uuid
+        if cost_type is not None:
+            self.cost_type = cost_type
+        if flood_month is not None:
+            self.flood_month = flood_month
+        if inundation_period is not None:
+            self.inundation_period = inundation_period
+        if repair_time_infrastructure is not None:
+            self.repair_time_infrastructure = repair_time_infrastructure
+        if repair_time_buildings is not None:
+            self.repair_time_buildings = repair_time_buildings
 
     @property
     def damage_table(self):
@@ -119,8 +119,6 @@ class DamageEstimation(object):
         :param damage_table: The damage_table of this DamageEstimation.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and damage_table is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `damage_table`, must not be `None`")  # noqa: E501
 
         self._damage_table = damage_table
 
@@ -142,8 +140,6 @@ class DamageEstimation(object):
         :param elevation_raster_uuid: The elevation_raster_uuid of this DamageEstimation.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and elevation_raster_uuid is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `elevation_raster_uuid`, must not be `None`")  # noqa: E501
 
         self._elevation_raster_uuid = elevation_raster_uuid
 
@@ -165,8 +161,6 @@ class DamageEstimation(object):
         :param landcover_raster_uuid: The landcover_raster_uuid of this DamageEstimation.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and landcover_raster_uuid is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `landcover_raster_uuid`, must not be `None`")  # noqa: E501
 
         self._landcover_raster_uuid = landcover_raster_uuid
 
@@ -188,8 +182,6 @@ class DamageEstimation(object):
         :param road_rail_raster_uuid: The road_rail_raster_uuid of this DamageEstimation.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and road_rail_raster_uuid is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `road_rail_raster_uuid`, must not be `None`")  # noqa: E501
 
         self._road_rail_raster_uuid = road_rail_raster_uuid
 
@@ -211,8 +203,6 @@ class DamageEstimation(object):
         :param cost_type: The cost_type of this DamageEstimation.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and cost_type is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `cost_type`, must not be `None`")  # noqa: E501
 
         self._cost_type = cost_type
 
@@ -234,8 +224,6 @@ class DamageEstimation(object):
         :param flood_month: The flood_month of this DamageEstimation.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and flood_month is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `flood_month`, must not be `None`")  # noqa: E501
 
         self._flood_month = flood_month
 
@@ -257,8 +245,6 @@ class DamageEstimation(object):
         :param inundation_period: The inundation_period of this DamageEstimation.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and inundation_period is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `inundation_period`, must not be `None`")  # noqa: E501
 
         self._inundation_period = inundation_period
 
@@ -280,8 +266,6 @@ class DamageEstimation(object):
         :param repair_time_infrastructure: The repair_time_infrastructure of this DamageEstimation.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and repair_time_infrastructure is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `repair_time_infrastructure`, must not be `None`")  # noqa: E501
 
         self._repair_time_infrastructure = repair_time_infrastructure
 
@@ -303,8 +287,6 @@ class DamageEstimation(object):
         :param repair_time_buildings: The repair_time_buildings of this DamageEstimation.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and repair_time_buildings is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `repair_time_buildings`, must not be `None`")  # noqa: E501
 
         self._repair_time_buildings = repair_time_buildings
 

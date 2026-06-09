@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,6 +36,3999 @@ class V3Api(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
+    def schematisations_revisions_sqlite_delete(self, id, schematisation_pk, **kwargs):  # noqa: E501
+        """schematisations_revisions_sqlite_delete  # noqa: E501
+
+        Manage revisions of schematisations.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.schematisations_revisions_sqlite_delete(id, schematisation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this revision. (required)
+        :param int schematisation_pk: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.schematisations_revisions_sqlite_delete_with_http_info(id, schematisation_pk, **kwargs)  # noqa: E501
+
+    def schematisations_revisions_sqlite_delete_with_http_info(self, id, schematisation_pk, **kwargs):  # noqa: E501
+        """schematisations_revisions_sqlite_delete  # noqa: E501
+
+        Manage revisions of schematisations.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.schematisations_revisions_sqlite_delete_with_http_info(id, schematisation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this revision. (required)
+        :param int schematisation_pk: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'schematisation_pk'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method schematisations_revisions_sqlite_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_sqlite_delete`")  # noqa: E501
+        # verify the required parameter 'schematisation_pk' is set
+        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
+                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_sqlite_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'schematisation_pk' in local_var_params:
+            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/schematisations/{schematisation_pk}/revisions/{id}/sqlite/delete/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def schematisations_revisions_sqlite_download(self, id, schematisation_pk, **kwargs):  # noqa: E501
+        """schematisations_revisions_sqlite_download  # noqa: E501
+
+        Endpoint for downloading files.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.schematisations_revisions_sqlite_download(id, schematisation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this revision. (required)
+        :param int schematisation_pk: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.schematisations_revisions_sqlite_download_with_http_info(id, schematisation_pk, **kwargs)  # noqa: E501
+
+    def schematisations_revisions_sqlite_download_with_http_info(self, id, schematisation_pk, **kwargs):  # noqa: E501
+        """schematisations_revisions_sqlite_download  # noqa: E501
+
+        Endpoint for downloading files.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.schematisations_revisions_sqlite_download_with_http_info(id, schematisation_pk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this revision. (required)
+        :param int schematisation_pk: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'schematisation_pk'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method schematisations_revisions_sqlite_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_sqlite_download`")  # noqa: E501
+        # verify the required parameter 'schematisation_pk' is set
+        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
+                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_sqlite_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'schematisation_pk' in local_var_params:
+            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/schematisations/{schematisation_pk}/revisions/{id}/sqlite/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def schematisations_revisions_sqlite_upload(self, id, schematisation_pk, sqlite_file_upload, **kwargs):  # noqa: E501
+        """schematisations_revisions_sqlite_upload  # noqa: E501
+
+        Endpoint for uploading the sqlite file.  The file should preferably be zipped (deflate).  Replaces the present sqlite file if there already exists one.  Optional md5sum can be added to detect if the file already has been uploaded and perform de-duplication. (md5sum of the compressed sqlite file)  Note: Uploading the sqlite file without compression is also supported, but not advised, see above. Use the md5sum of the (uncompressed) sqlite file in this case.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.schematisations_revisions_sqlite_upload(id, schematisation_pk, sqlite_file_upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this revision. (required)
+        :param int schematisation_pk: (required)
+        :param SqliteFileUpload sqlite_file_upload: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.schematisations_revisions_sqlite_upload_with_http_info(id, schematisation_pk, sqlite_file_upload, **kwargs)  # noqa: E501
+
+    def schematisations_revisions_sqlite_upload_with_http_info(self, id, schematisation_pk, sqlite_file_upload, **kwargs):  # noqa: E501
+        """schematisations_revisions_sqlite_upload  # noqa: E501
+
+        Endpoint for uploading the sqlite file.  The file should preferably be zipped (deflate).  Replaces the present sqlite file if there already exists one.  Optional md5sum can be added to detect if the file already has been uploaded and perform de-duplication. (md5sum of the compressed sqlite file)  Note: Uploading the sqlite file without compression is also supported, but not advised, see above. Use the md5sum of the (uncompressed) sqlite file in this case.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.schematisations_revisions_sqlite_upload_with_http_info(id, schematisation_pk, sqlite_file_upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this revision. (required)
+        :param int schematisation_pk: (required)
+        :param SqliteFileUpload sqlite_file_upload: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'schematisation_pk',
+            'sqlite_file_upload'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method schematisations_revisions_sqlite_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_revisions_sqlite_upload`")  # noqa: E501
+        # verify the required parameter 'schematisation_pk' is set
+        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
+                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `schematisations_revisions_sqlite_upload`")  # noqa: E501
+        # verify the required parameter 'sqlite_file_upload' is set
+        if self.api_client.client_side_validation and ('sqlite_file_upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['sqlite_file_upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `sqlite_file_upload` when calling `schematisations_revisions_sqlite_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'schematisation_pk' in local_var_params:
+            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'sqlite_file_upload' in local_var_params:
+            body_params = local_var_params['sqlite_file_upload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/schematisations/{schematisation_pk}/revisions/{id}/sqlite/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_breaches_geojson_upload(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_breaches_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_breaches_geojson_upload(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_breaches_geojson_upload_with_http_info(id, upload, **kwargs)  # noqa: E501
+
+    def threedimodels_breaches_geojson_upload_with_http_info(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_breaches_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_breaches_geojson_upload_with_http_info(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'upload'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_breaches_geojson_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_breaches_geojson_upload`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `threedimodels_breaches_geojson_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/breaches/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_cells_geojson_upload(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_cells_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_cells_geojson_upload(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_cells_geojson_upload_with_http_info(id, upload, **kwargs)  # noqa: E501
+
+    def threedimodels_cells_geojson_upload_with_http_info(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_cells_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_cells_geojson_upload_with_http_info(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'upload'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_cells_geojson_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_cells_geojson_upload`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `threedimodels_cells_geojson_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/cells/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_channels_geojson_upload(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_channels_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_channels_geojson_upload(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_channels_geojson_upload_with_http_info(id, upload, **kwargs)  # noqa: E501
+
+    def threedimodels_channels_geojson_upload_with_http_info(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_channels_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_channels_geojson_upload_with_http_info(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'upload'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_channels_geojson_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_channels_geojson_upload`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `threedimodels_channels_geojson_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/channels/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_culverts_geojson_upload(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_culverts_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_culverts_geojson_upload(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_culverts_geojson_upload_with_http_info(id, upload, **kwargs)  # noqa: E501
+
+    def threedimodels_culverts_geojson_upload_with_http_info(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_culverts_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_culverts_geojson_upload_with_http_info(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'upload'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_culverts_geojson_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_culverts_geojson_upload`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `threedimodels_culverts_geojson_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/culverts/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_flowlines_geojson_upload(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_flowlines_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_flowlines_geojson_upload(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_flowlines_geojson_upload_with_http_info(id, upload, **kwargs)  # noqa: E501
+
+    def threedimodels_flowlines_geojson_upload_with_http_info(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_flowlines_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_flowlines_geojson_upload_with_http_info(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'upload'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_flowlines_geojson_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_flowlines_geojson_upload`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `threedimodels_flowlines_geojson_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/flowlines/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geojson_breaches_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_breaches_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_breaches_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geojson_breaches_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_geojson_breaches_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_breaches_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_breaches_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geojson_breaches_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_breaches_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/breaches/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geojson_cells_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_cells_download  # noqa: E501
+
+        Note that this is the subset of 2d open_water cells  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_cells_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geojson_cells_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_geojson_cells_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_cells_download  # noqa: E501
+
+        Note that this is the subset of 2d open_water cells  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_cells_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geojson_cells_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_cells_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/cells/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geojson_channels_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_channels_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_channels_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geojson_channels_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_geojson_channels_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_channels_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_channels_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geojson_channels_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_channels_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/channels/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geojson_culverts_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_culverts_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_culverts_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geojson_culverts_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_geojson_culverts_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_culverts_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_culverts_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geojson_culverts_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_culverts_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/culverts/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geojson_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_download  # noqa: E501
+
+        Endpoint for downloading geojson file.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geojson_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_geojson_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_download  # noqa: E501
+
+        Endpoint for downloading geojson file.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geojson_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/all/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geojson_flowlines_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_flowlines_download  # noqa: E501
+
+        Note that this is a subset of all lines  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_flowlines_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geojson_flowlines_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_geojson_flowlines_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_flowlines_download  # noqa: E501
+
+        Note that this is a subset of all lines  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_flowlines_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geojson_flowlines_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_flowlines_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/flowlines/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geojson_levees_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_levees_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_levees_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geojson_levees_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_geojson_levees_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_levees_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_levees_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geojson_levees_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_levees_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/levees/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geojson_manholes_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_manholes_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_manholes_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geojson_manholes_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_geojson_manholes_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_manholes_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_manholes_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geojson_manholes_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_manholes_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/manholes/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geojson_orifices_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_orifices_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_orifices_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geojson_orifices_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_geojson_orifices_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_orifices_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_orifices_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geojson_orifices_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_orifices_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/orifices/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geojson_pipes_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_pipes_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_pipes_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geojson_pipes_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_geojson_pipes_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_pipes_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_pipes_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geojson_pipes_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_pipes_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/pipes/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geojson_pumps_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_pumps_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_pumps_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geojson_pumps_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_geojson_pumps_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_pumps_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_pumps_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geojson_pumps_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_pumps_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/pumps/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geojson_upload(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_geojson_upload  # noqa: E501
+
+        Endpoint for uploading the geojson file Replaces the geojson file if there already exists one.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_upload(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geojson_upload_with_http_info(id, upload, **kwargs)  # noqa: E501
+
+    def threedimodels_geojson_upload_with_http_info(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_geojson_upload  # noqa: E501
+
+        Endpoint for uploading the geojson file Replaces the geojson file if there already exists one.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_upload_with_http_info(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'upload'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geojson_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_upload`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `threedimodels_geojson_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/all/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geojson_weirs_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_weirs_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_weirs_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geojson_weirs_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_geojson_weirs_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geojson_weirs_download  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geojson_weirs_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geojson_weirs_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geojson_weirs_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/weirs/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geopackage_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geopackage_download  # noqa: E501
+
+        Endpoint for downloading geopackage file.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geopackage_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geopackage_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_geopackage_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_geopackage_download  # noqa: E501
+
+        Endpoint for downloading geopackage file.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geopackage_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geopackage_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geopackage_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geopackage/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_geopackage_upload(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_geopackage_upload  # noqa: E501
+
+        Endpoint for uploading the gridadmin file  Replaces the gridadmin if there already exists one.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geopackage_upload(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_geopackage_upload_with_http_info(id, upload, **kwargs)  # noqa: E501
+
+    def threedimodels_geopackage_upload_with_http_info(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_geopackage_upload  # noqa: E501
+
+        Endpoint for uploading the gridadmin file  Replaces the gridadmin if there already exists one.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_geopackage_upload_with_http_info(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'upload'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_geopackage_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_geopackage_upload`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `threedimodels_geopackage_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geopackage/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_gridadmin_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_gridadmin_download  # noqa: E501
+
+        Endpoint for downloading files.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_gridadmin_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_gridadmin_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_gridadmin_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_gridadmin_download  # noqa: E501
+
+        Endpoint for downloading files.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_gridadmin_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_gridadmin_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_gridadmin_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/gridadmin/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_gridadmin_upload(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_gridadmin_upload  # noqa: E501
+
+        Endpoint for uploading the gridadmin file  Replaces the gridadmin if there already exists one.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_gridadmin_upload(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_gridadmin_upload_with_http_info(id, upload, **kwargs)  # noqa: E501
+
+    def threedimodels_gridadmin_upload_with_http_info(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_gridadmin_upload  # noqa: E501
+
+        Endpoint for uploading the gridadmin file  Replaces the gridadmin if there already exists one.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_gridadmin_upload_with_http_info(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'upload'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_gridadmin_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_gridadmin_upload`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `threedimodels_gridadmin_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/gridadmin/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_levees_geojson_upload(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_levees_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_levees_geojson_upload(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_levees_geojson_upload_with_http_info(id, upload, **kwargs)  # noqa: E501
+
+    def threedimodels_levees_geojson_upload_with_http_info(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_levees_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_levees_geojson_upload_with_http_info(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'upload'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_levees_geojson_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_levees_geojson_upload`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `threedimodels_levees_geojson_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/levees/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_manholes_geojson_upload(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_manholes_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_manholes_geojson_upload(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_manholes_geojson_upload_with_http_info(id, upload, **kwargs)  # noqa: E501
+
+    def threedimodels_manholes_geojson_upload_with_http_info(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_manholes_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_manholes_geojson_upload_with_http_info(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'upload'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_manholes_geojson_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_manholes_geojson_upload`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `threedimodels_manholes_geojson_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/manholes/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_orifices_geojson_upload(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_orifices_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_orifices_geojson_upload(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_orifices_geojson_upload_with_http_info(id, upload, **kwargs)  # noqa: E501
+
+    def threedimodels_orifices_geojson_upload_with_http_info(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_orifices_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_orifices_geojson_upload_with_http_info(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'upload'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_orifices_geojson_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_orifices_geojson_upload`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `threedimodels_orifices_geojson_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/orifices/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_pipes_geojson_upload(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_pipes_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_pipes_geojson_upload(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_pipes_geojson_upload_with_http_info(id, upload, **kwargs)  # noqa: E501
+
+    def threedimodels_pipes_geojson_upload_with_http_info(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_pipes_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_pipes_geojson_upload_with_http_info(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'upload'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_pipes_geojson_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_pipes_geojson_upload`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `threedimodels_pipes_geojson_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/pipes/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_pumps_geojson_upload(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_pumps_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_pumps_geojson_upload(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_pumps_geojson_upload_with_http_info(id, upload, **kwargs)  # noqa: E501
+
+    def threedimodels_pumps_geojson_upload_with_http_info(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_pumps_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_pumps_geojson_upload_with_http_info(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'upload'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_pumps_geojson_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_pumps_geojson_upload`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `threedimodels_pumps_geojson_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/pumps/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_tables_download(self, id, **kwargs):  # noqa: E501
+        """threedimodels_tables_download  # noqa: E501
+
+        Endpoint for downloading tables files.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_tables_download(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Download
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_tables_download_with_http_info(id, **kwargs)  # noqa: E501
+
+    def threedimodels_tables_download_with_http_info(self, id, **kwargs):  # noqa: E501
+        """threedimodels_tables_download  # noqa: E501
+
+        Endpoint for downloading tables files.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_tables_download_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_tables_download" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_tables_download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/tables/download/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Download',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_tables_upload(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_tables_upload  # noqa: E501
+
+        Endpoint for uploading the tables.h5 file  Replaces the tables file if there already exists one.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_tables_upload(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_tables_upload_with_http_info(id, upload, **kwargs)  # noqa: E501
+
+    def threedimodels_tables_upload_with_http_info(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_tables_upload  # noqa: E501
+
+        Endpoint for uploading the tables.h5 file  Replaces the tables file if there already exists one.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_tables_upload_with_http_info(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'upload'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_tables_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_tables_upload`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `threedimodels_tables_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/tables/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def threedimodels_weirs_geojson_upload(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_weirs_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_weirs_geojson_upload(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Upload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.threedimodels_weirs_geojson_upload_with_http_info(id, upload, **kwargs)  # noqa: E501
+
+    def threedimodels_weirs_geojson_upload_with_http_info(self, id, upload, **kwargs):  # noqa: E501
+        """threedimodels_weirs_geojson_upload  # noqa: E501
+
+        A simple ViewSet for viewing threedimodels  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.threedimodels_weirs_geojson_upload_with_http_info(id, upload, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int id: A unique integer value identifying this threedi model. (required)
+        :param Upload upload: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'upload'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method threedimodels_weirs_geojson_upload" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `threedimodels_weirs_geojson_upload`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `threedimodels_weirs_geojson_upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/threedimodels/{id}/geojson/weirs/upload/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Upload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
 
     def v3_auth_profile_list(self, **kwargs):  # noqa: E501
         """v3_auth_profile_list  # noqa: E501
@@ -1798,7 +5791,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: None
+        :return: File
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1825,7 +5818,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: None
+        :return: tuple(File, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1871,6 +5864,10 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
 
@@ -1882,7 +5879,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='File',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1908,7 +5905,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: File
+        :return: Download
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1935,7 +5932,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(File, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1996,7 +5993,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='File',  # noqa: E501
+            response_type='Download',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2309,18 +6306,18 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_files_processed_update(self, id, file, **kwargs):  # noqa: E501
+    def v3_files_processed_update(self, id, **kwargs):  # noqa: E501
         """v3_files_processed_update  # noqa: E501
 
         Endpoint to which the upload-processor can enrich file objects (and their related objects) with metadata.  For example the geotransform of raster files.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_files_processed_update(id, file, async_req=True)
+        >>> thread = api.v3_files_processed_update(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this file. (required)
-        :param File file: (required)
+        :param FileMeta file_meta:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2328,25 +6325,25 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: File
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_files_processed_update_with_http_info(id, file, **kwargs)  # noqa: E501
+        return self.v3_files_processed_update_with_http_info(id, **kwargs)  # noqa: E501
 
-    def v3_files_processed_update_with_http_info(self, id, file, **kwargs):  # noqa: E501
+    def v3_files_processed_update_with_http_info(self, id, **kwargs):  # noqa: E501
         """v3_files_processed_update  # noqa: E501
 
         Endpoint to which the upload-processor can enrich file objects (and their related objects) with metadata.  For example the geotransform of raster files.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_files_processed_update_with_http_info(id, file, async_req=True)
+        >>> thread = api.v3_files_processed_update_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this file. (required)
-        :param File file: (required)
+        :param FileMeta file_meta:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2356,7 +6353,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(File, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2365,7 +6362,7 @@ class V3Api(object):
 
         all_params = [
             'id',
-            'file'
+            'file_meta'
         ]
         all_params.extend(
             [
@@ -2388,10 +6385,6 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `v3_files_processed_update`")  # noqa: E501
-        # verify the required parameter 'file' is set
-        if self.api_client.client_side_validation and ('file' not in local_var_params or  # noqa: E501
-                                                        local_var_params['file'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `file` when calling `v3_files_processed_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2407,12 +6400,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'file' in local_var_params:
-            body_params = local_var_params['file']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'file_meta' in local_var_params:
+            body_params = local_var_params['file_meta']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
@@ -2428,7 +6417,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='File',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -4803,17 +8792,40 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_organisations_permissions_retrieve(self, unique_id, **kwargs):  # noqa: E501
-        """v3_organisations_permissions_retrieve  # noqa: E501
+    def v3_organisations_permissions_list(self, unique_id, **kwargs):  # noqa: E501
+        """v3_organisations_permissions_list  # noqa: E501
 
         Read-only API endpoint for interacting with organisations.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_organisations_permissions_retrieve(unique_id, async_req=True)
+        >>> thread = api.v3_organisations_permissions_list(unique_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str unique_id: (required)
+        :param list[str] contract__scope__in: Multiple values may be separated by commas.
+        :param int limit: Number of results to return per page.
+        :param str logged_in_user_has_role: logged_in_user_has_role
+        :param str name:
+        :param str name__contains:
+        :param str name__endswith:
+        :param str name__icontains:
+        :param str name__iexact:
+        :param list[str] name__in: Multiple values may be separated by commas.
+        :param str name__istartswith:
+        :param str name__regex:
+        :param str name__startswith:
+        :param int offset: The initial index from which to return the results.
+        :param str unique_id2:
+        :param str unique_id__contains:
+        :param str unique_id__endswith:
+        :param str unique_id__icontains:
+        :param str unique_id__iexact:
+        :param list[str] unique_id__in: Multiple values may be separated by commas.
+        :param str unique_id__istartswith:
+        :param str unique_id__regex:
+        :param str unique_id__startswith:
+        :param bool valid_contracts_only: valid_contracts_only
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4821,24 +8833,47 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Organisation
+        :return: PaginatedOrganisationRoleList
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_organisations_permissions_retrieve_with_http_info(unique_id, **kwargs)  # noqa: E501
+        return self.v3_organisations_permissions_list_with_http_info(unique_id, **kwargs)  # noqa: E501
 
-    def v3_organisations_permissions_retrieve_with_http_info(self, unique_id, **kwargs):  # noqa: E501
-        """v3_organisations_permissions_retrieve  # noqa: E501
+    def v3_organisations_permissions_list_with_http_info(self, unique_id, **kwargs):  # noqa: E501
+        """v3_organisations_permissions_list  # noqa: E501
 
         Read-only API endpoint for interacting with organisations.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_organisations_permissions_retrieve_with_http_info(unique_id, async_req=True)
+        >>> thread = api.v3_organisations_permissions_list_with_http_info(unique_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str unique_id: (required)
+        :param list[str] contract__scope__in: Multiple values may be separated by commas.
+        :param int limit: Number of results to return per page.
+        :param str logged_in_user_has_role: logged_in_user_has_role
+        :param str name:
+        :param str name__contains:
+        :param str name__endswith:
+        :param str name__icontains:
+        :param str name__iexact:
+        :param list[str] name__in: Multiple values may be separated by commas.
+        :param str name__istartswith:
+        :param str name__regex:
+        :param str name__startswith:
+        :param int offset: The initial index from which to return the results.
+        :param str unique_id2:
+        :param str unique_id__contains:
+        :param str unique_id__endswith:
+        :param str unique_id__icontains:
+        :param str unique_id__iexact:
+        :param list[str] unique_id__in: Multiple values may be separated by commas.
+        :param str unique_id__istartswith:
+        :param str unique_id__regex:
+        :param str unique_id__startswith:
+        :param bool valid_contracts_only: valid_contracts_only
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4848,7 +8883,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Organisation, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(PaginatedOrganisationRoleList, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4856,7 +8891,30 @@ class V3Api(object):
         local_var_params = locals()
 
         all_params = [
-            'unique_id'
+            'unique_id',
+            'contract__scope__in',
+            'limit',
+            'logged_in_user_has_role',
+            'name',
+            'name__contains',
+            'name__endswith',
+            'name__icontains',
+            'name__iexact',
+            'name__in',
+            'name__istartswith',
+            'name__regex',
+            'name__startswith',
+            'offset',
+            'unique_id2',
+            'unique_id__contains',
+            'unique_id__endswith',
+            'unique_id__icontains',
+            'unique_id__iexact',
+            'unique_id__in',
+            'unique_id__istartswith',
+            'unique_id__regex',
+            'unique_id__startswith',
+            'valid_contracts_only'
         ]
         all_params.extend(
             [
@@ -4871,14 +8929,14 @@ class V3Api(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_organisations_permissions_retrieve" % key
+                    " to method v3_organisations_permissions_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'unique_id' is set
         if self.api_client.client_side_validation and ('unique_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['unique_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `unique_id` when calling `v3_organisations_permissions_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `unique_id` when calling `v3_organisations_permissions_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4887,6 +8945,55 @@ class V3Api(object):
             path_params['unique_id'] = local_var_params['unique_id']  # noqa: E501
 
         query_params = []
+        if 'contract__scope__in' in local_var_params and local_var_params['contract__scope__in'] is not None:  # noqa: E501
+            query_params.append(('contract__scope__in', local_var_params['contract__scope__in']))  # noqa: E501
+            collection_formats['contract__scope__in'] = 'csv'  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'logged_in_user_has_role' in local_var_params and local_var_params['logged_in_user_has_role'] is not None:  # noqa: E501
+            query_params.append(('logged_in_user_has_role', local_var_params['logged_in_user_has_role']))  # noqa: E501
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if 'name__contains' in local_var_params and local_var_params['name__contains'] is not None:  # noqa: E501
+            query_params.append(('name__contains', local_var_params['name__contains']))  # noqa: E501
+        if 'name__endswith' in local_var_params and local_var_params['name__endswith'] is not None:  # noqa: E501
+            query_params.append(('name__endswith', local_var_params['name__endswith']))  # noqa: E501
+        if 'name__icontains' in local_var_params and local_var_params['name__icontains'] is not None:  # noqa: E501
+            query_params.append(('name__icontains', local_var_params['name__icontains']))  # noqa: E501
+        if 'name__iexact' in local_var_params and local_var_params['name__iexact'] is not None:  # noqa: E501
+            query_params.append(('name__iexact', local_var_params['name__iexact']))  # noqa: E501
+        if 'name__in' in local_var_params and local_var_params['name__in'] is not None:  # noqa: E501
+            query_params.append(('name__in', local_var_params['name__in']))  # noqa: E501
+            collection_formats['name__in'] = 'csv'  # noqa: E501
+        if 'name__istartswith' in local_var_params and local_var_params['name__istartswith'] is not None:  # noqa: E501
+            query_params.append(('name__istartswith', local_var_params['name__istartswith']))  # noqa: E501
+        if 'name__regex' in local_var_params and local_var_params['name__regex'] is not None:  # noqa: E501
+            query_params.append(('name__regex', local_var_params['name__regex']))  # noqa: E501
+        if 'name__startswith' in local_var_params and local_var_params['name__startswith'] is not None:  # noqa: E501
+            query_params.append(('name__startswith', local_var_params['name__startswith']))  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'unique_id2' in local_var_params and local_var_params['unique_id2'] is not None:  # noqa: E501
+            query_params.append(('unique_id', local_var_params['unique_id2']))  # noqa: E501
+        if 'unique_id__contains' in local_var_params and local_var_params['unique_id__contains'] is not None:  # noqa: E501
+            query_params.append(('unique_id__contains', local_var_params['unique_id__contains']))  # noqa: E501
+        if 'unique_id__endswith' in local_var_params and local_var_params['unique_id__endswith'] is not None:  # noqa: E501
+            query_params.append(('unique_id__endswith', local_var_params['unique_id__endswith']))  # noqa: E501
+        if 'unique_id__icontains' in local_var_params and local_var_params['unique_id__icontains'] is not None:  # noqa: E501
+            query_params.append(('unique_id__icontains', local_var_params['unique_id__icontains']))  # noqa: E501
+        if 'unique_id__iexact' in local_var_params and local_var_params['unique_id__iexact'] is not None:  # noqa: E501
+            query_params.append(('unique_id__iexact', local_var_params['unique_id__iexact']))  # noqa: E501
+        if 'unique_id__in' in local_var_params and local_var_params['unique_id__in'] is not None:  # noqa: E501
+            query_params.append(('unique_id__in', local_var_params['unique_id__in']))  # noqa: E501
+            collection_formats['unique_id__in'] = 'csv'  # noqa: E501
+        if 'unique_id__istartswith' in local_var_params and local_var_params['unique_id__istartswith'] is not None:  # noqa: E501
+            query_params.append(('unique_id__istartswith', local_var_params['unique_id__istartswith']))  # noqa: E501
+        if 'unique_id__regex' in local_var_params and local_var_params['unique_id__regex'] is not None:  # noqa: E501
+            query_params.append(('unique_id__regex', local_var_params['unique_id__regex']))  # noqa: E501
+        if 'unique_id__startswith' in local_var_params and local_var_params['unique_id__startswith'] is not None:  # noqa: E501
+            query_params.append(('unique_id__startswith', local_var_params['unique_id__startswith']))  # noqa: E501
+        if 'valid_contracts_only' in local_var_params and local_var_params['valid_contracts_only'] is not None:  # noqa: E501
+            query_params.append(('valid_contracts_only', local_var_params['valid_contracts_only']))  # noqa: E501
 
         header_params = {}
 
@@ -4909,7 +9016,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Organisation',  # noqa: E501
+            response_type='PaginatedOrganisationRoleList',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6997,17 +11104,52 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_repositories_revisions_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_repositories_revisions_retrieve  # noqa: E501
+    def v3_repositories_revisions_list(self, id, **kwargs):  # noqa: E501
+        """v3_repositories_revisions_list  # noqa: E501
 
         A simple ViewSet for viewing modelmeta  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_repositories_revisions_retrieve(id, async_req=True)
+        >>> thread = api.v3_repositories_revisions_list(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this repository. (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param int organisation__id:
+        :param int organisation__id__gt:
+        :param int organisation__id__gte:
+        :param bool organisation__id__isnull:
+        :param int organisation__id__lt:
+        :param int organisation__id__lte:
+        :param str organisation__name:
+        :param str organisation__name__contains:
+        :param str organisation__name__endswith:
+        :param str organisation__name__icontains:
+        :param str organisation__name__iexact:
+        :param list[str] organisation__name__in: Multiple values may be separated by commas.
+        :param str organisation__name__istartswith:
+        :param str organisation__name__regex:
+        :param str organisation__name__startswith:
+        :param str organisation__unique_id:
+        :param str organisation__unique_id__contains:
+        :param str organisation__unique_id__endswith:
+        :param str organisation__unique_id__icontains:
+        :param str organisation__unique_id__iexact:
+        :param list[str] organisation__unique_id__in: Multiple values may be separated by commas.
+        :param str organisation__unique_id__istartswith:
+        :param str organisation__unique_id__regex:
+        :param str organisation__unique_id__startswith:
+        :param str slug:
+        :param str slug__contains:
+        :param str slug__endswith:
+        :param str slug__icontains:
+        :param str slug__iexact:
+        :param list[str] slug__in: Multiple values may be separated by commas.
+        :param str slug__istartswith:
+        :param str slug__regex:
+        :param str slug__startswith:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7015,24 +11157,59 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Repository
+        :return: PaginatedRevisionList
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_repositories_revisions_retrieve_with_http_info(id, **kwargs)  # noqa: E501
+        return self.v3_repositories_revisions_list_with_http_info(id, **kwargs)  # noqa: E501
 
-    def v3_repositories_revisions_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_repositories_revisions_retrieve  # noqa: E501
+    def v3_repositories_revisions_list_with_http_info(self, id, **kwargs):  # noqa: E501
+        """v3_repositories_revisions_list  # noqa: E501
 
         A simple ViewSet for viewing modelmeta  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_repositories_revisions_retrieve_with_http_info(id, async_req=True)
+        >>> thread = api.v3_repositories_revisions_list_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this repository. (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param int organisation__id:
+        :param int organisation__id__gt:
+        :param int organisation__id__gte:
+        :param bool organisation__id__isnull:
+        :param int organisation__id__lt:
+        :param int organisation__id__lte:
+        :param str organisation__name:
+        :param str organisation__name__contains:
+        :param str organisation__name__endswith:
+        :param str organisation__name__icontains:
+        :param str organisation__name__iexact:
+        :param list[str] organisation__name__in: Multiple values may be separated by commas.
+        :param str organisation__name__istartswith:
+        :param str organisation__name__regex:
+        :param str organisation__name__startswith:
+        :param str organisation__unique_id:
+        :param str organisation__unique_id__contains:
+        :param str organisation__unique_id__endswith:
+        :param str organisation__unique_id__icontains:
+        :param str organisation__unique_id__iexact:
+        :param list[str] organisation__unique_id__in: Multiple values may be separated by commas.
+        :param str organisation__unique_id__istartswith:
+        :param str organisation__unique_id__regex:
+        :param str organisation__unique_id__startswith:
+        :param str slug:
+        :param str slug__contains:
+        :param str slug__endswith:
+        :param str slug__icontains:
+        :param str slug__iexact:
+        :param list[str] slug__in: Multiple values may be separated by commas.
+        :param str slug__istartswith:
+        :param str slug__regex:
+        :param str slug__startswith:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7042,7 +11219,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Repository, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(PaginatedRevisionList, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7050,7 +11227,42 @@ class V3Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id'
+            'id',
+            'limit',
+            'offset',
+            'organisation__id',
+            'organisation__id__gt',
+            'organisation__id__gte',
+            'organisation__id__isnull',
+            'organisation__id__lt',
+            'organisation__id__lte',
+            'organisation__name',
+            'organisation__name__contains',
+            'organisation__name__endswith',
+            'organisation__name__icontains',
+            'organisation__name__iexact',
+            'organisation__name__in',
+            'organisation__name__istartswith',
+            'organisation__name__regex',
+            'organisation__name__startswith',
+            'organisation__unique_id',
+            'organisation__unique_id__contains',
+            'organisation__unique_id__endswith',
+            'organisation__unique_id__icontains',
+            'organisation__unique_id__iexact',
+            'organisation__unique_id__in',
+            'organisation__unique_id__istartswith',
+            'organisation__unique_id__regex',
+            'organisation__unique_id__startswith',
+            'slug',
+            'slug__contains',
+            'slug__endswith',
+            'slug__icontains',
+            'slug__iexact',
+            'slug__in',
+            'slug__istartswith',
+            'slug__regex',
+            'slug__startswith'
         ]
         all_params.extend(
             [
@@ -7065,14 +11277,14 @@ class V3Api(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_repositories_revisions_retrieve" % key
+                    " to method v3_repositories_revisions_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_repositories_revisions_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `v3_repositories_revisions_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7081,6 +11293,79 @@ class V3Api(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'organisation__id' in local_var_params and local_var_params['organisation__id'] is not None:  # noqa: E501
+            query_params.append(('organisation__id', local_var_params['organisation__id']))  # noqa: E501
+        if 'organisation__id__gt' in local_var_params and local_var_params['organisation__id__gt'] is not None:  # noqa: E501
+            query_params.append(('organisation__id__gt', local_var_params['organisation__id__gt']))  # noqa: E501
+        if 'organisation__id__gte' in local_var_params and local_var_params['organisation__id__gte'] is not None:  # noqa: E501
+            query_params.append(('organisation__id__gte', local_var_params['organisation__id__gte']))  # noqa: E501
+        if 'organisation__id__isnull' in local_var_params and local_var_params['organisation__id__isnull'] is not None:  # noqa: E501
+            query_params.append(('organisation__id__isnull', local_var_params['organisation__id__isnull']))  # noqa: E501
+        if 'organisation__id__lt' in local_var_params and local_var_params['organisation__id__lt'] is not None:  # noqa: E501
+            query_params.append(('organisation__id__lt', local_var_params['organisation__id__lt']))  # noqa: E501
+        if 'organisation__id__lte' in local_var_params and local_var_params['organisation__id__lte'] is not None:  # noqa: E501
+            query_params.append(('organisation__id__lte', local_var_params['organisation__id__lte']))  # noqa: E501
+        if 'organisation__name' in local_var_params and local_var_params['organisation__name'] is not None:  # noqa: E501
+            query_params.append(('organisation__name', local_var_params['organisation__name']))  # noqa: E501
+        if 'organisation__name__contains' in local_var_params and local_var_params['organisation__name__contains'] is not None:  # noqa: E501
+            query_params.append(('organisation__name__contains', local_var_params['organisation__name__contains']))  # noqa: E501
+        if 'organisation__name__endswith' in local_var_params and local_var_params['organisation__name__endswith'] is not None:  # noqa: E501
+            query_params.append(('organisation__name__endswith', local_var_params['organisation__name__endswith']))  # noqa: E501
+        if 'organisation__name__icontains' in local_var_params and local_var_params['organisation__name__icontains'] is not None:  # noqa: E501
+            query_params.append(('organisation__name__icontains', local_var_params['organisation__name__icontains']))  # noqa: E501
+        if 'organisation__name__iexact' in local_var_params and local_var_params['organisation__name__iexact'] is not None:  # noqa: E501
+            query_params.append(('organisation__name__iexact', local_var_params['organisation__name__iexact']))  # noqa: E501
+        if 'organisation__name__in' in local_var_params and local_var_params['organisation__name__in'] is not None:  # noqa: E501
+            query_params.append(('organisation__name__in', local_var_params['organisation__name__in']))  # noqa: E501
+            collection_formats['organisation__name__in'] = 'csv'  # noqa: E501
+        if 'organisation__name__istartswith' in local_var_params and local_var_params['organisation__name__istartswith'] is not None:  # noqa: E501
+            query_params.append(('organisation__name__istartswith', local_var_params['organisation__name__istartswith']))  # noqa: E501
+        if 'organisation__name__regex' in local_var_params and local_var_params['organisation__name__regex'] is not None:  # noqa: E501
+            query_params.append(('organisation__name__regex', local_var_params['organisation__name__regex']))  # noqa: E501
+        if 'organisation__name__startswith' in local_var_params and local_var_params['organisation__name__startswith'] is not None:  # noqa: E501
+            query_params.append(('organisation__name__startswith', local_var_params['organisation__name__startswith']))  # noqa: E501
+        if 'organisation__unique_id' in local_var_params and local_var_params['organisation__unique_id'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id', local_var_params['organisation__unique_id']))  # noqa: E501
+        if 'organisation__unique_id__contains' in local_var_params and local_var_params['organisation__unique_id__contains'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id__contains', local_var_params['organisation__unique_id__contains']))  # noqa: E501
+        if 'organisation__unique_id__endswith' in local_var_params and local_var_params['organisation__unique_id__endswith'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id__endswith', local_var_params['organisation__unique_id__endswith']))  # noqa: E501
+        if 'organisation__unique_id__icontains' in local_var_params and local_var_params['organisation__unique_id__icontains'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id__icontains', local_var_params['organisation__unique_id__icontains']))  # noqa: E501
+        if 'organisation__unique_id__iexact' in local_var_params and local_var_params['organisation__unique_id__iexact'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id__iexact', local_var_params['organisation__unique_id__iexact']))  # noqa: E501
+        if 'organisation__unique_id__in' in local_var_params and local_var_params['organisation__unique_id__in'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id__in', local_var_params['organisation__unique_id__in']))  # noqa: E501
+            collection_formats['organisation__unique_id__in'] = 'csv'  # noqa: E501
+        if 'organisation__unique_id__istartswith' in local_var_params and local_var_params['organisation__unique_id__istartswith'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id__istartswith', local_var_params['organisation__unique_id__istartswith']))  # noqa: E501
+        if 'organisation__unique_id__regex' in local_var_params and local_var_params['organisation__unique_id__regex'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id__regex', local_var_params['organisation__unique_id__regex']))  # noqa: E501
+        if 'organisation__unique_id__startswith' in local_var_params and local_var_params['organisation__unique_id__startswith'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id__startswith', local_var_params['organisation__unique_id__startswith']))  # noqa: E501
+        if 'slug' in local_var_params and local_var_params['slug'] is not None:  # noqa: E501
+            query_params.append(('slug', local_var_params['slug']))  # noqa: E501
+        if 'slug__contains' in local_var_params and local_var_params['slug__contains'] is not None:  # noqa: E501
+            query_params.append(('slug__contains', local_var_params['slug__contains']))  # noqa: E501
+        if 'slug__endswith' in local_var_params and local_var_params['slug__endswith'] is not None:  # noqa: E501
+            query_params.append(('slug__endswith', local_var_params['slug__endswith']))  # noqa: E501
+        if 'slug__icontains' in local_var_params and local_var_params['slug__icontains'] is not None:  # noqa: E501
+            query_params.append(('slug__icontains', local_var_params['slug__icontains']))  # noqa: E501
+        if 'slug__iexact' in local_var_params and local_var_params['slug__iexact'] is not None:  # noqa: E501
+            query_params.append(('slug__iexact', local_var_params['slug__iexact']))  # noqa: E501
+        if 'slug__in' in local_var_params and local_var_params['slug__in'] is not None:  # noqa: E501
+            query_params.append(('slug__in', local_var_params['slug__in']))  # noqa: E501
+            collection_formats['slug__in'] = 'csv'  # noqa: E501
+        if 'slug__istartswith' in local_var_params and local_var_params['slug__istartswith'] is not None:  # noqa: E501
+            query_params.append(('slug__istartswith', local_var_params['slug__istartswith']))  # noqa: E501
+        if 'slug__regex' in local_var_params and local_var_params['slug__regex'] is not None:  # noqa: E501
+            query_params.append(('slug__regex', local_var_params['slug__regex']))  # noqa: E501
+        if 'slug__startswith' in local_var_params and local_var_params['slug__startswith'] is not None:  # noqa: E501
+            query_params.append(('slug__startswith', local_var_params['slug__startswith']))  # noqa: E501
 
         header_params = {}
 
@@ -7103,7 +11388,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Repository',  # noqa: E501
+            response_type='PaginatedRevisionList',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7111,17 +11396,52 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_repositories_threedimodels_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_repositories_threedimodels_retrieve  # noqa: E501
+    def v3_repositories_threedimodels_list(self, id, **kwargs):  # noqa: E501
+        """v3_repositories_threedimodels_list  # noqa: E501
 
         A simple ViewSet for viewing modelmeta  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_repositories_threedimodels_retrieve(id, async_req=True)
+        >>> thread = api.v3_repositories_threedimodels_list(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this repository. (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param int organisation__id:
+        :param int organisation__id__gt:
+        :param int organisation__id__gte:
+        :param bool organisation__id__isnull:
+        :param int organisation__id__lt:
+        :param int organisation__id__lte:
+        :param str organisation__name:
+        :param str organisation__name__contains:
+        :param str organisation__name__endswith:
+        :param str organisation__name__icontains:
+        :param str organisation__name__iexact:
+        :param list[str] organisation__name__in: Multiple values may be separated by commas.
+        :param str organisation__name__istartswith:
+        :param str organisation__name__regex:
+        :param str organisation__name__startswith:
+        :param str organisation__unique_id:
+        :param str organisation__unique_id__contains:
+        :param str organisation__unique_id__endswith:
+        :param str organisation__unique_id__icontains:
+        :param str organisation__unique_id__iexact:
+        :param list[str] organisation__unique_id__in: Multiple values may be separated by commas.
+        :param str organisation__unique_id__istartswith:
+        :param str organisation__unique_id__regex:
+        :param str organisation__unique_id__startswith:
+        :param str slug:
+        :param str slug__contains:
+        :param str slug__endswith:
+        :param str slug__icontains:
+        :param str slug__iexact:
+        :param list[str] slug__in: Multiple values may be separated by commas.
+        :param str slug__istartswith:
+        :param str slug__regex:
+        :param str slug__startswith:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7129,24 +11449,59 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Repository
+        :return: PaginatedThreediModelList
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_repositories_threedimodels_retrieve_with_http_info(id, **kwargs)  # noqa: E501
+        return self.v3_repositories_threedimodels_list_with_http_info(id, **kwargs)  # noqa: E501
 
-    def v3_repositories_threedimodels_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_repositories_threedimodels_retrieve  # noqa: E501
+    def v3_repositories_threedimodels_list_with_http_info(self, id, **kwargs):  # noqa: E501
+        """v3_repositories_threedimodels_list  # noqa: E501
 
         A simple ViewSet for viewing modelmeta  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_repositories_threedimodels_retrieve_with_http_info(id, async_req=True)
+        >>> thread = api.v3_repositories_threedimodels_list_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this repository. (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
+        :param int organisation__id:
+        :param int organisation__id__gt:
+        :param int organisation__id__gte:
+        :param bool organisation__id__isnull:
+        :param int organisation__id__lt:
+        :param int organisation__id__lte:
+        :param str organisation__name:
+        :param str organisation__name__contains:
+        :param str organisation__name__endswith:
+        :param str organisation__name__icontains:
+        :param str organisation__name__iexact:
+        :param list[str] organisation__name__in: Multiple values may be separated by commas.
+        :param str organisation__name__istartswith:
+        :param str organisation__name__regex:
+        :param str organisation__name__startswith:
+        :param str organisation__unique_id:
+        :param str organisation__unique_id__contains:
+        :param str organisation__unique_id__endswith:
+        :param str organisation__unique_id__icontains:
+        :param str organisation__unique_id__iexact:
+        :param list[str] organisation__unique_id__in: Multiple values may be separated by commas.
+        :param str organisation__unique_id__istartswith:
+        :param str organisation__unique_id__regex:
+        :param str organisation__unique_id__startswith:
+        :param str slug:
+        :param str slug__contains:
+        :param str slug__endswith:
+        :param str slug__icontains:
+        :param str slug__iexact:
+        :param list[str] slug__in: Multiple values may be separated by commas.
+        :param str slug__istartswith:
+        :param str slug__regex:
+        :param str slug__startswith:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7156,7 +11511,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Repository, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(PaginatedThreediModelList, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7164,7 +11519,42 @@ class V3Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id'
+            'id',
+            'limit',
+            'offset',
+            'organisation__id',
+            'organisation__id__gt',
+            'organisation__id__gte',
+            'organisation__id__isnull',
+            'organisation__id__lt',
+            'organisation__id__lte',
+            'organisation__name',
+            'organisation__name__contains',
+            'organisation__name__endswith',
+            'organisation__name__icontains',
+            'organisation__name__iexact',
+            'organisation__name__in',
+            'organisation__name__istartswith',
+            'organisation__name__regex',
+            'organisation__name__startswith',
+            'organisation__unique_id',
+            'organisation__unique_id__contains',
+            'organisation__unique_id__endswith',
+            'organisation__unique_id__icontains',
+            'organisation__unique_id__iexact',
+            'organisation__unique_id__in',
+            'organisation__unique_id__istartswith',
+            'organisation__unique_id__regex',
+            'organisation__unique_id__startswith',
+            'slug',
+            'slug__contains',
+            'slug__endswith',
+            'slug__icontains',
+            'slug__iexact',
+            'slug__in',
+            'slug__istartswith',
+            'slug__regex',
+            'slug__startswith'
         ]
         all_params.extend(
             [
@@ -7179,14 +11569,14 @@ class V3Api(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_repositories_threedimodels_retrieve" % key
+                    " to method v3_repositories_threedimodels_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_repositories_threedimodels_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `v3_repositories_threedimodels_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7195,6 +11585,79 @@ class V3Api(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'organisation__id' in local_var_params and local_var_params['organisation__id'] is not None:  # noqa: E501
+            query_params.append(('organisation__id', local_var_params['organisation__id']))  # noqa: E501
+        if 'organisation__id__gt' in local_var_params and local_var_params['organisation__id__gt'] is not None:  # noqa: E501
+            query_params.append(('organisation__id__gt', local_var_params['organisation__id__gt']))  # noqa: E501
+        if 'organisation__id__gte' in local_var_params and local_var_params['organisation__id__gte'] is not None:  # noqa: E501
+            query_params.append(('organisation__id__gte', local_var_params['organisation__id__gte']))  # noqa: E501
+        if 'organisation__id__isnull' in local_var_params and local_var_params['organisation__id__isnull'] is not None:  # noqa: E501
+            query_params.append(('organisation__id__isnull', local_var_params['organisation__id__isnull']))  # noqa: E501
+        if 'organisation__id__lt' in local_var_params and local_var_params['organisation__id__lt'] is not None:  # noqa: E501
+            query_params.append(('organisation__id__lt', local_var_params['organisation__id__lt']))  # noqa: E501
+        if 'organisation__id__lte' in local_var_params and local_var_params['organisation__id__lte'] is not None:  # noqa: E501
+            query_params.append(('organisation__id__lte', local_var_params['organisation__id__lte']))  # noqa: E501
+        if 'organisation__name' in local_var_params and local_var_params['organisation__name'] is not None:  # noqa: E501
+            query_params.append(('organisation__name', local_var_params['organisation__name']))  # noqa: E501
+        if 'organisation__name__contains' in local_var_params and local_var_params['organisation__name__contains'] is not None:  # noqa: E501
+            query_params.append(('organisation__name__contains', local_var_params['organisation__name__contains']))  # noqa: E501
+        if 'organisation__name__endswith' in local_var_params and local_var_params['organisation__name__endswith'] is not None:  # noqa: E501
+            query_params.append(('organisation__name__endswith', local_var_params['organisation__name__endswith']))  # noqa: E501
+        if 'organisation__name__icontains' in local_var_params and local_var_params['organisation__name__icontains'] is not None:  # noqa: E501
+            query_params.append(('organisation__name__icontains', local_var_params['organisation__name__icontains']))  # noqa: E501
+        if 'organisation__name__iexact' in local_var_params and local_var_params['organisation__name__iexact'] is not None:  # noqa: E501
+            query_params.append(('organisation__name__iexact', local_var_params['organisation__name__iexact']))  # noqa: E501
+        if 'organisation__name__in' in local_var_params and local_var_params['organisation__name__in'] is not None:  # noqa: E501
+            query_params.append(('organisation__name__in', local_var_params['organisation__name__in']))  # noqa: E501
+            collection_formats['organisation__name__in'] = 'csv'  # noqa: E501
+        if 'organisation__name__istartswith' in local_var_params and local_var_params['organisation__name__istartswith'] is not None:  # noqa: E501
+            query_params.append(('organisation__name__istartswith', local_var_params['organisation__name__istartswith']))  # noqa: E501
+        if 'organisation__name__regex' in local_var_params and local_var_params['organisation__name__regex'] is not None:  # noqa: E501
+            query_params.append(('organisation__name__regex', local_var_params['organisation__name__regex']))  # noqa: E501
+        if 'organisation__name__startswith' in local_var_params and local_var_params['organisation__name__startswith'] is not None:  # noqa: E501
+            query_params.append(('organisation__name__startswith', local_var_params['organisation__name__startswith']))  # noqa: E501
+        if 'organisation__unique_id' in local_var_params and local_var_params['organisation__unique_id'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id', local_var_params['organisation__unique_id']))  # noqa: E501
+        if 'organisation__unique_id__contains' in local_var_params and local_var_params['organisation__unique_id__contains'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id__contains', local_var_params['organisation__unique_id__contains']))  # noqa: E501
+        if 'organisation__unique_id__endswith' in local_var_params and local_var_params['organisation__unique_id__endswith'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id__endswith', local_var_params['organisation__unique_id__endswith']))  # noqa: E501
+        if 'organisation__unique_id__icontains' in local_var_params and local_var_params['organisation__unique_id__icontains'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id__icontains', local_var_params['organisation__unique_id__icontains']))  # noqa: E501
+        if 'organisation__unique_id__iexact' in local_var_params and local_var_params['organisation__unique_id__iexact'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id__iexact', local_var_params['organisation__unique_id__iexact']))  # noqa: E501
+        if 'organisation__unique_id__in' in local_var_params and local_var_params['organisation__unique_id__in'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id__in', local_var_params['organisation__unique_id__in']))  # noqa: E501
+            collection_formats['organisation__unique_id__in'] = 'csv'  # noqa: E501
+        if 'organisation__unique_id__istartswith' in local_var_params and local_var_params['organisation__unique_id__istartswith'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id__istartswith', local_var_params['organisation__unique_id__istartswith']))  # noqa: E501
+        if 'organisation__unique_id__regex' in local_var_params and local_var_params['organisation__unique_id__regex'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id__regex', local_var_params['organisation__unique_id__regex']))  # noqa: E501
+        if 'organisation__unique_id__startswith' in local_var_params and local_var_params['organisation__unique_id__startswith'] is not None:  # noqa: E501
+            query_params.append(('organisation__unique_id__startswith', local_var_params['organisation__unique_id__startswith']))  # noqa: E501
+        if 'slug' in local_var_params and local_var_params['slug'] is not None:  # noqa: E501
+            query_params.append(('slug', local_var_params['slug']))  # noqa: E501
+        if 'slug__contains' in local_var_params and local_var_params['slug__contains'] is not None:  # noqa: E501
+            query_params.append(('slug__contains', local_var_params['slug__contains']))  # noqa: E501
+        if 'slug__endswith' in local_var_params and local_var_params['slug__endswith'] is not None:  # noqa: E501
+            query_params.append(('slug__endswith', local_var_params['slug__endswith']))  # noqa: E501
+        if 'slug__icontains' in local_var_params and local_var_params['slug__icontains'] is not None:  # noqa: E501
+            query_params.append(('slug__icontains', local_var_params['slug__icontains']))  # noqa: E501
+        if 'slug__iexact' in local_var_params and local_var_params['slug__iexact'] is not None:  # noqa: E501
+            query_params.append(('slug__iexact', local_var_params['slug__iexact']))  # noqa: E501
+        if 'slug__in' in local_var_params and local_var_params['slug__in'] is not None:  # noqa: E501
+            query_params.append(('slug__in', local_var_params['slug__in']))  # noqa: E501
+            collection_formats['slug__in'] = 'csv'  # noqa: E501
+        if 'slug__istartswith' in local_var_params and local_var_params['slug__istartswith'] is not None:  # noqa: E501
+            query_params.append(('slug__istartswith', local_var_params['slug__istartswith']))  # noqa: E501
+        if 'slug__regex' in local_var_params and local_var_params['slug__regex'] is not None:  # noqa: E501
+            query_params.append(('slug__regex', local_var_params['slug__regex']))  # noqa: E501
+        if 'slug__startswith' in local_var_params and local_var_params['slug__startswith'] is not None:  # noqa: E501
+            query_params.append(('slug__startswith', local_var_params['slug__startswith']))  # noqa: E501
 
         header_params = {}
 
@@ -7217,7 +11680,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Repository',  # noqa: E501
+            response_type='PaginatedThreediModelList',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8181,17 +12644,68 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_revisions_threedimodels_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_revisions_threedimodels_retrieve  # noqa: E501
+    def v3_revisions_threedimodels_list(self, id, **kwargs):  # noqa: E501
+        """v3_revisions_threedimodels_list  # noqa: E501
 
         A simple ViewSet for viewing modelmeta  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_revisions_threedimodels_retrieve(id, async_req=True)
+        >>> thread = api.v3_revisions_threedimodels_list(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this revision. (required)
+        :param str hash:
+        :param str hash__contains:
+        :param str hash__endswith:
+        :param str hash__icontains:
+        :param str hash__iexact:
+        :param list[str] hash__in: Multiple values may be separated by commas.
+        :param str hash__istartswith:
+        :param str hash__regex:
+        :param str hash__startswith:
+        :param bool is_pinned:
+        :param int limit: Number of results to return per page.
+        :param int number:
+        :param int number__gt:
+        :param int number__gte:
+        :param bool number__isnull:
+        :param int number__lt:
+        :param int number__lte:
+        :param int offset: The initial index from which to return the results.
+        :param int repository__id:
+        :param int repository__id__gt:
+        :param int repository__id__gte:
+        :param bool repository__id__isnull:
+        :param int repository__id__lt:
+        :param int repository__id__lte:
+        :param str repository__organisation__name:
+        :param str repository__organisation__name__contains:
+        :param str repository__organisation__name__endswith:
+        :param str repository__organisation__name__icontains:
+        :param str repository__organisation__name__iexact:
+        :param list[str] repository__organisation__name__in: Multiple values may be separated by commas.
+        :param str repository__organisation__name__istartswith:
+        :param str repository__organisation__name__regex:
+        :param str repository__organisation__name__startswith:
+        :param str repository__organisation__unique_id:
+        :param str repository__organisation__unique_id__contains:
+        :param str repository__organisation__unique_id__endswith:
+        :param str repository__organisation__unique_id__icontains:
+        :param str repository__organisation__unique_id__iexact:
+        :param list[str] repository__organisation__unique_id__in: Multiple values may be separated by commas.
+        :param str repository__organisation__unique_id__istartswith:
+        :param str repository__organisation__unique_id__regex:
+        :param str repository__organisation__unique_id__startswith:
+        :param str repository__slug:
+        :param str repository__slug__contains:
+        :param str repository__slug__endswith:
+        :param str repository__slug__icontains:
+        :param str repository__slug__iexact:
+        :param list[str] repository__slug__in: Multiple values may be separated by commas.
+        :param str repository__slug__istartswith:
+        :param str repository__slug__regex:
+        :param str repository__slug__startswith:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8199,24 +12713,75 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Revision
+        :return: PaginatedThreediModelList
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_revisions_threedimodels_retrieve_with_http_info(id, **kwargs)  # noqa: E501
+        return self.v3_revisions_threedimodels_list_with_http_info(id, **kwargs)  # noqa: E501
 
-    def v3_revisions_threedimodels_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_revisions_threedimodels_retrieve  # noqa: E501
+    def v3_revisions_threedimodels_list_with_http_info(self, id, **kwargs):  # noqa: E501
+        """v3_revisions_threedimodels_list  # noqa: E501
 
         A simple ViewSet for viewing modelmeta  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_revisions_threedimodels_retrieve_with_http_info(id, async_req=True)
+        >>> thread = api.v3_revisions_threedimodels_list_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this revision. (required)
+        :param str hash:
+        :param str hash__contains:
+        :param str hash__endswith:
+        :param str hash__icontains:
+        :param str hash__iexact:
+        :param list[str] hash__in: Multiple values may be separated by commas.
+        :param str hash__istartswith:
+        :param str hash__regex:
+        :param str hash__startswith:
+        :param bool is_pinned:
+        :param int limit: Number of results to return per page.
+        :param int number:
+        :param int number__gt:
+        :param int number__gte:
+        :param bool number__isnull:
+        :param int number__lt:
+        :param int number__lte:
+        :param int offset: The initial index from which to return the results.
+        :param int repository__id:
+        :param int repository__id__gt:
+        :param int repository__id__gte:
+        :param bool repository__id__isnull:
+        :param int repository__id__lt:
+        :param int repository__id__lte:
+        :param str repository__organisation__name:
+        :param str repository__organisation__name__contains:
+        :param str repository__organisation__name__endswith:
+        :param str repository__organisation__name__icontains:
+        :param str repository__organisation__name__iexact:
+        :param list[str] repository__organisation__name__in: Multiple values may be separated by commas.
+        :param str repository__organisation__name__istartswith:
+        :param str repository__organisation__name__regex:
+        :param str repository__organisation__name__startswith:
+        :param str repository__organisation__unique_id:
+        :param str repository__organisation__unique_id__contains:
+        :param str repository__organisation__unique_id__endswith:
+        :param str repository__organisation__unique_id__icontains:
+        :param str repository__organisation__unique_id__iexact:
+        :param list[str] repository__organisation__unique_id__in: Multiple values may be separated by commas.
+        :param str repository__organisation__unique_id__istartswith:
+        :param str repository__organisation__unique_id__regex:
+        :param str repository__organisation__unique_id__startswith:
+        :param str repository__slug:
+        :param str repository__slug__contains:
+        :param str repository__slug__endswith:
+        :param str repository__slug__icontains:
+        :param str repository__slug__iexact:
+        :param list[str] repository__slug__in: Multiple values may be separated by commas.
+        :param str repository__slug__istartswith:
+        :param str repository__slug__regex:
+        :param str repository__slug__startswith:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8226,7 +12791,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Revision, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(PaginatedThreediModelList, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8234,7 +12799,58 @@ class V3Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id'
+            'id',
+            'hash',
+            'hash__contains',
+            'hash__endswith',
+            'hash__icontains',
+            'hash__iexact',
+            'hash__in',
+            'hash__istartswith',
+            'hash__regex',
+            'hash__startswith',
+            'is_pinned',
+            'limit',
+            'number',
+            'number__gt',
+            'number__gte',
+            'number__isnull',
+            'number__lt',
+            'number__lte',
+            'offset',
+            'repository__id',
+            'repository__id__gt',
+            'repository__id__gte',
+            'repository__id__isnull',
+            'repository__id__lt',
+            'repository__id__lte',
+            'repository__organisation__name',
+            'repository__organisation__name__contains',
+            'repository__organisation__name__endswith',
+            'repository__organisation__name__icontains',
+            'repository__organisation__name__iexact',
+            'repository__organisation__name__in',
+            'repository__organisation__name__istartswith',
+            'repository__organisation__name__regex',
+            'repository__organisation__name__startswith',
+            'repository__organisation__unique_id',
+            'repository__organisation__unique_id__contains',
+            'repository__organisation__unique_id__endswith',
+            'repository__organisation__unique_id__icontains',
+            'repository__organisation__unique_id__iexact',
+            'repository__organisation__unique_id__in',
+            'repository__organisation__unique_id__istartswith',
+            'repository__organisation__unique_id__regex',
+            'repository__organisation__unique_id__startswith',
+            'repository__slug',
+            'repository__slug__contains',
+            'repository__slug__endswith',
+            'repository__slug__icontains',
+            'repository__slug__iexact',
+            'repository__slug__in',
+            'repository__slug__istartswith',
+            'repository__slug__regex',
+            'repository__slug__startswith'
         ]
         all_params.extend(
             [
@@ -8249,14 +12865,14 @@ class V3Api(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_revisions_threedimodels_retrieve" % key
+                    " to method v3_revisions_threedimodels_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_revisions_threedimodels_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `v3_revisions_threedimodels_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -8265,6 +12881,112 @@ class V3Api(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'hash' in local_var_params and local_var_params['hash'] is not None:  # noqa: E501
+            query_params.append(('hash', local_var_params['hash']))  # noqa: E501
+        if 'hash__contains' in local_var_params and local_var_params['hash__contains'] is not None:  # noqa: E501
+            query_params.append(('hash__contains', local_var_params['hash__contains']))  # noqa: E501
+        if 'hash__endswith' in local_var_params and local_var_params['hash__endswith'] is not None:  # noqa: E501
+            query_params.append(('hash__endswith', local_var_params['hash__endswith']))  # noqa: E501
+        if 'hash__icontains' in local_var_params and local_var_params['hash__icontains'] is not None:  # noqa: E501
+            query_params.append(('hash__icontains', local_var_params['hash__icontains']))  # noqa: E501
+        if 'hash__iexact' in local_var_params and local_var_params['hash__iexact'] is not None:  # noqa: E501
+            query_params.append(('hash__iexact', local_var_params['hash__iexact']))  # noqa: E501
+        if 'hash__in' in local_var_params and local_var_params['hash__in'] is not None:  # noqa: E501
+            query_params.append(('hash__in', local_var_params['hash__in']))  # noqa: E501
+            collection_formats['hash__in'] = 'csv'  # noqa: E501
+        if 'hash__istartswith' in local_var_params and local_var_params['hash__istartswith'] is not None:  # noqa: E501
+            query_params.append(('hash__istartswith', local_var_params['hash__istartswith']))  # noqa: E501
+        if 'hash__regex' in local_var_params and local_var_params['hash__regex'] is not None:  # noqa: E501
+            query_params.append(('hash__regex', local_var_params['hash__regex']))  # noqa: E501
+        if 'hash__startswith' in local_var_params and local_var_params['hash__startswith'] is not None:  # noqa: E501
+            query_params.append(('hash__startswith', local_var_params['hash__startswith']))  # noqa: E501
+        if 'is_pinned' in local_var_params and local_var_params['is_pinned'] is not None:  # noqa: E501
+            query_params.append(('is_pinned', local_var_params['is_pinned']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'number' in local_var_params and local_var_params['number'] is not None:  # noqa: E501
+            query_params.append(('number', local_var_params['number']))  # noqa: E501
+        if 'number__gt' in local_var_params and local_var_params['number__gt'] is not None:  # noqa: E501
+            query_params.append(('number__gt', local_var_params['number__gt']))  # noqa: E501
+        if 'number__gte' in local_var_params and local_var_params['number__gte'] is not None:  # noqa: E501
+            query_params.append(('number__gte', local_var_params['number__gte']))  # noqa: E501
+        if 'number__isnull' in local_var_params and local_var_params['number__isnull'] is not None:  # noqa: E501
+            query_params.append(('number__isnull', local_var_params['number__isnull']))  # noqa: E501
+        if 'number__lt' in local_var_params and local_var_params['number__lt'] is not None:  # noqa: E501
+            query_params.append(('number__lt', local_var_params['number__lt']))  # noqa: E501
+        if 'number__lte' in local_var_params and local_var_params['number__lte'] is not None:  # noqa: E501
+            query_params.append(('number__lte', local_var_params['number__lte']))  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'repository__id' in local_var_params and local_var_params['repository__id'] is not None:  # noqa: E501
+            query_params.append(('repository__id', local_var_params['repository__id']))  # noqa: E501
+        if 'repository__id__gt' in local_var_params and local_var_params['repository__id__gt'] is not None:  # noqa: E501
+            query_params.append(('repository__id__gt', local_var_params['repository__id__gt']))  # noqa: E501
+        if 'repository__id__gte' in local_var_params and local_var_params['repository__id__gte'] is not None:  # noqa: E501
+            query_params.append(('repository__id__gte', local_var_params['repository__id__gte']))  # noqa: E501
+        if 'repository__id__isnull' in local_var_params and local_var_params['repository__id__isnull'] is not None:  # noqa: E501
+            query_params.append(('repository__id__isnull', local_var_params['repository__id__isnull']))  # noqa: E501
+        if 'repository__id__lt' in local_var_params and local_var_params['repository__id__lt'] is not None:  # noqa: E501
+            query_params.append(('repository__id__lt', local_var_params['repository__id__lt']))  # noqa: E501
+        if 'repository__id__lte' in local_var_params and local_var_params['repository__id__lte'] is not None:  # noqa: E501
+            query_params.append(('repository__id__lte', local_var_params['repository__id__lte']))  # noqa: E501
+        if 'repository__organisation__name' in local_var_params and local_var_params['repository__organisation__name'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__name', local_var_params['repository__organisation__name']))  # noqa: E501
+        if 'repository__organisation__name__contains' in local_var_params and local_var_params['repository__organisation__name__contains'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__name__contains', local_var_params['repository__organisation__name__contains']))  # noqa: E501
+        if 'repository__organisation__name__endswith' in local_var_params and local_var_params['repository__organisation__name__endswith'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__name__endswith', local_var_params['repository__organisation__name__endswith']))  # noqa: E501
+        if 'repository__organisation__name__icontains' in local_var_params and local_var_params['repository__organisation__name__icontains'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__name__icontains', local_var_params['repository__organisation__name__icontains']))  # noqa: E501
+        if 'repository__organisation__name__iexact' in local_var_params and local_var_params['repository__organisation__name__iexact'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__name__iexact', local_var_params['repository__organisation__name__iexact']))  # noqa: E501
+        if 'repository__organisation__name__in' in local_var_params and local_var_params['repository__organisation__name__in'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__name__in', local_var_params['repository__organisation__name__in']))  # noqa: E501
+            collection_formats['repository__organisation__name__in'] = 'csv'  # noqa: E501
+        if 'repository__organisation__name__istartswith' in local_var_params and local_var_params['repository__organisation__name__istartswith'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__name__istartswith', local_var_params['repository__organisation__name__istartswith']))  # noqa: E501
+        if 'repository__organisation__name__regex' in local_var_params and local_var_params['repository__organisation__name__regex'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__name__regex', local_var_params['repository__organisation__name__regex']))  # noqa: E501
+        if 'repository__organisation__name__startswith' in local_var_params and local_var_params['repository__organisation__name__startswith'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__name__startswith', local_var_params['repository__organisation__name__startswith']))  # noqa: E501
+        if 'repository__organisation__unique_id' in local_var_params and local_var_params['repository__organisation__unique_id'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__unique_id', local_var_params['repository__organisation__unique_id']))  # noqa: E501
+        if 'repository__organisation__unique_id__contains' in local_var_params and local_var_params['repository__organisation__unique_id__contains'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__unique_id__contains', local_var_params['repository__organisation__unique_id__contains']))  # noqa: E501
+        if 'repository__organisation__unique_id__endswith' in local_var_params and local_var_params['repository__organisation__unique_id__endswith'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__unique_id__endswith', local_var_params['repository__organisation__unique_id__endswith']))  # noqa: E501
+        if 'repository__organisation__unique_id__icontains' in local_var_params and local_var_params['repository__organisation__unique_id__icontains'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__unique_id__icontains', local_var_params['repository__organisation__unique_id__icontains']))  # noqa: E501
+        if 'repository__organisation__unique_id__iexact' in local_var_params and local_var_params['repository__organisation__unique_id__iexact'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__unique_id__iexact', local_var_params['repository__organisation__unique_id__iexact']))  # noqa: E501
+        if 'repository__organisation__unique_id__in' in local_var_params and local_var_params['repository__organisation__unique_id__in'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__unique_id__in', local_var_params['repository__organisation__unique_id__in']))  # noqa: E501
+            collection_formats['repository__organisation__unique_id__in'] = 'csv'  # noqa: E501
+        if 'repository__organisation__unique_id__istartswith' in local_var_params and local_var_params['repository__organisation__unique_id__istartswith'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__unique_id__istartswith', local_var_params['repository__organisation__unique_id__istartswith']))  # noqa: E501
+        if 'repository__organisation__unique_id__regex' in local_var_params and local_var_params['repository__organisation__unique_id__regex'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__unique_id__regex', local_var_params['repository__organisation__unique_id__regex']))  # noqa: E501
+        if 'repository__organisation__unique_id__startswith' in local_var_params and local_var_params['repository__organisation__unique_id__startswith'] is not None:  # noqa: E501
+            query_params.append(('repository__organisation__unique_id__startswith', local_var_params['repository__organisation__unique_id__startswith']))  # noqa: E501
+        if 'repository__slug' in local_var_params and local_var_params['repository__slug'] is not None:  # noqa: E501
+            query_params.append(('repository__slug', local_var_params['repository__slug']))  # noqa: E501
+        if 'repository__slug__contains' in local_var_params and local_var_params['repository__slug__contains'] is not None:  # noqa: E501
+            query_params.append(('repository__slug__contains', local_var_params['repository__slug__contains']))  # noqa: E501
+        if 'repository__slug__endswith' in local_var_params and local_var_params['repository__slug__endswith'] is not None:  # noqa: E501
+            query_params.append(('repository__slug__endswith', local_var_params['repository__slug__endswith']))  # noqa: E501
+        if 'repository__slug__icontains' in local_var_params and local_var_params['repository__slug__icontains'] is not None:  # noqa: E501
+            query_params.append(('repository__slug__icontains', local_var_params['repository__slug__icontains']))  # noqa: E501
+        if 'repository__slug__iexact' in local_var_params and local_var_params['repository__slug__iexact'] is not None:  # noqa: E501
+            query_params.append(('repository__slug__iexact', local_var_params['repository__slug__iexact']))  # noqa: E501
+        if 'repository__slug__in' in local_var_params and local_var_params['repository__slug__in'] is not None:  # noqa: E501
+            query_params.append(('repository__slug__in', local_var_params['repository__slug__in']))  # noqa: E501
+            collection_formats['repository__slug__in'] = 'csv'  # noqa: E501
+        if 'repository__slug__istartswith' in local_var_params and local_var_params['repository__slug__istartswith'] is not None:  # noqa: E501
+            query_params.append(('repository__slug__istartswith', local_var_params['repository__slug__istartswith']))  # noqa: E501
+        if 'repository__slug__regex' in local_var_params and local_var_params['repository__slug__regex'] is not None:  # noqa: E501
+            query_params.append(('repository__slug__regex', local_var_params['repository__slug__regex']))  # noqa: E501
+        if 'repository__slug__startswith' in local_var_params and local_var_params['repository__slug__startswith'] is not None:  # noqa: E501
+            query_params.append(('repository__slug__startswith', local_var_params['repository__slug__startswith']))  # noqa: E501
 
         header_params = {}
 
@@ -8287,7 +13009,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Revision',  # noqa: E501
+            response_type='PaginatedThreediModelList',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8872,120 +13594,6 @@ class V3Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_schematisations_latestrevision_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_schematisations_latestrevision_retrieve  # noqa: E501
-
-        Get the latest committed revision.  For retrieving all revisions use: `/schematisations/{id}/revisions`  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_schematisations_latestrevision_retrieve(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this schematisation. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Schematisation
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_schematisations_latestrevision_retrieve_with_http_info(id, **kwargs)  # noqa: E501
-
-    def v3_schematisations_latestrevision_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_schematisations_latestrevision_retrieve  # noqa: E501
-
-        Get the latest committed revision.  For retrieving all revisions use: `/schematisations/{id}/revisions`  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_schematisations_latestrevision_retrieve_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this schematisation. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(Schematisation, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_schematisations_latestrevision_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_schematisations_latestrevision_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/schematisations/{id}/latest[-_]revision/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='Schematisation',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9834,7 +14442,6 @@ class V3Api(object):
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this revision. (required)
         :param int schematisation_pk: (required)
-        :param SchematisationRevision schematisation_revision:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9842,7 +14449,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: SchematisationRevision
+        :return: RevisionTask
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9861,7 +14468,6 @@ class V3Api(object):
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this revision. (required)
         :param int schematisation_pk: (required)
-        :param SchematisationRevision schematisation_revision:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9871,7 +14477,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(SchematisationRevision, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(RevisionTask, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9880,8 +14486,7 @@ class V3Api(object):
 
         all_params = [
             'id',
-            'schematisation_pk',
-            'schematisation_revision'
+            'schematisation_pk'
         ]
         all_params.extend(
             [
@@ -9925,15 +14530,9 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'schematisation_revision' in local_var_params:
-            body_params = local_var_params['schematisation_revision']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
@@ -9946,7 +14545,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='SchematisationRevision',  # noqa: E501
+            response_type='RevisionTask',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9966,7 +14565,7 @@ class V3Api(object):
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this revision. (required)
         :param int schematisation_pk: (required)
-        :param SchematisationRevision schematisation_revision:
+        :param Commit commit:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9993,7 +14592,7 @@ class V3Api(object):
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this revision. (required)
         :param int schematisation_pk: (required)
-        :param SchematisationRevision schematisation_revision:
+        :param Commit commit:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -10013,7 +14612,7 @@ class V3Api(object):
         all_params = [
             'id',
             'schematisation_pk',
-            'schematisation_revision'
+            'commit'
         ]
         all_params.extend(
             [
@@ -10057,8 +14656,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'schematisation_revision' in local_var_params:
-            body_params = local_var_params['schematisation_revision']
+        if 'commit' in local_var_params:
+            body_params = local_var_params['commit']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -10221,7 +14820,7 @@ class V3Api(object):
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this revision. (required)
         :param int schematisation_pk: (required)
-        :param SchematisationRevision schematisation_revision:
+        :param CreateThreedimodel create_threedimodel:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -10229,7 +14828,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: SchematisationRevision
+        :return: ThreediModel
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10248,7 +14847,7 @@ class V3Api(object):
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this revision. (required)
         :param int schematisation_pk: (required)
-        :param SchematisationRevision schematisation_revision:
+        :param CreateThreedimodel create_threedimodel:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -10258,7 +14857,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(SchematisationRevision, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10268,7 +14867,7 @@ class V3Api(object):
         all_params = [
             'id',
             'schematisation_pk',
-            'schematisation_revision'
+            'create_threedimodel'
         ]
         all_params.extend(
             [
@@ -10312,8 +14911,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'schematisation_revision' in local_var_params:
-            body_params = local_var_params['schematisation_revision']
+        if 'create_threedimodel' in local_var_params:
+            body_params = local_var_params['create_threedimodel']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -10333,7 +14932,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='SchematisationRevision',  # noqa: E501
+            response_type='ThreediModel',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -11370,7 +15969,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: RevisionRaster
+        :return: Download
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11399,7 +15998,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(RevisionRaster, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11474,7 +16073,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RevisionRaster',  # noqa: E501
+            response_type='Download',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12033,20 +16632,20 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_schematisations_revisions_rasters_upload_create(self, id, revision_pk, schematisation_pk, revision_raster, **kwargs):  # noqa: E501
+    def v3_schematisations_revisions_rasters_upload_create(self, id, revision_pk, schematisation_pk, upload, **kwargs):  # noqa: E501
         """v3_schematisations_revisions_rasters_upload_create  # noqa: E501
 
         Endpoint for uploading a raster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_schematisations_revisions_rasters_upload_create(id, revision_pk, schematisation_pk, revision_raster, async_req=True)
+        >>> thread = api.v3_schematisations_revisions_rasters_upload_create(id, revision_pk, schematisation_pk, upload, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this revision raster. (required)
         :param int revision_pk: (required)
         :param int schematisation_pk: (required)
-        :param RevisionRaster revision_raster: (required)
+        :param Upload upload: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -12054,27 +16653,27 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: RevisionRaster
+        :return: Upload
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_schematisations_revisions_rasters_upload_create_with_http_info(id, revision_pk, schematisation_pk, revision_raster, **kwargs)  # noqa: E501
+        return self.v3_schematisations_revisions_rasters_upload_create_with_http_info(id, revision_pk, schematisation_pk, upload, **kwargs)  # noqa: E501
 
-    def v3_schematisations_revisions_rasters_upload_create_with_http_info(self, id, revision_pk, schematisation_pk, revision_raster, **kwargs):  # noqa: E501
+    def v3_schematisations_revisions_rasters_upload_create_with_http_info(self, id, revision_pk, schematisation_pk, upload, **kwargs):  # noqa: E501
         """v3_schematisations_revisions_rasters_upload_create  # noqa: E501
 
         Endpoint for uploading a raster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_schematisations_revisions_rasters_upload_create_with_http_info(id, revision_pk, schematisation_pk, revision_raster, async_req=True)
+        >>> thread = api.v3_schematisations_revisions_rasters_upload_create_with_http_info(id, revision_pk, schematisation_pk, upload, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this revision raster. (required)
         :param int revision_pk: (required)
         :param int schematisation_pk: (required)
-        :param RevisionRaster revision_raster: (required)
+        :param Upload upload: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -12084,7 +16683,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(RevisionRaster, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12095,7 +16694,7 @@ class V3Api(object):
             'id',
             'revision_pk',
             'schematisation_pk',
-            'revision_raster'
+            'upload'
         ]
         all_params.extend(
             [
@@ -12126,10 +16725,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['schematisation_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `v3_schematisations_revisions_rasters_upload_create`")  # noqa: E501
-        # verify the required parameter 'revision_raster' is set
-        if self.api_client.client_side_validation and ('revision_raster' not in local_var_params or  # noqa: E501
-                                                        local_var_params['revision_raster'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `revision_raster` when calling `v3_schematisations_revisions_rasters_upload_create`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `v3_schematisations_revisions_rasters_upload_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -12149,8 +16748,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'revision_raster' in local_var_params:
-            body_params = local_var_params['revision_raster']
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -12170,7 +16769,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RevisionRaster',  # noqa: E501
+            response_type='Upload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12287,380 +16886,6 @@ class V3Api(object):
 
         return self.api_client.call_api(
             '/v3/schematisations/{schematisation_pk}/revisions/{id}/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='SchematisationRevision',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_schematisations_revisions_sqlite_delete_destroy(self, id, schematisation_pk, **kwargs):  # noqa: E501
-        """v3_schematisations_revisions_sqlite_delete_destroy  # noqa: E501
-
-        Manage revisions of schematisations.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_schematisations_revisions_sqlite_delete_destroy(id, schematisation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this revision. (required)
-        :param int schematisation_pk: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_schematisations_revisions_sqlite_delete_destroy_with_http_info(id, schematisation_pk, **kwargs)  # noqa: E501
-
-    def v3_schematisations_revisions_sqlite_delete_destroy_with_http_info(self, id, schematisation_pk, **kwargs):  # noqa: E501
-        """v3_schematisations_revisions_sqlite_delete_destroy  # noqa: E501
-
-        Manage revisions of schematisations.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_schematisations_revisions_sqlite_delete_destroy_with_http_info(id, schematisation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this revision. (required)
-        :param int schematisation_pk: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'schematisation_pk'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_schematisations_revisions_sqlite_delete_destroy" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_schematisations_revisions_sqlite_delete_destroy`")  # noqa: E501
-        # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `v3_schematisations_revisions_sqlite_delete_destroy`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/schematisations/{schematisation_pk}/revisions/{id}/sqlite/delete/', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_schematisations_revisions_sqlite_download_retrieve(self, id, schematisation_pk, **kwargs):  # noqa: E501
-        """v3_schematisations_revisions_sqlite_download_retrieve  # noqa: E501
-
-        Endpoint for downloading files.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_schematisations_revisions_sqlite_download_retrieve(id, schematisation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this revision. (required)
-        :param int schematisation_pk: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: SchematisationRevision
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_schematisations_revisions_sqlite_download_retrieve_with_http_info(id, schematisation_pk, **kwargs)  # noqa: E501
-
-    def v3_schematisations_revisions_sqlite_download_retrieve_with_http_info(self, id, schematisation_pk, **kwargs):  # noqa: E501
-        """v3_schematisations_revisions_sqlite_download_retrieve  # noqa: E501
-
-        Endpoint for downloading files.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_schematisations_revisions_sqlite_download_retrieve_with_http_info(id, schematisation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this revision. (required)
-        :param int schematisation_pk: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(SchematisationRevision, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'schematisation_pk'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_schematisations_revisions_sqlite_download_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_schematisations_revisions_sqlite_download_retrieve`")  # noqa: E501
-        # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `v3_schematisations_revisions_sqlite_download_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/schematisations/{schematisation_pk}/revisions/{id}/sqlite/download/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='SchematisationRevision',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_schematisations_revisions_sqlite_upload_create(self, id, schematisation_pk, **kwargs):  # noqa: E501
-        """v3_schematisations_revisions_sqlite_upload_create  # noqa: E501
-
-        Endpoint for uploading the sqlite file.  The file should preferably be zipped (deflate).  Replaces the present sqlite file if there already exists one.  Optional md5sum can be added to detect if the file already has been uploaded and perform de-duplication. (md5sum of the compressed sqlite file)  Note: Uploading the sqlite file without compression is also supported, but not advised, see above. Use the md5sum of the (uncompressed) sqlite file in this case.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_schematisations_revisions_sqlite_upload_create(id, schematisation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this revision. (required)
-        :param int schematisation_pk: (required)
-        :param SchematisationRevision schematisation_revision:
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: SchematisationRevision
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_schematisations_revisions_sqlite_upload_create_with_http_info(id, schematisation_pk, **kwargs)  # noqa: E501
-
-    def v3_schematisations_revisions_sqlite_upload_create_with_http_info(self, id, schematisation_pk, **kwargs):  # noqa: E501
-        """v3_schematisations_revisions_sqlite_upload_create  # noqa: E501
-
-        Endpoint for uploading the sqlite file.  The file should preferably be zipped (deflate).  Replaces the present sqlite file if there already exists one.  Optional md5sum can be added to detect if the file already has been uploaded and perform de-duplication. (md5sum of the compressed sqlite file)  Note: Uploading the sqlite file without compression is also supported, but not advised, see above. Use the md5sum of the (uncompressed) sqlite file in this case.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_schematisations_revisions_sqlite_upload_create_with_http_info(id, schematisation_pk, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this revision. (required)
-        :param int schematisation_pk: (required)
-        :param SchematisationRevision schematisation_revision:
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(SchematisationRevision, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'schematisation_pk',
-            'schematisation_revision'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_schematisations_revisions_sqlite_upload_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_schematisations_revisions_sqlite_upload_create`")  # noqa: E501
-        # verify the required parameter 'schematisation_pk' is set
-        if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
-                                                        local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `v3_schematisations_revisions_sqlite_upload_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-        if 'schematisation_pk' in local_var_params:
-            path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'schematisation_revision' in local_var_params:
-            body_params = local_var_params['schematisation_revision']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/schematisations/{schematisation_pk}/revisions/{id}/sqlite/upload/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -13490,18 +17715,93 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_schematisations_revisions_threedimodels_retrieve(self, id, schematisation_pk, **kwargs):  # noqa: E501
-        """v3_schematisations_revisions_threedimodels_retrieve  # noqa: E501
+    def v3_schematisations_revisions_threedimodels_list(self, id, schematisation_pk, **kwargs):  # noqa: E501
+        """v3_schematisations_revisions_threedimodels_list  # noqa: E501
 
         Manage revisions of schematisations.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_schematisations_revisions_threedimodels_retrieve(id, schematisation_pk, async_req=True)
+        >>> thread = api.v3_schematisations_revisions_threedimodels_list(id, schematisation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this revision. (required)
         :param int schematisation_pk: (required)
+        :param bool archived: archived
+        :param datetime commit_date:
+        :param date commit_date__date:
+        :param date commit_date__date__gt:
+        :param date commit_date__date__gte:
+        :param date commit_date__date__lt:
+        :param date commit_date__date__lte:
+        :param float commit_date__day:
+        :param float commit_date__day__lt:
+        :param datetime commit_date__gt:
+        :param datetime commit_date__gte:
+        :param datetime commit_date__lt:
+        :param datetime commit_date__lte:
+        :param float commit_date__month:
+        :param float commit_date__month__lte:
+        :param float commit_date__week:
+        :param float commit_date__week_day:
+        :param float commit_date__year:
+        :param float commit_date__year__gt:
+        :param float commit_date__year__gte:
+        :param float commit_date__year__lt:
+        :param float commit_date__year__lte:
+        :param str commit_message:
+        :param str commit_message__contains:
+        :param str commit_message__endswith:
+        :param str commit_message__icontains:
+        :param str commit_message__iexact:
+        :param list[str] commit_message__in: Multiple values may be separated by commas.
+        :param str commit_message__istartswith:
+        :param str commit_message__regex:
+        :param str commit_message__startswith:
+        :param str commit_user__username:
+        :param str commit_user__username__contains:
+        :param str commit_user__username__endswith:
+        :param str commit_user__username__icontains:
+        :param str commit_user__username__iexact:
+        :param list[str] commit_user__username__in: Multiple values may be separated by commas.
+        :param str commit_user__username__istartswith:
+        :param str commit_user__username__regex:
+        :param str commit_user__username__startswith:
+        :param bool committed: committed
+        :param bool has_threedimodel: has_threedimodel
+        :param bool is_valid: is_valid
+        :param int limit: Number of results to return per page.
+        :param int number:
+        :param int offset: The initial index from which to return the results.
+        :param str ordering: Which field to use when ordering the results.
+        :param int schematisation__id:
+        :param str schematisation__owner__name:
+        :param str schematisation__owner__name__contains:
+        :param str schematisation__owner__name__endswith:
+        :param str schematisation__owner__name__icontains:
+        :param str schematisation__owner__name__iexact:
+        :param list[str] schematisation__owner__name__in: Multiple values may be separated by commas.
+        :param str schematisation__owner__name__istartswith:
+        :param str schematisation__owner__name__regex:
+        :param str schematisation__owner__name__startswith:
+        :param str schematisation__owner__unique_id:
+        :param str schematisation__owner__unique_id__contains:
+        :param str schematisation__owner__unique_id__endswith:
+        :param str schematisation__owner__unique_id__icontains:
+        :param str schematisation__owner__unique_id__iexact:
+        :param list[str] schematisation__owner__unique_id__in: Multiple values may be separated by commas.
+        :param str schematisation__owner__unique_id__istartswith:
+        :param str schematisation__owner__unique_id__regex:
+        :param str schematisation__owner__unique_id__startswith:
+        :param str schematisation__slug:
+        :param str schematisation__slug__contains:
+        :param str schematisation__slug__endswith:
+        :param str schematisation__slug__icontains:
+        :param str schematisation__slug__iexact:
+        :param list[str] schematisation__slug__in: Multiple values may be separated by commas.
+        :param str schematisation__slug__istartswith:
+        :param str schematisation__slug__regex:
+        :param str schematisation__slug__startswith:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -13509,25 +17809,100 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: SchematisationRevision
+        :return: PaginatedThreediModelList
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_schematisations_revisions_threedimodels_retrieve_with_http_info(id, schematisation_pk, **kwargs)  # noqa: E501
+        return self.v3_schematisations_revisions_threedimodels_list_with_http_info(id, schematisation_pk, **kwargs)  # noqa: E501
 
-    def v3_schematisations_revisions_threedimodels_retrieve_with_http_info(self, id, schematisation_pk, **kwargs):  # noqa: E501
-        """v3_schematisations_revisions_threedimodels_retrieve  # noqa: E501
+    def v3_schematisations_revisions_threedimodels_list_with_http_info(self, id, schematisation_pk, **kwargs):  # noqa: E501
+        """v3_schematisations_revisions_threedimodels_list  # noqa: E501
 
         Manage revisions of schematisations.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_schematisations_revisions_threedimodels_retrieve_with_http_info(id, schematisation_pk, async_req=True)
+        >>> thread = api.v3_schematisations_revisions_threedimodels_list_with_http_info(id, schematisation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this revision. (required)
         :param int schematisation_pk: (required)
+        :param bool archived: archived
+        :param datetime commit_date:
+        :param date commit_date__date:
+        :param date commit_date__date__gt:
+        :param date commit_date__date__gte:
+        :param date commit_date__date__lt:
+        :param date commit_date__date__lte:
+        :param float commit_date__day:
+        :param float commit_date__day__lt:
+        :param datetime commit_date__gt:
+        :param datetime commit_date__gte:
+        :param datetime commit_date__lt:
+        :param datetime commit_date__lte:
+        :param float commit_date__month:
+        :param float commit_date__month__lte:
+        :param float commit_date__week:
+        :param float commit_date__week_day:
+        :param float commit_date__year:
+        :param float commit_date__year__gt:
+        :param float commit_date__year__gte:
+        :param float commit_date__year__lt:
+        :param float commit_date__year__lte:
+        :param str commit_message:
+        :param str commit_message__contains:
+        :param str commit_message__endswith:
+        :param str commit_message__icontains:
+        :param str commit_message__iexact:
+        :param list[str] commit_message__in: Multiple values may be separated by commas.
+        :param str commit_message__istartswith:
+        :param str commit_message__regex:
+        :param str commit_message__startswith:
+        :param str commit_user__username:
+        :param str commit_user__username__contains:
+        :param str commit_user__username__endswith:
+        :param str commit_user__username__icontains:
+        :param str commit_user__username__iexact:
+        :param list[str] commit_user__username__in: Multiple values may be separated by commas.
+        :param str commit_user__username__istartswith:
+        :param str commit_user__username__regex:
+        :param str commit_user__username__startswith:
+        :param bool committed: committed
+        :param bool has_threedimodel: has_threedimodel
+        :param bool is_valid: is_valid
+        :param int limit: Number of results to return per page.
+        :param int number:
+        :param int offset: The initial index from which to return the results.
+        :param str ordering: Which field to use when ordering the results.
+        :param int schematisation__id:
+        :param str schematisation__owner__name:
+        :param str schematisation__owner__name__contains:
+        :param str schematisation__owner__name__endswith:
+        :param str schematisation__owner__name__icontains:
+        :param str schematisation__owner__name__iexact:
+        :param list[str] schematisation__owner__name__in: Multiple values may be separated by commas.
+        :param str schematisation__owner__name__istartswith:
+        :param str schematisation__owner__name__regex:
+        :param str schematisation__owner__name__startswith:
+        :param str schematisation__owner__unique_id:
+        :param str schematisation__owner__unique_id__contains:
+        :param str schematisation__owner__unique_id__endswith:
+        :param str schematisation__owner__unique_id__icontains:
+        :param str schematisation__owner__unique_id__iexact:
+        :param list[str] schematisation__owner__unique_id__in: Multiple values may be separated by commas.
+        :param str schematisation__owner__unique_id__istartswith:
+        :param str schematisation__owner__unique_id__regex:
+        :param str schematisation__owner__unique_id__startswith:
+        :param str schematisation__slug:
+        :param str schematisation__slug__contains:
+        :param str schematisation__slug__endswith:
+        :param str schematisation__slug__icontains:
+        :param str schematisation__slug__iexact:
+        :param list[str] schematisation__slug__in: Multiple values may be separated by commas.
+        :param str schematisation__slug__istartswith:
+        :param str schematisation__slug__regex:
+        :param str schematisation__slug__startswith:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -13537,7 +17912,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(SchematisationRevision, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(PaginatedThreediModelList, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13546,7 +17921,82 @@ class V3Api(object):
 
         all_params = [
             'id',
-            'schematisation_pk'
+            'schematisation_pk',
+            'archived',
+            'commit_date',
+            'commit_date__date',
+            'commit_date__date__gt',
+            'commit_date__date__gte',
+            'commit_date__date__lt',
+            'commit_date__date__lte',
+            'commit_date__day',
+            'commit_date__day__lt',
+            'commit_date__gt',
+            'commit_date__gte',
+            'commit_date__lt',
+            'commit_date__lte',
+            'commit_date__month',
+            'commit_date__month__lte',
+            'commit_date__week',
+            'commit_date__week_day',
+            'commit_date__year',
+            'commit_date__year__gt',
+            'commit_date__year__gte',
+            'commit_date__year__lt',
+            'commit_date__year__lte',
+            'commit_message',
+            'commit_message__contains',
+            'commit_message__endswith',
+            'commit_message__icontains',
+            'commit_message__iexact',
+            'commit_message__in',
+            'commit_message__istartswith',
+            'commit_message__regex',
+            'commit_message__startswith',
+            'commit_user__username',
+            'commit_user__username__contains',
+            'commit_user__username__endswith',
+            'commit_user__username__icontains',
+            'commit_user__username__iexact',
+            'commit_user__username__in',
+            'commit_user__username__istartswith',
+            'commit_user__username__regex',
+            'commit_user__username__startswith',
+            'committed',
+            'has_threedimodel',
+            'is_valid',
+            'limit',
+            'number',
+            'offset',
+            'ordering',
+            'schematisation__id',
+            'schematisation__owner__name',
+            'schematisation__owner__name__contains',
+            'schematisation__owner__name__endswith',
+            'schematisation__owner__name__icontains',
+            'schematisation__owner__name__iexact',
+            'schematisation__owner__name__in',
+            'schematisation__owner__name__istartswith',
+            'schematisation__owner__name__regex',
+            'schematisation__owner__name__startswith',
+            'schematisation__owner__unique_id',
+            'schematisation__owner__unique_id__contains',
+            'schematisation__owner__unique_id__endswith',
+            'schematisation__owner__unique_id__icontains',
+            'schematisation__owner__unique_id__iexact',
+            'schematisation__owner__unique_id__in',
+            'schematisation__owner__unique_id__istartswith',
+            'schematisation__owner__unique_id__regex',
+            'schematisation__owner__unique_id__startswith',
+            'schematisation__slug',
+            'schematisation__slug__contains',
+            'schematisation__slug__endswith',
+            'schematisation__slug__icontains',
+            'schematisation__slug__iexact',
+            'schematisation__slug__in',
+            'schematisation__slug__istartswith',
+            'schematisation__slug__regex',
+            'schematisation__slug__startswith'
         ]
         all_params.extend(
             [
@@ -13561,18 +18011,18 @@ class V3Api(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_schematisations_revisions_threedimodels_retrieve" % key
+                    " to method v3_schematisations_revisions_threedimodels_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_schematisations_revisions_threedimodels_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `v3_schematisations_revisions_threedimodels_list`")  # noqa: E501
         # verify the required parameter 'schematisation_pk' is set
         if self.api_client.client_side_validation and ('schematisation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['schematisation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `v3_schematisations_revisions_threedimodels_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `schematisation_pk` when calling `v3_schematisations_revisions_threedimodels_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -13583,6 +18033,161 @@ class V3Api(object):
             path_params['schematisation_pk'] = local_var_params['schematisation_pk']  # noqa: E501
 
         query_params = []
+        if 'archived' in local_var_params and local_var_params['archived'] is not None:  # noqa: E501
+            query_params.append(('archived', local_var_params['archived']))  # noqa: E501
+        if 'commit_date' in local_var_params and local_var_params['commit_date'] is not None:  # noqa: E501
+            query_params.append(('commit_date', local_var_params['commit_date']))  # noqa: E501
+        if 'commit_date__date' in local_var_params and local_var_params['commit_date__date'] is not None:  # noqa: E501
+            query_params.append(('commit_date__date', local_var_params['commit_date__date']))  # noqa: E501
+        if 'commit_date__date__gt' in local_var_params and local_var_params['commit_date__date__gt'] is not None:  # noqa: E501
+            query_params.append(('commit_date__date__gt', local_var_params['commit_date__date__gt']))  # noqa: E501
+        if 'commit_date__date__gte' in local_var_params and local_var_params['commit_date__date__gte'] is not None:  # noqa: E501
+            query_params.append(('commit_date__date__gte', local_var_params['commit_date__date__gte']))  # noqa: E501
+        if 'commit_date__date__lt' in local_var_params and local_var_params['commit_date__date__lt'] is not None:  # noqa: E501
+            query_params.append(('commit_date__date__lt', local_var_params['commit_date__date__lt']))  # noqa: E501
+        if 'commit_date__date__lte' in local_var_params and local_var_params['commit_date__date__lte'] is not None:  # noqa: E501
+            query_params.append(('commit_date__date__lte', local_var_params['commit_date__date__lte']))  # noqa: E501
+        if 'commit_date__day' in local_var_params and local_var_params['commit_date__day'] is not None:  # noqa: E501
+            query_params.append(('commit_date__day', local_var_params['commit_date__day']))  # noqa: E501
+        if 'commit_date__day__lt' in local_var_params and local_var_params['commit_date__day__lt'] is not None:  # noqa: E501
+            query_params.append(('commit_date__day__lt', local_var_params['commit_date__day__lt']))  # noqa: E501
+        if 'commit_date__gt' in local_var_params and local_var_params['commit_date__gt'] is not None:  # noqa: E501
+            query_params.append(('commit_date__gt', local_var_params['commit_date__gt']))  # noqa: E501
+        if 'commit_date__gte' in local_var_params and local_var_params['commit_date__gte'] is not None:  # noqa: E501
+            query_params.append(('commit_date__gte', local_var_params['commit_date__gte']))  # noqa: E501
+        if 'commit_date__lt' in local_var_params and local_var_params['commit_date__lt'] is not None:  # noqa: E501
+            query_params.append(('commit_date__lt', local_var_params['commit_date__lt']))  # noqa: E501
+        if 'commit_date__lte' in local_var_params and local_var_params['commit_date__lte'] is not None:  # noqa: E501
+            query_params.append(('commit_date__lte', local_var_params['commit_date__lte']))  # noqa: E501
+        if 'commit_date__month' in local_var_params and local_var_params['commit_date__month'] is not None:  # noqa: E501
+            query_params.append(('commit_date__month', local_var_params['commit_date__month']))  # noqa: E501
+        if 'commit_date__month__lte' in local_var_params and local_var_params['commit_date__month__lte'] is not None:  # noqa: E501
+            query_params.append(('commit_date__month__lte', local_var_params['commit_date__month__lte']))  # noqa: E501
+        if 'commit_date__week' in local_var_params and local_var_params['commit_date__week'] is not None:  # noqa: E501
+            query_params.append(('commit_date__week', local_var_params['commit_date__week']))  # noqa: E501
+        if 'commit_date__week_day' in local_var_params and local_var_params['commit_date__week_day'] is not None:  # noqa: E501
+            query_params.append(('commit_date__week_day', local_var_params['commit_date__week_day']))  # noqa: E501
+        if 'commit_date__year' in local_var_params and local_var_params['commit_date__year'] is not None:  # noqa: E501
+            query_params.append(('commit_date__year', local_var_params['commit_date__year']))  # noqa: E501
+        if 'commit_date__year__gt' in local_var_params and local_var_params['commit_date__year__gt'] is not None:  # noqa: E501
+            query_params.append(('commit_date__year__gt', local_var_params['commit_date__year__gt']))  # noqa: E501
+        if 'commit_date__year__gte' in local_var_params and local_var_params['commit_date__year__gte'] is not None:  # noqa: E501
+            query_params.append(('commit_date__year__gte', local_var_params['commit_date__year__gte']))  # noqa: E501
+        if 'commit_date__year__lt' in local_var_params and local_var_params['commit_date__year__lt'] is not None:  # noqa: E501
+            query_params.append(('commit_date__year__lt', local_var_params['commit_date__year__lt']))  # noqa: E501
+        if 'commit_date__year__lte' in local_var_params and local_var_params['commit_date__year__lte'] is not None:  # noqa: E501
+            query_params.append(('commit_date__year__lte', local_var_params['commit_date__year__lte']))  # noqa: E501
+        if 'commit_message' in local_var_params and local_var_params['commit_message'] is not None:  # noqa: E501
+            query_params.append(('commit_message', local_var_params['commit_message']))  # noqa: E501
+        if 'commit_message__contains' in local_var_params and local_var_params['commit_message__contains'] is not None:  # noqa: E501
+            query_params.append(('commit_message__contains', local_var_params['commit_message__contains']))  # noqa: E501
+        if 'commit_message__endswith' in local_var_params and local_var_params['commit_message__endswith'] is not None:  # noqa: E501
+            query_params.append(('commit_message__endswith', local_var_params['commit_message__endswith']))  # noqa: E501
+        if 'commit_message__icontains' in local_var_params and local_var_params['commit_message__icontains'] is not None:  # noqa: E501
+            query_params.append(('commit_message__icontains', local_var_params['commit_message__icontains']))  # noqa: E501
+        if 'commit_message__iexact' in local_var_params and local_var_params['commit_message__iexact'] is not None:  # noqa: E501
+            query_params.append(('commit_message__iexact', local_var_params['commit_message__iexact']))  # noqa: E501
+        if 'commit_message__in' in local_var_params and local_var_params['commit_message__in'] is not None:  # noqa: E501
+            query_params.append(('commit_message__in', local_var_params['commit_message__in']))  # noqa: E501
+            collection_formats['commit_message__in'] = 'csv'  # noqa: E501
+        if 'commit_message__istartswith' in local_var_params and local_var_params['commit_message__istartswith'] is not None:  # noqa: E501
+            query_params.append(('commit_message__istartswith', local_var_params['commit_message__istartswith']))  # noqa: E501
+        if 'commit_message__regex' in local_var_params and local_var_params['commit_message__regex'] is not None:  # noqa: E501
+            query_params.append(('commit_message__regex', local_var_params['commit_message__regex']))  # noqa: E501
+        if 'commit_message__startswith' in local_var_params and local_var_params['commit_message__startswith'] is not None:  # noqa: E501
+            query_params.append(('commit_message__startswith', local_var_params['commit_message__startswith']))  # noqa: E501
+        if 'commit_user__username' in local_var_params and local_var_params['commit_user__username'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username', local_var_params['commit_user__username']))  # noqa: E501
+        if 'commit_user__username__contains' in local_var_params and local_var_params['commit_user__username__contains'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username__contains', local_var_params['commit_user__username__contains']))  # noqa: E501
+        if 'commit_user__username__endswith' in local_var_params and local_var_params['commit_user__username__endswith'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username__endswith', local_var_params['commit_user__username__endswith']))  # noqa: E501
+        if 'commit_user__username__icontains' in local_var_params and local_var_params['commit_user__username__icontains'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username__icontains', local_var_params['commit_user__username__icontains']))  # noqa: E501
+        if 'commit_user__username__iexact' in local_var_params and local_var_params['commit_user__username__iexact'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username__iexact', local_var_params['commit_user__username__iexact']))  # noqa: E501
+        if 'commit_user__username__in' in local_var_params and local_var_params['commit_user__username__in'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username__in', local_var_params['commit_user__username__in']))  # noqa: E501
+            collection_formats['commit_user__username__in'] = 'csv'  # noqa: E501
+        if 'commit_user__username__istartswith' in local_var_params and local_var_params['commit_user__username__istartswith'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username__istartswith', local_var_params['commit_user__username__istartswith']))  # noqa: E501
+        if 'commit_user__username__regex' in local_var_params and local_var_params['commit_user__username__regex'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username__regex', local_var_params['commit_user__username__regex']))  # noqa: E501
+        if 'commit_user__username__startswith' in local_var_params and local_var_params['commit_user__username__startswith'] is not None:  # noqa: E501
+            query_params.append(('commit_user__username__startswith', local_var_params['commit_user__username__startswith']))  # noqa: E501
+        if 'committed' in local_var_params and local_var_params['committed'] is not None:  # noqa: E501
+            query_params.append(('committed', local_var_params['committed']))  # noqa: E501
+        if 'has_threedimodel' in local_var_params and local_var_params['has_threedimodel'] is not None:  # noqa: E501
+            query_params.append(('has_threedimodel', local_var_params['has_threedimodel']))  # noqa: E501
+        if 'is_valid' in local_var_params and local_var_params['is_valid'] is not None:  # noqa: E501
+            query_params.append(('is_valid', local_var_params['is_valid']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'number' in local_var_params and local_var_params['number'] is not None:  # noqa: E501
+            query_params.append(('number', local_var_params['number']))  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
+            query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
+        if 'schematisation__id' in local_var_params and local_var_params['schematisation__id'] is not None:  # noqa: E501
+            query_params.append(('schematisation__id', local_var_params['schematisation__id']))  # noqa: E501
+        if 'schematisation__owner__name' in local_var_params and local_var_params['schematisation__owner__name'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__name', local_var_params['schematisation__owner__name']))  # noqa: E501
+        if 'schematisation__owner__name__contains' in local_var_params and local_var_params['schematisation__owner__name__contains'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__name__contains', local_var_params['schematisation__owner__name__contains']))  # noqa: E501
+        if 'schematisation__owner__name__endswith' in local_var_params and local_var_params['schematisation__owner__name__endswith'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__name__endswith', local_var_params['schematisation__owner__name__endswith']))  # noqa: E501
+        if 'schematisation__owner__name__icontains' in local_var_params and local_var_params['schematisation__owner__name__icontains'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__name__icontains', local_var_params['schematisation__owner__name__icontains']))  # noqa: E501
+        if 'schematisation__owner__name__iexact' in local_var_params and local_var_params['schematisation__owner__name__iexact'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__name__iexact', local_var_params['schematisation__owner__name__iexact']))  # noqa: E501
+        if 'schematisation__owner__name__in' in local_var_params and local_var_params['schematisation__owner__name__in'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__name__in', local_var_params['schematisation__owner__name__in']))  # noqa: E501
+            collection_formats['schematisation__owner__name__in'] = 'csv'  # noqa: E501
+        if 'schematisation__owner__name__istartswith' in local_var_params and local_var_params['schematisation__owner__name__istartswith'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__name__istartswith', local_var_params['schematisation__owner__name__istartswith']))  # noqa: E501
+        if 'schematisation__owner__name__regex' in local_var_params and local_var_params['schematisation__owner__name__regex'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__name__regex', local_var_params['schematisation__owner__name__regex']))  # noqa: E501
+        if 'schematisation__owner__name__startswith' in local_var_params and local_var_params['schematisation__owner__name__startswith'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__name__startswith', local_var_params['schematisation__owner__name__startswith']))  # noqa: E501
+        if 'schematisation__owner__unique_id' in local_var_params and local_var_params['schematisation__owner__unique_id'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__unique_id', local_var_params['schematisation__owner__unique_id']))  # noqa: E501
+        if 'schematisation__owner__unique_id__contains' in local_var_params and local_var_params['schematisation__owner__unique_id__contains'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__unique_id__contains', local_var_params['schematisation__owner__unique_id__contains']))  # noqa: E501
+        if 'schematisation__owner__unique_id__endswith' in local_var_params and local_var_params['schematisation__owner__unique_id__endswith'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__unique_id__endswith', local_var_params['schematisation__owner__unique_id__endswith']))  # noqa: E501
+        if 'schematisation__owner__unique_id__icontains' in local_var_params and local_var_params['schematisation__owner__unique_id__icontains'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__unique_id__icontains', local_var_params['schematisation__owner__unique_id__icontains']))  # noqa: E501
+        if 'schematisation__owner__unique_id__iexact' in local_var_params and local_var_params['schematisation__owner__unique_id__iexact'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__unique_id__iexact', local_var_params['schematisation__owner__unique_id__iexact']))  # noqa: E501
+        if 'schematisation__owner__unique_id__in' in local_var_params and local_var_params['schematisation__owner__unique_id__in'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__unique_id__in', local_var_params['schematisation__owner__unique_id__in']))  # noqa: E501
+            collection_formats['schematisation__owner__unique_id__in'] = 'csv'  # noqa: E501
+        if 'schematisation__owner__unique_id__istartswith' in local_var_params and local_var_params['schematisation__owner__unique_id__istartswith'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__unique_id__istartswith', local_var_params['schematisation__owner__unique_id__istartswith']))  # noqa: E501
+        if 'schematisation__owner__unique_id__regex' in local_var_params and local_var_params['schematisation__owner__unique_id__regex'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__unique_id__regex', local_var_params['schematisation__owner__unique_id__regex']))  # noqa: E501
+        if 'schematisation__owner__unique_id__startswith' in local_var_params and local_var_params['schematisation__owner__unique_id__startswith'] is not None:  # noqa: E501
+            query_params.append(('schematisation__owner__unique_id__startswith', local_var_params['schematisation__owner__unique_id__startswith']))  # noqa: E501
+        if 'schematisation__slug' in local_var_params and local_var_params['schematisation__slug'] is not None:  # noqa: E501
+            query_params.append(('schematisation__slug', local_var_params['schematisation__slug']))  # noqa: E501
+        if 'schematisation__slug__contains' in local_var_params and local_var_params['schematisation__slug__contains'] is not None:  # noqa: E501
+            query_params.append(('schematisation__slug__contains', local_var_params['schematisation__slug__contains']))  # noqa: E501
+        if 'schematisation__slug__endswith' in local_var_params and local_var_params['schematisation__slug__endswith'] is not None:  # noqa: E501
+            query_params.append(('schematisation__slug__endswith', local_var_params['schematisation__slug__endswith']))  # noqa: E501
+        if 'schematisation__slug__icontains' in local_var_params and local_var_params['schematisation__slug__icontains'] is not None:  # noqa: E501
+            query_params.append(('schematisation__slug__icontains', local_var_params['schematisation__slug__icontains']))  # noqa: E501
+        if 'schematisation__slug__iexact' in local_var_params and local_var_params['schematisation__slug__iexact'] is not None:  # noqa: E501
+            query_params.append(('schematisation__slug__iexact', local_var_params['schematisation__slug__iexact']))  # noqa: E501
+        if 'schematisation__slug__in' in local_var_params and local_var_params['schematisation__slug__in'] is not None:  # noqa: E501
+            query_params.append(('schematisation__slug__in', local_var_params['schematisation__slug__in']))  # noqa: E501
+            collection_formats['schematisation__slug__in'] = 'csv'  # noqa: E501
+        if 'schematisation__slug__istartswith' in local_var_params and local_var_params['schematisation__slug__istartswith'] is not None:  # noqa: E501
+            query_params.append(('schematisation__slug__istartswith', local_var_params['schematisation__slug__istartswith']))  # noqa: E501
+        if 'schematisation__slug__regex' in local_var_params and local_var_params['schematisation__slug__regex'] is not None:  # noqa: E501
+            query_params.append(('schematisation__slug__regex', local_var_params['schematisation__slug__regex']))  # noqa: E501
+        if 'schematisation__slug__startswith' in local_var_params and local_var_params['schematisation__slug__startswith'] is not None:  # noqa: E501
+            query_params.append(('schematisation__slug__startswith', local_var_params['schematisation__slug__startswith']))  # noqa: E501
 
         header_params = {}
 
@@ -13605,7 +18210,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='SchematisationRevision',  # noqa: E501
+            response_type='PaginatedThreediModelList',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -13867,18 +18472,18 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_simulations_actions_reset_pause_timeout_create(self, simulation_pk, action, **kwargs):  # noqa: E501
+    def v3_simulations_actions_reset_pause_timeout_create(self, simulation_pk, timeout, **kwargs):  # noqa: E501
         """v3_simulations_actions_reset_pause_timeout_create  # noqa: E501
 
         Reset the pause timeout with the new specified timeout value  You can only reset the pause timeout when the SimulationStatus.name is 'initialized' and SimulationStatus.paused is True.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_actions_reset_pause_timeout_create(simulation_pk, action, async_req=True)
+        >>> thread = api.v3_simulations_actions_reset_pause_timeout_create(simulation_pk, timeout, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int simulation_pk: (required)
-        :param Action action: (required)
+        :param Timeout timeout: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -13891,20 +18496,20 @@ class V3Api(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_simulations_actions_reset_pause_timeout_create_with_http_info(simulation_pk, action, **kwargs)  # noqa: E501
+        return self.v3_simulations_actions_reset_pause_timeout_create_with_http_info(simulation_pk, timeout, **kwargs)  # noqa: E501
 
-    def v3_simulations_actions_reset_pause_timeout_create_with_http_info(self, simulation_pk, action, **kwargs):  # noqa: E501
+    def v3_simulations_actions_reset_pause_timeout_create_with_http_info(self, simulation_pk, timeout, **kwargs):  # noqa: E501
         """v3_simulations_actions_reset_pause_timeout_create  # noqa: E501
 
         Reset the pause timeout with the new specified timeout value  You can only reset the pause timeout when the SimulationStatus.name is 'initialized' and SimulationStatus.paused is True.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_actions_reset_pause_timeout_create_with_http_info(simulation_pk, action, async_req=True)
+        >>> thread = api.v3_simulations_actions_reset_pause_timeout_create_with_http_info(simulation_pk, timeout, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int simulation_pk: (required)
-        :param Action action: (required)
+        :param Timeout timeout: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -13923,7 +18528,7 @@ class V3Api(object):
 
         all_params = [
             'simulation_pk',
-            'action'
+            'timeout'
         ]
         all_params.extend(
             [
@@ -13946,10 +18551,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_simulations_actions_reset_pause_timeout_create`")  # noqa: E501
-        # verify the required parameter 'action' is set
-        if self.api_client.client_side_validation and ('action' not in local_var_params or  # noqa: E501
-                                                        local_var_params['action'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `action` when calling `v3_simulations_actions_reset_pause_timeout_create`")  # noqa: E501
+        # verify the required parameter 'timeout' is set
+        if self.api_client.client_side_validation and ('timeout' not in local_var_params or  # noqa: E501
+                                                        local_var_params['timeout'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `timeout` when calling `v3_simulations_actions_reset_pause_timeout_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -13965,8 +18570,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'action' in local_var_params:
-            body_params = local_var_params['action']
+        if 'timeout' in local_var_params:
+            body_params = local_var_params['timeout']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -13994,18 +18599,17 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_simulations_clone_create(self, id, simulation, **kwargs):  # noqa: E501
+    def v3_simulations_clone_create(self, id, **kwargs):  # noqa: E501
         """v3_simulations_clone_create  # noqa: E501
 
         Clone the simulation.   Clones the simulation in a runnable state, only events & initials.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_clone_create(id, simulation, async_req=True)
+        >>> thread = api.v3_simulations_clone_create(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this simulation. (required)
-        :param Simulation simulation: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -14018,20 +18622,19 @@ class V3Api(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_simulations_clone_create_with_http_info(id, simulation, **kwargs)  # noqa: E501
+        return self.v3_simulations_clone_create_with_http_info(id, **kwargs)  # noqa: E501
 
-    def v3_simulations_clone_create_with_http_info(self, id, simulation, **kwargs):  # noqa: E501
+    def v3_simulations_clone_create_with_http_info(self, id, **kwargs):  # noqa: E501
         """v3_simulations_clone_create  # noqa: E501
 
         Clone the simulation.   Clones the simulation in a runnable state, only events & initials.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_clone_create_with_http_info(id, simulation, async_req=True)
+        >>> thread = api.v3_simulations_clone_create_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this simulation. (required)
-        :param Simulation simulation: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -14049,8 +18652,7 @@ class V3Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
-            'simulation'
+            'id'
         ]
         all_params.extend(
             [
@@ -14073,10 +18675,6 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `v3_simulations_clone_create`")  # noqa: E501
-        # verify the required parameter 'simulation' is set
-        if self.api_client.client_side_validation and ('simulation' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation` when calling `v3_simulations_clone_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -14092,15 +18690,9 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'simulation' in local_var_params:
-            body_params = local_var_params['simulation']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
@@ -14996,19 +19588,19 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_simulations_create_saved_states_stable_threshold_upload_create(self, id, simulation_pk, stable_threshold_saved_state, **kwargs):  # noqa: E501
+    def v3_simulations_create_saved_states_stable_threshold_upload_create(self, id, simulation_pk, upload, **kwargs):  # noqa: E501
         """v3_simulations_create_saved_states_stable_threshold_upload_create  # noqa: E501
 
         Stable threshold SavedState  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_create_saved_states_stable_threshold_upload_create(id, simulation_pk, stable_threshold_saved_state, async_req=True)
+        >>> thread = api.v3_simulations_create_saved_states_stable_threshold_upload_create(id, simulation_pk, upload, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this saved state. (required)
         :param int simulation_pk: (required)
-        :param StableThresholdSavedState stable_threshold_saved_state: (required)
+        :param Upload upload: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -15016,26 +19608,26 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: StableThresholdSavedState
+        :return: Upload
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_simulations_create_saved_states_stable_threshold_upload_create_with_http_info(id, simulation_pk, stable_threshold_saved_state, **kwargs)  # noqa: E501
+        return self.v3_simulations_create_saved_states_stable_threshold_upload_create_with_http_info(id, simulation_pk, upload, **kwargs)  # noqa: E501
 
-    def v3_simulations_create_saved_states_stable_threshold_upload_create_with_http_info(self, id, simulation_pk, stable_threshold_saved_state, **kwargs):  # noqa: E501
+    def v3_simulations_create_saved_states_stable_threshold_upload_create_with_http_info(self, id, simulation_pk, upload, **kwargs):  # noqa: E501
         """v3_simulations_create_saved_states_stable_threshold_upload_create  # noqa: E501
 
         Stable threshold SavedState  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_create_saved_states_stable_threshold_upload_create_with_http_info(id, simulation_pk, stable_threshold_saved_state, async_req=True)
+        >>> thread = api.v3_simulations_create_saved_states_stable_threshold_upload_create_with_http_info(id, simulation_pk, upload, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this saved state. (required)
         :param int simulation_pk: (required)
-        :param StableThresholdSavedState stable_threshold_saved_state: (required)
+        :param Upload upload: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -15045,7 +19637,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(StableThresholdSavedState, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -15055,7 +19647,7 @@ class V3Api(object):
         all_params = [
             'id',
             'simulation_pk',
-            'stable_threshold_saved_state'
+            'upload'
         ]
         all_params.extend(
             [
@@ -15082,10 +19674,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_simulations_create_saved_states_stable_threshold_upload_create`")  # noqa: E501
-        # verify the required parameter 'stable_threshold_saved_state' is set
-        if self.api_client.client_side_validation and ('stable_threshold_saved_state' not in local_var_params or  # noqa: E501
-                                                        local_var_params['stable_threshold_saved_state'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `stable_threshold_saved_state` when calling `v3_simulations_create_saved_states_stable_threshold_upload_create`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `v3_simulations_create_saved_states_stable_threshold_upload_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -15103,8 +19695,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'stable_threshold_saved_state' in local_var_params:
-            body_params = local_var_params['stable_threshold_saved_state']
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -15124,7 +19716,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='StableThresholdSavedState',  # noqa: E501
+            response_type='Upload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -15889,19 +20481,19 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_simulations_create_saved_states_timed_upload_create(self, id, simulation_pk, timed_saved_state, **kwargs):  # noqa: E501
+    def v3_simulations_create_saved_states_timed_upload_create(self, id, simulation_pk, upload, **kwargs):  # noqa: E501
         """v3_simulations_create_saved_states_timed_upload_create  # noqa: E501
 
         Timed SavedState  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_create_saved_states_timed_upload_create(id, simulation_pk, timed_saved_state, async_req=True)
+        >>> thread = api.v3_simulations_create_saved_states_timed_upload_create(id, simulation_pk, upload, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this saved state. (required)
         :param int simulation_pk: (required)
-        :param TimedSavedState timed_saved_state: (required)
+        :param Upload upload: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -15909,26 +20501,26 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: TimedSavedState
+        :return: Upload
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_simulations_create_saved_states_timed_upload_create_with_http_info(id, simulation_pk, timed_saved_state, **kwargs)  # noqa: E501
+        return self.v3_simulations_create_saved_states_timed_upload_create_with_http_info(id, simulation_pk, upload, **kwargs)  # noqa: E501
 
-    def v3_simulations_create_saved_states_timed_upload_create_with_http_info(self, id, simulation_pk, timed_saved_state, **kwargs):  # noqa: E501
+    def v3_simulations_create_saved_states_timed_upload_create_with_http_info(self, id, simulation_pk, upload, **kwargs):  # noqa: E501
         """v3_simulations_create_saved_states_timed_upload_create  # noqa: E501
 
         Timed SavedState  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_create_saved_states_timed_upload_create_with_http_info(id, simulation_pk, timed_saved_state, async_req=True)
+        >>> thread = api.v3_simulations_create_saved_states_timed_upload_create_with_http_info(id, simulation_pk, upload, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this saved state. (required)
         :param int simulation_pk: (required)
-        :param TimedSavedState timed_saved_state: (required)
+        :param Upload upload: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -15938,7 +20530,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(TimedSavedState, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -15948,7 +20540,7 @@ class V3Api(object):
         all_params = [
             'id',
             'simulation_pk',
-            'timed_saved_state'
+            'upload'
         ]
         all_params.extend(
             [
@@ -15975,10 +20567,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_simulations_create_saved_states_timed_upload_create`")  # noqa: E501
-        # verify the required parameter 'timed_saved_state' is set
-        if self.api_client.client_side_validation and ('timed_saved_state' not in local_var_params or  # noqa: E501
-                                                        local_var_params['timed_saved_state'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `timed_saved_state` when calling `v3_simulations_create_saved_states_timed_upload_create`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `v3_simulations_create_saved_states_timed_upload_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -15996,8 +20588,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'timed_saved_state' in local_var_params:
-            body_params = local_var_params['timed_saved_state']
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -16017,7 +20609,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='TimedSavedState',  # noqa: E501
+            response_type='Upload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -16398,7 +20990,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: FileBoundaryCondition
+        :return: Download
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16426,7 +21018,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(FileBoundaryCondition, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16494,7 +21086,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='FileBoundaryCondition',  # noqa: E501
+            response_type='Download',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -16758,19 +21350,19 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_simulations_events_boundaryconditions_file_processed_update(self, id, simulation_pk, **kwargs):  # noqa: E501
+    def v3_simulations_events_boundaryconditions_file_processed_update(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
         """v3_simulations_events_boundaryconditions_file_processed_update  # noqa: E501
 
         ViewMixin which adds an extra PUT-action 'processed'.  Used by the api-workers event-validators to update the (asynchronous) validation results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_boundaryconditions_file_processed_update(id, simulation_pk, async_req=True)
+        >>> thread = api.v3_simulations_events_boundaryconditions_file_processed_update(id, simulation_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this bulk boundary condition. (required)
         :param int simulation_pk: (required)
-        :param FileBoundaryCondition file_boundary_condition:
+        :param BaseEventState base_event_state: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -16778,26 +21370,26 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: FileBoundaryCondition
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_simulations_events_boundaryconditions_file_processed_update_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.v3_simulations_events_boundaryconditions_file_processed_update_with_http_info(id, simulation_pk, base_event_state, **kwargs)  # noqa: E501
 
-    def v3_simulations_events_boundaryconditions_file_processed_update_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+    def v3_simulations_events_boundaryconditions_file_processed_update_with_http_info(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
         """v3_simulations_events_boundaryconditions_file_processed_update  # noqa: E501
 
         ViewMixin which adds an extra PUT-action 'processed'.  Used by the api-workers event-validators to update the (asynchronous) validation results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_boundaryconditions_file_processed_update_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.v3_simulations_events_boundaryconditions_file_processed_update_with_http_info(id, simulation_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this bulk boundary condition. (required)
         :param int simulation_pk: (required)
-        :param FileBoundaryCondition file_boundary_condition:
+        :param BaseEventState base_event_state: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -16807,7 +21399,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(FileBoundaryCondition, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16817,7 +21409,7 @@ class V3Api(object):
         all_params = [
             'id',
             'simulation_pk',
-            'file_boundary_condition'
+            'base_event_state'
         ]
         all_params.extend(
             [
@@ -16844,6 +21436,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_simulations_events_boundaryconditions_file_processed_update`")  # noqa: E501
+        # verify the required parameter 'base_event_state' is set
+        if self.api_client.client_side_validation and ('base_event_state' not in local_var_params or  # noqa: E501
+                                                        local_var_params['base_event_state'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `base_event_state` when calling `v3_simulations_events_boundaryconditions_file_processed_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -16861,12 +21457,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'file_boundary_condition' in local_var_params:
-            body_params = local_var_params['file_boundary_condition']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'base_event_state' in local_var_params:
+            body_params = local_var_params['base_event_state']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
@@ -16882,7 +21474,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='FileBoundaryCondition',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -18412,19 +23004,19 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_simulations_events_lateral_constant_processed_update(self, id, simulation_pk, constant_lateral, **kwargs):  # noqa: E501
+    def v3_simulations_events_lateral_constant_processed_update(self, id, simulation_pk, grid_event_state, **kwargs):  # noqa: E501
         """v3_simulations_events_lateral_constant_processed_update  # noqa: E501
 
         A simple ViewSet for viewing ConstantLateral  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_lateral_constant_processed_update(id, simulation_pk, constant_lateral, async_req=True)
+        >>> thread = api.v3_simulations_events_lateral_constant_processed_update(id, simulation_pk, grid_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this lateral. (required)
         :param int simulation_pk: (required)
-        :param ConstantLateral constant_lateral: (required)
+        :param GridEventState grid_event_state: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -18432,26 +23024,26 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ConstantLateral
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_simulations_events_lateral_constant_processed_update_with_http_info(id, simulation_pk, constant_lateral, **kwargs)  # noqa: E501
+        return self.v3_simulations_events_lateral_constant_processed_update_with_http_info(id, simulation_pk, grid_event_state, **kwargs)  # noqa: E501
 
-    def v3_simulations_events_lateral_constant_processed_update_with_http_info(self, id, simulation_pk, constant_lateral, **kwargs):  # noqa: E501
+    def v3_simulations_events_lateral_constant_processed_update_with_http_info(self, id, simulation_pk, grid_event_state, **kwargs):  # noqa: E501
         """v3_simulations_events_lateral_constant_processed_update  # noqa: E501
 
         A simple ViewSet for viewing ConstantLateral  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_lateral_constant_processed_update_with_http_info(id, simulation_pk, constant_lateral, async_req=True)
+        >>> thread = api.v3_simulations_events_lateral_constant_processed_update_with_http_info(id, simulation_pk, grid_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this lateral. (required)
         :param int simulation_pk: (required)
-        :param ConstantLateral constant_lateral: (required)
+        :param GridEventState grid_event_state: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -18461,7 +23053,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ConstantLateral, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -18471,7 +23063,7 @@ class V3Api(object):
         all_params = [
             'id',
             'simulation_pk',
-            'constant_lateral'
+            'grid_event_state'
         ]
         all_params.extend(
             [
@@ -18498,10 +23090,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_simulations_events_lateral_constant_processed_update`")  # noqa: E501
-        # verify the required parameter 'constant_lateral' is set
-        if self.api_client.client_side_validation and ('constant_lateral' not in local_var_params or  # noqa: E501
-                                                        local_var_params['constant_lateral'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `constant_lateral` when calling `v3_simulations_events_lateral_constant_processed_update`")  # noqa: E501
+        # verify the required parameter 'grid_event_state' is set
+        if self.api_client.client_side_validation and ('grid_event_state' not in local_var_params or  # noqa: E501
+                                                        local_var_params['grid_event_state'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `grid_event_state` when calling `v3_simulations_events_lateral_constant_processed_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -18519,12 +23111,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'constant_lateral' in local_var_params:
-            body_params = local_var_params['constant_lateral']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'grid_event_state' in local_var_params:
+            body_params = local_var_params['grid_event_state']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
@@ -18540,7 +23128,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ConstantLateral',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -19076,7 +23664,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: FileLateral
+        :return: Download
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19104,7 +23692,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(FileLateral, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19172,7 +23760,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='FileLateral',  # noqa: E501
+            response_type='Download',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -19436,19 +24024,19 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_simulations_events_lateral_file_processed_update(self, id, simulation_pk, file_lateral, **kwargs):  # noqa: E501
+    def v3_simulations_events_lateral_file_processed_update(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
         """v3_simulations_events_lateral_file_processed_update  # noqa: E501
 
         ViewMixin which adds an extra PUT-action 'processed'.  Used by the api-workers event-validators to update the (asynchronous) validation results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_lateral_file_processed_update(id, simulation_pk, file_lateral, async_req=True)
+        >>> thread = api.v3_simulations_events_lateral_file_processed_update(id, simulation_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this bulk lateral. (required)
         :param int simulation_pk: (required)
-        :param FileLateral file_lateral: (required)
+        :param BaseEventState base_event_state: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -19456,26 +24044,26 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: FileLateral
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_simulations_events_lateral_file_processed_update_with_http_info(id, simulation_pk, file_lateral, **kwargs)  # noqa: E501
+        return self.v3_simulations_events_lateral_file_processed_update_with_http_info(id, simulation_pk, base_event_state, **kwargs)  # noqa: E501
 
-    def v3_simulations_events_lateral_file_processed_update_with_http_info(self, id, simulation_pk, file_lateral, **kwargs):  # noqa: E501
+    def v3_simulations_events_lateral_file_processed_update_with_http_info(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
         """v3_simulations_events_lateral_file_processed_update  # noqa: E501
 
         ViewMixin which adds an extra PUT-action 'processed'.  Used by the api-workers event-validators to update the (asynchronous) validation results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_lateral_file_processed_update_with_http_info(id, simulation_pk, file_lateral, async_req=True)
+        >>> thread = api.v3_simulations_events_lateral_file_processed_update_with_http_info(id, simulation_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this bulk lateral. (required)
         :param int simulation_pk: (required)
-        :param FileLateral file_lateral: (required)
+        :param BaseEventState base_event_state: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -19485,7 +24073,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(FileLateral, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19495,7 +24083,7 @@ class V3Api(object):
         all_params = [
             'id',
             'simulation_pk',
-            'file_lateral'
+            'base_event_state'
         ]
         all_params.extend(
             [
@@ -19522,10 +24110,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_simulations_events_lateral_file_processed_update`")  # noqa: E501
-        # verify the required parameter 'file_lateral' is set
-        if self.api_client.client_side_validation and ('file_lateral' not in local_var_params or  # noqa: E501
-                                                        local_var_params['file_lateral'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `file_lateral` when calling `v3_simulations_events_lateral_file_processed_update`")  # noqa: E501
+        # verify the required parameter 'base_event_state' is set
+        if self.api_client.client_side_validation and ('base_event_state' not in local_var_params or  # noqa: E501
+                                                        local_var_params['base_event_state'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `base_event_state` when calling `v3_simulations_events_lateral_file_processed_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -19543,12 +24131,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'file_lateral' in local_var_params:
-            body_params = local_var_params['file_lateral']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'base_event_state' in local_var_params:
+            body_params = local_var_params['base_event_state']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
@@ -19564,7 +24148,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='FileLateral',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -20337,19 +24921,19 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_simulations_events_lateral_timeseries_processed_update(self, id, simulation_pk, timeseries_lateral, **kwargs):  # noqa: E501
+    def v3_simulations_events_lateral_timeseries_processed_update(self, id, simulation_pk, grid_event_state, **kwargs):  # noqa: E501
         """v3_simulations_events_lateral_timeseries_processed_update  # noqa: E501
 
         A simple ViewSet for viewing TimeseriesLateral  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_lateral_timeseries_processed_update(id, simulation_pk, timeseries_lateral, async_req=True)
+        >>> thread = api.v3_simulations_events_lateral_timeseries_processed_update(id, simulation_pk, grid_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this lateral. (required)
         :param int simulation_pk: (required)
-        :param TimeseriesLateral timeseries_lateral: (required)
+        :param GridEventState grid_event_state: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -20357,26 +24941,26 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: TimeseriesLateral
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_simulations_events_lateral_timeseries_processed_update_with_http_info(id, simulation_pk, timeseries_lateral, **kwargs)  # noqa: E501
+        return self.v3_simulations_events_lateral_timeseries_processed_update_with_http_info(id, simulation_pk, grid_event_state, **kwargs)  # noqa: E501
 
-    def v3_simulations_events_lateral_timeseries_processed_update_with_http_info(self, id, simulation_pk, timeseries_lateral, **kwargs):  # noqa: E501
+    def v3_simulations_events_lateral_timeseries_processed_update_with_http_info(self, id, simulation_pk, grid_event_state, **kwargs):  # noqa: E501
         """v3_simulations_events_lateral_timeseries_processed_update  # noqa: E501
 
         A simple ViewSet for viewing TimeseriesLateral  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_lateral_timeseries_processed_update_with_http_info(id, simulation_pk, timeseries_lateral, async_req=True)
+        >>> thread = api.v3_simulations_events_lateral_timeseries_processed_update_with_http_info(id, simulation_pk, grid_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this lateral. (required)
         :param int simulation_pk: (required)
-        :param TimeseriesLateral timeseries_lateral: (required)
+        :param GridEventState grid_event_state: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -20386,7 +24970,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(TimeseriesLateral, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -20396,7 +24980,7 @@ class V3Api(object):
         all_params = [
             'id',
             'simulation_pk',
-            'timeseries_lateral'
+            'grid_event_state'
         ]
         all_params.extend(
             [
@@ -20423,10 +25007,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_simulations_events_lateral_timeseries_processed_update`")  # noqa: E501
-        # verify the required parameter 'timeseries_lateral' is set
-        if self.api_client.client_side_validation and ('timeseries_lateral' not in local_var_params or  # noqa: E501
-                                                        local_var_params['timeseries_lateral'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `timeseries_lateral` when calling `v3_simulations_events_lateral_timeseries_processed_update`")  # noqa: E501
+        # verify the required parameter 'grid_event_state' is set
+        if self.api_client.client_side_validation and ('grid_event_state' not in local_var_params or  # noqa: E501
+                                                        local_var_params['grid_event_state'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `grid_event_state` when calling `v3_simulations_events_lateral_timeseries_processed_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -20444,12 +25028,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'timeseries_lateral' in local_var_params:
-            body_params = local_var_params['timeseries_lateral']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'grid_event_state' in local_var_params:
+            body_params = local_var_params['grid_event_state']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
@@ -20465,7 +25045,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='TimeseriesLateral',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -29878,18 +34458,20 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_simulations_events_raster_edits_register_related_rasters_retrieve(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_simulations_events_raster_edits_register_related_rasters_retrieve  # noqa: E501
+    def v3_simulations_events_raster_edits_register_related_rasters_list(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """v3_simulations_events_raster_edits_register_related_rasters_list  # noqa: E501
 
         Register all related rasters in the results-api and return read_bbox urls of the registered rasters  Skips registering of related rasters when the simulation is not in the state 'starting' or 'initialized'. In this case the urls will be empty  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_raster_edits_register_related_rasters_retrieve(id, simulation_pk, async_req=True)
+        >>> thread = api.v3_simulations_events_raster_edits_register_related_rasters_list(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this raster edit. (required)
         :param int simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -29897,25 +34479,27 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: RasterEdit
+        :return: PaginatedRasterEditUrlsList
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_simulations_events_raster_edits_register_related_rasters_retrieve_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.v3_simulations_events_raster_edits_register_related_rasters_list_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_simulations_events_raster_edits_register_related_rasters_retrieve_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_simulations_events_raster_edits_register_related_rasters_retrieve  # noqa: E501
+    def v3_simulations_events_raster_edits_register_related_rasters_list_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """v3_simulations_events_raster_edits_register_related_rasters_list  # noqa: E501
 
         Register all related rasters in the results-api and return read_bbox urls of the registered rasters  Skips registering of related rasters when the simulation is not in the state 'starting' or 'initialized'. In this case the urls will be empty  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_raster_edits_register_related_rasters_retrieve_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.v3_simulations_events_raster_edits_register_related_rasters_list_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this raster edit. (required)
         :param int simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -29925,7 +34509,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(RasterEdit, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(PaginatedRasterEditUrlsList, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -29934,7 +34518,9 @@ class V3Api(object):
 
         all_params = [
             'id',
-            'simulation_pk'
+            'simulation_pk',
+            'limit',
+            'offset'
         ]
         all_params.extend(
             [
@@ -29949,18 +34535,18 @@ class V3Api(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_simulations_events_raster_edits_register_related_rasters_retrieve" % key
+                    " to method v3_simulations_events_raster_edits_register_related_rasters_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_simulations_events_raster_edits_register_related_rasters_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `v3_simulations_events_raster_edits_register_related_rasters_list`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_simulations_events_raster_edits_register_related_rasters_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_simulations_events_raster_edits_register_related_rasters_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -29971,6 +34557,10 @@ class V3Api(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
 
@@ -29993,7 +34583,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RasterEdit',  # noqa: E501
+            response_type='PaginatedRasterEditUrlsList',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -30277,7 +34867,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Simulation
+        :return: Event
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -30303,7 +34893,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Simulation, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Event, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -30364,7 +34954,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Simulation',  # noqa: E501
+            response_type='Event',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -34963,7 +39553,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: FileStructureControl
+        :return: Download
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -34991,7 +39581,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(FileStructureControl, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -35059,7 +39649,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='FileStructureControl',  # noqa: E501
+            response_type='Download',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -35323,19 +39913,19 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_simulations_events_structure_control_file_processed_update(self, id, simulation_pk, file_structure_control, **kwargs):  # noqa: E501
+    def v3_simulations_events_structure_control_file_processed_update(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
         """v3_simulations_events_structure_control_file_processed_update  # noqa: E501
 
         ViewMixin which adds an extra PUT-action 'processed'.  Used by the api-workers event-validators to update the (asynchronous) validation results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_structure_control_file_processed_update(id, simulation_pk, file_structure_control, async_req=True)
+        >>> thread = api.v3_simulations_events_structure_control_file_processed_update(id, simulation_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this bulk control. (required)
         :param int simulation_pk: (required)
-        :param FileStructureControl file_structure_control: (required)
+        :param BaseEventState base_event_state: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -35343,26 +39933,26 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: FileStructureControl
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_simulations_events_structure_control_file_processed_update_with_http_info(id, simulation_pk, file_structure_control, **kwargs)  # noqa: E501
+        return self.v3_simulations_events_structure_control_file_processed_update_with_http_info(id, simulation_pk, base_event_state, **kwargs)  # noqa: E501
 
-    def v3_simulations_events_structure_control_file_processed_update_with_http_info(self, id, simulation_pk, file_structure_control, **kwargs):  # noqa: E501
+    def v3_simulations_events_structure_control_file_processed_update_with_http_info(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
         """v3_simulations_events_structure_control_file_processed_update  # noqa: E501
 
         ViewMixin which adds an extra PUT-action 'processed'.  Used by the api-workers event-validators to update the (asynchronous) validation results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_structure_control_file_processed_update_with_http_info(id, simulation_pk, file_structure_control, async_req=True)
+        >>> thread = api.v3_simulations_events_structure_control_file_processed_update_with_http_info(id, simulation_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this bulk control. (required)
         :param int simulation_pk: (required)
-        :param FileStructureControl file_structure_control: (required)
+        :param BaseEventState base_event_state: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -35372,7 +39962,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(FileStructureControl, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -35382,7 +39972,7 @@ class V3Api(object):
         all_params = [
             'id',
             'simulation_pk',
-            'file_structure_control'
+            'base_event_state'
         ]
         all_params.extend(
             [
@@ -35409,10 +39999,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_simulations_events_structure_control_file_processed_update`")  # noqa: E501
-        # verify the required parameter 'file_structure_control' is set
-        if self.api_client.client_side_validation and ('file_structure_control' not in local_var_params or  # noqa: E501
-                                                        local_var_params['file_structure_control'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `file_structure_control` when calling `v3_simulations_events_structure_control_file_processed_update`")  # noqa: E501
+        # verify the required parameter 'base_event_state' is set
+        if self.api_client.client_side_validation and ('base_event_state' not in local_var_params or  # noqa: E501
+                                                        local_var_params['base_event_state'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `base_event_state` when calling `v3_simulations_events_structure_control_file_processed_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -35430,12 +40020,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'file_structure_control' in local_var_params:
-            body_params = local_var_params['file_structure_control']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'base_event_state' in local_var_params:
+            body_params = local_var_params['base_event_state']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
@@ -35451,7 +40037,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='FileStructureControl',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -36224,19 +40810,19 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_simulations_events_structure_control_memory_processed_update(self, id, simulation_pk, memory_structure_control, **kwargs):  # noqa: E501
+    def v3_simulations_events_structure_control_memory_processed_update(self, id, simulation_pk, measure_location_grid_event_state, **kwargs):  # noqa: E501
         """v3_simulations_events_structure_control_memory_processed_update  # noqa: E501
 
         ViewSet for viewing MemoryStructureControls  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_structure_control_memory_processed_update(id, simulation_pk, memory_structure_control, async_req=True)
+        >>> thread = api.v3_simulations_events_structure_control_memory_processed_update(id, simulation_pk, measure_location_grid_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this memory structure control. (required)
         :param int simulation_pk: (required)
-        :param MemoryStructureControl memory_structure_control: (required)
+        :param MeasureLocationGridEventState measure_location_grid_event_state: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -36244,26 +40830,26 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: MemoryStructureControl
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_simulations_events_structure_control_memory_processed_update_with_http_info(id, simulation_pk, memory_structure_control, **kwargs)  # noqa: E501
+        return self.v3_simulations_events_structure_control_memory_processed_update_with_http_info(id, simulation_pk, measure_location_grid_event_state, **kwargs)  # noqa: E501
 
-    def v3_simulations_events_structure_control_memory_processed_update_with_http_info(self, id, simulation_pk, memory_structure_control, **kwargs):  # noqa: E501
+    def v3_simulations_events_structure_control_memory_processed_update_with_http_info(self, id, simulation_pk, measure_location_grid_event_state, **kwargs):  # noqa: E501
         """v3_simulations_events_structure_control_memory_processed_update  # noqa: E501
 
         ViewSet for viewing MemoryStructureControls  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_structure_control_memory_processed_update_with_http_info(id, simulation_pk, memory_structure_control, async_req=True)
+        >>> thread = api.v3_simulations_events_structure_control_memory_processed_update_with_http_info(id, simulation_pk, measure_location_grid_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this memory structure control. (required)
         :param int simulation_pk: (required)
-        :param MemoryStructureControl memory_structure_control: (required)
+        :param MeasureLocationGridEventState measure_location_grid_event_state: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -36273,7 +40859,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(MemoryStructureControl, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -36283,7 +40869,7 @@ class V3Api(object):
         all_params = [
             'id',
             'simulation_pk',
-            'memory_structure_control'
+            'measure_location_grid_event_state'
         ]
         all_params.extend(
             [
@@ -36310,10 +40896,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_simulations_events_structure_control_memory_processed_update`")  # noqa: E501
-        # verify the required parameter 'memory_structure_control' is set
-        if self.api_client.client_side_validation and ('memory_structure_control' not in local_var_params or  # noqa: E501
-                                                        local_var_params['memory_structure_control'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `memory_structure_control` when calling `v3_simulations_events_structure_control_memory_processed_update`")  # noqa: E501
+        # verify the required parameter 'measure_location_grid_event_state' is set
+        if self.api_client.client_side_validation and ('measure_location_grid_event_state' not in local_var_params or  # noqa: E501
+                                                        local_var_params['measure_location_grid_event_state'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `measure_location_grid_event_state` when calling `v3_simulations_events_structure_control_memory_processed_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -36331,12 +40917,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'memory_structure_control' in local_var_params:
-            body_params = local_var_params['memory_structure_control']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'measure_location_grid_event_state' in local_var_params:
+            body_params = local_var_params['measure_location_grid_event_state']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
@@ -36352,7 +40934,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='MemoryStructureControl',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -37125,19 +41707,19 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_simulations_events_structure_control_table_processed_update(self, id, simulation_pk, table_structure_control, **kwargs):  # noqa: E501
+    def v3_simulations_events_structure_control_table_processed_update(self, id, simulation_pk, measure_location_grid_event_state, **kwargs):  # noqa: E501
         """v3_simulations_events_structure_control_table_processed_update  # noqa: E501
 
         ViewSet for viewing TableStructureControls  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_structure_control_table_processed_update(id, simulation_pk, table_structure_control, async_req=True)
+        >>> thread = api.v3_simulations_events_structure_control_table_processed_update(id, simulation_pk, measure_location_grid_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this table structure control. (required)
         :param int simulation_pk: (required)
-        :param TableStructureControl table_structure_control: (required)
+        :param MeasureLocationGridEventState measure_location_grid_event_state: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -37145,26 +41727,26 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: TableStructureControl
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_simulations_events_structure_control_table_processed_update_with_http_info(id, simulation_pk, table_structure_control, **kwargs)  # noqa: E501
+        return self.v3_simulations_events_structure_control_table_processed_update_with_http_info(id, simulation_pk, measure_location_grid_event_state, **kwargs)  # noqa: E501
 
-    def v3_simulations_events_structure_control_table_processed_update_with_http_info(self, id, simulation_pk, table_structure_control, **kwargs):  # noqa: E501
+    def v3_simulations_events_structure_control_table_processed_update_with_http_info(self, id, simulation_pk, measure_location_grid_event_state, **kwargs):  # noqa: E501
         """v3_simulations_events_structure_control_table_processed_update  # noqa: E501
 
         ViewSet for viewing TableStructureControls  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_structure_control_table_processed_update_with_http_info(id, simulation_pk, table_structure_control, async_req=True)
+        >>> thread = api.v3_simulations_events_structure_control_table_processed_update_with_http_info(id, simulation_pk, measure_location_grid_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this table structure control. (required)
         :param int simulation_pk: (required)
-        :param TableStructureControl table_structure_control: (required)
+        :param MeasureLocationGridEventState measure_location_grid_event_state: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -37174,7 +41756,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(TableStructureControl, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -37184,7 +41766,7 @@ class V3Api(object):
         all_params = [
             'id',
             'simulation_pk',
-            'table_structure_control'
+            'measure_location_grid_event_state'
         ]
         all_params.extend(
             [
@@ -37211,10 +41793,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_simulations_events_structure_control_table_processed_update`")  # noqa: E501
-        # verify the required parameter 'table_structure_control' is set
-        if self.api_client.client_side_validation and ('table_structure_control' not in local_var_params or  # noqa: E501
-                                                        local_var_params['table_structure_control'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `table_structure_control` when calling `v3_simulations_events_structure_control_table_processed_update`")  # noqa: E501
+        # verify the required parameter 'measure_location_grid_event_state' is set
+        if self.api_client.client_side_validation and ('measure_location_grid_event_state' not in local_var_params or  # noqa: E501
+                                                        local_var_params['measure_location_grid_event_state'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `measure_location_grid_event_state` when calling `v3_simulations_events_structure_control_table_processed_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -37232,12 +41814,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'table_structure_control' in local_var_params:
-            body_params = local_var_params['table_structure_control']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'measure_location_grid_event_state' in local_var_params:
+            body_params = local_var_params['measure_location_grid_event_state']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
@@ -37253,7 +41831,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='TableStructureControl',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -38026,19 +42604,19 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_simulations_events_structure_control_timed_processed_update(self, id, simulation_pk, timed_structure_control, **kwargs):  # noqa: E501
+    def v3_simulations_events_structure_control_timed_processed_update(self, id, simulation_pk, grid_event_state, **kwargs):  # noqa: E501
         """v3_simulations_events_structure_control_timed_processed_update  # noqa: E501
 
         A simple ViewSet for viewing TimedStructureControls  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_structure_control_timed_processed_update(id, simulation_pk, timed_structure_control, async_req=True)
+        >>> thread = api.v3_simulations_events_structure_control_timed_processed_update(id, simulation_pk, grid_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this timed structure control. (required)
         :param int simulation_pk: (required)
-        :param TimedStructureControl timed_structure_control: (required)
+        :param GridEventState grid_event_state: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -38046,26 +42624,26 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: TimedStructureControl
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_simulations_events_structure_control_timed_processed_update_with_http_info(id, simulation_pk, timed_structure_control, **kwargs)  # noqa: E501
+        return self.v3_simulations_events_structure_control_timed_processed_update_with_http_info(id, simulation_pk, grid_event_state, **kwargs)  # noqa: E501
 
-    def v3_simulations_events_structure_control_timed_processed_update_with_http_info(self, id, simulation_pk, timed_structure_control, **kwargs):  # noqa: E501
+    def v3_simulations_events_structure_control_timed_processed_update_with_http_info(self, id, simulation_pk, grid_event_state, **kwargs):  # noqa: E501
         """v3_simulations_events_structure_control_timed_processed_update  # noqa: E501
 
         A simple ViewSet for viewing TimedStructureControls  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_events_structure_control_timed_processed_update_with_http_info(id, simulation_pk, timed_structure_control, async_req=True)
+        >>> thread = api.v3_simulations_events_structure_control_timed_processed_update_with_http_info(id, simulation_pk, grid_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this timed structure control. (required)
         :param int simulation_pk: (required)
-        :param TimedStructureControl timed_structure_control: (required)
+        :param GridEventState grid_event_state: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -38075,7 +42653,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(TimedStructureControl, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -38085,7 +42663,7 @@ class V3Api(object):
         all_params = [
             'id',
             'simulation_pk',
-            'timed_structure_control'
+            'grid_event_state'
         ]
         all_params.extend(
             [
@@ -38112,10 +42690,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_simulations_events_structure_control_timed_processed_update`")  # noqa: E501
-        # verify the required parameter 'timed_structure_control' is set
-        if self.api_client.client_side_validation and ('timed_structure_control' not in local_var_params or  # noqa: E501
-                                                        local_var_params['timed_structure_control'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `timed_structure_control` when calling `v3_simulations_events_structure_control_timed_processed_update`")  # noqa: E501
+        # verify the required parameter 'grid_event_state' is set
+        if self.api_client.client_side_validation and ('grid_event_state' not in local_var_params or  # noqa: E501
+                                                        local_var_params['grid_event_state'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `grid_event_state` when calling `v3_simulations_events_structure_control_timed_processed_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -38133,12 +42711,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'timed_structure_control' in local_var_params:
-            body_params = local_var_params['timed_structure_control']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'grid_event_state' in local_var_params:
+            body_params = local_var_params['grid_event_state']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
@@ -38154,7 +42728,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='TimedStructureControl',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -39943,17 +44517,17 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_simulations_fromtemplate_create(self, simulation, **kwargs):  # noqa: E501
+    def v3_simulations_fromtemplate_create(self, from_template, **kwargs):  # noqa: E501
         """v3_simulations_fromtemplate_create  # noqa: E501
 
         Create a (new/cloned) simulation from a simulation template.  There are two options to specify the desired duration for the new simulation, either by using the ``end_datetime`` **or** the ``duration`` parameter.  {   \"template\":                  # source simulation template resource id   \"name\":                      # name for the new simulation.   \"tags\":                      # extra tags, added to existing simulation template tags.   \"organisation\":              # uuid of the organisation for which the                                  simulation is run   \"start_datetime\":            # datetime (in ISO 8601 (UTC) format) for the                                  simulation start, e.g. \"YYYY-MM-DDThh:mm:ss\"   \"end_datetime\":              # datetime (in ISO 8601 (UTC) format) for the                                  simulation end, e.g. \"YYYY-MM-DDThh:mm:ss\"   \"duration\":                  # in seconds, can be used instead of end_datetime   \"clone_events\":              # if true, clone events like rain/sources & sinks etc.   \"clone_initials\":            # if true, clone initial waterlevels   \"clone_settings\":            # if true, clone simulation settings, like physical settings etc.   \"threedimodel_id\":           # copy simulation template to threedimodel   \"started_from\":              # platform from which the simulation was started }  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_fromtemplate_create(simulation, async_req=True)
+        >>> thread = api.v3_simulations_fromtemplate_create(from_template, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Simulation simulation: (required)
+        :param FromTemplate from_template: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -39966,19 +44540,19 @@ class V3Api(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_simulations_fromtemplate_create_with_http_info(simulation, **kwargs)  # noqa: E501
+        return self.v3_simulations_fromtemplate_create_with_http_info(from_template, **kwargs)  # noqa: E501
 
-    def v3_simulations_fromtemplate_create_with_http_info(self, simulation, **kwargs):  # noqa: E501
+    def v3_simulations_fromtemplate_create_with_http_info(self, from_template, **kwargs):  # noqa: E501
         """v3_simulations_fromtemplate_create  # noqa: E501
 
         Create a (new/cloned) simulation from a simulation template.  There are two options to specify the desired duration for the new simulation, either by using the ``end_datetime`` **or** the ``duration`` parameter.  {   \"template\":                  # source simulation template resource id   \"name\":                      # name for the new simulation.   \"tags\":                      # extra tags, added to existing simulation template tags.   \"organisation\":              # uuid of the organisation for which the                                  simulation is run   \"start_datetime\":            # datetime (in ISO 8601 (UTC) format) for the                                  simulation start, e.g. \"YYYY-MM-DDThh:mm:ss\"   \"end_datetime\":              # datetime (in ISO 8601 (UTC) format) for the                                  simulation end, e.g. \"YYYY-MM-DDThh:mm:ss\"   \"duration\":                  # in seconds, can be used instead of end_datetime   \"clone_events\":              # if true, clone events like rain/sources & sinks etc.   \"clone_initials\":            # if true, clone initial waterlevels   \"clone_settings\":            # if true, clone simulation settings, like physical settings etc.   \"threedimodel_id\":           # copy simulation template to threedimodel   \"started_from\":              # platform from which the simulation was started }  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_fromtemplate_create_with_http_info(simulation, async_req=True)
+        >>> thread = api.v3_simulations_fromtemplate_create_with_http_info(from_template, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Simulation simulation: (required)
+        :param FromTemplate from_template: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -39996,7 +44570,7 @@ class V3Api(object):
         local_var_params = locals()
 
         all_params = [
-            'simulation'
+            'from_template'
         ]
         all_params.extend(
             [
@@ -40015,10 +44589,10 @@ class V3Api(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'simulation' is set
-        if self.api_client.client_side_validation and ('simulation' not in local_var_params or  # noqa: E501
-                                                        local_var_params['simulation'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation` when calling `v3_simulations_fromtemplate_create`")  # noqa: E501
+        # verify the required parameter 'from_template' is set
+        if self.api_client.client_side_validation and ('from_template' not in local_var_params or  # noqa: E501
+                                                        local_var_params['from_template'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `from_template` when calling `v3_simulations_fromtemplate_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -40032,8 +44606,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'simulation' in local_var_params:
-            body_params = local_var_params['simulation']
+        if 'from_template' in local_var_params:
+            body_params = local_var_params['from_template']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -47846,7 +52420,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResultFile
+        :return: Download
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -47874,7 +52448,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResultFile, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -47942,7 +52516,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResultFile',  # noqa: E501
+            response_type='Download',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -48465,19 +53039,19 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_simulations_results_files_upload_create(self, id, simulation_pk, result_file, **kwargs):  # noqa: E501
+    def v3_simulations_results_files_upload_create(self, id, simulation_pk, upload, **kwargs):  # noqa: E501
         """v3_simulations_results_files_upload_create  # noqa: E501
 
         Endpoint for uploading a result file  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_results_files_upload_create(id, simulation_pk, result_file, async_req=True)
+        >>> thread = api.v3_simulations_results_files_upload_create(id, simulation_pk, upload, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this result file. (required)
         :param int simulation_pk: (required)
-        :param ResultFile result_file: (required)
+        :param Upload upload: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -48485,26 +53059,26 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ResultFile
+        :return: Upload
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_simulations_results_files_upload_create_with_http_info(id, simulation_pk, result_file, **kwargs)  # noqa: E501
+        return self.v3_simulations_results_files_upload_create_with_http_info(id, simulation_pk, upload, **kwargs)  # noqa: E501
 
-    def v3_simulations_results_files_upload_create_with_http_info(self, id, simulation_pk, result_file, **kwargs):  # noqa: E501
+    def v3_simulations_results_files_upload_create_with_http_info(self, id, simulation_pk, upload, **kwargs):  # noqa: E501
         """v3_simulations_results_files_upload_create  # noqa: E501
 
         Endpoint for uploading a result file  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_simulations_results_files_upload_create_with_http_info(id, simulation_pk, result_file, async_req=True)
+        >>> thread = api.v3_simulations_results_files_upload_create_with_http_info(id, simulation_pk, upload, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this result file. (required)
         :param int simulation_pk: (required)
-        :param ResultFile result_file: (required)
+        :param Upload upload: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -48514,7 +53088,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ResultFile, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -48524,7 +53098,7 @@ class V3Api(object):
         all_params = [
             'id',
             'simulation_pk',
-            'result_file'
+            'upload'
         ]
         all_params.extend(
             [
@@ -48551,10 +53125,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_simulations_results_files_upload_create`")  # noqa: E501
-        # verify the required parameter 'result_file' is set
-        if self.api_client.client_side_validation and ('result_file' not in local_var_params or  # noqa: E501
-                                                        local_var_params['result_file'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `result_file` when calling `v3_simulations_results_files_upload_create`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `v3_simulations_results_files_upload_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -48572,8 +53146,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'result_file' in local_var_params:
-            body_params = local_var_params['result_file']
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -48593,7 +53167,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResultFile',  # noqa: E501
+            response_type='Upload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -61155,3380 +65729,6 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_threedimodels_geojson_all_download_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_all_download_retrieve  # noqa: E501
-
-        Endpoint for downloading geojson file.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_all_download_retrieve(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_all_download_retrieve_with_http_info(id, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_all_download_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_all_download_retrieve  # noqa: E501
-
-        Endpoint for downloading geojson file.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_all_download_retrieve_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_all_download_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_all_download_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/all/download/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_all_upload_create(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_all_upload_create  # noqa: E501
-
-        Endpoint for uploading the geojson file Replaces the geojson file if there already exists one.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_all_upload_create(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_all_upload_create_with_http_info(id, threedi_model, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_all_upload_create_with_http_info(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_all_upload_create  # noqa: E501
-
-        Endpoint for uploading the geojson file Replaces the geojson file if there already exists one.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_all_upload_create_with_http_info(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedi_model'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_all_upload_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_all_upload_create`")  # noqa: E501
-        # verify the required parameter 'threedi_model' is set
-        if self.api_client.client_side_validation and ('threedi_model' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedi_model'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedi_model` when calling `v3_threedimodels_geojson_all_upload_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'threedi_model' in local_var_params:
-            body_params = local_var_params['threedi_model']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/all/upload/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_breaches_download_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_breaches_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_breaches_download_retrieve(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_breaches_download_retrieve_with_http_info(id, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_breaches_download_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_breaches_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_breaches_download_retrieve_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_breaches_download_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_breaches_download_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/breaches/download/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_breaches_upload_create(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_breaches_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_breaches_upload_create(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_breaches_upload_create_with_http_info(id, threedi_model, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_breaches_upload_create_with_http_info(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_breaches_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_breaches_upload_create_with_http_info(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedi_model'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_breaches_upload_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_breaches_upload_create`")  # noqa: E501
-        # verify the required parameter 'threedi_model' is set
-        if self.api_client.client_side_validation and ('threedi_model' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedi_model'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedi_model` when calling `v3_threedimodels_geojson_breaches_upload_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'threedi_model' in local_var_params:
-            body_params = local_var_params['threedi_model']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/breaches/upload/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_cells_download_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_cells_download_retrieve  # noqa: E501
-
-        Note that this is the subset of 2d open_water cells  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_cells_download_retrieve(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_cells_download_retrieve_with_http_info(id, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_cells_download_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_cells_download_retrieve  # noqa: E501
-
-        Note that this is the subset of 2d open_water cells  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_cells_download_retrieve_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_cells_download_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_cells_download_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/cells/download/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_cells_upload_create(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_cells_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_cells_upload_create(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_cells_upload_create_with_http_info(id, threedi_model, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_cells_upload_create_with_http_info(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_cells_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_cells_upload_create_with_http_info(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedi_model'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_cells_upload_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_cells_upload_create`")  # noqa: E501
-        # verify the required parameter 'threedi_model' is set
-        if self.api_client.client_side_validation and ('threedi_model' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedi_model'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedi_model` when calling `v3_threedimodels_geojson_cells_upload_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'threedi_model' in local_var_params:
-            body_params = local_var_params['threedi_model']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/cells/upload/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_channels_download_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_channels_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_channels_download_retrieve(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_channels_download_retrieve_with_http_info(id, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_channels_download_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_channels_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_channels_download_retrieve_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_channels_download_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_channels_download_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/channels/download/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_channels_upload_create(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_channels_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_channels_upload_create(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_channels_upload_create_with_http_info(id, threedi_model, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_channels_upload_create_with_http_info(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_channels_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_channels_upload_create_with_http_info(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedi_model'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_channels_upload_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_channels_upload_create`")  # noqa: E501
-        # verify the required parameter 'threedi_model' is set
-        if self.api_client.client_side_validation and ('threedi_model' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedi_model'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedi_model` when calling `v3_threedimodels_geojson_channels_upload_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'threedi_model' in local_var_params:
-            body_params = local_var_params['threedi_model']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/channels/upload/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_culverts_download_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_culverts_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_culverts_download_retrieve(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_culverts_download_retrieve_with_http_info(id, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_culverts_download_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_culverts_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_culverts_download_retrieve_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_culverts_download_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_culverts_download_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/culverts/download/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_culverts_upload_create(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_culverts_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_culverts_upload_create(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_culverts_upload_create_with_http_info(id, threedi_model, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_culverts_upload_create_with_http_info(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_culverts_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_culverts_upload_create_with_http_info(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedi_model'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_culverts_upload_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_culverts_upload_create`")  # noqa: E501
-        # verify the required parameter 'threedi_model' is set
-        if self.api_client.client_side_validation and ('threedi_model' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedi_model'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedi_model` when calling `v3_threedimodels_geojson_culverts_upload_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'threedi_model' in local_var_params:
-            body_params = local_var_params['threedi_model']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/culverts/upload/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_flowlines_download_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_flowlines_download_retrieve  # noqa: E501
-
-        Note that this is a subset of all lines  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_flowlines_download_retrieve(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_flowlines_download_retrieve_with_http_info(id, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_flowlines_download_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_flowlines_download_retrieve  # noqa: E501
-
-        Note that this is a subset of all lines  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_flowlines_download_retrieve_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_flowlines_download_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_flowlines_download_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/flowlines/download/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_flowlines_upload_create(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_flowlines_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_flowlines_upload_create(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_flowlines_upload_create_with_http_info(id, threedi_model, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_flowlines_upload_create_with_http_info(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_flowlines_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_flowlines_upload_create_with_http_info(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedi_model'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_flowlines_upload_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_flowlines_upload_create`")  # noqa: E501
-        # verify the required parameter 'threedi_model' is set
-        if self.api_client.client_side_validation and ('threedi_model' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedi_model'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedi_model` when calling `v3_threedimodels_geojson_flowlines_upload_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'threedi_model' in local_var_params:
-            body_params = local_var_params['threedi_model']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/flowlines/upload/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_levees_download_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_levees_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_levees_download_retrieve(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_levees_download_retrieve_with_http_info(id, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_levees_download_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_levees_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_levees_download_retrieve_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_levees_download_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_levees_download_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/levees/download/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_levees_upload_create(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_levees_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_levees_upload_create(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_levees_upload_create_with_http_info(id, threedi_model, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_levees_upload_create_with_http_info(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_levees_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_levees_upload_create_with_http_info(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedi_model'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_levees_upload_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_levees_upload_create`")  # noqa: E501
-        # verify the required parameter 'threedi_model' is set
-        if self.api_client.client_side_validation and ('threedi_model' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedi_model'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedi_model` when calling `v3_threedimodels_geojson_levees_upload_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'threedi_model' in local_var_params:
-            body_params = local_var_params['threedi_model']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/levees/upload/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_manholes_download_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_manholes_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_manholes_download_retrieve(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_manholes_download_retrieve_with_http_info(id, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_manholes_download_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_manholes_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_manholes_download_retrieve_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_manholes_download_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_manholes_download_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/manholes/download/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_manholes_upload_create(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_manholes_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_manholes_upload_create(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_manholes_upload_create_with_http_info(id, threedi_model, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_manholes_upload_create_with_http_info(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_manholes_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_manholes_upload_create_with_http_info(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedi_model'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_manholes_upload_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_manholes_upload_create`")  # noqa: E501
-        # verify the required parameter 'threedi_model' is set
-        if self.api_client.client_side_validation and ('threedi_model' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedi_model'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedi_model` when calling `v3_threedimodels_geojson_manholes_upload_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'threedi_model' in local_var_params:
-            body_params = local_var_params['threedi_model']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/manholes/upload/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_orifices_download_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_orifices_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_orifices_download_retrieve(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_orifices_download_retrieve_with_http_info(id, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_orifices_download_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_orifices_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_orifices_download_retrieve_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_orifices_download_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_orifices_download_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/orifices/download/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_orifices_upload_create(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_orifices_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_orifices_upload_create(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_orifices_upload_create_with_http_info(id, threedi_model, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_orifices_upload_create_with_http_info(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_orifices_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_orifices_upload_create_with_http_info(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedi_model'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_orifices_upload_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_orifices_upload_create`")  # noqa: E501
-        # verify the required parameter 'threedi_model' is set
-        if self.api_client.client_side_validation and ('threedi_model' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedi_model'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedi_model` when calling `v3_threedimodels_geojson_orifices_upload_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'threedi_model' in local_var_params:
-            body_params = local_var_params['threedi_model']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/orifices/upload/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_pipes_download_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_pipes_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_pipes_download_retrieve(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_pipes_download_retrieve_with_http_info(id, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_pipes_download_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_pipes_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_pipes_download_retrieve_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_pipes_download_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_pipes_download_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/pipes/download/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_pipes_upload_create(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_pipes_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_pipes_upload_create(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_pipes_upload_create_with_http_info(id, threedi_model, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_pipes_upload_create_with_http_info(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_pipes_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_pipes_upload_create_with_http_info(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedi_model'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_pipes_upload_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_pipes_upload_create`")  # noqa: E501
-        # verify the required parameter 'threedi_model' is set
-        if self.api_client.client_side_validation and ('threedi_model' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedi_model'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedi_model` when calling `v3_threedimodels_geojson_pipes_upload_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'threedi_model' in local_var_params:
-            body_params = local_var_params['threedi_model']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/pipes/upload/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_pumps_download_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_pumps_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_pumps_download_retrieve(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_pumps_download_retrieve_with_http_info(id, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_pumps_download_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_pumps_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_pumps_download_retrieve_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_pumps_download_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_pumps_download_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/pumps/download/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_pumps_upload_create(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_pumps_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_pumps_upload_create(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_pumps_upload_create_with_http_info(id, threedi_model, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_pumps_upload_create_with_http_info(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_pumps_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_pumps_upload_create_with_http_info(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedi_model'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_pumps_upload_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_pumps_upload_create`")  # noqa: E501
-        # verify the required parameter 'threedi_model' is set
-        if self.api_client.client_side_validation and ('threedi_model' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedi_model'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedi_model` when calling `v3_threedimodels_geojson_pumps_upload_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'threedi_model' in local_var_params:
-            body_params = local_var_params['threedi_model']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/pumps/upload/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_weirs_download_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_weirs_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_weirs_download_retrieve(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_weirs_download_retrieve_with_http_info(id, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_weirs_download_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_weirs_download_retrieve  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_weirs_download_retrieve_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_weirs_download_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_weirs_download_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/weirs/download/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geojson_weirs_upload_create(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_weirs_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_weirs_upload_create(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geojson_weirs_upload_create_with_http_info(id, threedi_model, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geojson_weirs_upload_create_with_http_info(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geojson_weirs_upload_create  # noqa: E501
-
-        A simple ViewSet for viewing threedimodels  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geojson_weirs_upload_create_with_http_info(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedi_model'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geojson_weirs_upload_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geojson_weirs_upload_create`")  # noqa: E501
-        # verify the required parameter 'threedi_model' is set
-        if self.api_client.client_side_validation and ('threedi_model' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedi_model'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedi_model` when calling `v3_threedimodels_geojson_weirs_upload_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'threedi_model' in local_var_params:
-            body_params = local_var_params['threedi_model']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geojson/weirs/upload/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geopackage_download_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geopackage_download_retrieve  # noqa: E501
-
-        Endpoint for downloading geopackage file.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geopackage_download_retrieve(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geopackage_download_retrieve_with_http_info(id, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geopackage_download_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_geopackage_download_retrieve  # noqa: E501
-
-        Endpoint for downloading geopackage file.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geopackage_download_retrieve_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geopackage_download_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geopackage_download_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geopackage/download/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_geopackage_upload_create(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geopackage_upload_create  # noqa: E501
-
-        Endpoint for uploading the gridadmin file  Replaces the gridadmin if there already exists one.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geopackage_upload_create(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_geopackage_upload_create_with_http_info(id, threedi_model, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_geopackage_upload_create_with_http_info(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_geopackage_upload_create  # noqa: E501
-
-        Endpoint for uploading the gridadmin file  Replaces the gridadmin if there already exists one.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_geopackage_upload_create_with_http_info(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedi_model'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_geopackage_upload_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_geopackage_upload_create`")  # noqa: E501
-        # verify the required parameter 'threedi_model' is set
-        if self.api_client.client_side_validation and ('threedi_model' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedi_model'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedi_model` when calling `v3_threedimodels_geopackage_upload_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'threedi_model' in local_var_params:
-            body_params = local_var_params['threedi_model']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/geopackage/upload/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_gridadmin_download_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_gridadmin_download_retrieve  # noqa: E501
-
-        Endpoint for downloading files.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_gridadmin_download_retrieve(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_gridadmin_download_retrieve_with_http_info(id, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_gridadmin_download_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_gridadmin_download_retrieve  # noqa: E501
-
-        Endpoint for downloading files.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_gridadmin_download_retrieve_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_gridadmin_download_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_gridadmin_download_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/gridadmin/download/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_gridadmin_upload_create(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_gridadmin_upload_create  # noqa: E501
-
-        Endpoint for uploading the gridadmin file  Replaces the gridadmin if there already exists one.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_gridadmin_upload_create(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_gridadmin_upload_create_with_http_info(id, threedi_model, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_gridadmin_upload_create_with_http_info(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_gridadmin_upload_create  # noqa: E501
-
-        Endpoint for uploading the gridadmin file  Replaces the gridadmin if there already exists one.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_gridadmin_upload_create_with_http_info(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedi_model'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_gridadmin_upload_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_gridadmin_upload_create`")  # noqa: E501
-        # verify the required parameter 'threedi_model' is set
-        if self.api_client.client_side_validation and ('threedi_model' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedi_model'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedi_model` when calling `v3_threedimodels_gridadmin_upload_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'threedi_model' in local_var_params:
-            body_params = local_var_params['threedi_model']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/gridadmin/upload/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def v3_threedimodels_initial_waterlevels_create(self, threedimodel_pk, **kwargs):  # noqa: E501
         """v3_threedimodels_initial_waterlevels_create  # noqa: E501
 
@@ -64790,7 +65990,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InitialWaterlevel
+        :return: Download
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -64818,7 +66018,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InitialWaterlevel, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -64886,7 +66086,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InitialWaterlevel',  # noqa: E501
+            response_type='Download',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -65150,19 +66350,19 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_threedimodels_initial_waterlevels_processed_update(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def v3_threedimodels_initial_waterlevels_processed_update(self, id, threedimodel_pk, base_event_state, **kwargs):  # noqa: E501
         """v3_threedimodels_initial_waterlevels_processed_update  # noqa: E501
 
         ## Description Initial waterlevels on threedimodels can be used in a simulation to specify the initial waterlevels on the 1D and/or 2D domain.  ### Initial waterlevels from schematisation 1D and 2D initial waterlevels in the schematisation are automatically picked up during the creation of the threedimodel.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_initial_waterlevels_processed_update(id, threedimodel_pk, async_req=True)
+        >>> thread = api.v3_threedimodels_initial_waterlevels_processed_update(id, threedimodel_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this initial waterlevel. (required)
         :param int threedimodel_pk: (required)
-        :param InitialWaterlevel initial_waterlevel:
+        :param BaseEventState base_event_state: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -65170,26 +66370,26 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InitialWaterlevel
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_initial_waterlevels_processed_update_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        return self.v3_threedimodels_initial_waterlevels_processed_update_with_http_info(id, threedimodel_pk, base_event_state, **kwargs)  # noqa: E501
 
-    def v3_threedimodels_initial_waterlevels_processed_update_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def v3_threedimodels_initial_waterlevels_processed_update_with_http_info(self, id, threedimodel_pk, base_event_state, **kwargs):  # noqa: E501
         """v3_threedimodels_initial_waterlevels_processed_update  # noqa: E501
 
         ## Description Initial waterlevels on threedimodels can be used in a simulation to specify the initial waterlevels on the 1D and/or 2D domain.  ### Initial waterlevels from schematisation 1D and 2D initial waterlevels in the schematisation are automatically picked up during the creation of the threedimodel.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_initial_waterlevels_processed_update_with_http_info(id, threedimodel_pk, async_req=True)
+        >>> thread = api.v3_threedimodels_initial_waterlevels_processed_update_with_http_info(id, threedimodel_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this initial waterlevel. (required)
         :param int threedimodel_pk: (required)
-        :param InitialWaterlevel initial_waterlevel:
+        :param BaseEventState base_event_state: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -65199,7 +66399,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InitialWaterlevel, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -65209,7 +66409,7 @@ class V3Api(object):
         all_params = [
             'id',
             'threedimodel_pk',
-            'initial_waterlevel'
+            'base_event_state'
         ]
         all_params.extend(
             [
@@ -65236,6 +66436,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['threedimodel_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `v3_threedimodels_initial_waterlevels_processed_update`")  # noqa: E501
+        # verify the required parameter 'base_event_state' is set
+        if self.api_client.client_side_validation and ('base_event_state' not in local_var_params or  # noqa: E501
+                                                        local_var_params['base_event_state'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `base_event_state` when calling `v3_threedimodels_initial_waterlevels_processed_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -65253,12 +66457,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'initial_waterlevel' in local_var_params:
-            body_params = local_var_params['initial_waterlevel']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'base_event_state' in local_var_params:
+            body_params = local_var_params['base_event_state']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
@@ -65274,7 +66474,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InitialWaterlevel',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -65537,19 +66737,19 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_threedimodels_initial_waterlevels_upload_create(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def v3_threedimodels_initial_waterlevels_upload_create(self, id, threedimodel_pk, upload, **kwargs):  # noqa: E501
         """v3_threedimodels_initial_waterlevels_upload_create  # noqa: E501
 
         Endpoint for uploading an initial waterlevel file, see the POST endpoint for documentation about the file format.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_initial_waterlevels_upload_create(id, threedimodel_pk, async_req=True)
+        >>> thread = api.v3_threedimodels_initial_waterlevels_upload_create(id, threedimodel_pk, upload, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this initial waterlevel. (required)
         :param int threedimodel_pk: (required)
-        :param InitialWaterlevel initial_waterlevel:
+        :param Upload upload: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -65557,26 +66757,26 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InitialWaterlevel
+        :return: Upload
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_initial_waterlevels_upload_create_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        return self.v3_threedimodels_initial_waterlevels_upload_create_with_http_info(id, threedimodel_pk, upload, **kwargs)  # noqa: E501
 
-    def v3_threedimodels_initial_waterlevels_upload_create_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def v3_threedimodels_initial_waterlevels_upload_create_with_http_info(self, id, threedimodel_pk, upload, **kwargs):  # noqa: E501
         """v3_threedimodels_initial_waterlevels_upload_create  # noqa: E501
 
         Endpoint for uploading an initial waterlevel file, see the POST endpoint for documentation about the file format.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_initial_waterlevels_upload_create_with_http_info(id, threedimodel_pk, async_req=True)
+        >>> thread = api.v3_threedimodels_initial_waterlevels_upload_create_with_http_info(id, threedimodel_pk, upload, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this initial waterlevel. (required)
         :param int threedimodel_pk: (required)
-        :param InitialWaterlevel initial_waterlevel:
+        :param Upload upload: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -65586,7 +66786,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InitialWaterlevel, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -65596,7 +66796,7 @@ class V3Api(object):
         all_params = [
             'id',
             'threedimodel_pk',
-            'initial_waterlevel'
+            'upload'
         ]
         all_params.extend(
             [
@@ -65623,6 +66823,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['threedimodel_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `v3_threedimodels_initial_waterlevels_upload_create`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `v3_threedimodels_initial_waterlevels_upload_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -65640,8 +66844,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'initial_waterlevel' in local_var_params:
-            body_params = local_var_params['initial_waterlevel']
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -65661,7 +66865,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InitialWaterlevel',  # noqa: E501
+            response_type='Upload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -66953,7 +68157,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ThreediModel
+        :return: RasterOptions
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -66980,7 +68184,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(RasterOptions, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -67041,7 +68245,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
+            response_type='RasterOptions',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -67314,7 +68518,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Raster
+        :return: Download
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -67342,7 +68546,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Raster, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -67410,7 +68614,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Raster',  # noqa: E501
+            response_type='Download',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -68025,19 +69229,19 @@ class V3Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_threedimodels_rasters_upload_create(self, id, threedimodel_pk, raster, **kwargs):  # noqa: E501
+    def v3_threedimodels_rasters_upload_create(self, id, threedimodel_pk, upload, **kwargs):  # noqa: E501
         """v3_threedimodels_rasters_upload_create  # noqa: E501
 
         Endpoint for uploading a raster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_rasters_upload_create(id, threedimodel_pk, raster, async_req=True)
+        >>> thread = api.v3_threedimodels_rasters_upload_create(id, threedimodel_pk, upload, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this raster. (required)
         :param int threedimodel_pk: (required)
-        :param Raster raster: (required)
+        :param Upload upload: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -68045,26 +69249,26 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: Raster
+        :return: Upload
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_rasters_upload_create_with_http_info(id, threedimodel_pk, raster, **kwargs)  # noqa: E501
+        return self.v3_threedimodels_rasters_upload_create_with_http_info(id, threedimodel_pk, upload, **kwargs)  # noqa: E501
 
-    def v3_threedimodels_rasters_upload_create_with_http_info(self, id, threedimodel_pk, raster, **kwargs):  # noqa: E501
+    def v3_threedimodels_rasters_upload_create_with_http_info(self, id, threedimodel_pk, upload, **kwargs):  # noqa: E501
         """v3_threedimodels_rasters_upload_create  # noqa: E501
 
         Endpoint for uploading a raster.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_rasters_upload_create_with_http_info(id, threedimodel_pk, raster, async_req=True)
+        >>> thread = api.v3_threedimodels_rasters_upload_create_with_http_info(id, threedimodel_pk, upload, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this raster. (required)
         :param int threedimodel_pk: (required)
-        :param Raster raster: (required)
+        :param Upload upload: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -68074,7 +69278,7 @@ class V3Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(Raster, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -68084,7 +69288,7 @@ class V3Api(object):
         all_params = [
             'id',
             'threedimodel_pk',
-            'raster'
+            'upload'
         ]
         all_params.extend(
             [
@@ -68111,10 +69315,10 @@ class V3Api(object):
         if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['threedimodel_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `v3_threedimodels_rasters_upload_create`")  # noqa: E501
-        # verify the required parameter 'raster' is set
-        if self.api_client.client_side_validation and ('raster' not in local_var_params or  # noqa: E501
-                                                        local_var_params['raster'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `raster` when calling `v3_threedimodels_rasters_upload_create`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `v3_threedimodels_rasters_upload_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -68132,8 +69336,8 @@ class V3Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'raster' in local_var_params:
-            body_params = local_var_params['raster']
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -68153,7 +69357,7 @@ class V3Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Raster',  # noqa: E501
+            response_type='Upload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -68639,247 +69843,6 @@ class V3Api(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ThreediModelSavedState',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_tables_download_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_tables_download_retrieve  # noqa: E501
-
-        Endpoint for downloading tables files.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_tables_download_retrieve(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_tables_download_retrieve_with_http_info(id, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_tables_download_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_threedimodels_tables_download_retrieve  # noqa: E501
-
-        Endpoint for downloading tables files.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_tables_download_retrieve_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_tables_download_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_tables_download_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/tables/download/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def v3_threedimodels_tables_upload_create(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_tables_upload_create  # noqa: E501
-
-        Endpoint for uploading the tables.h5 file  Replaces the tables file if there already exists one.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_tables_upload_create(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ThreediModel
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_threedimodels_tables_upload_create_with_http_info(id, threedi_model, **kwargs)  # noqa: E501
-
-    def v3_threedimodels_tables_upload_create_with_http_info(self, id, threedi_model, **kwargs):  # noqa: E501
-        """v3_threedimodels_tables_upload_create  # noqa: E501
-
-        Endpoint for uploading the tables.h5 file  Replaces the tables file if there already exists one.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_threedimodels_tables_upload_create_with_http_info(id, threedi_model, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this threedi model. (required)
-        :param ThreediModel threedi_model: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ThreediModel, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'id',
-            'threedi_model'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_threedimodels_tables_upload_create" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_threedimodels_tables_upload_create`")  # noqa: E501
-        # verify the required parameter 'threedi_model' is set
-        if self.api_client.client_side_validation and ('threedi_model' not in local_var_params or  # noqa: E501
-                                                        local_var_params['threedi_model'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedi_model` when calling `v3_threedimodels_tables_upload_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'threedi_model' in local_var_params:
-            body_params = local_var_params['threedi_model']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3/threedimodels/{id}/tables/upload/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ThreediModel',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -95,7 +95,7 @@ class Extent(object):
     def coordinates(self):
         """Gets the coordinates of this Extent.  # noqa: E501
 
-        Exactly 2 coordinates, specifying the bottom left (longitude, latitude order)and upper right respectively  # noqa: E501
+        Exactly 2 coordinates, specifying the bottom left (longitude, latitude order) and upper right respectively  # noqa: E501
 
         :return: The coordinates of this Extent.  # noqa: E501
         :rtype: list[list[float]]
@@ -106,7 +106,7 @@ class Extent(object):
     def coordinates(self, coordinates):
         """Sets the coordinates of this Extent.
 
-        Exactly 2 coordinates, specifying the bottom left (longitude, latitude order)and upper right respectively  # noqa: E501
+        Exactly 2 coordinates, specifying the bottom left (longitude, latitude order) and upper right respectively  # noqa: E501
 
         :param coordinates: The coordinates of this Extent.  # noqa: E501
         :type: list[list[float]]

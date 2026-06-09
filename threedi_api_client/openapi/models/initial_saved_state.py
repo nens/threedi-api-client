@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -44,11 +44,7 @@ class InitialSavedState(object):
     }
 
     required_fields = [
-       'url',
-       'simulation',
        'saved_state',
-       'id',
-       'uuid'
     ]
 
     attribute_map = {
@@ -75,11 +71,15 @@ class InitialSavedState(object):
         self._uuid = None
         self.discriminator = None
 
-        self.url = url
-        self.simulation = simulation
+        if url is not None:
+            self.url = url
+        if simulation is not None:
+            self.simulation = simulation
         self.saved_state = saved_state
-        self.id = id
-        self.uuid = uuid
+        if id is not None:
+            self.id = id
+        if uuid is not None:
+            self.uuid = uuid
 
     @property
     def url(self):
@@ -99,8 +99,6 @@ class InitialSavedState(object):
         :param url: The url of this InitialSavedState.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -122,8 +120,6 @@ class InitialSavedState(object):
         :param simulation: The simulation of this InitialSavedState.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -168,8 +164,6 @@ class InitialSavedState(object):
         :param id: The id of this InitialSavedState.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -191,8 +185,6 @@ class InitialSavedState(object):
         :param uuid: The uuid of this InitialSavedState.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and uuid is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `uuid`, must not be `None`")  # noqa: E501
 
         self._uuid = uuid
 

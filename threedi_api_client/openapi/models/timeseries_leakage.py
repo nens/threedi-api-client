@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -48,13 +48,9 @@ class TimeseriesLeakage(object):
     }
 
     required_fields = [
-       'url',
-       'simulation',
        'offset',
        'values',
        'units',
-       'uid',
-       'id',
     ]
 
     attribute_map = {
@@ -89,15 +85,19 @@ class TimeseriesLeakage(object):
         self._substances = None
         self.discriminator = None
 
-        self.url = url
-        self.simulation = simulation
+        if url is not None:
+            self.url = url
+        if simulation is not None:
+            self.simulation = simulation
         self.offset = offset
         if interpolate is not None:
             self.interpolate = interpolate
         self.values = values
         self.units = units
-        self.uid = uid
-        self.id = id
+        if uid is not None:
+            self.uid = uid
+        if id is not None:
+            self.id = id
         if substances is not None:
             self.substances = substances
 
@@ -119,8 +119,6 @@ class TimeseriesLeakage(object):
         :param url: The url of this TimeseriesLeakage.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -142,8 +140,6 @@ class TimeseriesLeakage(object):
         :param simulation: The simulation of this TimeseriesLeakage.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -203,6 +199,7 @@ class TimeseriesLeakage(object):
     def values(self):
         """Gets the values of this TimeseriesLeakage.  # noqa: E501
 
+        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
         :return: The values of this TimeseriesLeakage.  # noqa: E501
         :rtype: list[list[float]]
@@ -213,6 +210,7 @@ class TimeseriesLeakage(object):
     def values(self, values):
         """Sets the values of this TimeseriesLeakage.
 
+        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
         :param values: The values of this TimeseriesLeakage.  # noqa: E501
         :type: list[list[float]]
@@ -265,8 +263,6 @@ class TimeseriesLeakage(object):
         :param uid: The uid of this TimeseriesLeakage.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 
@@ -288,8 +284,6 @@ class TimeseriesLeakage(object):
         :param id: The id of this TimeseriesLeakage.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

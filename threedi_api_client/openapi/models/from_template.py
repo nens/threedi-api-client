@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -39,7 +39,7 @@ class FromTemplate(object):
         'template': 'str',
         'threedimodel': 'str',
         'name': 'str',
-        'tags': 'list[str]',
+        'tags': 'list[object]',
         'organisation': 'str',
         'start_datetime': 'datetime',
         'end_datetime': 'datetime',
@@ -145,7 +145,7 @@ class FromTemplate(object):
     def threedimodel(self):
         """Gets the threedimodel of this FromTemplate.  # noqa: E501
 
-        The id of a threedimodel  # noqa: E501
+        ThreediModel to copy template to  # noqa: E501
 
         :return: The threedimodel of this FromTemplate.  # noqa: E501
         :rtype: str
@@ -156,7 +156,7 @@ class FromTemplate(object):
     def threedimodel(self, threedimodel):
         """Sets the threedimodel of this FromTemplate.
 
-        The id of a threedimodel  # noqa: E501
+        ThreediModel to copy template to  # noqa: E501
 
         :param threedimodel: The threedimodel of this FromTemplate.  # noqa: E501
         :type: str
@@ -187,9 +187,6 @@ class FromTemplate(object):
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 128):
             self.__handle_validation_error("Invalid value for `name`, length must be less than or equal to `128`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -199,7 +196,7 @@ class FromTemplate(object):
 
 
         :return: The tags of this FromTemplate.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[object]
         """
         return self._tags
 
@@ -209,7 +206,7 @@ class FromTemplate(object):
 
 
         :param tags: The tags of this FromTemplate.  # noqa: E501
-        :type: list[str]
+        :type: list[object]
         """
 
         self._tags = tags
@@ -234,9 +231,6 @@ class FromTemplate(object):
         """
         if self.local_vars_configuration.client_side_validation and organisation is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `organisation`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                organisation is not None and len(organisation) < 1):
-            self.__handle_validation_error("Invalid value for `organisation`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._organisation = organisation
 

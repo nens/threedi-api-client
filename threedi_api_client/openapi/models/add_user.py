@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -45,7 +45,6 @@ class AddUser(object):
     }
 
     required_fields = [
-       'user_id',
        'username',
        'email',
        'external_user_id'
@@ -77,7 +76,8 @@ class AddUser(object):
         self._external_user_id = None
         self.discriminator = None
 
-        self.user_id = user_id
+        if user_id is not None:
+            self.user_id = user_id
         self.username = username
         if first_name is not None:
             self.first_name = first_name
@@ -104,8 +104,6 @@ class AddUser(object):
         :param user_id: The user_id of this AddUser.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and user_id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `user_id`, must not be `None`")  # noqa: E501
 
         self._user_id = user_id
 

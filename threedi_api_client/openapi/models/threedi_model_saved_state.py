@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,7 @@ class ThreediModelSavedState(object):
         'url': 'str',
         'name': 'str',
         'created': 'datetime',
-        'type': 'ThreediModelSavedStateTypeEnum',
+        'type': 'SavedStateTypeEnum',
         'tags': 'list[str]',
         'used_in_simulation': 'str',
         'expiry': 'datetime',
@@ -50,11 +50,8 @@ class ThreediModelSavedState(object):
     }
 
     required_fields = [
-       'id',
-       'url',
        'name',
        'type',
-       'used_in_simulation',
     ]
 
     attribute_map = {
@@ -93,14 +90,17 @@ class ThreediModelSavedState(object):
         self._thresholds = None
         self.discriminator = None
 
-        self.id = id
-        self.url = url
+        if id is not None:
+            self.id = id
+        if url is not None:
+            self.url = url
         self.name = name
         self.created = created
         self.type = type
         if tags is not None:
             self.tags = tags
-        self.used_in_simulation = used_in_simulation
+        if used_in_simulation is not None:
+            self.used_in_simulation = used_in_simulation
         self.expiry = expiry
         self.time = time
         self.variables = variables
@@ -124,8 +124,6 @@ class ThreediModelSavedState(object):
         :param id: The id of this ThreediModelSavedState.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -147,8 +145,6 @@ class ThreediModelSavedState(object):
         :param url: The url of this ThreediModelSavedState.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -205,7 +201,7 @@ class ThreediModelSavedState(object):
 
 
         :return: The type of this ThreediModelSavedState.  # noqa: E501
-        :rtype: ThreediModelSavedStateTypeEnum
+        :rtype: SavedStateTypeEnum
         """
         return self._type
 
@@ -215,7 +211,7 @@ class ThreediModelSavedState(object):
 
 
         :param type: The type of this ThreediModelSavedState.  # noqa: E501
-        :type: ThreediModelSavedStateTypeEnum
+        :type: SavedStateTypeEnum
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `type`, must not be `None`")  # noqa: E501
@@ -226,6 +222,7 @@ class ThreediModelSavedState(object):
     def tags(self):
         """Gets the tags of this ThreediModelSavedState.  # noqa: E501
 
+        tags provided as a list of strings  # noqa: E501
 
         :return: The tags of this ThreediModelSavedState.  # noqa: E501
         :rtype: list[str]
@@ -236,6 +233,7 @@ class ThreediModelSavedState(object):
     def tags(self, tags):
         """Sets the tags of this ThreediModelSavedState.
 
+        tags provided as a list of strings  # noqa: E501
 
         :param tags: The tags of this ThreediModelSavedState.  # noqa: E501
         :type: list[str]
@@ -261,8 +259,6 @@ class ThreediModelSavedState(object):
         :param used_in_simulation: The used_in_simulation of this ThreediModelSavedState.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and used_in_simulation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `used_in_simulation`, must not be `None`")  # noqa: E501
 
         self._used_in_simulation = used_in_simulation
 

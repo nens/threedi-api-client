@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -1350,7 +1350,7 @@ class V3BetaApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this template. (required)
+        :param int id: (required)
         :param CopyToThreediModel copy_to_threedi_model: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -1359,7 +1359,7 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: CopyToThreediModel
+        :return: Template
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1376,7 +1376,7 @@ class V3BetaApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int id: A unique integer value identifying this template. (required)
+        :param int id: (required)
         :param CopyToThreediModel copy_to_threedi_model: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -1387,7 +1387,7 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(CopyToThreediModel, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Template, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1459,7 +1459,7 @@ class V3BetaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CopyToThreediModel',  # noqa: E501
+            response_type='Template',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1973,19 +1973,19 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_obstacle_edits_processed_update(self, id, simulation_pk, obstacle_edit, **kwargs):  # noqa: E501
+    def v3_beta_simulations_events_obstacle_edits_processed_update(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
         """v3_beta_simulations_events_obstacle_edits_processed_update  # noqa: E501
 
         A simple ViewSet for viewing obstacle edits  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_processed_update(id, simulation_pk, obstacle_edit, async_req=True)
+        >>> thread = api.v3_beta_simulations_events_obstacle_edits_processed_update(id, simulation_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this obstacle edit. (required)
         :param int simulation_pk: (required)
-        :param ObstacleEdit obstacle_edit: (required)
+        :param BaseEventState base_event_state: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1993,26 +1993,26 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ObstacleEdit
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_obstacle_edits_processed_update_with_http_info(id, simulation_pk, obstacle_edit, **kwargs)  # noqa: E501
+        return self.v3_beta_simulations_events_obstacle_edits_processed_update_with_http_info(id, simulation_pk, base_event_state, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_obstacle_edits_processed_update_with_http_info(self, id, simulation_pk, obstacle_edit, **kwargs):  # noqa: E501
+    def v3_beta_simulations_events_obstacle_edits_processed_update_with_http_info(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
         """v3_beta_simulations_events_obstacle_edits_processed_update  # noqa: E501
 
         A simple ViewSet for viewing obstacle edits  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_processed_update_with_http_info(id, simulation_pk, obstacle_edit, async_req=True)
+        >>> thread = api.v3_beta_simulations_events_obstacle_edits_processed_update_with_http_info(id, simulation_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this obstacle edit. (required)
         :param int simulation_pk: (required)
-        :param ObstacleEdit obstacle_edit: (required)
+        :param BaseEventState base_event_state: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2022,7 +2022,7 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ObstacleEdit, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2032,7 +2032,7 @@ class V3BetaApi(object):
         all_params = [
             'id',
             'simulation_pk',
-            'obstacle_edit'
+            'base_event_state'
         ]
         all_params.extend(
             [
@@ -2059,10 +2059,10 @@ class V3BetaApi(object):
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_obstacle_edits_processed_update`")  # noqa: E501
-        # verify the required parameter 'obstacle_edit' is set
-        if self.api_client.client_side_validation and ('obstacle_edit' not in local_var_params or  # noqa: E501
-                                                        local_var_params['obstacle_edit'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `obstacle_edit` when calling `v3_beta_simulations_events_obstacle_edits_processed_update`")  # noqa: E501
+        # verify the required parameter 'base_event_state' is set
+        if self.api_client.client_side_validation and ('base_event_state' not in local_var_params or  # noqa: E501
+                                                        local_var_params['base_event_state'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `base_event_state` when calling `v3_beta_simulations_events_obstacle_edits_processed_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2080,12 +2080,8 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'obstacle_edit' in local_var_params:
-            body_params = local_var_params['obstacle_edit']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'base_event_state' in local_var_params:
+            body_params = local_var_params['base_event_state']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
@@ -2101,7 +2097,7 @@ class V3BetaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ObstacleEdit',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2109,18 +2105,20 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_obstacle_edits_register_related_rasters_retrieve(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_register_related_rasters_retrieve  # noqa: E501
+    def v3_beta_simulations_events_obstacle_edits_register_related_rasters_list(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """v3_beta_simulations_events_obstacle_edits_register_related_rasters_list  # noqa: E501
 
         Register all related rasters in the results-api and return read_bbox urls of the registered rasters  Skips registering of related rasters when the simulation is not in the state 'starting' or 'initialized'. In this case the urls will be empty  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_register_related_rasters_retrieve(id, simulation_pk, async_req=True)
+        >>> thread = api.v3_beta_simulations_events_obstacle_edits_register_related_rasters_list(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this obstacle edit. (required)
         :param int simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2128,25 +2126,27 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ObstacleEdit
+        :return: PaginatedRasterEditUrlsList
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_obstacle_edits_register_related_rasters_retrieve_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.v3_beta_simulations_events_obstacle_edits_register_related_rasters_list_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_obstacle_edits_register_related_rasters_retrieve_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_register_related_rasters_retrieve  # noqa: E501
+    def v3_beta_simulations_events_obstacle_edits_register_related_rasters_list_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """v3_beta_simulations_events_obstacle_edits_register_related_rasters_list  # noqa: E501
 
         Register all related rasters in the results-api and return read_bbox urls of the registered rasters  Skips registering of related rasters when the simulation is not in the state 'starting' or 'initialized'. In this case the urls will be empty  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_register_related_rasters_retrieve_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.v3_beta_simulations_events_obstacle_edits_register_related_rasters_list_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this obstacle edit. (required)
         :param int simulation_pk: (required)
+        :param int limit: Number of results to return per page.
+        :param int offset: The initial index from which to return the results.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2156,7 +2156,7 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ObstacleEdit, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(PaginatedRasterEditUrlsList, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2165,7 +2165,9 @@ class V3BetaApi(object):
 
         all_params = [
             'id',
-            'simulation_pk'
+            'simulation_pk',
+            'limit',
+            'offset'
         ]
         all_params.extend(
             [
@@ -2180,18 +2182,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_obstacle_edits_register_related_rasters_retrieve" % key
+                    " to method v3_beta_simulations_events_obstacle_edits_register_related_rasters_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_events_obstacle_edits_register_related_rasters_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_events_obstacle_edits_register_related_rasters_list`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_obstacle_edits_register_related_rasters_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_obstacle_edits_register_related_rasters_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2202,6 +2204,10 @@ class V3BetaApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
 
@@ -2224,7 +2230,7 @@ class V3BetaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ObstacleEdit',  # noqa: E501
+            response_type='PaginatedRasterEditUrlsList',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2760,7 +2766,7 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: BulkTimeseriesRain
+        :return: Download
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2788,7 +2794,7 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(BulkTimeseriesRain, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2856,7 +2862,7 @@ class V3BetaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='BulkTimeseriesRain',  # noqa: E501
+            response_type='Download',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3120,19 +3126,19 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_rain_timeseries_file_processed_update(self, id, simulation_pk, bulk_timeseries_rain, **kwargs):  # noqa: E501
+    def v3_beta_simulations_events_rain_timeseries_file_processed_update(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
         """v3_beta_simulations_events_rain_timeseries_file_processed_update  # noqa: E501
 
         ViewMixin which adds an extra PUT-action 'processed'.  Used by the api-workers event-validators to update the (asynchronous) validation results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_processed_update(id, simulation_pk, bulk_timeseries_rain, async_req=True)
+        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_processed_update(id, simulation_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this bulk timeseries rain. (required)
         :param int simulation_pk: (required)
-        :param BulkTimeseriesRain bulk_timeseries_rain: (required)
+        :param BaseEventState base_event_state: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3140,26 +3146,26 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: BulkTimeseriesRain
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_rain_timeseries_file_processed_update_with_http_info(id, simulation_pk, bulk_timeseries_rain, **kwargs)  # noqa: E501
+        return self.v3_beta_simulations_events_rain_timeseries_file_processed_update_with_http_info(id, simulation_pk, base_event_state, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_rain_timeseries_file_processed_update_with_http_info(self, id, simulation_pk, bulk_timeseries_rain, **kwargs):  # noqa: E501
+    def v3_beta_simulations_events_rain_timeseries_file_processed_update_with_http_info(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
         """v3_beta_simulations_events_rain_timeseries_file_processed_update  # noqa: E501
 
         ViewMixin which adds an extra PUT-action 'processed'.  Used by the api-workers event-validators to update the (asynchronous) validation results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_processed_update_with_http_info(id, simulation_pk, bulk_timeseries_rain, async_req=True)
+        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_processed_update_with_http_info(id, simulation_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this bulk timeseries rain. (required)
         :param int simulation_pk: (required)
-        :param BulkTimeseriesRain bulk_timeseries_rain: (required)
+        :param BaseEventState base_event_state: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3169,7 +3175,7 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(BulkTimeseriesRain, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3179,7 +3185,7 @@ class V3BetaApi(object):
         all_params = [
             'id',
             'simulation_pk',
-            'bulk_timeseries_rain'
+            'base_event_state'
         ]
         all_params.extend(
             [
@@ -3206,10 +3212,10 @@ class V3BetaApi(object):
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_rain_timeseries_file_processed_update`")  # noqa: E501
-        # verify the required parameter 'bulk_timeseries_rain' is set
-        if self.api_client.client_side_validation and ('bulk_timeseries_rain' not in local_var_params or  # noqa: E501
-                                                        local_var_params['bulk_timeseries_rain'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `bulk_timeseries_rain` when calling `v3_beta_simulations_events_rain_timeseries_file_processed_update`")  # noqa: E501
+        # verify the required parameter 'base_event_state' is set
+        if self.api_client.client_side_validation and ('base_event_state' not in local_var_params or  # noqa: E501
+                                                        local_var_params['base_event_state'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `base_event_state` when calling `v3_beta_simulations_events_rain_timeseries_file_processed_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -3227,12 +3233,8 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'bulk_timeseries_rain' in local_var_params:
-            body_params = local_var_params['bulk_timeseries_rain']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'base_event_state' in local_var_params:
+            body_params = local_var_params['base_event_state']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
@@ -3248,7 +3250,7 @@ class V3BetaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='BulkTimeseriesRain',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6662,109 +6664,6 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_status_db_retrieve(self, **kwargs):  # noqa: E501
-        """v3_beta_status_db_retrieve  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_status_db_retrieve(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Status
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.v3_beta_status_db_retrieve_with_http_info(**kwargs)  # noqa: E501
-
-    def v3_beta_status_db_retrieve_with_http_info(self, **kwargs):  # noqa: E501
-        """v3_beta_status_db_retrieve  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_status_db_retrieve_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(Status, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_status_db_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v3-beta/status/db/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='Status',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def v3_beta_status_list(self, **kwargs):  # noqa: E501
         """v3_beta_status_list  # noqa: E501
 
@@ -7129,7 +7028,7 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InitialConcentration
+        :return: Download
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7157,7 +7056,7 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InitialConcentration, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Download, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7225,7 +7124,7 @@ class V3BetaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InitialConcentration',  # noqa: E501
+            response_type='Download',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7489,19 +7388,19 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_threedimodels_initial_concentrations_processed_update(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def v3_beta_threedimodels_initial_concentrations_processed_update(self, id, threedimodel_pk, base_event_state, **kwargs):  # noqa: E501
         """v3_beta_threedimodels_initial_concentrations_processed_update  # noqa: E501
 
         ## Description Initial substance concentrations on threedimodels can be used in a simulation to specify the initial substance concentration on the 1D and/or 2D domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_processed_update(id, threedimodel_pk, async_req=True)
+        >>> thread = api.v3_beta_threedimodels_initial_concentrations_processed_update(id, threedimodel_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this initial concentration. (required)
         :param int threedimodel_pk: (required)
-        :param InitialConcentration initial_concentration:
+        :param BaseEventState base_event_state: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7509,26 +7408,26 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InitialConcentration
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_threedimodels_initial_concentrations_processed_update_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        return self.v3_beta_threedimodels_initial_concentrations_processed_update_with_http_info(id, threedimodel_pk, base_event_state, **kwargs)  # noqa: E501
 
-    def v3_beta_threedimodels_initial_concentrations_processed_update_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def v3_beta_threedimodels_initial_concentrations_processed_update_with_http_info(self, id, threedimodel_pk, base_event_state, **kwargs):  # noqa: E501
         """v3_beta_threedimodels_initial_concentrations_processed_update  # noqa: E501
 
         ## Description Initial substance concentrations on threedimodels can be used in a simulation to specify the initial substance concentration on the 1D and/or 2D domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_processed_update_with_http_info(id, threedimodel_pk, async_req=True)
+        >>> thread = api.v3_beta_threedimodels_initial_concentrations_processed_update_with_http_info(id, threedimodel_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this initial concentration. (required)
         :param int threedimodel_pk: (required)
-        :param InitialConcentration initial_concentration:
+        :param BaseEventState base_event_state: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7538,7 +7437,7 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InitialConcentration, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7548,7 +7447,7 @@ class V3BetaApi(object):
         all_params = [
             'id',
             'threedimodel_pk',
-            'initial_concentration'
+            'base_event_state'
         ]
         all_params.extend(
             [
@@ -7575,6 +7474,10 @@ class V3BetaApi(object):
         if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['threedimodel_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `v3_beta_threedimodels_initial_concentrations_processed_update`")  # noqa: E501
+        # verify the required parameter 'base_event_state' is set
+        if self.api_client.client_side_validation and ('base_event_state' not in local_var_params or  # noqa: E501
+                                                        local_var_params['base_event_state'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `base_event_state` when calling `v3_beta_threedimodels_initial_concentrations_processed_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7592,12 +7495,8 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'initial_concentration' in local_var_params:
-            body_params = local_var_params['initial_concentration']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
+        if 'base_event_state' in local_var_params:
+            body_params = local_var_params['base_event_state']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
@@ -7613,7 +7512,7 @@ class V3BetaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InitialConcentration',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7876,19 +7775,19 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_threedimodels_initial_concentrations_upload_create(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def v3_beta_threedimodels_initial_concentrations_upload_create(self, id, threedimodel_pk, upload, **kwargs):  # noqa: E501
         """v3_beta_threedimodels_initial_concentrations_upload_create  # noqa: E501
 
         Endpoint for uploading an initial substance concentration file, see the POST endpoint for documentation about the file format.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_upload_create(id, threedimodel_pk, async_req=True)
+        >>> thread = api.v3_beta_threedimodels_initial_concentrations_upload_create(id, threedimodel_pk, upload, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this initial concentration. (required)
         :param int threedimodel_pk: (required)
-        :param InitialConcentration initial_concentration:
+        :param Upload upload: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7896,26 +7795,26 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InitialConcentration
+        :return: Upload
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_threedimodels_initial_concentrations_upload_create_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        return self.v3_beta_threedimodels_initial_concentrations_upload_create_with_http_info(id, threedimodel_pk, upload, **kwargs)  # noqa: E501
 
-    def v3_beta_threedimodels_initial_concentrations_upload_create_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+    def v3_beta_threedimodels_initial_concentrations_upload_create_with_http_info(self, id, threedimodel_pk, upload, **kwargs):  # noqa: E501
         """v3_beta_threedimodels_initial_concentrations_upload_create  # noqa: E501
 
         Endpoint for uploading an initial substance concentration file, see the POST endpoint for documentation about the file format.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_upload_create_with_http_info(id, threedimodel_pk, async_req=True)
+        >>> thread = api.v3_beta_threedimodels_initial_concentrations_upload_create_with_http_info(id, threedimodel_pk, upload, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param int id: A unique integer value identifying this initial concentration. (required)
         :param int threedimodel_pk: (required)
-        :param InitialConcentration initial_concentration:
+        :param Upload upload: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7925,7 +7824,7 @@ class V3BetaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InitialConcentration, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(Upload, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7935,7 +7834,7 @@ class V3BetaApi(object):
         all_params = [
             'id',
             'threedimodel_pk',
-            'initial_concentration'
+            'upload'
         ]
         all_params.extend(
             [
@@ -7962,6 +7861,10 @@ class V3BetaApi(object):
         if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['threedimodel_pk'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `v3_beta_threedimodels_initial_concentrations_upload_create`")  # noqa: E501
+        # verify the required parameter 'upload' is set
+        if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['upload'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `v3_beta_threedimodels_initial_concentrations_upload_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7979,8 +7882,8 @@ class V3BetaApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'initial_concentration' in local_var_params:
-            body_params = local_var_params['initial_concentration']
+        if 'upload' in local_var_params:
+            body_params = local_var_params['upload']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -8000,7 +7903,7 @@ class V3BetaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InitialConcentration',  # noqa: E501
+            response_type='Upload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

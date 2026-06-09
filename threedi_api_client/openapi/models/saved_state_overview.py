@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,7 +37,7 @@ class SavedStateOverview(object):
     """
     openapi_types = {
         'name': 'str',
-        'type': 'str',
+        'type': 'SavedStateTypeEnum',
         'created': 'datetime',
         'created_time': 'int',
         'tags': 'list[str]',
@@ -128,9 +128,6 @@ class SavedStateOverview(object):
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 80):
             self.__handle_validation_error("Invalid value for `name`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -140,7 +137,7 @@ class SavedStateOverview(object):
 
 
         :return: The type of this SavedStateOverview.  # noqa: E501
-        :rtype: str
+        :rtype: SavedStateTypeEnum
         """
         return self._type
 
@@ -150,16 +147,10 @@ class SavedStateOverview(object):
 
 
         :param type: The type of this SavedStateOverview.  # noqa: E501
-        :type: str
+        :type: SavedStateTypeEnum
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["stable_threshold", "timed"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
 
         self._type = type
 

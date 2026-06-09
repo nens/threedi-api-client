@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -44,10 +44,6 @@ class WindDragCoefficient(object):
     }
 
     required_fields = [
-       'url',
-       'simulation',
-       'uid',
-       'id'
     ]
 
     attribute_map = {
@@ -74,12 +70,16 @@ class WindDragCoefficient(object):
         self._id = None
         self.discriminator = None
 
-        self.url = url
-        self.simulation = simulation
+        if url is not None:
+            self.url = url
+        if simulation is not None:
+            self.simulation = simulation
         if value is not None:
             self.value = value
-        self.uid = uid
-        self.id = id
+        if uid is not None:
+            self.uid = uid
+        if id is not None:
+            self.id = id
 
     @property
     def url(self):
@@ -99,8 +99,6 @@ class WindDragCoefficient(object):
         :param url: The url of this WindDragCoefficient.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -122,8 +120,6 @@ class WindDragCoefficient(object):
         :param simulation: The simulation of this WindDragCoefficient.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -174,8 +170,6 @@ class WindDragCoefficient(object):
         :param uid: The uid of this WindDragCoefficient.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 
@@ -197,8 +191,6 @@ class WindDragCoefficient(object):
         :param id: The id of this WindDragCoefficient.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

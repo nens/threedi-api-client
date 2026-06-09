@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -176,6 +176,7 @@ class PatchedSchematisation(object):
     def owner(self):
         """Gets the owner of this PatchedSchematisation.  # noqa: E501
 
+        The unique_id of an organisation  # noqa: E501
 
         :return: The owner of this PatchedSchematisation.  # noqa: E501
         :rtype: str
@@ -186,6 +187,7 @@ class PatchedSchematisation(object):
     def owner(self, owner):
         """Sets the owner of this PatchedSchematisation.
 
+        The unique_id of an organisation  # noqa: E501
 
         :param owner: The owner of this PatchedSchematisation.  # noqa: E501
         :type: str
@@ -250,6 +252,7 @@ class PatchedSchematisation(object):
     def tags(self):
         """Gets the tags of this PatchedSchematisation.  # noqa: E501
 
+        tags provided as a list of strings  # noqa: E501
 
         :return: The tags of this PatchedSchematisation.  # noqa: E501
         :rtype: list[str]
@@ -260,6 +263,7 @@ class PatchedSchematisation(object):
     def tags(self, tags):
         """Sets the tags of this PatchedSchematisation.
 
+        tags provided as a list of strings  # noqa: E501
 
         :param tags: The tags of this PatchedSchematisation.  # noqa: E501
         :type: list[str]

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -46,13 +46,10 @@ class PotentialBreach(object):
     }
 
     required_fields = [
-       'url',
        'connected_pnt_id',
        'levee_material',
        'line_id',
        'maximum_breach_depth',
-       'threedimodel',
-       'id'
     ]
 
     attribute_map = {
@@ -83,13 +80,16 @@ class PotentialBreach(object):
         self._id = None
         self.discriminator = None
 
-        self.url = url
+        if url is not None:
+            self.url = url
         self.connected_pnt_id = connected_pnt_id
         self.levee_material = levee_material
         self.line_id = line_id
         self.maximum_breach_depth = maximum_breach_depth
-        self.threedimodel = threedimodel
-        self.id = id
+        if threedimodel is not None:
+            self.threedimodel = threedimodel
+        if id is not None:
+            self.id = id
 
     @property
     def url(self):
@@ -109,8 +109,6 @@ class PotentialBreach(object):
         :param url: The url of this PotentialBreach.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -236,8 +234,6 @@ class PotentialBreach(object):
         :param threedimodel: The threedimodel of this PotentialBreach.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and threedimodel is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `threedimodel`, must not be `None`")  # noqa: E501
 
         self._threedimodel = threedimodel
 
@@ -259,8 +255,6 @@ class PotentialBreach(object):
         :param id: The id of this PotentialBreach.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

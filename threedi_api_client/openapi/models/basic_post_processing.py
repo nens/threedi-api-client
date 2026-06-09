@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -43,7 +43,6 @@ class BasicPostProcessing(object):
     }
 
     required_fields = [
-       'simulation',
     ]
 
     attribute_map = {
@@ -68,7 +67,8 @@ class BasicPostProcessing(object):
         self._result_uuid = None
         self.discriminator = None
 
-        self.simulation = simulation
+        if simulation is not None:
+            self.simulation = simulation
         if scenario_name is not None:
             self.scenario_name = scenario_name
         if process_basic_results is not None:
@@ -94,8 +94,6 @@ class BasicPostProcessing(object):
         :param simulation: The simulation of this BasicPostProcessing.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 

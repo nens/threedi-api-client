@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -43,7 +43,7 @@ class PatchedRaster(object):
         'file': 'FileReadOnly',
         'id': 'int',
         'epsg_code': 'int',
-        'extent': 'dict(str, object)',
+        'extent': 'Extent',
         'geotransform': 'list[float]',
         'unit': 'UnitEnum'
     }
@@ -265,7 +265,7 @@ class PatchedRaster(object):
 
 
         :return: The extent of this PatchedRaster.  # noqa: E501
-        :rtype: dict(str, object)
+        :rtype: Extent
         """
         return self._extent
 
@@ -275,7 +275,7 @@ class PatchedRaster(object):
 
 
         :param extent: The extent of this PatchedRaster.  # noqa: E501
-        :type: dict(str, object)
+        :type: Extent
         """
 
         self._extent = extent

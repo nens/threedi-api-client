@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -42,9 +42,6 @@ class Sqlite(object):
     }
 
     required_fields = [
-       'id',
-       'file',
-       'revision_id'
     ]
 
     attribute_map = {
@@ -67,9 +64,12 @@ class Sqlite(object):
         self._revision_id = None
         self.discriminator = None
 
-        self.id = id
-        self.file = file
-        self.revision_id = revision_id
+        if id is not None:
+            self.id = id
+        if file is not None:
+            self.file = file
+        if revision_id is not None:
+            self.revision_id = revision_id
 
     @property
     def id(self):
@@ -89,8 +89,6 @@ class Sqlite(object):
         :param id: The id of this Sqlite.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -112,8 +110,6 @@ class Sqlite(object):
         :param file: The file of this Sqlite.  # noqa: E501
         :type: FileReadOnly
         """
-        if self.local_vars_configuration.client_side_validation and file is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `file`, must not be `None`")  # noqa: E501
 
         self._file = file
 
@@ -135,8 +131,6 @@ class Sqlite(object):
         :param revision_id: The revision_id of this Sqlite.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and revision_id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `revision_id`, must not be `None`")  # noqa: E501
 
         self._revision_id = revision_id
 

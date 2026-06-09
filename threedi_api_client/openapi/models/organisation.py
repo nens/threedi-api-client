@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -43,7 +43,6 @@ class Organisation(object):
     }
 
     required_fields = [
-       'url',
        'unique_id',
        'name',
     ]
@@ -70,7 +69,8 @@ class Organisation(object):
         self._settings = None
         self.discriminator = None
 
-        self.url = url
+        if url is not None:
+            self.url = url
         self.unique_id = unique_id
         self.name = name
         if settings is not None:
@@ -94,8 +94,6 @@ class Organisation(object):
         :param url: The url of this Organisation.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 

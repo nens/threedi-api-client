@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -49,14 +49,6 @@ class FileReadOnly(object):
     }
 
     required_fields = [
-       'url',
-       'filename',
-       'state',
-       'type',
-       'size',
-       'expiry_date',
-       'id',
-       'meta'
     ]
 
     attribute_map = {
@@ -93,15 +85,21 @@ class FileReadOnly(object):
         self._meta = None
         self.discriminator = None
 
-        self.url = url
-        self.filename = filename
-        self.state = state
+        if url is not None:
+            self.url = url
+        if filename is not None:
+            self.filename = filename
+        if state is not None:
+            self.state = state
         self.state_description = state_description
-        self.type = type
+        if type is not None:
+            self.type = type
         self.size = size
         self.etag = etag
-        self.expiry_date = expiry_date
-        self.id = id
+        if expiry_date is not None:
+            self.expiry_date = expiry_date
+        if id is not None:
+            self.id = id
         self.meta = meta
 
     @property
@@ -122,8 +120,6 @@ class FileReadOnly(object):
         :param url: The url of this FileReadOnly.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -145,8 +141,6 @@ class FileReadOnly(object):
         :param filename: The filename of this FileReadOnly.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and filename is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `filename`, must not be `None`")  # noqa: E501
 
         self._filename = filename
 
@@ -168,8 +162,6 @@ class FileReadOnly(object):
         :param state: The state of this FileReadOnly.  # noqa: E501
         :type: FileStateEnum
         """
-        if self.local_vars_configuration.client_side_validation and state is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `state`, must not be `None`")  # noqa: E501
 
         self._state = state
 
@@ -215,8 +207,6 @@ class FileReadOnly(object):
         :param type: The type of this FileReadOnly.  # noqa: E501
         :type: UploadTypeEnum
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
@@ -287,8 +277,6 @@ class FileReadOnly(object):
         :param expiry_date: The expiry_date of this FileReadOnly.  # noqa: E501
         :type: date
         """
-        if self.local_vars_configuration.client_side_validation and expiry_date is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `expiry_date`, must not be `None`")  # noqa: E501
 
         self._expiry_date = expiry_date
 
@@ -310,8 +298,6 @@ class FileReadOnly(object):
         :param id: The id of this FileReadOnly.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

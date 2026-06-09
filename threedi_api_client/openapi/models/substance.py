@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -48,10 +48,7 @@ class Substance(object):
     }
 
     required_fields = [
-       'url',
        'name',
-       'id',
-       'uid'
     ]
 
     attribute_map = {
@@ -88,7 +85,8 @@ class Substance(object):
 
         self.url = url
         self.name = name
-        self.id = id
+        if id is not None:
+            self.id = id
         if diffusion_coefficient is not None:
             self.diffusion_coefficient = diffusion_coefficient
         if growth_coefficient is not None:
@@ -99,7 +97,8 @@ class Substance(object):
             self.numerical_diffusion_limiter = numerical_diffusion_limiter
         if units is not None:
             self.units = units
-        self.uid = uid
+        if uid is not None:
+            self.uid = uid
 
     @property
     def url(self):
@@ -168,8 +167,6 @@ class Substance(object):
         :param id: The id of this Substance.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -321,8 +318,6 @@ class Substance(object):
         :param uid: The uid of this Substance.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 

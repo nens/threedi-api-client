@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -41,8 +41,6 @@ class CurrentVersion(object):
     }
 
     required_fields = [
-       'threedi_version',
-       'threedicore_version'
     ]
 
     attribute_map = {
@@ -63,8 +61,10 @@ class CurrentVersion(object):
         self._threedicore_version = None
         self.discriminator = None
 
-        self.threedi_version = threedi_version
-        self.threedicore_version = threedicore_version
+        if threedi_version is not None:
+            self.threedi_version = threedi_version
+        if threedicore_version is not None:
+            self.threedicore_version = threedicore_version
 
     @property
     def threedi_version(self):
@@ -84,8 +84,6 @@ class CurrentVersion(object):
         :param threedi_version: The threedi_version of this CurrentVersion.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and threedi_version is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `threedi_version`, must not be `None`")  # noqa: E501
 
         self._threedi_version = threedi_version
 
@@ -107,8 +105,6 @@ class CurrentVersion(object):
         :param threedicore_version: The threedicore_version of this CurrentVersion.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and threedicore_version is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `threedicore_version`, must not be `None`")  # noqa: E501
 
         self._threedicore_version = threedicore_version
 

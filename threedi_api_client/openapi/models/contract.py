@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -52,15 +52,9 @@ class Contract(object):
     }
 
     required_fields = [
-       'url',
-       'id',
        'organisation',
-       'organisation_name',
-       'scope',
        'hours_bought',
-       'hours_used',
        'session_limit',
-       'current_sessions',
     ]
 
     attribute_map = {
@@ -103,16 +97,22 @@ class Contract(object):
         self._lizard_post_processing_organisation_unique_id = None
         self.discriminator = None
 
-        self.url = url
-        self.id = id
+        if url is not None:
+            self.url = url
+        if id is not None:
+            self.id = id
         self.organisation = organisation
-        self.organisation_name = organisation_name
-        self.scope = scope
+        if organisation_name is not None:
+            self.organisation_name = organisation_name
+        if scope is not None:
+            self.scope = scope
         self.start_date = start_date
         self.hours_bought = hours_bought
-        self.hours_used = hours_used
+        if hours_used is not None:
+            self.hours_used = hours_used
         self.session_limit = session_limit
-        self.current_sessions = current_sessions
+        if current_sessions is not None:
+            self.current_sessions = current_sessions
         if threedimodel_limit is not None:
             self.threedimodel_limit = threedimodel_limit
         if created_by is not None:
@@ -137,8 +137,6 @@ class Contract(object):
         :param url: The url of this Contract.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -160,8 +158,6 @@ class Contract(object):
         :param id: The id of this Contract.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -169,6 +165,7 @@ class Contract(object):
     def organisation(self):
         """Gets the organisation of this Contract.  # noqa: E501
 
+        The unique_id of an organisation  # noqa: E501
 
         :return: The organisation of this Contract.  # noqa: E501
         :rtype: str
@@ -179,6 +176,7 @@ class Contract(object):
     def organisation(self, organisation):
         """Sets the organisation of this Contract.
 
+        The unique_id of an organisation  # noqa: E501
 
         :param organisation: The organisation of this Contract.  # noqa: E501
         :type: str
@@ -206,8 +204,6 @@ class Contract(object):
         :param organisation_name: The organisation_name of this Contract.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and organisation_name is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `organisation_name`, must not be `None`")  # noqa: E501
 
         self._organisation_name = organisation_name
 
@@ -231,8 +227,6 @@ class Contract(object):
         :param scope: The scope of this Contract.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and scope is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `scope`, must not be `None`")  # noqa: E501
 
         self._scope = scope
 
@@ -298,8 +292,6 @@ class Contract(object):
         :param hours_used: The hours_used of this Contract.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and hours_used is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `hours_used`, must not be `None`")  # noqa: E501
 
         self._hours_used = hours_used
 
@@ -350,8 +342,6 @@ class Contract(object):
         :param current_sessions: The current_sessions of this Contract.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and current_sessions is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `current_sessions`, must not be `None`")  # noqa: E501
 
         self._current_sessions = current_sessions
 
@@ -388,6 +378,7 @@ class Contract(object):
     def created_by(self):
         """Gets the created_by of this Contract.  # noqa: E501
 
+        The unique_id of an organisation  # noqa: E501
 
         :return: The created_by of this Contract.  # noqa: E501
         :rtype: str
@@ -398,6 +389,7 @@ class Contract(object):
     def created_by(self, created_by):
         """Sets the created_by of this Contract.
 
+        The unique_id of an organisation  # noqa: E501
 
         :param created_by: The created_by of this Contract.  # noqa: E501
         :type: str

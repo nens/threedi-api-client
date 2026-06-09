@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -56,22 +56,6 @@ class SchematisationRevision(object):
     }
 
     required_fields = [
-       'url',
-       'id',
-       'created',
-       'schematisation',
-       'schematisation_id',
-       'number',
-       'sqlite',
-       'rasters',
-       'archived',
-       'commit_date',
-       'commit_user',
-       'commit_first_name',
-       'commit_last_name',
-       'commit_message',
-       'is_valid',
-       'has_threedimodel',
     ]
 
     attribute_map = {
@@ -122,22 +106,31 @@ class SchematisationRevision(object):
         self._tags = None
         self.discriminator = None
 
-        self.url = url
-        self.id = id
+        if url is not None:
+            self.url = url
+        if id is not None:
+            self.id = id
         self.created = created
-        self.schematisation = schematisation
-        self.schematisation_id = schematisation_id
-        self.number = number
-        self.sqlite = sqlite
-        self.rasters = rasters
+        if schematisation is not None:
+            self.schematisation = schematisation
+        if schematisation_id is not None:
+            self.schematisation_id = schematisation_id
+        if number is not None:
+            self.number = number
+        if sqlite is not None:
+            self.sqlite = sqlite
+        if rasters is not None:
+            self.rasters = rasters
         self.archived = archived
         self.commit_date = commit_date
-        self.commit_user = commit_user
+        if commit_user is not None:
+            self.commit_user = commit_user
         self.commit_first_name = commit_first_name
         self.commit_last_name = commit_last_name
         self.commit_message = commit_message
         self.is_valid = is_valid
-        self.has_threedimodel = has_threedimodel
+        if has_threedimodel is not None:
+            self.has_threedimodel = has_threedimodel
         if tags is not None:
             self.tags = tags
 
@@ -159,8 +152,6 @@ class SchematisationRevision(object):
         :param url: The url of this SchematisationRevision.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -182,8 +173,6 @@ class SchematisationRevision(object):
         :param id: The id of this SchematisationRevision.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -226,8 +215,6 @@ class SchematisationRevision(object):
         :param schematisation: The schematisation of this SchematisationRevision.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and schematisation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `schematisation`, must not be `None`")  # noqa: E501
 
         self._schematisation = schematisation
 
@@ -249,8 +236,6 @@ class SchematisationRevision(object):
         :param schematisation_id: The schematisation_id of this SchematisationRevision.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and schematisation_id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `schematisation_id`, must not be `None`")  # noqa: E501
 
         self._schematisation_id = schematisation_id
 
@@ -272,8 +257,6 @@ class SchematisationRevision(object):
         :param number: The number of this SchematisationRevision.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and number is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `number`, must not be `None`")  # noqa: E501
 
         self._number = number
 
@@ -295,8 +278,6 @@ class SchematisationRevision(object):
         :param sqlite: The sqlite of this SchematisationRevision.  # noqa: E501
         :type: Sqlite
         """
-        if self.local_vars_configuration.client_side_validation and sqlite is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `sqlite`, must not be `None`")  # noqa: E501
 
         self._sqlite = sqlite
 
@@ -318,8 +299,6 @@ class SchematisationRevision(object):
         :param rasters: The rasters of this SchematisationRevision.  # noqa: E501
         :type: list[RevisionRaster]
         """
-        if self.local_vars_configuration.client_side_validation and rasters is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `rasters`, must not be `None`")  # noqa: E501
 
         self._rasters = rasters
 
@@ -385,8 +364,6 @@ class SchematisationRevision(object):
         :param commit_user: The commit_user of this SchematisationRevision.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and commit_user is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `commit_user`, must not be `None`")  # noqa: E501
 
         self._commit_user = commit_user
 
@@ -492,8 +469,6 @@ class SchematisationRevision(object):
         :param has_threedimodel: The has_threedimodel of this SchematisationRevision.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and has_threedimodel is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `has_threedimodel`, must not be `None`")  # noqa: E501
 
         self._has_threedimodel = has_threedimodel
 
@@ -501,6 +476,7 @@ class SchematisationRevision(object):
     def tags(self):
         """Gets the tags of this SchematisationRevision.  # noqa: E501
 
+        tags provided as a list of strings  # noqa: E501
 
         :return: The tags of this SchematisationRevision.  # noqa: E501
         :rtype: list[str]
@@ -511,6 +487,7 @@ class SchematisationRevision(object):
     def tags(self, tags):
         """Sets the tags of this SchematisationRevision.
 
+        tags provided as a list of strings  # noqa: E501
 
         :param tags: The tags of this SchematisationRevision.  # noqa: E501
         :type: list[str]

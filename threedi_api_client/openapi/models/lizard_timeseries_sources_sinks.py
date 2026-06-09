@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -51,13 +51,9 @@ class LizardTimeseriesSourcesSinks(object):
     }
 
     required_fields = [
-       'url',
-       'simulation',
        'offset',
        'reference_uuid',
        'start_datetime',
-       'uid',
-       'values'
     ]
 
     attribute_map = {
@@ -98,22 +94,26 @@ class LizardTimeseriesSourcesSinks(object):
         self._values = None
         self.discriminator = None
 
-        self.url = url
-        self.simulation = simulation
+        if url is not None:
+            self.url = url
+        if simulation is not None:
+            self.simulation = simulation
         self.offset = offset
         self.duration = duration
         self.reference_uuid = reference_uuid
         self.start_datetime = start_datetime
         if interpolate is not None:
             self.interpolate = interpolate
-        self.uid = uid
+        if uid is not None:
+            self.uid = uid
         if substances is not None:
             self.substances = substances
         if multiplier is not None:
             self.multiplier = multiplier
         if units is not None:
             self.units = units
-        self.values = values
+        if values is not None:
+            self.values = values
 
     @property
     def url(self):
@@ -133,8 +133,6 @@ class LizardTimeseriesSourcesSinks(object):
         :param url: The url of this LizardTimeseriesSourcesSinks.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -156,8 +154,6 @@ class LizardTimeseriesSourcesSinks(object):
         :param simulation: The simulation of this LizardTimeseriesSourcesSinks.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -309,8 +305,6 @@ class LizardTimeseriesSourcesSinks(object):
         :param uid: The uid of this LizardTimeseriesSourcesSinks.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 
@@ -381,6 +375,7 @@ class LizardTimeseriesSourcesSinks(object):
     def values(self):
         """Gets the values of this LizardTimeseriesSourcesSinks.  # noqa: E501
 
+        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
         :return: The values of this LizardTimeseriesSourcesSinks.  # noqa: E501
         :rtype: list[list[float]]
@@ -391,12 +386,11 @@ class LizardTimeseriesSourcesSinks(object):
     def values(self, values):
         """Sets the values of this LizardTimeseriesSourcesSinks.
 
+        Timeseries provided as a nested list. The inner list consists of exactly 2 values: timestamp, value  # noqa: E501
 
         :param values: The values of this LizardTimeseriesSourcesSinks.  # noqa: E501
         :type: list[list[float]]
         """
-        if self.local_vars_configuration.client_side_validation and values is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `values`, must not be `None`")  # noqa: E501
 
         self._values = values
 

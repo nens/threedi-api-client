@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -249,6 +249,7 @@ class PatchedSimulationUpdate(object):
     def tags(self):
         """Gets the tags of this PatchedSimulationUpdate.  # noqa: E501
 
+        tags provided as a list of strings  # noqa: E501
 
         :return: The tags of this PatchedSimulationUpdate.  # noqa: E501
         :rtype: list[str]
@@ -259,6 +260,7 @@ class PatchedSimulationUpdate(object):
     def tags(self, tags):
         """Sets the tags of this PatchedSimulationUpdate.
 
+        tags provided as a list of strings  # noqa: E501
 
         :param tags: The tags of this PatchedSimulationUpdate.  # noqa: E501
         :type: list[str]
@@ -291,6 +293,7 @@ class PatchedSimulationUpdate(object):
     def threedimodel(self):
         """Gets the threedimodel of this PatchedSimulationUpdate.  # noqa: E501
 
+        The id of a threedimodel  # noqa: E501
 
         :return: The threedimodel of this PatchedSimulationUpdate.  # noqa: E501
         :rtype: str
@@ -301,6 +304,7 @@ class PatchedSimulationUpdate(object):
     def threedimodel(self, threedimodel):
         """Sets the threedimodel of this PatchedSimulationUpdate.
 
+        The id of a threedimodel  # noqa: E501
 
         :param threedimodel: The threedimodel of this PatchedSimulationUpdate.  # noqa: E501
         :type: str
@@ -312,6 +316,7 @@ class PatchedSimulationUpdate(object):
     def organisation(self):
         """Gets the organisation of this PatchedSimulationUpdate.  # noqa: E501
 
+        The unique_id of an organisation  # noqa: E501
 
         :return: The organisation of this PatchedSimulationUpdate.  # noqa: E501
         :rtype: str
@@ -322,6 +327,7 @@ class PatchedSimulationUpdate(object):
     def organisation(self, organisation):
         """Sets the organisation of this PatchedSimulationUpdate.
 
+        The unique_id of an organisation  # noqa: E501
 
         :param organisation: The organisation of this PatchedSimulationUpdate.  # noqa: E501
         :type: str
@@ -354,7 +360,7 @@ class PatchedSimulationUpdate(object):
     def user(self):
         """Gets the user of this PatchedSimulationUpdate.  # noqa: E501
 
-        Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.  # noqa: E501
+        The username of a user  # noqa: E501
 
         :return: The user of this PatchedSimulationUpdate.  # noqa: E501
         :rtype: str
@@ -365,7 +371,7 @@ class PatchedSimulationUpdate(object):
     def user(self, user):
         """Sets the user of this PatchedSimulationUpdate.
 
-        Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.  # noqa: E501
+        The username of a user  # noqa: E501
 
         :param user: The user of this PatchedSimulationUpdate.  # noqa: E501
         :type: str
@@ -548,6 +554,7 @@ class PatchedSimulationUpdate(object):
     def compute_cluster(self):
         """Gets the compute_cluster of this PatchedSimulationUpdate.  # noqa: E501
 
+        The name of the compute cluster that runs/has run the simulation.  # noqa: E501
 
         :return: The compute_cluster of this PatchedSimulationUpdate.  # noqa: E501
         :rtype: str
@@ -558,6 +565,7 @@ class PatchedSimulationUpdate(object):
     def compute_cluster(self, compute_cluster):
         """Sets the compute_cluster of this PatchedSimulationUpdate.
 
+        The name of the compute cluster that runs/has run the simulation.  # noqa: E501
 
         :param compute_cluster: The compute_cluster of this PatchedSimulationUpdate.  # noqa: E501
         :type: str

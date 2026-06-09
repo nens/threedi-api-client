@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -94,9 +94,6 @@ class SqliteFileUpload(object):
         :param put_url: The put_url of this SqliteFileUpload.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                put_url is not None and len(put_url) < 1):
-            self.__handle_validation_error("Invalid value for `put_url`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._put_url = put_url
 
@@ -123,9 +120,6 @@ class SqliteFileUpload(object):
         if (self.local_vars_configuration.client_side_validation and
                 filename is not None and len(filename) > 255):
             self.__handle_validation_error("Invalid value for `filename`, length must be less than or equal to `255`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                filename is not None and len(filename) < 1):
-            self.__handle_validation_error("Invalid value for `filename`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._filename = filename
 
@@ -147,9 +141,6 @@ class SqliteFileUpload(object):
         :param status: The status of this SqliteFileUpload.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                status is not None and len(status) < 1):
-            self.__handle_validation_error("Invalid value for `status`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._status = status
 
@@ -174,9 +165,6 @@ class SqliteFileUpload(object):
         if (self.local_vars_configuration.client_side_validation and
                 md5sum is not None and len(md5sum) > 256):
             self.__handle_validation_error("Invalid value for `md5sum`, length must be less than or equal to `256`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                md5sum is not None and len(md5sum) < 1):
-            self.__handle_validation_error("Invalid value for `md5sum`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._md5sum = md5sum
 

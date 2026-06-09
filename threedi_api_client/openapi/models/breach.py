@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,7 +37,7 @@ class Breach(object):
     """
     openapi_types = {
         'url': 'str',
-        'potential_breach': 'str',
+        'potential_breach': 'object',
         'line_id': 'int',
         'duration_till_max_depth': 'int',
         'maximum_breach_depth': 'float',
@@ -52,13 +52,9 @@ class Breach(object):
     }
 
     required_fields = [
-       'url',
        'duration_till_max_depth',
        'initial_width',
-       'simulation',
        'offset',
-       'id',
-       'uid'
     ]
 
     attribute_map = {
@@ -101,7 +97,8 @@ class Breach(object):
         self._uid = None
         self.discriminator = None
 
-        self.url = url
+        if url is not None:
+            self.url = url
         if potential_breach is not None:
             self.potential_breach = potential_breach
         if line_id is not None:
@@ -114,10 +111,13 @@ class Breach(object):
         self.initial_width = initial_width
         self.discharge_coefficient_positive = discharge_coefficient_positive
         self.discharge_coefficient_negative = discharge_coefficient_negative
-        self.simulation = simulation
+        if simulation is not None:
+            self.simulation = simulation
         self.offset = offset
-        self.id = id
-        self.uid = uid
+        if id is not None:
+            self.id = id
+        if uid is not None:
+            self.uid = uid
 
     @property
     def url(self):
@@ -137,8 +137,6 @@ class Breach(object):
         :param url: The url of this Breach.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -148,7 +146,7 @@ class Breach(object):
 
 
         :return: The potential_breach of this Breach.  # noqa: E501
-        :rtype: str
+        :rtype: object
         """
         return self._potential_breach
 
@@ -158,7 +156,7 @@ class Breach(object):
 
 
         :param potential_breach: The potential_breach of this Breach.  # noqa: E501
-        :type: str
+        :type: object
         """
 
         self._potential_breach = potential_breach
@@ -352,8 +350,6 @@ class Breach(object):
         :param simulation: The simulation of this Breach.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -406,8 +402,6 @@ class Breach(object):
         :param id: The id of this Breach.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -429,8 +423,6 @@ class Breach(object):
         :param uid: The uid of this Breach.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 

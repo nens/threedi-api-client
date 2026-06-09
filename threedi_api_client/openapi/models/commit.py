@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,7 +37,7 @@ class Commit(object):
     """
     openapi_types = {
         'commit_message': 'str',
-        'force_as': 'str',
+        'force_as': 'ForceAsEnum',
         'schematisation_name': 'str',
         'commit_date': 'datetime',
         'commit_user': 'str',
@@ -106,9 +106,6 @@ class Commit(object):
         :param commit_message: The commit_message of this Commit.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                commit_message is not None and len(commit_message) < 1):
-            self.__handle_validation_error("Invalid value for `commit_message`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._commit_message = commit_message
 
@@ -118,7 +115,7 @@ class Commit(object):
 
 
         :return: The force_as of this Commit.  # noqa: E501
-        :rtype: str
+        :rtype: ForceAsEnum
         """
         return self._force_as
 
@@ -128,14 +125,8 @@ class Commit(object):
 
 
         :param force_as: The force_as of this Commit.  # noqa: E501
-        :type: str
+        :type: ForceAsEnum
         """
-        allowed_values = ["default", "new_revision", "new_schematisation"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and force_as not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `force_as` ({0}), must be one of {1}"  # noqa: E501
-                .format(force_as, allowed_values)
-            )
 
         self._force_as = force_as
 
@@ -160,9 +151,6 @@ class Commit(object):
         if (self.local_vars_configuration.client_side_validation and
                 schematisation_name is not None and len(schematisation_name) > 256):
             self.__handle_validation_error("Invalid value for `schematisation_name`, length must be less than or equal to `256`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                schematisation_name is not None and len(schematisation_name) < 1):
-            self.__handle_validation_error("Invalid value for `schematisation_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._schematisation_name = schematisation_name
 
@@ -193,7 +181,7 @@ class Commit(object):
     def commit_user(self):
         """Gets the commit_user of this Commit.  # noqa: E501
 
-        The username of a user  # noqa: E501
+        The user that committed the revision (only superusers can modify)  # noqa: E501
 
         :return: The commit_user of this Commit.  # noqa: E501
         :rtype: str
@@ -204,14 +192,11 @@ class Commit(object):
     def commit_user(self, commit_user):
         """Sets the commit_user of this Commit.
 
-        The username of a user  # noqa: E501
+        The user that committed the revision (only superusers can modify)  # noqa: E501
 
         :param commit_user: The commit_user of this Commit.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                commit_user is not None and not re.search(r'^[\w.@+-]+$', commit_user)):  # noqa: E501
-            self.__handle_validation_error(r"Invalid value for `commit_user`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
 
         self._commit_user = commit_user
 

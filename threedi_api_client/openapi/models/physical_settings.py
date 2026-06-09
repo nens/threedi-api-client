@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -43,8 +43,6 @@ class PhysicalSettings(object):
     }
 
     required_fields = [
-       'id',
-       'simulation_id',
        'use_advection_1d',
        'use_advection_2d'
     ]
@@ -71,8 +69,10 @@ class PhysicalSettings(object):
         self._use_advection_2d = None
         self.discriminator = None
 
-        self.id = id
-        self.simulation_id = simulation_id
+        if id is not None:
+            self.id = id
+        if simulation_id is not None:
+            self.simulation_id = simulation_id
         self.use_advection_1d = use_advection_1d
         self.use_advection_2d = use_advection_2d
 
@@ -94,8 +94,6 @@ class PhysicalSettings(object):
         :param id: The id of this PhysicalSettings.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -117,8 +115,6 @@ class PhysicalSettings(object):
         :param simulation_id: The simulation_id of this PhysicalSettings.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and simulation_id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation_id`, must not be `None`")  # noqa: E501
 
         self._simulation_id = simulation_id
 

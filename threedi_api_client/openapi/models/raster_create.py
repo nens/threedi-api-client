@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -41,20 +41,15 @@ class RasterCreate(object):
         'name': 'str',
         'id': 'int',
         'epsg_code': 'int',
-        'extent': 'dict(str, object)',
+        'extent': 'Extent',
         'geotransform': 'list[float]',
         'unit': 'UnitEnum',
         'md5sum': 'str'
     }
 
     required_fields = [
-       'url',
        'type',
        'name',
-       'id',
-       'epsg_code',
-       'extent',
-       'geotransform',
     ]
 
     attribute_map = {
@@ -89,12 +84,15 @@ class RasterCreate(object):
         self._md5sum = None
         self.discriminator = None
 
-        self.url = url
+        if url is not None:
+            self.url = url
         self.type = type
         self.name = name
-        self.id = id
+        if id is not None:
+            self.id = id
         self.epsg_code = epsg_code
-        self.extent = extent
+        if extent is not None:
+            self.extent = extent
         self.geotransform = geotransform
         if unit is not None:
             self.unit = unit
@@ -119,8 +117,6 @@ class RasterCreate(object):
         :param url: The url of this RasterCreate.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -191,8 +187,6 @@ class RasterCreate(object):
         :param id: The id of this RasterCreate.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -223,7 +217,7 @@ class RasterCreate(object):
 
 
         :return: The extent of this RasterCreate.  # noqa: E501
-        :rtype: dict(str, object)
+        :rtype: Extent
         """
         return self._extent
 
@@ -233,10 +227,8 @@ class RasterCreate(object):
 
 
         :param extent: The extent of this RasterCreate.  # noqa: E501
-        :type: dict(str, object)
+        :type: Extent
         """
-        if self.local_vars_configuration.client_side_validation and extent is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `extent`, must not be `None`")  # noqa: E501
 
         self._extent = extent
 

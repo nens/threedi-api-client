@@ -4,7 +4,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -22,6 +22,7 @@ from threedi_api_client.openapi.models.aggregation_method_enum import Aggregatio
 from threedi_api_client.openapi.models.aggregation_settings import AggregationSettings
 from threedi_api_client.openapi.models.arrival_time_post_processing import ArrivalTimePostProcessing
 from threedi_api_client.openapi.models.authenticate import Authenticate
+from threedi_api_client.openapi.models.base_event_state import BaseEventState
 from threedi_api_client.openapi.models.basic_post_processing import BasicPostProcessing
 from threedi_api_client.openapi.models.blank_enum import BlankEnum
 from threedi_api_client.openapi.models.boundary_condition import BoundaryCondition
@@ -30,9 +31,9 @@ from threedi_api_client.openapi.models.breach import Breach
 from threedi_api_client.openapi.models.breach_graph import BreachGraph
 from threedi_api_client.openapi.models.breach_graph_request import BreachGraphRequest
 from threedi_api_client.openapi.models.bulk_timeseries_rain import BulkTimeseriesRain
+from threedi_api_client.openapi.models.commit import Commit
 from threedi_api_client.openapi.models.conflict_error import ConflictError
 from threedi_api_client.openapi.models.constant_lateral import ConstantLateral
-from threedi_api_client.openapi.models.constant_lateral_point import ConstantLateralPoint
 from threedi_api_client.openapi.models.constant_leakage import ConstantLeakage
 from threedi_api_client.openapi.models.constant_local_rain import ConstantLocalRain
 from threedi_api_client.openapi.models.constant_rain import ConstantRain
@@ -45,6 +46,7 @@ from threedi_api_client.openapi.models.cost_type_enum import CostTypeEnum
 from threedi_api_client.openapi.models.create_organisation import CreateOrganisation
 from threedi_api_client.openapi.models.create_revision import CreateRevision
 from threedi_api_client.openapi.models.create_template import CreateTemplate
+from threedi_api_client.openapi.models.create_threedimodel import CreateThreedimodel
 from threedi_api_client.openapi.models.current_status import CurrentStatus
 from threedi_api_client.openapi.models.current_version import CurrentVersion
 from threedi_api_client.openapi.models.customized_hydro_output_variables_enum import CustomizedHydroOutputVariablesEnum
@@ -54,41 +56,60 @@ from threedi_api_client.openapi.models.damage_estimation import DamageEstimation
 from threedi_api_client.openapi.models.damage_post_processing import DamagePostProcessing
 from threedi_api_client.openapi.models.delete_conflict_error import DeleteConflictError
 from threedi_api_client.openapi.models.dimension_enum import DimensionEnum
+from threedi_api_client.openapi.models.download import Download
+from threedi_api_client.openapi.models.event import Event
 from threedi_api_client.openapi.models.event_state_enum import EventStateEnum
 from threedi_api_client.openapi.models.exit_code_enum import ExitCodeEnum
+from threedi_api_client.openapi.models.extent import Extent
 from threedi_api_client.openapi.models.file import File
 from threedi_api_client.openapi.models.file_boundary_condition import FileBoundaryCondition
 from threedi_api_client.openapi.models.file_lateral import FileLateral
+from threedi_api_client.openapi.models.file_meta import FileMeta
+from threedi_api_client.openapi.models.file_raster_leakage import FileRasterLeakage
+from threedi_api_client.openapi.models.file_raster_rain import FileRasterRain
+from threedi_api_client.openapi.models.file_raster_sources_sinks import FileRasterSourcesSinks
 from threedi_api_client.openapi.models.file_read_only import FileReadOnly
 from threedi_api_client.openapi.models.file_state_enum import FileStateEnum
 from threedi_api_client.openapi.models.file_structure_control import FileStructureControl
+from threedi_api_client.openapi.models.file_timeseries_leakage import FileTimeseriesLeakage
+from threedi_api_client.openapi.models.file_timeseries_rain import FileTimeseriesRain
+from threedi_api_client.openapi.models.file_timeseries_sources_sinks import FileTimeseriesSourcesSinks
 from threedi_api_client.openapi.models.flood_month_enum import FloodMonthEnum
 from threedi_api_client.openapi.models.flow_variable_enum import FlowVariableEnum
+from threedi_api_client.openapi.models.force_as_enum import ForceAsEnum
 from threedi_api_client.openapi.models.forcing_substance import ForcingSubstance
 from threedi_api_client.openapi.models.forcing_substance_with_zone import ForcingSubstanceWithZone
-from threedi_api_client.openapi.models.forcing_substance_with_zone_zone import ForcingSubstanceWithZoneZone
 from threedi_api_client.openapi.models.friction_shallow_water_depth_correction_enum import FrictionShallowWaterDepthCorrectionEnum
+from threedi_api_client.openapi.models.from_template import FromTemplate
+from threedi_api_client.openapi.models.grid_event_state import GridEventState
 from threedi_api_client.openapi.models.ground_water_level import GroundWaterLevel
 from threedi_api_client.openapi.models.ground_water_raster import GroundWaterRaster
 from threedi_api_client.openapi.models.ground_water_substance_concentration import GroundWaterSubstanceConcentration
 from threedi_api_client.openapi.models.initial_concentration import InitialConcentration
 from threedi_api_client.openapi.models.initial_saved_state import InitialSavedState
+from threedi_api_client.openapi.models.initial_saved_state_overview import InitialSavedStateOverview
 from threedi_api_client.openapi.models.initial_waterlevel import InitialWaterlevel
 from threedi_api_client.openapi.models.inpy_version import InpyVersion
+from threedi_api_client.openapi.models.lateral import Lateral
 from threedi_api_client.openapi.models.lateral_units_enum import LateralUnitsEnum
 from threedi_api_client.openapi.models.levee_material_enum import LeveeMaterialEnum
 from threedi_api_client.openapi.models.limiter_slope_crossectional_area2d_enum import LimiterSlopeCrossectionalArea2dEnum
+from threedi_api_client.openapi.models.linestring import Linestring
+from threedi_api_client.openapi.models.linestring1 import Linestring1
 from threedi_api_client.openapi.models.lizard_raster_rain import LizardRasterRain
 from threedi_api_client.openapi.models.lizard_raster_sources_sinks import LizardRasterSourcesSinks
 from threedi_api_client.openapi.models.lizard_timeseries_rain import LizardTimeseriesRain
 from threedi_api_client.openapi.models.lizard_timeseries_sources_sinks import LizardTimeseriesSourcesSinks
 from threedi_api_client.openapi.models.lizard_units_enum import LizardUnitsEnum
+from threedi_api_client.openapi.models.local_rain import LocalRain
 from threedi_api_client.openapi.models.local_rain_unit_enum import LocalRainUnitEnum
 from threedi_api_client.openapi.models.measure_location import MeasureLocation
+from threedi_api_client.openapi.models.measure_location_grid_event_state import MeasureLocationGridEventState
 from threedi_api_client.openapi.models.measure_specification import MeasureSpecification
 from threedi_api_client.openapi.models.measure_specification_variable_enum import MeasureSpecificationVariableEnum
 from threedi_api_client.openapi.models.memory_structure_control import MemoryStructureControl
 from threedi_api_client.openapi.models.method_enum import MethodEnum
+from threedi_api_client.openapi.models.net_cdf_file_type_enum import NetCDFFileTypeEnum
 from threedi_api_client.openapi.models.net_cdf_raster_leakage import NetCDFRasterLeakage
 from threedi_api_client.openapi.models.net_cdf_raster_rain import NetCDFRasterRain
 from threedi_api_client.openapi.models.net_cdf_raster_sources_sinks import NetCDFRasterSourcesSinks
@@ -163,6 +184,7 @@ from threedi_api_client.openapi.models.paginated_potential_breach_list import Pa
 from threedi_api_client.openapi.models.paginated_profile_list import PaginatedProfileList
 from threedi_api_client.openapi.models.paginated_progress_list import PaginatedProgressList
 from threedi_api_client.openapi.models.paginated_raster_edit_list import PaginatedRasterEditList
+from threedi_api_client.openapi.models.paginated_raster_edit_urls_list import PaginatedRasterEditUrlsList
 from threedi_api_client.openapi.models.paginated_raster_list import PaginatedRasterList
 from threedi_api_client.openapi.models.paginated_repository_list import PaginatedRepositoryList
 from threedi_api_client.openapi.models.paginated_result_file_list import PaginatedResultFileList
@@ -282,6 +304,8 @@ from threedi_api_client.openapi.models.periodic_enum import PeriodicEnum
 from threedi_api_client.openapi.models.personal_api_key import PersonalAPIKey
 from threedi_api_client.openapi.models.personal_api_key_with_secret import PersonalAPIKeyWithSecret
 from threedi_api_client.openapi.models.physical_settings import PhysicalSettings
+from threedi_api_client.openapi.models.point import Point
+from threedi_api_client.openapi.models.polygon import Polygon
 from threedi_api_client.openapi.models.post_processing_overview import PostProcessingOverview
 from threedi_api_client.openapi.models.post_processing_queue import PostProcessingQueue
 from threedi_api_client.openapi.models.post_processing_status import PostProcessingStatus
@@ -296,6 +320,8 @@ from threedi_api_client.openapi.models.rain_graph_request import RainGraphReques
 from threedi_api_client.openapi.models.raster import Raster
 from threedi_api_client.openapi.models.raster_create import RasterCreate
 from threedi_api_client.openapi.models.raster_edit import RasterEdit
+from threedi_api_client.openapi.models.raster_edit_urls import RasterEditUrls
+from threedi_api_client.openapi.models.raster_options import RasterOptions
 from threedi_api_client.openapi.models.raster_rain_units_enum import RasterRainUnitsEnum
 from threedi_api_client.openapi.models.raster_type_enum import RasterTypeEnum
 from threedi_api_client.openapi.models.refresh import Refresh
@@ -309,6 +335,8 @@ from threedi_api_client.openapi.models.revision_task import RevisionTask
 from threedi_api_client.openapi.models.revision_task_name_enum import RevisionTaskNameEnum
 from threedi_api_client.openapi.models.revision_task_status_enum import RevisionTaskStatusEnum
 from threedi_api_client.openapi.models.role import Role
+from threedi_api_client.openapi.models.saved_state_overview import SavedStateOverview
+from threedi_api_client.openapi.models.saved_state_type_enum import SavedStateTypeEnum
 from threedi_api_client.openapi.models.saved_state_variable_enum import SavedStateVariableEnum
 from threedi_api_client.openapi.models.schematisation import Schematisation
 from threedi_api_client.openapi.models.schematisation_revision import SchematisationRevision
@@ -323,6 +351,7 @@ from threedi_api_client.openapi.models.simulation_status_name_enum import Simula
 from threedi_api_client.openapi.models.simulation_status_statistics import SimulationStatusStatistics
 from threedi_api_client.openapi.models.simulation_update import SimulationUpdate
 from threedi_api_client.openapi.models.sqlite import Sqlite
+from threedi_api_client.openapi.models.sqlite_file_upload import SqliteFileUpload
 from threedi_api_client.openapi.models.stable_threshold_saved_state import StableThresholdSavedState
 from threedi_api_client.openapi.models.started_from_enum import StartedFromEnum
 from threedi_api_client.openapi.models.status import Status
@@ -335,7 +364,6 @@ from threedi_api_client.openapi.models.table_structure_control import TableStruc
 from threedi_api_client.openapi.models.template import Template
 from threedi_api_client.openapi.models.threedi_model import ThreediModel
 from threedi_api_client.openapi.models.threedi_model_saved_state import ThreediModelSavedState
-from threedi_api_client.openapi.models.threedi_model_saved_state_type_enum import ThreediModelSavedStateTypeEnum
 from threedi_api_client.openapi.models.threedi_model_task import ThreediModelTask
 from threedi_api_client.openapi.models.threedi_model_task_name_enum import ThreediModelTaskNameEnum
 from threedi_api_client.openapi.models.threedi_model_task_status_enum import ThreediModelTaskStatusEnum
@@ -344,13 +372,17 @@ from threedi_api_client.openapi.models.time_integration_method_enum import TimeI
 from threedi_api_client.openapi.models.time_step_settings import TimeStepSettings
 from threedi_api_client.openapi.models.timed_saved_state import TimedSavedState
 from threedi_api_client.openapi.models.timed_structure_control import TimedStructureControl
+from threedi_api_client.openapi.models.timeout import Timeout
 from threedi_api_client.openapi.models.timeseries_lateral import TimeseriesLateral
 from threedi_api_client.openapi.models.timeseries_leakage import TimeseriesLeakage
+from threedi_api_client.openapi.models.timeseries_leakage_overview import TimeseriesLeakageOverview
 from threedi_api_client.openapi.models.timeseries_local_rain import TimeseriesLocalRain
 from threedi_api_client.openapi.models.timeseries_rain import TimeseriesRain
 from threedi_api_client.openapi.models.timeseries_rain_mm_units_enum import TimeseriesRainMmUnitsEnum
 from threedi_api_client.openapi.models.timeseries_rain_ms_unit_enum import TimeseriesRainMsUnitEnum
+from threedi_api_client.openapi.models.timeseries_rain_overview import TimeseriesRainOverview
 from threedi_api_client.openapi.models.timeseries_sources_sinks import TimeseriesSourcesSinks
+from threedi_api_client.openapi.models.timeseries_sources_sinks_overview import TimeseriesSourcesSinksOverview
 from threedi_api_client.openapi.models.timeseries_wind import TimeseriesWind
 from threedi_api_client.openapi.models.tokens import Tokens
 from threedi_api_client.openapi.models.two_d_substance_concentration import TwoDSubstanceConcentration
@@ -380,5 +412,6 @@ from threedi_api_client.openapi.models.water_quality_customized_result_area impo
 from threedi_api_client.openapi.models.water_quality_output_settings import WaterQualityOutputSettings
 from threedi_api_client.openapi.models.water_quality_settings import WaterQualitySettings
 from threedi_api_client.openapi.models.waterdepth import Waterdepth
+from threedi_api_client.openapi.models.wind import Wind
 from threedi_api_client.openapi.models.wind_drag_coefficient import WindDragCoefficient
 from threedi_api_client.openapi.models.wind_speed_units_enum import WindSpeedUnitsEnum

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -54,9 +54,6 @@ class NetCDFRasterRain(object):
     }
 
     required_fields = [
-       'url',
-       'simulation',
-       'uid',
     ]
 
     attribute_map = {
@@ -103,10 +100,12 @@ class NetCDFRasterRain(object):
         self._substances = None
         self.discriminator = None
 
-        self.url = url
+        if url is not None:
+            self.url = url
         if multiplier is not None:
             self.multiplier = multiplier
-        self.simulation = simulation
+        if simulation is not None:
+            self.simulation = simulation
         self.offset = offset
         self.duration = duration
         self.timestamps = timestamps
@@ -122,7 +121,8 @@ class NetCDFRasterRain(object):
             self.epsg_code = epsg_code
         if file is not None:
             self.file = file
-        self.uid = uid
+        if uid is not None:
+            self.uid = uid
         if substances is not None:
             self.substances = substances
 
@@ -144,8 +144,6 @@ class NetCDFRasterRain(object):
         :param url: The url of this NetCDFRasterRain.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -188,8 +186,6 @@ class NetCDFRasterRain(object):
         :param simulation: The simulation of this NetCDFRasterRain.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -459,8 +455,6 @@ class NetCDFRasterRain(object):
         :param uid: The uid of this NetCDFRasterRain.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 

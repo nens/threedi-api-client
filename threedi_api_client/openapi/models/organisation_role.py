@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -45,12 +45,9 @@ class OrganisationRole(object):
     }
 
     required_fields = [
-       'id',
-       'url',
        'user',
        'role',
        'organisation',
-       'organisation_name'
     ]
 
     attribute_map = {
@@ -79,12 +76,15 @@ class OrganisationRole(object):
         self._organisation_name = None
         self.discriminator = None
 
-        self.id = id
-        self.url = url
+        if id is not None:
+            self.id = id
+        if url is not None:
+            self.url = url
         self.user = user
         self.role = role
         self.organisation = organisation
-        self.organisation_name = organisation_name
+        if organisation_name is not None:
+            self.organisation_name = organisation_name
 
     @property
     def id(self):
@@ -104,8 +104,6 @@ class OrganisationRole(object):
         :param id: The id of this OrganisationRole.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -127,8 +125,6 @@ class OrganisationRole(object):
         :param url: The url of this OrganisationRole.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -136,7 +132,7 @@ class OrganisationRole(object):
     def user(self):
         """Gets the user of this OrganisationRole.  # noqa: E501
 
-        Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.  # noqa: E501
+        The username of a user  # noqa: E501
 
         :return: The user of this OrganisationRole.  # noqa: E501
         :rtype: str
@@ -147,7 +143,7 @@ class OrganisationRole(object):
     def user(self, user):
         """Sets the user of this OrganisationRole.
 
-        Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.  # noqa: E501
+        The username of a user  # noqa: E501
 
         :param user: The user of this OrganisationRole.  # noqa: E501
         :type: str
@@ -184,6 +180,7 @@ class OrganisationRole(object):
     def organisation(self):
         """Gets the organisation of this OrganisationRole.  # noqa: E501
 
+        The unique_id of an organisation  # noqa: E501
 
         :return: The organisation of this OrganisationRole.  # noqa: E501
         :rtype: str
@@ -194,6 +191,7 @@ class OrganisationRole(object):
     def organisation(self, organisation):
         """Sets the organisation of this OrganisationRole.
 
+        The unique_id of an organisation  # noqa: E501
 
         :param organisation: The organisation of this OrganisationRole.  # noqa: E501
         :type: str
@@ -221,8 +219,6 @@ class OrganisationRole(object):
         :param organisation_name: The organisation_name of this OrganisationRole.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and organisation_name is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `organisation_name`, must not be `None`")  # noqa: E501
 
         self._organisation_name = organisation_name
 

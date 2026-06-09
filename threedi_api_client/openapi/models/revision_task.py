@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -48,12 +48,7 @@ class RevisionTask(object):
     }
 
     required_fields = [
-       'url',
        'name',
-       'created',
-       'last_updated',
-       'revision',
-       'id'
     ]
 
     attribute_map = {
@@ -88,17 +83,22 @@ class RevisionTask(object):
         self._id = None
         self.discriminator = None
 
-        self.url = url
+        if url is not None:
+            self.url = url
         self.name = name
         self.params = params
-        self.created = created
-        self.last_updated = last_updated
+        if created is not None:
+            self.created = created
+        if last_updated is not None:
+            self.last_updated = last_updated
         if status is not None:
             self.status = status
         if detail is not None:
             self.detail = detail
-        self.revision = revision
-        self.id = id
+        if revision is not None:
+            self.revision = revision
+        if id is not None:
+            self.id = id
 
     @property
     def url(self):
@@ -118,8 +118,6 @@ class RevisionTask(object):
         :param url: The url of this RevisionTask.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -185,8 +183,6 @@ class RevisionTask(object):
         :param created: The created of this RevisionTask.  # noqa: E501
         :type: datetime
         """
-        if self.local_vars_configuration.client_side_validation and created is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `created`, must not be `None`")  # noqa: E501
 
         self._created = created
 
@@ -208,8 +204,6 @@ class RevisionTask(object):
         :param last_updated: The last_updated of this RevisionTask.  # noqa: E501
         :type: datetime
         """
-        if self.local_vars_configuration.client_side_validation and last_updated is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `last_updated`, must not be `None`")  # noqa: E501
 
         self._last_updated = last_updated
 
@@ -273,8 +267,6 @@ class RevisionTask(object):
         :param revision: The revision of this RevisionTask.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and revision is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `revision`, must not be `None`")  # noqa: E501
 
         self._revision = revision
 
@@ -296,8 +288,6 @@ class RevisionTask(object):
         :param id: The id of this RevisionTask.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

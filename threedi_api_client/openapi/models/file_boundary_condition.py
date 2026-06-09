@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -46,13 +46,6 @@ class FileBoundaryCondition(object):
     }
 
     required_fields = [
-       'url',
-       'id',
-       'uid',
-       'simulation',
-       'file',
-       'state',
-       'state_detail'
     ]
 
     attribute_map = {
@@ -83,12 +76,18 @@ class FileBoundaryCondition(object):
         self._state_detail = None
         self.discriminator = None
 
-        self.url = url
-        self.id = id
-        self.uid = uid
-        self.simulation = simulation
-        self.file = file
-        self.state = state
+        if url is not None:
+            self.url = url
+        if id is not None:
+            self.id = id
+        if uid is not None:
+            self.uid = uid
+        if simulation is not None:
+            self.simulation = simulation
+        if file is not None:
+            self.file = file
+        if state is not None:
+            self.state = state
         self.state_detail = state_detail
 
     @property
@@ -109,8 +108,6 @@ class FileBoundaryCondition(object):
         :param url: The url of this FileBoundaryCondition.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -132,8 +129,6 @@ class FileBoundaryCondition(object):
         :param id: The id of this FileBoundaryCondition.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -155,8 +150,6 @@ class FileBoundaryCondition(object):
         :param uid: The uid of this FileBoundaryCondition.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 
@@ -178,8 +171,6 @@ class FileBoundaryCondition(object):
         :param simulation: The simulation of this FileBoundaryCondition.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -201,8 +192,6 @@ class FileBoundaryCondition(object):
         :param file: The file of this FileBoundaryCondition.  # noqa: E501
         :type: File
         """
-        if self.local_vars_configuration.client_side_validation and file is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `file`, must not be `None`")  # noqa: E501
 
         self._file = file
 
@@ -224,8 +213,6 @@ class FileBoundaryCondition(object):
         :param state: The state of this FileBoundaryCondition.  # noqa: E501
         :type: EventStateEnum
         """
-        if self.local_vars_configuration.client_side_validation and state is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `state`, must not be `None`")  # noqa: E501
 
         self._state = state
 

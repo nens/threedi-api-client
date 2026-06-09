@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -58,9 +58,9 @@ class PatchedThreediModel(object):
         'storage_space': 'int',
         'storage_space_humanized': 'str',
         'model_ini': 'str',
-        'extent_two_d': 'dict(str, object)',
-        'extent_one_d': 'dict(str, object)',
-        'extent_zero_d': 'dict(str, object)',
+        'extent_two_d': 'Extent',
+        'extent_one_d': 'Extent',
+        'extent_zero_d': 'Extent',
         'nodes_count': 'int',
         'lines_count': 'int',
         'inpy_version': 'str',
@@ -695,7 +695,7 @@ class PatchedThreediModel(object):
 
 
         :return: The extent_two_d of this PatchedThreediModel.  # noqa: E501
-        :rtype: dict(str, object)
+        :rtype: Extent
         """
         return self._extent_two_d
 
@@ -705,7 +705,7 @@ class PatchedThreediModel(object):
 
 
         :param extent_two_d: The extent_two_d of this PatchedThreediModel.  # noqa: E501
-        :type: dict(str, object)
+        :type: Extent
         """
 
         self._extent_two_d = extent_two_d
@@ -716,7 +716,7 @@ class PatchedThreediModel(object):
 
 
         :return: The extent_one_d of this PatchedThreediModel.  # noqa: E501
-        :rtype: dict(str, object)
+        :rtype: Extent
         """
         return self._extent_one_d
 
@@ -726,7 +726,7 @@ class PatchedThreediModel(object):
 
 
         :param extent_one_d: The extent_one_d of this PatchedThreediModel.  # noqa: E501
-        :type: dict(str, object)
+        :type: Extent
         """
 
         self._extent_one_d = extent_one_d
@@ -737,7 +737,7 @@ class PatchedThreediModel(object):
 
 
         :return: The extent_zero_d of this PatchedThreediModel.  # noqa: E501
-        :rtype: dict(str, object)
+        :rtype: Extent
         """
         return self._extent_zero_d
 
@@ -747,7 +747,7 @@ class PatchedThreediModel(object):
 
 
         :param extent_zero_d: The extent_zero_d of this PatchedThreediModel.  # noqa: E501
-        :type: dict(str, object)
+        :type: Extent
         """
 
         self._extent_zero_d = extent_zero_d

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -49,13 +49,6 @@ class InitialWaterlevel(object):
     }
 
     required_fields = [
-       'url',
-       'threedimodel',
-       'file',
-       'state',
-       'state_detail',
-       'id',
-       'source_raster_id',
     ]
 
     attribute_map = {
@@ -92,16 +85,21 @@ class InitialWaterlevel(object):
         self._dimension = None
         self.discriminator = None
 
-        self.url = url
-        self.threedimodel = threedimodel
+        if url is not None:
+            self.url = url
+        if threedimodel is not None:
+            self.threedimodel = threedimodel
         if user_generated is not None:
             self.user_generated = user_generated
-        self.file = file
+        if file is not None:
+            self.file = file
         if source_raster is not None:
             self.source_raster = source_raster
-        self.state = state
+        if state is not None:
+            self.state = state
         self.state_detail = state_detail
-        self.id = id
+        if id is not None:
+            self.id = id
         self.source_raster_id = source_raster_id
         if dimension is not None:
             self.dimension = dimension
@@ -124,8 +122,6 @@ class InitialWaterlevel(object):
         :param url: The url of this InitialWaterlevel.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -147,8 +143,6 @@ class InitialWaterlevel(object):
         :param threedimodel: The threedimodel of this InitialWaterlevel.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and threedimodel is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `threedimodel`, must not be `None`")  # noqa: E501
 
         self._threedimodel = threedimodel
 
@@ -191,8 +185,6 @@ class InitialWaterlevel(object):
         :param file: The file of this InitialWaterlevel.  # noqa: E501
         :type: FileReadOnly
         """
-        if self.local_vars_configuration.client_side_validation and file is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `file`, must not be `None`")  # noqa: E501
 
         self._file = file
 
@@ -235,8 +227,6 @@ class InitialWaterlevel(object):
         :param state: The state of this InitialWaterlevel.  # noqa: E501
         :type: EventStateEnum
         """
-        if self.local_vars_configuration.client_side_validation and state is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `state`, must not be `None`")  # noqa: E501
 
         self._state = state
 
@@ -279,8 +269,6 @@ class InitialWaterlevel(object):
         :param id: The id of this InitialWaterlevel.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

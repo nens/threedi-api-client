@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,7 +37,7 @@ class PatchedBreach(object):
     """
     openapi_types = {
         'url': 'str',
-        'potential_breach': 'str',
+        'potential_breach': 'object',
         'line_id': 'int',
         'duration_till_max_depth': 'int',
         'maximum_breach_depth': 'float',
@@ -146,7 +146,7 @@ class PatchedBreach(object):
 
 
         :return: The potential_breach of this PatchedBreach.  # noqa: E501
-        :rtype: str
+        :rtype: object
         """
         return self._potential_breach
 
@@ -156,7 +156,7 @@ class PatchedBreach(object):
 
 
         :param potential_breach: The potential_breach of this PatchedBreach.  # noqa: E501
-        :type: str
+        :type: object
         """
 
         self._potential_breach = potential_breach

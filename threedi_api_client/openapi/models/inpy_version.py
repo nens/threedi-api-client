@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -45,11 +45,8 @@ class InpyVersion(object):
     }
 
     required_fields = [
-       'url',
        'threedi_version',
        'threedicore_version',
-       'slug',
-       'id',
     ]
 
     attribute_map = {
@@ -78,11 +75,14 @@ class InpyVersion(object):
         self._active = None
         self.discriminator = None
 
-        self.url = url
+        if url is not None:
+            self.url = url
         self.threedi_version = threedi_version
         self.threedicore_version = threedicore_version
-        self.slug = slug
-        self.id = id
+        if slug is not None:
+            self.slug = slug
+        if id is not None:
+            self.id = id
         if active is not None:
             self.active = active
 
@@ -104,8 +104,6 @@ class InpyVersion(object):
         :param url: The url of this InpyVersion.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -179,8 +177,6 @@ class InpyVersion(object):
         :param slug: The slug of this InpyVersion.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and slug is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `slug`, must not be `None`")  # noqa: E501
 
         self._slug = slug
 
@@ -202,8 +198,6 @@ class InpyVersion(object):
         :param id: The id of this InpyVersion.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

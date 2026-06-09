@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,7 +36,7 @@ class WaterLevelProfileRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'geometry': 'dict(str, object)',
+        'geometry': 'Linestring1',
         'points_limit': 'int',
         'subscribe': 'bool',
         'subscribe_rate_limit': 'float'
@@ -80,10 +80,9 @@ class WaterLevelProfileRequest(object):
     def geometry(self):
         """Gets the geometry of this WaterLevelProfileRequest.  # noqa: E501
 
-        Linestring geometry to use (geojson format)  # noqa: E501
 
         :return: The geometry of this WaterLevelProfileRequest.  # noqa: E501
-        :rtype: dict(str, object)
+        :rtype: Linestring1
         """
         return self._geometry
 
@@ -91,10 +90,9 @@ class WaterLevelProfileRequest(object):
     def geometry(self, geometry):
         """Sets the geometry of this WaterLevelProfileRequest.
 
-        Linestring geometry to use (geojson format)  # noqa: E501
 
         :param geometry: The geometry of this WaterLevelProfileRequest.  # noqa: E501
-        :type: dict(str, object)
+        :type: Linestring1
         """
         if self.local_vars_configuration.client_side_validation and geometry is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `geometry`, must not be `None`")  # noqa: E501

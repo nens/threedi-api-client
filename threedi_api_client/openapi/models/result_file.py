@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -46,11 +46,8 @@ class ResultFile(object):
     }
 
     required_fields = [
-       'url',
-       'simulation',
        'filename',
        'created',
-       'id'
     ]
 
     attribute_map = {
@@ -81,14 +78,17 @@ class ResultFile(object):
         self._id = None
         self.discriminator = None
 
-        self.url = url
-        self.simulation = simulation
+        if url is not None:
+            self.url = url
+        if simulation is not None:
+            self.simulation = simulation
         self.filename = filename
         self.description = description
         self.created = created
         if file is not None:
             self.file = file
-        self.id = id
+        if id is not None:
+            self.id = id
 
     @property
     def url(self):
@@ -108,8 +108,6 @@ class ResultFile(object):
         :param url: The url of this ResultFile.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -131,8 +129,6 @@ class ResultFile(object):
         :param simulation: The simulation of this ResultFile.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -245,8 +241,6 @@ class ResultFile(object):
         :param id: The id of this ResultFile.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

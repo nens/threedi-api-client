@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -127,6 +127,7 @@ class PatchedRepository(object):
     def organisation(self):
         """Gets the organisation of this PatchedRepository.  # noqa: E501
 
+        The unique_id of an organisation  # noqa: E501
 
         :return: The organisation of this PatchedRepository.  # noqa: E501
         :rtype: str
@@ -137,6 +138,7 @@ class PatchedRepository(object):
     def organisation(self, organisation):
         """Sets the organisation of this PatchedRepository.
 
+        The unique_id of an organisation  # noqa: E501
 
         :param organisation: The organisation of this PatchedRepository.  # noqa: E501
         :type: str

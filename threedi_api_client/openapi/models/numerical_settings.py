@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -64,8 +64,6 @@ class NumericalSettings(object):
     }
 
     required_fields = [
-       'id',
-       'simulation_id',
        'pump_implicit_ratio',
        'cfl_strictness_factor_1d',
        'cfl_strictness_factor_2d',
@@ -154,8 +152,10 @@ class NumericalSettings(object):
         self._flooding_threshold = None
         self.discriminator = None
 
-        self.id = id
-        self.simulation_id = simulation_id
+        if id is not None:
+            self.id = id
+        if simulation_id is not None:
+            self.simulation_id = simulation_id
         self.pump_implicit_ratio = pump_implicit_ratio
         self.cfl_strictness_factor_1d = cfl_strictness_factor_1d
         self.cfl_strictness_factor_2d = cfl_strictness_factor_2d
@@ -199,8 +199,6 @@ class NumericalSettings(object):
         :param id: The id of this NumericalSettings.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -222,8 +220,6 @@ class NumericalSettings(object):
         :param simulation_id: The simulation_id of this NumericalSettings.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and simulation_id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation_id`, must not be `None`")  # noqa: E501
 
         self._simulation_id = simulation_id
 

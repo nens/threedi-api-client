@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -55,15 +55,7 @@ class Schematisation(object):
     }
 
     required_fields = [
-       'url',
-       'id',
        'name',
-       'created_by_first_name',
-       'created_by_last_name',
-       'archived',
-       'last_updated',
-       'storage_usage',
-       'latest_revision_nr'
     ]
 
     attribute_map = {
@@ -112,8 +104,10 @@ class Schematisation(object):
         self._latest_revision_nr = None
         self.discriminator = None
 
-        self.url = url
-        self.id = id
+        if url is not None:
+            self.url = url
+        if id is not None:
+            self.id = id
         if owner is not None:
             self.owner = owner
         self.name = name
@@ -130,7 +124,8 @@ class Schematisation(object):
             self.created = created
         self.archived = archived
         self.last_updated = last_updated
-        self.storage_usage = storage_usage
+        if storage_usage is not None:
+            self.storage_usage = storage_usage
         if threedimodel_limit is not None:
             self.threedimodel_limit = threedimodel_limit
         self.latest_revision_nr = latest_revision_nr
@@ -153,8 +148,6 @@ class Schematisation(object):
         :param url: The url of this Schematisation.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 
@@ -176,8 +169,6 @@ class Schematisation(object):
         :param id: The id of this Schematisation.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -185,6 +176,7 @@ class Schematisation(object):
     def owner(self):
         """Gets the owner of this Schematisation.  # noqa: E501
 
+        The unique_id of an organisation  # noqa: E501
 
         :return: The owner of this Schematisation.  # noqa: E501
         :rtype: str
@@ -195,6 +187,7 @@ class Schematisation(object):
     def owner(self, owner):
         """Sets the owner of this Schematisation.
 
+        The unique_id of an organisation  # noqa: E501
 
         :param owner: The owner of this Schematisation.  # noqa: E501
         :type: str
@@ -261,6 +254,7 @@ class Schematisation(object):
     def tags(self):
         """Gets the tags of this Schematisation.  # noqa: E501
 
+        tags provided as a list of strings  # noqa: E501
 
         :return: The tags of this Schematisation.  # noqa: E501
         :rtype: list[str]
@@ -271,6 +265,7 @@ class Schematisation(object):
     def tags(self, tags):
         """Sets the tags of this Schematisation.
 
+        tags provided as a list of strings  # noqa: E501
 
         :param tags: The tags of this Schematisation.  # noqa: E501
         :type: list[str]
@@ -449,8 +444,6 @@ class Schematisation(object):
         :param storage_usage: The storage_usage of this Schematisation.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and storage_usage is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `storage_usage`, must not be `None`")  # noqa: E501
 
         self._storage_usage = storage_usage
 

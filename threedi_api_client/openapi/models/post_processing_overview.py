@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -55,22 +55,8 @@ class PostProcessingOverview(object):
     }
 
     required_fields = [
-       'username',
-       'external_user_id',
-       'metadata_version',
-       'start_time_sim',
-       'end_time_sim',
        'results',
        'settings',
-       'model_name',
-       'simulation_name',
-       'scenario_name',
-       'model_id',
-       'model_revision_id',
-       'email',
-       'result_uuid',
-       'organisation_uuid',
-       'simulation'
     ]
 
     attribute_map = {
@@ -119,22 +105,35 @@ class PostProcessingOverview(object):
         self._simulation = None
         self.discriminator = None
 
-        self.username = username
+        if username is not None:
+            self.username = username
         self.external_user_id = external_user_id
-        self.metadata_version = metadata_version
-        self.start_time_sim = start_time_sim
-        self.end_time_sim = end_time_sim
+        if metadata_version is not None:
+            self.metadata_version = metadata_version
+        if start_time_sim is not None:
+            self.start_time_sim = start_time_sim
+        if end_time_sim is not None:
+            self.end_time_sim = end_time_sim
         self.results = results
         self.settings = settings
-        self.model_name = model_name
-        self.simulation_name = simulation_name
-        self.scenario_name = scenario_name
-        self.model_id = model_id
-        self.model_revision_id = model_revision_id
-        self.email = email
-        self.result_uuid = result_uuid
-        self.organisation_uuid = organisation_uuid
-        self.simulation = simulation
+        if model_name is not None:
+            self.model_name = model_name
+        if simulation_name is not None:
+            self.simulation_name = simulation_name
+        if scenario_name is not None:
+            self.scenario_name = scenario_name
+        if model_id is not None:
+            self.model_id = model_id
+        if model_revision_id is not None:
+            self.model_revision_id = model_revision_id
+        if email is not None:
+            self.email = email
+        if result_uuid is not None:
+            self.result_uuid = result_uuid
+        if organisation_uuid is not None:
+            self.organisation_uuid = organisation_uuid
+        if simulation is not None:
+            self.simulation = simulation
 
     @property
     def username(self):
@@ -154,8 +153,6 @@ class PostProcessingOverview(object):
         :param username: The username of this PostProcessingOverview.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and username is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `username`, must not be `None`")  # noqa: E501
 
         self._username = username
 
@@ -198,8 +195,6 @@ class PostProcessingOverview(object):
         :param metadata_version: The metadata_version of this PostProcessingOverview.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and metadata_version is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `metadata_version`, must not be `None`")  # noqa: E501
 
         self._metadata_version = metadata_version
 
@@ -221,8 +216,6 @@ class PostProcessingOverview(object):
         :param start_time_sim: The start_time_sim of this PostProcessingOverview.  # noqa: E501
         :type: datetime
         """
-        if self.local_vars_configuration.client_side_validation and start_time_sim is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `start_time_sim`, must not be `None`")  # noqa: E501
 
         self._start_time_sim = start_time_sim
 
@@ -244,8 +237,6 @@ class PostProcessingOverview(object):
         :param end_time_sim: The end_time_sim of this PostProcessingOverview.  # noqa: E501
         :type: datetime
         """
-        if self.local_vars_configuration.client_side_validation and end_time_sim is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `end_time_sim`, must not be `None`")  # noqa: E501
 
         self._end_time_sim = end_time_sim
 
@@ -313,8 +304,6 @@ class PostProcessingOverview(object):
         :param model_name: The model_name of this PostProcessingOverview.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and model_name is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `model_name`, must not be `None`")  # noqa: E501
 
         self._model_name = model_name
 
@@ -336,8 +325,6 @@ class PostProcessingOverview(object):
         :param simulation_name: The simulation_name of this PostProcessingOverview.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and simulation_name is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation_name`, must not be `None`")  # noqa: E501
 
         self._simulation_name = simulation_name
 
@@ -361,8 +348,6 @@ class PostProcessingOverview(object):
         :param scenario_name: The scenario_name of this PostProcessingOverview.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and scenario_name is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `scenario_name`, must not be `None`")  # noqa: E501
 
         self._scenario_name = scenario_name
 
@@ -384,8 +369,6 @@ class PostProcessingOverview(object):
         :param model_id: The model_id of this PostProcessingOverview.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and model_id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `model_id`, must not be `None`")  # noqa: E501
 
         self._model_id = model_id
 
@@ -407,8 +390,6 @@ class PostProcessingOverview(object):
         :param model_revision_id: The model_revision_id of this PostProcessingOverview.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and model_revision_id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `model_revision_id`, must not be `None`")  # noqa: E501
 
         self._model_revision_id = model_revision_id
 
@@ -430,8 +411,6 @@ class PostProcessingOverview(object):
         :param email: The email of this PostProcessingOverview.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and email is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `email`, must not be `None`")  # noqa: E501
 
         self._email = email
 
@@ -453,8 +432,6 @@ class PostProcessingOverview(object):
         :param result_uuid: The result_uuid of this PostProcessingOverview.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and result_uuid is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `result_uuid`, must not be `None`")  # noqa: E501
 
         self._result_uuid = result_uuid
 
@@ -476,8 +453,6 @@ class PostProcessingOverview(object):
         :param organisation_uuid: The organisation_uuid of this PostProcessingOverview.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and organisation_uuid is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `organisation_uuid`, must not be `None`")  # noqa: E501
 
         self._organisation_uuid = organisation_uuid
 
@@ -499,8 +474,6 @@ class PostProcessingOverview(object):
         :param simulation: The simulation of this PostProcessingOverview.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 

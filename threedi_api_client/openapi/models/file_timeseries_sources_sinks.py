@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -45,8 +45,8 @@ class FileTimeseriesSourcesSinks(object):
         'interval': 'int',
         'values_reference': 'str',
         'fill_value': 'str',
-        'type': 'str',
-        'units': 'str',
+        'type': 'NetCDFFileTypeEnum',
+        'units': 'TimeseriesRainMmUnitsEnum',
         'file': 'FileReadOnly',
         'uid': 'str',
         'id': 'int',
@@ -344,9 +344,6 @@ class FileTimeseriesSourcesSinks(object):
         if (self.local_vars_configuration.client_side_validation and
                 fill_value is not None and len(fill_value) > 128):
             self.__handle_validation_error("Invalid value for `fill_value`, length must be less than or equal to `128`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                fill_value is not None and len(fill_value) < 1):
-            self.__handle_validation_error("Invalid value for `fill_value`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._fill_value = fill_value
 
@@ -356,7 +353,7 @@ class FileTimeseriesSourcesSinks(object):
 
 
         :return: The type of this FileTimeseriesSourcesSinks.  # noqa: E501
-        :rtype: str
+        :rtype: NetCDFFileTypeEnum
         """
         return self._type
 
@@ -366,14 +363,8 @@ class FileTimeseriesSourcesSinks(object):
 
 
         :param type: The type of this FileTimeseriesSourcesSinks.  # noqa: E501
-        :type: str
+        :type: NetCDFFileTypeEnum
         """
-        allowed_values = ["netcdf4"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
 
         self._type = type
 
@@ -383,7 +374,7 @@ class FileTimeseriesSourcesSinks(object):
 
 
         :return: The units of this FileTimeseriesSourcesSinks.  # noqa: E501
-        :rtype: str
+        :rtype: TimeseriesRainMmUnitsEnum
         """
         return self._units
 
@@ -393,16 +384,10 @@ class FileTimeseriesSourcesSinks(object):
 
 
         :param units: The units of this FileTimeseriesSourcesSinks.  # noqa: E501
-        :type: str
+        :type: TimeseriesRainMmUnitsEnum
         """
         if self.local_vars_configuration.client_side_validation and units is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `units`, must not be `None`")  # noqa: E501
-        allowed_values = ["mm", "mm/h"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
-                .format(units, allowed_values)
-            )
 
         self._units = units
 

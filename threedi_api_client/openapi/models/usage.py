@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  07:55AM (UTC) on June 05, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -48,12 +48,6 @@ class Usage(object):
     }
 
     required_fields = [
-       'id',
-       'simulation',
-       'status',
-       'simulation_type',
-       'user_name',
-       'organisation_uuid'
     ]
 
     attribute_map = {
@@ -88,15 +82,21 @@ class Usage(object):
         self._organisation_uuid = None
         self.discriminator = None
 
-        self.id = id
-        self.simulation = simulation
+        if id is not None:
+            self.id = id
+        if simulation is not None:
+            self.simulation = simulation
         self.started = started
         self.finished = finished
         self.total_time = total_time
-        self.status = status
-        self.simulation_type = simulation_type
-        self.user_name = user_name
-        self.organisation_uuid = organisation_uuid
+        if status is not None:
+            self.status = status
+        if simulation_type is not None:
+            self.simulation_type = simulation_type
+        if user_name is not None:
+            self.user_name = user_name
+        if organisation_uuid is not None:
+            self.organisation_uuid = organisation_uuid
 
     @property
     def id(self):
@@ -116,8 +116,6 @@ class Usage(object):
         :param id: The id of this Usage.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -139,8 +137,6 @@ class Usage(object):
         :param simulation: The simulation of this Usage.  # noqa: E501
         :type: Simulation
         """
-        if self.local_vars_configuration.client_side_validation and simulation is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation`, must not be `None`")  # noqa: E501
 
         self._simulation = simulation
 
@@ -231,8 +227,6 @@ class Usage(object):
         :param status: The status of this Usage.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 
@@ -254,8 +248,6 @@ class Usage(object):
         :param simulation_type: The simulation_type of this Usage.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and simulation_type is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `simulation_type`, must not be `None`")  # noqa: E501
 
         self._simulation_type = simulation_type
 
@@ -277,8 +269,6 @@ class Usage(object):
         :param user_name: The user_name of this Usage.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and user_name is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `user_name`, must not be `None`")  # noqa: E501
 
         self._user_name = user_name
 
@@ -300,8 +290,6 @@ class Usage(object):
         :param organisation_uuid: The organisation_uuid of this Usage.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and organisation_uuid is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `organisation_uuid`, must not be `None`")  # noqa: E501
 
         self._organisation_uuid = organisation_uuid
 
