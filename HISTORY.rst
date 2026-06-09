@@ -5,7 +5,7 @@ History
 5.0.0.b1 (unreleased)
 ---------------------
 
-- Nothing changed yet.
+- removed redundant models and files
 
 
 5.0.0.b0 (2026-06-09)
