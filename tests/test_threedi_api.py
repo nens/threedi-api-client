@@ -223,10 +223,16 @@ def test_init_with_personal_api_token(personal_api_config):
     assert isinstance(api._api, V3Api)
     assert isinstance(api._client, ApiClient)
     assert api.api_client.configuration.auth_settings() == {
+        'ApiKeyBasic': {
+            'type': 'basic',
+            'in': 'header',
+            'key': 'Authorization',
+            'value': "Basic X19rZXlfXzpwZXJzb25hbF9hcGlfdG9rZW4="  # base_64 __key__:personal_api_token 
+        },
         'Basic': {
             'type': 'basic',
             'in': 'header',
             'key': 'Authorization',
             'value': "Basic X19rZXlfXzpwZXJzb25hbF9hcGlfdG9rZW4="  # base_64 __key__:personal_api_token 
-        }
+        },
     }

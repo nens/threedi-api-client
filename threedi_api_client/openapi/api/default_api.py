@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  12:12PM (UTC) on June 09, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,13 +37,13 @@ class DefaultApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def v3_schematisations_latestrevision_retrieve(self, id, **kwargs):  # noqa: E501
-        """v3_schematisations_latestrevision_retrieve  # noqa: E501
+    def schematisations_latestrevision_retrieve(self, id, **kwargs):  # noqa: E501
+        """schematisations_latestrevision_retrieve  # noqa: E501
 
         Get the latest committed revision.  For retrieving all revisions use: `/schematisations/{id}/revisions`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_schematisations_latestrevision_retrieve(id, async_req=True)
+        >>> thread = api.schematisations_latestrevision_retrieve(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -60,15 +60,15 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_schematisations_latestrevision_retrieve_with_http_info(id, **kwargs)  # noqa: E501
+        return self.schematisations_latestrevision_retrieve_with_http_info(id, **kwargs)  # noqa: E501
 
-    def v3_schematisations_latestrevision_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
-        """v3_schematisations_latestrevision_retrieve  # noqa: E501
+    def schematisations_latestrevision_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
+        """schematisations_latestrevision_retrieve  # noqa: E501
 
         Get the latest committed revision.  For retrieving all revisions use: `/schematisations/{id}/revisions`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_schematisations_latestrevision_retrieve_with_http_info(id, async_req=True)
+        >>> thread = api.schematisations_latestrevision_retrieve_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -105,14 +105,14 @@ class DefaultApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_schematisations_latestrevision_retrieve" % key
+                    " to method schematisations_latestrevision_retrieve" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_schematisations_latestrevision_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `schematisations_latestrevision_retrieve`")  # noqa: E501
 
         collection_formats = {}
 

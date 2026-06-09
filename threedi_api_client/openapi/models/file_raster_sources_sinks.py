@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  12:12PM (UTC) on June 09, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -45,7 +45,7 @@ class FileRasterSourcesSinks(object):
         'interval': 'int',
         'values_reference': 'str',
         'fill_value': 'str',
-        'units': 'OneOfRasterRainUnitsEnumBlankEnumNullEnum',
+        'units': 'RasterRainUnitsEnum',
         'geotransform': 'list[float]',
         'epsg_code': 'int',
         'file': 'FileReadOnly',
@@ -119,7 +119,8 @@ class FileRasterSourcesSinks(object):
         self.values_reference = values_reference
         if fill_value is not None:
             self.fill_value = fill_value
-        self.units = units
+        if units is not None:
+            self.units = units
         if geotransform is not None:
             self.geotransform = geotransform
         if epsg_code is not None:
@@ -362,7 +363,7 @@ class FileRasterSourcesSinks(object):
 
 
         :return: The units of this FileRasterSourcesSinks.  # noqa: E501
-        :rtype: OneOfRasterRainUnitsEnumBlankEnumNullEnum
+        :rtype: RasterRainUnitsEnum
         """
         return self._units
 
@@ -372,7 +373,7 @@ class FileRasterSourcesSinks(object):
 
 
         :param units: The units of this FileRasterSourcesSinks.  # noqa: E501
-        :type: OneOfRasterRainUnitsEnumBlankEnumNullEnum
+        :type: RasterRainUnitsEnum
         """
 
         self._units = units

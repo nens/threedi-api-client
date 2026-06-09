@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:28PM (UTC) on June 08, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  12:12PM (UTC) on June 09, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,12 +37,12 @@ class V3BetaApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def v3_beta_auth_users_create(self, add_user, **kwargs):  # noqa: E501
-        """v3_beta_auth_users_create  # noqa: E501
+    def beta_auth_users_create(self, add_user, **kwargs):  # noqa: E501
+        """beta_auth_users_create  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_auth_users_create(add_user, async_req=True)
+        >>> thread = api.beta_auth_users_create(add_user, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -59,14 +59,14 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_auth_users_create_with_http_info(add_user, **kwargs)  # noqa: E501
+        return self.beta_auth_users_create_with_http_info(add_user, **kwargs)  # noqa: E501
 
-    def v3_beta_auth_users_create_with_http_info(self, add_user, **kwargs):  # noqa: E501
-        """v3_beta_auth_users_create  # noqa: E501
+    def beta_auth_users_create_with_http_info(self, add_user, **kwargs):  # noqa: E501
+        """beta_auth_users_create  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_auth_users_create_with_http_info(add_user, async_req=True)
+        >>> thread = api.beta_auth_users_create_with_http_info(add_user, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -103,14 +103,14 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_auth_users_create" % key
+                    " to method beta_auth_users_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'add_user' is set
         if self.api_client.client_side_validation and ('add_user' not in local_var_params or  # noqa: E501
                                                         local_var_params['add_user'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `add_user` when calling `v3_beta_auth_users_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `add_user` when calling `beta_auth_users_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -153,13 +153,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_auth_users_personalapikeys_create(self, user_pk, personal_api_key, **kwargs):  # noqa: E501
-        """v3_beta_auth_users_personalapikeys_create  # noqa: E501
+    def beta_auth_users_personalapikeys_create(self, user_pk, personal_api_key, **kwargs):  # noqa: E501
+        """beta_auth_users_personalapikeys_create  # noqa: E501
 
         Personal API keys are used for authentication without password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_auth_users_personalapikeys_create(user_pk, personal_api_key, async_req=True)
+        >>> thread = api.beta_auth_users_personalapikeys_create(user_pk, personal_api_key, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -177,15 +177,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_auth_users_personalapikeys_create_with_http_info(user_pk, personal_api_key, **kwargs)  # noqa: E501
+        return self.beta_auth_users_personalapikeys_create_with_http_info(user_pk, personal_api_key, **kwargs)  # noqa: E501
 
-    def v3_beta_auth_users_personalapikeys_create_with_http_info(self, user_pk, personal_api_key, **kwargs):  # noqa: E501
-        """v3_beta_auth_users_personalapikeys_create  # noqa: E501
+    def beta_auth_users_personalapikeys_create_with_http_info(self, user_pk, personal_api_key, **kwargs):  # noqa: E501
+        """beta_auth_users_personalapikeys_create  # noqa: E501
 
         Personal API keys are used for authentication without password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_auth_users_personalapikeys_create_with_http_info(user_pk, personal_api_key, async_req=True)
+        >>> thread = api.beta_auth_users_personalapikeys_create_with_http_info(user_pk, personal_api_key, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -224,18 +224,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_auth_users_personalapikeys_create" % key
+                    " to method beta_auth_users_personalapikeys_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'user_pk' is set
         if self.api_client.client_side_validation and ('user_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['user_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `user_pk` when calling `v3_beta_auth_users_personalapikeys_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_pk` when calling `beta_auth_users_personalapikeys_create`")  # noqa: E501
         # verify the required parameter 'personal_api_key' is set
         if self.api_client.client_side_validation and ('personal_api_key' not in local_var_params or  # noqa: E501
                                                         local_var_params['personal_api_key'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `personal_api_key` when calling `v3_beta_auth_users_personalapikeys_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `personal_api_key` when calling `beta_auth_users_personalapikeys_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -280,13 +280,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_auth_users_personalapikeys_destroy(self, prefix, user_pk, **kwargs):  # noqa: E501
-        """v3_beta_auth_users_personalapikeys_destroy  # noqa: E501
+    def beta_auth_users_personalapikeys_destroy(self, prefix, user_pk, **kwargs):  # noqa: E501
+        """beta_auth_users_personalapikeys_destroy  # noqa: E501
 
         Personal API keys are used for authentication without password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_auth_users_personalapikeys_destroy(prefix, user_pk, async_req=True)
+        >>> thread = api.beta_auth_users_personalapikeys_destroy(prefix, user_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -304,15 +304,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_auth_users_personalapikeys_destroy_with_http_info(prefix, user_pk, **kwargs)  # noqa: E501
+        return self.beta_auth_users_personalapikeys_destroy_with_http_info(prefix, user_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_auth_users_personalapikeys_destroy_with_http_info(self, prefix, user_pk, **kwargs):  # noqa: E501
-        """v3_beta_auth_users_personalapikeys_destroy  # noqa: E501
+    def beta_auth_users_personalapikeys_destroy_with_http_info(self, prefix, user_pk, **kwargs):  # noqa: E501
+        """beta_auth_users_personalapikeys_destroy  # noqa: E501
 
         Personal API keys are used for authentication without password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_auth_users_personalapikeys_destroy_with_http_info(prefix, user_pk, async_req=True)
+        >>> thread = api.beta_auth_users_personalapikeys_destroy_with_http_info(prefix, user_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -351,18 +351,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_auth_users_personalapikeys_destroy" % key
+                    " to method beta_auth_users_personalapikeys_destroy" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'prefix' is set
         if self.api_client.client_side_validation and ('prefix' not in local_var_params or  # noqa: E501
                                                         local_var_params['prefix'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `prefix` when calling `v3_beta_auth_users_personalapikeys_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `prefix` when calling `beta_auth_users_personalapikeys_destroy`")  # noqa: E501
         # verify the required parameter 'user_pk' is set
         if self.api_client.client_side_validation and ('user_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['user_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `user_pk` when calling `v3_beta_auth_users_personalapikeys_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_pk` when calling `beta_auth_users_personalapikeys_destroy`")  # noqa: E501
 
         collection_formats = {}
 
@@ -399,13 +399,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_auth_users_personalapikeys_list(self, user_pk, **kwargs):  # noqa: E501
-        """v3_beta_auth_users_personalapikeys_list  # noqa: E501
+    def beta_auth_users_personalapikeys_list(self, user_pk, **kwargs):  # noqa: E501
+        """beta_auth_users_personalapikeys_list  # noqa: E501
 
         Personal API keys are used for authentication without password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_auth_users_personalapikeys_list(user_pk, async_req=True)
+        >>> thread = api.beta_auth_users_personalapikeys_list(user_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -424,15 +424,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_auth_users_personalapikeys_list_with_http_info(user_pk, **kwargs)  # noqa: E501
+        return self.beta_auth_users_personalapikeys_list_with_http_info(user_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_auth_users_personalapikeys_list_with_http_info(self, user_pk, **kwargs):  # noqa: E501
-        """v3_beta_auth_users_personalapikeys_list  # noqa: E501
+    def beta_auth_users_personalapikeys_list_with_http_info(self, user_pk, **kwargs):  # noqa: E501
+        """beta_auth_users_personalapikeys_list  # noqa: E501
 
         Personal API keys are used for authentication without password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_auth_users_personalapikeys_list_with_http_info(user_pk, async_req=True)
+        >>> thread = api.beta_auth_users_personalapikeys_list_with_http_info(user_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -473,14 +473,14 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_auth_users_personalapikeys_list" % key
+                    " to method beta_auth_users_personalapikeys_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'user_pk' is set
         if self.api_client.client_side_validation and ('user_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['user_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `user_pk` when calling `v3_beta_auth_users_personalapikeys_list`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_pk` when calling `beta_auth_users_personalapikeys_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -523,13 +523,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_auth_users_personalapikeys_retrieve(self, prefix, user_pk, **kwargs):  # noqa: E501
-        """v3_beta_auth_users_personalapikeys_retrieve  # noqa: E501
+    def beta_auth_users_personalapikeys_retrieve(self, prefix, user_pk, **kwargs):  # noqa: E501
+        """beta_auth_users_personalapikeys_retrieve  # noqa: E501
 
         Personal API keys are used for authentication without password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_auth_users_personalapikeys_retrieve(prefix, user_pk, async_req=True)
+        >>> thread = api.beta_auth_users_personalapikeys_retrieve(prefix, user_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -547,15 +547,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_auth_users_personalapikeys_retrieve_with_http_info(prefix, user_pk, **kwargs)  # noqa: E501
+        return self.beta_auth_users_personalapikeys_retrieve_with_http_info(prefix, user_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_auth_users_personalapikeys_retrieve_with_http_info(self, prefix, user_pk, **kwargs):  # noqa: E501
-        """v3_beta_auth_users_personalapikeys_retrieve  # noqa: E501
+    def beta_auth_users_personalapikeys_retrieve_with_http_info(self, prefix, user_pk, **kwargs):  # noqa: E501
+        """beta_auth_users_personalapikeys_retrieve  # noqa: E501
 
         Personal API keys are used for authentication without password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_auth_users_personalapikeys_retrieve_with_http_info(prefix, user_pk, async_req=True)
+        >>> thread = api.beta_auth_users_personalapikeys_retrieve_with_http_info(prefix, user_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -594,18 +594,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_auth_users_personalapikeys_retrieve" % key
+                    " to method beta_auth_users_personalapikeys_retrieve" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'prefix' is set
         if self.api_client.client_side_validation and ('prefix' not in local_var_params or  # noqa: E501
                                                         local_var_params['prefix'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `prefix` when calling `v3_beta_auth_users_personalapikeys_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `prefix` when calling `beta_auth_users_personalapikeys_retrieve`")  # noqa: E501
         # verify the required parameter 'user_pk' is set
         if self.api_client.client_side_validation and ('user_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['user_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `user_pk` when calling `v3_beta_auth_users_personalapikeys_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_pk` when calling `beta_auth_users_personalapikeys_retrieve`")  # noqa: E501
 
         collection_formats = {}
 
@@ -646,13 +646,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_auth_users_personalapikeys_revoke_create(self, prefix, user_pk, **kwargs):  # noqa: E501
-        """v3_beta_auth_users_personalapikeys_revoke_create  # noqa: E501
+    def beta_auth_users_personalapikeys_revoke_create(self, prefix, user_pk, **kwargs):  # noqa: E501
+        """beta_auth_users_personalapikeys_revoke_create  # noqa: E501
 
         Revoke an API key and return the status.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_auth_users_personalapikeys_revoke_create(prefix, user_pk, async_req=True)
+        >>> thread = api.beta_auth_users_personalapikeys_revoke_create(prefix, user_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -670,15 +670,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_auth_users_personalapikeys_revoke_create_with_http_info(prefix, user_pk, **kwargs)  # noqa: E501
+        return self.beta_auth_users_personalapikeys_revoke_create_with_http_info(prefix, user_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_auth_users_personalapikeys_revoke_create_with_http_info(self, prefix, user_pk, **kwargs):  # noqa: E501
-        """v3_beta_auth_users_personalapikeys_revoke_create  # noqa: E501
+    def beta_auth_users_personalapikeys_revoke_create_with_http_info(self, prefix, user_pk, **kwargs):  # noqa: E501
+        """beta_auth_users_personalapikeys_revoke_create  # noqa: E501
 
         Revoke an API key and return the status.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_auth_users_personalapikeys_revoke_create_with_http_info(prefix, user_pk, async_req=True)
+        >>> thread = api.beta_auth_users_personalapikeys_revoke_create_with_http_info(prefix, user_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -717,18 +717,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_auth_users_personalapikeys_revoke_create" % key
+                    " to method beta_auth_users_personalapikeys_revoke_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'prefix' is set
         if self.api_client.client_side_validation and ('prefix' not in local_var_params or  # noqa: E501
                                                         local_var_params['prefix'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `prefix` when calling `v3_beta_auth_users_personalapikeys_revoke_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `prefix` when calling `beta_auth_users_personalapikeys_revoke_create`")  # noqa: E501
         # verify the required parameter 'user_pk' is set
         if self.api_client.client_side_validation and ('user_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['user_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `user_pk` when calling `v3_beta_auth_users_personalapikeys_revoke_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_pk` when calling `beta_auth_users_personalapikeys_revoke_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -769,13 +769,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_personalapikeys_create(self, personal_api_key, **kwargs):  # noqa: E501
-        """v3_beta_personalapikeys_create  # noqa: E501
+    def beta_personalapikeys_create(self, personal_api_key, **kwargs):  # noqa: E501
+        """beta_personalapikeys_create  # noqa: E501
 
         Personal API keys are used for authentication without password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_personalapikeys_create(personal_api_key, async_req=True)
+        >>> thread = api.beta_personalapikeys_create(personal_api_key, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -792,15 +792,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_personalapikeys_create_with_http_info(personal_api_key, **kwargs)  # noqa: E501
+        return self.beta_personalapikeys_create_with_http_info(personal_api_key, **kwargs)  # noqa: E501
 
-    def v3_beta_personalapikeys_create_with_http_info(self, personal_api_key, **kwargs):  # noqa: E501
-        """v3_beta_personalapikeys_create  # noqa: E501
+    def beta_personalapikeys_create_with_http_info(self, personal_api_key, **kwargs):  # noqa: E501
+        """beta_personalapikeys_create  # noqa: E501
 
         Personal API keys are used for authentication without password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_personalapikeys_create_with_http_info(personal_api_key, async_req=True)
+        >>> thread = api.beta_personalapikeys_create_with_http_info(personal_api_key, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -837,14 +837,14 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_personalapikeys_create" % key
+                    " to method beta_personalapikeys_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'personal_api_key' is set
         if self.api_client.client_side_validation and ('personal_api_key' not in local_var_params or  # noqa: E501
                                                         local_var_params['personal_api_key'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `personal_api_key` when calling `v3_beta_personalapikeys_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `personal_api_key` when calling `beta_personalapikeys_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -887,13 +887,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_personalapikeys_destroy(self, prefix, **kwargs):  # noqa: E501
-        """v3_beta_personalapikeys_destroy  # noqa: E501
+    def beta_personalapikeys_destroy(self, prefix, **kwargs):  # noqa: E501
+        """beta_personalapikeys_destroy  # noqa: E501
 
         Personal API keys are used for authentication without password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_personalapikeys_destroy(prefix, async_req=True)
+        >>> thread = api.beta_personalapikeys_destroy(prefix, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -910,15 +910,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_personalapikeys_destroy_with_http_info(prefix, **kwargs)  # noqa: E501
+        return self.beta_personalapikeys_destroy_with_http_info(prefix, **kwargs)  # noqa: E501
 
-    def v3_beta_personalapikeys_destroy_with_http_info(self, prefix, **kwargs):  # noqa: E501
-        """v3_beta_personalapikeys_destroy  # noqa: E501
+    def beta_personalapikeys_destroy_with_http_info(self, prefix, **kwargs):  # noqa: E501
+        """beta_personalapikeys_destroy  # noqa: E501
 
         Personal API keys are used for authentication without password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_personalapikeys_destroy_with_http_info(prefix, async_req=True)
+        >>> thread = api.beta_personalapikeys_destroy_with_http_info(prefix, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -955,14 +955,14 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_personalapikeys_destroy" % key
+                    " to method beta_personalapikeys_destroy" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'prefix' is set
         if self.api_client.client_side_validation and ('prefix' not in local_var_params or  # noqa: E501
                                                         local_var_params['prefix'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `prefix` when calling `v3_beta_personalapikeys_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `prefix` when calling `beta_personalapikeys_destroy`")  # noqa: E501
 
         collection_formats = {}
 
@@ -997,13 +997,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_personalapikeys_list(self, **kwargs):  # noqa: E501
-        """v3_beta_personalapikeys_list  # noqa: E501
+    def beta_personalapikeys_list(self, **kwargs):  # noqa: E501
+        """beta_personalapikeys_list  # noqa: E501
 
         Personal API keys are used for authentication without password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_personalapikeys_list(async_req=True)
+        >>> thread = api.beta_personalapikeys_list(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1021,15 +1021,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_personalapikeys_list_with_http_info(**kwargs)  # noqa: E501
+        return self.beta_personalapikeys_list_with_http_info(**kwargs)  # noqa: E501
 
-    def v3_beta_personalapikeys_list_with_http_info(self, **kwargs):  # noqa: E501
-        """v3_beta_personalapikeys_list  # noqa: E501
+    def beta_personalapikeys_list_with_http_info(self, **kwargs):  # noqa: E501
+        """beta_personalapikeys_list  # noqa: E501
 
         Personal API keys are used for authentication without password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_personalapikeys_list_with_http_info(async_req=True)
+        >>> thread = api.beta_personalapikeys_list_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1068,7 +1068,7 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_personalapikeys_list" % key
+                    " to method beta_personalapikeys_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
@@ -1112,13 +1112,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_personalapikeys_retrieve(self, prefix, **kwargs):  # noqa: E501
-        """v3_beta_personalapikeys_retrieve  # noqa: E501
+    def beta_personalapikeys_retrieve(self, prefix, **kwargs):  # noqa: E501
+        """beta_personalapikeys_retrieve  # noqa: E501
 
         Personal API keys are used for authentication without password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_personalapikeys_retrieve(prefix, async_req=True)
+        >>> thread = api.beta_personalapikeys_retrieve(prefix, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1135,15 +1135,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_personalapikeys_retrieve_with_http_info(prefix, **kwargs)  # noqa: E501
+        return self.beta_personalapikeys_retrieve_with_http_info(prefix, **kwargs)  # noqa: E501
 
-    def v3_beta_personalapikeys_retrieve_with_http_info(self, prefix, **kwargs):  # noqa: E501
-        """v3_beta_personalapikeys_retrieve  # noqa: E501
+    def beta_personalapikeys_retrieve_with_http_info(self, prefix, **kwargs):  # noqa: E501
+        """beta_personalapikeys_retrieve  # noqa: E501
 
         Personal API keys are used for authentication without password.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_personalapikeys_retrieve_with_http_info(prefix, async_req=True)
+        >>> thread = api.beta_personalapikeys_retrieve_with_http_info(prefix, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1180,14 +1180,14 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_personalapikeys_retrieve" % key
+                    " to method beta_personalapikeys_retrieve" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'prefix' is set
         if self.api_client.client_side_validation and ('prefix' not in local_var_params or  # noqa: E501
                                                         local_var_params['prefix'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `prefix` when calling `v3_beta_personalapikeys_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `prefix` when calling `beta_personalapikeys_retrieve`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1226,13 +1226,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_personalapikeys_revoke_create(self, prefix, **kwargs):  # noqa: E501
-        """v3_beta_personalapikeys_revoke_create  # noqa: E501
+    def beta_personalapikeys_revoke_create(self, prefix, **kwargs):  # noqa: E501
+        """beta_personalapikeys_revoke_create  # noqa: E501
 
         Revoke an API key and return the status.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_personalapikeys_revoke_create(prefix, async_req=True)
+        >>> thread = api.beta_personalapikeys_revoke_create(prefix, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1249,15 +1249,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_personalapikeys_revoke_create_with_http_info(prefix, **kwargs)  # noqa: E501
+        return self.beta_personalapikeys_revoke_create_with_http_info(prefix, **kwargs)  # noqa: E501
 
-    def v3_beta_personalapikeys_revoke_create_with_http_info(self, prefix, **kwargs):  # noqa: E501
-        """v3_beta_personalapikeys_revoke_create  # noqa: E501
+    def beta_personalapikeys_revoke_create_with_http_info(self, prefix, **kwargs):  # noqa: E501
+        """beta_personalapikeys_revoke_create  # noqa: E501
 
         Revoke an API key and return the status.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_personalapikeys_revoke_create_with_http_info(prefix, async_req=True)
+        >>> thread = api.beta_personalapikeys_revoke_create_with_http_info(prefix, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1294,14 +1294,14 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_personalapikeys_revoke_create" % key
+                    " to method beta_personalapikeys_revoke_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'prefix' is set
         if self.api_client.client_side_validation and ('prefix' not in local_var_params or  # noqa: E501
                                                         local_var_params['prefix'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `prefix` when calling `v3_beta_personalapikeys_revoke_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `prefix` when calling `beta_personalapikeys_revoke_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1340,13 +1340,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulation_templates_copy_to_threedimodel_create(self, id, copy_to_threedi_model, **kwargs):  # noqa: E501
-        """v3_beta_simulation_templates_copy_to_threedimodel_create  # noqa: E501
+    def beta_simulation_templates_copy_to_threedimodel_create(self, id, copy_to_threedi_model, **kwargs):  # noqa: E501
+        """beta_simulation_templates_copy_to_threedimodel_create  # noqa: E501
 
         Copy simulation template to a threedimodel.  {     \"threedimodel\": ThreediModel id     \"name\": name for the new template     \"tags\": extra tags, added to existing simulation template tags     \"clone_events\": clone events like rain/sources & sinks etc     \"clone_initials\": clone initial waterlevels & concentrations     \"clone_settings\": clone simulation settings, like physical settings etc }  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulation_templates_copy_to_threedimodel_create(id, copy_to_threedi_model, async_req=True)
+        >>> thread = api.beta_simulation_templates_copy_to_threedimodel_create(id, copy_to_threedi_model, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1364,15 +1364,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulation_templates_copy_to_threedimodel_create_with_http_info(id, copy_to_threedi_model, **kwargs)  # noqa: E501
+        return self.beta_simulation_templates_copy_to_threedimodel_create_with_http_info(id, copy_to_threedi_model, **kwargs)  # noqa: E501
 
-    def v3_beta_simulation_templates_copy_to_threedimodel_create_with_http_info(self, id, copy_to_threedi_model, **kwargs):  # noqa: E501
-        """v3_beta_simulation_templates_copy_to_threedimodel_create  # noqa: E501
+    def beta_simulation_templates_copy_to_threedimodel_create_with_http_info(self, id, copy_to_threedi_model, **kwargs):  # noqa: E501
+        """beta_simulation_templates_copy_to_threedimodel_create  # noqa: E501
 
         Copy simulation template to a threedimodel.  {     \"threedimodel\": ThreediModel id     \"name\": name for the new template     \"tags\": extra tags, added to existing simulation template tags     \"clone_events\": clone events like rain/sources & sinks etc     \"clone_initials\": clone initial waterlevels & concentrations     \"clone_settings\": clone simulation settings, like physical settings etc }  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulation_templates_copy_to_threedimodel_create_with_http_info(id, copy_to_threedi_model, async_req=True)
+        >>> thread = api.beta_simulation_templates_copy_to_threedimodel_create_with_http_info(id, copy_to_threedi_model, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1411,18 +1411,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulation_templates_copy_to_threedimodel_create" % key
+                    " to method beta_simulation_templates_copy_to_threedimodel_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulation_templates_copy_to_threedimodel_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulation_templates_copy_to_threedimodel_create`")  # noqa: E501
         # verify the required parameter 'copy_to_threedi_model' is set
         if self.api_client.client_side_validation and ('copy_to_threedi_model' not in local_var_params or  # noqa: E501
                                                         local_var_params['copy_to_threedi_model'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `copy_to_threedi_model` when calling `v3_beta_simulation_templates_copy_to_threedimodel_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `copy_to_threedi_model` when calling `beta_simulation_templates_copy_to_threedimodel_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1467,13 +1467,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_obstacle_edits_create(self, simulation_pk, obstacle_edit, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_create  # noqa: E501
+    def beta_simulations_events_obstacle_edits_create(self, simulation_pk, obstacle_edit, **kwargs):  # noqa: E501
+        """beta_simulations_events_obstacle_edits_create  # noqa: E501
 
         Create an obstacle edit  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_create(simulation_pk, obstacle_edit, async_req=True)
+        >>> thread = api.beta_simulations_events_obstacle_edits_create(simulation_pk, obstacle_edit, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1491,15 +1491,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_obstacle_edits_create_with_http_info(simulation_pk, obstacle_edit, **kwargs)  # noqa: E501
+        return self.beta_simulations_events_obstacle_edits_create_with_http_info(simulation_pk, obstacle_edit, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_obstacle_edits_create_with_http_info(self, simulation_pk, obstacle_edit, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_create  # noqa: E501
+    def beta_simulations_events_obstacle_edits_create_with_http_info(self, simulation_pk, obstacle_edit, **kwargs):  # noqa: E501
+        """beta_simulations_events_obstacle_edits_create  # noqa: E501
 
         Create an obstacle edit  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_create_with_http_info(simulation_pk, obstacle_edit, async_req=True)
+        >>> thread = api.beta_simulations_events_obstacle_edits_create_with_http_info(simulation_pk, obstacle_edit, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1538,18 +1538,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_obstacle_edits_create" % key
+                    " to method beta_simulations_events_obstacle_edits_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_obstacle_edits_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_events_obstacle_edits_create`")  # noqa: E501
         # verify the required parameter 'obstacle_edit' is set
         if self.api_client.client_side_validation and ('obstacle_edit' not in local_var_params or  # noqa: E501
                                                         local_var_params['obstacle_edit'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `obstacle_edit` when calling `v3_beta_simulations_events_obstacle_edits_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `obstacle_edit` when calling `beta_simulations_events_obstacle_edits_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1594,13 +1594,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_obstacle_edits_destroy(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_destroy  # noqa: E501
+    def beta_simulations_events_obstacle_edits_destroy(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_obstacle_edits_destroy  # noqa: E501
 
         destroy resource only if the event has not yet been applied to the associated simulation  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_destroy(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_obstacle_edits_destroy(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1618,15 +1618,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_obstacle_edits_destroy_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_events_obstacle_edits_destroy_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_obstacle_edits_destroy_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_destroy  # noqa: E501
+    def beta_simulations_events_obstacle_edits_destroy_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_obstacle_edits_destroy  # noqa: E501
 
         destroy resource only if the event has not yet been applied to the associated simulation  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_destroy_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_obstacle_edits_destroy_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1665,18 +1665,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_obstacle_edits_destroy" % key
+                    " to method beta_simulations_events_obstacle_edits_destroy" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_events_obstacle_edits_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_events_obstacle_edits_destroy`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_obstacle_edits_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_events_obstacle_edits_destroy`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1717,13 +1717,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_obstacle_edits_list(self, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_list  # noqa: E501
+    def beta_simulations_events_obstacle_edits_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_obstacle_edits_list  # noqa: E501
 
         A simple ViewSet for viewing obstacle edits  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_list(simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_obstacle_edits_list(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1742,15 +1742,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_obstacle_edits_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_events_obstacle_edits_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_obstacle_edits_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_list  # noqa: E501
+    def beta_simulations_events_obstacle_edits_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_obstacle_edits_list  # noqa: E501
 
         A simple ViewSet for viewing obstacle edits  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_list_with_http_info(simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_obstacle_edits_list_with_http_info(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1791,14 +1791,14 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_obstacle_edits_list" % key
+                    " to method beta_simulations_events_obstacle_edits_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_obstacle_edits_list`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_events_obstacle_edits_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1841,13 +1841,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_obstacle_edits_partial_update(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_partial_update  # noqa: E501
+    def beta_simulations_events_obstacle_edits_partial_update(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_obstacle_edits_partial_update  # noqa: E501
 
         when the simulation has started only the duration parameter might be patched  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_partial_update(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_obstacle_edits_partial_update(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1866,15 +1866,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_obstacle_edits_partial_update_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_events_obstacle_edits_partial_update_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_obstacle_edits_partial_update_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_partial_update  # noqa: E501
+    def beta_simulations_events_obstacle_edits_partial_update_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_obstacle_edits_partial_update  # noqa: E501
 
         when the simulation has started only the duration parameter might be patched  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_partial_update_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_obstacle_edits_partial_update_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1915,18 +1915,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_obstacle_edits_partial_update" % key
+                    " to method beta_simulations_events_obstacle_edits_partial_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_events_obstacle_edits_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_events_obstacle_edits_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_obstacle_edits_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_events_obstacle_edits_partial_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1973,13 +1973,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_obstacle_edits_processed_update(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_processed_update  # noqa: E501
+    def beta_simulations_events_obstacle_edits_processed_update(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
+        """beta_simulations_events_obstacle_edits_processed_update  # noqa: E501
 
         A simple ViewSet for viewing obstacle edits  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_processed_update(id, simulation_pk, base_event_state, async_req=True)
+        >>> thread = api.beta_simulations_events_obstacle_edits_processed_update(id, simulation_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -1998,15 +1998,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_obstacle_edits_processed_update_with_http_info(id, simulation_pk, base_event_state, **kwargs)  # noqa: E501
+        return self.beta_simulations_events_obstacle_edits_processed_update_with_http_info(id, simulation_pk, base_event_state, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_obstacle_edits_processed_update_with_http_info(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_processed_update  # noqa: E501
+    def beta_simulations_events_obstacle_edits_processed_update_with_http_info(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
+        """beta_simulations_events_obstacle_edits_processed_update  # noqa: E501
 
         A simple ViewSet for viewing obstacle edits  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_processed_update_with_http_info(id, simulation_pk, base_event_state, async_req=True)
+        >>> thread = api.beta_simulations_events_obstacle_edits_processed_update_with_http_info(id, simulation_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -2047,22 +2047,22 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_obstacle_edits_processed_update" % key
+                    " to method beta_simulations_events_obstacle_edits_processed_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_events_obstacle_edits_processed_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_events_obstacle_edits_processed_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_obstacle_edits_processed_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_events_obstacle_edits_processed_update`")  # noqa: E501
         # verify the required parameter 'base_event_state' is set
         if self.api_client.client_side_validation and ('base_event_state' not in local_var_params or  # noqa: E501
                                                         local_var_params['base_event_state'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `base_event_state` when calling `v3_beta_simulations_events_obstacle_edits_processed_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `base_event_state` when calling `beta_simulations_events_obstacle_edits_processed_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2105,13 +2105,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_obstacle_edits_register_related_rasters_list(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_register_related_rasters_list  # noqa: E501
+    def beta_simulations_events_obstacle_edits_register_related_rasters_list(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_obstacle_edits_register_related_rasters_list  # noqa: E501
 
         Register all related rasters in the results-api and return read_bbox urls of the registered rasters  Skips registering of related rasters when the simulation is not in the state 'starting' or 'initialized'. In this case the urls will be empty  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_register_related_rasters_list(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_obstacle_edits_register_related_rasters_list(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -2131,15 +2131,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_obstacle_edits_register_related_rasters_list_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_events_obstacle_edits_register_related_rasters_list_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_obstacle_edits_register_related_rasters_list_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_register_related_rasters_list  # noqa: E501
+    def beta_simulations_events_obstacle_edits_register_related_rasters_list_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_obstacle_edits_register_related_rasters_list  # noqa: E501
 
         Register all related rasters in the results-api and return read_bbox urls of the registered rasters  Skips registering of related rasters when the simulation is not in the state 'starting' or 'initialized'. In this case the urls will be empty  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_register_related_rasters_list_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_obstacle_edits_register_related_rasters_list_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -2182,18 +2182,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_obstacle_edits_register_related_rasters_list" % key
+                    " to method beta_simulations_events_obstacle_edits_register_related_rasters_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_events_obstacle_edits_register_related_rasters_list`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_events_obstacle_edits_register_related_rasters_list`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_obstacle_edits_register_related_rasters_list`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_events_obstacle_edits_register_related_rasters_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2238,13 +2238,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_obstacle_edits_retrieve(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_retrieve  # noqa: E501
+    def beta_simulations_events_obstacle_edits_retrieve(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_obstacle_edits_retrieve  # noqa: E501
 
         A simple ViewSet for viewing obstacle edits  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_retrieve(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_obstacle_edits_retrieve(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -2262,15 +2262,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_obstacle_edits_retrieve_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_events_obstacle_edits_retrieve_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_obstacle_edits_retrieve_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_retrieve  # noqa: E501
+    def beta_simulations_events_obstacle_edits_retrieve_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_obstacle_edits_retrieve  # noqa: E501
 
         A simple ViewSet for viewing obstacle edits  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_retrieve_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_obstacle_edits_retrieve_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -2309,18 +2309,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_obstacle_edits_retrieve" % key
+                    " to method beta_simulations_events_obstacle_edits_retrieve" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_events_obstacle_edits_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_events_obstacle_edits_retrieve`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_obstacle_edits_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_events_obstacle_edits_retrieve`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2361,13 +2361,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_obstacle_edits_update(self, id, simulation_pk, obstacle_edit, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_update  # noqa: E501
+    def beta_simulations_events_obstacle_edits_update(self, id, simulation_pk, obstacle_edit, **kwargs):  # noqa: E501
+        """beta_simulations_events_obstacle_edits_update  # noqa: E501
 
         A simple ViewSet for viewing obstacle edits  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_update(id, simulation_pk, obstacle_edit, async_req=True)
+        >>> thread = api.beta_simulations_events_obstacle_edits_update(id, simulation_pk, obstacle_edit, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -2386,15 +2386,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_obstacle_edits_update_with_http_info(id, simulation_pk, obstacle_edit, **kwargs)  # noqa: E501
+        return self.beta_simulations_events_obstacle_edits_update_with_http_info(id, simulation_pk, obstacle_edit, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_obstacle_edits_update_with_http_info(self, id, simulation_pk, obstacle_edit, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_obstacle_edits_update  # noqa: E501
+    def beta_simulations_events_obstacle_edits_update_with_http_info(self, id, simulation_pk, obstacle_edit, **kwargs):  # noqa: E501
+        """beta_simulations_events_obstacle_edits_update  # noqa: E501
 
         A simple ViewSet for viewing obstacle edits  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_obstacle_edits_update_with_http_info(id, simulation_pk, obstacle_edit, async_req=True)
+        >>> thread = api.beta_simulations_events_obstacle_edits_update_with_http_info(id, simulation_pk, obstacle_edit, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -2435,22 +2435,22 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_obstacle_edits_update" % key
+                    " to method beta_simulations_events_obstacle_edits_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_events_obstacle_edits_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_events_obstacle_edits_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_obstacle_edits_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_events_obstacle_edits_update`")  # noqa: E501
         # verify the required parameter 'obstacle_edit' is set
         if self.api_client.client_side_validation and ('obstacle_edit' not in local_var_params or  # noqa: E501
                                                         local_var_params['obstacle_edit'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `obstacle_edit` when calling `v3_beta_simulations_events_obstacle_edits_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `obstacle_edit` when calling `beta_simulations_events_obstacle_edits_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2497,13 +2497,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_rain_timeseries_file_create(self, simulation_pk, upload_bulk_timeseries_rain_file, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_rain_timeseries_file_create  # noqa: E501
+    def beta_simulations_events_rain_timeseries_file_create(self, simulation_pk, upload_bulk_timeseries_rain_file, **kwargs):  # noqa: E501
+        """beta_simulations_events_rain_timeseries_file_create  # noqa: E501
 
         Endpoint for uploading a file with one or more timeseries rain events.  The format of the filename should be `<filename>.json`, e.g. `timeseries_rain.json`  Every leading and trailing spaces will be removed. Other spaces are converted to underscores and anything that is not an alphanumeric, dash, underscore, or dot will be removed as well.  The response provides a put_url which allows you to upload a file containing the rain events. These events should either be a constant- or a timeseries-rain, or a combination of both. See their respective endpoints for the required fields.  The uploaded file should be a JSON-file containing an array of rain events. Example of the content of such a file: ``` [   {     \"offset\": 100,     \"value\": 0.05,     \"duration\": 300,     \"units\": \"m3/s\",   },   {     \"offset\": 180,     \"interpolate\": false,     \"values\": [       [0.0, 0.0002],       [900.0, 0.0],       [1200.0, 0.0001],       [1620.0, 0.0]     ],     \"units\": \"m3/s\",   },   {     \"offset\": 200,     \"values\": [[0, 0.05], [3600, 0.0]],     \"duration\": 400,     \"units\": \"mm/h\",     \"substances\": [       {         \"substance\": 1,         \"concentrations\": [[0, 0.0001], [3600, 0.0]]       },       {         \"substance\": 2,         \"concentrations\": [[0, 0.0002], [3600, 0.0]]         \"zone\": {           \"type\": \"Polygon\",           \"coordinates\": [             [               [5.1152647, 52.0929945],               [5.1152376, 52.0925619],               [5.1164597, 52.0924375],               [5.1165030, 52.0930215],               [5.1152647, 52.0929945]             ],           ]         }       }     ]   } ] ``` Substances can be applied to a zone within the rain event. The zone should be a GeoJSON polygon with coordinates in the EPSG-code specified in the `epsg_code`. If no `epsg_code` is specified, EPSG:4326 is assumed. The polygon will be intersected with the edges of nodes in the grid to determine which nodes receive the substance load. So nodes are either fully in or out of the polygon.  The `offset` of this file event will be added to each individual rain event offset in the uploaded file.  **Note**: the substance concentrations timesteps need to exactly match the rain event values timesteps  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_create(simulation_pk, upload_bulk_timeseries_rain_file, async_req=True)
+        >>> thread = api.beta_simulations_events_rain_timeseries_file_create(simulation_pk, upload_bulk_timeseries_rain_file, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -2521,15 +2521,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_rain_timeseries_file_create_with_http_info(simulation_pk, upload_bulk_timeseries_rain_file, **kwargs)  # noqa: E501
+        return self.beta_simulations_events_rain_timeseries_file_create_with_http_info(simulation_pk, upload_bulk_timeseries_rain_file, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_rain_timeseries_file_create_with_http_info(self, simulation_pk, upload_bulk_timeseries_rain_file, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_rain_timeseries_file_create  # noqa: E501
+    def beta_simulations_events_rain_timeseries_file_create_with_http_info(self, simulation_pk, upload_bulk_timeseries_rain_file, **kwargs):  # noqa: E501
+        """beta_simulations_events_rain_timeseries_file_create  # noqa: E501
 
         Endpoint for uploading a file with one or more timeseries rain events.  The format of the filename should be `<filename>.json`, e.g. `timeseries_rain.json`  Every leading and trailing spaces will be removed. Other spaces are converted to underscores and anything that is not an alphanumeric, dash, underscore, or dot will be removed as well.  The response provides a put_url which allows you to upload a file containing the rain events. These events should either be a constant- or a timeseries-rain, or a combination of both. See their respective endpoints for the required fields.  The uploaded file should be a JSON-file containing an array of rain events. Example of the content of such a file: ``` [   {     \"offset\": 100,     \"value\": 0.05,     \"duration\": 300,     \"units\": \"m3/s\",   },   {     \"offset\": 180,     \"interpolate\": false,     \"values\": [       [0.0, 0.0002],       [900.0, 0.0],       [1200.0, 0.0001],       [1620.0, 0.0]     ],     \"units\": \"m3/s\",   },   {     \"offset\": 200,     \"values\": [[0, 0.05], [3600, 0.0]],     \"duration\": 400,     \"units\": \"mm/h\",     \"substances\": [       {         \"substance\": 1,         \"concentrations\": [[0, 0.0001], [3600, 0.0]]       },       {         \"substance\": 2,         \"concentrations\": [[0, 0.0002], [3600, 0.0]]         \"zone\": {           \"type\": \"Polygon\",           \"coordinates\": [             [               [5.1152647, 52.0929945],               [5.1152376, 52.0925619],               [5.1164597, 52.0924375],               [5.1165030, 52.0930215],               [5.1152647, 52.0929945]             ],           ]         }       }     ]   } ] ``` Substances can be applied to a zone within the rain event. The zone should be a GeoJSON polygon with coordinates in the EPSG-code specified in the `epsg_code`. If no `epsg_code` is specified, EPSG:4326 is assumed. The polygon will be intersected with the edges of nodes in the grid to determine which nodes receive the substance load. So nodes are either fully in or out of the polygon.  The `offset` of this file event will be added to each individual rain event offset in the uploaded file.  **Note**: the substance concentrations timesteps need to exactly match the rain event values timesteps  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_create_with_http_info(simulation_pk, upload_bulk_timeseries_rain_file, async_req=True)
+        >>> thread = api.beta_simulations_events_rain_timeseries_file_create_with_http_info(simulation_pk, upload_bulk_timeseries_rain_file, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -2568,18 +2568,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_rain_timeseries_file_create" % key
+                    " to method beta_simulations_events_rain_timeseries_file_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_rain_timeseries_file_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_events_rain_timeseries_file_create`")  # noqa: E501
         # verify the required parameter 'upload_bulk_timeseries_rain_file' is set
         if self.api_client.client_side_validation and ('upload_bulk_timeseries_rain_file' not in local_var_params or  # noqa: E501
                                                         local_var_params['upload_bulk_timeseries_rain_file'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `upload_bulk_timeseries_rain_file` when calling `v3_beta_simulations_events_rain_timeseries_file_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload_bulk_timeseries_rain_file` when calling `beta_simulations_events_rain_timeseries_file_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2624,13 +2624,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_rain_timeseries_file_destroy(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_rain_timeseries_file_destroy  # noqa: E501
+    def beta_simulations_events_rain_timeseries_file_destroy(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_rain_timeseries_file_destroy  # noqa: E501
 
         destroy resource only if the event has not yet been applied to the associated simulation  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_destroy(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_rain_timeseries_file_destroy(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -2648,15 +2648,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_rain_timeseries_file_destroy_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_events_rain_timeseries_file_destroy_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_rain_timeseries_file_destroy_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_rain_timeseries_file_destroy  # noqa: E501
+    def beta_simulations_events_rain_timeseries_file_destroy_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_rain_timeseries_file_destroy  # noqa: E501
 
         destroy resource only if the event has not yet been applied to the associated simulation  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_destroy_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_rain_timeseries_file_destroy_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -2695,18 +2695,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_rain_timeseries_file_destroy" % key
+                    " to method beta_simulations_events_rain_timeseries_file_destroy" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_events_rain_timeseries_file_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_events_rain_timeseries_file_destroy`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_rain_timeseries_file_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_events_rain_timeseries_file_destroy`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2747,13 +2747,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_rain_timeseries_file_download_retrieve(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_rain_timeseries_file_download_retrieve  # noqa: E501
+    def beta_simulations_events_rain_timeseries_file_download_retrieve(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_rain_timeseries_file_download_retrieve  # noqa: E501
 
         Endpoint for downloading files.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_download_retrieve(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_rain_timeseries_file_download_retrieve(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -2771,15 +2771,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_rain_timeseries_file_download_retrieve_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_events_rain_timeseries_file_download_retrieve_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_rain_timeseries_file_download_retrieve_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_rain_timeseries_file_download_retrieve  # noqa: E501
+    def beta_simulations_events_rain_timeseries_file_download_retrieve_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_rain_timeseries_file_download_retrieve  # noqa: E501
 
         Endpoint for downloading files.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_download_retrieve_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_rain_timeseries_file_download_retrieve_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -2818,18 +2818,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_rain_timeseries_file_download_retrieve" % key
+                    " to method beta_simulations_events_rain_timeseries_file_download_retrieve" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_events_rain_timeseries_file_download_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_events_rain_timeseries_file_download_retrieve`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_rain_timeseries_file_download_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_events_rain_timeseries_file_download_retrieve`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2870,13 +2870,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_rain_timeseries_file_list(self, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_rain_timeseries_file_list  # noqa: E501
+    def beta_simulations_events_rain_timeseries_file_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_rain_timeseries_file_list  # noqa: E501
 
         ViewMixin which adds an extra PUT-action 'processed'.  Used by the api-workers event-validators to update the (asynchronous) validation results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_list(simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_rain_timeseries_file_list(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -2895,15 +2895,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_rain_timeseries_file_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_events_rain_timeseries_file_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_rain_timeseries_file_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_rain_timeseries_file_list  # noqa: E501
+    def beta_simulations_events_rain_timeseries_file_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_rain_timeseries_file_list  # noqa: E501
 
         ViewMixin which adds an extra PUT-action 'processed'.  Used by the api-workers event-validators to update the (asynchronous) validation results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_list_with_http_info(simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_rain_timeseries_file_list_with_http_info(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -2944,14 +2944,14 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_rain_timeseries_file_list" % key
+                    " to method beta_simulations_events_rain_timeseries_file_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_rain_timeseries_file_list`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_events_rain_timeseries_file_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2994,13 +2994,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_rain_timeseries_file_partial_update(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_rain_timeseries_file_partial_update  # noqa: E501
+    def beta_simulations_events_rain_timeseries_file_partial_update(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_rain_timeseries_file_partial_update  # noqa: E501
 
         when the simulation has started only the duration parameter might be patched  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_partial_update(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_rain_timeseries_file_partial_update(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -3019,15 +3019,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_rain_timeseries_file_partial_update_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_events_rain_timeseries_file_partial_update_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_rain_timeseries_file_partial_update_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_rain_timeseries_file_partial_update  # noqa: E501
+    def beta_simulations_events_rain_timeseries_file_partial_update_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_rain_timeseries_file_partial_update  # noqa: E501
 
         when the simulation has started only the duration parameter might be patched  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_partial_update_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_rain_timeseries_file_partial_update_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -3068,18 +3068,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_rain_timeseries_file_partial_update" % key
+                    " to method beta_simulations_events_rain_timeseries_file_partial_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_events_rain_timeseries_file_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_events_rain_timeseries_file_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_rain_timeseries_file_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_events_rain_timeseries_file_partial_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -3126,13 +3126,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_rain_timeseries_file_processed_update(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_rain_timeseries_file_processed_update  # noqa: E501
+    def beta_simulations_events_rain_timeseries_file_processed_update(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
+        """beta_simulations_events_rain_timeseries_file_processed_update  # noqa: E501
 
         ViewMixin which adds an extra PUT-action 'processed'.  Used by the api-workers event-validators to update the (asynchronous) validation results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_processed_update(id, simulation_pk, base_event_state, async_req=True)
+        >>> thread = api.beta_simulations_events_rain_timeseries_file_processed_update(id, simulation_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -3151,15 +3151,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_rain_timeseries_file_processed_update_with_http_info(id, simulation_pk, base_event_state, **kwargs)  # noqa: E501
+        return self.beta_simulations_events_rain_timeseries_file_processed_update_with_http_info(id, simulation_pk, base_event_state, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_rain_timeseries_file_processed_update_with_http_info(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_rain_timeseries_file_processed_update  # noqa: E501
+    def beta_simulations_events_rain_timeseries_file_processed_update_with_http_info(self, id, simulation_pk, base_event_state, **kwargs):  # noqa: E501
+        """beta_simulations_events_rain_timeseries_file_processed_update  # noqa: E501
 
         ViewMixin which adds an extra PUT-action 'processed'.  Used by the api-workers event-validators to update the (asynchronous) validation results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_processed_update_with_http_info(id, simulation_pk, base_event_state, async_req=True)
+        >>> thread = api.beta_simulations_events_rain_timeseries_file_processed_update_with_http_info(id, simulation_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -3200,22 +3200,22 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_rain_timeseries_file_processed_update" % key
+                    " to method beta_simulations_events_rain_timeseries_file_processed_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_events_rain_timeseries_file_processed_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_events_rain_timeseries_file_processed_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_rain_timeseries_file_processed_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_events_rain_timeseries_file_processed_update`")  # noqa: E501
         # verify the required parameter 'base_event_state' is set
         if self.api_client.client_side_validation and ('base_event_state' not in local_var_params or  # noqa: E501
                                                         local_var_params['base_event_state'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `base_event_state` when calling `v3_beta_simulations_events_rain_timeseries_file_processed_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `base_event_state` when calling `beta_simulations_events_rain_timeseries_file_processed_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -3258,13 +3258,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_rain_timeseries_file_retrieve(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_rain_timeseries_file_retrieve  # noqa: E501
+    def beta_simulations_events_rain_timeseries_file_retrieve(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_rain_timeseries_file_retrieve  # noqa: E501
 
         ViewMixin which adds an extra PUT-action 'processed'.  Used by the api-workers event-validators to update the (asynchronous) validation results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_retrieve(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_rain_timeseries_file_retrieve(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -3282,15 +3282,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_rain_timeseries_file_retrieve_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_events_rain_timeseries_file_retrieve_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_rain_timeseries_file_retrieve_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_rain_timeseries_file_retrieve  # noqa: E501
+    def beta_simulations_events_rain_timeseries_file_retrieve_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_events_rain_timeseries_file_retrieve  # noqa: E501
 
         ViewMixin which adds an extra PUT-action 'processed'.  Used by the api-workers event-validators to update the (asynchronous) validation results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_retrieve_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_events_rain_timeseries_file_retrieve_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -3329,18 +3329,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_rain_timeseries_file_retrieve" % key
+                    " to method beta_simulations_events_rain_timeseries_file_retrieve" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_events_rain_timeseries_file_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_events_rain_timeseries_file_retrieve`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_rain_timeseries_file_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_events_rain_timeseries_file_retrieve`")  # noqa: E501
 
         collection_formats = {}
 
@@ -3381,13 +3381,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_events_rain_timeseries_file_update(self, id, simulation_pk, bulk_timeseries_rain, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_rain_timeseries_file_update  # noqa: E501
+    def beta_simulations_events_rain_timeseries_file_update(self, id, simulation_pk, bulk_timeseries_rain, **kwargs):  # noqa: E501
+        """beta_simulations_events_rain_timeseries_file_update  # noqa: E501
 
         ViewMixin which adds an extra PUT-action 'processed'.  Used by the api-workers event-validators to update the (asynchronous) validation results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_update(id, simulation_pk, bulk_timeseries_rain, async_req=True)
+        >>> thread = api.beta_simulations_events_rain_timeseries_file_update(id, simulation_pk, bulk_timeseries_rain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -3406,15 +3406,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_events_rain_timeseries_file_update_with_http_info(id, simulation_pk, bulk_timeseries_rain, **kwargs)  # noqa: E501
+        return self.beta_simulations_events_rain_timeseries_file_update_with_http_info(id, simulation_pk, bulk_timeseries_rain, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_events_rain_timeseries_file_update_with_http_info(self, id, simulation_pk, bulk_timeseries_rain, **kwargs):  # noqa: E501
-        """v3_beta_simulations_events_rain_timeseries_file_update  # noqa: E501
+    def beta_simulations_events_rain_timeseries_file_update_with_http_info(self, id, simulation_pk, bulk_timeseries_rain, **kwargs):  # noqa: E501
+        """beta_simulations_events_rain_timeseries_file_update  # noqa: E501
 
         ViewMixin which adds an extra PUT-action 'processed'.  Used by the api-workers event-validators to update the (asynchronous) validation results.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_events_rain_timeseries_file_update_with_http_info(id, simulation_pk, bulk_timeseries_rain, async_req=True)
+        >>> thread = api.beta_simulations_events_rain_timeseries_file_update_with_http_info(id, simulation_pk, bulk_timeseries_rain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -3455,22 +3455,22 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_events_rain_timeseries_file_update" % key
+                    " to method beta_simulations_events_rain_timeseries_file_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_events_rain_timeseries_file_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_events_rain_timeseries_file_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_events_rain_timeseries_file_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_events_rain_timeseries_file_update`")  # noqa: E501
         # verify the required parameter 'bulk_timeseries_rain' is set
         if self.api_client.client_side_validation and ('bulk_timeseries_rain' not in local_var_params or  # noqa: E501
                                                         local_var_params['bulk_timeseries_rain'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `bulk_timeseries_rain` when calling `v3_beta_simulations_events_rain_timeseries_file_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `bulk_timeseries_rain` when calling `beta_simulations_events_rain_timeseries_file_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -3517,13 +3517,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial1d_substance_concentrations_create(self, simulation_pk, one_d_substance_concentration, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial1d_substance_concentrations_create  # noqa: E501
+    def beta_simulations_initial1d_substance_concentrations_create(self, simulation_pk, one_d_substance_concentration, **kwargs):  # noqa: E501
+        """beta_simulations_initial1d_substance_concentrations_create  # noqa: E501
 
         Start the simulation with a 1D (water quality) concentrations from a file. Applies the given values to the predefined nodes subset \"1D\" as described in the [threedigrid documentation] [ref]  [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial1d_substance_concentrations_create(simulation_pk, one_d_substance_concentration, async_req=True)
+        >>> thread = api.beta_simulations_initial1d_substance_concentrations_create(simulation_pk, one_d_substance_concentration, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -3541,15 +3541,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial1d_substance_concentrations_create_with_http_info(simulation_pk, one_d_substance_concentration, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial1d_substance_concentrations_create_with_http_info(simulation_pk, one_d_substance_concentration, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial1d_substance_concentrations_create_with_http_info(self, simulation_pk, one_d_substance_concentration, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial1d_substance_concentrations_create  # noqa: E501
+    def beta_simulations_initial1d_substance_concentrations_create_with_http_info(self, simulation_pk, one_d_substance_concentration, **kwargs):  # noqa: E501
+        """beta_simulations_initial1d_substance_concentrations_create  # noqa: E501
 
         Start the simulation with a 1D (water quality) concentrations from a file. Applies the given values to the predefined nodes subset \"1D\" as described in the [threedigrid documentation] [ref]  [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial1d_substance_concentrations_create_with_http_info(simulation_pk, one_d_substance_concentration, async_req=True)
+        >>> thread = api.beta_simulations_initial1d_substance_concentrations_create_with_http_info(simulation_pk, one_d_substance_concentration, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -3588,18 +3588,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial1d_substance_concentrations_create" % key
+                    " to method beta_simulations_initial1d_substance_concentrations_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial1d_substance_concentrations_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial1d_substance_concentrations_create`")  # noqa: E501
         # verify the required parameter 'one_d_substance_concentration' is set
         if self.api_client.client_side_validation and ('one_d_substance_concentration' not in local_var_params or  # noqa: E501
                                                         local_var_params['one_d_substance_concentration'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `one_d_substance_concentration` when calling `v3_beta_simulations_initial1d_substance_concentrations_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `one_d_substance_concentration` when calling `beta_simulations_initial1d_substance_concentrations_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -3644,13 +3644,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial1d_substance_concentrations_destroy(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial1d_substance_concentrations_destroy  # noqa: E501
+    def beta_simulations_initial1d_substance_concentrations_destroy(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial1d_substance_concentrations_destroy  # noqa: E501
 
         Initial 1D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial1d_substance_concentrations_destroy(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial1d_substance_concentrations_destroy(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -3668,15 +3668,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial1d_substance_concentrations_destroy_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial1d_substance_concentrations_destroy_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial1d_substance_concentrations_destroy_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial1d_substance_concentrations_destroy  # noqa: E501
+    def beta_simulations_initial1d_substance_concentrations_destroy_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial1d_substance_concentrations_destroy  # noqa: E501
 
         Initial 1D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial1d_substance_concentrations_destroy_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial1d_substance_concentrations_destroy_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -3715,18 +3715,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial1d_substance_concentrations_destroy" % key
+                    " to method beta_simulations_initial1d_substance_concentrations_destroy" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_initial1d_substance_concentrations_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_initial1d_substance_concentrations_destroy`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial1d_substance_concentrations_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial1d_substance_concentrations_destroy`")  # noqa: E501
 
         collection_formats = {}
 
@@ -3763,13 +3763,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial1d_substance_concentrations_list(self, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial1d_substance_concentrations_list  # noqa: E501
+    def beta_simulations_initial1d_substance_concentrations_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial1d_substance_concentrations_list  # noqa: E501
 
         Initial 1D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial1d_substance_concentrations_list(simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial1d_substance_concentrations_list(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -3788,15 +3788,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial1d_substance_concentrations_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial1d_substance_concentrations_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial1d_substance_concentrations_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial1d_substance_concentrations_list  # noqa: E501
+    def beta_simulations_initial1d_substance_concentrations_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial1d_substance_concentrations_list  # noqa: E501
 
         Initial 1D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial1d_substance_concentrations_list_with_http_info(simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial1d_substance_concentrations_list_with_http_info(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -3837,14 +3837,14 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial1d_substance_concentrations_list" % key
+                    " to method beta_simulations_initial1d_substance_concentrations_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial1d_substance_concentrations_list`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial1d_substance_concentrations_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -3887,13 +3887,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial1d_substance_concentrations_partial_update(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial1d_substance_concentrations_partial_update  # noqa: E501
+    def beta_simulations_initial1d_substance_concentrations_partial_update(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial1d_substance_concentrations_partial_update  # noqa: E501
 
         Initial 1D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial1d_substance_concentrations_partial_update(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial1d_substance_concentrations_partial_update(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -3912,15 +3912,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial1d_substance_concentrations_partial_update_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial1d_substance_concentrations_partial_update_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial1d_substance_concentrations_partial_update_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial1d_substance_concentrations_partial_update  # noqa: E501
+    def beta_simulations_initial1d_substance_concentrations_partial_update_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial1d_substance_concentrations_partial_update  # noqa: E501
 
         Initial 1D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial1d_substance_concentrations_partial_update_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial1d_substance_concentrations_partial_update_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -3961,18 +3961,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial1d_substance_concentrations_partial_update" % key
+                    " to method beta_simulations_initial1d_substance_concentrations_partial_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_initial1d_substance_concentrations_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_initial1d_substance_concentrations_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial1d_substance_concentrations_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial1d_substance_concentrations_partial_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4019,13 +4019,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial1d_substance_concentrations_retrieve(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial1d_substance_concentrations_retrieve  # noqa: E501
+    def beta_simulations_initial1d_substance_concentrations_retrieve(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial1d_substance_concentrations_retrieve  # noqa: E501
 
         Initial 1D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial1d_substance_concentrations_retrieve(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial1d_substance_concentrations_retrieve(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -4043,15 +4043,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial1d_substance_concentrations_retrieve_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial1d_substance_concentrations_retrieve_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial1d_substance_concentrations_retrieve_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial1d_substance_concentrations_retrieve  # noqa: E501
+    def beta_simulations_initial1d_substance_concentrations_retrieve_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial1d_substance_concentrations_retrieve  # noqa: E501
 
         Initial 1D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial1d_substance_concentrations_retrieve_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial1d_substance_concentrations_retrieve_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -4090,18 +4090,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial1d_substance_concentrations_retrieve" % key
+                    " to method beta_simulations_initial1d_substance_concentrations_retrieve" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_initial1d_substance_concentrations_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_initial1d_substance_concentrations_retrieve`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial1d_substance_concentrations_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial1d_substance_concentrations_retrieve`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4142,13 +4142,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial1d_substance_concentrations_update(self, id, simulation_pk, one_d_substance_concentration, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial1d_substance_concentrations_update  # noqa: E501
+    def beta_simulations_initial1d_substance_concentrations_update(self, id, simulation_pk, one_d_substance_concentration, **kwargs):  # noqa: E501
+        """beta_simulations_initial1d_substance_concentrations_update  # noqa: E501
 
         Initial 1D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial1d_substance_concentrations_update(id, simulation_pk, one_d_substance_concentration, async_req=True)
+        >>> thread = api.beta_simulations_initial1d_substance_concentrations_update(id, simulation_pk, one_d_substance_concentration, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -4167,15 +4167,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial1d_substance_concentrations_update_with_http_info(id, simulation_pk, one_d_substance_concentration, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial1d_substance_concentrations_update_with_http_info(id, simulation_pk, one_d_substance_concentration, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial1d_substance_concentrations_update_with_http_info(self, id, simulation_pk, one_d_substance_concentration, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial1d_substance_concentrations_update  # noqa: E501
+    def beta_simulations_initial1d_substance_concentrations_update_with_http_info(self, id, simulation_pk, one_d_substance_concentration, **kwargs):  # noqa: E501
+        """beta_simulations_initial1d_substance_concentrations_update  # noqa: E501
 
         Initial 1D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial1d_substance_concentrations_update_with_http_info(id, simulation_pk, one_d_substance_concentration, async_req=True)
+        >>> thread = api.beta_simulations_initial1d_substance_concentrations_update_with_http_info(id, simulation_pk, one_d_substance_concentration, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -4216,22 +4216,22 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial1d_substance_concentrations_update" % key
+                    " to method beta_simulations_initial1d_substance_concentrations_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_initial1d_substance_concentrations_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_initial1d_substance_concentrations_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial1d_substance_concentrations_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial1d_substance_concentrations_update`")  # noqa: E501
         # verify the required parameter 'one_d_substance_concentration' is set
         if self.api_client.client_side_validation and ('one_d_substance_concentration' not in local_var_params or  # noqa: E501
                                                         local_var_params['one_d_substance_concentration'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `one_d_substance_concentration` when calling `v3_beta_simulations_initial1d_substance_concentrations_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `one_d_substance_concentration` when calling `beta_simulations_initial1d_substance_concentrations_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4278,13 +4278,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial2d_substance_concentrations_create(self, simulation_pk, two_d_substance_concentration, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial2d_substance_concentrations_create  # noqa: E501
+    def beta_simulations_initial2d_substance_concentrations_create(self, simulation_pk, two_d_substance_concentration, **kwargs):  # noqa: E501
+        """beta_simulations_initial2d_substance_concentrations_create  # noqa: E501
 
         Start the simulation with 2D (water quality) concentrations derived from the raster by using the aggregation method. Applies the resulting levels to the predefined nodes subset \"2D_OPEN_WATER\" as described in the [threedigrid documentation] [ref]  [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial2d_substance_concentrations_create(simulation_pk, two_d_substance_concentration, async_req=True)
+        >>> thread = api.beta_simulations_initial2d_substance_concentrations_create(simulation_pk, two_d_substance_concentration, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -4302,15 +4302,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial2d_substance_concentrations_create_with_http_info(simulation_pk, two_d_substance_concentration, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial2d_substance_concentrations_create_with_http_info(simulation_pk, two_d_substance_concentration, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial2d_substance_concentrations_create_with_http_info(self, simulation_pk, two_d_substance_concentration, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial2d_substance_concentrations_create  # noqa: E501
+    def beta_simulations_initial2d_substance_concentrations_create_with_http_info(self, simulation_pk, two_d_substance_concentration, **kwargs):  # noqa: E501
+        """beta_simulations_initial2d_substance_concentrations_create  # noqa: E501
 
         Start the simulation with 2D (water quality) concentrations derived from the raster by using the aggregation method. Applies the resulting levels to the predefined nodes subset \"2D_OPEN_WATER\" as described in the [threedigrid documentation] [ref]  [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial2d_substance_concentrations_create_with_http_info(simulation_pk, two_d_substance_concentration, async_req=True)
+        >>> thread = api.beta_simulations_initial2d_substance_concentrations_create_with_http_info(simulation_pk, two_d_substance_concentration, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -4349,18 +4349,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial2d_substance_concentrations_create" % key
+                    " to method beta_simulations_initial2d_substance_concentrations_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial2d_substance_concentrations_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial2d_substance_concentrations_create`")  # noqa: E501
         # verify the required parameter 'two_d_substance_concentration' is set
         if self.api_client.client_side_validation and ('two_d_substance_concentration' not in local_var_params or  # noqa: E501
                                                         local_var_params['two_d_substance_concentration'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `two_d_substance_concentration` when calling `v3_beta_simulations_initial2d_substance_concentrations_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `two_d_substance_concentration` when calling `beta_simulations_initial2d_substance_concentrations_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4405,13 +4405,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial2d_substance_concentrations_destroy(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial2d_substance_concentrations_destroy  # noqa: E501
+    def beta_simulations_initial2d_substance_concentrations_destroy(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial2d_substance_concentrations_destroy  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial2d_substance_concentrations_destroy(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial2d_substance_concentrations_destroy(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -4429,15 +4429,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial2d_substance_concentrations_destroy_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial2d_substance_concentrations_destroy_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial2d_substance_concentrations_destroy_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial2d_substance_concentrations_destroy  # noqa: E501
+    def beta_simulations_initial2d_substance_concentrations_destroy_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial2d_substance_concentrations_destroy  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial2d_substance_concentrations_destroy_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial2d_substance_concentrations_destroy_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -4476,18 +4476,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial2d_substance_concentrations_destroy" % key
+                    " to method beta_simulations_initial2d_substance_concentrations_destroy" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_initial2d_substance_concentrations_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_initial2d_substance_concentrations_destroy`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial2d_substance_concentrations_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial2d_substance_concentrations_destroy`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4524,13 +4524,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial2d_substance_concentrations_list(self, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial2d_substance_concentrations_list  # noqa: E501
+    def beta_simulations_initial2d_substance_concentrations_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial2d_substance_concentrations_list  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial2d_substance_concentrations_list(simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial2d_substance_concentrations_list(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -4549,15 +4549,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial2d_substance_concentrations_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial2d_substance_concentrations_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial2d_substance_concentrations_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial2d_substance_concentrations_list  # noqa: E501
+    def beta_simulations_initial2d_substance_concentrations_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial2d_substance_concentrations_list  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial2d_substance_concentrations_list_with_http_info(simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial2d_substance_concentrations_list_with_http_info(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -4598,14 +4598,14 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial2d_substance_concentrations_list" % key
+                    " to method beta_simulations_initial2d_substance_concentrations_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial2d_substance_concentrations_list`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial2d_substance_concentrations_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4648,13 +4648,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial2d_substance_concentrations_partial_update(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial2d_substance_concentrations_partial_update  # noqa: E501
+    def beta_simulations_initial2d_substance_concentrations_partial_update(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial2d_substance_concentrations_partial_update  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial2d_substance_concentrations_partial_update(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial2d_substance_concentrations_partial_update(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -4673,15 +4673,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial2d_substance_concentrations_partial_update_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial2d_substance_concentrations_partial_update_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial2d_substance_concentrations_partial_update_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial2d_substance_concentrations_partial_update  # noqa: E501
+    def beta_simulations_initial2d_substance_concentrations_partial_update_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial2d_substance_concentrations_partial_update  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial2d_substance_concentrations_partial_update_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial2d_substance_concentrations_partial_update_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -4722,18 +4722,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial2d_substance_concentrations_partial_update" % key
+                    " to method beta_simulations_initial2d_substance_concentrations_partial_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_initial2d_substance_concentrations_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_initial2d_substance_concentrations_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial2d_substance_concentrations_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial2d_substance_concentrations_partial_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4780,13 +4780,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial2d_substance_concentrations_retrieve(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial2d_substance_concentrations_retrieve  # noqa: E501
+    def beta_simulations_initial2d_substance_concentrations_retrieve(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial2d_substance_concentrations_retrieve  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial2d_substance_concentrations_retrieve(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial2d_substance_concentrations_retrieve(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -4804,15 +4804,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial2d_substance_concentrations_retrieve_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial2d_substance_concentrations_retrieve_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial2d_substance_concentrations_retrieve_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial2d_substance_concentrations_retrieve  # noqa: E501
+    def beta_simulations_initial2d_substance_concentrations_retrieve_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial2d_substance_concentrations_retrieve  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial2d_substance_concentrations_retrieve_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial2d_substance_concentrations_retrieve_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -4851,18 +4851,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial2d_substance_concentrations_retrieve" % key
+                    " to method beta_simulations_initial2d_substance_concentrations_retrieve" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_initial2d_substance_concentrations_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_initial2d_substance_concentrations_retrieve`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial2d_substance_concentrations_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial2d_substance_concentrations_retrieve`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4903,13 +4903,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial2d_substance_concentrations_update(self, id, simulation_pk, two_d_substance_concentration, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial2d_substance_concentrations_update  # noqa: E501
+    def beta_simulations_initial2d_substance_concentrations_update(self, id, simulation_pk, two_d_substance_concentration, **kwargs):  # noqa: E501
+        """beta_simulations_initial2d_substance_concentrations_update  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial2d_substance_concentrations_update(id, simulation_pk, two_d_substance_concentration, async_req=True)
+        >>> thread = api.beta_simulations_initial2d_substance_concentrations_update(id, simulation_pk, two_d_substance_concentration, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -4928,15 +4928,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial2d_substance_concentrations_update_with_http_info(id, simulation_pk, two_d_substance_concentration, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial2d_substance_concentrations_update_with_http_info(id, simulation_pk, two_d_substance_concentration, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial2d_substance_concentrations_update_with_http_info(self, id, simulation_pk, two_d_substance_concentration, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial2d_substance_concentrations_update  # noqa: E501
+    def beta_simulations_initial2d_substance_concentrations_update_with_http_info(self, id, simulation_pk, two_d_substance_concentration, **kwargs):  # noqa: E501
+        """beta_simulations_initial2d_substance_concentrations_update  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial2d_substance_concentrations_update_with_http_info(id, simulation_pk, two_d_substance_concentration, async_req=True)
+        >>> thread = api.beta_simulations_initial2d_substance_concentrations_update_with_http_info(id, simulation_pk, two_d_substance_concentration, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -4977,22 +4977,22 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial2d_substance_concentrations_update" % key
+                    " to method beta_simulations_initial2d_substance_concentrations_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_initial2d_substance_concentrations_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_initial2d_substance_concentrations_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial2d_substance_concentrations_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial2d_substance_concentrations_update`")  # noqa: E501
         # verify the required parameter 'two_d_substance_concentration' is set
         if self.api_client.client_side_validation and ('two_d_substance_concentration' not in local_var_params or  # noqa: E501
                                                         local_var_params['two_d_substance_concentration'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `two_d_substance_concentration` when calling `v3_beta_simulations_initial2d_substance_concentrations_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `two_d_substance_concentration` when calling `beta_simulations_initial2d_substance_concentrations_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5039,13 +5039,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial_groundwater_substance_concentrations_create(self, simulation_pk, ground_water_substance_concentration, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial_groundwater_substance_concentrations_create  # noqa: E501
+    def beta_simulations_initial_groundwater_substance_concentrations_create(self, simulation_pk, ground_water_substance_concentration, **kwargs):  # noqa: E501
+        """beta_simulations_initial_groundwater_substance_concentrations_create  # noqa: E501
 
         Start the simulation with groundwater (water quality) concentrations derived from the raster by using the aggregation method. Applies the resulting levels to the predefined nodes subset \"2D_GROUND_WATER\" as described in the [threedigrid documentation] [ref]  [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial_groundwater_substance_concentrations_create(simulation_pk, ground_water_substance_concentration, async_req=True)
+        >>> thread = api.beta_simulations_initial_groundwater_substance_concentrations_create(simulation_pk, ground_water_substance_concentration, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -5063,15 +5063,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial_groundwater_substance_concentrations_create_with_http_info(simulation_pk, ground_water_substance_concentration, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial_groundwater_substance_concentrations_create_with_http_info(simulation_pk, ground_water_substance_concentration, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial_groundwater_substance_concentrations_create_with_http_info(self, simulation_pk, ground_water_substance_concentration, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial_groundwater_substance_concentrations_create  # noqa: E501
+    def beta_simulations_initial_groundwater_substance_concentrations_create_with_http_info(self, simulation_pk, ground_water_substance_concentration, **kwargs):  # noqa: E501
+        """beta_simulations_initial_groundwater_substance_concentrations_create  # noqa: E501
 
         Start the simulation with groundwater (water quality) concentrations derived from the raster by using the aggregation method. Applies the resulting levels to the predefined nodes subset \"2D_GROUND_WATER\" as described in the [threedigrid documentation] [ref]  [ref]: https://threedigrid.readthedocs.io/en/latest/api.html#subsets  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial_groundwater_substance_concentrations_create_with_http_info(simulation_pk, ground_water_substance_concentration, async_req=True)
+        >>> thread = api.beta_simulations_initial_groundwater_substance_concentrations_create_with_http_info(simulation_pk, ground_water_substance_concentration, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -5110,18 +5110,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial_groundwater_substance_concentrations_create" % key
+                    " to method beta_simulations_initial_groundwater_substance_concentrations_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial_groundwater_substance_concentrations_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial_groundwater_substance_concentrations_create`")  # noqa: E501
         # verify the required parameter 'ground_water_substance_concentration' is set
         if self.api_client.client_side_validation and ('ground_water_substance_concentration' not in local_var_params or  # noqa: E501
                                                         local_var_params['ground_water_substance_concentration'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `ground_water_substance_concentration` when calling `v3_beta_simulations_initial_groundwater_substance_concentrations_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `ground_water_substance_concentration` when calling `beta_simulations_initial_groundwater_substance_concentrations_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5166,13 +5166,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial_groundwater_substance_concentrations_destroy(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial_groundwater_substance_concentrations_destroy  # noqa: E501
+    def beta_simulations_initial_groundwater_substance_concentrations_destroy(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial_groundwater_substance_concentrations_destroy  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial_groundwater_substance_concentrations_destroy(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial_groundwater_substance_concentrations_destroy(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -5190,15 +5190,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial_groundwater_substance_concentrations_destroy_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial_groundwater_substance_concentrations_destroy_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial_groundwater_substance_concentrations_destroy_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial_groundwater_substance_concentrations_destroy  # noqa: E501
+    def beta_simulations_initial_groundwater_substance_concentrations_destroy_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial_groundwater_substance_concentrations_destroy  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial_groundwater_substance_concentrations_destroy_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial_groundwater_substance_concentrations_destroy_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -5237,18 +5237,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial_groundwater_substance_concentrations_destroy" % key
+                    " to method beta_simulations_initial_groundwater_substance_concentrations_destroy" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_initial_groundwater_substance_concentrations_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_initial_groundwater_substance_concentrations_destroy`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial_groundwater_substance_concentrations_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial_groundwater_substance_concentrations_destroy`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5285,13 +5285,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial_groundwater_substance_concentrations_list(self, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial_groundwater_substance_concentrations_list  # noqa: E501
+    def beta_simulations_initial_groundwater_substance_concentrations_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial_groundwater_substance_concentrations_list  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial_groundwater_substance_concentrations_list(simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial_groundwater_substance_concentrations_list(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -5310,15 +5310,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial_groundwater_substance_concentrations_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial_groundwater_substance_concentrations_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial_groundwater_substance_concentrations_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial_groundwater_substance_concentrations_list  # noqa: E501
+    def beta_simulations_initial_groundwater_substance_concentrations_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial_groundwater_substance_concentrations_list  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial_groundwater_substance_concentrations_list_with_http_info(simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial_groundwater_substance_concentrations_list_with_http_info(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -5359,14 +5359,14 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial_groundwater_substance_concentrations_list" % key
+                    " to method beta_simulations_initial_groundwater_substance_concentrations_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial_groundwater_substance_concentrations_list`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial_groundwater_substance_concentrations_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5409,13 +5409,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial_groundwater_substance_concentrations_partial_update(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial_groundwater_substance_concentrations_partial_update  # noqa: E501
+    def beta_simulations_initial_groundwater_substance_concentrations_partial_update(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial_groundwater_substance_concentrations_partial_update  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial_groundwater_substance_concentrations_partial_update(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial_groundwater_substance_concentrations_partial_update(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -5434,15 +5434,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial_groundwater_substance_concentrations_partial_update_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial_groundwater_substance_concentrations_partial_update_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial_groundwater_substance_concentrations_partial_update_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial_groundwater_substance_concentrations_partial_update  # noqa: E501
+    def beta_simulations_initial_groundwater_substance_concentrations_partial_update_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial_groundwater_substance_concentrations_partial_update  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial_groundwater_substance_concentrations_partial_update_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial_groundwater_substance_concentrations_partial_update_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -5483,18 +5483,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial_groundwater_substance_concentrations_partial_update" % key
+                    " to method beta_simulations_initial_groundwater_substance_concentrations_partial_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_initial_groundwater_substance_concentrations_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_initial_groundwater_substance_concentrations_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial_groundwater_substance_concentrations_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial_groundwater_substance_concentrations_partial_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5541,13 +5541,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial_groundwater_substance_concentrations_retrieve(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial_groundwater_substance_concentrations_retrieve  # noqa: E501
+    def beta_simulations_initial_groundwater_substance_concentrations_retrieve(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial_groundwater_substance_concentrations_retrieve  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial_groundwater_substance_concentrations_retrieve(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial_groundwater_substance_concentrations_retrieve(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -5565,15 +5565,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial_groundwater_substance_concentrations_retrieve_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial_groundwater_substance_concentrations_retrieve_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial_groundwater_substance_concentrations_retrieve_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial_groundwater_substance_concentrations_retrieve  # noqa: E501
+    def beta_simulations_initial_groundwater_substance_concentrations_retrieve_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_initial_groundwater_substance_concentrations_retrieve  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial_groundwater_substance_concentrations_retrieve_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_initial_groundwater_substance_concentrations_retrieve_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -5612,18 +5612,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial_groundwater_substance_concentrations_retrieve" % key
+                    " to method beta_simulations_initial_groundwater_substance_concentrations_retrieve" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_initial_groundwater_substance_concentrations_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_initial_groundwater_substance_concentrations_retrieve`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial_groundwater_substance_concentrations_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial_groundwater_substance_concentrations_retrieve`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5664,13 +5664,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_initial_groundwater_substance_concentrations_update(self, id, simulation_pk, ground_water_substance_concentration, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial_groundwater_substance_concentrations_update  # noqa: E501
+    def beta_simulations_initial_groundwater_substance_concentrations_update(self, id, simulation_pk, ground_water_substance_concentration, **kwargs):  # noqa: E501
+        """beta_simulations_initial_groundwater_substance_concentrations_update  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial_groundwater_substance_concentrations_update(id, simulation_pk, ground_water_substance_concentration, async_req=True)
+        >>> thread = api.beta_simulations_initial_groundwater_substance_concentrations_update(id, simulation_pk, ground_water_substance_concentration, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -5689,15 +5689,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_initial_groundwater_substance_concentrations_update_with_http_info(id, simulation_pk, ground_water_substance_concentration, **kwargs)  # noqa: E501
+        return self.beta_simulations_initial_groundwater_substance_concentrations_update_with_http_info(id, simulation_pk, ground_water_substance_concentration, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_initial_groundwater_substance_concentrations_update_with_http_info(self, id, simulation_pk, ground_water_substance_concentration, **kwargs):  # noqa: E501
-        """v3_beta_simulations_initial_groundwater_substance_concentrations_update  # noqa: E501
+    def beta_simulations_initial_groundwater_substance_concentrations_update_with_http_info(self, id, simulation_pk, ground_water_substance_concentration, **kwargs):  # noqa: E501
+        """beta_simulations_initial_groundwater_substance_concentrations_update  # noqa: E501
 
         Initial 2D substance concentration  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_initial_groundwater_substance_concentrations_update_with_http_info(id, simulation_pk, ground_water_substance_concentration, async_req=True)
+        >>> thread = api.beta_simulations_initial_groundwater_substance_concentrations_update_with_http_info(id, simulation_pk, ground_water_substance_concentration, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -5738,22 +5738,22 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_initial_groundwater_substance_concentrations_update" % key
+                    " to method beta_simulations_initial_groundwater_substance_concentrations_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_initial_groundwater_substance_concentrations_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_initial_groundwater_substance_concentrations_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_initial_groundwater_substance_concentrations_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_initial_groundwater_substance_concentrations_update`")  # noqa: E501
         # verify the required parameter 'ground_water_substance_concentration' is set
         if self.api_client.client_side_validation and ('ground_water_substance_concentration' not in local_var_params or  # noqa: E501
                                                         local_var_params['ground_water_substance_concentration'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `ground_water_substance_concentration` when calling `v3_beta_simulations_initial_groundwater_substance_concentrations_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `ground_water_substance_concentration` when calling `beta_simulations_initial_groundwater_substance_concentrations_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5800,13 +5800,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_substances_create(self, simulation_pk, substance, **kwargs):  # noqa: E501
-        """v3_beta_simulations_substances_create  # noqa: E501
+    def beta_simulations_substances_create(self, simulation_pk, substance, **kwargs):  # noqa: E501
+        """beta_simulations_substances_create  # noqa: E501
 
         Add substance to simulation substances set.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_substances_create(simulation_pk, substance, async_req=True)
+        >>> thread = api.beta_simulations_substances_create(simulation_pk, substance, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -5824,15 +5824,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_substances_create_with_http_info(simulation_pk, substance, **kwargs)  # noqa: E501
+        return self.beta_simulations_substances_create_with_http_info(simulation_pk, substance, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_substances_create_with_http_info(self, simulation_pk, substance, **kwargs):  # noqa: E501
-        """v3_beta_simulations_substances_create  # noqa: E501
+    def beta_simulations_substances_create_with_http_info(self, simulation_pk, substance, **kwargs):  # noqa: E501
+        """beta_simulations_substances_create  # noqa: E501
 
         Add substance to simulation substances set.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_substances_create_with_http_info(simulation_pk, substance, async_req=True)
+        >>> thread = api.beta_simulations_substances_create_with_http_info(simulation_pk, substance, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -5871,18 +5871,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_substances_create" % key
+                    " to method beta_simulations_substances_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_substances_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_substances_create`")  # noqa: E501
         # verify the required parameter 'substance' is set
         if self.api_client.client_side_validation and ('substance' not in local_var_params or  # noqa: E501
                                                         local_var_params['substance'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `substance` when calling `v3_beta_simulations_substances_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `substance` when calling `beta_simulations_substances_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5927,13 +5927,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_substances_destroy(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_substances_destroy  # noqa: E501
+    def beta_simulations_substances_destroy(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_substances_destroy  # noqa: E501
 
         Water quality substances  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_substances_destroy(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_substances_destroy(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -5951,15 +5951,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_substances_destroy_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_substances_destroy_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_substances_destroy_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_substances_destroy  # noqa: E501
+    def beta_simulations_substances_destroy_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_substances_destroy  # noqa: E501
 
         Water quality substances  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_substances_destroy_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_substances_destroy_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -5998,18 +5998,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_substances_destroy" % key
+                    " to method beta_simulations_substances_destroy" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_substances_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_substances_destroy`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_substances_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_substances_destroy`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6046,13 +6046,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_substances_list(self, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_substances_list  # noqa: E501
+    def beta_simulations_substances_list(self, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_substances_list  # noqa: E501
 
         Water quality substances  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_substances_list(simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_substances_list(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -6071,15 +6071,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_substances_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_substances_list_with_http_info(simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_substances_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_substances_list  # noqa: E501
+    def beta_simulations_substances_list_with_http_info(self, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_substances_list  # noqa: E501
 
         Water quality substances  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_substances_list_with_http_info(simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_substances_list_with_http_info(simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -6120,14 +6120,14 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_substances_list" % key
+                    " to method beta_simulations_substances_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_substances_list`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_substances_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6170,13 +6170,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_substances_partial_update(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_substances_partial_update  # noqa: E501
+    def beta_simulations_substances_partial_update(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_substances_partial_update  # noqa: E501
 
         Water quality substances  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_substances_partial_update(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_substances_partial_update(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -6195,15 +6195,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_substances_partial_update_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_substances_partial_update_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_substances_partial_update_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_substances_partial_update  # noqa: E501
+    def beta_simulations_substances_partial_update_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_substances_partial_update  # noqa: E501
 
         Water quality substances  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_substances_partial_update_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_substances_partial_update_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -6244,18 +6244,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_substances_partial_update" % key
+                    " to method beta_simulations_substances_partial_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_substances_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_substances_partial_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_substances_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_substances_partial_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6302,13 +6302,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_substances_retrieve(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_substances_retrieve  # noqa: E501
+    def beta_simulations_substances_retrieve(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_substances_retrieve  # noqa: E501
 
         Water quality substances  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_substances_retrieve(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_substances_retrieve(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -6326,15 +6326,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_substances_retrieve_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
+        return self.beta_simulations_substances_retrieve_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_substances_retrieve_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
-        """v3_beta_simulations_substances_retrieve  # noqa: E501
+    def beta_simulations_substances_retrieve_with_http_info(self, id, simulation_pk, **kwargs):  # noqa: E501
+        """beta_simulations_substances_retrieve  # noqa: E501
 
         Water quality substances  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_substances_retrieve_with_http_info(id, simulation_pk, async_req=True)
+        >>> thread = api.beta_simulations_substances_retrieve_with_http_info(id, simulation_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -6373,18 +6373,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_substances_retrieve" % key
+                    " to method beta_simulations_substances_retrieve" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_substances_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_substances_retrieve`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_substances_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_substances_retrieve`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6425,13 +6425,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_simulations_substances_update(self, id, simulation_pk, substance, **kwargs):  # noqa: E501
-        """v3_beta_simulations_substances_update  # noqa: E501
+    def beta_simulations_substances_update(self, id, simulation_pk, substance, **kwargs):  # noqa: E501
+        """beta_simulations_substances_update  # noqa: E501
 
         Water quality substances  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_substances_update(id, simulation_pk, substance, async_req=True)
+        >>> thread = api.beta_simulations_substances_update(id, simulation_pk, substance, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -6450,15 +6450,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_simulations_substances_update_with_http_info(id, simulation_pk, substance, **kwargs)  # noqa: E501
+        return self.beta_simulations_substances_update_with_http_info(id, simulation_pk, substance, **kwargs)  # noqa: E501
 
-    def v3_beta_simulations_substances_update_with_http_info(self, id, simulation_pk, substance, **kwargs):  # noqa: E501
-        """v3_beta_simulations_substances_update  # noqa: E501
+    def beta_simulations_substances_update_with_http_info(self, id, simulation_pk, substance, **kwargs):  # noqa: E501
+        """beta_simulations_substances_update  # noqa: E501
 
         Water quality substances  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_simulations_substances_update_with_http_info(id, simulation_pk, substance, async_req=True)
+        >>> thread = api.beta_simulations_substances_update_with_http_info(id, simulation_pk, substance, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -6499,22 +6499,22 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_simulations_substances_update" % key
+                    " to method beta_simulations_substances_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_simulations_substances_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_simulations_substances_update`")  # noqa: E501
         # verify the required parameter 'simulation_pk' is set
         if self.api_client.client_side_validation and ('simulation_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['simulation_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `v3_beta_simulations_substances_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `simulation_pk` when calling `beta_simulations_substances_update`")  # noqa: E501
         # verify the required parameter 'substance' is set
         if self.api_client.client_side_validation and ('substance' not in local_var_params or  # noqa: E501
                                                         local_var_params['substance'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `substance` when calling `v3_beta_simulations_substances_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `substance` when calling `beta_simulations_substances_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6561,12 +6561,12 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_status_current_version_retrieve(self, **kwargs):  # noqa: E501
-        """v3_beta_status_current_version_retrieve  # noqa: E501
+    def beta_status_current_version_retrieve(self, **kwargs):  # noqa: E501
+        """beta_status_current_version_retrieve  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_status_current_version_retrieve(async_req=True)
+        >>> thread = api.beta_status_current_version_retrieve(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -6582,14 +6582,14 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_status_current_version_retrieve_with_http_info(**kwargs)  # noqa: E501
+        return self.beta_status_current_version_retrieve_with_http_info(**kwargs)  # noqa: E501
 
-    def v3_beta_status_current_version_retrieve_with_http_info(self, **kwargs):  # noqa: E501
-        """v3_beta_status_current_version_retrieve  # noqa: E501
+    def beta_status_current_version_retrieve_with_http_info(self, **kwargs):  # noqa: E501
+        """beta_status_current_version_retrieve  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_status_current_version_retrieve_with_http_info(async_req=True)
+        >>> thread = api.beta_status_current_version_retrieve_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -6624,7 +6624,7 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_status_current_version_retrieve" % key
+                    " to method beta_status_current_version_retrieve" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
@@ -6664,12 +6664,12 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_status_list(self, **kwargs):  # noqa: E501
-        """v3_beta_status_list  # noqa: E501
+    def beta_status_list(self, **kwargs):  # noqa: E501
+        """beta_status_list  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_status_list(async_req=True)
+        >>> thread = api.beta_status_list(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -6685,14 +6685,14 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_status_list_with_http_info(**kwargs)  # noqa: E501
+        return self.beta_status_list_with_http_info(**kwargs)  # noqa: E501
 
-    def v3_beta_status_list_with_http_info(self, **kwargs):  # noqa: E501
-        """v3_beta_status_list  # noqa: E501
+    def beta_status_list_with_http_info(self, **kwargs):  # noqa: E501
+        """beta_status_list  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_status_list_with_http_info(async_req=True)
+        >>> thread = api.beta_status_list_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -6727,7 +6727,7 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_status_list" % key
+                    " to method beta_status_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
@@ -6767,13 +6767,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_threedimodels_initial_concentrations_create(self, threedimodel_pk, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_create  # noqa: E501
+    def beta_threedimodels_initial_concentrations_create(self, threedimodel_pk, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_create  # noqa: E501
 
         Add new initial concentrations  ### Adding (extra) 1D initial concentrations Extra 1D initial concentrations can be added by posting:  {\"dimension\": \"one_d\"}  Using the 'id' value from the response, a JSON file needs to be uploaded via the PUT_URL retrieved from `initial_concentrations/{id}/upload/` in the following JSON format:  Python code:      import json     file_contents = json.dumps({         \"node_ids\": [node_id_1, node_id2, ....],         \"values\" : [value_for_node_id_1, value_for_node_id_2, ...]     })      # Notes:     # - Omitted values are considered dry.     # - `node_ids` need to be sorted and unique     # - Make sure that the positions of the node_id's and values match.  ### Adding (extra) 2D initial substance concentrations 2D initial concentrations can be added by uploading an 'initial_concentration_file' Geotiff raster via `rasters/{id}/upload/` . This automatically triggers the creation of a 2D initial concentration. The source raster is linked as 'source_raster'. The values in the  `source_raster` are aggregated per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_create(threedimodel_pk, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_create(threedimodel_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -6791,15 +6791,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_threedimodels_initial_concentrations_create_with_http_info(threedimodel_pk, **kwargs)  # noqa: E501
+        return self.beta_threedimodels_initial_concentrations_create_with_http_info(threedimodel_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_threedimodels_initial_concentrations_create_with_http_info(self, threedimodel_pk, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_create  # noqa: E501
+    def beta_threedimodels_initial_concentrations_create_with_http_info(self, threedimodel_pk, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_create  # noqa: E501
 
         Add new initial concentrations  ### Adding (extra) 1D initial concentrations Extra 1D initial concentrations can be added by posting:  {\"dimension\": \"one_d\"}  Using the 'id' value from the response, a JSON file needs to be uploaded via the PUT_URL retrieved from `initial_concentrations/{id}/upload/` in the following JSON format:  Python code:      import json     file_contents = json.dumps({         \"node_ids\": [node_id_1, node_id2, ....],         \"values\" : [value_for_node_id_1, value_for_node_id_2, ...]     })      # Notes:     # - Omitted values are considered dry.     # - `node_ids` need to be sorted and unique     # - Make sure that the positions of the node_id's and values match.  ### Adding (extra) 2D initial substance concentrations 2D initial concentrations can be added by uploading an 'initial_concentration_file' Geotiff raster via `rasters/{id}/upload/` . This automatically triggers the creation of a 2D initial concentration. The source raster is linked as 'source_raster'. The values in the  `source_raster` are aggregated per node using max, min and mean operators. The resulting values are stored in a file linked under `file`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_create_with_http_info(threedimodel_pk, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_create_with_http_info(threedimodel_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -6838,14 +6838,14 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_threedimodels_initial_concentrations_create" % key
+                    " to method beta_threedimodels_initial_concentrations_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'threedimodel_pk' is set
         if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `v3_beta_threedimodels_initial_concentrations_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `beta_threedimodels_initial_concentrations_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -6890,13 +6890,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_threedimodels_initial_concentrations_destroy(self, id, threedimodel_pk, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_destroy  # noqa: E501
+    def beta_threedimodels_initial_concentrations_destroy(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_destroy  # noqa: E501
 
         Delete initial substance concentration  Note: Initial substance concentrations can only be deleted when not in use in any simulation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_destroy(id, threedimodel_pk, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_destroy(id, threedimodel_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -6914,15 +6914,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_threedimodels_initial_concentrations_destroy_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        return self.beta_threedimodels_initial_concentrations_destroy_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_threedimodels_initial_concentrations_destroy_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_destroy  # noqa: E501
+    def beta_threedimodels_initial_concentrations_destroy_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_destroy  # noqa: E501
 
         Delete initial substance concentration  Note: Initial substance concentrations can only be deleted when not in use in any simulation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_destroy_with_http_info(id, threedimodel_pk, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_destroy_with_http_info(id, threedimodel_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -6961,18 +6961,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_threedimodels_initial_concentrations_destroy" % key
+                    " to method beta_threedimodels_initial_concentrations_destroy" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_threedimodels_initial_concentrations_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_threedimodels_initial_concentrations_destroy`")  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
         if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `v3_beta_threedimodels_initial_concentrations_destroy`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `beta_threedimodels_initial_concentrations_destroy`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7009,13 +7009,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_threedimodels_initial_concentrations_download_retrieve(self, id, threedimodel_pk, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_download_retrieve  # noqa: E501
+    def beta_threedimodels_initial_concentrations_download_retrieve(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_download_retrieve  # noqa: E501
 
         Endpoint for downloading files.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_download_retrieve(id, threedimodel_pk, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_download_retrieve(id, threedimodel_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -7033,15 +7033,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_threedimodels_initial_concentrations_download_retrieve_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        return self.beta_threedimodels_initial_concentrations_download_retrieve_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_threedimodels_initial_concentrations_download_retrieve_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_download_retrieve  # noqa: E501
+    def beta_threedimodels_initial_concentrations_download_retrieve_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_download_retrieve  # noqa: E501
 
         Endpoint for downloading files.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_download_retrieve_with_http_info(id, threedimodel_pk, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_download_retrieve_with_http_info(id, threedimodel_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -7080,18 +7080,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_threedimodels_initial_concentrations_download_retrieve" % key
+                    " to method beta_threedimodels_initial_concentrations_download_retrieve" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_threedimodels_initial_concentrations_download_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_threedimodels_initial_concentrations_download_retrieve`")  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
         if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `v3_beta_threedimodels_initial_concentrations_download_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `beta_threedimodels_initial_concentrations_download_retrieve`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7132,13 +7132,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_threedimodels_initial_concentrations_list(self, threedimodel_pk, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_list  # noqa: E501
+    def beta_threedimodels_initial_concentrations_list(self, threedimodel_pk, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_list  # noqa: E501
 
         ## Description Initial substance concentrations on threedimodels can be used in a simulation to specify the initial substance concentration on the 1D and/or 2D domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_list(threedimodel_pk, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_list(threedimodel_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -7157,15 +7157,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_threedimodels_initial_concentrations_list_with_http_info(threedimodel_pk, **kwargs)  # noqa: E501
+        return self.beta_threedimodels_initial_concentrations_list_with_http_info(threedimodel_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_threedimodels_initial_concentrations_list_with_http_info(self, threedimodel_pk, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_list  # noqa: E501
+    def beta_threedimodels_initial_concentrations_list_with_http_info(self, threedimodel_pk, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_list  # noqa: E501
 
         ## Description Initial substance concentrations on threedimodels can be used in a simulation to specify the initial substance concentration on the 1D and/or 2D domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_list_with_http_info(threedimodel_pk, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_list_with_http_info(threedimodel_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -7206,14 +7206,14 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_threedimodels_initial_concentrations_list" % key
+                    " to method beta_threedimodels_initial_concentrations_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'threedimodel_pk' is set
         if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `v3_beta_threedimodels_initial_concentrations_list`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `beta_threedimodels_initial_concentrations_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7256,13 +7256,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_threedimodels_initial_concentrations_partial_update(self, id, threedimodel_pk, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_partial_update  # noqa: E501
+    def beta_threedimodels_initial_concentrations_partial_update(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_partial_update  # noqa: E501
 
         ## Description Initial substance concentrations on threedimodels can be used in a simulation to specify the initial substance concentration on the 1D and/or 2D domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_partial_update(id, threedimodel_pk, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_partial_update(id, threedimodel_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -7281,15 +7281,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_threedimodels_initial_concentrations_partial_update_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        return self.beta_threedimodels_initial_concentrations_partial_update_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_threedimodels_initial_concentrations_partial_update_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_partial_update  # noqa: E501
+    def beta_threedimodels_initial_concentrations_partial_update_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_partial_update  # noqa: E501
 
         ## Description Initial substance concentrations on threedimodels can be used in a simulation to specify the initial substance concentration on the 1D and/or 2D domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_partial_update_with_http_info(id, threedimodel_pk, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_partial_update_with_http_info(id, threedimodel_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -7330,18 +7330,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_threedimodels_initial_concentrations_partial_update" % key
+                    " to method beta_threedimodels_initial_concentrations_partial_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_threedimodels_initial_concentrations_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_threedimodels_initial_concentrations_partial_update`")  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
         if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `v3_beta_threedimodels_initial_concentrations_partial_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `beta_threedimodels_initial_concentrations_partial_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7388,13 +7388,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_threedimodels_initial_concentrations_processed_update(self, id, threedimodel_pk, base_event_state, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_processed_update  # noqa: E501
+    def beta_threedimodels_initial_concentrations_processed_update(self, id, threedimodel_pk, base_event_state, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_processed_update  # noqa: E501
 
         ## Description Initial substance concentrations on threedimodels can be used in a simulation to specify the initial substance concentration on the 1D and/or 2D domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_processed_update(id, threedimodel_pk, base_event_state, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_processed_update(id, threedimodel_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -7413,15 +7413,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_threedimodels_initial_concentrations_processed_update_with_http_info(id, threedimodel_pk, base_event_state, **kwargs)  # noqa: E501
+        return self.beta_threedimodels_initial_concentrations_processed_update_with_http_info(id, threedimodel_pk, base_event_state, **kwargs)  # noqa: E501
 
-    def v3_beta_threedimodels_initial_concentrations_processed_update_with_http_info(self, id, threedimodel_pk, base_event_state, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_processed_update  # noqa: E501
+    def beta_threedimodels_initial_concentrations_processed_update_with_http_info(self, id, threedimodel_pk, base_event_state, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_processed_update  # noqa: E501
 
         ## Description Initial substance concentrations on threedimodels can be used in a simulation to specify the initial substance concentration on the 1D and/or 2D domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_processed_update_with_http_info(id, threedimodel_pk, base_event_state, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_processed_update_with_http_info(id, threedimodel_pk, base_event_state, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -7462,22 +7462,22 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_threedimodels_initial_concentrations_processed_update" % key
+                    " to method beta_threedimodels_initial_concentrations_processed_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_threedimodels_initial_concentrations_processed_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_threedimodels_initial_concentrations_processed_update`")  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
         if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `v3_beta_threedimodels_initial_concentrations_processed_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `beta_threedimodels_initial_concentrations_processed_update`")  # noqa: E501
         # verify the required parameter 'base_event_state' is set
         if self.api_client.client_side_validation and ('base_event_state' not in local_var_params or  # noqa: E501
                                                         local_var_params['base_event_state'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `base_event_state` when calling `v3_beta_threedimodels_initial_concentrations_processed_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `base_event_state` when calling `beta_threedimodels_initial_concentrations_processed_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7520,13 +7520,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_threedimodels_initial_concentrations_retrieve(self, id, threedimodel_pk, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_retrieve  # noqa: E501
+    def beta_threedimodels_initial_concentrations_retrieve(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_retrieve  # noqa: E501
 
         ## Description Initial substance concentrations on threedimodels can be used in a simulation to specify the initial substance concentration on the 1D and/or 2D domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_retrieve(id, threedimodel_pk, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_retrieve(id, threedimodel_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -7544,15 +7544,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_threedimodels_initial_concentrations_retrieve_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        return self.beta_threedimodels_initial_concentrations_retrieve_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_threedimodels_initial_concentrations_retrieve_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_retrieve  # noqa: E501
+    def beta_threedimodels_initial_concentrations_retrieve_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_retrieve  # noqa: E501
 
         ## Description Initial substance concentrations on threedimodels can be used in a simulation to specify the initial substance concentration on the 1D and/or 2D domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_retrieve_with_http_info(id, threedimodel_pk, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_retrieve_with_http_info(id, threedimodel_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -7591,18 +7591,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_threedimodels_initial_concentrations_retrieve" % key
+                    " to method beta_threedimodels_initial_concentrations_retrieve" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_threedimodels_initial_concentrations_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_threedimodels_initial_concentrations_retrieve`")  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
         if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `v3_beta_threedimodels_initial_concentrations_retrieve`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `beta_threedimodels_initial_concentrations_retrieve`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7643,13 +7643,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_threedimodels_initial_concentrations_update(self, id, threedimodel_pk, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_update  # noqa: E501
+    def beta_threedimodels_initial_concentrations_update(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_update  # noqa: E501
 
         ## Description Initial substance concentrations on threedimodels can be used in a simulation to specify the initial substance concentration on the 1D and/or 2D domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_update(id, threedimodel_pk, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_update(id, threedimodel_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -7668,15 +7668,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_threedimodels_initial_concentrations_update_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
+        return self.beta_threedimodels_initial_concentrations_update_with_http_info(id, threedimodel_pk, **kwargs)  # noqa: E501
 
-    def v3_beta_threedimodels_initial_concentrations_update_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_update  # noqa: E501
+    def beta_threedimodels_initial_concentrations_update_with_http_info(self, id, threedimodel_pk, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_update  # noqa: E501
 
         ## Description Initial substance concentrations on threedimodels can be used in a simulation to specify the initial substance concentration on the 1D and/or 2D domain.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_update_with_http_info(id, threedimodel_pk, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_update_with_http_info(id, threedimodel_pk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -7717,18 +7717,18 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_threedimodels_initial_concentrations_update" % key
+                    " to method beta_threedimodels_initial_concentrations_update" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_threedimodels_initial_concentrations_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_threedimodels_initial_concentrations_update`")  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
         if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `v3_beta_threedimodels_initial_concentrations_update`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `beta_threedimodels_initial_concentrations_update`")  # noqa: E501
 
         collection_formats = {}
 
@@ -7775,13 +7775,13 @@ class V3BetaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v3_beta_threedimodels_initial_concentrations_upload_create(self, id, threedimodel_pk, upload, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_upload_create  # noqa: E501
+    def beta_threedimodels_initial_concentrations_upload_create(self, id, threedimodel_pk, upload, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_upload_create  # noqa: E501
 
         Endpoint for uploading an initial substance concentration file, see the POST endpoint for documentation about the file format.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_upload_create(id, threedimodel_pk, upload, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_upload_create(id, threedimodel_pk, upload, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -7800,15 +7800,15 @@ class V3BetaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v3_beta_threedimodels_initial_concentrations_upload_create_with_http_info(id, threedimodel_pk, upload, **kwargs)  # noqa: E501
+        return self.beta_threedimodels_initial_concentrations_upload_create_with_http_info(id, threedimodel_pk, upload, **kwargs)  # noqa: E501
 
-    def v3_beta_threedimodels_initial_concentrations_upload_create_with_http_info(self, id, threedimodel_pk, upload, **kwargs):  # noqa: E501
-        """v3_beta_threedimodels_initial_concentrations_upload_create  # noqa: E501
+    def beta_threedimodels_initial_concentrations_upload_create_with_http_info(self, id, threedimodel_pk, upload, **kwargs):  # noqa: E501
+        """beta_threedimodels_initial_concentrations_upload_create  # noqa: E501
 
         Endpoint for uploading an initial substance concentration file, see the POST endpoint for documentation about the file format.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v3_beta_threedimodels_initial_concentrations_upload_create_with_http_info(id, threedimodel_pk, upload, async_req=True)
+        >>> thread = api.beta_threedimodels_initial_concentrations_upload_create_with_http_info(id, threedimodel_pk, upload, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -7849,22 +7849,22 @@ class V3BetaApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v3_beta_threedimodels_initial_concentrations_upload_create" % key
+                    " to method beta_threedimodels_initial_concentrations_upload_create" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `v3_beta_threedimodels_initial_concentrations_upload_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `beta_threedimodels_initial_concentrations_upload_create`")  # noqa: E501
         # verify the required parameter 'threedimodel_pk' is set
         if self.api_client.client_side_validation and ('threedimodel_pk' not in local_var_params or  # noqa: E501
                                                         local_var_params['threedimodel_pk'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `v3_beta_threedimodels_initial_concentrations_upload_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `threedimodel_pk` when calling `beta_threedimodels_initial_concentrations_upload_create`")  # noqa: E501
         # verify the required parameter 'upload' is set
         if self.api_client.client_side_validation and ('upload' not in local_var_params or  # noqa: E501
                                                         local_var_params['upload'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `upload` when calling `v3_beta_threedimodels_initial_concentrations_upload_create`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `upload` when calling `beta_threedimodels_initial_concentrations_upload_create`")  # noqa: E501
 
         collection_formats = {}
 
