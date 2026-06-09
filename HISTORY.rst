@@ -5,7 +5,7 @@ History
 4.2.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Openapi spec 3
 
 
 4.2.6 (2026-03-25)
