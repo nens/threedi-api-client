@@ -2,7 +2,7 @@
 History
 =======
 
-5.0.0.b1 (unreleased)
+5.0.0.b1 (2026-06-09)
 ---------------------
 
 - removed redundant models and files
