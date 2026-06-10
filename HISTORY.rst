@@ -5,7 +5,7 @@ History
 5.0.0.b2 (unreleased)
 ---------------------
 
-- Nothing changed yet.
+- data keywords and enum generation fixes
 
 
 5.0.0.b1 (2026-06-09)
