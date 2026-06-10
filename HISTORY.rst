@@ -2,7 +2,7 @@
 History
 =======
 
-5.0.0.b2 (unreleased)
+5.0.0.b2 (2026-06-10)
 ---------------------
 
 - data keywords and enum generation fixes
