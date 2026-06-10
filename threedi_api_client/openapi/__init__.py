@@ -5,7 +5,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  02:13PM (UTC) on June 09, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:29AM (UTC) on June 10, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -29,6 +29,7 @@ from threedi_api_client.openapi.exceptions import OpenApiException
 from threedi_api_client.openapi.exceptions import ApiTypeError
 from threedi_api_client.openapi.exceptions import ApiValueError
 from threedi_api_client.openapi.exceptions import ApiKeyError
+from threedi_api_client.openapi.exceptions import ApiAttributeError
 from threedi_api_client.openapi.exceptions import ApiException
 # import models into sdk package
 from threedi_api_client.openapi.models.action import Action
@@ -77,6 +78,7 @@ from threedi_api_client.openapi.models.event import Event
 from threedi_api_client.openapi.models.event_state_enum import EventStateEnum
 from threedi_api_client.openapi.models.exit_code_enum import ExitCodeEnum
 from threedi_api_client.openapi.models.extent import Extent
+from threedi_api_client.openapi.models.extent1 import Extent1
 from threedi_api_client.openapi.models.file import File
 from threedi_api_client.openapi.models.file_boundary_condition import FileBoundaryCondition
 from threedi_api_client.openapi.models.file_lateral import FileLateral

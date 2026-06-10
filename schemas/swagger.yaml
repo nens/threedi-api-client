@@ -3,8 +3,8 @@ info:
   title: Rana simulation API
   version: v3
   description: "Rana simulation API (latest stable version: v3) \n\nFramework release:
-    3.4.104 \n\nRana simulation core release: 3.7.2 \n\ndeployed on:  02:13PM (UTC)
-    on June 09, 2026"
+    3.4.104 \n\nRana simulation core release: 3.7.2 \n\ndeployed on:  10:29AM (UTC)
+    on June 10, 2026"
   contact:
     email: info@nelen-schuurmans.nl
   license:
@@ -42,6 +42,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AddUser'
           description: ''
+      x-codegen-request-body-name: data
   /v3-beta/auth/users/{user_pk}/personalapikeys/:
     get:
       operationId: beta_auth_users_personalapikeys_list
@@ -119,6 +120,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PersonalAPIKeyWithSecret'
           description: ''
+      x-codegen-request-body-name: data
   /v3-beta/auth/users/{user_pk}/personalapikeys/{prefix}/:
     get:
       operationId: beta_auth_users_personalapikeys_retrieve
@@ -276,6 +278,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PersonalAPIKeyWithSecret'
           description: ''
+      x-codegen-request-body-name: data
   /v3-beta/personalapikeys/{prefix}/:
     get:
       operationId: beta_personalapikeys_retrieve
@@ -403,6 +406,7 @@ paths:
           description: ''
         '400':
           description: validation errors
+      x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/events/obstacle-edits/:
     get:
       operationId: beta_simulations_events_obstacle_edits_list
@@ -480,6 +484,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ObstacleEdit'
           description: ''
+      x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/events/obstacle-edits/{id}/:
     get:
       operationId: beta_simulations_events_obstacle_edits_retrieve
@@ -557,6 +562,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ObstacleEdit'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: beta_simulations_events_obstacle_edits_partial_update
       description: |-
@@ -608,6 +614,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: beta_simulations_events_obstacle_edits_destroy
       description: |-
@@ -685,6 +692,7 @@ paths:
       responses:
         '200':
           description: OK
+      x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/events/obstacle-edits/{id}/register_related_rasters/:
     get:
       operationId: beta_simulations_events_obstacle_edits_register_related_rasters_list
@@ -891,6 +899,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UploadBulkTimeseriesRainFile'
           description: ''
+      x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/events/rain/timeseries/file/{id}/:
     get:
       operationId: beta_simulations_events_rain_timeseries_file_retrieve
@@ -976,6 +985,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BulkTimeseriesRain'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: beta_simulations_events_rain_timeseries_file_partial_update
       description: |-
@@ -1027,6 +1037,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: beta_simulations_events_rain_timeseries_file_destroy
       description: |-
@@ -1145,6 +1156,7 @@ paths:
       responses:
         '200':
           description: OK
+      x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/initial/1d_substance_concentrations/:
     get:
       operationId: beta_simulations_initial_1d_substance_concentrations_list
@@ -1227,6 +1239,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OneDSubstanceConcentration'
           description: ''
+      x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/initial/1d_substance_concentrations/{id}/:
     get:
       operationId: beta_simulations_initial_1d_substance_concentrations_retrieve
@@ -1304,6 +1317,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OneDSubstanceConcentration'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: beta_simulations_initial_1d_substance_concentrations_partial_update
       description: Initial 1D substance concentration
@@ -1347,6 +1361,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OneDSubstanceConcentration'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: beta_simulations_initial_1d_substance_concentrations_destroy
       description: Initial 1D substance concentration
@@ -1458,6 +1473,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TwoDSubstanceConcentration'
           description: ''
+      x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/initial/2d_substance_concentrations/{id}/:
     get:
       operationId: beta_simulations_initial_2d_substance_concentrations_retrieve
@@ -1535,6 +1551,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TwoDSubstanceConcentration'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: beta_simulations_initial_2d_substance_concentrations_partial_update
       description: Initial 2D substance concentration
@@ -1578,6 +1595,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TwoDSubstanceConcentration'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: beta_simulations_initial_2d_substance_concentrations_destroy
       description: Initial 2D substance concentration
@@ -1689,6 +1707,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GroundWaterSubstanceConcentration'
           description: ''
+      x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/initial/groundwater_substance_concentrations/{id}/:
     get:
       operationId: beta_simulations_initial_groundwater_substance_concentrations_retrieve
@@ -1768,6 +1787,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GroundWaterSubstanceConcentration'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: beta_simulations_initial_groundwater_substance_concentrations_partial_update
       description: Initial 2D substance concentration
@@ -1812,6 +1832,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GroundWaterSubstanceConcentration'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: beta_simulations_initial_groundwater_substance_concentrations_destroy
       description: Initial 2D substance concentration
@@ -1918,6 +1939,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Substance'
           description: ''
+      x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/substances/{id}/:
     get:
       operationId: beta_simulations_substances_retrieve
@@ -1995,6 +2017,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Substance'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: beta_simulations_substances_partial_update
       description: Water quality substances
@@ -2038,6 +2061,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Substance'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: beta_simulations_substances_destroy
       description: Water quality substances
@@ -2218,6 +2242,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InitialConcentration'
           description: ''
+      x-codegen-request-body-name: data
   /v3-beta/threedimodels/{threedimodel_pk}/initial_concentrations/{id}/:
     get:
       operationId: beta_threedimodels_initial_concentrations_retrieve
@@ -2300,6 +2325,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InitialConcentration'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: beta_threedimodels_initial_concentrations_partial_update
       description: |-
@@ -2346,6 +2372,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InitialConcentration'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: beta_threedimodels_initial_concentrations_destroy
       description: |-
@@ -2459,6 +2486,7 @@ paths:
       responses:
         '200':
           description: OK
+      x-codegen-request-body-name: data
   /v3-beta/threedimodels/{threedimodel_pk}/initial_concentrations/{id}/upload/:
     post:
       operationId: beta_threedimodels_initial_concentrations_upload_create
@@ -2506,6 +2534,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/auth/profile/:
     get:
       operationId: auth_profile_list
@@ -2575,6 +2604,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Tokens'
           description: ''
+      x-codegen-request-body-name: data
   /v3/auth/token/:
     post:
       operationId: auth_token_create
@@ -2620,6 +2650,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Tokens'
           description: ''
+      x-codegen-request-body-name: data
   /v3/auth/users/:
     get:
       operationId: auth_users_list
@@ -3000,6 +3031,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Contract'
           description: ''
+      x-codegen-request-body-name: data
   /v3/contracts/{id}/:
     get:
       operationId: contracts_retrieve
@@ -3067,6 +3099,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Contract'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: contracts_partial_update
       description: API endpoint for interacting with contracts.
@@ -3105,6 +3138,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Contract'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: contracts_destroy
       description: API endpoint for interacting with contracts.
@@ -3342,6 +3376,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/File'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: files_partial_update
       description: A simple ViewSet for viewing files
@@ -3380,6 +3415,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/File'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: files_destroy
       description: A simple ViewSet for viewing files
@@ -3509,6 +3545,7 @@ paths:
           description: Upload is already processed
         '404':
           description: upload not found
+      x-codegen-request-body-name: data
   /v3/inpy-versions/:
     get:
       operationId: inpy_versions_list
@@ -3708,6 +3745,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InpyVersion'
           description: ''
+      x-codegen-request-body-name: data
   /v3/inpy-versions/{id}/:
     get:
       operationId: inpy_versions_retrieve
@@ -3785,6 +3823,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InpyVersion'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: inpy_versions_partial_update
       description: |-
@@ -3828,6 +3867,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InpyVersion'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: inpy_versions_destroy
       description: |-
@@ -3922,6 +3962,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/settings'
           description: ''
+      x-codegen-request-body-name: data
   /v3/organisation-settings/{id}/:
     get:
       operationId: organisation_settings_retrieve
@@ -3989,6 +4030,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/settings'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: organisation_settings_partial_update
       description: API endpoint for interacting with organisation settings.
@@ -4027,6 +4069,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/settings'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: organisation_settings_destroy
       description: API endpoint for interacting with organisation settings.
@@ -4217,6 +4260,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreateOrganisation'
           description: ''
+      x-codegen-request-body-name: data
   /v3/organisations/{unique_id}/:
     get:
       operationId: organisations_retrieve
@@ -4282,6 +4326,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreateOrganisation'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: organisations_partial_update
       description: Read-only API endpoint for interacting with organisations.
@@ -4319,6 +4364,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Organisation'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: organisations_destroy
       description: Read-only API endpoint for interacting with organisations.
@@ -4686,6 +4732,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OrganisationUser'
           description: ''
+      x-codegen-request-body-name: data
   /v3/permissions/:
     get:
       operationId: permissions_list
@@ -4896,6 +4943,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OrganisationRole'
           description: ''
+      x-codegen-request-body-name: data
   /v3/permissions/{id}/:
     get:
       operationId: permissions_retrieve
@@ -5160,6 +5208,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Repository'
           description: ''
+      x-codegen-request-body-name: data
   /v3/repositories/{id}/:
     get:
       operationId: repositories_retrieve
@@ -5227,6 +5276,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Repository'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: repositories_partial_update
       description: A simple ViewSet for viewing modelmeta
@@ -5265,6 +5315,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Repository'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: repositories_destroy
       description: A simple ViewSet for viewing modelmeta
@@ -5944,6 +5995,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Revision'
           description: ''
+      x-codegen-request-body-name: data
   /v3/revisions/{id}/:
     get:
       operationId: revisions_retrieve
@@ -6011,6 +6063,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Revision'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: revisions_partial_update
       description: A simple ViewSet for viewing modelmeta
@@ -6049,6 +6102,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Revision'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: revisions_destroy
       description: A simple ViewSet for viewing modelmeta
@@ -6885,6 +6939,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Schematisation'
           description: ''
+      x-codegen-request-body-name: data
   /v3/schematisations/{id}/:
     get:
       operationId: schematisations_retrieve
@@ -6952,6 +7007,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Schematisation'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: schematisations_partial_update
       description: Manage schematisations
@@ -6990,6 +7046,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Schematisation'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: schematisations_destroy
       description: Archive schematisation.
@@ -7455,6 +7512,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SchematisationRevision'
           description: ''
+      x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{id}/:
     get:
       operationId: schematisations_revisions_retrieve
@@ -7531,6 +7589,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UpdateRevision'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: schematisations_revisions_destroy
       description: Provide the revision id to delete the revision
@@ -7663,6 +7722,7 @@ paths:
           description: ''
         '409':
           description: Conflict with other revision already committed
+      x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{id}/create[-_]threedimodel/:
     post:
       operationId: schematisations_revisions_create[__]threedimodel_create
@@ -7707,6 +7767,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ThreediModel'
           description: ''
+      x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{id}/sqlite/delete/:
     delete:
       operationId: schematisations_revisions_sqlite_delete
@@ -7843,6 +7904,7 @@ paths:
           description: ''
         '400':
           description: Any validation errors
+      x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{id}/threedimodels/:
     get:
       operationId: schematisations_revisions_threedimodels_list
@@ -8318,6 +8380,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RevisionRaster'
           description: ''
+      x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/:
     get:
       operationId: schematisations_revisions_rasters_retrieve
@@ -8413,6 +8476,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RevisionRaster'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: schematisations_revisions_rasters_partial_update
       description: |-
@@ -8465,6 +8529,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RevisionRaster'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: schematisations_revisions_rasters_destroy
       description: |-
@@ -8594,6 +8659,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/:
     get:
       operationId: schematisations_revisions_tasks_list
@@ -8681,6 +8747,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RevisionTask'
           description: ''
+      x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/{id}/:
     get:
       operationId: schematisations_revisions_tasks_retrieve
@@ -8768,6 +8835,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RevisionTask'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: schematisations_revisions_tasks_partial_update
       description: View revision tasks
@@ -8816,6 +8884,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RevisionTask'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: schematisations_revisions_tasks_destroy
       description: View revision tasks
@@ -9102,6 +9171,7 @@ paths:
           description: ''
         '400':
           description: validation errors
+      x-codegen-request-body-name: data
   /v3/simulation[-_]templates/{id}/:
     get:
       operationId: simulation[__]templates_retrieve
@@ -9166,6 +9236,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UpdateTemplate'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulation[__]templates_destroy
       parameters:
@@ -9515,6 +9586,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Simulation'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{id}/:
     get:
       operationId: simulations_retrieve
@@ -9580,6 +9652,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SimulationUpdate'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_partial_update
       parameters:
@@ -9617,6 +9690,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SimulationUpdate'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_destroy
       parameters:
@@ -9801,6 +9875,7 @@ paths:
           description: Bad request
         '429':
           description: No available/free sessions
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/actions/reset_pause_timeout/:
     post:
       operationId: simulations_actions_reset_pause_timeout_create
@@ -9844,6 +9919,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Action'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/create-saved-states/stable-threshold/:
     get:
       operationId: simulations_create_saved_states_stable_threshold_list
@@ -9936,6 +10012,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/StableThresholdSavedState'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/create-saved-states/stable-threshold/{id}/:
     get:
       operationId: simulations_create_saved_states_stable_threshold_retrieve
@@ -10013,6 +10090,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/StableThresholdSavedState'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_create_saved_states_stable_threshold_partial_update
       description: When the simulation has started this resource can not be patched.
@@ -10054,6 +10132,7 @@ paths:
           description: Successfully patched the resource
         '409':
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_create_saved_states_stable_threshold_destroy
       description: Stable threshold SavedState
@@ -10129,6 +10208,7 @@ paths:
           description: ''
         '404':
           description: Simulation not found
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/create-saved-states/timed/:
     get:
       operationId: simulations_create_saved_states_timed_list
@@ -10219,6 +10299,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimedSavedState'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/create-saved-states/timed/{id}/:
     get:
       operationId: simulations_create_saved_states_timed_retrieve
@@ -10296,6 +10377,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimedSavedState'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_create_saved_states_timed_partial_update
       description: Timed SavedState
@@ -10337,6 +10419,7 @@ paths:
           description: Successfully patched the resource
         '409':
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_create_saved_states_timed_destroy
       description: Timed SavedState
@@ -10412,6 +10495,7 @@ paths:
           description: ''
         '404':
           description: Simulation not found
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/boundaryconditions/file/:
     get:
       operationId: simulations_events_boundaryconditions_file_list
@@ -10585,6 +10669,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/boundaryconditions/file/{id}/:
     get:
       operationId: simulations_events_boundaryconditions_file_retrieve
@@ -10669,6 +10754,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FileBoundaryCondition'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_boundaryconditions_file_partial_update
       description: |-
@@ -10716,6 +10802,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FileBoundaryCondition'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_boundaryconditions_file_destroy
       description: |-
@@ -10830,6 +10917,7 @@ paths:
       responses:
         '200':
           description: OK
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/breaches/:
     get:
       operationId: simulations_events_breaches_list
@@ -10923,6 +11011,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Breach'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/breaches/{id}/:
     get:
       operationId: simulations_events_breaches_retrieve
@@ -11000,6 +11089,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Breach'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_breaches_partial_update
       description: |-
@@ -11043,6 +11133,7 @@ paths:
           description: Successfully patched the resource
         '409':
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_breaches_destroy
       description: |-
@@ -11156,6 +11247,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConstantLateral'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/lateral/constant/{id}/:
     get:
       operationId: simulations_events_lateral_constant_retrieve
@@ -11233,6 +11325,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConstantLateral'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_lateral_constant_partial_update
       description: |-
@@ -11284,6 +11377,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_lateral_constant_destroy
       description: |-
@@ -11363,6 +11457,7 @@ paths:
           description: OK
         '400':
           description: Event is already processed
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/lateral/file/:
     get:
       operationId: simulations_events_lateral_file_list
@@ -11531,6 +11626,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UploadLateralFile'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/lateral/file/{id}/:
     get:
       operationId: simulations_events_lateral_file_retrieve
@@ -11616,6 +11712,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FileLateral'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_lateral_file_partial_update
       description: |-
@@ -11667,6 +11764,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_lateral_file_destroy
       description: |-
@@ -11785,6 +11883,7 @@ paths:
       responses:
         '200':
           description: OK
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/lateral/timeseries/:
     get:
       operationId: simulations_events_lateral_timeseries_list
@@ -11862,6 +11961,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimeseriesLateral'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/lateral/timeseries/{id}/:
     get:
       operationId: simulations_events_lateral_timeseries_retrieve
@@ -11939,6 +12039,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimeseriesLateral'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_lateral_timeseries_partial_update
       description: |-
@@ -11990,6 +12091,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_lateral_timeseries_destroy
       description: |-
@@ -12069,6 +12171,7 @@ paths:
           description: OK
         '400':
           description: Event is already processed
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/leakage/constant/:
     get:
       operationId: simulations_events_leakage_constant_list
@@ -12146,6 +12249,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConstantLeakage'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/leakage/constant/{id}/:
     get:
       operationId: simulations_events_leakage_constant_retrieve
@@ -12223,6 +12327,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConstantLeakage'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_leakage_constant_partial_update
       description: |-
@@ -12274,6 +12379,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_leakage_constant_destroy
       description: |-
@@ -12387,6 +12493,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UploadWithSubstances'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/leakage/rasters/netcdf/{id}/:
     get:
       operationId: simulations_events_leakage_rasters_netcdf_retrieve
@@ -12553,6 +12660,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimeseriesLeakage'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/leakage/timeseries/{id}/:
     get:
       operationId: simulations_events_leakage_timeseries_retrieve
@@ -12630,6 +12738,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimeseriesLeakage'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_leakage_timeseries_partial_update
       description: |-
@@ -12681,6 +12790,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_leakage_timeseries_destroy
       description: |-
@@ -12794,6 +12904,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UploadWithSubstances'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/leakage/timeseries/netcdf/{id}/:
     get:
       operationId: simulations_events_leakage_timeseries_netcdf_retrieve
@@ -12940,6 +13051,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConstantRain'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/constant/{id}/:
     get:
       operationId: simulations_events_rain_constant_retrieve
@@ -13017,6 +13129,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConstantRain'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_rain_constant_partial_update
       description: |-
@@ -13068,6 +13181,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_rain_constant_destroy
       description: |-
@@ -13181,6 +13295,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConstantLocalRain'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/local/constant/{id}/:
     get:
       operationId: simulations_events_rain_local_constant_retrieve
@@ -13258,6 +13373,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConstantLocalRain'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_rain_local_constant_partial_update
       description: |-
@@ -13309,6 +13425,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_rain_local_constant_destroy
       description: |-
@@ -13422,6 +13539,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimeseriesLocalRain'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/local/timeseries/{id}/:
     get:
       operationId: simulations_events_rain_local_timeseries_retrieve
@@ -13499,6 +13617,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimeseriesLocalRain'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_rain_local_timeseries_partial_update
       description: |-
@@ -13550,6 +13669,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_rain_local_timeseries_destroy
       description: |-
@@ -13663,6 +13783,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LizardRasterRain'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/rasters/lizard/{id}/:
     get:
       operationId: simulations_events_rain_rasters_lizard_retrieve
@@ -13740,6 +13861,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LizardRasterRain'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_rain_rasters_lizard_partial_update
       description: |-
@@ -13791,6 +13913,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_rain_rasters_lizard_destroy
       description: |-
@@ -13904,6 +14027,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UploadWithSubstances'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/rasters/netcdf/{id}/:
     get:
       operationId: simulations_events_rain_rasters_netcdf_retrieve
@@ -13980,6 +14104,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NetCDFRasterRain'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_rain_rasters_netcdf_partial_update
       description: |-
@@ -14031,6 +14156,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_rain_rasters_netcdf_destroy
       description: |-
@@ -14144,6 +14270,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimeseriesRain'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/timeseries/{id}/:
     get:
       operationId: simulations_events_rain_timeseries_retrieve
@@ -14221,6 +14348,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimeseriesRain'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_rain_timeseries_partial_update
       description: |-
@@ -14272,6 +14400,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_rain_timeseries_destroy
       description: |-
@@ -14385,6 +14514,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LizardTimeseriesRain'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/timeseries/lizard/{id}/:
     get:
       operationId: simulations_events_rain_timeseries_lizard_retrieve
@@ -14462,6 +14592,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LizardTimeseriesRain'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_rain_timeseries_lizard_partial_update
       description: |-
@@ -14513,6 +14644,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_rain_timeseries_lizard_destroy
       description: |-
@@ -14626,6 +14758,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UploadWithSubstances'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/timeseries/netcdf/{id}/:
     get:
       operationId: simulations_events_rain_timeseries_netcdf_retrieve
@@ -14703,6 +14836,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NetCDFTimeseriesRain'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_rain_timeseries_netcdf_partial_update
       description: |-
@@ -14754,6 +14888,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_rain_timeseries_netcdf_destroy
       description: |-
@@ -14867,6 +15002,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RasterEdit'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/raster-edits/{id}/:
     get:
       operationId: simulations_events_raster_edits_retrieve
@@ -14944,6 +15080,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RasterEdit'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_raster_edits_partial_update
       description: |-
@@ -14995,6 +15132,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_raster_edits_destroy
       description: |-
@@ -15158,6 +15296,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConstantSourcesSinks'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/constant/{id}/:
     get:
       operationId: simulations_events_sources_sinks_constant_retrieve
@@ -15235,6 +15374,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConstantSourcesSinks'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_sources_sinks_constant_partial_update
       description: |-
@@ -15286,6 +15426,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_sources_sinks_constant_destroy
       description: |-
@@ -15399,6 +15540,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LizardRasterSourcesSinks'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/rasters/lizard/{id}/:
     get:
       operationId: simulations_events_sources_sinks_rasters_lizard_retrieve
@@ -15478,6 +15620,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LizardRasterSourcesSinks'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_sources_sinks_rasters_lizard_partial_update
       description: |-
@@ -15530,6 +15673,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_sources_sinks_rasters_lizard_destroy
       description: |-
@@ -15644,6 +15788,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UploadWithSubstances'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/rasters/netcdf/{id}/:
     get:
       operationId: simulations_events_sources_sinks_rasters_netcdf_retrieve
@@ -15721,6 +15866,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NetCDFRasterSourcesSinks'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_sources_sinks_rasters_netcdf_partial_update
       description: |-
@@ -15772,6 +15918,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_sources_sinks_rasters_netcdf_destroy
       description: |-
@@ -15902,6 +16049,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimeseriesSourcesSinks'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/timeseries/{id}/:
     get:
       operationId: simulations_events_sources_sinks_timeseries_retrieve
@@ -15979,6 +16127,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimeseriesSourcesSinks'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_sources_sinks_timeseries_partial_update
       description: |-
@@ -16030,6 +16179,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_sources_sinks_timeseries_destroy
       description: |-
@@ -16143,6 +16293,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LizardTimeseriesSourcesSinks'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/timeseries/lizard/{id}/:
     get:
       operationId: simulations_events_sources_sinks_timeseries_lizard_retrieve
@@ -16222,6 +16373,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LizardTimeseriesSourcesSinks'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_sources_sinks_timeseries_lizard_partial_update
       description: |-
@@ -16274,6 +16426,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_sources_sinks_timeseries_lizard_destroy
       description: |-
@@ -16388,6 +16541,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UploadWithSubstances'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/timeseries/netcdf/{id}/:
     get:
       operationId: simulations_events_sources_sinks_timeseries_netcdf_retrieve
@@ -16645,6 +16799,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UploadEventFile'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/structure-control/file/{id}/:
     get:
       operationId: simulations_events_structure_control_file_retrieve
@@ -16730,6 +16885,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FileStructureControl'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_structure_control_file_partial_update
       description: |-
@@ -16781,6 +16937,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_structure_control_file_destroy
       description: |-
@@ -16899,6 +17056,7 @@ paths:
       responses:
         '200':
           description: OK
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/structure-control/memory/:
     get:
       operationId: simulations_events_structure_control_memory_list
@@ -16976,6 +17134,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/MemoryStructureControl'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/structure-control/memory/{id}/:
     get:
       operationId: simulations_events_structure_control_memory_retrieve
@@ -17053,6 +17212,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/MemoryStructureControl'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_structure_control_memory_partial_update
       description: |-
@@ -17104,6 +17264,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_structure_control_memory_destroy
       description: |-
@@ -17183,6 +17344,7 @@ paths:
           description: OK
         '400':
           description: Event is already processed
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/structure-control/table/:
     get:
       operationId: simulations_events_structure_control_table_list
@@ -17312,6 +17474,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TableStructureControl'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/structure-control/table/{id}/:
     get:
       operationId: simulations_events_structure_control_table_retrieve
@@ -17389,6 +17552,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TableStructureControl'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_structure_control_table_partial_update
       description: |-
@@ -17440,6 +17604,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_structure_control_table_destroy
       description: |-
@@ -17519,6 +17684,7 @@ paths:
           description: OK
         '400':
           description: Event is already processed
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/structure-control/timed/:
     get:
       operationId: simulations_events_structure_control_timed_list
@@ -17629,6 +17795,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimedStructureControl'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/structure-control/timed/{id}/:
     get:
       operationId: simulations_events_structure_control_timed_retrieve
@@ -17706,6 +17873,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimedStructureControl'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_structure_control_timed_partial_update
       description: |-
@@ -17757,6 +17925,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConflictError'
           description: Conflict with the current simulation status
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_structure_control_timed_destroy
       description: |-
@@ -17836,6 +18005,7 @@ paths:
           description: OK
         '400':
           description: Event is already processed
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/wind/constant/:
     get:
       operationId: simulations_events_wind_constant_list
@@ -17952,6 +18122,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConstantWind'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/wind/constant/{id}/:
     get:
       operationId: simulations_events_wind_constant_retrieve
@@ -18029,6 +18200,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConstantWind'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_wind_constant_partial_update
       description: A simple ViewSet for viewing Wind.
@@ -18072,6 +18244,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConstantWind'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_wind_constant_destroy
       description: A simple ViewSet for viewing Wind.
@@ -18209,6 +18382,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimeseriesWind'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/wind/timeseries/{id}/:
     get:
       operationId: simulations_events_wind_timeseries_retrieve
@@ -18286,6 +18460,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimeseriesWind'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_events_wind_timeseries_partial_update
       description: A simple ViewSet for viewig Wind.
@@ -18329,6 +18504,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimeseriesWind'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_events_wind_timeseries_destroy
       description: A simple ViewSet for viewig Wind.
@@ -18434,6 +18610,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OneDWaterLevel'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/1d_water_level/constant/{id}/:
     get:
       operationId: simulations_initial_1d_water_level_constant_retrieve
@@ -18511,6 +18688,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OneDWaterLevel'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_initial_1d_water_level_constant_partial_update
       description: Initial 1D water levels
@@ -18554,6 +18732,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OneDWaterLevel'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_initial_1d_water_level_constant_destroy
       description: Initial 1D water levels
@@ -18664,6 +18843,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OneDWaterLevelFile'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/1d_water_level/file/{id}/:
     get:
       operationId: simulations_initial_1d_water_level_file_retrieve
@@ -18741,6 +18921,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OneDWaterLevelFile'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_initial_1d_water_level_file_partial_update
       description: Initial 1D water levels
@@ -18784,6 +18965,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OneDWaterLevelFile'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_initial_1d_water_level_file_destroy
       description: Initial 1D water levels
@@ -18900,6 +19082,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OneDWaterLevelPredefined'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/1d_water_level/predefined/{id}/:
     get:
       operationId: simulations_initial_1d_water_level_predefined_retrieve
@@ -18976,6 +19159,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OneDWaterLevelPredefined'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_initial_1d_water_level_predefined_partial_update
       description: initial predefined 1D water levels
@@ -19019,6 +19203,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OneDWaterLevelPredefined'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_initial_1d_water_level_predefined_destroy
       description: initial predefined 1D water levels
@@ -19129,6 +19314,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TwoDWaterLevel'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/2d_water_level/constant/{id}/:
     get:
       operationId: simulations_initial_2d_water_level_constant_retrieve
@@ -19206,6 +19392,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TwoDWaterLevel'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_initial_2d_water_level_constant_partial_update
       description: Initial 2D water levels
@@ -19249,6 +19436,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TwoDWaterLevel'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_initial_2d_water_level_constant_destroy
       description: Initial 2D water levels
@@ -19360,6 +19548,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TwoDWaterRaster'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/2d_water_level/raster/{id}/:
     get:
       operationId: simulations_initial_2d_water_level_raster_retrieve
@@ -19437,6 +19626,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TwoDWaterRaster'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_initial_2d_water_level_raster_partial_update
       description: Initial 2D water raster
@@ -19480,6 +19670,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TwoDWaterRaster'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_initial_2d_water_level_raster_destroy
       description: Initial 2D water raster
@@ -19590,6 +19781,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GroundWaterLevel'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/groundwater_level/constant/{id}/:
     get:
       operationId: simulations_initial_groundwater_level_constant_retrieve
@@ -19667,6 +19859,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GroundWaterLevel'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_initial_groundwater_level_constant_partial_update
       description: Initial groundwater levels.
@@ -19710,6 +19903,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GroundWaterLevel'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_initial_groundwater_level_constant_destroy
       description: Initial groundwater levels.
@@ -19821,6 +20015,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GroundWaterRaster'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/groundwater_level/raster/{id}/:
     get:
       operationId: simulations_initial_groundwater_level_raster_retrieve
@@ -19898,6 +20093,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GroundWaterRaster'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_initial_groundwater_level_raster_partial_update
       description: Initial 2D water raster
@@ -19941,6 +20137,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GroundWaterRaster'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_initial_groundwater_level_raster_destroy
       description: Initial 2D water raster
@@ -20046,6 +20243,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InitialSavedState'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/saved_state/{id}/:
     get:
       operationId: simulations_initial_saved_state_retrieve
@@ -20123,6 +20321,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InitialSavedState'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_initial_saved_state_partial_update
       description: A simple ViewSet for initial SavedState's
@@ -20166,6 +20365,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InitialSavedState'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_initial_saved_state_destroy
       description: A simple ViewSet for initial SavedState's
@@ -20275,6 +20475,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/WindDragCoefficient'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/wind_drag-coefficient/{id}/:
     get:
       operationId: simulations_initial_wind_drag_coefficient_retrieve
@@ -20351,6 +20552,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/WindDragCoefficient'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_initial_wind_drag_coefficient_partial_update
       description: A simple ViewSet for initial Wind drag coefficient
@@ -20394,6 +20596,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/WindDragCoefficient'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_initial_wind_drag_coefficient_destroy
       description: A simple ViewSet for initial Wind drag coefficient
@@ -20538,6 +20741,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResultFile'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/results/files/{id}/:
     get:
       operationId: simulations_results_files_retrieve
@@ -20615,6 +20819,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResultFile'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_results_files_partial_update
       description: Retrieve simulation results
@@ -20658,6 +20863,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResultFile'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_results_files_destroy
       description: Retrieve simulation results
@@ -20770,6 +20976,7 @@ paths:
           description: ''
         '404':
           description: Simulation not found
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/results/post_processing/lizard/arrival/:
     get:
       operationId: simulations_results_post_processing_lizard_arrival_list
@@ -20868,6 +21075,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ArrivalTimePostProcessing'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/results/post_processing/lizard/arrival/delete/:
     delete:
       operationId: simulations_results_post_processing_lizard_arrival_delete_destroy
@@ -21045,6 +21253,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BasicPostProcessing'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/results/post_processing/lizard/basic/delete/:
     delete:
       operationId: simulations_results_post_processing_lizard_basic_delete_destroy
@@ -21248,6 +21457,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/DamagePostProcessing'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/results/post_processing/lizard/damage/delete/:
     delete:
       operationId: simulations_results_post_processing_lizard_damage_delete_destroy
@@ -21525,6 +21735,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PostProcessingStatus'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/results/post_processing/lizard/status/delete/:
     delete:
       operationId: simulations_results_post_processing_lizard_status_delete_destroy
@@ -21686,6 +21897,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AggregationSettings'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/settings/aggregation/{id}/:
     get:
       operationId: simulations_settings_aggregation_retrieve
@@ -21781,6 +21993,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AggregationSettings'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_settings_aggregation_partial_update
       description: |-
@@ -21833,6 +22046,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AggregationSettings'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_settings_aggregation_destroy
       description: |-
@@ -21947,6 +22161,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CustomizedResultArea'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/settings/customized_result_areas/{id}/:
     get:
       operationId: simulations_settings_customized_result_areas_retrieve
@@ -22024,6 +22239,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CustomizedResultArea'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_settings_customized_result_areas_partial_update
       description: Water quality customized result area
@@ -22067,6 +22283,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CustomizedResultArea'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_settings_customized_result_areas_destroy
       description: Water quality customized result area
@@ -22136,6 +22353,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     put:
       operationId: simulations_settings_numerical_update
       description: update the numerical settings resource
@@ -22174,6 +22392,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_settings_numerical_partial_update
       description: update the numerical settings resource
@@ -22211,6 +22430,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_settings_numerical_destroy
       description: delete the numerical settings resource
@@ -22277,6 +22497,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     put:
       operationId: simulations_settings_output_settings_update
       description: update the output settings resource
@@ -22314,6 +22535,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_settings_output_settings_partial_update
       description: update the output settings resource
@@ -22351,6 +22573,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_settings_output_settings_destroy
       description: delete the output settings resource
@@ -22447,6 +22670,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     put:
       operationId: simulations_settings_physical_update
       description: Update the general settings resource.
@@ -22485,6 +22709,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_settings_physical_partial_update
       description: Update the general settings resource.
@@ -22522,6 +22747,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_settings_physical_destroy
       description: Delete the general settings resource.
@@ -22589,6 +22815,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     put:
       operationId: simulations_settings_time_step_update
       description: update the time step settings resource
@@ -22627,6 +22854,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_settings_time_step_partial_update
       description: update the time step settings resource
@@ -22664,6 +22892,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_settings_time_step_destroy
       description: delete the time step settings resource
@@ -22730,6 +22959,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     put:
       operationId: simulations_settings_water_quality_update
       description: Update the water quality settings resource.
@@ -22767,6 +22997,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_settings_water_quality_partial_update
       description: Update the water quality settings resource.
@@ -22804,6 +23035,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_settings_water_quality_destroy
       description: Delete the water quality settings resource.
@@ -22907,6 +23139,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/WaterQualityCustomizedResultArea'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/settings/water_quality_customized_result_areas/{id}/:
     get:
       operationId: simulations_settings_water_quality_customized_result_areas_retrieve
@@ -22986,6 +23219,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/WaterQualityCustomizedResultArea'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_settings_water_quality_customized_result_areas_partial_update
       description: Water quality customized result area
@@ -23030,6 +23264,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/WaterQualityCustomizedResultArea'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_settings_water_quality_customized_result_areas_destroy
       description: Water quality customized result area
@@ -23099,6 +23334,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     put:
       operationId: simulations_settings_water_quality_output_settings_update
       description: Update the water quality output settings resource.
@@ -23136,6 +23372,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_settings_water_quality_output_settings_partial_update
       description: Update the water quality output settings resource.
@@ -23173,6 +23410,7 @@ paths:
           description: Resource not found
         '409':
           description: Conflict with current state
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_settings_water_quality_output_settings_destroy
       description: Delete the water quality output settings resource.
@@ -23282,6 +23520,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SimulationStatus'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/status/{id}/:
     put:
       operationId: simulations_status_update
@@ -23327,6 +23566,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SimulationStatus'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: simulations_status_partial_update
       description: A simple ViewSet for viewing simulations
@@ -23370,6 +23610,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SimulationStatus'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: simulations_status_destroy
       description: A simple ViewSet for viewing simulations
@@ -23506,6 +23747,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SimulationStatus'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/visualisations/{layer}/profile/:
     get:
       operationId: simulations_visualisations_profile_list
@@ -23641,6 +23883,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BreachGraph'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/visualisations/pump_discharge_graph/:
     post:
       operationId: simulations_visualisations_pump_discharge_graph_create
@@ -23686,6 +23929,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PumpDischargeGraph'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/visualisations/rain_graph/:
     post:
       operationId: simulations_visualisations_rain_graph_create
@@ -23731,6 +23975,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RainGraph'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/visualisations/water_flow_graph/:
     post:
       operationId: simulations_visualisations_water_flow_graph_create
@@ -23776,6 +24021,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/WaterGraph'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/visualisations/water_level_graph/:
     post:
       operationId: simulations_visualisations_water_level_graph_create
@@ -23821,6 +24067,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/WaterGraph'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/visualisations/water_level_profile/:
     post:
       operationId: simulations_visualisations_water_level_profile_create
@@ -23869,6 +24116,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/WaterLevelProfile'
           description: ''
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/visualisations/waterdepth/:
     get:
       operationId: simulations_visualisations_waterdepth_list
@@ -24009,6 +24257,7 @@ paths:
           description: ''
         '400':
           description: validation errors
+      x-codegen-request-body-name: data
   /v3/simulations/post_processing/lizard/queue/:
     get:
       operationId: simulations_post_processing_lizard_queue_list
@@ -25520,6 +25769,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ThreediModel'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{id}/:
     get:
       operationId: threedimodels_retrieve
@@ -25587,6 +25837,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ThreediModel'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: threedimodels_partial_update
       description: A simple ViewSet for viewing threedimodels
@@ -25625,6 +25876,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ThreediModel'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: threedimodels_destroy
       description: |-
@@ -25726,6 +25978,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{id}/geojson/breaches/download/:
     get:
       operationId: threedimodels_geojson_breaches_download
@@ -25798,6 +26051,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{id}/geojson/cells/download/:
     get:
       operationId: threedimodels_geojson_cells_download
@@ -25870,6 +26124,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{id}/geojson/channels/download/:
     get:
       operationId: threedimodels_geojson_channels_download
@@ -25942,6 +26197,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{id}/geojson/culverts/download/:
     get:
       operationId: threedimodels_geojson_culverts_download
@@ -26014,6 +26270,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{id}/geojson/flowlines/download/:
     get:
       operationId: threedimodels_geojson_flowlines_download
@@ -26086,6 +26343,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{id}/geojson/levees/download/:
     get:
       operationId: threedimodels_geojson_levees_download
@@ -26158,6 +26416,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{id}/geojson/manholes/download/:
     get:
       operationId: threedimodels_geojson_manholes_download
@@ -26230,6 +26489,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{id}/geojson/orifices/download/:
     get:
       operationId: threedimodels_geojson_orifices_download
@@ -26302,6 +26562,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{id}/geojson/pipes/download/:
     get:
       operationId: threedimodels_geojson_pipes_download
@@ -26374,6 +26635,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{id}/geojson/pumps/download/:
     get:
       operationId: threedimodels_geojson_pumps_download
@@ -26446,6 +26708,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{id}/geojson/weirs/download/:
     get:
       operationId: threedimodels_geojson_weirs_download
@@ -26518,6 +26781,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{id}/geopackage/download/:
     get:
       operationId: threedimodels_geopackage_download
@@ -26593,6 +26857,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{id}/gridadmin/download/:
     get:
       operationId: threedimodels_gridadmin_download
@@ -26668,6 +26933,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{id}/raster_options/:
     get:
       operationId: threedimodels_raster_options_retrieve
@@ -26771,6 +27037,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/boundaryconditions/:
     get:
       operationId: threedimodels_boundaryconditions_list
@@ -26848,6 +27115,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BoundaryCondition'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/boundaryconditions/{id}/:
     get:
       operationId: threedimodels_boundaryconditions_retrieve
@@ -26925,6 +27193,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BoundaryCondition'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: threedimodels_boundaryconditions_partial_update
       description: A simple ViewSet for viewing boundary conditions
@@ -26968,6 +27237,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BoundaryCondition'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: threedimodels_boundaryconditions_destroy
       description: A simple ViewSet for viewing boundary conditions
@@ -27052,6 +27322,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedRasterList'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/initial_waterlevels/:
     get:
       operationId: threedimodels_initial_waterlevels_list
@@ -27163,6 +27434,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InitialWaterlevel'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/:
     get:
       operationId: threedimodels_initial_waterlevels_retrieve
@@ -27253,6 +27525,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InitialWaterlevel'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: threedimodels_initial_waterlevels_partial_update
       description: |-
@@ -27303,6 +27576,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InitialWaterlevel'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: threedimodels_initial_waterlevels_destroy
       description: |-
@@ -27420,6 +27694,7 @@ paths:
       responses:
         '200':
           description: OK
+      x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/upload/:
     post:
       operationId: threedimodels_initial_waterlevels_upload_create
@@ -27467,6 +27742,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/potentialbreaches/:
     get:
       operationId: threedimodels_potentialbreaches_list
@@ -27602,6 +27878,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PotentialBreach'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/potentialbreaches/{id}/:
     get:
       operationId: threedimodels_potentialbreaches_retrieve
@@ -27847,6 +28124,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Raster'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/rasters/{id}/:
     get:
       operationId: threedimodels_rasters_retrieve
@@ -27924,6 +28202,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Raster'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: threedimodels_rasters_partial_update
       description: View rasters for threedimodel
@@ -27967,6 +28246,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Raster'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: threedimodels_rasters_destroy
       description: View rasters for threedimodel
@@ -28077,6 +28357,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Upload'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/saved_states/:
     get:
       operationId: threedimodels_saved_states_list
@@ -28260,6 +28541,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ThreediModelTask'
           description: ''
+      x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/tasks/{id}/:
     get:
       operationId: threedimodels_tasks_retrieve
@@ -28337,6 +28619,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ThreediModelTask'
           description: ''
+      x-codegen-request-body-name: data
     patch:
       operationId: threedimodels_tasks_partial_update
       description: View threedimodel tasks
@@ -28380,6 +28663,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ThreediModelTask'
           description: ''
+      x-codegen-request-body-name: data
     delete:
       operationId: threedimodels_tasks_destroy
       description: View threedimodel tasks
