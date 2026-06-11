@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:29AM (UTC) on June 10, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  12:08PM (UTC) on June 11, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -68,8 +68,6 @@ class ApiValueError(OpenApiException, ValueError):
 class ApiAttributeError(OpenApiException, AttributeError):
     def __init__(self, msg, path_to_item=None):
         """
-        Raised when an attribute reference or assignment fails.
-
         Args:
             msg (str): the exception message
 
@@ -108,7 +106,7 @@ class ApiException(OpenApiException):
             self.status = http_resp.status
             self.reason = http_resp.reason
             self.body = http_resp.data
-            self.headers = http_resp.getheaders()
+            self.headers = http_resp.getheaders() if hasattr(http_resp, 'getheaders') else http_resp.headers
         else:
             self.status = status
             self.reason = reason
@@ -129,28 +127,8 @@ class ApiException(OpenApiException):
         return error_message
 
 
-class NotFoundException(ApiException):
-
-    def __init__(self, status=None, reason=None, http_resp=None):
-        super(NotFoundException, self).__init__(status, reason, http_resp)
-
-
-class UnauthorizedException(ApiException):
-
-    def __init__(self, status=None, reason=None, http_resp=None):
-        super(UnauthorizedException, self).__init__(status, reason, http_resp)
-
-
-class ForbiddenException(ApiException):
-
-    def __init__(self, status=None, reason=None, http_resp=None):
-        super(ForbiddenException, self).__init__(status, reason, http_resp)
-
-
-class ServiceException(ApiException):
-
-    def __init__(self, status=None, reason=None, http_resp=None):
-        super(ServiceException, self).__init__(status, reason, http_resp)
+class Test(OpenApiException):
+    pass
 
 
 def render_path(path_to_item):

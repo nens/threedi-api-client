@@ -5,7 +5,7 @@ History
 5.0.0.b3 (unreleased)
 ---------------------
 
-- Nothing changed yet.
+- Fix _retrieve backwards incompatibility and enum generation issues. 
 
 
 5.0.0.b2 (2026-06-10)

@@ -3,8 +3,8 @@ info:
   title: Rana simulation API
   version: v3
   description: "Rana simulation API (latest stable version: v3) \n\nFramework release:
-    3.4.104 \n\nRana simulation core release: 3.7.2 \n\ndeployed on:  10:29AM (UTC)
-    on June 10, 2026"
+    3.4.104 \n\nRana simulation core release: 3.7.2 \n\ndeployed on:  12:08PM (UTC)
+    on June 11, 2026"
   contact:
     email: info@nelen-schuurmans.nl
   license:
@@ -123,7 +123,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/auth/users/{user_pk}/personalapikeys/{prefix}/:
     get:
-      operationId: beta_auth_users_personalapikeys_retrieve
+      operationId: beta_auth_users_personalapikeys
       description: Personal API keys are used for authentication without password.
       parameters:
       - in: path
@@ -281,7 +281,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/personalapikeys/{prefix}/:
     get:
-      operationId: beta_personalapikeys_retrieve
+      operationId: beta_personalapikeys
       description: Personal API keys are used for authentication without password.
       parameters:
       - in: path
@@ -487,7 +487,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/events/obstacle-edits/{id}/:
     get:
-      operationId: beta_simulations_events_obstacle_edits_retrieve
+      operationId: beta_simulations_events_obstacle_edits
       description: A simple ViewSet for viewing obstacle edits
       parameters:
       - in: path
@@ -902,7 +902,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/events/rain/timeseries/file/{id}/:
     get:
-      operationId: beta_simulations_events_rain_timeseries_file_retrieve
+      operationId: beta_simulations_events_rain_timeseries_file
       description: |-
         ViewMixin which adds an extra PUT-action 'processed'.
 
@@ -1076,7 +1076,7 @@ paths:
           description: Conflict with the current simulation status
   /v3-beta/simulations/{simulation_pk}/events/rain/timeseries/file/{id}/download/:
     get:
-      operationId: beta_simulations_events_rain_timeseries_file_download_retrieve
+      operationId: beta_simulations_events_rain_timeseries_file_download
       description: Endpoint for downloading files.
       parameters:
       - in: path
@@ -1242,7 +1242,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/initial/1d_substance_concentrations/{id}/:
     get:
-      operationId: beta_simulations_initial_1d_substance_concentrations_retrieve
+      operationId: beta_simulations_initial_1d_substance_concentrations
       description: Initial 1D substance concentration
       parameters:
       - in: path
@@ -1476,7 +1476,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/initial/2d_substance_concentrations/{id}/:
     get:
-      operationId: beta_simulations_initial_2d_substance_concentrations_retrieve
+      operationId: beta_simulations_initial_2d_substance_concentrations
       description: Initial 2D substance concentration
       parameters:
       - in: path
@@ -1710,7 +1710,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/initial/groundwater_substance_concentrations/{id}/:
     get:
-      operationId: beta_simulations_initial_groundwater_substance_concentrations_retrieve
+      operationId: beta_simulations_initial_groundwater_substance_concentrations
       description: Initial 2D substance concentration
       parameters:
       - in: path
@@ -1942,7 +1942,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/substances/{id}/:
     get:
-      operationId: beta_simulations_substances_retrieve
+      operationId: beta_simulations_substances
       description: Water quality substances
       parameters:
       - in: path
@@ -2114,7 +2114,7 @@ paths:
           description: ''
   /v3-beta/status/current-version/:
     get:
-      operationId: beta_status_current_version_retrieve
+      operationId: beta_status_current_version
       tags:
       - v3-beta
       security:
@@ -2245,7 +2245,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/threedimodels/{threedimodel_pk}/initial_concentrations/{id}/:
     get:
-      operationId: beta_threedimodels_initial_concentrations_retrieve
+      operationId: beta_threedimodels_initial_concentrations
       description: |-
         ## Description
         Initial substance concentrations on threedimodels can be used in a simulation to
@@ -2407,7 +2407,7 @@ paths:
           description: No response body
   /v3-beta/threedimodels/{threedimodel_pk}/initial_concentrations/{id}/download/:
     get:
-      operationId: beta_threedimodels_initial_concentrations_download_retrieve
+      operationId: beta_threedimodels_initial_concentrations_download
       description: Endpoint for downloading files.
       parameters:
       - in: path
@@ -2783,7 +2783,7 @@ paths:
           description: ''
   /v3/auth/users/{id}/:
     get:
-      operationId: auth_users_retrieve
+      operationId: auth_users
       parameters:
       - in: path
         name: id
@@ -2810,7 +2810,7 @@ paths:
           description: ''
   /v3/auth/users/{id}/tokens/:
     get:
-      operationId: auth_users_tokens_retrieve
+      operationId: auth_users_tokens
       parameters:
       - in: path
         name: id
@@ -3034,7 +3034,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/contracts/{id}/:
     get:
-      operationId: contracts_retrieve
+      operationId: contracts
       description: API endpoint for interacting with contracts.
       parameters:
       - in: path
@@ -3311,7 +3311,7 @@ paths:
           description: ''
   /v3/files/{id}/:
     get:
-      operationId: files_retrieve
+      operationId: files
       description: A simple ViewSet for viewing files
       parameters:
       - in: path
@@ -3472,7 +3472,7 @@ paths:
             ''savedstate'', ''results'', ''bulklateral'', ''bulkcontrol'', ''bulktimeseriesrain'']'
   /v3/files/{id}/download/:
     get:
-      operationId: files_download_retrieve
+      operationId: files_download
       description: Endpoint for downloading files.
       parameters:
       - in: path
@@ -3748,7 +3748,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/inpy-versions/{id}/:
     get:
-      operationId: inpy_versions_retrieve
+      operationId: inpy_versions
       description: |-
         Inpy was the service for preparing user-supplied schematisations into 3Di
         models (threedimodels) usable by the 3Di calculation core.
@@ -3965,7 +3965,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/organisation-settings/{id}/:
     get:
-      operationId: organisation_settings_retrieve
+      operationId: organisation_settings
       description: API endpoint for interacting with organisation settings.
       parameters:
       - in: path
@@ -4263,7 +4263,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/organisations/{unique_id}/:
     get:
-      operationId: organisations_retrieve
+      operationId: organisations
       description: Read-only API endpoint for interacting with organisations.
       parameters:
       - in: path
@@ -4658,7 +4658,7 @@ paths:
           description: ''
   /v3/organisations/{unique_id}/users/{id}/:
     get:
-      operationId: organisations_users_retrieve
+      operationId: organisations_users
       description: Endpoint for interacting with users in an organisation.
       parameters:
       - in: path
@@ -4946,7 +4946,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/permissions/{id}/:
     get:
-      operationId: permissions_retrieve
+      operationId: permissions
       description: Permissions management endpoints.
       parameters:
       - in: path
@@ -5211,7 +5211,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/repositories/{id}/:
     get:
-      operationId: repositories_retrieve
+      operationId: repositories
       description: A simple ViewSet for viewing modelmeta
       parameters:
       - in: path
@@ -5998,7 +5998,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/revisions/{id}/:
     get:
-      operationId: revisions_retrieve
+      operationId: revisions
       description: A simple ViewSet for viewing modelmeta
       parameters:
       - in: path
@@ -6418,7 +6418,7 @@ paths:
           description: ''
   /v3/roles/{id}/:
     get:
-      operationId: roles_retrieve
+      operationId: roles
       description: Read-only API endpoint for viewing roles
       parameters:
       - in: path
@@ -6942,7 +6942,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/schematisations/{id}/:
     get:
-      operationId: schematisations_retrieve
+      operationId: schematisations
       description: Manage schematisations
       parameters:
       - in: path
@@ -7070,35 +7070,6 @@ paths:
       responses:
         '204':
           description: No response body
-  /v3/schematisations/{id}/latest[-_]revision/:
-    get:
-      operationId: schematisations_latest[__]revision_retrieve
-      description: |-
-        Get the latest committed revision.
-
-        For retrieving all revisions use: `/schematisations/{id}/revisions`
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        description: A unique integer value identifying this schematisation.
-        required: true
-      security:
-      - Bearer: []
-      - OAuth2Bearer: []
-      - ApiKeyBasic: []
-      - Session: []
-      - Basic: []
-      - Bearer: []
-      - OAuth2: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SchematisationRevision'
-          description: ''
   /v3/schematisations/{schematisation_pk}/revisions/:
     get:
       operationId: schematisations_revisions_list
@@ -7515,7 +7486,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{id}/:
     get:
-      operationId: schematisations_revisions_retrieve
+      operationId: schematisations_revisions
       description: Manage revisions of schematisations.
       parameters:
       - in: path
@@ -7722,51 +7693,6 @@ paths:
           description: ''
         '409':
           description: Conflict with other revision already committed
-      x-codegen-request-body-name: data
-  /v3/schematisations/{schematisation_pk}/revisions/{id}/create[-_]threedimodel/:
-    post:
-      operationId: schematisations_revisions_create[__]threedimodel_create
-      description: Manage revisions of schematisations.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        description: A unique integer value identifying this revision.
-        required: true
-      - in: path
-        name: schematisation_pk
-        schema:
-          type: integer
-        required: true
-      tags:
-      - v3
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateThreedimodel'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/CreateThreedimodel'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/CreateThreedimodel'
-      security:
-      - Bearer: []
-      - OAuth2Bearer: []
-      - ApiKeyBasic: []
-      - Session: []
-      - Basic: []
-      - Bearer: []
-      - OAuth2: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ThreediModel'
-          description: ''
       x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{id}/sqlite/delete/:
     delete:
@@ -8383,7 +8309,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/:
     get:
-      operationId: schematisations_revisions_rasters_retrieve
+      operationId: schematisations_revisions_rasters
       description: |-
         Mixin for default 'download' action for
         downloading files
@@ -8569,7 +8495,7 @@ paths:
           description: No response body
   /v3/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/download/:
     get:
-      operationId: schematisations_revisions_rasters_download_retrieve
+      operationId: schematisations_revisions_rasters_download
       description: Endpoint for downloading files.
       parameters:
       - in: path
@@ -8750,7 +8676,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/{id}/:
     get:
-      operationId: schematisations_revisions_tasks_retrieve
+      operationId: schematisations_revisions_tasks
       description: View revision tasks
       parameters:
       - in: path
@@ -8904,347 +8830,6 @@ paths:
         name: schematisation_pk
         schema:
           type: integer
-        required: true
-      tags:
-      - v3
-      security:
-      - Bearer: []
-      - OAuth2Bearer: []
-      - ApiKeyBasic: []
-      - Session: []
-      - Basic: []
-      - Bearer: []
-      - OAuth2: []
-      responses:
-        '204':
-          description: No response body
-  /v3/simulation[-_]templates/:
-    get:
-      operationId: simulation[__]templates_list
-      parameters:
-      - in: query
-        name: created__date
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: created__date__gt
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: created__date__gte
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: created__date__lt
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: created__date__lte
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: created__day
-        schema:
-          type: number
-      - in: query
-        name: created__day__lt
-        schema:
-          type: number
-      - in: query
-        name: created__month
-        schema:
-          type: number
-      - in: query
-        name: created__month__lte
-        schema:
-          type: number
-      - in: query
-        name: created__year
-        schema:
-          type: number
-      - in: query
-        name: created__year__gt
-        schema:
-          type: number
-      - in: query
-        name: created__year__gte
-        schema:
-          type: number
-      - in: query
-        name: created__year__lt
-        schema:
-          type: number
-      - in: query
-        name: created__year__lte
-        schema:
-          type: number
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - in: query
-        name: name
-        schema:
-          type: string
-      - in: query
-        name: name__contains
-        schema:
-          type: string
-      - in: query
-        name: name__endswith
-        schema:
-          type: string
-      - in: query
-        name: name__icontains
-        schema:
-          type: string
-      - in: query
-        name: name__iexact
-        schema:
-          type: string
-      - in: query
-        name: name__in
-        schema:
-          type: array
-          items:
-            type: string
-        description: Multiple values may be separated by commas.
-        explode: false
-        style: form
-      - in: query
-        name: name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: name__regex
-        schema:
-          type: string
-      - in: query
-        name: name__startswith
-        schema:
-          type: string
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
-      - name: ordering
-        required: false
-        in: query
-        description: Which field to use when ordering the results.
-        schema:
-          type: string
-      - in: query
-        name: simulation__threedimodel__id
-        schema:
-          type: integer
-      - in: query
-        name: simulation__threedimodel__id__range
-        schema:
-          type: array
-          items:
-            type: integer
-        description: Multiple values may be separated by commas.
-        explode: false
-        style: form
-      - in: query
-        name: uuid
-        schema:
-          type: string
-          format: uuid
-      - in: query
-        name: uuid__contains
-        schema:
-          type: string
-          format: uuid
-      - in: query
-        name: uuid__endswith
-        schema:
-          type: string
-          format: uuid
-      - in: query
-        name: uuid__icontains
-        schema:
-          type: string
-          format: uuid
-      - in: query
-        name: uuid__iexact
-        schema:
-          type: string
-          format: uuid
-      - in: query
-        name: uuid__in
-        schema:
-          type: array
-          items:
-            type: string
-            format: uuid
-        description: Multiple values may be separated by commas.
-        explode: false
-        style: form
-      - in: query
-        name: uuid__istartswith
-        schema:
-          type: string
-          format: uuid
-      - in: query
-        name: uuid__regex
-        schema:
-          type: string
-          format: uuid
-      - in: query
-        name: uuid__startswith
-        schema:
-          type: string
-          format: uuid
-      tags:
-      - v3
-      security:
-      - Bearer: []
-      - OAuth2Bearer: []
-      - ApiKeyBasic: []
-      - Session: []
-      - Basic: []
-      - Bearer: []
-      - OAuth2: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PaginatedTemplateList'
-          description: ''
-    post:
-      operationId: simulation[__]templates_create
-      description: |-
-        Create a (optionally cloned) simulation template from the given simulation.
-
-        A simulation template is actually nothing more than a simulation with a special status.
-        It's immutable after creation and only can be used to create new simulations.
-
-        Simulations 'upgraded' to simulations templates can't be directly run. The 'from_template' endpoint
-        allows to create a new simulation from a template in a runnable state.
-
-        A simulation template can be changed by first creating a simulation from it with 'from_template'.
-        Changing that simulation and use this endpoint to 'upgrade' it to a simulation template.
-
-        Note: A clone of a simulation is created if the simulation is not in the 'created' state.
-        Otherwise the simulation in 'created' state is 'upgraded' to a simulation template.
-
-        The limit for the number of templates per Threedimodel is 50.
-      tags:
-      - v3
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateTemplate'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/CreateTemplate'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/CreateTemplate'
-        required: true
-      security:
-      - Bearer: []
-      - OAuth2Bearer: []
-      - ApiKeyBasic: []
-      - Session: []
-      - Basic: []
-      - Bearer: []
-      - OAuth2: []
-      responses:
-        '201':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Template'
-          description: ''
-        '400':
-          description: validation errors
-      x-codegen-request-body-name: data
-  /v3/simulation[-_]templates/{id}/:
-    get:
-      operationId: simulation[__]templates_retrieve
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        description: A unique integer value identifying this template.
-        required: true
-      tags:
-      - v3
-      security:
-      - Bearer: []
-      - OAuth2Bearer: []
-      - ApiKeyBasic: []
-      - Session: []
-      - Basic: []
-      - Bearer: []
-      - OAuth2: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Template'
-          description: ''
-    patch:
-      operationId: simulation[__]templates_partial_update
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        description: A unique integer value identifying this template.
-        required: true
-      tags:
-      - v3
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedUpdateTemplate'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedUpdateTemplate'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/PatchedUpdateTemplate'
-      security:
-      - Bearer: []
-      - OAuth2Bearer: []
-      - ApiKeyBasic: []
-      - Session: []
-      - Basic: []
-      - Bearer: []
-      - OAuth2: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UpdateTemplate'
-          description: ''
-      x-codegen-request-body-name: data
-    delete:
-      operationId: simulation[__]templates_destroy
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        description: A unique integer value identifying this template.
         required: true
       tags:
       - v3
@@ -9589,7 +9174,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{id}/:
     get:
-      operationId: simulations_retrieve
+      operationId: simulations
       parameters:
       - in: path
         name: id
@@ -9749,7 +9334,7 @@ paths:
           description: validation errors
   /v3/simulations/{id}/events/:
     get:
-      operationId: simulations_events_retrieve
+      operationId: simulations_events
       parameters:
       - in: path
         name: id
@@ -10015,7 +9600,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/create-saved-states/stable-threshold/{id}/:
     get:
-      operationId: simulations_create_saved_states_stable_threshold_retrieve
+      operationId: simulations_create_saved_states_stable_threshold
       description: Stable threshold SavedState
       parameters:
       - in: path
@@ -10302,7 +9887,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/create-saved-states/timed/{id}/:
     get:
-      operationId: simulations_create_saved_states_timed_retrieve
+      operationId: simulations_create_saved_states_timed
       description: Timed SavedState
       parameters:
       - in: path
@@ -10672,7 +10257,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/boundaryconditions/file/{id}/:
     get:
-      operationId: simulations_events_boundaryconditions_file_retrieve
+      operationId: simulations_events_boundaryconditions_file
       description: |-
         ViewMixin which adds an extra PUT-action 'processed'.
 
@@ -10837,7 +10422,7 @@ paths:
           description: Conflict with the current simulation status
   /v3/simulations/{simulation_pk}/events/boundaryconditions/file/{id}/download/:
     get:
-      operationId: simulations_events_boundaryconditions_file_download_retrieve
+      operationId: simulations_events_boundaryconditions_file_download
       description: Endpoint for downloading files.
       parameters:
       - in: path
@@ -11014,7 +10599,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/breaches/{id}/:
     get:
-      operationId: simulations_events_breaches_retrieve
+      operationId: simulations_events_breaches
       description: A simple ViewSet for viewing Breaches
       parameters:
       - in: path
@@ -11250,7 +10835,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/lateral/constant/{id}/:
     get:
-      operationId: simulations_events_lateral_constant_retrieve
+      operationId: simulations_events_lateral_constant
       description: A simple ViewSet for viewing ConstantLateral
       parameters:
       - in: path
@@ -11629,7 +11214,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/lateral/file/{id}/:
     get:
-      operationId: simulations_events_lateral_file_retrieve
+      operationId: simulations_events_lateral_file
       description: |-
         ViewMixin which adds an extra PUT-action 'processed'.
 
@@ -11803,7 +11388,7 @@ paths:
           description: Conflict with the current simulation status
   /v3/simulations/{simulation_pk}/events/lateral/file/{id}/download/:
     get:
-      operationId: simulations_events_lateral_file_download_retrieve
+      operationId: simulations_events_lateral_file_download
       description: Endpoint for downloading files.
       parameters:
       - in: path
@@ -11964,7 +11549,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/lateral/timeseries/{id}/:
     get:
-      operationId: simulations_events_lateral_timeseries_retrieve
+      operationId: simulations_events_lateral_timeseries
       description: A simple ViewSet for viewing TimeseriesLateral
       parameters:
       - in: path
@@ -12252,7 +11837,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/leakage/constant/{id}/:
     get:
-      operationId: simulations_events_leakage_constant_retrieve
+      operationId: simulations_events_leakage_constant
       description: A simple ViewSet for viewing ConstantLeakage
       parameters:
       - in: path
@@ -12496,7 +12081,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/leakage/rasters/netcdf/{id}/:
     get:
-      operationId: simulations_events_leakage_rasters_netcdf_retrieve
+      operationId: simulations_events_leakage_rasters_netcdf
       description: NetCDF 4 raster leakage
       parameters:
       - in: path
@@ -12663,7 +12248,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/leakage/timeseries/{id}/:
     get:
-      operationId: simulations_events_leakage_timeseries_retrieve
+      operationId: simulations_events_leakage_timeseries
       description: A simple ViewSet for viewing TimeseriesLeakage
       parameters:
       - in: path
@@ -12907,7 +12492,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/leakage/timeseries/netcdf/{id}/:
     get:
-      operationId: simulations_events_leakage_timeseries_netcdf_retrieve
+      operationId: simulations_events_leakage_timeseries_netcdf
       description: NetCDF 4 timeseries leakage
       parameters:
       - in: path
@@ -13054,7 +12639,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/constant/{id}/:
     get:
-      operationId: simulations_events_rain_constant_retrieve
+      operationId: simulations_events_rain_constant
       description: A simple ViewSet for viewing TimeseriesRain
       parameters:
       - in: path
@@ -13298,7 +12883,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/local/constant/{id}/:
     get:
-      operationId: simulations_events_rain_local_constant_retrieve
+      operationId: simulations_events_rain_local_constant
       description: A simple ViewSet for viewing TimeseriesRain
       parameters:
       - in: path
@@ -13542,7 +13127,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/local/timeseries/{id}/:
     get:
-      operationId: simulations_events_rain_local_timeseries_retrieve
+      operationId: simulations_events_rain_local_timeseries
       description: A simple ViewSet for viewing TimeseriesLateral
       parameters:
       - in: path
@@ -13786,7 +13371,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/rasters/lizard/{id}/:
     get:
-      operationId: simulations_events_rain_rasters_lizard_retrieve
+      operationId: simulations_events_rain_rasters_lizard
       description: A simple ViewSet for viewing lizardRasterRain
       parameters:
       - in: path
@@ -14030,7 +13615,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/rasters/netcdf/{id}/:
     get:
-      operationId: simulations_events_rain_rasters_netcdf_retrieve
+      operationId: simulations_events_rain_rasters_netcdf
       description: NetCDF 4 raster rain
       parameters:
       - in: path
@@ -14273,7 +13858,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/timeseries/{id}/:
     get:
-      operationId: simulations_events_rain_timeseries_retrieve
+      operationId: simulations_events_rain_timeseries
       description: A simple ViewSet for viewing TimeseriesRain
       parameters:
       - in: path
@@ -14517,7 +14102,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/timeseries/lizard/{id}/:
     get:
-      operationId: simulations_events_rain_timeseries_lizard_retrieve
+      operationId: simulations_events_rain_timeseries_lizard
       description: A simple ViewSet for viewing LizardTimeseriesRain
       parameters:
       - in: path
@@ -14761,7 +14346,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/timeseries/netcdf/{id}/:
     get:
-      operationId: simulations_events_rain_timeseries_netcdf_retrieve
+      operationId: simulations_events_rain_timeseries_netcdf
       description: NetCDF 4 timeseries rain
       parameters:
       - in: path
@@ -15005,7 +14590,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/raster-edits/{id}/:
     get:
-      operationId: simulations_events_raster_edits_retrieve
+      operationId: simulations_events_raster_edits
       description: A simple ViewSet for viewing raster edits
       parameters:
       - in: path
@@ -15299,7 +14884,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/constant/{id}/:
     get:
-      operationId: simulations_events_sources_sinks_constant_retrieve
+      operationId: simulations_events_sources_sinks_constant
       description: A simple ViewSet for viewing ConstantSourcesSinks
       parameters:
       - in: path
@@ -15543,7 +15128,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/rasters/lizard/{id}/:
     get:
-      operationId: simulations_events_sources_sinks_rasters_lizard_retrieve
+      operationId: simulations_events_sources_sinks_rasters_lizard
       description: A simple ViewSet for viewing lizardRasterRain
       parameters:
       - in: path
@@ -15791,7 +15376,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/rasters/netcdf/{id}/:
     get:
-      operationId: simulations_events_sources_sinks_rasters_netcdf_retrieve
+      operationId: simulations_events_sources_sinks_rasters_netcdf
       description: NetCDF 4 raster sources & sinks
       parameters:
       - in: path
@@ -16052,7 +15637,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/timeseries/{id}/:
     get:
-      operationId: simulations_events_sources_sinks_timeseries_retrieve
+      operationId: simulations_events_sources_sinks_timeseries
       description: A simple ViewSet for viewing TimeseriesSourcesSinks
       parameters:
       - in: path
@@ -16296,7 +15881,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/timeseries/lizard/{id}/:
     get:
-      operationId: simulations_events_sources_sinks_timeseries_lizard_retrieve
+      operationId: simulations_events_sources_sinks_timeseries_lizard
       description: A simple ViewSet for viewing LizardTimeseriesRain
       parameters:
       - in: path
@@ -16544,7 +16129,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/timeseries/netcdf/{id}/:
     get:
-      operationId: simulations_events_sources_sinks_timeseries_netcdf_retrieve
+      operationId: simulations_events_sources_sinks_timeseries_netcdf
       description: NetCDF 4 timeseries sources & sinks
       parameters:
       - in: path
@@ -16802,7 +16387,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/structure-control/file/{id}/:
     get:
-      operationId: simulations_events_structure_control_file_retrieve
+      operationId: simulations_events_structure_control_file
       description: |-
         ViewMixin which adds an extra PUT-action 'processed'.
 
@@ -16976,7 +16561,7 @@ paths:
           description: Conflict with the current simulation status
   /v3/simulations/{simulation_pk}/events/structure-control/file/{id}/download/:
     get:
-      operationId: simulations_events_structure_control_file_download_retrieve
+      operationId: simulations_events_structure_control_file_download
       description: Endpoint for downloading files.
       parameters:
       - in: path
@@ -17137,7 +16722,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/structure-control/memory/{id}/:
     get:
-      operationId: simulations_events_structure_control_memory_retrieve
+      operationId: simulations_events_structure_control_memory
       description: ViewSet for viewing MemoryStructureControls
       parameters:
       - in: path
@@ -17477,7 +17062,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/structure-control/table/{id}/:
     get:
-      operationId: simulations_events_structure_control_table_retrieve
+      operationId: simulations_events_structure_control_table
       description: ViewSet for viewing TableStructureControls
       parameters:
       - in: path
@@ -17798,7 +17383,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/structure-control/timed/{id}/:
     get:
-      operationId: simulations_events_structure_control_timed_retrieve
+      operationId: simulations_events_structure_control_timed
       description: A simple ViewSet for viewing TimedStructureControls
       parameters:
       - in: path
@@ -18125,7 +17710,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/wind/constant/{id}/:
     get:
-      operationId: simulations_events_wind_constant_retrieve
+      operationId: simulations_events_wind_constant
       description: A simple ViewSet for viewing Wind.
       parameters:
       - in: path
@@ -18385,7 +17970,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/wind/timeseries/{id}/:
     get:
-      operationId: simulations_events_wind_timeseries_retrieve
+      operationId: simulations_events_wind_timeseries
       description: A simple ViewSet for viewig Wind.
       parameters:
       - in: path
@@ -18613,7 +18198,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/1d_water_level/constant/{id}/:
     get:
-      operationId: simulations_initial_1d_water_level_constant_retrieve
+      operationId: simulations_initial_1d_water_level_constant
       description: Initial 1D water levels
       parameters:
       - in: path
@@ -18846,7 +18431,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/1d_water_level/file/{id}/:
     get:
-      operationId: simulations_initial_1d_water_level_file_retrieve
+      operationId: simulations_initial_1d_water_level_file
       description: Initial 1D water levels
       parameters:
       - in: path
@@ -19085,7 +18670,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/1d_water_level/predefined/{id}/:
     get:
-      operationId: simulations_initial_1d_water_level_predefined_retrieve
+      operationId: simulations_initial_1d_water_level_predefined
       description: initial predefined 1D water levels
       parameters:
       - in: path
@@ -19317,7 +18902,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/2d_water_level/constant/{id}/:
     get:
-      operationId: simulations_initial_2d_water_level_constant_retrieve
+      operationId: simulations_initial_2d_water_level_constant
       description: Initial 2D water levels
       parameters:
       - in: path
@@ -19551,7 +19136,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/2d_water_level/raster/{id}/:
     get:
-      operationId: simulations_initial_2d_water_level_raster_retrieve
+      operationId: simulations_initial_2d_water_level_raster
       description: Initial 2D water raster
       parameters:
       - in: path
@@ -19784,7 +19369,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/groundwater_level/constant/{id}/:
     get:
-      operationId: simulations_initial_groundwater_level_constant_retrieve
+      operationId: simulations_initial_groundwater_level_constant
       description: Initial groundwater levels.
       parameters:
       - in: path
@@ -20018,7 +19603,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/groundwater_level/raster/{id}/:
     get:
-      operationId: simulations_initial_groundwater_level_raster_retrieve
+      operationId: simulations_initial_groundwater_level_raster
       description: Initial 2D water raster
       parameters:
       - in: path
@@ -20246,7 +19831,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/saved_state/{id}/:
     get:
-      operationId: simulations_initial_saved_state_retrieve
+      operationId: simulations_initial_saved_state
       description: A simple ViewSet for initial SavedState's
       parameters:
       - in: path
@@ -20478,7 +20063,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/wind_drag-coefficient/{id}/:
     get:
-      operationId: simulations_initial_wind_drag_coefficient_retrieve
+      operationId: simulations_initial_wind_drag_coefficient
       description: A simple ViewSet for initial Wind drag coefficient
       parameters:
       - in: path
@@ -20744,7 +20329,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/results/files/{id}/:
     get:
-      operationId: simulations_results_files_retrieve
+      operationId: simulations_results_files
       description: Retrieve simulation results
       parameters:
       - in: path
@@ -20894,7 +20479,7 @@ paths:
           description: No response body
   /v3/simulations/{simulation_pk}/results/files/{id}/download/:
     get:
-      operationId: simulations_results_files_download_retrieve
+      operationId: simulations_results_files_download
       description: Endpoint for downloading files.
       parameters:
       - in: path
@@ -21900,7 +21485,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/settings/aggregation/{id}/:
     get:
-      operationId: simulations_settings_aggregation_retrieve
+      operationId: simulations_settings_aggregation
       description: |-
         Simulation aggregation settings.
 
@@ -22164,7 +21749,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/settings/customized_result_areas/{id}/:
     get:
-      operationId: simulations_settings_customized_result_areas_retrieve
+      operationId: simulations_settings_customized_result_areas
       description: Water quality customized result area
       parameters:
       - in: path
@@ -22602,7 +22187,7 @@ paths:
           description: Conflict with current state
   /v3/simulations/{simulation_pk}/settings/overview/:
     get:
-      operationId: simulations_settings_overview_retrieve
+      operationId: simulations_settings_overview
       description: Overview of the the simulation settings.
       parameters:
       - in: path
@@ -23142,7 +22727,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/settings/water_quality_customized_result_areas/{id}/:
     get:
-      operationId: simulations_settings_water_quality_customized_result_areas_retrieve
+      operationId: simulations_settings_water_quality_customized_result_areas
       description: Water quality customized result area
       parameters:
       - in: path
@@ -23679,7 +23264,7 @@ paths:
           description: ''
   /v3/simulations/{simulation_pk}/status/history/{id}/:
     get:
-      operationId: simulations_status_history_retrieve
+      operationId: simulations_status_history
       parameters:
       - in: path
         name: id
@@ -24199,65 +23784,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedSimulationChannelList'
           description: ''
-  /v3/simulations/from[-_]template/:
-    post:
-      operationId: simulations_from[__]template_create
-      description: |-
-        Create a (new/cloned) simulation from a simulation template.
-
-        There are two options to specify the desired duration for the
-        new simulation, either by using the ``end_datetime`` **or** the
-        ``duration`` parameter.
-
-        {
-          "template":                  # source simulation template resource id
-          "name":                      # name for the new simulation.
-          "tags":                      # extra tags, added to existing simulation template tags.
-          "organisation":              # uuid of the organisation for which the
-                                         simulation is run
-          "start_datetime":            # datetime (in ISO 8601 (UTC) format) for the
-                                         simulation start, e.g. "YYYY-MM-DDThh:mm:ss"
-          "end_datetime":              # datetime (in ISO 8601 (UTC) format) for the
-                                         simulation end, e.g. "YYYY-MM-DDThh:mm:ss"
-          "duration":                  # in seconds, can be used instead of end_datetime
-          "clone_events":              # if true, clone events like rain/sources & sinks etc.
-          "clone_initials":            # if true, clone initial waterlevels
-          "clone_settings":            # if true, clone simulation settings, like physical settings etc.
-          "threedimodel_id":           # copy simulation template to threedimodel
-          "started_from":              # platform from which the simulation was started
-        }
-      tags:
-      - v3
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FromTemplate'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/FromTemplate'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/FromTemplate'
-        required: true
-      security:
-      - Bearer: []
-      - OAuth2Bearer: []
-      - ApiKeyBasic: []
-      - Session: []
-      - Basic: []
-      - Bearer: []
-      - OAuth2: []
-      responses:
-        '201':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Simulation'
-          description: ''
-        '400':
-          description: validation errors
-      x-codegen-request-body-name: data
   /v3/simulations/post_processing/lizard/queue/:
     get:
       operationId: simulations_post_processing_lizard_queue_list
@@ -24733,7 +24259,7 @@ paths:
           description: ''
   /v3/statuses/{id}/:
     get:
-      operationId: statuses_retrieve
+      operationId: statuses
       parameters:
       - in: path
         name: id
@@ -25772,7 +25298,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/threedimodels/{id}/:
     get:
-      operationId: threedimodels_retrieve
+      operationId: threedimodels
       description: A simple ViewSet for viewing threedimodels
       parameters:
       - in: path
@@ -26936,7 +26462,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/threedimodels/{id}/raster_options/:
     get:
-      operationId: threedimodels_raster_options_retrieve
+      operationId: threedimodels_raster_options
       description: A simple ViewSet for viewing threedimodels
       parameters:
       - in: path
@@ -27118,7 +26644,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/boundaryconditions/{id}/:
     get:
-      operationId: threedimodels_boundaryconditions_retrieve
+      operationId: threedimodels_boundaryconditions
       description: A simple ViewSet for viewing boundary conditions
       parameters:
       - in: path
@@ -27437,7 +26963,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/:
     get:
-      operationId: threedimodels_initial_waterlevels_retrieve
+      operationId: threedimodels_initial_waterlevels
       description: |-
         ## Description
         Initial waterlevels on threedimodels can be used in a simulation to specify the initial
@@ -27611,7 +27137,7 @@ paths:
           description: No response body
   /v3/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/download/:
     get:
-      operationId: threedimodels_initial_waterlevels_download_retrieve
+      operationId: threedimodels_initial_waterlevels_download
       description: Endpoint for downloading files.
       parameters:
       - in: path
@@ -27881,7 +27407,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/potentialbreaches/{id}/:
     get:
-      operationId: threedimodels_potentialbreaches_retrieve
+      operationId: threedimodels_potentialbreaches
       description: |-
         A simple ViewSet for viewing breaches
 
@@ -28127,7 +27653,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/rasters/{id}/:
     get:
-      operationId: threedimodels_rasters_retrieve
+      operationId: threedimodels_rasters
       description: View rasters for threedimodel
       parameters:
       - in: path
@@ -28277,7 +27803,7 @@ paths:
           description: No response body
   /v3/threedimodels/{threedimodel_pk}/rasters/{id}/download/:
     get:
-      operationId: threedimodels_rasters_download_retrieve
+      operationId: threedimodels_rasters_download
       description: Endpoint for downloading files.
       parameters:
       - in: path
@@ -28405,7 +27931,7 @@ paths:
           description: ''
   /v3/threedimodels/{threedimodel_pk}/saved_states/{id}/:
     get:
-      operationId: threedimodels_saved_states_retrieve
+      operationId: threedimodels_saved_states
       description: View saved states created for this 3Di model
       parameters:
       - in: path
@@ -28544,7 +28070,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/tasks/{id}/:
     get:
-      operationId: threedimodels_tasks_retrieve
+      operationId: threedimodels_tasks
       description: View threedimodel tasks
       parameters:
       - in: path
@@ -29149,7 +28675,7 @@ paths:
           description: ''
   /v3/usage/{id}/:
     get:
-      operationId: usage_retrieve
+      operationId: usage
       description: |-
         View to display overview of ran simulations.
 
@@ -29180,7 +28706,7 @@ paths:
           description: ''
   /v3/usage/statistics/:
     get:
-      operationId: usage_statistics_retrieve
+      operationId: usage_statistics
       description: |-
         Usage statistics like total session count, average session
         duration and such.
@@ -29208,6 +28734,480 @@ paths:
               schema:
                 $ref: '#/components/schemas/UsageStatistics'
           description: ''
+  /v3/schematisations/{id}/latest-revision/:
+    get:
+      operationId: schematisations_latest_revision
+      description: |-
+        Get the latest committed revision.
+
+        For retrieving all revisions use: `/schematisations/{id}/revisions`
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this schematisation.
+        required: true
+      security:
+      - Bearer: []
+      - OAuth2Bearer: []
+      - ApiKeyBasic: []
+      - Session: []
+      - Basic: []
+      - Bearer: []
+      - OAuth2: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SchematisationRevision'
+          description: ''
+  /v3/schematisations/{schematisation_pk}/revisions/{id}/create-threedimodel/:
+    post:
+      operationId: schematisations_revisions_create_threedimodel_create
+      description: Manage revisions of schematisations.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this revision.
+        required: true
+      - in: path
+        name: schematisation_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - v3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateThreedimodel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateThreedimodel'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreateThreedimodel'
+      security:
+      - Bearer: []
+      - OAuth2Bearer: []
+      - ApiKeyBasic: []
+      - Session: []
+      - Basic: []
+      - Bearer: []
+      - OAuth2: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThreediModel'
+          description: ''
+      x-codegen-request-body-name: data
+  /v3/simulation-templates/:
+    get:
+      operationId: simulation_templates_list
+      parameters:
+      - in: query
+        name: created__date
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: created__date__gt
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: created__date__gte
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: created__date__lt
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: created__date__lte
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: created__day
+        schema:
+          type: number
+      - in: query
+        name: created__day__lt
+        schema:
+          type: number
+      - in: query
+        name: created__month
+        schema:
+          type: number
+      - in: query
+        name: created__month__lte
+        schema:
+          type: number
+      - in: query
+        name: created__year
+        schema:
+          type: number
+      - in: query
+        name: created__year__gt
+        schema:
+          type: number
+      - in: query
+        name: created__year__gte
+        schema:
+          type: number
+      - in: query
+        name: created__year__lt
+        schema:
+          type: number
+      - in: query
+        name: created__year__lte
+        schema:
+          type: number
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: name
+        schema:
+          type: string
+      - in: query
+        name: name__contains
+        schema:
+          type: string
+      - in: query
+        name: name__endswith
+        schema:
+          type: string
+      - in: query
+        name: name__icontains
+        schema:
+          type: string
+      - in: query
+        name: name__iexact
+        schema:
+          type: string
+      - in: query
+        name: name__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: name__istartswith
+        schema:
+          type: string
+      - in: query
+        name: name__regex
+        schema:
+          type: string
+      - in: query
+        name: name__startswith
+        schema:
+          type: string
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - in: query
+        name: simulation__threedimodel__id
+        schema:
+          type: integer
+      - in: query
+        name: simulation__threedimodel__id__range
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: uuid
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: uuid__contains
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: uuid__endswith
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: uuid__icontains
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: uuid__iexact
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: uuid__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: uuid__istartswith
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: uuid__regex
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: uuid__startswith
+        schema:
+          type: string
+          format: uuid
+      tags:
+      - v3
+      security:
+      - Bearer: []
+      - OAuth2Bearer: []
+      - ApiKeyBasic: []
+      - Session: []
+      - Basic: []
+      - Bearer: []
+      - OAuth2: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedTemplateList'
+          description: ''
+    post:
+      operationId: simulation_templates_create
+      description: |-
+        Create a (optionally cloned) simulation template from the given simulation.
+
+        A simulation template is actually nothing more than a simulation with a special status.
+        It's immutable after creation and only can be used to create new simulations.
+
+        Simulations 'upgraded' to simulations templates can't be directly run. The 'from_template' endpoint
+        allows to create a new simulation from a template in a runnable state.
+
+        A simulation template can be changed by first creating a simulation from it with 'from_template'.
+        Changing that simulation and use this endpoint to 'upgrade' it to a simulation template.
+
+        Note: A clone of a simulation is created if the simulation is not in the 'created' state.
+        Otherwise the simulation in 'created' state is 'upgraded' to a simulation template.
+
+        The limit for the number of templates per Threedimodel is 50.
+      tags:
+      - v3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTemplate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateTemplate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreateTemplate'
+        required: true
+      security:
+      - Bearer: []
+      - OAuth2Bearer: []
+      - ApiKeyBasic: []
+      - Session: []
+      - Basic: []
+      - Bearer: []
+      - OAuth2: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Template'
+          description: ''
+        '400':
+          description: validation errors
+      x-codegen-request-body-name: data
+  /v3/simulation-templates/{id}/:
+    get:
+      operationId: simulation_templates
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this template.
+        required: true
+      tags:
+      - v3
+      security:
+      - Bearer: []
+      - OAuth2Bearer: []
+      - ApiKeyBasic: []
+      - Session: []
+      - Basic: []
+      - Bearer: []
+      - OAuth2: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Template'
+          description: ''
+    patch:
+      operationId: simulation_templates_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this template.
+        required: true
+      tags:
+      - v3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateTemplate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateTemplate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUpdateTemplate'
+      security:
+      - Bearer: []
+      - OAuth2Bearer: []
+      - ApiKeyBasic: []
+      - Session: []
+      - Basic: []
+      - Bearer: []
+      - OAuth2: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateTemplate'
+          description: ''
+      x-codegen-request-body-name: data
+    delete:
+      operationId: simulation_templates_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this template.
+        required: true
+      tags:
+      - v3
+      security:
+      - Bearer: []
+      - OAuth2Bearer: []
+      - ApiKeyBasic: []
+      - Session: []
+      - Basic: []
+      - Bearer: []
+      - OAuth2: []
+      responses:
+        '204':
+          description: No response body
+  /v3/simulations/from-template/:
+    post:
+      operationId: simulations_from_template_create
+      description: |-
+        Create a (new/cloned) simulation from a simulation template.
+
+        There are two options to specify the desired duration for the
+        new simulation, either by using the ``end_datetime`` **or** the
+        ``duration`` parameter.
+
+        {
+          "template":                  # source simulation template resource id
+          "name":                      # name for the new simulation.
+          "tags":                      # extra tags, added to existing simulation template tags.
+          "organisation":              # uuid of the organisation for which the
+                                         simulation is run
+          "start_datetime":            # datetime (in ISO 8601 (UTC) format) for the
+                                         simulation start, e.g. "YYYY-MM-DDThh:mm:ss"
+          "end_datetime":              # datetime (in ISO 8601 (UTC) format) for the
+                                         simulation end, e.g. "YYYY-MM-DDThh:mm:ss"
+          "duration":                  # in seconds, can be used instead of end_datetime
+          "clone_events":              # if true, clone events like rain/sources & sinks etc.
+          "clone_initials":            # if true, clone initial waterlevels
+          "clone_settings":            # if true, clone simulation settings, like physical settings etc.
+          "threedimodel_id":           # copy simulation template to threedimodel
+          "started_from":              # platform from which the simulation was started
+        }
+      tags:
+      - v3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FromTemplate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FromTemplate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FromTemplate'
+        required: true
+      security:
+      - Bearer: []
+      - OAuth2Bearer: []
+      - ApiKeyBasic: []
+      - Session: []
+      - Basic: []
+      - Bearer: []
+      - OAuth2: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Simulation'
+          description: ''
+        '400':
+          description: validation errors
+      x-codegen-request-body-name: data
 components:
   schemas:
     Action:
@@ -29265,6 +29265,13 @@ components:
         * `shutdown` - shutdown
         * `queue` - queue
         * `dequeue` - dequeue
+      x-enum-varnames:
+      - INITIALIZE
+      - START
+      - PAUSE
+      - SHUTDOWN
+      - QUEUE
+      - DEQUEUE
     AddUser:
       type: object
       properties:
@@ -29300,6 +29307,10 @@ components:
         * `mean` - mean
         * `max` -  maximum
         * `min` -  minimum
+      x-enum-varnames:
+      - MEAN
+      - MAXIMUM
+      - MINIMUM
     AggregationSettings:
       type: object
       description: |-
@@ -29459,6 +29470,12 @@ components:
         * `riemann` - riemann
         * `water_level` - water_level
         * `discharge` - discharge
+      x-enum-varnames:
+      - VELOCITY
+      - SOMMERFELDT
+      - RIEMANN
+      - WATER_LEVEL
+      - DISCHARGE
     Breach:
       type: object
       description: |-
@@ -30169,6 +30186,13 @@ components:
         * `v2_culvert` - v2_culvert
         * `v2_channel` - v2_channel
         * `v2_weir` - v2_weir
+      x-enum-varnames:
+      - V2_CONNECTION_NODE
+      - V2_PIPE
+      - V2_ORIFICE
+      - V2_CULVERT
+      - V2_CHANNEL
+      - V2_WEIR
     Contract:
       type: object
       properties:
@@ -30258,6 +30282,10 @@ components:
         * `min` - min
         * `avg` - avg
         * `max` - max
+      x-enum-varnames:
+      - MIN
+      - AVG
+      - MAX
     CreateOrganisation:
       type: object
       properties:
@@ -30405,6 +30433,26 @@ components:
         * `breach_depth` - breach depth
         * `breach_width` - breach width
         * `q_pump` - pump discharge
+      x-enum-varnames:
+      - WATER
+      - VOLUME
+      - WET
+      - INFILTRATION
+      - RAIN
+      - LATERAL
+      - SURFACE
+      - FLOW
+      - FLOW
+      - LEAKAGE
+      - INTERCEPTED
+      - FLOW
+      - DISCHARGE
+      - WET
+      - FLOW
+      - DISCHARGE
+      - BREACH
+      - BREACH
+      - PUMP
     CustomizedResultArea:
       type: object
       description: |-
@@ -30560,6 +30608,9 @@ components:
       description: |-
         * `one_d` - one_d
         * `two_d` - two_d
+      x-enum-varnames:
+      - ONE_D
+      - TWO_D
     Download:
       type: object
       properties:
@@ -30796,6 +30847,10 @@ components:
         * `processing` - processing
         * `valid` - valid
         * `invalid` - invalid
+      x-enum-varnames:
+      - PROCESSING
+      - VALID
+      - INVALID
     ExitCodeEnum:
       enum:
       - 1110
@@ -30848,6 +30903,31 @@ components:
         * `2220` - event_worker_timeout
         * `2230` - enque_action_collection_timeout
         * `2240` - clear_event_data_timeout
+      x-enum-varnames:
+      - USER_SHUTDOWN_PREMATURE
+      - USER_SHUTDOWN
+      - FINISHED
+      - HEALTH_CHECK_PREMATURE_CONTAINER_ERROR
+      - HEALTH_CHECK_CONTAINER_ERROR
+      - HEALTH_CHECK_INITIALIZED_ERROR
+      - HEALTH_CHECK_ENDED_ERROR
+      - HEALTH_CHECK_POSTPROCESSING_ERROR
+      - INITIAL_CONDITION_WORKER_ERROR
+      - EVENT_WORKER_ERROR
+      - CONTAINER_STARTUP_ERROR
+      - OUT_OF_RESOURCES
+      - CALCULATION_CORE_ERROR
+      - CALCULATION_PYTHON_ERROR
+      - API_RESSOURCE_ERROR
+      - UPLOAD_REQUEST_ERROR
+      - UNFINISHED_TASKS_ERROR
+      - IGNITION_TIMEOUT
+      - INITIALIZED_PAUSED_TIMEOUT
+      - PAUSED_TIMEOUT
+      - INITIAL_CONDITION_WORKER_TIMEOUT
+      - EVENT_WORKER_TIMEOUT
+      - ENQUE_ACTION_COLLECTION_TIMEOUT
+      - CLEAR_EVENT_DATA_TIMEOUT
     File:
       type: object
       properties:
@@ -31353,6 +31433,12 @@ components:
         * `processed` - processed
         * `error` - error
         * `removed` - removed
+      x-enum-varnames:
+      - CREATED
+      - UPLOADED
+      - PROCESSED
+      - ERROR
+      - REMOVED
     FileStructureControl:
       type: object
       description: |-
@@ -31663,6 +31749,19 @@ components:
         * `oct` - oct
         * `nov` - nov
         * `dec` - dec
+      x-enum-varnames:
+      - JAN
+      - FEB
+      - MAR
+      - APR
+      - MAY
+      - JUN
+      - JUL
+      - AUG
+      - SEP
+      - OCT
+      - NOV
+      - DEC
     FlowVariableEnum:
       enum:
       - water_level
@@ -31693,6 +31792,20 @@ components:
         * `leakage` - Leakage
         * `interception` - Interception
         * `surface_source_sink_discharge` - Surface Source Sink Discharge
+      x-enum-varnames:
+      - WATER
+      - FLOW
+      - DISCHARGE
+      - VOLUME
+      - PUMP
+      - WET
+      - LATERAL
+      - WET
+      - RAIN
+      - SIMPLE
+      - LEAKAGE
+      - INTERCEPTION
+      - SURFACE
     ForceAsEnum:
       enum:
       - default
@@ -31703,6 +31816,10 @@ components:
         * `default` - default
         * `new_revision` - new revision
         * `new_schematisation` - new_schematisation
+      x-enum-varnames:
+      - DEFAULT
+      - NEW
+      - NEW_SCHEMATISATION
     ForcingSubstance:
       type: object
       properties:
@@ -31840,6 +31957,11 @@ components:
         * `1` - max between avg and divided channel based friction
         * `2` - always linearized
         * `3` - linearizes the depth based on a weighed averaged
+      x-enum-varnames:
+      - 'OFF'
+      - MAX
+      - ALWAYS
+      - LINEARIZES
     FromTemplate:
       type: object
       properties:
@@ -32304,6 +32426,8 @@ components:
       - m3/s
       type: string
       description: '* `m3/s` - m3/s'
+      x-enum-varnames:
+      - M3
     LeveeMaterialEnum:
       enum:
       - sand
@@ -32312,6 +32436,9 @@ components:
       description: |-
         * `sand` - sand
         * `clay` - clay
+      x-enum-varnames:
+      - SAND
+      - CLAY
     LimiterSlopeCrossectionalArea2dEnum:
       enum:
       - 0
@@ -32324,6 +32451,12 @@ components:
         * `1` - higher order scheme (might be sensitive to instabilities)
         * `2` - cross-sections treated as upwind method volume/surface area
         * `3` - combination traditional method thin layer approach
+      x-enum-varnames:
+      - 'OFF'
+      - HIGHER
+      - CROSS
+      - SECTIONS
+      - COMBINATION
     LizardRasterRain:
       type: object
       description: |-
@@ -32634,6 +32767,10 @@ components:
         * `mm/duration` - mm/duration
         * `mm/h` - mm/h
         * `m/s` - m/s
+      x-enum-varnames:
+      - MM
+      - MM
+      - M
     LocalRain:
       type: object
       description: |-
@@ -32764,6 +32901,10 @@ components:
         * `m/s` - meter_per_second
         * `mm/h` - millimeter_per_hour
         * `mm/min` - millimeter_per_minute
+      x-enum-varnames:
+      - METER_PER_SECOND
+      - MILLIMETER_PER_HOUR
+      - MILLIMETER_PER_MINUTE
     MeasureLocation:
       type: object
       properties:
@@ -32889,6 +33030,11 @@ components:
         * `vol1` - volume
         * `q` - discharge
         * `u1` - velocity
+      x-enum-varnames:
+      - WATERLEVEL
+      - VOLUME
+      - DISCHARGE
+      - VELOCITY
     MemoryStructureControl:
       type: object
       description: |-
@@ -33004,11 +33150,22 @@ components:
         * `cum_negative` - variable integration over time [dt * variable] in negative direction
         * `current` - current value of a variable
         * `sum` - variable summation over configured interval
+      x-enum-varnames:
+      - MINIMUM
+      - MAXIMUM
+      - AVERAGE
+      - VARIABLE
+      - VARIABLE
+      - VARIABLE
+      - CURRENT
+      - VARIABLE
     NetCDFFileTypeEnum:
       enum:
       - netcdf4
       type: string
       description: '* `netcdf4` - netcdf4'
+      x-enum-varnames:
+      - NETCDF4
     NetCDFRasterLeakage:
       type: object
       description: |-
@@ -33874,6 +34031,11 @@ components:
         * `>=` - greater_than_equal
         * `<` - less_than
         * `<=` - less_than_equal
+      x-enum-varnames:
+      - GREATER_THAN
+      - GREATER_THAN_EQUAL
+      - LESS_THAN
+      - LESS_THAN_EQUAL
     Organisation:
       type: object
       properties:
@@ -33972,6 +34134,9 @@ components:
       description: |-
         * `1` - single
         * `2` - double
+      x-enum-varnames:
+      - SINGLE
+      - DOUBLE
     OutputSettings:
       type: object
       properties:
@@ -40588,6 +40753,8 @@ components:
       - daily
       type: string
       description: '* `daily` - daily'
+      x-enum-varnames:
+      - DAILY
     PersonalAPIKey:
       type: object
       description: Serializer class for the personal API keys
@@ -40818,6 +40985,12 @@ components:
         * `archiving` - archiving
         * `archiving_failed` - archiving_failed
         * `archived` - archived
+      x-enum-varnames:
+      - CREATED
+      - REQUESTED
+      - ARCHIVING
+      - ARCHIVING_FAILED
+      - ARCHIVED
     PotentialBreach:
       type: object
       description: |-
@@ -41298,6 +41471,11 @@ components:
         * `mm` - mm
         * `mm/h` - mm/h
         * `mm/hr` - mm/hr
+      x-enum-varnames:
+      - M
+      - MM
+      - MM
+      - MM
     RasterTypeEnum:
       enum:
       - dem_file
@@ -41348,6 +41526,30 @@ components:
         * `vegetation_stem_diameter_file` - vegetation_stem_diameter_file
         * `initial_concentration_file` - initial_concentration_file
         * `initial_groundwater_concentration_file` - initial_groundwater_concentration_file
+      x-enum-varnames:
+      - DEM_FILE
+      - DEM_RAW_FILE
+      - EQUILIBRIUM_INFILTRATION_RATE_FILE
+      - FRICT_COEF_FILE
+      - INITIAL_GROUNDWATER_LEVEL_FILE
+      - INITIAL_WATERLEVEL_FILE
+      - GROUNDWATER_HYDRO_CONNECTIVITY_FILE
+      - GROUNDWATER_IMPERVIOUS_LAYER_LEVEL_FILE
+      - INFILTRATION_DECAY_PERIOD_FILE
+      - INITIAL_INFILTRATION_RATE_FILE
+      - LEAKAGE_FILE
+      - PHREATIC_STORAGE_CAPACITY_FILE
+      - HYDRAULIC_CONDUCTIVITY_FILE
+      - POROSITY_FILE
+      - INFILTRATION_RATE_FILE
+      - MAX_INFILTRATION_CAPACITY_FILE
+      - INTERCEPTION_FILE
+      - VEGETATION_HEIGHT_FILE
+      - VEGETATION_DRAG_COEFFICIENT_FILE
+      - VEGETATION_STEM_COUNT_FILE
+      - VEGETATION_STEM_DIAMETER_FILE
+      - INITIAL_CONCENTRATION_FILE
+      - INITIAL_GROUNDWATER_CONCENTRATION_FILE
     Refresh:
       type: object
       properties:
@@ -41591,6 +41793,28 @@ components:
         * `vegetation_stem_count_file` - vegetation_stem_count_file
         * `vegetation_stem_diameter_file` - vegetation_stem_diameter_file
         * `initial_groundwater_concentration_file` - initial_groundwater_concentration_file
+      x-enum-varnames:
+      - DEM_FILE
+      - EQUILIBRIUM_INFILTRATION_RATE_FILE
+      - FRICT_COEF_FILE
+      - INITIAL_GROUNDWATER_LEVEL_FILE
+      - INITIAL_WATERLEVEL_FILE
+      - GROUNDWATER_HYDRO_CONNECTIVITY_FILE
+      - GROUNDWATER_IMPERVIOUS_LAYER_LEVEL_FILE
+      - INFILTRATION_DECAY_PERIOD_FILE
+      - INITIAL_INFILTRATION_RATE_FILE
+      - LEAKAGE_FILE
+      - PHREATIC_STORAGE_CAPACITY_FILE
+      - HYDRAULIC_CONDUCTIVITY_FILE
+      - POROSITY_FILE
+      - INFILTRATION_RATE_FILE
+      - MAX_INFILTRATION_CAPACITY_FILE
+      - INTERCEPTION_FILE
+      - VEGETATION_HEIGHT_FILE
+      - VEGETATION_DRAG_COEFFICIENT_FILE
+      - VEGETATION_STEM_COUNT_FILE
+      - VEGETATION_STEM_DIAMETER_FILE
+      - INITIAL_GROUNDWATER_CONCENTRATION_FILE
     RevisionTask:
       type: object
       description: |-
@@ -41634,6 +41858,8 @@ components:
       - modelchecker
       type: string
       description: '* `modelchecker` - modelchecker'
+      x-enum-varnames:
+      - MODELCHECKER
     RevisionTaskStatusEnum:
       enum:
       - pending
@@ -41652,6 +41878,14 @@ components:
         * `success` - success
         * `failure` - failure
         * `revoked` - revoked
+      x-enum-varnames:
+      - PENDING
+      - SENT
+      - RECEIVED
+      - STARTED
+      - SUCCESS
+      - FAILURE
+      - REVOKED
     Role:
       type: object
       properties:
@@ -41739,6 +41973,9 @@ components:
       description: |-
         * `stable_threshold` - stable_threshold
         * `timed` - timed
+      x-enum-varnames:
+      - STABLE_THRESHOLD
+      - TIMED
     SavedStateVariableEnum:
       enum:
       - s1
@@ -41747,6 +41984,9 @@ components:
       description: |-
         * `s1` - s1
         * `u1` - u1
+      x-enum-varnames:
+      - S1
+      - U1
     Schematisation:
       type: object
       properties:
@@ -42034,6 +42274,10 @@ components:
         * `pending` - pending
         * `confirmed` - confirmed
         * `timeout` - timeout
+      x-enum-varnames:
+      - PENDING
+      - CONFIRMED
+      - TIMEOUT
     SimulationRunnerEnum:
       enum:
       - 3.4.104-3.7.2
@@ -42042,6 +42286,13 @@ components:
       description: |-
         * `3.4.104-3.7.2` - 3.4.104-3.7.2
         * `3.2.17-2.3.6` - 3.2.17-2.3.6
+      x-enum-varnames:
+      - _3
+      - _3
+      - _3
+      - _2
+      - _3
+      - _2
     SimulationSettingsOverview:
       type: object
       properties:
@@ -42219,6 +42470,15 @@ components:
         * `postprocessing` - postprocessing
         * `finished` - finished
         * `crashed` - crashed
+      x-enum-varnames:
+      - CREATED
+      - STARTING
+      - INITIALIZED
+      - QUEUED
+      - ENDED
+      - POSTPROCESSING
+      - FINISHED
+      - CRASHED
     SimulationStatusStatistics:
       type: object
       properties:
@@ -42409,6 +42669,10 @@ components:
       type: string
       description: "* `` - \n* `3Di Live` - 3Di Live\n* `3Di Modeller Interface` -
         3Di Modeller Interface\n* `Rana Desktop Client` - Rana Desktop Client"
+      x-enum-varnames:
+      - _3DI
+      - _3DI
+      - RANA
     Status:
       type: object
       properties:
@@ -42427,6 +42691,11 @@ components:
         * `set_crest_level` - set_crest_level
         * `set_pump_capacity` - set_pump_capacity
         * `set_gate_level` - set_gate_level
+      x-enum-varnames:
+      - SET_DISCHARGE_COEFFICIENTS
+      - SET_CREST_LEVEL
+      - SET_PUMP_CAPACITY
+      - SET_GATE_LEVEL
     StructureTypeEnum:
       enum:
       - v2_pumpstation
@@ -42443,6 +42712,13 @@ components:
         * `v2_culvert` - v2_culvert
         * `v2_weir` - v2_weir
         * `v2_channel` - v2_channel
+      x-enum-varnames:
+      - V2_PUMPSTATION
+      - V2_PIPE
+      - V2_ORIFICE
+      - V2_CULVERT
+      - V2_WEIR
+      - V2_CHANNEL
     SubsetsEnum:
       enum:
       - 1D
@@ -42455,6 +42731,11 @@ components:
         * `2D` - 2D
         * `1D2D` - 1D2D
         * `GW` - Groundwater
+      x-enum-varnames:
+      - _1D
+      - _2D
+      - _1D2D
+      - GROUNDWATER
     Substance:
       type: object
       description: |-
@@ -42960,6 +43241,14 @@ components:
         * `make_simulation_templates` - make_simulation_templates
         * `inherit_simulation_templates` - inherit_simulation_template
         * `make_aggregations` - make_aggregations
+      x-enum-varnames:
+      - MAKE_GRIDADMIN
+      - MAKE_TABLES
+      - MAKE_COG
+      - MAKE_GEOJSON
+      - MAKE_SIMULATION_TEMPLATES
+      - INHERIT_SIMULATION_TEMPLATE
+      - MAKE_AGGREGATIONS
     ThreediModelTaskStatusEnum:
       enum:
       - created
@@ -42980,6 +43269,15 @@ components:
         * `success` - success
         * `failure` - failure
         * `revoked` - revoked
+      x-enum-varnames:
+      - CREATED
+      - PENDING
+      - SENT
+      - RECEIVED
+      - STARTED
+      - SUCCESS
+      - FAILURE
+      - REVOKED
     Threshold:
       type: object
       properties:
@@ -42996,6 +43294,8 @@ components:
       - 0
       type: integer
       description: '* `0` - euler implicit'
+      x-enum-varnames:
+      - EULER
     TimeStepSettings:
       type: object
       properties:
@@ -43639,11 +43939,16 @@ components:
       description: |-
         * `mm` - mm
         * `mm/h` - mm/h
+      x-enum-varnames:
+      - MM
+      - MM
     TimeseriesRainMsUnitEnum:
       enum:
       - m/s
       type: string
       description: '* `m/s` - m/s'
+      x-enum-varnames:
+      - M
     TimeseriesRainOverview:
       type: object
       description: |-
@@ -44055,6 +44360,8 @@ components:
       - meters
       type: string
       description: '* `meters` - meters'
+      x-enum-varnames:
+      - METERS
     UpdateRevision:
       type: object
       description: Update revision
@@ -44192,6 +44499,23 @@ components:
         * `sqlite` - sqlite
         * `tables` - tables
         * `bulktimeseriesrain` - bulktimeseriesrain
+      x-enum-varnames:
+      - TIMESERIES
+      - RASTERTIMESERIES
+      - SAVEDSTATE
+      - RESULTS
+      - RASTERS
+      - GRIDADMIN
+      - GEOPACKAGE
+      - GEOJSON
+      - INITIALWATERLEVEL
+      - INITIAL_SUBSTANCE_CONCENTRATION
+      - BULKLATERAL
+      - BULKCONTROL
+      - BULK_BOUNDARYCONDITIONS
+      - SQLITE
+      - TABLES
+      - BULKTIMESERIESRAIN
     UploadWithSubstances:
       type: object
       properties:
@@ -44291,6 +44615,11 @@ components:
         * `1` - momentum conservative
         * `2` - energy conservative
         * `3` - combined momentum and energy conservative
+      x-enum-varnames:
+      - 'OFF'
+      - MOMENTUM
+      - ENERGY
+      - COMBINED
     UsePreconditionerCgEnum:
       enum:
       - 0
@@ -44299,6 +44628,9 @@ components:
       description: |-
         * `0` - off
         * `1` - standard
+      x-enum-varnames:
+      - 'OFF'
+      - STANDARD
     User:
       type: object
       properties:
@@ -44782,6 +45114,9 @@ components:
       description: |-
         * `m/s` - meter_per_second
         * `km/h` - kilometer_per_hour
+      x-enum-varnames:
+      - METER_PER_SECOND
+      - KILOMETER_PER_HOUR
     settings:
       type: object
       properties:

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:29AM (UTC) on June 10, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  12:08PM (UTC) on June 11, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -18,9 +18,8 @@ import re
 import ssl
 
 import aiohttp
-# python 2 and python 3 compatibility library
-from six.moves.urllib.parse import urlencode
-
+import certifi
+from urllib.parse import urlencode
 from threedi_api_client.aio.openapi.exceptions import ApiException, ApiValueError
 
 logger = logging.getLogger(__name__)
@@ -51,7 +50,14 @@ class RESTClientObject(object):
         if maxsize is None:
             maxsize = configuration.connection_pool_maxsize
 
-        ssl_context = ssl.create_default_context(cafile=configuration.ssl_ca_cert)
+        # ca_certs
+        if configuration.ssl_ca_cert:
+            ca_certs = configuration.ssl_ca_cert
+        else:
+            # if not set certificate file, use Mozilla's root certificates.
+            ca_certs = certifi.where()
+
+        ssl_context = ssl.create_default_context(cafile=ca_certs)
         if configuration.cert_file:
             ssl_context.load_cert_chain(
                 configuration.cert_file, keyfile=configuration.key_file
@@ -71,8 +77,7 @@ class RESTClientObject(object):
 
         # https pool manager
         self.pool_manager = aiohttp.ClientSession(
-            connector=connector,
-            trust_env=True
+            connector=connector, trust_env=True
         )
 
     async def close(self):
