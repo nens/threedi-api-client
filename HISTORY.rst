@@ -2,7 +2,7 @@
 History
 =======
 
-5.0.0.b3 (unreleased)
+5.0.0.b3 (2026-06-11)
 ---------------------
 
 - Fix _retrieve backwards incompatibility and enum generation issues. 
