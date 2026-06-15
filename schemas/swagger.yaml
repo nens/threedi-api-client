@@ -3,8 +3,8 @@ info:
   title: Rana simulation API
   version: v3
   description: "Rana simulation API (latest stable version: v3) \n\nFramework release:
-    3.4.104 \n\nRana simulation core release: 3.7.2 \n\ndeployed on:  12:08PM (UTC)
-    on June 11, 2026"
+    3.4.104 \n\nRana simulation core release: 3.7.2 \n\ndeployed on:  01:02PM (UTC)
+    on June 12, 2026"
   contact:
     email: info@nelen-schuurmans.nl
   license:
@@ -12,7 +12,7 @@ info:
 paths:
   /v3-beta/auth/users/:
     post:
-      operationId: beta_auth_users_create
+      operationId: auth_users_create
       tags:
       - v3-beta
       requestBody:
@@ -45,7 +45,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/auth/users/{user_pk}/personalapikeys/:
     get:
-      operationId: beta_auth_users_personalapikeys_list
+      operationId: auth_users_personalapikeys_list
       description: Personal API keys are used for authentication without password.
       parameters:
       - name: limit
@@ -83,7 +83,7 @@ paths:
                 $ref: '#/components/schemas/PaginatedPersonalAPIKeyList'
           description: ''
     post:
-      operationId: beta_auth_users_personalapikeys_create
+      operationId: auth_users_personalapikeys_create
       description: Personal API keys are used for authentication without password.
       parameters:
       - in: path
@@ -123,7 +123,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/auth/users/{user_pk}/personalapikeys/{prefix}/:
     get:
-      operationId: beta_auth_users_personalapikeys
+      operationId: auth_users_personalapikeys_read
       description: Personal API keys are used for authentication without password.
       parameters:
       - in: path
@@ -154,7 +154,7 @@ paths:
                 $ref: '#/components/schemas/PersonalAPIKey'
           description: ''
     delete:
-      operationId: beta_auth_users_personalapikeys_destroy
+      operationId: auth_users_personalapikeys_delete
       description: Personal API keys are used for authentication without password.
       parameters:
       - in: path
@@ -182,7 +182,7 @@ paths:
           description: No response body
   /v3-beta/auth/users/{user_pk}/personalapikeys/{prefix}/revoke/:
     post:
-      operationId: beta_auth_users_personalapikeys_revoke_create
+      operationId: auth_users_personalapikeys_revoke
       description: Revoke an API key and return the status.
       parameters:
       - in: path
@@ -214,7 +214,7 @@ paths:
           description: ''
   /v3-beta/personalapikeys/:
     get:
-      operationId: beta_personalapikeys_list
+      operationId: personalapikeys_list
       description: Personal API keys are used for authentication without password.
       parameters:
       - name: limit
@@ -247,7 +247,7 @@ paths:
                 $ref: '#/components/schemas/PaginatedPersonalAPIKeyList'
           description: ''
     post:
-      operationId: beta_personalapikeys_create
+      operationId: personalapikeys_create
       description: Personal API keys are used for authentication without password.
       tags:
       - v3-beta
@@ -281,7 +281,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/personalapikeys/{prefix}/:
     get:
-      operationId: beta_personalapikeys
+      operationId: personalapikeys_read
       description: Personal API keys are used for authentication without password.
       parameters:
       - in: path
@@ -307,7 +307,7 @@ paths:
                 $ref: '#/components/schemas/PersonalAPIKey'
           description: ''
     delete:
-      operationId: beta_personalapikeys_destroy
+      operationId: personalapikeys_delete
       description: Personal API keys are used for authentication without password.
       parameters:
       - in: path
@@ -330,7 +330,7 @@ paths:
           description: No response body
   /v3-beta/personalapikeys/{prefix}/revoke/:
     post:
-      operationId: beta_personalapikeys_revoke_create
+      operationId: personalapikeys_revoke
       description: Revoke an API key and return the status.
       parameters:
       - in: path
@@ -357,7 +357,7 @@ paths:
           description: ''
   /v3-beta/simulation-templates/{id}/copy-to-threedimodel/:
     post:
-      operationId: beta_simulation_templates_copy_to_threedimodel_create
+      operationId: simulation_templates_copy_to_threedimodel
       description: |-
         Copy simulation template to a threedimodel.
 
@@ -409,7 +409,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/events/obstacle-edits/:
     get:
-      operationId: beta_simulations_events_obstacle_edits_list
+      operationId: simulations_events_obstacle_edits_list
       description: A simple ViewSet for viewing obstacle edits
       parameters:
       - name: limit
@@ -447,7 +447,7 @@ paths:
                 $ref: '#/components/schemas/PaginatedObstacleEditList'
           description: ''
     post:
-      operationId: beta_simulations_events_obstacle_edits_create
+      operationId: simulations_events_obstacle_edits_create
       description: Create an obstacle edit
       parameters:
       - in: path
@@ -487,7 +487,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/events/obstacle-edits/{id}/:
     get:
-      operationId: beta_simulations_events_obstacle_edits
+      operationId: simulations_events_obstacle_edits_read
       description: A simple ViewSet for viewing obstacle edits
       parameters:
       - in: path
@@ -519,7 +519,7 @@ paths:
                 $ref: '#/components/schemas/ObstacleEdit'
           description: ''
     put:
-      operationId: beta_simulations_events_obstacle_edits_update
+      operationId: simulations_events_obstacle_edits_update
       description: A simple ViewSet for viewing obstacle edits
       parameters:
       - in: path
@@ -564,7 +564,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     patch:
-      operationId: beta_simulations_events_obstacle_edits_partial_update
+      operationId: simulations_events_obstacle_edits_partial_update
       description: |-
         when the simulation has started only the duration parameter might
         be patched
@@ -593,6 +593,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedObstacleEdit'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -616,7 +617,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: beta_simulations_events_obstacle_edits_destroy
+      operationId: simulations_events_obstacle_edits_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -653,7 +654,7 @@ paths:
           description: Conflict with the current simulation status
   /v3-beta/simulations/{simulation_pk}/events/obstacle-edits/{id}/processed/:
     put:
-      operationId: beta_simulations_events_obstacle_edits_processed_update
+      operationId: simulations_events_obstacle_edits_processed
       description: A simple ViewSet for viewing obstacle edits
       parameters:
       - in: path
@@ -695,7 +696,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/events/obstacle-edits/{id}/register_related_rasters/:
     get:
-      operationId: beta_simulations_events_obstacle_edits_register_related_rasters_list
+      operationId: simulations_events_obstacle_edits_register_related_rasters
       description: |-
         Register all related rasters in the results-api and return
         read_bbox urls of the registered rasters
@@ -745,7 +746,7 @@ paths:
           description: ''
   /v3-beta/simulations/{simulation_pk}/events/rain/timeseries/file/:
     get:
-      operationId: beta_simulations_events_rain_timeseries_file_list
+      operationId: simulations_events_rain_timeseries_file_list
       description: |-
         ViewMixin which adds an extra PUT-action 'processed'.
 
@@ -787,7 +788,7 @@ paths:
                 $ref: '#/components/schemas/PaginatedBulkTimeseriesRainList'
           description: ''
     post:
-      operationId: beta_simulations_events_rain_timeseries_file_create
+      operationId: simulations_events_rain_timeseries_file_create
       description: |-
         Endpoint for uploading a file with one or more timeseries rain events.
 
@@ -902,7 +903,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/events/rain/timeseries/file/{id}/:
     get:
-      operationId: beta_simulations_events_rain_timeseries_file
+      operationId: simulations_events_rain_timeseries_file_read
       description: |-
         ViewMixin which adds an extra PUT-action 'processed'.
 
@@ -938,7 +939,7 @@ paths:
                 $ref: '#/components/schemas/BulkTimeseriesRain'
           description: ''
     put:
-      operationId: beta_simulations_events_rain_timeseries_file_update
+      operationId: simulations_events_rain_timeseries_file_update
       description: |-
         ViewMixin which adds an extra PUT-action 'processed'.
 
@@ -987,7 +988,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     patch:
-      operationId: beta_simulations_events_rain_timeseries_file_partial_update
+      operationId: simulations_events_rain_timeseries_file_partial_update
       description: |-
         when the simulation has started only the duration parameter might
         be patched
@@ -1016,6 +1017,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedBulkTimeseriesRain'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -1039,7 +1041,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: beta_simulations_events_rain_timeseries_file_destroy
+      operationId: simulations_events_rain_timeseries_file_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -1076,7 +1078,7 @@ paths:
           description: Conflict with the current simulation status
   /v3-beta/simulations/{simulation_pk}/events/rain/timeseries/file/{id}/download/:
     get:
-      operationId: beta_simulations_events_rain_timeseries_file_download
+      operationId: simulations_events_rain_timeseries_file_download
       description: Endpoint for downloading files.
       parameters:
       - in: path
@@ -1113,7 +1115,7 @@ paths:
           description: File not found
   /v3-beta/simulations/{simulation_pk}/events/rain/timeseries/file/{id}/processed/:
     put:
-      operationId: beta_simulations_events_rain_timeseries_file_processed_update
+      operationId: simulations_events_rain_timeseries_file_processed
       description: |-
         ViewMixin which adds an extra PUT-action 'processed'.
 
@@ -1159,7 +1161,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/initial/1d_substance_concentrations/:
     get:
-      operationId: beta_simulations_initial_1d_substance_concentrations_list
+      operationId: simulations_initial_1d_substance_concentrations_list
       description: Initial 1D substance concentration
       parameters:
       - name: limit
@@ -1197,7 +1199,7 @@ paths:
                 $ref: '#/components/schemas/PaginatedOneDSubstanceConcentrationList'
           description: ''
     post:
-      operationId: beta_simulations_initial_1d_substance_concentrations_create
+      operationId: simulations_initial_1d_substance_concentrations_create
       description: |-
         Start the simulation with a 1D (water quality) concentrations from a file. Applies the
         given values to the predefined nodes subset "1D"
@@ -1242,7 +1244,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/initial/1d_substance_concentrations/{id}/:
     get:
-      operationId: beta_simulations_initial_1d_substance_concentrations
+      operationId: simulations_initial_1d_substance_concentrations_read
       description: Initial 1D substance concentration
       parameters:
       - in: path
@@ -1274,7 +1276,7 @@ paths:
                 $ref: '#/components/schemas/OneDSubstanceConcentration'
           description: ''
     put:
-      operationId: beta_simulations_initial_1d_substance_concentrations_update
+      operationId: simulations_initial_1d_substance_concentrations_update
       description: Initial 1D substance concentration
       parameters:
       - in: path
@@ -1319,7 +1321,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     patch:
-      operationId: beta_simulations_initial_1d_substance_concentrations_partial_update
+      operationId: simulations_initial_1d_substance_concentrations_partial_update
       description: Initial 1D substance concentration
       parameters:
       - in: path
@@ -1346,6 +1348,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedOneDSubstanceConcentration'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -1363,7 +1366,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: beta_simulations_initial_1d_substance_concentrations_destroy
+      operationId: simulations_initial_1d_substance_concentrations_delete
       description: Initial 1D substance concentration
       parameters:
       - in: path
@@ -1392,7 +1395,7 @@ paths:
           description: No response body
   /v3-beta/simulations/{simulation_pk}/initial/2d_substance_concentrations/:
     get:
-      operationId: beta_simulations_initial_2d_substance_concentrations_list
+      operationId: simulations_initial_2d_substance_concentrations_list
       description: Initial 2D substance concentration
       parameters:
       - name: limit
@@ -1430,7 +1433,7 @@ paths:
                 $ref: '#/components/schemas/PaginatedTwoDSubstanceConcentrationList'
           description: ''
     post:
-      operationId: beta_simulations_initial_2d_substance_concentrations_create
+      operationId: simulations_initial_2d_substance_concentrations_create
       description: |-
         Start the simulation with 2D (water quality) concentrations derived from the raster by
         using the aggregation method. Applies the resulting levels
@@ -1476,7 +1479,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/initial/2d_substance_concentrations/{id}/:
     get:
-      operationId: beta_simulations_initial_2d_substance_concentrations
+      operationId: simulations_initial_2d_substance_concentrations_read
       description: Initial 2D substance concentration
       parameters:
       - in: path
@@ -1508,7 +1511,7 @@ paths:
                 $ref: '#/components/schemas/TwoDSubstanceConcentration'
           description: ''
     put:
-      operationId: beta_simulations_initial_2d_substance_concentrations_update
+      operationId: simulations_initial_2d_substance_concentrations_update
       description: Initial 2D substance concentration
       parameters:
       - in: path
@@ -1553,7 +1556,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     patch:
-      operationId: beta_simulations_initial_2d_substance_concentrations_partial_update
+      operationId: simulations_initial_2d_substance_concentrations_partial_update
       description: Initial 2D substance concentration
       parameters:
       - in: path
@@ -1580,6 +1583,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedTwoDSubstanceConcentration'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -1597,7 +1601,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: beta_simulations_initial_2d_substance_concentrations_destroy
+      operationId: simulations_initial_2d_substance_concentrations_delete
       description: Initial 2D substance concentration
       parameters:
       - in: path
@@ -1626,7 +1630,7 @@ paths:
           description: No response body
   /v3-beta/simulations/{simulation_pk}/initial/groundwater_substance_concentrations/:
     get:
-      operationId: beta_simulations_initial_groundwater_substance_concentrations_list
+      operationId: simulations_initial_groundwater_substance_concentrations_list
       description: Initial 2D substance concentration
       parameters:
       - name: limit
@@ -1664,7 +1668,7 @@ paths:
                 $ref: '#/components/schemas/PaginatedGroundWaterSubstanceConcentrationList'
           description: ''
     post:
-      operationId: beta_simulations_initial_groundwater_substance_concentrations_create
+      operationId: simulations_initial_groundwater_substance_concentrations_create
       description: |-
         Start the simulation with groundwater (water quality) concentrations derived
         from the raster by using the aggregation method. Applies the resulting levels
@@ -1710,7 +1714,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/initial/groundwater_substance_concentrations/{id}/:
     get:
-      operationId: beta_simulations_initial_groundwater_substance_concentrations
+      operationId: simulations_initial_groundwater_substance_concentrations_read
       description: Initial 2D substance concentration
       parameters:
       - in: path
@@ -1743,7 +1747,7 @@ paths:
                 $ref: '#/components/schemas/GroundWaterSubstanceConcentration'
           description: ''
     put:
-      operationId: beta_simulations_initial_groundwater_substance_concentrations_update
+      operationId: simulations_initial_groundwater_substance_concentrations_update
       description: Initial 2D substance concentration
       parameters:
       - in: path
@@ -1789,7 +1793,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     patch:
-      operationId: beta_simulations_initial_groundwater_substance_concentrations_partial_update
+      operationId: simulations_initial_groundwater_substance_concentrations_partial_update
       description: Initial 2D substance concentration
       parameters:
       - in: path
@@ -1817,6 +1821,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedGroundWaterSubstanceConcentration'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -1834,7 +1839,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: beta_simulations_initial_groundwater_substance_concentrations_destroy
+      operationId: simulations_initial_groundwater_substance_concentrations_delete
       description: Initial 2D substance concentration
       parameters:
       - in: path
@@ -1864,7 +1869,7 @@ paths:
           description: No response body
   /v3-beta/simulations/{simulation_pk}/substances/:
     get:
-      operationId: beta_simulations_substances_list
+      operationId: simulations_substances_list
       description: Water quality substances
       parameters:
       - name: limit
@@ -1902,7 +1907,7 @@ paths:
                 $ref: '#/components/schemas/PaginatedSubstanceList'
           description: ''
     post:
-      operationId: beta_simulations_substances_create
+      operationId: simulations_substances_create
       description: Add substance to simulation substances set.
       parameters:
       - in: path
@@ -1942,7 +1947,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/simulations/{simulation_pk}/substances/{id}/:
     get:
-      operationId: beta_simulations_substances
+      operationId: simulations_substances_read
       description: Water quality substances
       parameters:
       - in: path
@@ -1974,7 +1979,7 @@ paths:
                 $ref: '#/components/schemas/Substance'
           description: ''
     put:
-      operationId: beta_simulations_substances_update
+      operationId: simulations_substances_update
       description: Water quality substances
       parameters:
       - in: path
@@ -2019,7 +2024,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     patch:
-      operationId: beta_simulations_substances_partial_update
+      operationId: simulations_substances_partial_update
       description: Water quality substances
       parameters:
       - in: path
@@ -2046,6 +2051,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedSubstance'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -2063,7 +2069,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: beta_simulations_substances_destroy
+      operationId: simulations_substances_delete
       description: Water quality substances
       parameters:
       - in: path
@@ -2092,7 +2098,7 @@ paths:
           description: No response body
   /v3-beta/status/:
     get:
-      operationId: beta_status_list
+      operationId: status_list
       tags:
       - v3-beta
       security:
@@ -2114,7 +2120,7 @@ paths:
           description: ''
   /v3-beta/status/current-version/:
     get:
-      operationId: beta_status_current_version
+      operationId: status_current_version
       tags:
       - v3-beta
       security:
@@ -2134,7 +2140,7 @@ paths:
           description: ''
   /v3-beta/threedimodels/{threedimodel_pk}/initial_concentrations/:
     get:
-      operationId: beta_threedimodels_initial_concentrations_list
+      operationId: threedimodels_initial_concentrations_list
       description: |-
         ## Description
         Initial substance concentrations on threedimodels can be used in a simulation to
@@ -2175,7 +2181,7 @@ paths:
                 $ref: '#/components/schemas/PaginatedInitialConcentrationList'
           description: ''
     post:
-      operationId: beta_threedimodels_initial_concentrations_create
+      operationId: threedimodels_initial_concentrations_create
       description: |-
         Add new initial concentrations
 
@@ -2227,6 +2233,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/InitialConcentration'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -2245,7 +2252,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/threedimodels/{threedimodel_pk}/initial_concentrations/{id}/:
     get:
-      operationId: beta_threedimodels_initial_concentrations
+      operationId: threedimodels_initial_concentrations_read
       description: |-
         ## Description
         Initial substance concentrations on threedimodels can be used in a simulation to
@@ -2280,7 +2287,7 @@ paths:
                 $ref: '#/components/schemas/InitialConcentration'
           description: ''
     put:
-      operationId: beta_threedimodels_initial_concentrations_update
+      operationId: threedimodels_initial_concentrations_update
       description: |-
         ## Description
         Initial substance concentrations on threedimodels can be used in a simulation to
@@ -2310,6 +2317,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/InitialConcentration'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -2327,7 +2335,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     patch:
-      operationId: beta_threedimodels_initial_concentrations_partial_update
+      operationId: threedimodels_initial_concentrations_partial_update
       description: |-
         ## Description
         Initial substance concentrations on threedimodels can be used in a simulation to
@@ -2357,6 +2365,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedInitialConcentration'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -2374,7 +2383,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: beta_threedimodels_initial_concentrations_destroy
+      operationId: threedimodels_initial_concentrations_delete
       description: |-
         Delete initial substance concentration
 
@@ -2407,7 +2416,7 @@ paths:
           description: No response body
   /v3-beta/threedimodels/{threedimodel_pk}/initial_concentrations/{id}/download/:
     get:
-      operationId: beta_threedimodels_initial_concentrations_download
+      operationId: threedimodels_initial_concentrations_download
       description: Endpoint for downloading files.
       parameters:
       - in: path
@@ -2444,7 +2453,7 @@ paths:
           description: File not found
   /v3-beta/threedimodels/{threedimodel_pk}/initial_concentrations/{id}/processed/:
     put:
-      operationId: beta_threedimodels_initial_concentrations_processed_update
+      operationId: threedimodels_initial_concentrations_processed
       description: |-
         ## Description
         Initial substance concentrations on threedimodels can be used in a simulation to
@@ -2489,7 +2498,7 @@ paths:
       x-codegen-request-body-name: data
   /v3-beta/threedimodels/{threedimodel_pk}/initial_concentrations/{id}/upload/:
     post:
-      operationId: beta_threedimodels_initial_concentrations_upload_create
+      operationId: threedimodels_initial_concentrations_upload
       description: |-
         Endpoint for uploading an initial substance concentration file, see the POST
         endpoint for documentation about the file format.
@@ -2638,6 +2647,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/Authenticate'
+        required: true
       security:
       - ApiKeyBasic: []
       - Basic: []
@@ -2783,7 +2793,7 @@ paths:
           description: ''
   /v3/auth/users/{id}/:
     get:
-      operationId: auth_users
+      operationId: auth_users_read
       parameters:
       - in: path
         name: id
@@ -3034,7 +3044,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/contracts/{id}/:
     get:
-      operationId: contracts
+      operationId: contracts_read
       description: API endpoint for interacting with contracts.
       parameters:
       - in: path
@@ -3123,6 +3133,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedContract'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -3140,7 +3151,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: contracts_destroy
+      operationId: contracts_delete
       description: API endpoint for interacting with contracts.
       parameters:
       - in: path
@@ -3311,7 +3322,7 @@ paths:
           description: ''
   /v3/files/{id}/:
     get:
-      operationId: files
+      operationId: files_read
       description: A simple ViewSet for viewing files
       parameters:
       - in: path
@@ -3400,6 +3411,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedFile'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -3417,7 +3429,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: files_destroy
+      operationId: files_delete
       description: A simple ViewSet for viewing files
       parameters:
       - in: path
@@ -3441,7 +3453,7 @@ paths:
           description: No response body
   /v3/files/{id}/destroy_file/:
     delete:
-      operationId: files_destroy_file_destroy
+      operationId: files_destroy_file
       description: A simple ViewSet for viewing files
       parameters:
       - in: path
@@ -3504,7 +3516,7 @@ paths:
           description: File not found
   /v3/files/{id}/processed/:
     put:
-      operationId: files_processed_update
+      operationId: files_processed
       description: |-
         Endpoint to which the upload-processor can enrich file objects
         (and their related objects) with metadata.
@@ -3530,6 +3542,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/FileMeta'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -3748,7 +3761,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/inpy-versions/{id}/:
     get:
-      operationId: inpy_versions
+      operationId: inpy_versions_read
       description: |-
         Inpy was the service for preparing user-supplied schematisations into 3Di
         models (threedimodels) usable by the 3Di calculation core.
@@ -3852,6 +3865,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedInpyVersion'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -3869,7 +3883,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: inpy_versions_destroy
+      operationId: inpy_versions_delete
       description: |-
         Inpy was the service for preparing user-supplied schematisations into 3Di
         models (threedimodels) usable by the 3Di calculation core.
@@ -3965,7 +3979,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/organisation-settings/{id}/:
     get:
-      operationId: organisation_settings
+      operationId: organisation_settings_read
       description: API endpoint for interacting with organisation settings.
       parameters:
       - in: path
@@ -4054,6 +4068,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/Patchedsettings'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -4071,7 +4086,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: organisation_settings_destroy
+      operationId: organisation_settings_delete
       description: API endpoint for interacting with organisation settings.
       parameters:
       - in: path
@@ -4263,7 +4278,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/organisations/{unique_id}/:
     get:
-      operationId: organisations
+      operationId: organisations_read
       description: Read-only API endpoint for interacting with organisations.
       parameters:
       - in: path
@@ -4349,6 +4364,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedOrganisation'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -4366,7 +4382,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: organisations_destroy
+      operationId: organisations_delete
       description: Read-only API endpoint for interacting with organisations.
       parameters:
       - in: path
@@ -4389,7 +4405,7 @@ paths:
           description: No response body
   /v3/organisations/{unique_id}/permissions/:
     get:
-      operationId: organisations_permissions_list
+      operationId: organisations_permissions
       description: Read-only API endpoint for interacting with organisations.
       parameters:
       - in: query
@@ -4658,7 +4674,7 @@ paths:
           description: ''
   /v3/organisations/{unique_id}/users/{id}/:
     get:
-      operationId: organisations_users
+      operationId: organisations_users_read
       description: Endpoint for interacting with users in an organisation.
       parameters:
       - in: path
@@ -4717,6 +4733,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedOrganisationUserRolePatch'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -4946,7 +4963,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/permissions/{id}/:
     get:
-      operationId: permissions
+      operationId: permissions_read
       description: Permissions management endpoints.
       parameters:
       - in: path
@@ -4973,7 +4990,7 @@ paths:
                 $ref: '#/components/schemas/OrganisationRole'
           description: ''
     delete:
-      operationId: permissions_destroy
+      operationId: permissions_delete
       description: Permissions management endpoints.
       parameters:
       - in: path
@@ -5211,7 +5228,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/repositories/{id}/:
     get:
-      operationId: repositories
+      operationId: repositories_read
       description: A simple ViewSet for viewing modelmeta
       parameters:
       - in: path
@@ -5300,6 +5317,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedRepository'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -5317,7 +5335,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: repositories_destroy
+      operationId: repositories_delete
       description: A simple ViewSet for viewing modelmeta
       parameters:
       - in: path
@@ -5341,7 +5359,7 @@ paths:
           description: No response body
   /v3/repositories/{id}/revisions/:
     get:
-      operationId: repositories_revisions_list
+      operationId: repositories_revisions
       description: A simple ViewSet for viewing modelmeta
       parameters:
       - in: path
@@ -5528,7 +5546,7 @@ paths:
           description: ''
   /v3/repositories/{id}/threedimodels/:
     get:
-      operationId: repositories_threedimodels_list
+      operationId: repositories_threedimodels
       description: A simple ViewSet for viewing modelmeta
       parameters:
       - in: path
@@ -5998,7 +6016,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/revisions/{id}/:
     get:
-      operationId: revisions
+      operationId: revisions_read
       description: A simple ViewSet for viewing modelmeta
       parameters:
       - in: path
@@ -6087,6 +6105,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedRevision'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -6104,7 +6123,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: revisions_destroy
+      operationId: revisions_delete
       description: A simple ViewSet for viewing modelmeta
       parameters:
       - in: path
@@ -6128,7 +6147,7 @@ paths:
           description: No response body
   /v3/revisions/{id}/threedimodels/:
     get:
-      operationId: revisions_threedimodels_list
+      operationId: revisions_threedimodels
       description: A simple ViewSet for viewing modelmeta
       parameters:
       - in: query
@@ -6418,7 +6437,7 @@ paths:
           description: ''
   /v3/roles/{id}/:
     get:
-      operationId: roles
+      operationId: roles_read
       description: Read-only API endpoint for viewing roles
       parameters:
       - in: path
@@ -6942,7 +6961,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/schematisations/{id}/:
     get:
-      operationId: schematisations
+      operationId: schematisations_read
       description: Manage schematisations
       parameters:
       - in: path
@@ -7031,6 +7050,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedSchematisation'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -7048,7 +7068,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: schematisations_destroy
+      operationId: schematisations_delete
       description: Archive schematisation.
       parameters:
       - in: path
@@ -7468,6 +7488,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/CreateRevision'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -7486,7 +7507,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{id}/:
     get:
-      operationId: schematisations_revisions
+      operationId: schematisations_revisions_read
       description: Manage revisions of schematisations.
       parameters:
       - in: path
@@ -7545,6 +7566,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedUpdateRevision'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -7562,7 +7584,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: schematisations_revisions_destroy
+      operationId: schematisations_revisions_delete
       description: Provide the revision id to delete the revision
       parameters:
       - in: path
@@ -7578,6 +7600,18 @@ paths:
         required: true
       tags:
       - v3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DestroyRevision'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DestroyRevision'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DestroyRevision'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -7591,9 +7625,10 @@ paths:
           description: No response body
         '400':
           description: Please provide the revision id
+      x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{id}/check/:
     post:
-      operationId: schematisations_revisions_check_create
+      operationId: schematisations_revisions_check
       description: Manage revisions of schematisations.
       parameters:
       - in: path
@@ -7628,7 +7663,7 @@ paths:
           description: Conflict with other task already pending
   /v3/schematisations/{schematisation_pk}/revisions/{id}/commit/:
     post:
-      operationId: schematisations_revisions_commit_create
+      operationId: schematisations_revisions_commit
       description: |-
         Commit the revision
 
@@ -7676,6 +7711,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/Commit'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -7833,7 +7869,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{id}/threedimodels/:
     get:
-      operationId: schematisations_revisions_threedimodels_list
+      operationId: schematisations_revisions_threedimodels
       description: Manage revisions of schematisations.
       parameters:
       - in: query
@@ -8309,7 +8345,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/:
     get:
-      operationId: schematisations_revisions_rasters
+      operationId: schematisations_revisions_rasters_read
       description: |-
         Mixin for default 'download' action for
         downloading files
@@ -8440,6 +8476,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedRevisionRaster'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -8457,7 +8494,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: schematisations_revisions_rasters_destroy
+      operationId: schematisations_revisions_rasters_delete
       description: |-
         Mixin for default 'download' action for
         downloading files
@@ -8537,7 +8574,7 @@ paths:
           description: File not found
   /v3/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/{id}/upload/:
     post:
-      operationId: schematisations_revisions_rasters_upload_create
+      operationId: schematisations_revisions_rasters_upload
       description: Endpoint for uploading a raster.
       parameters:
       - in: path
@@ -8676,7 +8713,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{revision_pk}/tasks/{id}/:
     get:
-      operationId: schematisations_revisions_tasks
+      operationId: schematisations_revisions_tasks_read
       description: View revision tasks
       parameters:
       - in: path
@@ -8795,6 +8832,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedRevisionTask'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -8812,7 +8850,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: schematisations_revisions_tasks_destroy
+      operationId: schematisations_revisions_tasks_delete
       description: View revision tasks
       parameters:
       - in: path
@@ -9174,7 +9212,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{id}/:
     get:
-      operationId: simulations
+      operationId: simulations_read
       parameters:
       - in: path
         name: id
@@ -9260,6 +9298,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedSimulationUpdate'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -9277,7 +9316,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_destroy
+      operationId: simulations_delete
       parameters:
       - in: path
         name: id
@@ -9300,7 +9339,7 @@ paths:
           description: No response body
   /v3/simulations/{id}/clone/:
     post:
-      operationId: simulations_clone_create
+      operationId: simulations_clone
       description: |-
         Clone the simulation.
 
@@ -9463,7 +9502,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/actions/reset_pause_timeout/:
     post:
-      operationId: simulations_actions_reset_pause_timeout_create
+      operationId: simulations_actions_reset_pause_timeout
       description: |-
         Reset the pause timeout with the new specified timeout value
 
@@ -9600,7 +9639,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/create-saved-states/stable-threshold/{id}/:
     get:
-      operationId: simulations_create_saved_states_stable_threshold
+      operationId: simulations_create_saved_states_stable_threshold_read
       description: Stable threshold SavedState
       parameters:
       - in: path
@@ -9704,6 +9743,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedStableThresholdSavedState'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -9719,7 +9759,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_create_saved_states_stable_threshold_destroy
+      operationId: simulations_create_saved_states_stable_threshold_delete
       description: Stable threshold SavedState
       parameters:
       - in: path
@@ -9748,7 +9788,7 @@ paths:
           description: No response body
   /v3/simulations/{simulation_pk}/create-saved-states/stable-threshold/{id}/upload/:
     post:
-      operationId: simulations_create_saved_states_stable_threshold_upload_create
+      operationId: simulations_create_saved_states_stable_threshold_upload
       description: Stable threshold SavedState
       parameters:
       - in: path
@@ -9887,7 +9927,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/create-saved-states/timed/{id}/:
     get:
-      operationId: simulations_create_saved_states_timed
+      operationId: simulations_create_saved_states_timed_read
       description: Timed SavedState
       parameters:
       - in: path
@@ -9991,6 +10031,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedTimedSavedState'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -10006,7 +10047,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_create_saved_states_timed_destroy
+      operationId: simulations_create_saved_states_timed_delete
       description: Timed SavedState
       parameters:
       - in: path
@@ -10035,7 +10076,7 @@ paths:
           description: No response body
   /v3/simulations/{simulation_pk}/create-saved-states/timed/{id}/upload/:
     post:
-      operationId: simulations_create_saved_states_timed_upload_create
+      operationId: simulations_create_saved_states_timed_upload
       description: Timed SavedState
       parameters:
       - in: path
@@ -10257,7 +10298,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/boundaryconditions/file/{id}/:
     get:
-      operationId: simulations_events_boundaryconditions_file
+      operationId: simulations_events_boundaryconditions_file_read
       description: |-
         ViewMixin which adds an extra PUT-action 'processed'.
 
@@ -10324,6 +10365,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/FileBoundaryCondition'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -10372,6 +10414,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedFileBoundaryCondition'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -10389,7 +10432,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_boundaryconditions_file_destroy
+      operationId: simulations_events_boundaryconditions_file_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -10459,7 +10502,7 @@ paths:
           description: File not found
   /v3/simulations/{simulation_pk}/events/boundaryconditions/file/{id}/processed/:
     put:
-      operationId: simulations_events_boundaryconditions_file_processed_update
+      operationId: simulations_events_boundaryconditions_file_processed
       description: |-
         ViewMixin which adds an extra PUT-action 'processed'.
 
@@ -10599,7 +10642,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/breaches/{id}/:
     get:
-      operationId: simulations_events_breaches
+      operationId: simulations_events_breaches_read
       description: A simple ViewSet for viewing Breaches
       parameters:
       - in: path
@@ -10705,6 +10748,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedBreach'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -10720,7 +10764,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_breaches_destroy
+      operationId: simulations_events_breaches_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -10835,7 +10879,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/lateral/constant/{id}/:
     get:
-      operationId: simulations_events_lateral_constant
+      operationId: simulations_events_lateral_constant_read
       description: A simple ViewSet for viewing ConstantLateral
       parameters:
       - in: path
@@ -10941,6 +10985,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedConstantLateral'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -10964,7 +11009,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_lateral_constant_destroy
+      operationId: simulations_events_lateral_constant_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -11001,7 +11046,7 @@ paths:
           description: Conflict with the current simulation status
   /v3/simulations/{simulation_pk}/events/lateral/constant/{id}/processed/:
     put:
-      operationId: simulations_events_lateral_constant_processed_update
+      operationId: simulations_events_lateral_constant_processed
       description: A simple ViewSet for viewing ConstantLateral
       parameters:
       - in: path
@@ -11214,7 +11259,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/lateral/file/{id}/:
     get:
-      operationId: simulations_events_lateral_file
+      operationId: simulations_events_lateral_file_read
       description: |-
         ViewMixin which adds an extra PUT-action 'processed'.
 
@@ -11328,6 +11373,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedFileLateral'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -11351,7 +11397,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_lateral_file_destroy
+      operationId: simulations_events_lateral_file_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -11425,7 +11471,7 @@ paths:
           description: File not found
   /v3/simulations/{simulation_pk}/events/lateral/file/{id}/processed/:
     put:
-      operationId: simulations_events_lateral_file_processed_update
+      operationId: simulations_events_lateral_file_processed
       description: |-
         ViewMixin which adds an extra PUT-action 'processed'.
 
@@ -11549,7 +11595,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/lateral/timeseries/{id}/:
     get:
-      operationId: simulations_events_lateral_timeseries
+      operationId: simulations_events_lateral_timeseries_read
       description: A simple ViewSet for viewing TimeseriesLateral
       parameters:
       - in: path
@@ -11655,6 +11701,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedTimeseriesLateral'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -11678,7 +11725,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_lateral_timeseries_destroy
+      operationId: simulations_events_lateral_timeseries_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -11715,7 +11762,7 @@ paths:
           description: Conflict with the current simulation status
   /v3/simulations/{simulation_pk}/events/lateral/timeseries/{id}/processed/:
     put:
-      operationId: simulations_events_lateral_timeseries_processed_update
+      operationId: simulations_events_lateral_timeseries_processed
       description: A simple ViewSet for viewing TimeseriesLateral
       parameters:
       - in: path
@@ -11837,7 +11884,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/leakage/constant/{id}/:
     get:
-      operationId: simulations_events_leakage_constant
+      operationId: simulations_events_leakage_constant_read
       description: A simple ViewSet for viewing ConstantLeakage
       parameters:
       - in: path
@@ -11943,6 +11990,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedConstantLeakage'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -11966,7 +12014,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_leakage_constant_destroy
+      operationId: simulations_events_leakage_constant_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -12081,7 +12129,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/leakage/rasters/netcdf/{id}/:
     get:
-      operationId: simulations_events_leakage_rasters_netcdf
+      operationId: simulations_events_leakage_rasters_netcdf_read
       description: NetCDF 4 raster leakage
       parameters:
       - in: path
@@ -12113,7 +12161,7 @@ paths:
                 $ref: '#/components/schemas/NetCDFRasterLeakage'
           description: ''
     delete:
-      operationId: simulations_events_leakage_rasters_netcdf_destroy
+      operationId: simulations_events_leakage_rasters_netcdf_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -12248,7 +12296,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/leakage/timeseries/{id}/:
     get:
-      operationId: simulations_events_leakage_timeseries
+      operationId: simulations_events_leakage_timeseries_read
       description: A simple ViewSet for viewing TimeseriesLeakage
       parameters:
       - in: path
@@ -12354,6 +12402,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedTimeseriesLeakage'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -12377,7 +12426,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_leakage_timeseries_destroy
+      operationId: simulations_events_leakage_timeseries_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -12492,7 +12541,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/leakage/timeseries/netcdf/{id}/:
     get:
-      operationId: simulations_events_leakage_timeseries_netcdf
+      operationId: simulations_events_leakage_timeseries_netcdf_read
       description: NetCDF 4 timeseries leakage
       parameters:
       - in: path
@@ -12524,7 +12573,7 @@ paths:
                 $ref: '#/components/schemas/NetCDFTimeseriesLeakage'
           description: ''
     delete:
-      operationId: simulations_events_leakage_timeseries_netcdf_destroy
+      operationId: simulations_events_leakage_timeseries_netcdf_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -12639,7 +12688,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/constant/{id}/:
     get:
-      operationId: simulations_events_rain_constant
+      operationId: simulations_events_rain_constant_read
       description: A simple ViewSet for viewing TimeseriesRain
       parameters:
       - in: path
@@ -12745,6 +12794,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedConstantRain'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -12768,7 +12818,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_rain_constant_destroy
+      operationId: simulations_events_rain_constant_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -12883,7 +12933,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/local/constant/{id}/:
     get:
-      operationId: simulations_events_rain_local_constant
+      operationId: simulations_events_rain_local_constant_read
       description: A simple ViewSet for viewing TimeseriesRain
       parameters:
       - in: path
@@ -12989,6 +13039,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedConstantLocalRain'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -13012,7 +13063,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_rain_local_constant_destroy
+      operationId: simulations_events_rain_local_constant_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -13127,7 +13178,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/local/timeseries/{id}/:
     get:
-      operationId: simulations_events_rain_local_timeseries
+      operationId: simulations_events_rain_local_timeseries_read
       description: A simple ViewSet for viewing TimeseriesLateral
       parameters:
       - in: path
@@ -13233,6 +13284,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedTimeseriesLocalRain'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -13256,7 +13308,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_rain_local_timeseries_destroy
+      operationId: simulations_events_rain_local_timeseries_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -13371,7 +13423,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/rasters/lizard/{id}/:
     get:
-      operationId: simulations_events_rain_rasters_lizard
+      operationId: simulations_events_rain_rasters_lizard_read
       description: A simple ViewSet for viewing lizardRasterRain
       parameters:
       - in: path
@@ -13477,6 +13529,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedLizardRasterRain'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -13500,7 +13553,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_rain_rasters_lizard_destroy
+      operationId: simulations_events_rain_rasters_lizard_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -13615,7 +13668,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/rasters/netcdf/{id}/:
     get:
-      operationId: simulations_events_rain_rasters_netcdf
+      operationId: simulations_events_rain_rasters_netcdf_read
       description: NetCDF 4 raster rain
       parameters:
       - in: path
@@ -13674,6 +13727,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/NetCDFRasterRain'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -13720,6 +13774,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedNetCDFRasterRain'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -13743,7 +13798,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_rain_rasters_netcdf_destroy
+      operationId: simulations_events_rain_rasters_netcdf_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -13858,7 +13913,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/timeseries/{id}/:
     get:
-      operationId: simulations_events_rain_timeseries
+      operationId: simulations_events_rain_timeseries_read
       description: A simple ViewSet for viewing TimeseriesRain
       parameters:
       - in: path
@@ -13964,6 +14019,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedTimeseriesRain'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -13987,7 +14043,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_rain_timeseries_destroy
+      operationId: simulations_events_rain_timeseries_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -14102,7 +14158,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/timeseries/lizard/{id}/:
     get:
-      operationId: simulations_events_rain_timeseries_lizard
+      operationId: simulations_events_rain_timeseries_lizard_read
       description: A simple ViewSet for viewing LizardTimeseriesRain
       parameters:
       - in: path
@@ -14208,6 +14264,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedLizardTimeseriesRain'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -14231,7 +14288,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_rain_timeseries_lizard_destroy
+      operationId: simulations_events_rain_timeseries_lizard_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -14346,7 +14403,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/rain/timeseries/netcdf/{id}/:
     get:
-      operationId: simulations_events_rain_timeseries_netcdf
+      operationId: simulations_events_rain_timeseries_netcdf_read
       description: NetCDF 4 timeseries rain
       parameters:
       - in: path
@@ -14452,6 +14509,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedNetCDFTimeseriesRain'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -14475,7 +14533,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_rain_timeseries_netcdf_destroy
+      operationId: simulations_events_rain_timeseries_netcdf_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -14590,7 +14648,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/raster-edits/{id}/:
     get:
-      operationId: simulations_events_raster_edits
+      operationId: simulations_events_raster_edits_read
       description: A simple ViewSet for viewing raster edits
       parameters:
       - in: path
@@ -14696,6 +14754,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedRasterEdit'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -14719,7 +14778,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_raster_edits_destroy
+      operationId: simulations_events_raster_edits_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -14756,7 +14815,7 @@ paths:
           description: Conflict with the current simulation status
   /v3/simulations/{simulation_pk}/events/raster-edits/{id}/register_related_rasters/:
     get:
-      operationId: simulations_events_raster_edits_register_related_rasters_list
+      operationId: simulations_events_raster_edits_register_related_rasters
       description: |-
         Register all related rasters in the results-api and return
         read_bbox urls of the registered rasters
@@ -14884,7 +14943,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/constant/{id}/:
     get:
-      operationId: simulations_events_sources_sinks_constant
+      operationId: simulations_events_sources_sinks_constant_read
       description: A simple ViewSet for viewing ConstantSourcesSinks
       parameters:
       - in: path
@@ -14990,6 +15049,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedConstantSourcesSinks'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -15013,7 +15073,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_sources_sinks_constant_destroy
+      operationId: simulations_events_sources_sinks_constant_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -15128,7 +15188,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/rasters/lizard/{id}/:
     get:
-      operationId: simulations_events_sources_sinks_rasters_lizard
+      operationId: simulations_events_sources_sinks_rasters_lizard_read
       description: A simple ViewSet for viewing lizardRasterRain
       parameters:
       - in: path
@@ -15237,6 +15297,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedLizardRasterSourcesSinks'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -15260,7 +15321,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_sources_sinks_rasters_lizard_destroy
+      operationId: simulations_events_sources_sinks_rasters_lizard_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -15376,7 +15437,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/rasters/netcdf/{id}/:
     get:
-      operationId: simulations_events_sources_sinks_rasters_netcdf
+      operationId: simulations_events_sources_sinks_rasters_netcdf_read
       description: NetCDF 4 raster sources & sinks
       parameters:
       - in: path
@@ -15482,6 +15543,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedNetCDFRasterSourcesSinks'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -15505,7 +15567,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_sources_sinks_rasters_netcdf_destroy
+      operationId: simulations_events_sources_sinks_rasters_netcdf_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -15637,7 +15699,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/timeseries/{id}/:
     get:
-      operationId: simulations_events_sources_sinks_timeseries
+      operationId: simulations_events_sources_sinks_timeseries_read
       description: A simple ViewSet for viewing TimeseriesSourcesSinks
       parameters:
       - in: path
@@ -15743,6 +15805,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedTimeseriesSourcesSinks'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -15766,7 +15829,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_sources_sinks_timeseries_destroy
+      operationId: simulations_events_sources_sinks_timeseries_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -15881,7 +15944,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/timeseries/lizard/{id}/:
     get:
-      operationId: simulations_events_sources_sinks_timeseries_lizard
+      operationId: simulations_events_sources_sinks_timeseries_lizard_read
       description: A simple ViewSet for viewing LizardTimeseriesRain
       parameters:
       - in: path
@@ -15990,6 +16053,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedLizardTimeseriesSourcesSinks'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -16013,7 +16077,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_sources_sinks_timeseries_lizard_destroy
+      operationId: simulations_events_sources_sinks_timeseries_lizard_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -16129,7 +16193,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/sources-sinks/timeseries/netcdf/{id}/:
     get:
-      operationId: simulations_events_sources_sinks_timeseries_netcdf
+      operationId: simulations_events_sources_sinks_timeseries_netcdf_read
       description: NetCDF 4 timeseries sources & sinks
       parameters:
       - in: path
@@ -16162,7 +16226,7 @@ paths:
                 $ref: '#/components/schemas/NetCDFTimeseriesSourcesSinks'
           description: ''
     delete:
-      operationId: simulations_events_sources_sinks_timeseries_netcdf_destroy
+      operationId: simulations_events_sources_sinks_timeseries_netcdf_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -16387,7 +16451,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/structure-control/file/{id}/:
     get:
-      operationId: simulations_events_structure_control_file
+      operationId: simulations_events_structure_control_file_read
       description: |-
         ViewMixin which adds an extra PUT-action 'processed'.
 
@@ -16501,6 +16565,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedFileStructureControl'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -16524,7 +16589,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_structure_control_file_destroy
+      operationId: simulations_events_structure_control_file_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -16598,7 +16663,7 @@ paths:
           description: File not found
   /v3/simulations/{simulation_pk}/events/structure-control/file/{id}/processed/:
     put:
-      operationId: simulations_events_structure_control_file_processed_update
+      operationId: simulations_events_structure_control_file_processed
       description: |-
         ViewMixin which adds an extra PUT-action 'processed'.
 
@@ -16722,7 +16787,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/structure-control/memory/{id}/:
     get:
-      operationId: simulations_events_structure_control_memory
+      operationId: simulations_events_structure_control_memory_read
       description: ViewSet for viewing MemoryStructureControls
       parameters:
       - in: path
@@ -16828,6 +16893,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedMemoryStructureControl'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -16851,7 +16917,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_structure_control_memory_destroy
+      operationId: simulations_events_structure_control_memory_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -16888,7 +16954,7 @@ paths:
           description: Conflict with the current simulation status
   /v3/simulations/{simulation_pk}/events/structure-control/memory/{id}/processed/:
     put:
-      operationId: simulations_events_structure_control_memory_processed_update
+      operationId: simulations_events_structure_control_memory_processed
       description: ViewSet for viewing MemoryStructureControls
       parameters:
       - in: path
@@ -17062,7 +17128,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/structure-control/table/{id}/:
     get:
-      operationId: simulations_events_structure_control_table
+      operationId: simulations_events_structure_control_table_read
       description: ViewSet for viewing TableStructureControls
       parameters:
       - in: path
@@ -17168,6 +17234,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedTableStructureControl'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -17191,7 +17258,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_structure_control_table_destroy
+      operationId: simulations_events_structure_control_table_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -17228,7 +17295,7 @@ paths:
           description: Conflict with the current simulation status
   /v3/simulations/{simulation_pk}/events/structure-control/table/{id}/processed/:
     put:
-      operationId: simulations_events_structure_control_table_processed_update
+      operationId: simulations_events_structure_control_table_processed
       description: ViewSet for viewing TableStructureControls
       parameters:
       - in: path
@@ -17383,7 +17450,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/structure-control/timed/{id}/:
     get:
-      operationId: simulations_events_structure_control_timed
+      operationId: simulations_events_structure_control_timed_read
       description: A simple ViewSet for viewing TimedStructureControls
       parameters:
       - in: path
@@ -17489,6 +17556,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedTimedStructureControl'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -17512,7 +17580,7 @@ paths:
           description: Conflict with the current simulation status
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_structure_control_timed_destroy
+      operationId: simulations_events_structure_control_timed_delete
       description: |-
         destroy resource only if the event has not yet been applied to
         the associated simulation
@@ -17549,7 +17617,7 @@ paths:
           description: Conflict with the current simulation status
   /v3/simulations/{simulation_pk}/events/structure-control/timed/{id}/processed/:
     put:
-      operationId: simulations_events_structure_control_timed_processed_update
+      operationId: simulations_events_structure_control_timed_processed
       description: A simple ViewSet for viewing TimedStructureControls
       parameters:
       - in: path
@@ -17710,7 +17778,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/wind/constant/{id}/:
     get:
-      operationId: simulations_events_wind_constant
+      operationId: simulations_events_wind_constant_read
       description: A simple ViewSet for viewing Wind.
       parameters:
       - in: path
@@ -17814,6 +17882,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedConstantWind'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -17831,7 +17900,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_wind_constant_destroy
+      operationId: simulations_events_wind_constant_delete
       description: A simple ViewSet for viewing Wind.
       parameters:
       - in: path
@@ -17970,7 +18039,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/events/wind/timeseries/{id}/:
     get:
-      operationId: simulations_events_wind_timeseries
+      operationId: simulations_events_wind_timeseries_read
       description: A simple ViewSet for viewig Wind.
       parameters:
       - in: path
@@ -18074,6 +18143,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedTimeseriesWind'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -18091,7 +18161,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_events_wind_timeseries_destroy
+      operationId: simulations_events_wind_timeseries_delete
       description: A simple ViewSet for viewig Wind.
       parameters:
       - in: path
@@ -18198,7 +18268,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/1d_water_level/constant/{id}/:
     get:
-      operationId: simulations_initial_1d_water_level_constant
+      operationId: simulations_initial_1d_water_level_constant_read
       description: Initial 1D water levels
       parameters:
       - in: path
@@ -18302,6 +18372,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedOneDWaterLevel'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -18319,7 +18390,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_initial_1d_water_level_constant_destroy
+      operationId: simulations_initial_1d_water_level_constant_delete
       description: Initial 1D water levels
       parameters:
       - in: path
@@ -18431,7 +18502,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/1d_water_level/file/{id}/:
     get:
-      operationId: simulations_initial_1d_water_level_file
+      operationId: simulations_initial_1d_water_level_file_read
       description: Initial 1D water levels
       parameters:
       - in: path
@@ -18535,6 +18606,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedOneDWaterLevelFile'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -18552,7 +18624,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_initial_1d_water_level_file_destroy
+      operationId: simulations_initial_1d_water_level_file_delete
       description: Initial 1D water levels
       parameters:
       - in: path
@@ -18652,6 +18724,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/OneDWaterLevelPredefined'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -18670,7 +18743,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/1d_water_level/predefined/{id}/:
     get:
-      operationId: simulations_initial_1d_water_level_predefined
+      operationId: simulations_initial_1d_water_level_predefined_read
       description: initial predefined 1D water levels
       parameters:
       - in: path
@@ -18729,6 +18802,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/OneDWaterLevelPredefined'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -18773,6 +18847,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedOneDWaterLevelPredefined'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -18790,7 +18865,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_initial_1d_water_level_predefined_destroy
+      operationId: simulations_initial_1d_water_level_predefined_delete
       description: initial predefined 1D water levels
       parameters:
       - in: path
@@ -18902,7 +18977,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/2d_water_level/constant/{id}/:
     get:
-      operationId: simulations_initial_2d_water_level_constant
+      operationId: simulations_initial_2d_water_level_constant_read
       description: Initial 2D water levels
       parameters:
       - in: path
@@ -19006,6 +19081,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedTwoDWaterLevel'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -19023,7 +19099,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_initial_2d_water_level_constant_destroy
+      operationId: simulations_initial_2d_water_level_constant_delete
       description: Initial 2D water levels
       parameters:
       - in: path
@@ -19136,7 +19212,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/2d_water_level/raster/{id}/:
     get:
-      operationId: simulations_initial_2d_water_level_raster
+      operationId: simulations_initial_2d_water_level_raster_read
       description: Initial 2D water raster
       parameters:
       - in: path
@@ -19240,6 +19316,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedTwoDWaterRaster'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -19257,7 +19334,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_initial_2d_water_level_raster_destroy
+      operationId: simulations_initial_2d_water_level_raster_delete
       description: Initial 2D water raster
       parameters:
       - in: path
@@ -19369,7 +19446,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/groundwater_level/constant/{id}/:
     get:
-      operationId: simulations_initial_groundwater_level_constant
+      operationId: simulations_initial_groundwater_level_constant_read
       description: Initial groundwater levels.
       parameters:
       - in: path
@@ -19473,6 +19550,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedGroundWaterLevel'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -19490,7 +19568,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_initial_groundwater_level_constant_destroy
+      operationId: simulations_initial_groundwater_level_constant_delete
       description: Initial groundwater levels.
       parameters:
       - in: path
@@ -19603,7 +19681,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/groundwater_level/raster/{id}/:
     get:
-      operationId: simulations_initial_groundwater_level_raster
+      operationId: simulations_initial_groundwater_level_raster_read
       description: Initial 2D water raster
       parameters:
       - in: path
@@ -19707,6 +19785,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedGroundWaterRaster'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -19724,7 +19803,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_initial_groundwater_level_raster_destroy
+      operationId: simulations_initial_groundwater_level_raster_delete
       description: Initial 2D water raster
       parameters:
       - in: path
@@ -19831,7 +19910,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/saved_state/{id}/:
     get:
-      operationId: simulations_initial_saved_state
+      operationId: simulations_initial_saved_state_read
       description: A simple ViewSet for initial SavedState's
       parameters:
       - in: path
@@ -19935,6 +20014,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedInitialSavedState'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -19952,7 +20032,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_initial_saved_state_destroy
+      operationId: simulations_initial_saved_state_delete
       description: A simple ViewSet for initial SavedState's
       parameters:
       - in: path
@@ -20045,6 +20125,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/WindDragCoefficient'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -20063,7 +20144,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/initial/wind_drag-coefficient/{id}/:
     get:
-      operationId: simulations_initial_wind_drag_coefficient
+      operationId: simulations_initial_wind_drag_coefficient_read
       description: A simple ViewSet for initial Wind drag coefficient
       parameters:
       - in: path
@@ -20122,6 +20203,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/WindDragCoefficient'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -20166,6 +20248,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedWindDragCoefficient'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -20183,7 +20266,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_initial_wind_drag_coefficient_destroy
+      operationId: simulations_initial_wind_drag_coefficient_delete
       description: A simple ViewSet for initial Wind drag coefficient
       parameters:
       - in: path
@@ -20329,7 +20412,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/results/files/{id}/:
     get:
-      operationId: simulations_results_files
+      operationId: simulations_results_files_read
       description: Retrieve simulation results
       parameters:
       - in: path
@@ -20433,6 +20516,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedResultFile'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -20450,7 +20534,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_results_files_destroy
+      operationId: simulations_results_files_delete
       description: Retrieve simulation results
       parameters:
       - in: path
@@ -20516,7 +20600,7 @@ paths:
           description: File not found
   /v3/simulations/{simulation_pk}/results/files/{id}/upload/:
     post:
-      operationId: simulations_results_files_upload_create
+      operationId: simulations_results_files_upload
       description: Endpoint for uploading a result file
       parameters:
       - in: path
@@ -20645,6 +20729,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/ArrivalTimePostProcessing'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -20663,7 +20748,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/results/post_processing/lizard/arrival/delete/:
     delete:
-      operationId: simulations_results_post_processing_lizard_arrival_delete_destroy
+      operationId: simulations_results_post_processing_lizard_arrival_delete
       description: |-
         A Custom ViewSet for creating, listing or deleting an
         ArrivalTimePostProcessing resource. It includes a custom destroy
@@ -20823,6 +20908,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/BasicPostProcessing'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -20841,7 +20927,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/results/post_processing/lizard/basic/delete/:
     delete:
-      operationId: simulations_results_post_processing_lizard_basic_delete_destroy
+      operationId: simulations_results_post_processing_lizard_basic_delete
       description: |-
         A Custom ViewSet for creating, listing or deleting
         a BasicPostProcessing resource. It includes a custom
@@ -21045,7 +21131,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/results/post_processing/lizard/damage/delete/:
     delete:
-      operationId: simulations_results_post_processing_lizard_damage_delete_destroy
+      operationId: simulations_results_post_processing_lizard_damage_delete
       description: |-
         A Custom ViewSet for creating, listing or deleting
         a DamagePostProcessing resource. It includes a custom
@@ -21196,6 +21282,21 @@ paths:
         required: true
       tags:
       - v3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: {}
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -21207,9 +21308,10 @@ paths:
       responses:
         '201':
           description: No response body
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/results/post_processing/lizard/start/retry/:
     post:
-      operationId: simulations_results_post_processing_lizard_start_retry_create
+      operationId: simulations_results_post_processing_lizard_start_retry
       description: |-
         Retry the Lizard post-processing
 
@@ -21223,6 +21325,21 @@ paths:
         required: true
       tags:
       - v3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: {}
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -21238,6 +21355,7 @@ paths:
           description: Bad request
         '403':
           description: Forbidden
+      x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/results/post_processing/lizard/status/:
     get:
       operationId: simulations_results_post_processing_lizard_status_list
@@ -21323,7 +21441,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/results/post_processing/lizard/status/delete/:
     delete:
-      operationId: simulations_results_post_processing_lizard_status_delete_destroy
+      operationId: simulations_results_post_processing_lizard_status_delete
       description: |-
         Endpoint to keep track of post-processing status (done by Lizard)
         per Simulation result. Status is updated internal by 3Di, and once
@@ -21485,7 +21603,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/settings/aggregation/{id}/:
     get:
-      operationId: simulations_settings_aggregation
+      operationId: simulations_settings_aggregation_read
       description: |-
         Simulation aggregation settings.
 
@@ -21616,6 +21734,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedAggregationSettings'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -21633,7 +21752,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_settings_aggregation_destroy
+      operationId: simulations_settings_aggregation_delete
       description: |-
         Simulation aggregation settings.
 
@@ -21749,7 +21868,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/settings/customized_result_areas/{id}/:
     get:
-      operationId: simulations_settings_customized_result_areas
+      operationId: simulations_settings_customized_result_areas_read
       description: Water quality customized result area
       parameters:
       - in: path
@@ -21853,6 +21972,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedCustomizedResultArea'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -21870,7 +21990,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_settings_customized_result_areas_destroy
+      operationId: simulations_settings_customized_result_areas_delete
       description: Water quality customized result area
       parameters:
       - in: path
@@ -22000,6 +22120,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedNumericalSettings'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -22017,7 +22138,7 @@ paths:
           description: Conflict with current state
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_settings_numerical_destroy
+      operationId: simulations_settings_numerical_delete
       description: delete the numerical settings resource
       parameters:
       - in: path
@@ -22065,6 +22186,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/OutputSettings'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -22105,6 +22227,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/OutputSettings'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -22143,6 +22266,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedOutputSettings'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -22160,7 +22284,7 @@ paths:
           description: Conflict with current state
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_settings_output_settings_destroy
+      operationId: simulations_settings_output_settings_delete
       description: delete the output settings resource
       parameters:
       - in: path
@@ -22317,6 +22441,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedPhysicalSettings'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -22334,7 +22459,7 @@ paths:
           description: Conflict with current state
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_settings_physical_destroy
+      operationId: simulations_settings_physical_delete
       description: Delete the general settings resource.
       parameters:
       - in: path
@@ -22462,6 +22587,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedTimeStepSettings'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -22479,7 +22605,7 @@ paths:
           description: Conflict with current state
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_settings_time_step_destroy
+      operationId: simulations_settings_time_step_delete
       description: delete the time step settings resource
       parameters:
       - in: path
@@ -22527,6 +22653,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/WaterQualitySettings'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -22567,6 +22694,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/WaterQualitySettings'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -22605,6 +22733,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedWaterQualitySettings'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -22622,7 +22751,7 @@ paths:
           description: Conflict with current state
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_settings_water_quality_destroy
+      operationId: simulations_settings_water_quality_delete
       description: Delete the water quality settings resource.
       parameters:
       - in: path
@@ -22727,7 +22856,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/settings/water_quality_customized_result_areas/{id}/:
     get:
-      operationId: simulations_settings_water_quality_customized_result_areas
+      operationId: simulations_settings_water_quality_customized_result_areas_read
       description: Water quality customized result area
       parameters:
       - in: path
@@ -22834,6 +22963,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedWaterQualityCustomizedResultArea'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -22851,7 +22981,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_settings_water_quality_customized_result_areas_destroy
+      operationId: simulations_settings_water_quality_customized_result_areas_delete
       description: Water quality customized result area
       parameters:
       - in: path
@@ -22902,6 +23032,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/WaterQualityOutputSettings'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -22942,6 +23073,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/WaterQualityOutputSettings'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -22980,6 +23112,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedWaterQualityOutputSettings'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -22997,7 +23130,7 @@ paths:
           description: Conflict with current state
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_settings_water_quality_output_settings_destroy
+      operationId: simulations_settings_water_quality_output_settings_delete
       description: Delete the water quality output settings resource.
       parameters:
       - in: path
@@ -23180,6 +23313,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedSimulationStatus'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -23197,7 +23331,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulations_status_destroy
+      operationId: simulations_status_delete
       description: A simple ViewSet for viewing simulations
       parameters:
       - in: path
@@ -23264,7 +23398,7 @@ paths:
           description: ''
   /v3/simulations/{simulation_pk}/status/history/{id}/:
     get:
-      operationId: simulations_status_history
+      operationId: simulations_status_history_read
       parameters:
       - in: path
         name: id
@@ -23296,7 +23430,7 @@ paths:
           description: ''
   /v3/simulations/{simulation_pk}/status/patch/:
     patch:
-      operationId: simulations_status_patch_partial_update
+      operationId: simulations_status_patch
       description: A simple ViewSet for viewing simulations
       parameters:
       - in: path
@@ -23317,6 +23451,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedSimulationStatus'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -23706,11 +23841,6 @@ paths:
     get:
       operationId: simulations_visualisations_waterdepth_list
       parameters:
-      - in: path
-        name: layer
-        schema:
-          type: string
-        required: true
       - name: limit
         required: false
         in: query
@@ -24259,7 +24389,7 @@ paths:
           description: ''
   /v3/statuses/{id}/:
     get:
-      operationId: statuses
+      operationId: statuses_read
       parameters:
       - in: path
         name: id
@@ -24286,7 +24416,7 @@ paths:
           description: ''
   /v3/statuses/statistics/:
     get:
-      operationId: statuses_statistics_list
+      operationId: statuses_statistics
       description: |-
         Count of (latest/final) simulation statuses. Combine with filters to
         get your weekly/monthly etc statistics
@@ -25298,7 +25428,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/threedimodels/{id}/:
     get:
-      operationId: threedimodels
+      operationId: threedimodels_read
       description: A simple ViewSet for viewing threedimodels
       parameters:
       - in: path
@@ -25387,6 +25517,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedThreediModel'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -25404,7 +25535,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: threedimodels_destroy
+      operationId: threedimodels_delete
       description: |-
         Soft-delete the threedimodel (sets disabled to True)
 
@@ -26644,7 +26775,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/boundaryconditions/{id}/:
     get:
-      operationId: threedimodels_boundaryconditions
+      operationId: threedimodels_boundaryconditions_read
       description: A simple ViewSet for viewing boundary conditions
       parameters:
       - in: path
@@ -26748,6 +26879,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedBoundaryCondition'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -26765,7 +26897,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: threedimodels_boundaryconditions_destroy
+      operationId: threedimodels_boundaryconditions_delete
       description: A simple ViewSet for viewing boundary conditions
       parameters:
       - in: path
@@ -26945,6 +27077,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/InitialWaterlevel'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -26963,7 +27096,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/:
     get:
-      operationId: threedimodels_initial_waterlevels
+      operationId: threedimodels_initial_waterlevels_read
       description: |-
         ## Description
         Initial waterlevels on threedimodels can be used in a simulation to specify the initial
@@ -27036,6 +27169,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/InitialWaterlevel'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -27087,6 +27221,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedInitialWaterlevel'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -27104,7 +27239,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: threedimodels_initial_waterlevels_destroy
+      operationId: threedimodels_initial_waterlevels_delete
       description: |-
         Delete initial waterlevel
 
@@ -27174,7 +27309,7 @@ paths:
           description: File not found
   /v3/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/processed/:
     put:
-      operationId: threedimodels_initial_waterlevels_processed_update
+      operationId: threedimodels_initial_waterlevels_processed
       description: |-
         ## Description
         Initial waterlevels on threedimodels can be used in a simulation to specify the initial
@@ -27223,7 +27358,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/initial_waterlevels/{id}/upload/:
     post:
-      operationId: threedimodels_initial_waterlevels_upload_create
+      operationId: threedimodels_initial_waterlevels_upload
       description: |-
         Endpoint for uploading an initial waterlevel file, see the POST
         endpoint for documentation about the file format.
@@ -27407,7 +27542,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/potentialbreaches/{id}/:
     get:
-      operationId: threedimodels_potentialbreaches
+      operationId: threedimodels_potentialbreaches_read
       description: |-
         A simple ViewSet for viewing breaches
 
@@ -27653,7 +27788,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/rasters/{id}/:
     get:
-      operationId: threedimodels_rasters
+      operationId: threedimodels_rasters_read
       description: View rasters for threedimodel
       parameters:
       - in: path
@@ -27757,6 +27892,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedRaster'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -27774,7 +27910,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: threedimodels_rasters_destroy
+      operationId: threedimodels_rasters_delete
       description: View rasters for threedimodel
       parameters:
       - in: path
@@ -27840,7 +27976,7 @@ paths:
           description: File not found
   /v3/threedimodels/{threedimodel_pk}/rasters/{id}/upload/:
     post:
-      operationId: threedimodels_rasters_upload_create
+      operationId: threedimodels_rasters_upload
       description: Endpoint for uploading a raster.
       parameters:
       - in: path
@@ -27931,7 +28067,7 @@ paths:
           description: ''
   /v3/threedimodels/{threedimodel_pk}/saved_states/{id}/:
     get:
-      operationId: threedimodels_saved_states
+      operationId: threedimodels_saved_states_read
       description: View saved states created for this 3Di model
       parameters:
       - in: path
@@ -27963,7 +28099,7 @@ paths:
                 $ref: '#/components/schemas/ThreediModelSavedState'
           description: ''
     delete:
-      operationId: threedimodels_saved_states_destroy
+      operationId: threedimodels_saved_states_delete
       description: View saved states created for this 3Di model
       parameters:
       - in: path
@@ -28070,7 +28206,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/threedimodels/{threedimodel_pk}/tasks/{id}/:
     get:
-      operationId: threedimodels_tasks
+      operationId: threedimodels_tasks_read
       description: View threedimodel tasks
       parameters:
       - in: path
@@ -28174,6 +28310,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedThreediModelTask'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -28191,7 +28328,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: threedimodels_tasks_destroy
+      operationId: threedimodels_tasks_delete
       description: View threedimodel tasks
       parameters:
       - in: path
@@ -28675,7 +28812,7 @@ paths:
           description: ''
   /v3/usage/{id}/:
     get:
-      operationId: usage
+      operationId: usage_read
       description: |-
         View to display overview of ran simulations.
 
@@ -28748,6 +28885,8 @@ paths:
           type: integer
         description: A unique integer value identifying this schematisation.
         required: true
+      tags:
+      - v3
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -28765,7 +28904,7 @@ paths:
           description: ''
   /v3/schematisations/{schematisation_pk}/revisions/{id}/create-threedimodel/:
     post:
-      operationId: schematisations_revisions_create_threedimodel_create
+      operationId: schematisations_revisions_create_threedimodel
       description: Manage revisions of schematisations.
       parameters:
       - in: path
@@ -28792,6 +28931,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/CreateThreedimodel'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -29064,7 +29204,7 @@ paths:
       x-codegen-request-body-name: data
   /v3/simulation-templates/{id}/:
     get:
-      operationId: simulation_templates
+      operationId: simulation_templates_read
       parameters:
       - in: path
         name: id
@@ -29111,6 +29251,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/PatchedUpdateTemplate'
+        required: true
       security:
       - Bearer: []
       - OAuth2Bearer: []
@@ -29128,7 +29269,7 @@ paths:
           description: ''
       x-codegen-request-body-name: data
     delete:
-      operationId: simulation_templates_destroy
+      operationId: simulation_templates_delete
       parameters:
       - in: path
         name: id
@@ -29151,7 +29292,7 @@ paths:
           description: No response body
   /v3/simulations/from-template/:
     post:
-      operationId: simulations_from_template_create
+      operationId: simulations_from_template
       description: |-
         Create a (new/cloned) simulation from a simulation template.
 
@@ -29420,9 +29561,6 @@ components:
         result_uuid:
           type: string
           format: uuid
-    BlankEnum:
-      enum:
-      - ''
     BoundaryCondition:
       type: object
       description: |-
@@ -30600,6 +30738,14 @@ components:
           type: string
       required:
       - error
+    DestroyRevision:
+      type: object
+      properties:
+        number:
+          type: integer
+          description: Provide revision number as verification
+      required:
+      - number
     DimensionEnum:
       enum:
       - one_d
@@ -30851,83 +30997,6 @@ components:
       - PROCESSING
       - VALID
       - INVALID
-    ExitCodeEnum:
-      enum:
-      - 1110
-      - 1210
-      - 1240
-      - 4161
-      - 4262
-      - 4263
-      - 4264
-      - 4265
-      - 4120
-      - 4220
-      - 4150
-      - 4280
-      - 4240
-      - 4270
-      - 4230
-      - 4231
-      - 4232
-      - 2150
-      - 2110
-      - 2210
-      - 2120
-      - 2220
-      - 2230
-      - 2240
-      type: integer
-      description: |-
-        * `1110` - user_shutdown_premature
-        * `1210` - user_shutdown
-        * `1240` - finished
-        * `4161` - health_check_premature_container_error
-        * `4262` - health_check_container_error
-        * `4263` - health_check_initialized_error
-        * `4264` - health_check_ended_error
-        * `4265` - health_check_postprocessing_error
-        * `4120` - initial_condition_worker_error
-        * `4220` - event_worker_error
-        * `4150` - container_startup_error
-        * `4280` - out_of_resources
-        * `4240` - calculation_core_error
-        * `4270` - calculation_python_error
-        * `4230` - api_ressource_error
-        * `4231` - upload_request_error
-        * `4232` - unfinished_tasks_error
-        * `2150` - ignition_timeout
-        * `2110` - initialized_paused_timeout
-        * `2210` - paused_timeout
-        * `2120` - initial_condition_worker_timeout
-        * `2220` - event_worker_timeout
-        * `2230` - enque_action_collection_timeout
-        * `2240` - clear_event_data_timeout
-      x-enum-varnames:
-      - USER_SHUTDOWN_PREMATURE
-      - USER_SHUTDOWN
-      - FINISHED
-      - HEALTH_CHECK_PREMATURE_CONTAINER_ERROR
-      - HEALTH_CHECK_CONTAINER_ERROR
-      - HEALTH_CHECK_INITIALIZED_ERROR
-      - HEALTH_CHECK_ENDED_ERROR
-      - HEALTH_CHECK_POSTPROCESSING_ERROR
-      - INITIAL_CONDITION_WORKER_ERROR
-      - EVENT_WORKER_ERROR
-      - CONTAINER_STARTUP_ERROR
-      - OUT_OF_RESOURCES
-      - CALCULATION_CORE_ERROR
-      - CALCULATION_PYTHON_ERROR
-      - API_RESSOURCE_ERROR
-      - UPLOAD_REQUEST_ERROR
-      - UNFINISHED_TASKS_ERROR
-      - IGNITION_TIMEOUT
-      - INITIALIZED_PAUSED_TIMEOUT
-      - PAUSED_TIMEOUT
-      - INITIAL_CONDITION_WORKER_TIMEOUT
-      - EVENT_WORKER_TIMEOUT
-      - ENQUE_ACTION_COLLECTION_TIMEOUT
-      - CLEAR_EVENT_DATA_TIMEOUT
     File:
       type: object
       properties:
@@ -33590,9 +33659,6 @@ components:
             $ref: '#/components/schemas/ForcingSubstance'
       required:
       - units
-    NullEnum:
-      enum:
-      - null
     NumericalSettings:
       type: object
       properties:
@@ -39191,39 +39257,8 @@ components:
         detail:
           nullable: true
         exit_code:
+          type: integer
           nullable: true
-          description: |-
-            only available for final statuses like 'finished' or 'crashed'. Gives detailed insight to the application state when the simulation finished
-
-            * `1110` - user_shutdown_premature
-            * `1210` - user_shutdown
-            * `1240` - finished
-            * `4161` - health_check_premature_container_error
-            * `4262` - health_check_container_error
-            * `4263` - health_check_initialized_error
-            * `4264` - health_check_ended_error
-            * `4265` - health_check_postprocessing_error
-            * `4120` - initial_condition_worker_error
-            * `4220` - event_worker_error
-            * `4150` - container_startup_error
-            * `4280` - out_of_resources
-            * `4240` - calculation_core_error
-            * `4270` - calculation_python_error
-            * `4230` - api_ressource_error
-            * `4231` - upload_request_error
-            * `4232` - unfinished_tasks_error
-            * `2150` - ignition_timeout
-            * `2110` - initialized_paused_timeout
-            * `2210` - paused_timeout
-            * `2120` - initial_condition_worker_timeout
-            * `2220` - event_worker_timeout
-            * `2230` - enque_action_collection_timeout
-            * `2240` - clear_event_data_timeout
-          minimum: 0
-          maximum: 2147483647
-          oneOf:
-          - $ref: '#/components/schemas/ExitCodeEnum'
-          - $ref: '#/components/schemas/NullEnum'
         id:
           type: integer
           readOnly: true
@@ -39307,9 +39342,7 @@ components:
           description: The name of the compute cluster that runs/has run the simulation.
           readOnly: true
         started_from:
-          oneOf:
-          - $ref: '#/components/schemas/StartedFromEnum'
-          - $ref: '#/components/schemas/BlankEnum'
+          type: string
     PatchedStableThresholdSavedState:
       type: object
       description: |-
@@ -42228,9 +42261,7 @@ components:
           description: The name of the compute cluster that runs/has run the simulation.
           readOnly: true
         started_from:
-          oneOf:
-          - $ref: '#/components/schemas/StartedFromEnum'
-          - $ref: '#/components/schemas/BlankEnum'
+          type: string
       required:
       - name
       - organisation
@@ -42412,39 +42443,8 @@ components:
         detail:
           nullable: true
         exit_code:
+          type: integer
           nullable: true
-          description: |-
-            only available for final statuses like 'finished' or 'crashed'. Gives detailed insight to the application state when the simulation finished
-
-            * `1110` - user_shutdown_premature
-            * `1210` - user_shutdown
-            * `1240` - finished
-            * `4161` - health_check_premature_container_error
-            * `4262` - health_check_container_error
-            * `4263` - health_check_initialized_error
-            * `4264` - health_check_ended_error
-            * `4265` - health_check_postprocessing_error
-            * `4120` - initial_condition_worker_error
-            * `4220` - event_worker_error
-            * `4150` - container_startup_error
-            * `4280` - out_of_resources
-            * `4240` - calculation_core_error
-            * `4270` - calculation_python_error
-            * `4230` - api_ressource_error
-            * `4231` - upload_request_error
-            * `4232` - unfinished_tasks_error
-            * `2150` - ignition_timeout
-            * `2110` - initialized_paused_timeout
-            * `2210` - paused_timeout
-            * `2120` - initial_condition_worker_timeout
-            * `2220` - event_worker_timeout
-            * `2230` - enque_action_collection_timeout
-            * `2240` - clear_event_data_timeout
-          minimum: 0
-          maximum: 2147483647
-          oneOf:
-          - $ref: '#/components/schemas/ExitCodeEnum'
-          - $ref: '#/components/schemas/NullEnum'
         id:
           type: integer
           readOnly: true
@@ -42569,9 +42569,7 @@ components:
           description: The name of the compute cluster that runs/has run the simulation.
           readOnly: true
         started_from:
-          oneOf:
-          - $ref: '#/components/schemas/StartedFromEnum'
-          - $ref: '#/components/schemas/BlankEnum'
+          type: string
       required:
       - name
     Sqlite:
@@ -42661,18 +42659,6 @@ components:
           format: uuid
       required:
       - thresholds
-    StartedFromEnum:
-      enum:
-      - 3Di Live
-      - 3Di Modeller Interface
-      - Rana Desktop Client
-      type: string
-      description: "* `` - \n* `3Di Live` - 3Di Live\n* `3Di Modeller Interface` -
-        3Di Modeller Interface\n* `Rana Desktop Client` - Rana Desktop Client"
-      x-enum-varnames:
-      - _3DI
-      - _3DI
-      - RANA
     Status:
       type: object
       properties:

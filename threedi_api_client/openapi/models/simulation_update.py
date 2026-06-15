@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  12:08PM (UTC) on June 11, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  01:02PM (UTC) on June 12, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -55,7 +55,7 @@ class SimulationUpdate(object):
         'threedicore_version': 'str',
         'cloned_from': 'str',
         'compute_cluster': 'str',
-        'started_from': 'OneOfStartedFromEnumBlankEnum'
+        'started_from': 'str'
     }
 
     required_fields = [
@@ -152,7 +152,8 @@ class SimulationUpdate(object):
             self.cloned_from = cloned_from
         if compute_cluster is not None:
             self.compute_cluster = compute_cluster
-        self.started_from = started_from
+        if started_from is not None:
+            self.started_from = started_from
 
     @property
     def url(self):
@@ -580,7 +581,7 @@ class SimulationUpdate(object):
 
 
         :return: The started_from of this SimulationUpdate.  # noqa: E501
-        :rtype: OneOfStartedFromEnumBlankEnum
+        :rtype: str
         """
         return self._started_from
 
@@ -590,7 +591,7 @@ class SimulationUpdate(object):
 
 
         :param started_from: The started_from of this SimulationUpdate.  # noqa: E501
-        :type: OneOfStartedFromEnumBlankEnum
+        :type: str
         """
 
         self._started_from = started_from

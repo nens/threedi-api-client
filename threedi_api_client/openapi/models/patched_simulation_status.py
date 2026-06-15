@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  12:08PM (UTC) on June 11, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  01:02PM (UTC) on June 12, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -54,7 +54,7 @@ class PatchedSimulationStatus(object):
         'time': 'int',
         'paused': 'bool',
         'detail': 'object',
-        'exit_code': 'OneOfExitCodeEnumNullEnum',
+        'exit_code': 'int',
         'id': 'int'
     }
 
@@ -539,10 +539,9 @@ class PatchedSimulationStatus(object):
     def exit_code(self):
         """Gets the exit_code of this PatchedSimulationStatus.  # noqa: E501
 
-        only available for final statuses like 'finished' or 'crashed'. Gives detailed insight to the application state when the simulation finished  * `1110` - user_shutdown_premature * `1210` - user_shutdown * `1240` - finished * `4161` - health_check_premature_container_error * `4262` - health_check_container_error * `4263` - health_check_initialized_error * `4264` - health_check_ended_error * `4265` - health_check_postprocessing_error * `4120` - initial_condition_worker_error * `4220` - event_worker_error * `4150` - container_startup_error * `4280` - out_of_resources * `4240` - calculation_core_error * `4270` - calculation_python_error * `4230` - api_ressource_error * `4231` - upload_request_error * `4232` - unfinished_tasks_error * `2150` - ignition_timeout * `2110` - initialized_paused_timeout * `2210` - paused_timeout * `2120` - initial_condition_worker_timeout * `2220` - event_worker_timeout * `2230` - enque_action_collection_timeout * `2240` - clear_event_data_timeout  # noqa: E501
 
         :return: The exit_code of this PatchedSimulationStatus.  # noqa: E501
-        :rtype: OneOfExitCodeEnumNullEnum
+        :rtype: int
         """
         return self._exit_code
 
@@ -550,17 +549,10 @@ class PatchedSimulationStatus(object):
     def exit_code(self, exit_code):
         """Sets the exit_code of this PatchedSimulationStatus.
 
-        only available for final statuses like 'finished' or 'crashed'. Gives detailed insight to the application state when the simulation finished  * `1110` - user_shutdown_premature * `1210` - user_shutdown * `1240` - finished * `4161` - health_check_premature_container_error * `4262` - health_check_container_error * `4263` - health_check_initialized_error * `4264` - health_check_ended_error * `4265` - health_check_postprocessing_error * `4120` - initial_condition_worker_error * `4220` - event_worker_error * `4150` - container_startup_error * `4280` - out_of_resources * `4240` - calculation_core_error * `4270` - calculation_python_error * `4230` - api_ressource_error * `4231` - upload_request_error * `4232` - unfinished_tasks_error * `2150` - ignition_timeout * `2110` - initialized_paused_timeout * `2210` - paused_timeout * `2120` - initial_condition_worker_timeout * `2220` - event_worker_timeout * `2230` - enque_action_collection_timeout * `2240` - clear_event_data_timeout  # noqa: E501
 
         :param exit_code: The exit_code of this PatchedSimulationStatus.  # noqa: E501
-        :type: OneOfExitCodeEnumNullEnum
+        :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                exit_code is not None and exit_code > 2147483647):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `exit_code`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                exit_code is not None and exit_code < 0):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `exit_code`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._exit_code = exit_code
 

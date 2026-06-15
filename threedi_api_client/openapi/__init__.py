@@ -5,7 +5,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  12:08PM (UTC) on June 11, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  01:02PM (UTC) on June 12, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -18,7 +18,6 @@ from __future__ import absolute_import
 __version__ = "1.0.0"
 
 # import apis into sdk package
-from threedi_api_client.openapi.api.default_api import DefaultApi
 from threedi_api_client.openapi.api.v3_api import V3Api
 from threedi_api_client.openapi.api.v3_beta_api import V3BetaApi
 
@@ -41,7 +40,6 @@ from threedi_api_client.openapi.models.arrival_time_post_processing import Arriv
 from threedi_api_client.openapi.models.authenticate import Authenticate
 from threedi_api_client.openapi.models.base_event_state import BaseEventState
 from threedi_api_client.openapi.models.basic_post_processing import BasicPostProcessing
-from threedi_api_client.openapi.models.blank_enum import BlankEnum
 from threedi_api_client.openapi.models.boundary_condition import BoundaryCondition
 from threedi_api_client.openapi.models.boundary_condition_type_enum import BoundaryConditionTypeEnum
 from threedi_api_client.openapi.models.breach import Breach
@@ -72,11 +70,11 @@ from threedi_api_client.openapi.models.customized_result_area_geometry import Cu
 from threedi_api_client.openapi.models.damage_estimation import DamageEstimation
 from threedi_api_client.openapi.models.damage_post_processing import DamagePostProcessing
 from threedi_api_client.openapi.models.delete_conflict_error import DeleteConflictError
+from threedi_api_client.openapi.models.destroy_revision import DestroyRevision
 from threedi_api_client.openapi.models.dimension_enum import DimensionEnum
 from threedi_api_client.openapi.models.download import Download
 from threedi_api_client.openapi.models.event import Event
 from threedi_api_client.openapi.models.event_state_enum import EventStateEnum
-from threedi_api_client.openapi.models.exit_code_enum import ExitCodeEnum
 from threedi_api_client.openapi.models.extent import Extent
 from threedi_api_client.openapi.models.extent1 import Extent1
 from threedi_api_client.openapi.models.file import File
@@ -134,7 +132,6 @@ from threedi_api_client.openapi.models.net_cdf_raster_sources_sinks import NetCD
 from threedi_api_client.openapi.models.net_cdf_timeseries_leakage import NetCDFTimeseriesLeakage
 from threedi_api_client.openapi.models.net_cdf_timeseries_rain import NetCDFTimeseriesRain
 from threedi_api_client.openapi.models.net_cdf_timeseries_sources_sinks import NetCDFTimeseriesSourcesSinks
-from threedi_api_client.openapi.models.null_enum import NullEnum
 from threedi_api_client.openapi.models.numerical_settings import NumericalSettings
 from threedi_api_client.openapi.models.obstacle_edit import ObstacleEdit
 from threedi_api_client.openapi.models.one_d_substance_concentration import OneDSubstanceConcentration
@@ -371,7 +368,6 @@ from threedi_api_client.openapi.models.simulation_update import SimulationUpdate
 from threedi_api_client.openapi.models.sqlite import Sqlite
 from threedi_api_client.openapi.models.sqlite_file_upload import SqliteFileUpload
 from threedi_api_client.openapi.models.stable_threshold_saved_state import StableThresholdSavedState
-from threedi_api_client.openapi.models.started_from_enum import StartedFromEnum
 from threedi_api_client.openapi.models.status import Status
 from threedi_api_client.openapi.models.structure_control_action_type_enum import StructureControlActionTypeEnum
 from threedi_api_client.openapi.models.structure_type_enum import StructureTypeEnum
