@@ -2,7 +2,7 @@
 History
 =======
 
-4.2.7 (unreleased)
+4.2.7 (2026-06-16)
 ------------------
 
 - Also retry on status 502 (Bad Gateway).
