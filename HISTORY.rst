@@ -2,8 +2,15 @@
 History
 =======
 
-5.0.0.b4 (unreleased)
----------------------
+
+4.2.8 (unreleased)
+------------------
+
+- Openapi spec 3 and other fixes for 5.0.0
+
+
+4.2.7 (2026-06-16)
+------------------
 
 - Also retry on status 502 (Bad Gateway).
 
