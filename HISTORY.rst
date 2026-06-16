@@ -5,7 +5,7 @@ History
 5.0.0.b4 (unreleased)
 ---------------------
 
-- Nothing changed yet.
+- Also retry on status 502 (Bad Gateway).
 
 
 5.0.0.b3 (2026-06-11)
