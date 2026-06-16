@@ -4,7 +4,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  01:02PM (UTC) on June 12, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -142,7 +142,6 @@ from threedi_api_client.openapi.models.paginated_constant_rain_list import Pagin
 from threedi_api_client.openapi.models.paginated_constant_sources_sinks_list import PaginatedConstantSourcesSinksList
 from threedi_api_client.openapi.models.paginated_constant_wind_list import PaginatedConstantWindList
 from threedi_api_client.openapi.models.paginated_contract_list import PaginatedContractList
-from threedi_api_client.openapi.models.paginated_current_status_list import PaginatedCurrentStatusList
 from threedi_api_client.openapi.models.paginated_customized_result_area_list import PaginatedCustomizedResultAreaList
 from threedi_api_client.openapi.models.paginated_damage_post_processing_list import PaginatedDamagePostProcessingList
 from threedi_api_client.openapi.models.paginated_file_boundary_condition_list import PaginatedFileBoundaryConditionList

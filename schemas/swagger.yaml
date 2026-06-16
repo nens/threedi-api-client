@@ -3,8 +3,8 @@ info:
   title: Rana simulation API
   version: v3
   description: "Rana simulation API (latest stable version: v3) \n\nFramework release:
-    3.4.104 \n\nRana simulation core release: 3.7.2 \n\ndeployed on:  01:02PM (UTC)
-    on June 12, 2026"
+    3.4.104 \n\nRana simulation core release: 3.7.2 \n\ndeployed on:  10:09AM (UTC)
+    on June 16, 2026"
   contact:
     email: info@nelen-schuurmans.nl
   license:
@@ -23198,7 +23198,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedCurrentStatusList'
+                $ref: '#/components/schemas/CurrentStatus'
           description: ''
     post:
       operationId: simulations_status_create
@@ -34587,29 +34587,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Contract'
-    PaginatedCurrentStatusList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/CurrentStatus'
     PaginatedCustomizedResultAreaList:
       type: object
       required:
