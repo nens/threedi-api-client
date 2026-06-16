@@ -13,7 +13,7 @@ from .versions import API_VERSIONS, host_has_version
 import urllib3
 
 
-RETRY_AFTER_STATUS_CODES = frozenset({413, 429, 503, 504})
+RETRY_AFTER_STATUS_CODES = frozenset({413, 429, 502, 503, 504})
 
 
 class ThreediApi:

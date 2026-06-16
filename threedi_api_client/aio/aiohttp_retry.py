@@ -42,7 +42,7 @@ else:
 DEFAULT_ALLOWED_METHODS = frozenset(
     {"DELETE", "GET", "HEAD", "OPTIONS", "PUT", "TRACE"}
 )
-RETRY_AFTER_STATUS_CODES = frozenset({413, 429, 503, 504})
+RETRY_AFTER_STATUS_CODES = frozenset({413, 429, 502, 503, 504})
 
 
 class _Logger(Protocol):
