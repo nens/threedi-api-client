@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -181,10 +181,7 @@ class OrganisationUser(object):
                 username is not None and len(username) > 150):
             self.__handle_validation_error("Invalid value for `username`, length must be less than or equal to `150`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                username is not None and len(username) < 1):
-            self.__handle_validation_error("Invalid value for `username`, length must be greater than or equal to `1`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                username is not None and not re.search(r'^[\w.@+-]+$', username)):  # noqa: E501
+                username is not None and not re.search(r'^[w.@+-]+$/', username)):  # noqa: E501
             self.__handle_validation_error(r"Invalid value for `username`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
 
         self._username = username
@@ -262,7 +259,10 @@ class OrganisationUser(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

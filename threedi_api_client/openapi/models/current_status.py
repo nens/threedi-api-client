@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -83,8 +83,7 @@ class CurrentStatus(object):
             self.time = time
         if paused is not None:
             self.paused = paused
-        if exit_code is not None:
-            self.exit_code = exit_code
+        self.exit_code = exit_code
 
     @property
     def id(self):
@@ -129,9 +128,6 @@ class CurrentStatus(object):
         """
         if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -247,7 +243,10 @@ class CurrentStatus(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

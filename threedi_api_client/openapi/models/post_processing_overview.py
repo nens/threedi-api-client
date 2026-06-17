@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -38,9 +38,9 @@ class PostProcessingOverview(object):
     openapi_types = {
         'username': 'str',
         'external_user_id': 'str',
-        'metadata_version': 'str',
-        'start_time_sim': 'str',
-        'end_time_sim': 'str',
+        'metadata_version': 'float',
+        'start_time_sim': 'datetime',
+        'end_time_sim': 'datetime',
         'results': 'Result',
         'settings': 'Settings',
         'model_name': 'str',
@@ -78,7 +78,7 @@ class PostProcessingOverview(object):
         'simulation': 'simulation'
     }
 
-    def __init__(self, username=None, external_user_id=None, metadata_version='1.2', start_time_sim=None, end_time_sim=None, results=None, settings=None, model_name=None, simulation_name=None, scenario_name=None, model_id=None, model_revision_id=None, email=None, result_uuid=None, organisation_uuid=None, simulation=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, username=None, external_user_id=None, metadata_version=None, start_time_sim=None, end_time_sim=None, results=None, settings=None, model_name=None, simulation_name=None, scenario_name=None, model_id=None, model_revision_id=None, email=None, result_uuid=None, organisation_uuid=None, simulation=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """PostProcessingOverview - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -107,8 +107,7 @@ class PostProcessingOverview(object):
 
         if username is not None:
             self.username = username
-        if external_user_id is not None:
-            self.external_user_id = external_user_id
+        self.external_user_id = external_user_id
         if metadata_version is not None:
             self.metadata_version = metadata_version
         if start_time_sim is not None:
@@ -184,7 +183,7 @@ class PostProcessingOverview(object):
 
 
         :return: The metadata_version of this PostProcessingOverview.  # noqa: E501
-        :rtype: str
+        :rtype: float
         """
         return self._metadata_version
 
@@ -194,7 +193,7 @@ class PostProcessingOverview(object):
 
 
         :param metadata_version: The metadata_version of this PostProcessingOverview.  # noqa: E501
-        :type: str
+        :type: float
         """
 
         self._metadata_version = metadata_version
@@ -205,7 +204,7 @@ class PostProcessingOverview(object):
 
 
         :return: The start_time_sim of this PostProcessingOverview.  # noqa: E501
-        :rtype: str
+        :rtype: datetime
         """
         return self._start_time_sim
 
@@ -215,7 +214,7 @@ class PostProcessingOverview(object):
 
 
         :param start_time_sim: The start_time_sim of this PostProcessingOverview.  # noqa: E501
-        :type: str
+        :type: datetime
         """
 
         self._start_time_sim = start_time_sim
@@ -226,7 +225,7 @@ class PostProcessingOverview(object):
 
 
         :return: The end_time_sim of this PostProcessingOverview.  # noqa: E501
-        :rtype: str
+        :rtype: datetime
         """
         return self._end_time_sim
 
@@ -236,7 +235,7 @@ class PostProcessingOverview(object):
 
 
         :param end_time_sim: The end_time_sim of this PostProcessingOverview.  # noqa: E501
-        :type: str
+        :type: datetime
         """
 
         self._end_time_sim = end_time_sim
@@ -349,9 +348,6 @@ class PostProcessingOverview(object):
         :param scenario_name: The scenario_name of this PostProcessingOverview.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                scenario_name is not None and len(scenario_name) < 1):
-            self.__handle_validation_error("Invalid value for `scenario_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._scenario_name = scenario_name
 
@@ -507,7 +503,10 @@ class PostProcessingOverview(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

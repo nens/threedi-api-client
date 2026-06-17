@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,8 +37,8 @@ class DamagePostProcessing(object):
     """
     openapi_types = {
         'basic_post_processing': 'int',
-        'cost_type': 'str',
-        'flood_month': 'str',
+        'cost_type': 'CostTypeEnum',
+        'flood_month': 'FloodMonthEnum',
         'inundation_period': 'float',
         'repair_time_infrastructure': 'int',
         'repair_time_buildings': 'int'
@@ -111,10 +111,10 @@ class DamagePostProcessing(object):
     def cost_type(self):
         """Gets the cost_type of this DamagePostProcessing.  # noqa: E501
 
-        'min', 'avg', or 'max'  # noqa: E501
+        'min', 'avg', or 'max'  * `min` - min * `avg` - avg * `max` - max  # noqa: E501
 
         :return: The cost_type of this DamagePostProcessing.  # noqa: E501
-        :rtype: str
+        :rtype: CostTypeEnum
         """
         return self._cost_type
 
@@ -122,19 +122,11 @@ class DamagePostProcessing(object):
     def cost_type(self, cost_type):
         """Sets the cost_type of this DamagePostProcessing.
 
-        'min', 'avg', or 'max'  # noqa: E501
+        'min', 'avg', or 'max'  * `min` - min * `avg` - avg * `max` - max  # noqa: E501
 
         :param cost_type: The cost_type of this DamagePostProcessing.  # noqa: E501
-        :type: str
+        :type: CostTypeEnum
         """
-        if self.local_vars_configuration.client_side_validation and cost_type is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `cost_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["min", "avg", "max"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and cost_type not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `cost_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(cost_type, allowed_values)
-            )
 
         self._cost_type = cost_type
 
@@ -144,7 +136,7 @@ class DamagePostProcessing(object):
 
 
         :return: The flood_month of this DamagePostProcessing.  # noqa: E501
-        :rtype: str
+        :rtype: FloodMonthEnum
         """
         return self._flood_month
 
@@ -154,16 +146,10 @@ class DamagePostProcessing(object):
 
 
         :param flood_month: The flood_month of this DamagePostProcessing.  # noqa: E501
-        :type: str
+        :type: FloodMonthEnum
         """
         if self.local_vars_configuration.client_side_validation and flood_month is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `flood_month`, must not be `None`")  # noqa: E501
-        allowed_values = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and flood_month not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `flood_month` ({0}), must be one of {1}"  # noqa: E501
-                .format(flood_month, allowed_values)
-            )
 
         self._flood_month = flood_month
 
@@ -190,8 +176,8 @@ class DamagePostProcessing(object):
         if self.local_vars_configuration.client_side_validation and inundation_period is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `inundation_period`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                inundation_period is not None and inundation_period < 1):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `inundation_period`, must be a value greater than or equal to `1`")  # noqa: E501
+                inundation_period is not None and inundation_period < 1.0):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `inundation_period`, must be a value greater than or equal to `1.0`")  # noqa: E501
 
         self._inundation_period = inundation_period
 
@@ -283,7 +269,10 @@ class DamagePostProcessing(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

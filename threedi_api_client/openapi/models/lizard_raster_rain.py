@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,7 @@ class LizardRasterRain(object):
         'uid': 'str',
         'offset': 'int',
         'duration': 'int',
-        'units': 'str',
+        'units': 'LizardUnitsEnum',
         'reference_uuid': 'str',
         'start_datetime': 'datetime',
         'simulation': 'str',
@@ -79,7 +79,7 @@ class LizardRasterRain(object):
         'substances': 'substances'
     }
 
-    def __init__(self, url=None, uid=None, offset=None, duration=None, units=None, reference_uuid=None, start_datetime=None, simulation=None, multiplier=None, interval=None, user=None, user_id=None, origin_offset=None, store_path=None, id=None, substances=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, uid=None, offset=None, duration=None, units=None, reference_uuid=None, start_datetime=None, simulation=None, multiplier=1.0, interval=None, user=None, user_id=None, origin_offset=None, store_path=None, id=None, substances=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """LizardRasterRain - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -243,7 +243,7 @@ class LizardRasterRain(object):
 
 
         :return: The units of this LizardRasterRain.  # noqa: E501
-        :rtype: str
+        :rtype: LizardUnitsEnum
         """
         return self._units
 
@@ -253,14 +253,8 @@ class LizardRasterRain(object):
 
 
         :param units: The units of this LizardRasterRain.  # noqa: E501
-        :type: str
+        :type: LizardUnitsEnum
         """
-        allowed_values = ["mm/duration", "mm/h", "m/s"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
-                .format(units, allowed_values)
-            )
 
         self._units = units
 
@@ -287,9 +281,6 @@ class LizardRasterRain(object):
         if (self.local_vars_configuration.client_side_validation and
                 reference_uuid is not None and len(reference_uuid) > 40):
             self.__handle_validation_error("Invalid value for `reference_uuid`, length must be less than or equal to `40`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                reference_uuid is not None and len(reference_uuid) < 1):
-            self.__handle_validation_error("Invalid value for `reference_uuid`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._reference_uuid = reference_uuid
 
@@ -460,9 +451,6 @@ class LizardRasterRain(object):
         :param store_path: The store_path of this LizardRasterRain.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                store_path is not None and len(store_path) < 1):
-            self.__handle_validation_error("Invalid value for `store_path`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._store_path = store_path
 
@@ -534,7 +522,10 @@ class LizardRasterRain(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

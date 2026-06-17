@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -38,9 +38,9 @@ class FileReadOnly(object):
     openapi_types = {
         'url': 'str',
         'filename': 'str',
-        'state': 'str',
+        'state': 'FileStateEnum',
         'state_description': 'str',
-        'type': 'str',
+        'type': 'UploadTypeEnum',
         'size': 'int',
         'etag': 'str',
         'expiry_date': 'date',
@@ -89,11 +89,9 @@ class FileReadOnly(object):
             self.url = url
         if filename is not None:
             self.filename = filename
-        if state is not None:
-            self.state = state
+        self.state = state
         self.state_description = state_description
-        if type is not None:
-            self.type = type
+        self.type = type
         self.size = size
         self.etag = etag
         if expiry_date is not None:
@@ -141,9 +139,6 @@ class FileReadOnly(object):
         :param filename: The filename of this FileReadOnly.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                filename is not None and len(filename) < 1):
-            self.__handle_validation_error("Invalid value for `filename`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._filename = filename
 
@@ -153,7 +148,7 @@ class FileReadOnly(object):
 
 
         :return: The state of this FileReadOnly.  # noqa: E501
-        :rtype: str
+        :rtype: FileStateEnum
         """
         return self._state
 
@@ -163,14 +158,8 @@ class FileReadOnly(object):
 
 
         :param state: The state of this FileReadOnly.  # noqa: E501
-        :type: str
+        :type: FileStateEnum
         """
-        allowed_values = ["created", "uploaded", "processed", "error", "removed"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
-                .format(state, allowed_values)
-            )
 
         self._state = state
 
@@ -204,7 +193,7 @@ class FileReadOnly(object):
 
 
         :return: The type of this FileReadOnly.  # noqa: E501
-        :rtype: str
+        :rtype: UploadTypeEnum
         """
         return self._type
 
@@ -214,14 +203,8 @@ class FileReadOnly(object):
 
 
         :param type: The type of this FileReadOnly.  # noqa: E501
-        :type: str
+        :type: UploadTypeEnum
         """
-        allowed_values = ["timeseries", "rastertimeseries", "savedstate", "results", "rasters", "gridadmin", "geopackage", "geojson", "initialwaterlevel", "initial_substance_concentration", "bulklateral", "bulkcontrol", "bulk_boundaryconditions", "sqlite", "tables", "bulktimeseriesrain"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
 
         self._type = type
 
@@ -363,7 +346,10 @@ class FileReadOnly(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

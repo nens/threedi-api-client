@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -39,24 +39,22 @@ class UploadEventFile(object):
         'put_url': 'str',
         'filename': 'str',
         'status': 'str',
-        'offset': 'int',
-        'epsg_code': 'int'
+        'offset': 'int'
     }
 
     required_fields = [
        'filename',
-       'offset',
+       'offset'
     ]
 
     attribute_map = {
         'put_url': 'put_url',
         'filename': 'filename',
         'status': 'status',
-        'offset': 'offset',
-        'epsg_code': 'epsg_code'
+        'offset': 'offset'
     }
 
-    def __init__(self, put_url=None, filename=None, status=None, offset=None, epsg_code=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, put_url=None, filename=None, status=None, offset=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """UploadEventFile - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,7 +67,6 @@ class UploadEventFile(object):
         self._filename = None
         self._status = None
         self._offset = None
-        self._epsg_code = None
         self.discriminator = None
 
         if put_url is not None:
@@ -78,8 +75,6 @@ class UploadEventFile(object):
         if status is not None:
             self.status = status
         self.offset = offset
-        if epsg_code is not None:
-            self.epsg_code = epsg_code
 
     @property
     def put_url(self):
@@ -99,9 +94,6 @@ class UploadEventFile(object):
         :param put_url: The put_url of this UploadEventFile.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                put_url is not None and len(put_url) < 1):
-            self.__handle_validation_error("Invalid value for `put_url`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._put_url = put_url
 
@@ -128,9 +120,6 @@ class UploadEventFile(object):
         if (self.local_vars_configuration.client_side_validation and
                 filename is not None and len(filename) > 255):
             self.__handle_validation_error("Invalid value for `filename`, length must be less than or equal to `255`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                filename is not None and len(filename) < 1):
-            self.__handle_validation_error("Invalid value for `filename`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._filename = filename
 
@@ -152,9 +141,6 @@ class UploadEventFile(object):
         :param status: The status of this UploadEventFile.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                status is not None and len(status) < 1):
-            self.__handle_validation_error("Invalid value for `status`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._status = status
 
@@ -184,27 +170,6 @@ class UploadEventFile(object):
 
         self._offset = offset
 
-    @property
-    def epsg_code(self):
-        """Gets the epsg_code of this UploadEventFile.  # noqa: E501
-
-
-        :return: The epsg_code of this UploadEventFile.  # noqa: E501
-        :rtype: int
-        """
-        return self._epsg_code
-
-    @epsg_code.setter
-    def epsg_code(self, epsg_code):
-        """Sets the epsg_code of this UploadEventFile.
-
-
-        :param epsg_code: The epsg_code of this UploadEventFile.  # noqa: E501
-        :type: int
-        """
-
-        self._epsg_code = epsg_code
-
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}
@@ -231,7 +196,10 @@ class UploadEventFile(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -42,7 +42,7 @@ class TimeseriesRain(object):
         'duration': 'int',
         'interpolate': 'bool',
         'values': 'list[list[float]]',
-        'units': 'str',
+        'units': 'TimeseriesRainMsUnitEnum',
         'uid': 'str',
         'id': 'int',
         'substances': 'list[ForcingSubstanceWithZone]'
@@ -244,6 +244,12 @@ class TimeseriesRain(object):
         """
         if self.local_vars_configuration.client_side_validation and values is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `values`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                values is not None and len(values) > 300):
+            self.__handle_validation_error("Invalid value for `values`, number of items must be less than or equal to `300`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                values is not None and len(values) < 1):
+            self.__handle_validation_error("Invalid value for `values`, number of items must be greater than or equal to `1`")  # noqa: E501
 
         self._values = values
 
@@ -251,10 +257,10 @@ class TimeseriesRain(object):
     def units(self):
         """Gets the units of this TimeseriesRain.  # noqa: E501
 
-        m/s is only option for now  # noqa: E501
+        m/s is only option for now  * `m/s` - m/s  # noqa: E501
 
         :return: The units of this TimeseriesRain.  # noqa: E501
-        :rtype: str
+        :rtype: TimeseriesRainMsUnitEnum
         """
         return self._units
 
@@ -262,19 +268,11 @@ class TimeseriesRain(object):
     def units(self, units):
         """Sets the units of this TimeseriesRain.
 
-        m/s is only option for now  # noqa: E501
+        m/s is only option for now  * `m/s` - m/s  # noqa: E501
 
         :param units: The units of this TimeseriesRain.  # noqa: E501
-        :type: str
+        :type: TimeseriesRainMsUnitEnum
         """
-        if self.local_vars_configuration.client_side_validation and units is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `units`, must not be `None`")  # noqa: E501
-        allowed_values = ["m/s"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
-                .format(units, allowed_values)
-            )
 
         self._units = units
 
@@ -367,7 +365,10 @@ class TimeseriesRain(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

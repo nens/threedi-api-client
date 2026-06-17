@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,11 +37,11 @@ class RevisionTask(object):
     """
     openapi_types = {
         'url': 'str',
-        'name': 'str',
+        'name': 'RevisionTaskNameEnum',
         'params': 'object',
         'created': 'datetime',
         'last_updated': 'datetime',
-        'status': 'str',
+        'status': 'RevisionTaskStatusEnum',
         'detail': 'object',
         'revision': 'str',
         'id': 'int'
@@ -93,8 +93,7 @@ class RevisionTask(object):
             self.last_updated = last_updated
         if status is not None:
             self.status = status
-        if detail is not None:
-            self.detail = detail
+        self.detail = detail
         if revision is not None:
             self.revision = revision
         if id is not None:
@@ -127,7 +126,7 @@ class RevisionTask(object):
 
 
         :return: The name of this RevisionTask.  # noqa: E501
-        :rtype: str
+        :rtype: RevisionTaskNameEnum
         """
         return self._name
 
@@ -137,16 +136,10 @@ class RevisionTask(object):
 
 
         :param name: The name of this RevisionTask.  # noqa: E501
-        :type: str
+        :type: RevisionTaskNameEnum
         """
         if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `name`, must not be `None`")  # noqa: E501
-        allowed_values = ["modelchecker"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and name not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `name` ({0}), must be one of {1}"  # noqa: E501
-                .format(name, allowed_values)
-            )
 
         self._name = name
 
@@ -219,7 +212,7 @@ class RevisionTask(object):
 
 
         :return: The status of this RevisionTask.  # noqa: E501
-        :rtype: str
+        :rtype: RevisionTaskStatusEnum
         """
         return self._status
 
@@ -229,14 +222,8 @@ class RevisionTask(object):
 
 
         :param status: The status of this RevisionTask.  # noqa: E501
-        :type: str
+        :type: RevisionTaskStatusEnum
         """
-        allowed_values = ["pending", "sent", "received", "started", "success", "failure", "revoked"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and status not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
-            )
 
         self._status = status
 
@@ -329,7 +316,10 @@ class RevisionTask(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

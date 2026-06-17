@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -130,9 +130,6 @@ class InpyVersion(object):
         if (self.local_vars_configuration.client_side_validation and
                 threedi_version is not None and len(threedi_version) > 80):
             self.__handle_validation_error("Invalid value for `threedi_version`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                threedi_version is not None and len(threedi_version) < 1):
-            self.__handle_validation_error("Invalid value for `threedi_version`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._threedi_version = threedi_version
 
@@ -159,9 +156,6 @@ class InpyVersion(object):
         if (self.local_vars_configuration.client_side_validation and
                 threedicore_version is not None and len(threedicore_version) > 80):
             self.__handle_validation_error("Invalid value for `threedicore_version`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                threedicore_version is not None and len(threedicore_version) < 1):
-            self.__handle_validation_error("Invalid value for `threedicore_version`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._threedicore_version = threedicore_version
 
@@ -183,9 +177,6 @@ class InpyVersion(object):
         :param slug: The slug of this InpyVersion.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and len(slug) < 1):
-            self.__handle_validation_error("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._slug = slug
 
@@ -257,7 +248,10 @@ class InpyVersion(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

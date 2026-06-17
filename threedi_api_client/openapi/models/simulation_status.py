@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,7 +37,7 @@ class SimulationStatus(object):
     """
     openapi_types = {
         'url': 'str',
-        'name': 'str',
+        'name': 'SimulationStatusNameEnum',
         'simulation': 'str',
         'simulation_id': 'int',
         'simulation_name': 'str',
@@ -138,8 +138,7 @@ class SimulationStatus(object):
             self.threedimodel_slug = threedimodel_slug
         if threedimodel_id is not None:
             self.threedimodel_id = threedimodel_id
-        if has_results is not None:
-            self.has_results = has_results
+        self.has_results = has_results
         if created is not None:
             self.created = created
         self.expiry = expiry
@@ -177,7 +176,7 @@ class SimulationStatus(object):
 
 
         :return: The name of this SimulationStatus.  # noqa: E501
-        :rtype: str
+        :rtype: SimulationStatusNameEnum
         """
         return self._name
 
@@ -187,16 +186,10 @@ class SimulationStatus(object):
 
 
         :param name: The name of this SimulationStatus.  # noqa: E501
-        :type: str
+        :type: SimulationStatusNameEnum
         """
         if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `name`, must not be `None`")  # noqa: E501
-        allowed_values = ["created", "starting", "initialized", "queued", "ended", "postprocessing", "finished", "crashed"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and name not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `name` ({0}), must be one of {1}"  # noqa: E501
-                .format(name, allowed_values)
-            )
 
         self._name = name
 
@@ -548,7 +541,6 @@ class SimulationStatus(object):
     def exit_code(self):
         """Gets the exit_code of this SimulationStatus.  # noqa: E501
 
-        only available for final statuses like 'finished' or 'crashed'. Gives detailed insight to the application state when the simulation finished  # noqa: E501
 
         :return: The exit_code of this SimulationStatus.  # noqa: E501
         :rtype: int
@@ -559,7 +551,6 @@ class SimulationStatus(object):
     def exit_code(self, exit_code):
         """Sets the exit_code of this SimulationStatus.
 
-        only available for final statuses like 'finished' or 'crashed'. Gives detailed insight to the application state when the simulation finished  # noqa: E501
 
         :param exit_code: The exit_code of this SimulationStatus.  # noqa: E501
         :type: int
@@ -614,7 +605,10 @@ class SimulationStatus(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

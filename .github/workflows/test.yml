@@ -15,9 +15,6 @@ jobs:
             fail-fast: false
             matrix:
                 include:
-                    # 2021
-                    - python: 3.9
-                      pins: "certifi==2021.* urllib3==2.* aiohttp==3.7.* aiofiles==0.7.*"
                     # 2022
                     - python: "3.10"
                       pins: "certifi==2022.* urllib3==2.* aiohttp==3.8.* aiofiles==0.8.*"

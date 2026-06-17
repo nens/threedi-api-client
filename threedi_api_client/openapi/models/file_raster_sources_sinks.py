@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -45,11 +45,11 @@ class FileRasterSourcesSinks(object):
         'interval': 'int',
         'values_reference': 'str',
         'fill_value': 'str',
-        'units': 'str',
+        'units': 'RasterRainUnitsEnum',
         'geotransform': 'list[float]',
         'epsg_code': 'int',
         'file': 'FileReadOnly',
-        'type': 'str',
+        'type': 'NetCDFFileTypeEnum',
         'uid': 'str',
         'id': 'int',
         'substances': 'list[ForcingSubstance]'
@@ -119,15 +119,15 @@ class FileRasterSourcesSinks(object):
         self.values_reference = values_reference
         if fill_value is not None:
             self.fill_value = fill_value
-        self.units = units
+        if units is not None:
+            self.units = units
         if geotransform is not None:
             self.geotransform = geotransform
         if epsg_code is not None:
             self.epsg_code = epsg_code
         if file is not None:
             self.file = file
-        if type is not None:
-            self.type = type
+        self.type = type
         if uid is not None:
             self.uid = uid
         if id is not None:
@@ -353,9 +353,6 @@ class FileRasterSourcesSinks(object):
         if (self.local_vars_configuration.client_side_validation and
                 fill_value is not None and len(fill_value) > 128):
             self.__handle_validation_error("Invalid value for `fill_value`, length must be less than or equal to `128`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                fill_value is not None and len(fill_value) < 1):
-            self.__handle_validation_error("Invalid value for `fill_value`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._fill_value = fill_value
 
@@ -365,7 +362,7 @@ class FileRasterSourcesSinks(object):
 
 
         :return: The units of this FileRasterSourcesSinks.  # noqa: E501
-        :rtype: str
+        :rtype: RasterRainUnitsEnum
         """
         return self._units
 
@@ -375,14 +372,8 @@ class FileRasterSourcesSinks(object):
 
 
         :param units: The units of this FileRasterSourcesSinks.  # noqa: E501
-        :type: str
+        :type: RasterRainUnitsEnum
         """
-        allowed_values = [None,"m/s", "mm", "mm/h", "mm/hr"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and units not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `units` ({0}), must be one of {1}"  # noqa: E501
-                .format(units, allowed_values)
-            )
 
         self._units = units
 
@@ -404,6 +395,9 @@ class FileRasterSourcesSinks(object):
         :param geotransform: The geotransform of this FileRasterSourcesSinks.  # noqa: E501
         :type: list[float]
         """
+        if (self.local_vars_configuration.client_side_validation and
+                geotransform is not None and len(geotransform) > 6):
+            self.__handle_validation_error("Invalid value for `geotransform`, number of items must be less than or equal to `6`")  # noqa: E501
 
         self._geotransform = geotransform
 
@@ -461,7 +455,7 @@ class FileRasterSourcesSinks(object):
 
 
         :return: The type of this FileRasterSourcesSinks.  # noqa: E501
-        :rtype: str
+        :rtype: NetCDFFileTypeEnum
         """
         return self._type
 
@@ -471,14 +465,8 @@ class FileRasterSourcesSinks(object):
 
 
         :param type: The type of this FileRasterSourcesSinks.  # noqa: E501
-        :type: str
+        :type: NetCDFFileTypeEnum
         """
-        allowed_values = ["netcdf4"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
 
         self._type = type
 
@@ -571,7 +559,10 @@ class FileRasterSourcesSinks(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

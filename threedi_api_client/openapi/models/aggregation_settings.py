@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -38,8 +38,8 @@ class AggregationSettings(object):
     openapi_types = {
         'url': 'str',
         'name': 'str',
-        'flow_variable': 'str',
-        'method': 'str',
+        'flow_variable': 'FlowVariableEnum',
+        'method': 'MethodEnum',
         'interval': 'float'
     }
 
@@ -131,10 +131,10 @@ class AggregationSettings(object):
     def flow_variable(self):
         """Gets the flow_variable of this AggregationSettings.  # noqa: E501
 
-        Options:  water_level = Water Level flow_velocity = Flow Velocity discharge = Discharge volume = Volume pump_discharge = Pump Discharge wet_cross_section = Wet Cross Section lateral_discharge = Lateral Discharge wet_surface = Wet Surface rain = Rain simple_infiltration = Simple Infiltration leakage = Leakage interception = Interception surface_source_sink_discharge = Surface Source Sink Discharge   # noqa: E501
+        Options:  water_level = Water Level flow_velocity = Flow Velocity discharge = Discharge volume = Volume pump_discharge = Pump Discharge wet_cross_section = Wet Cross Section lateral_discharge = Lateral Discharge wet_surface = Wet Surface rain = Rain simple_infiltration = Simple Infiltration leakage = Leakage interception = Interception surface_source_sink_discharge = Surface Source Sink Discharge   * `water_level` - Water Level * `flow_velocity` - Flow Velocity * `discharge` - Discharge * `volume` - Volume * `pump_discharge` - Pump Discharge * `wet_cross_section` - Wet Cross Section * `lateral_discharge` - Lateral Discharge * `wet_surface` - Wet Surface * `rain` - Rain * `simple_infiltration` - Simple Infiltration * `leakage` - Leakage * `interception` - Interception * `surface_source_sink_discharge` - Surface Source Sink Discharge  # noqa: E501
 
         :return: The flow_variable of this AggregationSettings.  # noqa: E501
-        :rtype: str
+        :rtype: FlowVariableEnum
         """
         return self._flow_variable
 
@@ -142,19 +142,11 @@ class AggregationSettings(object):
     def flow_variable(self, flow_variable):
         """Sets the flow_variable of this AggregationSettings.
 
-        Options:  water_level = Water Level flow_velocity = Flow Velocity discharge = Discharge volume = Volume pump_discharge = Pump Discharge wet_cross_section = Wet Cross Section lateral_discharge = Lateral Discharge wet_surface = Wet Surface rain = Rain simple_infiltration = Simple Infiltration leakage = Leakage interception = Interception surface_source_sink_discharge = Surface Source Sink Discharge   # noqa: E501
+        Options:  water_level = Water Level flow_velocity = Flow Velocity discharge = Discharge volume = Volume pump_discharge = Pump Discharge wet_cross_section = Wet Cross Section lateral_discharge = Lateral Discharge wet_surface = Wet Surface rain = Rain simple_infiltration = Simple Infiltration leakage = Leakage interception = Interception surface_source_sink_discharge = Surface Source Sink Discharge   * `water_level` - Water Level * `flow_velocity` - Flow Velocity * `discharge` - Discharge * `volume` - Volume * `pump_discharge` - Pump Discharge * `wet_cross_section` - Wet Cross Section * `lateral_discharge` - Lateral Discharge * `wet_surface` - Wet Surface * `rain` - Rain * `simple_infiltration` - Simple Infiltration * `leakage` - Leakage * `interception` - Interception * `surface_source_sink_discharge` - Surface Source Sink Discharge  # noqa: E501
 
         :param flow_variable: The flow_variable of this AggregationSettings.  # noqa: E501
-        :type: str
+        :type: FlowVariableEnum
         """
-        if self.local_vars_configuration.client_side_validation and flow_variable is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `flow_variable`, must not be `None`")  # noqa: E501
-        allowed_values = ["water_level", "flow_velocity", "discharge", "volume", "pump_discharge", "wet_cross_section", "lateral_discharge", "wet_surface", "rain", "simple_infiltration", "leakage", "interception", "surface_source_sink_discharge"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and flow_variable not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `flow_variable` ({0}), must be one of {1}"  # noqa: E501
-                .format(flow_variable, allowed_values)
-            )
 
         self._flow_variable = flow_variable
 
@@ -162,10 +154,10 @@ class AggregationSettings(object):
     def method(self):
         """Gets the method of this AggregationSettings.  # noqa: E501
 
-        Options:  min = minimum value of the variable in the configured interval max = maximum value of the variable in the configured interval avg = average value of the variable in the configured interval cum = variable integration over time [dt * variable] cum_positive = variable integration over time [dt * variable] in positive direction cum_negative = variable integration over time [dt * variable] in negative direction current = current value of a variable sum = variable summation over configured interval  Note: 'current' is required in case one checks the water balance for variables that are the result of the processes. Only valid for flow_variable 'volume' and 'intercepted_volume'  # noqa: E501
+        Options:  min = minimum value of the variable in the configured interval max = maximum value of the variable in the configured interval avg = average value of the variable in the configured interval cum = variable integration over time [dt * variable] cum_positive = variable integration over time [dt * variable] in positive direction cum_negative = variable integration over time [dt * variable] in negative direction current = current value of a variable sum = variable summation over configured interval  Note: 'current' is required in case one checks the water balance for variables that are the result of the processes. Only valid for flow_variable 'volume' and 'intercepted_volume'  * `min` - minimum value of the variable in the configured interval * `max` - maximum value of the variable in the configured interval * `avg` - average value of the variable in the configured interval * `cum` - variable integration over time [dt * variable] * `cum_positive` - variable integration over time [dt * variable] in positive direction * `cum_negative` - variable integration over time [dt * variable] in negative direction * `current` - current value of a variable * `sum` - variable summation over configured interval  # noqa: E501
 
         :return: The method of this AggregationSettings.  # noqa: E501
-        :rtype: str
+        :rtype: MethodEnum
         """
         return self._method
 
@@ -173,19 +165,11 @@ class AggregationSettings(object):
     def method(self, method):
         """Sets the method of this AggregationSettings.
 
-        Options:  min = minimum value of the variable in the configured interval max = maximum value of the variable in the configured interval avg = average value of the variable in the configured interval cum = variable integration over time [dt * variable] cum_positive = variable integration over time [dt * variable] in positive direction cum_negative = variable integration over time [dt * variable] in negative direction current = current value of a variable sum = variable summation over configured interval  Note: 'current' is required in case one checks the water balance for variables that are the result of the processes. Only valid for flow_variable 'volume' and 'intercepted_volume'  # noqa: E501
+        Options:  min = minimum value of the variable in the configured interval max = maximum value of the variable in the configured interval avg = average value of the variable in the configured interval cum = variable integration over time [dt * variable] cum_positive = variable integration over time [dt * variable] in positive direction cum_negative = variable integration over time [dt * variable] in negative direction current = current value of a variable sum = variable summation over configured interval  Note: 'current' is required in case one checks the water balance for variables that are the result of the processes. Only valid for flow_variable 'volume' and 'intercepted_volume'  * `min` - minimum value of the variable in the configured interval * `max` - maximum value of the variable in the configured interval * `avg` - average value of the variable in the configured interval * `cum` - variable integration over time [dt * variable] * `cum_positive` - variable integration over time [dt * variable] in positive direction * `cum_negative` - variable integration over time [dt * variable] in negative direction * `current` - current value of a variable * `sum` - variable summation over configured interval  # noqa: E501
 
         :param method: The method of this AggregationSettings.  # noqa: E501
-        :type: str
+        :type: MethodEnum
         """
-        if self.local_vars_configuration.client_side_validation and method is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `method`, must not be `None`")  # noqa: E501
-        allowed_values = ["min", "max", "avg", "cum", "cum_positive", "cum_negative", "current", "sum"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and method not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `method` ({0}), must be one of {1}"  # noqa: E501
-                .format(method, allowed_values)
-            )
 
         self._method = method
 
@@ -240,7 +224,10 @@ class AggregationSettings(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

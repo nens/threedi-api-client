@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -189,6 +189,12 @@ class ForcingSubstance(object):
         """
         if self.local_vars_configuration.client_side_validation and concentrations is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `concentrations`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                concentrations is not None and len(concentrations) > 300):
+            self.__handle_validation_error("Invalid value for `concentrations`, number of items must be less than or equal to `300`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                concentrations is not None and len(concentrations) < 1):
+            self.__handle_validation_error("Invalid value for `concentrations`, number of items must be greater than or equal to `1`")  # noqa: E501
 
         self._concentrations = concentrations
 
@@ -218,7 +224,10 @@ class ForcingSubstance(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

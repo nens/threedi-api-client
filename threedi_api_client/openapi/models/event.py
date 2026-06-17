@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -203,20 +203,13 @@ class Event(object):
             self.filetimeseriesleakage = filetimeseriesleakage
         if filerasterleakage is not None:
             self.filerasterleakage = filerasterleakage
-        if initial_twodwaterlevel is not None:
-            self.initial_twodwaterlevel = initial_twodwaterlevel
-        if initial_onedwaterlevelpredefined is not None:
-            self.initial_onedwaterlevelpredefined = initial_onedwaterlevelpredefined
-        if initial_groundwaterlevel is not None:
-            self.initial_groundwaterlevel = initial_groundwaterlevel
-        if initial_groundwaterraster is not None:
-            self.initial_groundwaterraster = initial_groundwaterraster
-        if initial_onedwaterlevel is not None:
-            self.initial_onedwaterlevel = initial_onedwaterlevel
-        if initial_onedwaterlevelfile is not None:
-            self.initial_onedwaterlevelfile = initial_onedwaterlevelfile
-        if initial_twodwaterraster is not None:
-            self.initial_twodwaterraster = initial_twodwaterraster
+        self.initial_twodwaterlevel = initial_twodwaterlevel
+        self.initial_onedwaterlevelpredefined = initial_onedwaterlevelpredefined
+        self.initial_groundwaterlevel = initial_groundwaterlevel
+        self.initial_groundwaterraster = initial_groundwaterraster
+        self.initial_onedwaterlevel = initial_onedwaterlevel
+        self.initial_onedwaterlevelfile = initial_onedwaterlevelfile
+        self.initial_twodwaterraster = initial_twodwaterraster
         if initial_oned_substance_concentrations is not None:
             self.initial_oned_substance_concentrations = initial_oned_substance_concentrations
         if initial_twod_substance_concentrations is not None:
@@ -227,16 +220,14 @@ class Event(object):
             self.filerasterrain = filerasterrain
         if filetimeseriesrain is not None:
             self.filetimeseriesrain = filetimeseriesrain
-        if initial_savedstate is not None:
-            self.initial_savedstate = initial_savedstate
+        self.initial_savedstate = initial_savedstate
         if savedstates is not None:
             self.savedstates = savedstates
         if laterals is not None:
             self.laterals = laterals
         if filelaterals is not None:
             self.filelaterals = filelaterals
-        if fileboundaryconditions is not None:
-            self.fileboundaryconditions = fileboundaryconditions
+        self.fileboundaryconditions = fileboundaryconditions
         if tablestructurecontrols is not None:
             self.tablestructurecontrols = tablestructurecontrols
         if memorystructurecontrols is not None:
@@ -253,8 +244,7 @@ class Event(object):
             self.localrain = localrain
         if wind is not None:
             self.wind = wind
-        if initial_winddragcoefficient is not None:
-            self.initial_winddragcoefficient = initial_winddragcoefficient
+        self.initial_winddragcoefficient = initial_winddragcoefficient
 
     @property
     def substances(self):
@@ -1122,7 +1112,10 @@ class Event(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

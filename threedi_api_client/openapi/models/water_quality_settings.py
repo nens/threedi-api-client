@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -162,8 +162,8 @@ class WaterQualitySettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                time_step is not None and time_step < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                time_step is not None and time_step < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `time_step`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._time_step = time_step
 
@@ -188,8 +188,8 @@ class WaterQualitySettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                min_time_step is not None and min_time_step < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `min_time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                min_time_step is not None and min_time_step < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `min_time_step`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._min_time_step = min_time_step
 
@@ -214,8 +214,8 @@ class WaterQualitySettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                max_time_step is not None and max_time_step < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `max_time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                max_time_step is not None and max_time_step < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `max_time_step`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._max_time_step = max_time_step
 
@@ -240,8 +240,8 @@ class WaterQualitySettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                general_numerical_threshold is not None and general_numerical_threshold < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `general_numerical_threshold`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                general_numerical_threshold is not None and general_numerical_threshold < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `general_numerical_threshold`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._general_numerical_threshold = general_numerical_threshold
 
@@ -324,8 +324,8 @@ class WaterQualitySettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                convergence_eps is not None and convergence_eps < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `convergence_eps`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                convergence_eps is not None and convergence_eps < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `convergence_eps`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._convergence_eps = convergence_eps
 
@@ -355,7 +355,10 @@ class WaterQualitySettings(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

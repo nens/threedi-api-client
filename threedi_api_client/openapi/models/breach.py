@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,11 +37,11 @@ class Breach(object):
     """
     openapi_types = {
         'url': 'str',
-        'potential_breach': 'str',
+        'potential_breach': 'object',
         'line_id': 'int',
         'duration_till_max_depth': 'int',
         'maximum_breach_depth': 'float',
-        'levee_material': 'str',
+        'levee_material': 'LeveeMaterialEnum',
         'initial_width': 'float',
         'discharge_coefficient_positive': 'float',
         'discharge_coefficient_negative': 'float',
@@ -99,8 +99,7 @@ class Breach(object):
 
         if url is not None:
             self.url = url
-        if potential_breach is not None:
-            self.potential_breach = potential_breach
+        self.potential_breach = potential_breach
         if line_id is not None:
             self.line_id = line_id
         self.duration_till_max_depth = duration_till_max_depth
@@ -146,7 +145,7 @@ class Breach(object):
 
 
         :return: The potential_breach of this Breach.  # noqa: E501
-        :rtype: str
+        :rtype: object
         """
         return self._potential_breach
 
@@ -156,7 +155,7 @@ class Breach(object):
 
 
         :param potential_breach: The potential_breach of this Breach.  # noqa: E501
-        :type: str
+        :type: object
         """
 
         self._potential_breach = potential_breach
@@ -250,7 +249,7 @@ class Breach(object):
 
 
         :return: The levee_material of this Breach.  # noqa: E501
-        :rtype: str
+        :rtype: LeveeMaterialEnum
         """
         return self._levee_material
 
@@ -260,14 +259,8 @@ class Breach(object):
 
 
         :param levee_material: The levee_material of this Breach.  # noqa: E501
-        :type: str
+        :type: LeveeMaterialEnum
         """
-        allowed_values = ["sand", "clay"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and levee_material not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `levee_material` ({0}), must be one of {1}"  # noqa: E501
-                .format(levee_material, allowed_values)
-            )
 
         self._levee_material = levee_material
 
@@ -458,7 +451,10 @@ class Breach(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

@@ -2,16 +2,41 @@
 History
 =======
 
+
 4.2.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Openapi spec 3 and other fixes for 5.0.0
 
 
 4.2.7 (2026-06-16)
 ------------------
 
 - Also retry on status 502 (Bad Gateway).
+
+
+5.0.0.b3 (2026-06-11)
+---------------------
+
+- Fix _retrieve backwards incompatibility and enum generation issues. 
+
+
+5.0.0.b2 (2026-06-10)
+---------------------
+
+- data keywords and enum generation fixes
+
+
+5.0.0.b1 (2026-06-09)
+---------------------
+
+- removed redundant models and files
+
+
+5.0.0.b0 (2026-06-09)
+---------------------
+
+- Openapi spec 3
 
 
 4.2.6 (2026-03-25)

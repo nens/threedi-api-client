@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -44,8 +44,8 @@ class ThreediModel(object):
         'revision': 'str',
         'revision_id': 'int',
         'revision_hash': 'str',
-        'revision_number': 'str',
-        'revision_commit_date': 'str',
+        'revision_number': 'int',
+        'revision_commit_date': 'datetime',
         'schematisation_id': 'int',
         'schematisation_name': 'str',
         'repository_slug': 'str',
@@ -152,23 +152,17 @@ class ThreediModel(object):
             self.url = url
         if id is not None:
             self.id = id
-        if user is not None:
-            self.user = user
+        self.user = user
         self.threedi_version = threedi_version
         self.breach_count = breach_count
         self.revision = revision
         self.revision_id = revision_id
-        if revision_hash is not None:
-            self.revision_hash = revision_hash
-        if revision_number is not None:
-            self.revision_number = revision_number
-        if revision_commit_date is not None:
-            self.revision_commit_date = revision_commit_date
+        self.revision_hash = revision_hash
+        self.revision_number = revision_number
+        self.revision_commit_date = revision_commit_date
         self.schematisation_id = schematisation_id
-        if schematisation_name is not None:
-            self.schematisation_name = schematisation_name
-        if repository_slug is not None:
-            self.repository_slug = repository_slug
+        self.schematisation_name = schematisation_name
+        self.repository_slug = repository_slug
         if name is not None:
             self.name = name
         self.slug = slug
@@ -242,7 +236,6 @@ class ThreediModel(object):
     def user(self):
         """Gets the user of this ThreediModel.  # noqa: E501
 
-        The username of a user  # noqa: E501
 
         :return: The user of this ThreediModel.  # noqa: E501
         :rtype: str
@@ -253,7 +246,6 @@ class ThreediModel(object):
     def user(self, user):
         """Sets the user of this ThreediModel.
 
-        The username of a user  # noqa: E501
 
         :param user: The user of this ThreediModel.  # noqa: E501
         :type: str
@@ -281,9 +273,6 @@ class ThreediModel(object):
         :param threedi_version: The threedi_version of this ThreediModel.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                threedi_version is not None and len(threedi_version) < 1):
-            self.__handle_validation_error("Invalid value for `threedi_version`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._threedi_version = threedi_version
 
@@ -385,7 +374,7 @@ class ThreediModel(object):
 
 
         :return: The revision_number of this ThreediModel.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._revision_number
 
@@ -395,7 +384,7 @@ class ThreediModel(object):
 
 
         :param revision_number: The revision_number of this ThreediModel.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._revision_number = revision_number
@@ -406,7 +395,7 @@ class ThreediModel(object):
 
 
         :return: The revision_commit_date of this ThreediModel.  # noqa: E501
-        :rtype: str
+        :rtype: datetime
         """
         return self._revision_commit_date
 
@@ -416,7 +405,7 @@ class ThreediModel(object):
 
 
         :param revision_commit_date: The revision_commit_date of this ThreediModel.  # noqa: E501
-        :type: str
+        :type: datetime
         """
 
         self._revision_commit_date = revision_commit_date
@@ -502,9 +491,6 @@ class ThreediModel(object):
         :param name: The name of this ThreediModel.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -531,9 +517,6 @@ class ThreediModel(object):
         if (self.local_vars_configuration.client_side_validation and
                 slug is not None and len(slug) > 512):
             self.__handle_validation_error("Invalid value for `slug`, length must be less than or equal to `512`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and len(slug) < 1):
-            self.__handle_validation_error("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 slug is not None and not re.search(r'^[-a-zA-Z0-9_]+$', slug)):  # noqa: E501
             self.__handle_validation_error(r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
@@ -918,7 +901,10 @@ class ThreediModel(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

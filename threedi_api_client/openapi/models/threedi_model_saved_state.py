@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,12 +40,12 @@ class ThreediModelSavedState(object):
         'url': 'str',
         'name': 'str',
         'created': 'datetime',
-        'type': 'str',
+        'type': 'SavedStateTypeEnum',
         'tags': 'list[str]',
         'used_in_simulation': 'str',
         'expiry': 'datetime',
         'time': 'int',
-        'variables': 'list[str]',
+        'variables': 'list[SavedStateVariableEnum]',
         'thresholds': 'list[float]'
     }
 
@@ -171,9 +171,6 @@ class ThreediModelSavedState(object):
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 80):
             self.__handle_validation_error("Invalid value for `name`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -204,7 +201,7 @@ class ThreediModelSavedState(object):
 
 
         :return: The type of this ThreediModelSavedState.  # noqa: E501
-        :rtype: str
+        :rtype: SavedStateTypeEnum
         """
         return self._type
 
@@ -214,16 +211,10 @@ class ThreediModelSavedState(object):
 
 
         :param type: The type of this ThreediModelSavedState.  # noqa: E501
-        :type: str
+        :type: SavedStateTypeEnum
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["stable_threshold", "timed"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
 
         self._type = type
 
@@ -327,7 +318,7 @@ class ThreediModelSavedState(object):
 
 
         :return: The variables of this ThreediModelSavedState.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[SavedStateVariableEnum]
         """
         return self._variables
 
@@ -337,16 +328,11 @@ class ThreediModelSavedState(object):
 
 
         :param variables: The variables of this ThreediModelSavedState.  # noqa: E501
-        :type: list[str]
+        :type: list[SavedStateVariableEnum]
         """
-        allowed_values = [None,"s1", "u1"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                not set(variables).issubset(set(allowed_values))):  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid values for `variables` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(variables) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
+                variables is not None and len(variables) > 2):
+            self.__handle_validation_error("Invalid value for `variables`, number of items must be less than or equal to `2`")  # noqa: E501
 
         self._variables = variables
 
@@ -368,6 +354,9 @@ class ThreediModelSavedState(object):
         :param thresholds: The thresholds of this ThreediModelSavedState.  # noqa: E501
         :type: list[float]
         """
+        if (self.local_vars_configuration.client_side_validation and
+                thresholds is not None and len(thresholds) > 2):
+            self.__handle_validation_error("Invalid value for `thresholds`, number of items must be less than or equal to `2`")  # noqa: E501
 
         self._thresholds = thresholds
 
@@ -397,7 +386,10 @@ class ThreediModelSavedState(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

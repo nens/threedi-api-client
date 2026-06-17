@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -117,18 +117,15 @@ class SchematisationRevision(object):
             self.schematisation_id = schematisation_id
         if number is not None:
             self.number = number
-        if sqlite is not None:
-            self.sqlite = sqlite
+        self.sqlite = sqlite
         if rasters is not None:
             self.rasters = rasters
         self.archived = archived
         self.commit_date = commit_date
         if commit_user is not None:
             self.commit_user = commit_user
-        if commit_first_name is not None:
-            self.commit_first_name = commit_first_name
-        if commit_last_name is not None:
-            self.commit_last_name = commit_last_name
+        self.commit_first_name = commit_first_name
+        self.commit_last_name = commit_last_name
         self.commit_message = commit_message
         self.is_valid = is_valid
         if has_threedimodel is not None:
@@ -350,7 +347,7 @@ class SchematisationRevision(object):
     def commit_user(self):
         """Gets the commit_user of this SchematisationRevision.  # noqa: E501
 
-        The username of a user  # noqa: E501
+        The user that committed the revision  # noqa: E501
 
         :return: The commit_user of this SchematisationRevision.  # noqa: E501
         :rtype: str
@@ -361,14 +358,11 @@ class SchematisationRevision(object):
     def commit_user(self, commit_user):
         """Sets the commit_user of this SchematisationRevision.
 
-        The username of a user  # noqa: E501
+        The user that committed the revision  # noqa: E501
 
         :param commit_user: The commit_user of this SchematisationRevision.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                commit_user is not None and not re.search(r'^[\w.@+-]+$', commit_user)):  # noqa: E501
-            self.__handle_validation_error(r"Invalid value for `commit_user`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
 
         self._commit_user = commit_user
 
@@ -432,9 +426,6 @@ class SchematisationRevision(object):
         :param commit_message: The commit_message of this SchematisationRevision.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                commit_message is not None and len(commit_message) < 1):
-            self.__handle_validation_error("Invalid value for `commit_message`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._commit_message = commit_message
 
@@ -529,7 +520,10 @@ class SchematisationRevision(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

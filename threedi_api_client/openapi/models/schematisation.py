@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -118,10 +118,8 @@ class Schematisation(object):
         self.meta = meta
         if created_by is not None:
             self.created_by = created_by
-        if created_by_first_name is not None:
-            self.created_by_first_name = created_by_first_name
-        if created_by_last_name is not None:
-            self.created_by_last_name = created_by_last_name
+        self.created_by_first_name = created_by_first_name
+        self.created_by_last_name = created_by_last_name
         if created is not None:
             self.created = created
         self.archived = archived
@@ -220,9 +218,6 @@ class Schematisation(object):
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 256):
             self.__handle_validation_error("Invalid value for `name`, length must be less than or equal to `256`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -249,9 +244,6 @@ class Schematisation(object):
         if (self.local_vars_configuration.client_side_validation and
                 slug is not None and len(slug) > 256):
             self.__handle_validation_error("Invalid value for `slug`, length must be less than or equal to `256`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                slug is not None and len(slug) < 1):
-            self.__handle_validation_error("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 slug is not None and not re.search(r'^[-a-zA-Z0-9_]+$', slug)):  # noqa: E501
             self.__handle_validation_error(r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
@@ -306,7 +298,7 @@ class Schematisation(object):
     def created_by(self):
         """Gets the created_by of this Schematisation.  # noqa: E501
 
-        The username of a user  # noqa: E501
+        The user that created the schematisation (only superusers can modify this field)  # noqa: E501
 
         :return: The created_by of this Schematisation.  # noqa: E501
         :rtype: str
@@ -317,14 +309,11 @@ class Schematisation(object):
     def created_by(self, created_by):
         """Sets the created_by of this Schematisation.
 
-        The username of a user  # noqa: E501
+        The user that created the schematisation (only superusers can modify this field)  # noqa: E501
 
         :param created_by: The created_by of this Schematisation.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                created_by is not None and not re.search(r'^[\w.@+-]+$', created_by)):  # noqa: E501
-            self.__handle_validation_error(r"Invalid value for `created_by`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
 
         self._created_by = created_by
 
@@ -534,7 +523,10 @@ class Schematisation(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

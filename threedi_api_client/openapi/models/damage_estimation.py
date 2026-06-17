@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -62,7 +62,7 @@ class DamageEstimation(object):
         'repair_time_buildings': 'repair_time_buildings'
     }
 
-    def __init__(self, damage_table='3Di-V1', elevation_raster_uuid='36588275-f3e3-4120-8c1e-602f7ae85386', landcover_raster_uuid='717478ef-099d-41d8-971d-8b4309e59d92', road_rail_raster_uuid='e40c1b96-e71f-462c-8acb-59a3a8b7db89', cost_type=None, flood_month=None, inundation_period=None, repair_time_infrastructure=None, repair_time_buildings=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, damage_table=None, elevation_raster_uuid=None, landcover_raster_uuid=None, road_rail_raster_uuid=None, cost_type=None, flood_month=None, inundation_period=None, repair_time_infrastructure=None, repair_time_buildings=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """DamageEstimation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -316,7 +316,10 @@ class DamageEstimation(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

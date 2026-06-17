@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,7 +36,7 @@ class MeasureLocationGridEventState(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'state': 'str',
+        'state': 'EventStateEnum',
         'state_detail': 'object',
         'grid_id': 'int',
         'location_grid_ids': 'list[int]',
@@ -92,7 +92,7 @@ class MeasureLocationGridEventState(object):
 
 
         :return: The state of this MeasureLocationGridEventState.  # noqa: E501
-        :rtype: str
+        :rtype: EventStateEnum
         """
         return self._state
 
@@ -102,16 +102,10 @@ class MeasureLocationGridEventState(object):
 
 
         :param state: The state of this MeasureLocationGridEventState.  # noqa: E501
-        :type: str
+        :type: EventStateEnum
         """
         if self.local_vars_configuration.client_side_validation and state is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `state`, must not be `None`")  # noqa: E501
-        allowed_values = ["processing", "valid", "invalid"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
-                .format(state, allowed_values)
-            )
 
         self._state = state
 
@@ -133,8 +127,6 @@ class MeasureLocationGridEventState(object):
         :param state_detail: The state_detail of this MeasureLocationGridEventState.  # noqa: E501
         :type: object
         """
-        if self.local_vars_configuration.client_side_validation and state_detail is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `state_detail`, must not be `None`")  # noqa: E501
 
         self._state_detail = state_detail
 
@@ -269,7 +261,10 @@ class MeasureLocationGridEventState(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

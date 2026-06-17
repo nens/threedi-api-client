@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,17 +36,28 @@ class Settings(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'damage_estimation': 'DamageEstimation'
+        'url': 'str',
+        'id': 'int',
+        'organisation': 'str',
+        'organisation_name': 'str',
+        'historical_rain_radar_uuids': 'list[str]',
+        'forecast_rain_radar_uuids': 'list[str]'
     }
 
     required_fields = [
+       'organisation',
     ]
 
     attribute_map = {
-        'damage_estimation': 'damage_estimation'
+        'url': 'url',
+        'id': 'id',
+        'organisation': 'organisation',
+        'organisation_name': 'organisation_name',
+        'historical_rain_radar_uuids': 'historical_rain_radar_uuids',
+        'forecast_rain_radar_uuids': 'forecast_rain_radar_uuids'
     }
 
-    def __init__(self, damage_estimation=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, id=None, organisation=None, organisation_name=None, historical_rain_radar_uuids=None, forecast_rain_radar_uuids=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Settings - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -55,32 +66,159 @@ class Settings(object):
         # True if data is coming from API
         self._fetched_from_api = fetched_from_api
 
-        self._damage_estimation = None
+        self._url = None
+        self._id = None
+        self._organisation = None
+        self._organisation_name = None
+        self._historical_rain_radar_uuids = None
+        self._forecast_rain_radar_uuids = None
         self.discriminator = None
 
-        if damage_estimation is not None:
-            self.damage_estimation = damage_estimation
+        if url is not None:
+            self.url = url
+        if id is not None:
+            self.id = id
+        self.organisation = organisation
+        if organisation_name is not None:
+            self.organisation_name = organisation_name
+        if historical_rain_radar_uuids is not None:
+            self.historical_rain_radar_uuids = historical_rain_radar_uuids
+        if forecast_rain_radar_uuids is not None:
+            self.forecast_rain_radar_uuids = forecast_rain_radar_uuids
 
     @property
-    def damage_estimation(self):
-        """Gets the damage_estimation of this Settings.  # noqa: E501
+    def url(self):
+        """Gets the url of this Settings.  # noqa: E501
 
 
-        :return: The damage_estimation of this Settings.  # noqa: E501
-        :rtype: DamageEstimation
+        :return: The url of this Settings.  # noqa: E501
+        :rtype: str
         """
-        return self._damage_estimation
+        return self._url
 
-    @damage_estimation.setter
-    def damage_estimation(self, damage_estimation):
-        """Sets the damage_estimation of this Settings.
+    @url.setter
+    def url(self, url):
+        """Sets the url of this Settings.
 
 
-        :param damage_estimation: The damage_estimation of this Settings.  # noqa: E501
-        :type: DamageEstimation
+        :param url: The url of this Settings.  # noqa: E501
+        :type: str
         """
 
-        self._damage_estimation = damage_estimation
+        self._url = url
+
+    @property
+    def id(self):
+        """Gets the id of this Settings.  # noqa: E501
+
+
+        :return: The id of this Settings.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Settings.
+
+
+        :param id: The id of this Settings.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
+
+    @property
+    def organisation(self):
+        """Gets the organisation of this Settings.  # noqa: E501
+
+        The unique_id of an organisation  # noqa: E501
+
+        :return: The organisation of this Settings.  # noqa: E501
+        :rtype: str
+        """
+        return self._organisation
+
+    @organisation.setter
+    def organisation(self, organisation):
+        """Sets the organisation of this Settings.
+
+        The unique_id of an organisation  # noqa: E501
+
+        :param organisation: The organisation of this Settings.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and organisation is None:  # noqa: E501
+            self.__handle_validation_error("Invalid value for `organisation`, must not be `None`")  # noqa: E501
+
+        self._organisation = organisation
+
+    @property
+    def organisation_name(self):
+        """Gets the organisation_name of this Settings.  # noqa: E501
+
+
+        :return: The organisation_name of this Settings.  # noqa: E501
+        :rtype: str
+        """
+        return self._organisation_name
+
+    @organisation_name.setter
+    def organisation_name(self, organisation_name):
+        """Sets the organisation_name of this Settings.
+
+
+        :param organisation_name: The organisation_name of this Settings.  # noqa: E501
+        :type: str
+        """
+
+        self._organisation_name = organisation_name
+
+    @property
+    def historical_rain_radar_uuids(self):
+        """Gets the historical_rain_radar_uuids of this Settings.  # noqa: E501
+
+        List of historical rain radar UUIDs  # noqa: E501
+
+        :return: The historical_rain_radar_uuids of this Settings.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._historical_rain_radar_uuids
+
+    @historical_rain_radar_uuids.setter
+    def historical_rain_radar_uuids(self, historical_rain_radar_uuids):
+        """Sets the historical_rain_radar_uuids of this Settings.
+
+        List of historical rain radar UUIDs  # noqa: E501
+
+        :param historical_rain_radar_uuids: The historical_rain_radar_uuids of this Settings.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._historical_rain_radar_uuids = historical_rain_radar_uuids
+
+    @property
+    def forecast_rain_radar_uuids(self):
+        """Gets the forecast_rain_radar_uuids of this Settings.  # noqa: E501
+
+        List of forecast rain radar UUIDs  # noqa: E501
+
+        :return: The forecast_rain_radar_uuids of this Settings.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._forecast_rain_radar_uuids
+
+    @forecast_rain_radar_uuids.setter
+    def forecast_rain_radar_uuids(self, forecast_rain_radar_uuids):
+        """Sets the forecast_rain_radar_uuids of this Settings.
+
+        List of forecast rain radar UUIDs  # noqa: E501
+
+        :param forecast_rain_radar_uuids: The forecast_rain_radar_uuids of this Settings.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._forecast_rain_radar_uuids = forecast_rain_radar_uuids
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -108,7 +246,10 @@ class Settings(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

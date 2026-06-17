@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -82,22 +82,16 @@ class SimulationSettingsOverview(object):
         self._water_quality_customized_result_areas = None
         self.discriminator = None
 
-        if physical_settings is not None:
-            self.physical_settings = physical_settings
-        if numerical_settings is not None:
-            self.numerical_settings = numerical_settings
-        if time_step_settings is not None:
-            self.time_step_settings = time_step_settings
+        self.physical_settings = physical_settings
+        self.numerical_settings = numerical_settings
+        self.time_step_settings = time_step_settings
         if aggregation_settings is not None:
             self.aggregation_settings = aggregation_settings
-        if output_settings is not None:
-            self.output_settings = output_settings
+        self.output_settings = output_settings
         if customized_result_areas is not None:
             self.customized_result_areas = customized_result_areas
-        if water_quality_settings is not None:
-            self.water_quality_settings = water_quality_settings
-        if water_quality_output_settings is not None:
-            self.water_quality_output_settings = water_quality_output_settings
+        self.water_quality_settings = water_quality_settings
+        self.water_quality_output_settings = water_quality_output_settings
         if water_quality_customized_result_areas is not None:
             self.water_quality_customized_result_areas = water_quality_customized_result_areas
 
@@ -316,7 +310,10 @@ class SimulationSettingsOverview(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

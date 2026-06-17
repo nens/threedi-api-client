@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -195,9 +195,6 @@ class Simulation(object):
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                slug is not None and len(slug) < 1):
-            self.__handle_validation_error("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
                 slug is not None and not re.search(r'^[-a-zA-Z0-9_]+$', slug)):  # noqa: E501
             self.__handle_validation_error(r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
@@ -247,9 +244,6 @@ class Simulation(object):
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 128):
             self.__handle_validation_error("Invalid value for `name`, length must be less than or equal to `128`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -388,9 +382,6 @@ class Simulation(object):
         :param user: The user of this Simulation.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                user is not None and not re.search(r'^[\w.@+-]+$', user)):  # noqa: E501
-            self.__handle_validation_error(r"Invalid value for `user`, must be a follow pattern or equal to `/^[\w.@+-]+$/`")  # noqa: E501
 
         self._user = user
 
@@ -543,9 +534,6 @@ class Simulation(object):
         if (self.local_vars_configuration.client_side_validation and
                 threedicore_version is not None and len(threedicore_version) > 16):
             self.__handle_validation_error("Invalid value for `threedicore_version`, length must be less than or equal to `16`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                threedicore_version is not None and len(threedicore_version) < 1):
-            self.__handle_validation_error("Invalid value for `threedicore_version`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._threedicore_version = threedicore_version
 
@@ -611,12 +599,6 @@ class Simulation(object):
         :param started_from: The started_from of this Simulation.  # noqa: E501
         :type: str
         """
-        allowed_values = ["", "3Di Live", "3Di Modeller Interface", "Rana Desktop Client"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and started_from not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `started_from` ({0}), must be one of {1}"  # noqa: E501
-                .format(started_from, allowed_values)
-            )
 
         self._started_from = started_from
 
@@ -646,7 +628,10 @@ class Simulation(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

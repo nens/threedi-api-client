@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,7 @@ class SimulationChannel(object):
         'simulation': 'str',
         'channel_name': 'str',
         'created': 'datetime',
-        'state': 'str'
+        'state': 'SimulationChannelStateEnum'
     }
 
     required_fields = [
@@ -78,8 +78,7 @@ class SimulationChannel(object):
             self.channel_name = channel_name
         if created is not None:
             self.created = created
-        if state is not None:
-            self.state = state
+        self.state = state
 
     @property
     def id(self):
@@ -141,9 +140,6 @@ class SimulationChannel(object):
         :param channel_name: The channel_name of this SimulationChannel.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                channel_name is not None and len(channel_name) < 1):
-            self.__handle_validation_error("Invalid value for `channel_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._channel_name = channel_name
 
@@ -174,7 +170,7 @@ class SimulationChannel(object):
 
 
         :return: The state of this SimulationChannel.  # noqa: E501
-        :rtype: str
+        :rtype: SimulationChannelStateEnum
         """
         return self._state
 
@@ -184,14 +180,8 @@ class SimulationChannel(object):
 
 
         :param state: The state of this SimulationChannel.  # noqa: E501
-        :type: str
+        :type: SimulationChannelStateEnum
         """
-        allowed_values = ["pending", "confirmed", "timeout"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
-                .format(state, allowed_values)
-            )
 
         self._state = state
 
@@ -221,7 +211,10 @@ class SimulationChannel(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -42,7 +42,7 @@ class Substance(object):
         'diffusion_coefficient': 'float',
         'growth_coefficient': 'float',
         'decay_coefficient': 'float',
-        'numerical_diffusion_limiter': 'int',
+        'numerical_diffusion_limiter': 'UsePreconditionerCgEnum',
         'units': 'str',
         'uid': 'str'
     }
@@ -83,8 +83,7 @@ class Substance(object):
         self._uid = None
         self.discriminator = None
 
-        if url is not None:
-            self.url = url
+        self.url = url
         self.name = name
         if id is not None:
             self.id = id
@@ -94,8 +93,7 @@ class Substance(object):
             self.growth_coefficient = growth_coefficient
         if decay_coefficient is not None:
             self.decay_coefficient = decay_coefficient
-        if numerical_diffusion_limiter is not None:
-            self.numerical_diffusion_limiter = numerical_diffusion_limiter
+        self.numerical_diffusion_limiter = numerical_diffusion_limiter
         if units is not None:
             self.units = units
         if uid is not None:
@@ -105,6 +103,7 @@ class Substance(object):
     def url(self):
         """Gets the url of this Substance.  # noqa: E501
 
+        Try to build the URL to this substance, given the simulation in the request.  # noqa: E501
 
         :return: The url of this Substance.  # noqa: E501
         :rtype: str
@@ -115,6 +114,7 @@ class Substance(object):
     def url(self, url):
         """Sets the url of this Substance.
 
+        Try to build the URL to this substance, given the simulation in the request.  # noqa: E501
 
         :param url: The url of this Substance.  # noqa: E501
         :type: str
@@ -145,9 +145,6 @@ class Substance(object):
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 1024):
             self.__handle_validation_error("Invalid value for `name`, length must be less than or equal to `1024`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -193,11 +190,11 @@ class Substance(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                diffusion_coefficient is not None and diffusion_coefficient > 1):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `diffusion_coefficient`, must be a value less than or equal to `1`")  # noqa: E501
+                diffusion_coefficient is not None and diffusion_coefficient > 1.0):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `diffusion_coefficient`, must be a value less than or equal to `1.0`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                diffusion_coefficient is not None and diffusion_coefficient < 0):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `diffusion_coefficient`, must be a value greater than or equal to `0`")  # noqa: E501
+                diffusion_coefficient is not None and diffusion_coefficient < 0.0):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `diffusion_coefficient`, must be a value greater than or equal to `0.0`")  # noqa: E501
 
         self._diffusion_coefficient = diffusion_coefficient
 
@@ -222,8 +219,8 @@ class Substance(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                growth_coefficient is not None and growth_coefficient < 0):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `growth_coefficient`, must be a value greater than or equal to `0`")  # noqa: E501
+                growth_coefficient is not None and growth_coefficient < 0.0):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `growth_coefficient`, must be a value greater than or equal to `0.0`")  # noqa: E501
 
         self._growth_coefficient = growth_coefficient
 
@@ -248,8 +245,8 @@ class Substance(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                decay_coefficient is not None and decay_coefficient < 0):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `decay_coefficient`, must be a value greater than or equal to `0`")  # noqa: E501
+                decay_coefficient is not None and decay_coefficient < 0.0):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `decay_coefficient`, must be a value greater than or equal to `0.0`")  # noqa: E501
 
         self._decay_coefficient = decay_coefficient
 
@@ -257,10 +254,10 @@ class Substance(object):
     def numerical_diffusion_limiter(self):
         """Gets the numerical_diffusion_limiter of this Substance.  # noqa: E501
 
-        The numerical diffusion limiter for the substance.   Options:  0 = off 1 = standard   # noqa: E501
+        The numerical diffusion limiter for the substance.   Options:  0 = off 1 = standard   * `0` - off * `1` - standard  # noqa: E501
 
         :return: The numerical_diffusion_limiter of this Substance.  # noqa: E501
-        :rtype: int
+        :rtype: UsePreconditionerCgEnum
         """
         return self._numerical_diffusion_limiter
 
@@ -268,11 +265,17 @@ class Substance(object):
     def numerical_diffusion_limiter(self, numerical_diffusion_limiter):
         """Sets the numerical_diffusion_limiter of this Substance.
 
-        The numerical diffusion limiter for the substance.   Options:  0 = off 1 = standard   # noqa: E501
+        The numerical diffusion limiter for the substance.   Options:  0 = off 1 = standard   * `0` - off * `1` - standard  # noqa: E501
 
         :param numerical_diffusion_limiter: The numerical_diffusion_limiter of this Substance.  # noqa: E501
-        :type: int
+        :type: UsePreconditionerCgEnum
         """
+        if (self.local_vars_configuration.client_side_validation and
+                numerical_diffusion_limiter is not None and numerical_diffusion_limiter > 2147483647):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `numerical_diffusion_limiter`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                numerical_diffusion_limiter is not None and numerical_diffusion_limiter < -2147483648):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `numerical_diffusion_limiter`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._numerical_diffusion_limiter = numerical_diffusion_limiter
 
@@ -349,7 +352,10 @@ class Substance(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

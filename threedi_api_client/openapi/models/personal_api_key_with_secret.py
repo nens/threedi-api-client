@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -117,9 +117,6 @@ class PersonalAPIKeyWithSecret(object):
         :param prefix: The prefix of this PersonalAPIKeyWithSecret.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                prefix is not None and len(prefix) < 1):
-            self.__handle_validation_error("Invalid value for `prefix`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._prefix = prefix
 
@@ -145,9 +142,6 @@ class PersonalAPIKeyWithSecret(object):
         """
         if self.local_vars_configuration.client_side_validation and scope is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `scope`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                scope is not None and len(scope) < 1):
-            self.__handle_validation_error("Invalid value for `scope`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._scope = scope
 
@@ -176,9 +170,6 @@ class PersonalAPIKeyWithSecret(object):
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 50):
             self.__handle_validation_error("Invalid value for `name`, length must be less than or equal to `50`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -292,9 +283,6 @@ class PersonalAPIKeyWithSecret(object):
         :param key: The key of this PersonalAPIKeyWithSecret.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                key is not None and len(key) < 1):
-            self.__handle_validation_error("Invalid value for `key`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._key = key
 
@@ -316,9 +304,6 @@ class PersonalAPIKeyWithSecret(object):
         :param message: The message of this PersonalAPIKeyWithSecret.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                message is not None and len(message) < 1):
-            self.__handle_validation_error("Invalid value for `message`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._message = message
 
@@ -348,7 +333,10 @@ class PersonalAPIKeyWithSecret(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

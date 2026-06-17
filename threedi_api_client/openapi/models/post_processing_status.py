@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,7 +37,7 @@ class PostProcessingStatus(object):
     """
     openapi_types = {
         'simulation': 'str',
-        'status': 'str',
+        'status': 'PostProcessingStatusEnum',
         'created': 'datetime'
     }
 
@@ -98,7 +98,7 @@ class PostProcessingStatus(object):
 
 
         :return: The status of this PostProcessingStatus.  # noqa: E501
-        :rtype: str
+        :rtype: PostProcessingStatusEnum
         """
         return self._status
 
@@ -108,16 +108,10 @@ class PostProcessingStatus(object):
 
 
         :param status: The status of this PostProcessingStatus.  # noqa: E501
-        :type: str
+        :type: PostProcessingStatusEnum
         """
         if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `status`, must not be `None`")  # noqa: E501
-        allowed_values = ["created", "requested", "archiving", "archiving_failed", "archived"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and status not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
-            )
 
         self._status = status
 
@@ -168,7 +162,10 @@ class PostProcessingStatus(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

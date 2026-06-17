@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -38,10 +38,10 @@ class MeasureLocation(object):
     openapi_types = {
         'id': 'int',
         'weight': 'str',
-        'content_type': 'str',
+        'content_type': 'ContentTypeEnum',
         'content_pk': 'int',
         'grid_id': 'int',
-        'state': 'str',
+        'state': 'EventStateEnum',
         'state_detail': 'object'
     }
 
@@ -85,8 +85,7 @@ class MeasureLocation(object):
         self.content_type = content_type
         self.content_pk = content_pk
         self.grid_id = grid_id
-        if state is not None:
-            self.state = state
+        self.state = state
         self.state_detail = state_detail
 
     @property
@@ -130,6 +129,9 @@ class MeasureLocation(object):
         """
         if self.local_vars_configuration.client_side_validation and weight is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `weight`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                weight is not None and not re.search(r'^-?\d{0,1}(?:\.\d{0,2})?$', weight)):  # noqa: E501
+            self.__handle_validation_error(r"Invalid value for `weight`, must be a follow pattern or equal to `/^-?\d{0,1}(?:\.\d{0,2})?$/`")  # noqa: E501
 
         self._weight = weight
 
@@ -137,10 +139,10 @@ class MeasureLocation(object):
     def content_type(self):
         """Gets the content_type of this MeasureLocation.  # noqa: E501
 
-        e.g.   # noqa: E501
+        e.g.   * `v2_connection_node` - v2_connection_node * `v2_pipe` - v2_pipe * `v2_orifice` - v2_orifice * `v2_culvert` - v2_culvert * `v2_channel` - v2_channel * `v2_weir` - v2_weir  # noqa: E501
 
         :return: The content_type of this MeasureLocation.  # noqa: E501
-        :rtype: str
+        :rtype: ContentTypeEnum
         """
         return self._content_type
 
@@ -148,19 +150,11 @@ class MeasureLocation(object):
     def content_type(self, content_type):
         """Sets the content_type of this MeasureLocation.
 
-        e.g.   # noqa: E501
+        e.g.   * `v2_connection_node` - v2_connection_node * `v2_pipe` - v2_pipe * `v2_orifice` - v2_orifice * `v2_culvert` - v2_culvert * `v2_channel` - v2_channel * `v2_weir` - v2_weir  # noqa: E501
 
         :param content_type: The content_type of this MeasureLocation.  # noqa: E501
-        :type: str
+        :type: ContentTypeEnum
         """
-        if self.local_vars_configuration.client_side_validation and content_type is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `content_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["v2_connection_node", "v2_pipe", "v2_orifice", "v2_culvert", "v2_channel", "v2_weir"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and content_type not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `content_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(content_type, allowed_values)
-            )
 
         self._content_type = content_type
 
@@ -226,7 +220,7 @@ class MeasureLocation(object):
 
 
         :return: The state of this MeasureLocation.  # noqa: E501
-        :rtype: str
+        :rtype: EventStateEnum
         """
         return self._state
 
@@ -236,14 +230,8 @@ class MeasureLocation(object):
 
 
         :param state: The state of this MeasureLocation.  # noqa: E501
-        :type: str
+        :type: EventStateEnum
         """
-        allowed_values = ["processing", "valid", "invalid"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and state not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `state` ({0}), must be one of {1}"  # noqa: E501
-                .format(state, allowed_values)
-            )
 
         self._state = state
 
@@ -294,7 +282,10 @@ class MeasureLocation(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

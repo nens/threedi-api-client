@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -38,7 +38,7 @@ class PotentialBreach(object):
     openapi_types = {
         'url': 'str',
         'connected_pnt_id': 'int',
-        'levee_material': 'str',
+        'levee_material': 'LeveeMaterialEnum',
         'line_id': 'int',
         'maximum_breach_depth': 'float',
         'threedimodel': 'str',
@@ -147,7 +147,7 @@ class PotentialBreach(object):
 
 
         :return: The levee_material of this PotentialBreach.  # noqa: E501
-        :rtype: str
+        :rtype: LeveeMaterialEnum
         """
         return self._levee_material
 
@@ -157,16 +157,10 @@ class PotentialBreach(object):
 
 
         :param levee_material: The levee_material of this PotentialBreach.  # noqa: E501
-        :type: str
+        :type: LeveeMaterialEnum
         """
         if self.local_vars_configuration.client_side_validation and levee_material is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `levee_material`, must not be `None`")  # noqa: E501
-        allowed_values = ["sand", "clay"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and levee_material not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `levee_material` ({0}), must be one of {1}"  # noqa: E501
-                .format(levee_material, allowed_values)
-            )
 
         self._levee_material = levee_material
 
@@ -290,7 +284,10 @@ class PotentialBreach(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

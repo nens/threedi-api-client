@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -38,8 +38,8 @@ class PhysicalSettings(object):
     openapi_types = {
         'id': 'int',
         'simulation_id': 'int',
-        'use_advection_1d': 'int',
-        'use_advection_2d': 'int'
+        'use_advection_1d': 'UseAdvection1dEnum',
+        'use_advection_2d': 'UsePreconditionerCgEnum'
     }
 
     required_fields = [
@@ -122,10 +122,10 @@ class PhysicalSettings(object):
     def use_advection_1d(self):
         """Gets the use_advection_1d of this PhysicalSettings.  # noqa: E501
 
-        Options:  0 = off 1 = momentum conservative 2 = energy conservative 3 = combined momentum and energy conservative   # noqa: E501
+        Options:  0 = off 1 = momentum conservative 2 = energy conservative 3 = combined momentum and energy conservative   * `0` - off * `1` - momentum conservative * `2` - energy conservative * `3` - combined momentum and energy conservative  # noqa: E501
 
         :return: The use_advection_1d of this PhysicalSettings.  # noqa: E501
-        :rtype: int
+        :rtype: UseAdvection1dEnum
         """
         return self._use_advection_1d
 
@@ -133,13 +133,17 @@ class PhysicalSettings(object):
     def use_advection_1d(self, use_advection_1d):
         """Sets the use_advection_1d of this PhysicalSettings.
 
-        Options:  0 = off 1 = momentum conservative 2 = energy conservative 3 = combined momentum and energy conservative   # noqa: E501
+        Options:  0 = off 1 = momentum conservative 2 = energy conservative 3 = combined momentum and energy conservative   * `0` - off * `1` - momentum conservative * `2` - energy conservative * `3` - combined momentum and energy conservative  # noqa: E501
 
         :param use_advection_1d: The use_advection_1d of this PhysicalSettings.  # noqa: E501
-        :type: int
+        :type: UseAdvection1dEnum
         """
-        if self.local_vars_configuration.client_side_validation and use_advection_1d is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `use_advection_1d`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                use_advection_1d is not None and use_advection_1d > 2147483647):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `use_advection_1d`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                use_advection_1d is not None and use_advection_1d < -2147483648):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `use_advection_1d`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._use_advection_1d = use_advection_1d
 
@@ -147,10 +151,10 @@ class PhysicalSettings(object):
     def use_advection_2d(self):
         """Gets the use_advection_2d of this PhysicalSettings.  # noqa: E501
 
-        Options:  0 = off 1 = standard   # noqa: E501
+        Options:  0 = off 1 = standard   * `0` - off * `1` - standard  # noqa: E501
 
         :return: The use_advection_2d of this PhysicalSettings.  # noqa: E501
-        :rtype: int
+        :rtype: UsePreconditionerCgEnum
         """
         return self._use_advection_2d
 
@@ -158,13 +162,17 @@ class PhysicalSettings(object):
     def use_advection_2d(self, use_advection_2d):
         """Sets the use_advection_2d of this PhysicalSettings.
 
-        Options:  0 = off 1 = standard   # noqa: E501
+        Options:  0 = off 1 = standard   * `0` - off * `1` - standard  # noqa: E501
 
         :param use_advection_2d: The use_advection_2d of this PhysicalSettings.  # noqa: E501
-        :type: int
+        :type: UsePreconditionerCgEnum
         """
-        if self.local_vars_configuration.client_side_validation and use_advection_2d is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `use_advection_2d`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                use_advection_2d is not None and use_advection_2d > 2147483647):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `use_advection_2d`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                use_advection_2d is not None and use_advection_2d < -2147483648):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `use_advection_2d`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._use_advection_2d = use_advection_2d
 
@@ -194,7 +202,10 @@ class PhysicalSettings(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

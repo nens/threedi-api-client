@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -36,8 +36,8 @@ class OrganisationSettings(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'historical_rain_radar_uuids': 'str',
-        'forecast_rain_radar_uuids': 'str'
+        'historical_rain_radar_uuids': 'list[str]',
+        'forecast_rain_radar_uuids': 'list[str]'
     }
 
     required_fields = [
@@ -72,7 +72,7 @@ class OrganisationSettings(object):
 
 
         :return: The historical_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._historical_rain_radar_uuids
 
@@ -82,7 +82,7 @@ class OrganisationSettings(object):
 
 
         :param historical_rain_radar_uuids: The historical_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._historical_rain_radar_uuids = historical_rain_radar_uuids
@@ -93,7 +93,7 @@ class OrganisationSettings(object):
 
 
         :return: The forecast_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._forecast_rain_radar_uuids
 
@@ -103,7 +103,7 @@ class OrganisationSettings(object):
 
 
         :param forecast_rain_radar_uuids: The forecast_rain_radar_uuids of this OrganisationSettings.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
 
         self._forecast_rain_radar_uuids = forecast_rain_radar_uuids
@@ -134,7 +134,10 @@ class OrganisationSettings(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

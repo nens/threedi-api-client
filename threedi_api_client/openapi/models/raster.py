@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,7 +37,7 @@ class Raster(object):
     """
     openapi_types = {
         'url': 'str',
-        'type': 'str',
+        'type': 'RasterTypeEnum',
         'threedimodel': 'str',
         'name': 'str',
         'file': 'FileReadOnly',
@@ -45,7 +45,7 @@ class Raster(object):
         'epsg_code': 'int',
         'extent': 'Extent',
         'geotransform': 'list[float]',
-        'unit': 'str'
+        'unit': 'UnitEnum'
     }
 
     required_fields = [
@@ -92,15 +92,15 @@ class Raster(object):
         self.type = type
         self.threedimodel = threedimodel
         self.name = name
-        if file is not None:
-            self.file = file
+        self.file = file
         if id is not None:
             self.id = id
         self.epsg_code = epsg_code
         if extent is not None:
             self.extent = extent
         self.geotransform = geotransform
-        self.unit = unit
+        if unit is not None:
+            self.unit = unit
 
     @property
     def url(self):
@@ -129,7 +129,7 @@ class Raster(object):
 
 
         :return: The type of this Raster.  # noqa: E501
-        :rtype: str
+        :rtype: RasterTypeEnum
         """
         return self._type
 
@@ -139,16 +139,10 @@ class Raster(object):
 
 
         :param type: The type of this Raster.  # noqa: E501
-        :type: str
+        :type: RasterTypeEnum
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             self.__handle_validation_error("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["dem_file", "dem_raw_file", "equilibrium_infiltration_rate_file", "frict_coef_file", "initial_groundwater_level_file", "initial_waterlevel_file", "groundwater_hydro_connectivity_file", "groundwater_impervious_layer_level_file", "infiltration_decay_period_file", "initial_infiltration_rate_file", "leakage_file", "phreatic_storage_capacity_file", "hydraulic_conductivity_file", "porosity_file", "infiltration_rate_file", "max_infiltration_capacity_file", "interception_file", "vegetation_height_file", "vegetation_drag_coefficient_file", "vegetation_stem_count_file", "vegetation_stem_diameter_file", "initial_concentration_file", "initial_groundwater_concentration_file"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
 
         self._type = type
 
@@ -196,9 +190,6 @@ class Raster(object):
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 60):
             self.__handle_validation_error("Invalid value for `name`, length must be less than or equal to `60`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            self.__handle_validation_error("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -310,6 +301,9 @@ class Raster(object):
         :param geotransform: The geotransform of this Raster.  # noqa: E501
         :type: list[float]
         """
+        if (self.local_vars_configuration.client_side_validation and
+                geotransform is not None and len(geotransform) > 6):
+            self.__handle_validation_error("Invalid value for `geotransform`, number of items must be less than or equal to `6`")  # noqa: E501
 
         self._geotransform = geotransform
 
@@ -319,7 +313,7 @@ class Raster(object):
 
 
         :return: The unit of this Raster.  # noqa: E501
-        :rtype: str
+        :rtype: UnitEnum
         """
         return self._unit
 
@@ -329,14 +323,8 @@ class Raster(object):
 
 
         :param unit: The unit of this Raster.  # noqa: E501
-        :type: str
+        :type: UnitEnum
         """
-        allowed_values = [None,"meters"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and unit not in allowed_values:  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid value for `unit` ({0}), must be one of {1}"  # noqa: E501
-                .format(unit, allowed_values)
-            )
 
         self._unit = unit
 
@@ -366,7 +354,10 @@ class Raster(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

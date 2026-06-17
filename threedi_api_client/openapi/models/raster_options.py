@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -192,9 +192,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 dem_file is not None and len(dem_file) > 80):
             self.__handle_validation_error("Invalid value for `dem_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                dem_file is not None and len(dem_file) < 1):
-            self.__handle_validation_error("Invalid value for `dem_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._dem_file = dem_file
 
@@ -219,9 +216,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 dem_raw_file is not None and len(dem_raw_file) > 80):
             self.__handle_validation_error("Invalid value for `dem_raw_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                dem_raw_file is not None and len(dem_raw_file) < 1):
-            self.__handle_validation_error("Invalid value for `dem_raw_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._dem_raw_file = dem_raw_file
 
@@ -246,9 +240,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 equilibrium_infiltration_rate_file is not None and len(equilibrium_infiltration_rate_file) > 80):
             self.__handle_validation_error("Invalid value for `equilibrium_infiltration_rate_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                equilibrium_infiltration_rate_file is not None and len(equilibrium_infiltration_rate_file) < 1):
-            self.__handle_validation_error("Invalid value for `equilibrium_infiltration_rate_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._equilibrium_infiltration_rate_file = equilibrium_infiltration_rate_file
 
@@ -273,9 +264,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 frict_coef_file is not None and len(frict_coef_file) > 80):
             self.__handle_validation_error("Invalid value for `frict_coef_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                frict_coef_file is not None and len(frict_coef_file) < 1):
-            self.__handle_validation_error("Invalid value for `frict_coef_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._frict_coef_file = frict_coef_file
 
@@ -300,9 +288,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 initial_groundwater_level_file is not None and len(initial_groundwater_level_file) > 80):
             self.__handle_validation_error("Invalid value for `initial_groundwater_level_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                initial_groundwater_level_file is not None and len(initial_groundwater_level_file) < 1):
-            self.__handle_validation_error("Invalid value for `initial_groundwater_level_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._initial_groundwater_level_file = initial_groundwater_level_file
 
@@ -327,9 +312,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 initial_waterlevel_file is not None and len(initial_waterlevel_file) > 80):
             self.__handle_validation_error("Invalid value for `initial_waterlevel_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                initial_waterlevel_file is not None and len(initial_waterlevel_file) < 1):
-            self.__handle_validation_error("Invalid value for `initial_waterlevel_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._initial_waterlevel_file = initial_waterlevel_file
 
@@ -354,9 +336,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 groundwater_hydro_connectivity_file is not None and len(groundwater_hydro_connectivity_file) > 80):
             self.__handle_validation_error("Invalid value for `groundwater_hydro_connectivity_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                groundwater_hydro_connectivity_file is not None and len(groundwater_hydro_connectivity_file) < 1):
-            self.__handle_validation_error("Invalid value for `groundwater_hydro_connectivity_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._groundwater_hydro_connectivity_file = groundwater_hydro_connectivity_file
 
@@ -381,9 +360,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 groundwater_impervious_layer_level_file is not None and len(groundwater_impervious_layer_level_file) > 80):
             self.__handle_validation_error("Invalid value for `groundwater_impervious_layer_level_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                groundwater_impervious_layer_level_file is not None and len(groundwater_impervious_layer_level_file) < 1):
-            self.__handle_validation_error("Invalid value for `groundwater_impervious_layer_level_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._groundwater_impervious_layer_level_file = groundwater_impervious_layer_level_file
 
@@ -408,9 +384,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 infiltration_decay_period_file is not None and len(infiltration_decay_period_file) > 80):
             self.__handle_validation_error("Invalid value for `infiltration_decay_period_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                infiltration_decay_period_file is not None and len(infiltration_decay_period_file) < 1):
-            self.__handle_validation_error("Invalid value for `infiltration_decay_period_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._infiltration_decay_period_file = infiltration_decay_period_file
 
@@ -435,9 +408,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 initial_infiltration_rate_file is not None and len(initial_infiltration_rate_file) > 80):
             self.__handle_validation_error("Invalid value for `initial_infiltration_rate_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                initial_infiltration_rate_file is not None and len(initial_infiltration_rate_file) < 1):
-            self.__handle_validation_error("Invalid value for `initial_infiltration_rate_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._initial_infiltration_rate_file = initial_infiltration_rate_file
 
@@ -462,9 +432,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 leakage_file is not None and len(leakage_file) > 80):
             self.__handle_validation_error("Invalid value for `leakage_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                leakage_file is not None and len(leakage_file) < 1):
-            self.__handle_validation_error("Invalid value for `leakage_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._leakage_file = leakage_file
 
@@ -489,9 +456,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 phreatic_storage_capacity_file is not None and len(phreatic_storage_capacity_file) > 80):
             self.__handle_validation_error("Invalid value for `phreatic_storage_capacity_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                phreatic_storage_capacity_file is not None and len(phreatic_storage_capacity_file) < 1):
-            self.__handle_validation_error("Invalid value for `phreatic_storage_capacity_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._phreatic_storage_capacity_file = phreatic_storage_capacity_file
 
@@ -516,9 +480,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 hydraulic_conductivity_file is not None and len(hydraulic_conductivity_file) > 80):
             self.__handle_validation_error("Invalid value for `hydraulic_conductivity_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                hydraulic_conductivity_file is not None and len(hydraulic_conductivity_file) < 1):
-            self.__handle_validation_error("Invalid value for `hydraulic_conductivity_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._hydraulic_conductivity_file = hydraulic_conductivity_file
 
@@ -543,9 +504,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 porosity_file is not None and len(porosity_file) > 80):
             self.__handle_validation_error("Invalid value for `porosity_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                porosity_file is not None and len(porosity_file) < 1):
-            self.__handle_validation_error("Invalid value for `porosity_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._porosity_file = porosity_file
 
@@ -570,9 +528,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 infiltration_rate_file is not None and len(infiltration_rate_file) > 80):
             self.__handle_validation_error("Invalid value for `infiltration_rate_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                infiltration_rate_file is not None and len(infiltration_rate_file) < 1):
-            self.__handle_validation_error("Invalid value for `infiltration_rate_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._infiltration_rate_file = infiltration_rate_file
 
@@ -597,9 +552,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 max_infiltration_capacity_file is not None and len(max_infiltration_capacity_file) > 80):
             self.__handle_validation_error("Invalid value for `max_infiltration_capacity_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                max_infiltration_capacity_file is not None and len(max_infiltration_capacity_file) < 1):
-            self.__handle_validation_error("Invalid value for `max_infiltration_capacity_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._max_infiltration_capacity_file = max_infiltration_capacity_file
 
@@ -624,9 +576,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 interception_file is not None and len(interception_file) > 80):
             self.__handle_validation_error("Invalid value for `interception_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                interception_file is not None and len(interception_file) < 1):
-            self.__handle_validation_error("Invalid value for `interception_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._interception_file = interception_file
 
@@ -651,9 +600,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 vegetation_height_file is not None and len(vegetation_height_file) > 80):
             self.__handle_validation_error("Invalid value for `vegetation_height_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                vegetation_height_file is not None and len(vegetation_height_file) < 1):
-            self.__handle_validation_error("Invalid value for `vegetation_height_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._vegetation_height_file = vegetation_height_file
 
@@ -678,9 +624,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 vegetation_drag_coefficient_file is not None and len(vegetation_drag_coefficient_file) > 80):
             self.__handle_validation_error("Invalid value for `vegetation_drag_coefficient_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                vegetation_drag_coefficient_file is not None and len(vegetation_drag_coefficient_file) < 1):
-            self.__handle_validation_error("Invalid value for `vegetation_drag_coefficient_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._vegetation_drag_coefficient_file = vegetation_drag_coefficient_file
 
@@ -705,9 +648,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 vegetation_stem_count_file is not None and len(vegetation_stem_count_file) > 80):
             self.__handle_validation_error("Invalid value for `vegetation_stem_count_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                vegetation_stem_count_file is not None and len(vegetation_stem_count_file) < 1):
-            self.__handle_validation_error("Invalid value for `vegetation_stem_count_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._vegetation_stem_count_file = vegetation_stem_count_file
 
@@ -732,9 +672,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 vegetation_stem_diameter_file is not None and len(vegetation_stem_diameter_file) > 80):
             self.__handle_validation_error("Invalid value for `vegetation_stem_diameter_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                vegetation_stem_diameter_file is not None and len(vegetation_stem_diameter_file) < 1):
-            self.__handle_validation_error("Invalid value for `vegetation_stem_diameter_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._vegetation_stem_diameter_file = vegetation_stem_diameter_file
 
@@ -759,9 +696,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 initial_concentration_file is not None and len(initial_concentration_file) > 80):
             self.__handle_validation_error("Invalid value for `initial_concentration_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                initial_concentration_file is not None and len(initial_concentration_file) < 1):
-            self.__handle_validation_error("Invalid value for `initial_concentration_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._initial_concentration_file = initial_concentration_file
 
@@ -786,9 +720,6 @@ class RasterOptions(object):
         if (self.local_vars_configuration.client_side_validation and
                 initial_groundwater_concentration_file is not None and len(initial_groundwater_concentration_file) > 80):
             self.__handle_validation_error("Invalid value for `initial_groundwater_concentration_file`, length must be less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                initial_groundwater_concentration_file is not None and len(initial_groundwater_concentration_file) < 1):
-            self.__handle_validation_error("Invalid value for `initial_groundwater_concentration_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._initial_groundwater_concentration_file = initial_groundwater_concentration_file
 
@@ -818,7 +749,10 @@ class RasterOptions(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501

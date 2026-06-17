@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.97   Rana simulation core release: 3.7.1  deployed on:  02:37PM (UTC) on March 25, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -43,13 +43,13 @@ class OutputSettings(object):
         'hydro_output_time_step': 'float',
         'hydro_output_start_time': 'float',
         'hydro_output_end_time': 'float',
-        'hydro_output_precision': 'int',
-        'aggregation_output_precision': 'int',
+        'hydro_output_precision': 'OutputPrecisionEnum',
+        'aggregation_output_precision': 'OutputPrecisionEnum',
         'customized_hydro_output_time_step': 'float',
         'customized_hydro_output_start_time': 'float',
         'customized_hydro_output_end_time': 'float',
-        'customized_hydro_output_precision': 'int',
-        'customized_hydro_output_variables': 'list[str]',
+        'customized_hydro_output_precision': 'OutputPrecisionEnum',
+        'customized_hydro_output_variables': 'list[CustomizedHydroOutputVariablesEnum]',
         'create_debug_hydro_results': 'bool'
     }
 
@@ -113,17 +113,14 @@ class OutputSettings(object):
             self.hydro_output_start_time = hydro_output_start_time
         if hydro_output_end_time is not None:
             self.hydro_output_end_time = hydro_output_end_time
-        if hydro_output_precision is not None:
-            self.hydro_output_precision = hydro_output_precision
-        if aggregation_output_precision is not None:
-            self.aggregation_output_precision = aggregation_output_precision
+        self.hydro_output_precision = hydro_output_precision
+        self.aggregation_output_precision = aggregation_output_precision
         self.customized_hydro_output_time_step = customized_hydro_output_time_step
         if customized_hydro_output_start_time is not None:
             self.customized_hydro_output_start_time = customized_hydro_output_start_time
         if customized_hydro_output_end_time is not None:
             self.customized_hydro_output_end_time = customized_hydro_output_end_time
-        if customized_hydro_output_precision is not None:
-            self.customized_hydro_output_precision = customized_hydro_output_precision
+        self.customized_hydro_output_precision = customized_hydro_output_precision
         if customized_hydro_output_variables is not None:
             self.customized_hydro_output_variables = customized_hydro_output_variables
         if create_debug_hydro_results is not None:
@@ -238,8 +235,8 @@ class OutputSettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                hydro_output_time_step is not None and hydro_output_time_step < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `hydro_output_time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                hydro_output_time_step is not None and hydro_output_time_step < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `hydro_output_time_step`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._hydro_output_time_step = hydro_output_time_step
 
@@ -264,8 +261,8 @@ class OutputSettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                hydro_output_start_time is not None and hydro_output_start_time < 0):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `hydro_output_start_time`, must be a value greater than or equal to `0`")  # noqa: E501
+                hydro_output_start_time is not None and hydro_output_start_time < 0.0):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `hydro_output_start_time`, must be a value greater than or equal to `0.0`")  # noqa: E501
 
         self._hydro_output_start_time = hydro_output_start_time
 
@@ -290,8 +287,8 @@ class OutputSettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                hydro_output_end_time is not None and hydro_output_end_time < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `hydro_output_end_time`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                hydro_output_end_time is not None and hydro_output_end_time < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `hydro_output_end_time`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._hydro_output_end_time = hydro_output_end_time
 
@@ -299,10 +296,10 @@ class OutputSettings(object):
     def hydro_output_precision(self):
         """Gets the hydro_output_precision of this OutputSettings.  # noqa: E501
 
-        Single or double precision output.  # noqa: E501
+        Single or double precision output.  * `1` - single * `2` - double  # noqa: E501
 
         :return: The hydro_output_precision of this OutputSettings.  # noqa: E501
-        :rtype: int
+        :rtype: OutputPrecisionEnum
         """
         return self._hydro_output_precision
 
@@ -310,11 +307,17 @@ class OutputSettings(object):
     def hydro_output_precision(self, hydro_output_precision):
         """Sets the hydro_output_precision of this OutputSettings.
 
-        Single or double precision output.  # noqa: E501
+        Single or double precision output.  * `1` - single * `2` - double  # noqa: E501
 
         :param hydro_output_precision: The hydro_output_precision of this OutputSettings.  # noqa: E501
-        :type: int
+        :type: OutputPrecisionEnum
         """
+        if (self.local_vars_configuration.client_side_validation and
+                hydro_output_precision is not None and hydro_output_precision > 2147483647):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `hydro_output_precision`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                hydro_output_precision is not None and hydro_output_precision < -2147483648):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `hydro_output_precision`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._hydro_output_precision = hydro_output_precision
 
@@ -322,10 +325,10 @@ class OutputSettings(object):
     def aggregation_output_precision(self):
         """Gets the aggregation_output_precision of this OutputSettings.  # noqa: E501
 
-        Single or double precision output for aggregation results.  # noqa: E501
+        Single or double precision output for aggregation results.  * `1` - single * `2` - double  # noqa: E501
 
         :return: The aggregation_output_precision of this OutputSettings.  # noqa: E501
-        :rtype: int
+        :rtype: OutputPrecisionEnum
         """
         return self._aggregation_output_precision
 
@@ -333,11 +336,17 @@ class OutputSettings(object):
     def aggregation_output_precision(self, aggregation_output_precision):
         """Sets the aggregation_output_precision of this OutputSettings.
 
-        Single or double precision output for aggregation results.  # noqa: E501
+        Single or double precision output for aggregation results.  * `1` - single * `2` - double  # noqa: E501
 
         :param aggregation_output_precision: The aggregation_output_precision of this OutputSettings.  # noqa: E501
-        :type: int
+        :type: OutputPrecisionEnum
         """
+        if (self.local_vars_configuration.client_side_validation and
+                aggregation_output_precision is not None and aggregation_output_precision > 2147483647):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `aggregation_output_precision`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                aggregation_output_precision is not None and aggregation_output_precision < -2147483648):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `aggregation_output_precision`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._aggregation_output_precision = aggregation_output_precision
 
@@ -362,8 +371,8 @@ class OutputSettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                customized_hydro_output_time_step is not None and customized_hydro_output_time_step < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `customized_hydro_output_time_step`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                customized_hydro_output_time_step is not None and customized_hydro_output_time_step < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `customized_hydro_output_time_step`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._customized_hydro_output_time_step = customized_hydro_output_time_step
 
@@ -388,8 +397,8 @@ class OutputSettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                customized_hydro_output_start_time is not None and customized_hydro_output_start_time < 0):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `customized_hydro_output_start_time`, must be a value greater than or equal to `0`")  # noqa: E501
+                customized_hydro_output_start_time is not None and customized_hydro_output_start_time < 0.0):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `customized_hydro_output_start_time`, must be a value greater than or equal to `0.0`")  # noqa: E501
 
         self._customized_hydro_output_start_time = customized_hydro_output_start_time
 
@@ -414,8 +423,8 @@ class OutputSettings(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                customized_hydro_output_end_time is not None and customized_hydro_output_end_time < 1E-14):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `customized_hydro_output_end_time`, must be a value greater than or equal to `1E-14`")  # noqa: E501
+                customized_hydro_output_end_time is not None and customized_hydro_output_end_time < 1.0E-14):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `customized_hydro_output_end_time`, must be a value greater than or equal to `1.0E-14`")  # noqa: E501
 
         self._customized_hydro_output_end_time = customized_hydro_output_end_time
 
@@ -423,10 +432,10 @@ class OutputSettings(object):
     def customized_hydro_output_precision(self):
         """Gets the customized_hydro_output_precision of this OutputSettings.  # noqa: E501
 
-        Single or double precision output for customized hydro results.  # noqa: E501
+        Single or double precision output for customized hydro results.  * `1` - single * `2` - double  # noqa: E501
 
         :return: The customized_hydro_output_precision of this OutputSettings.  # noqa: E501
-        :rtype: int
+        :rtype: OutputPrecisionEnum
         """
         return self._customized_hydro_output_precision
 
@@ -434,11 +443,17 @@ class OutputSettings(object):
     def customized_hydro_output_precision(self, customized_hydro_output_precision):
         """Sets the customized_hydro_output_precision of this OutputSettings.
 
-        Single or double precision output for customized hydro results.  # noqa: E501
+        Single or double precision output for customized hydro results.  * `1` - single * `2` - double  # noqa: E501
 
         :param customized_hydro_output_precision: The customized_hydro_output_precision of this OutputSettings.  # noqa: E501
-        :type: int
+        :type: OutputPrecisionEnum
         """
+        if (self.local_vars_configuration.client_side_validation and
+                customized_hydro_output_precision is not None and customized_hydro_output_precision > 2147483647):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `customized_hydro_output_precision`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                customized_hydro_output_precision is not None and customized_hydro_output_precision < -2147483648):  # noqa: E501
+            self.__handle_validation_error("Invalid value for `customized_hydro_output_precision`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._customized_hydro_output_precision = customized_hydro_output_precision
 
@@ -449,7 +464,7 @@ class OutputSettings(object):
         The output variables for the customized results area.  # noqa: E501
 
         :return: The customized_hydro_output_variables of this OutputSettings.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[CustomizedHydroOutputVariablesEnum]
         """
         return self._customized_hydro_output_variables
 
@@ -460,16 +475,8 @@ class OutputSettings(object):
         The output variables for the customized results area.  # noqa: E501
 
         :param customized_hydro_output_variables: The customized_hydro_output_variables of this OutputSettings.  # noqa: E501
-        :type: list[str]
+        :type: list[CustomizedHydroOutputVariablesEnum]
         """
-        allowed_values = ["s1", "vol", "su", "infiltration_rate_simple", "rain", "q_lat", "q_sss", "ucx", "ucy", "leak", "intercepted_volume", "u1", "q", "au", "up1", "qp", "breach_depth", "breach_width", "q_pump"]  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                not set(customized_hydro_output_variables).issubset(set(allowed_values))):  # noqa: E501
-            self.__handle_validation_error(
-                "Invalid values for `customized_hydro_output_variables` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(customized_hydro_output_variables) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
 
         self._customized_hydro_output_variables = customized_hydro_output_variables
 
@@ -522,7 +529,10 @@ class OutputSettings(object):
 
     def __handle_validation_error(self, message):
         # Only raise ValueError when not fetched from API
-        from threedi_api_client import __version__ as VERSION
+        try:
+            from threedi_api_client import __version__ as VERSION
+        except ImportError:
+            VERSION = "unknown"
 
         if not self._fetched_from_api:
             raise ValueError(message + f" It is possible that the current threedi-api-client version ({VERSION}) is out of date: consult https://pypi.org/project/threedi-api-client/ and consider upgrading.")  # noqa: E501
