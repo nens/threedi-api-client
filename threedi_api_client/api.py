@@ -1,17 +1,16 @@
 from .openapi import ApiClient, Configuration
 
 try:
+    from threedi_api_client.aio.aiohttp_retry import ExponentialRetry, RetryClient
     from threedi_api_client.aio.openapi.api_client import ApiClient as AsyncApiClient
-    from threedi_api_client.aio.aiohttp_retry import RetryClient, ExponentialRetry
 except ImportError:
     AsyncApiClient = None
+
+import urllib3
 
 from .auth import refresh_api_key
 from .config import Config, EnvironConfig
 from .versions import API_VERSIONS, host_has_version
-
-import urllib3
-
 
 RETRY_AFTER_STATUS_CODES = frozenset({413, 429, 502, 503, 504})
 
@@ -182,9 +181,7 @@ class ThreediApi:
 
         if is_personal_api_token:
             configuration = Configuration(
-                host=host,
-                username="__key__",
-                password=personal_api_token
+                host=host, username="__key__", password=personal_api_token
             )
         else:
             configuration = Configuration(
@@ -192,7 +189,7 @@ class ThreediApi:
                 username=username,
                 password=password,
                 api_key={
-                    "Authorization": access_token,
+                    "Bearer": access_token,
                     "refresh": refresh_token,
                     "client_secret": client_secret,
                 },

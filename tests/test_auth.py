@@ -1,18 +1,18 @@
+import base64
 from datetime import datetime, timedelta, timezone
 from unittest import mock
 
 import jwt
 import pytest
-import base64
 
 from threedi_api_client.auth import (
+    REFRESH_TIME_DELTA,
     AuthenticationError,
     is_token_usable,
+    oauth2_autodiscovery,
     refresh_api_key,
     refresh_oauth2_token,
     refresh_simplejwt_token,
-    oauth2_autodiscovery,
-    REFRESH_TIME_DELTA,
 )
 from threedi_api_client.openapi import Configuration
 
@@ -26,8 +26,8 @@ def get_token(claims):
 def get_token_with_expiry(claims, delta_time=None) -> int:
     if delta_time is None:
         delta_time = timedelta(seconds=(REFRESH_TIME_DELTA + 10))
-    utc_now = datetime.utcnow().replace(tzinfo=timezone.utc)
-    exp = (utc_now + delta_time).replace(tzinfo=timezone.utc).timestamp()
+    utc_now = datetime.now(timezone.utc)
+    exp = (utc_now + delta_time).timestamp()
 
     return get_token({**claims, **{"exp": exp}})
 
@@ -41,7 +41,7 @@ def configuration_username_password():
 def configuration_simplejwt():
     return Configuration(
         host="host",
-        api_key={"Authorization": get_token({"exp": 0}), "refresh": "my-refresh"},
+        api_key={"Bearer": get_token({"exp": 0}), "refresh": "my-refresh"},
     )
 
 
@@ -50,9 +50,7 @@ def configuration_oauth2():
     return Configuration(
         host="host",
         api_key={
-            "Authorization": get_token(
-                {"iss": "cognito", "client_id": "cid", "exp": 0}
-            ),
+            "Bearer": get_token({"iss": "cognito", "client_id": "cid", "exp": 0}),
             "refresh": "my-refresh",
         },
     )
@@ -68,7 +66,8 @@ def test_is_token_usable_expired():
 
 
 @mock.patch(
-    "threedi_api_client.auth.refresh_simplejwt_token", return_value=(None, None)
+    "threedi_api_client.auth.refresh_simplejwt_token",
+    return_value=("mock_access_token", "mock_refresh_token"),
 )
 def test_refresh_api_key_hook_username_password(
     refresh_m, configuration_username_password
@@ -78,14 +77,17 @@ def test_refresh_api_key_hook_username_password(
 
 
 @mock.patch(
-    "threedi_api_client.auth.refresh_simplejwt_token", return_value=(None, None)
+    "threedi_api_client.auth.refresh_simplejwt_token",
+    return_value=("mock_access_token", "mock_refresh_token"),
 )
 def test_refresh_api_key_hook_simplejwt(refresh_m, configuration_simplejwt):
     refresh_api_key(configuration_simplejwt)
     refresh_m.assert_called_once_with(configuration_simplejwt)
 
 
-@mock.patch("threedi_api_client.auth.refresh_oauth2_token", return_value=(None, None))
+@mock.patch(
+    "threedi_api_client.auth.refresh_oauth2_token", return_value="mock_access_token"
+)
 def test_refresh_api_key_hook_oauth2(refresh_m, configuration_oauth2):
     refresh_api_key(configuration_oauth2)
     refresh_m.assert_called_once_with(
