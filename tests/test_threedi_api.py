@@ -1,6 +1,7 @@
 from unittest import mock
 
 import pytest
+
 try:
     from unittest.mock import AsyncMock
 except ImportError:
@@ -11,9 +12,7 @@ from threedi_api_client import ThreediApi
 from threedi_api_client.aio.openapi.api_client import ApiClient as AsyncApiClient
 from threedi_api_client.openapi import ApiClient
 from threedi_api_client.openapi.api import V3Api
-
 from threedi_api_client.versions import API_VERSIONS
-
 
 V3AlphaApi = API_VERSIONS["v3-alpha"]
 
@@ -55,7 +54,6 @@ def personal_api_config():
     }
 
 
-
 @pytest.fixture
 def v3_api(config):
     return ThreediApi(config=config)
@@ -80,8 +78,8 @@ def test_init_from_env_vars(monkeypatch):
 
     assert config.username
     assert config.password
-    assert not config.api_key['Authorization']
-    assert not config.api_key['refresh']
+    assert not config.api_key.get("Bearer")
+    assert not config.api_key.get("refresh")
 
 
 def test_init_with_tokens(token_config):
@@ -89,7 +87,7 @@ def test_init_with_tokens(token_config):
 
     assert config.username
     assert config.password is None
-    assert config.api_key["Authorization"]
+    assert config.api_key["Bearer"]
     assert config.api_key["refresh"]
 
 
@@ -122,18 +120,14 @@ def test_init_missing_config(key, config):
         ThreediApi(config=config)
 
 
-@pytest.mark.parametrize(
-    "key", ["THREEDI_API_HOST", "THREEDI_API_ACCESS_TOKEN"]
-)
+@pytest.mark.parametrize("key", ["THREEDI_API_HOST", "THREEDI_API_ACCESS_TOKEN"])
 def test_init_missing_oauth2_config(key, oauth2_config):
     del oauth2_config[key]
     with pytest.raises(ValueError):
         ThreediApi(config=oauth2_config)
 
 
-@pytest.mark.parametrize(
-    "key", ["THREEDI_API_HOST", "THREEDI_API_ACCESS_TOKEN"]
-)
+@pytest.mark.parametrize("key", ["THREEDI_API_HOST", "THREEDI_API_ACCESS_TOKEN"])
 def test_init_missing_token_config(key, token_config):
     del token_config[key]
     with pytest.raises(ValueError):
@@ -222,17 +216,20 @@ def test_init_with_personal_api_token(personal_api_config):
     api = ThreediApi(config=personal_api_config)
     assert isinstance(api._api, V3Api)
     assert isinstance(api._client, ApiClient)
-    assert api.api_client.configuration.auth_settings() == {
-        'ApiKeyBasic': {
-            'type': 'basic',
-            'in': 'header',
-            'key': 'Authorization',
-            'value': "Basic X19rZXlfXzpwZXJzb25hbF9hcGlfdG9rZW4="  # base_64 __key__:personal_api_token 
-        },
-        'Basic': {
-            'type': 'basic',
-            'in': 'header',
-            'key': 'Authorization',
-            'value': "Basic X19rZXlfXzpwZXJzb25hbF9hcGlfdG9rZW4="  # base_64 __key__:personal_api_token 
-        },
-    }
+    assert (
+        api.api_client.configuration.auth_settings()
+        == {
+            "ApiKeyBasic": {
+                "type": "basic",
+                "in": "header",
+                "key": "Authorization",
+                "value": "Basic X19rZXlfXzpwZXJzb25hbF9hcGlfdG9rZW4=",  # base_64 __key__:personal_api_token
+            },
+            "Basic": {
+                "type": "basic",
+                "in": "header",
+                "key": "Authorization",
+                "value": "Basic X19rZXlfXzpwZXJzb25hbF9hcGlfdG9rZW4=",  # base_64 __key__:personal_api_token
+            },
+        }
+    )
