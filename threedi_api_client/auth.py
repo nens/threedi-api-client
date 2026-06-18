@@ -1,8 +1,8 @@
 import base64
 import json
 from datetime import datetime, timedelta
-from typing import Tuple, Optional
 from functools import lru_cache
+from typing import Optional, Tuple
 
 import urllib3
 
@@ -114,7 +114,9 @@ def get_scope(token: str) -> Optional[str]:
 
 def refresh_api_key(config: Configuration):
     """Refreshes the access token if it is expired"""
-    access_token = config.api_key.get("Authorization")
+    access_token = config.api_key.get("Bearer")
+    if access_token and access_token.startswith("Bearer "):
+        access_token = access_token[len("Bearer ") :]
     if is_token_usable(access_token):
         return
     issuer = get_issuer(access_token)
@@ -129,7 +131,7 @@ def refresh_api_key(config: Configuration):
             client_secret=config.api_key.get("client_secret"),
             refresh_token=config.api_key.get("refresh"),
         )
-    config.api_key["Authorization"] = access_token
+    config.api_key["Bearer"] = "Bearer " + access_token
 
 
 def get_auth_token(username: str, password: str, api_host: str):
