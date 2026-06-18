@@ -3,7 +3,7 @@ History
 =======
 
 
-4.2.8 (unreleased)
+5.0.0 (2026-06-18)
 ------------------
 
 - Openapi spec 3 and other fixes for 5.0.0
