@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.6   Rana simulation core release: 3.7.2   deployed on:  12:56PM (UTC) on June 19, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -44,7 +44,7 @@ class NetCDFTimeseriesSourcesSinks(object):
         'timestamps': 'list[int]',
         'interval': 'int',
         'values_reference': 'str',
-        'units': 'TimeseriesRainMmUnitsEnum',
+        'units': 'OneOfTimeseriesRainMmUnitsEnumNullEnum',
         'file': 'FileReadOnly',
         'fill_value': 'str',
         'id': 'int',
@@ -324,7 +324,7 @@ class NetCDFTimeseriesSourcesSinks(object):
 
 
         :return: The units of this NetCDFTimeseriesSourcesSinks.  # noqa: E501
-        :rtype: TimeseriesRainMmUnitsEnum
+        :rtype: OneOfTimeseriesRainMmUnitsEnumNullEnum
         """
         return self._units
 
@@ -334,10 +334,8 @@ class NetCDFTimeseriesSourcesSinks(object):
 
 
         :param units: The units of this NetCDFTimeseriesSourcesSinks.  # noqa: E501
-        :type: TimeseriesRainMmUnitsEnum
+        :type: OneOfTimeseriesRainMmUnitsEnumNullEnum
         """
-        if self.local_vars_configuration.client_side_validation and units is None:  # noqa: E501
-            self.__handle_validation_error("Invalid value for `units`, must not be `None`")  # noqa: E501
 
         self._units = units
 

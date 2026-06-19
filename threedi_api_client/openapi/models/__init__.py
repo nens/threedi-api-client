@@ -4,7 +4,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.6   Rana simulation core release: 3.7.2   deployed on:  12:56PM (UTC) on June 19, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -116,6 +116,7 @@ from threedi_api_client.openapi.models.net_cdf_raster_sources_sinks import NetCD
 from threedi_api_client.openapi.models.net_cdf_timeseries_leakage import NetCDFTimeseriesLeakage
 from threedi_api_client.openapi.models.net_cdf_timeseries_rain import NetCDFTimeseriesRain
 from threedi_api_client.openapi.models.net_cdf_timeseries_sources_sinks import NetCDFTimeseriesSourcesSinks
+from threedi_api_client.openapi.models.null_enum import NullEnum
 from threedi_api_client.openapi.models.numerical_settings import NumericalSettings
 from threedi_api_client.openapi.models.obstacle_edit import ObstacleEdit
 from threedi_api_client.openapi.models.one_d_substance_concentration import OneDSubstanceConcentration
@@ -130,8 +131,6 @@ from threedi_api_client.openapi.models.organisation_user import OrganisationUser
 from threedi_api_client.openapi.models.output_precision_enum import OutputPrecisionEnum
 from threedi_api_client.openapi.models.output_settings import OutputSettings
 from threedi_api_client.openapi.models.paginated_aggregation_settings_list import PaginatedAggregationSettingsList
-from threedi_api_client.openapi.models.paginated_arrival_time_post_processing_list import PaginatedArrivalTimePostProcessingList
-from threedi_api_client.openapi.models.paginated_basic_post_processing_list import PaginatedBasicPostProcessingList
 from threedi_api_client.openapi.models.paginated_boundary_condition_list import PaginatedBoundaryConditionList
 from threedi_api_client.openapi.models.paginated_breach_list import PaginatedBreachList
 from threedi_api_client.openapi.models.paginated_bulk_timeseries_rain_list import PaginatedBulkTimeseriesRainList
@@ -143,7 +142,6 @@ from threedi_api_client.openapi.models.paginated_constant_sources_sinks_list imp
 from threedi_api_client.openapi.models.paginated_constant_wind_list import PaginatedConstantWindList
 from threedi_api_client.openapi.models.paginated_contract_list import PaginatedContractList
 from threedi_api_client.openapi.models.paginated_customized_result_area_list import PaginatedCustomizedResultAreaList
-from threedi_api_client.openapi.models.paginated_damage_post_processing_list import PaginatedDamagePostProcessingList
 from threedi_api_client.openapi.models.paginated_file_boundary_condition_list import PaginatedFileBoundaryConditionList
 from threedi_api_client.openapi.models.paginated_file_lateral_list import PaginatedFileLateralList
 from threedi_api_client.openapi.models.paginated_file_list import PaginatedFileList
@@ -175,14 +173,10 @@ from threedi_api_client.openapi.models.paginated_organisation_list import Pagina
 from threedi_api_client.openapi.models.paginated_organisation_role_list import PaginatedOrganisationRoleList
 from threedi_api_client.openapi.models.paginated_organisation_user_list import PaginatedOrganisationUserList
 from threedi_api_client.openapi.models.paginated_personal_api_key_list import PaginatedPersonalAPIKeyList
-from threedi_api_client.openapi.models.paginated_post_processing_overview_list import PaginatedPostProcessingOverviewList
 from threedi_api_client.openapi.models.paginated_post_processing_queue_list import PaginatedPostProcessingQueueList
 from threedi_api_client.openapi.models.paginated_post_processing_status_list import PaginatedPostProcessingStatusList
 from threedi_api_client.openapi.models.paginated_potential_breach_list import PaginatedPotentialBreachList
-from threedi_api_client.openapi.models.paginated_profile_list import PaginatedProfileList
-from threedi_api_client.openapi.models.paginated_progress_list import PaginatedProgressList
 from threedi_api_client.openapi.models.paginated_raster_edit_list import PaginatedRasterEditList
-from threedi_api_client.openapi.models.paginated_raster_edit_urls_list import PaginatedRasterEditUrlsList
 from threedi_api_client.openapi.models.paginated_raster_list import PaginatedRasterList
 from threedi_api_client.openapi.models.paginated_repository_list import PaginatedRepositoryList
 from threedi_api_client.openapi.models.paginated_result_file_list import PaginatedResultFileList
@@ -195,10 +189,8 @@ from threedi_api_client.openapi.models.paginated_schematisation_revision_list im
 from threedi_api_client.openapi.models.paginated_simulation_channel_list import PaginatedSimulationChannelList
 from threedi_api_client.openapi.models.paginated_simulation_list import PaginatedSimulationList
 from threedi_api_client.openapi.models.paginated_simulation_status_list import PaginatedSimulationStatusList
-from threedi_api_client.openapi.models.paginated_simulation_status_statistics_list import PaginatedSimulationStatusStatisticsList
 from threedi_api_client.openapi.models.paginated_stable_threshold_saved_state_list import PaginatedStableThresholdSavedStateList
 from threedi_api_client.openapi.models.paginated_substance_list import PaginatedSubstanceList
-from threedi_api_client.openapi.models.paginated_tms_list import PaginatedTMSList
 from threedi_api_client.openapi.models.paginated_table_structure_control_list import PaginatedTableStructureControlList
 from threedi_api_client.openapi.models.paginated_template_list import PaginatedTemplateList
 from threedi_api_client.openapi.models.paginated_threedi_model_list import PaginatedThreediModelList
@@ -218,7 +210,6 @@ from threedi_api_client.openapi.models.paginated_two_d_water_raster_list import 
 from threedi_api_client.openapi.models.paginated_usage_list import PaginatedUsageList
 from threedi_api_client.openapi.models.paginated_user_list import PaginatedUserList
 from threedi_api_client.openapi.models.paginated_water_quality_customized_result_area_list import PaginatedWaterQualityCustomizedResultAreaList
-from threedi_api_client.openapi.models.paginated_waterdepth_list import PaginatedWaterdepthList
 from threedi_api_client.openapi.models.paginated_wind_drag_coefficient_list import PaginatedWindDragCoefficientList
 from threedi_api_client.openapi.models.paginatedsettings_list import PaginatedsettingsList
 from threedi_api_client.openapi.models.patched_aggregation_settings import PatchedAggregationSettings

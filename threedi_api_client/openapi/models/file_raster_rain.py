@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.6   Rana simulation core release: 3.7.2   deployed on:  12:56PM (UTC) on June 19, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -45,7 +45,7 @@ class FileRasterRain(object):
         'interval': 'int',
         'values_reference': 'str',
         'fill_value': 'str',
-        'units': 'RasterRainUnitsEnum',
+        'units': 'OneOfRasterRainUnitsEnumNullEnum',
         'geotransform': 'list[float]',
         'epsg_code': 'int',
         'file': 'FileReadOnly',
@@ -119,8 +119,7 @@ class FileRasterRain(object):
         self.values_reference = values_reference
         if fill_value is not None:
             self.fill_value = fill_value
-        if units is not None:
-            self.units = units
+        self.units = units
         if geotransform is not None:
             self.geotransform = geotransform
         if epsg_code is not None:
@@ -362,7 +361,7 @@ class FileRasterRain(object):
 
 
         :return: The units of this FileRasterRain.  # noqa: E501
-        :rtype: RasterRainUnitsEnum
+        :rtype: OneOfRasterRainUnitsEnumNullEnum
         """
         return self._units
 
@@ -372,7 +371,7 @@ class FileRasterRain(object):
 
 
         :param units: The units of this FileRasterRain.  # noqa: E501
-        :type: RasterRainUnitsEnum
+        :type: OneOfRasterRainUnitsEnumNullEnum
         """
 
         self._units = units

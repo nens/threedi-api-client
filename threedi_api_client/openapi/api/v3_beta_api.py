@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.6   Rana simulation core release: 3.7.2   deployed on:  12:56PM (UTC) on June 19, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -2720,10 +2720,6 @@ class V3BetaApi(object):
         :type id: int
         :param simulation_pk: (required)
         :type simulation_pk: int
-        :param limit: Number of results to return per page.
-        :type limit: int
-        :param offset: The initial index from which to return the results.
-        :type offset: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2737,7 +2733,7 @@ class V3BetaApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: PaginatedRasterEditUrlsList
+        :rtype: list[RasterEditUrls]
         """
         kwargs['_return_http_data_only'] = True
         return self.simulations_events_obstacle_edits_register_related_rasters_with_http_info(id, simulation_pk, **kwargs)  # noqa: E501
@@ -2756,10 +2752,6 @@ class V3BetaApi(object):
         :type id: int
         :param simulation_pk: (required)
         :type simulation_pk: int
-        :param limit: Number of results to return per page.
-        :type limit: int
-        :param offset: The initial index from which to return the results.
-        :type offset: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -2781,16 +2773,14 @@ class V3BetaApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(PaginatedRasterEditUrlsList, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[RasterEditUrls], status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
 
         all_params = [
             'id',
-            'simulation_pk',
-            'limit',
-            'offset'
+            'simulation_pk'
         ]
         all_params.extend(
             [
@@ -2830,10 +2820,6 @@ class V3BetaApi(object):
             path_params['simulation_pk'] = local_var_params['simulation_pk']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 
@@ -2849,7 +2835,7 @@ class V3BetaApi(object):
         auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
 
         response_types_map = {
-            200: "PaginatedRasterEditUrlsList",
+            200: "list[RasterEditUrls]",
         }
 
         return self.api_client.call_api(

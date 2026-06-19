@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.6   Rana simulation core release: 3.7.2   deployed on:  12:56PM (UTC) on June 19, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -51,7 +51,9 @@ class Schematisation(object):
         'last_updated': 'datetime',
         'storage_usage': 'int',
         'threedimodel_limit': 'int',
-        'latest_revision_nr': 'int'
+        'latest_revision_nr': 'int',
+        'rana_project_id': 'str',
+        'rana_tenant_id': 'str'
     }
 
     required_fields = [
@@ -74,10 +76,12 @@ class Schematisation(object):
         'last_updated': 'last_updated',
         'storage_usage': 'storage_usage',
         'threedimodel_limit': 'threedimodel_limit',
-        'latest_revision_nr': 'latest_revision_nr'
+        'latest_revision_nr': 'latest_revision_nr',
+        'rana_project_id': 'rana_project_id',
+        'rana_tenant_id': 'rana_tenant_id'
     }
 
-    def __init__(self, url=None, id=None, owner=None, name=None, slug=None, tags=None, meta=None, created_by=None, created_by_first_name=None, created_by_last_name=None, created=None, archived=None, last_updated=None, storage_usage=None, threedimodel_limit=None, latest_revision_nr=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, url=None, id=None, owner=None, name=None, slug=None, tags=None, meta=None, created_by=None, created_by_first_name=None, created_by_last_name=None, created=None, archived=None, last_updated=None, storage_usage=None, threedimodel_limit=None, latest_revision_nr=None, rana_project_id=None, rana_tenant_id=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """Schematisation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -102,6 +106,8 @@ class Schematisation(object):
         self._storage_usage = None
         self._threedimodel_limit = None
         self._latest_revision_nr = None
+        self._rana_project_id = None
+        self._rana_tenant_id = None
         self.discriminator = None
 
         if url is not None:
@@ -129,6 +135,8 @@ class Schematisation(object):
         if threedimodel_limit is not None:
             self.threedimodel_limit = threedimodel_limit
         self.latest_revision_nr = latest_revision_nr
+        self.rana_project_id = rana_project_id
+        self.rana_tenant_id = rana_tenant_id
 
     @property
     def url(self):
@@ -496,6 +504,55 @@ class Schematisation(object):
         """
 
         self._latest_revision_nr = latest_revision_nr
+
+    @property
+    def rana_project_id(self):
+        """Gets the rana_project_id of this Schematisation.  # noqa: E501
+
+        ID of the project in Rana. (only superusers can modify this field)  # noqa: E501
+
+        :return: The rana_project_id of this Schematisation.  # noqa: E501
+        :rtype: str
+        """
+        return self._rana_project_id
+
+    @rana_project_id.setter
+    def rana_project_id(self, rana_project_id):
+        """Sets the rana_project_id of this Schematisation.
+
+        ID of the project in Rana. (only superusers can modify this field)  # noqa: E501
+
+        :param rana_project_id: The rana_project_id of this Schematisation.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                rana_project_id is not None and len(rana_project_id) > 16):
+            self.__handle_validation_error("Invalid value for `rana_project_id`, length must be less than or equal to `16`")  # noqa: E501
+
+        self._rana_project_id = rana_project_id
+
+    @property
+    def rana_tenant_id(self):
+        """Gets the rana_tenant_id of this Schematisation.  # noqa: E501
+
+        ID of the tenant in Rana. (only superusers can modify this field)  # noqa: E501
+
+        :return: The rana_tenant_id of this Schematisation.  # noqa: E501
+        :rtype: str
+        """
+        return self._rana_tenant_id
+
+    @rana_tenant_id.setter
+    def rana_tenant_id(self, rana_tenant_id):
+        """Sets the rana_tenant_id of this Schematisation.
+
+        ID of the tenant in Rana. (only superusers can modify this field)  # noqa: E501
+
+        :param rana_tenant_id: The rana_tenant_id of this Schematisation.  # noqa: E501
+        :type: str
+        """
+
+        self._rana_tenant_id = rana_tenant_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

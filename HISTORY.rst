@@ -6,7 +6,7 @@ History
 5.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Pagination fixes for openapi spec 3
 
 
 5.0.0 (2026-06-18)

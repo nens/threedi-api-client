@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.4.104   Rana simulation core release: 3.7.2   deployed on:  10:09AM (UTC) on June 16, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.6   Rana simulation core release: 3.7.2   deployed on:  12:56PM (UTC) on June 19, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -133,7 +133,7 @@ conf = threedi_api_client.openapi.Configuration(
                  ):
         """Constructor
         """
-        self._base_path = "https://api.3di.live" if host is None else host
+        self._base_path = "http://localhost" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -478,7 +478,7 @@ conf = threedi_api_client.openapi.Configuration(
         """
         return [
             {
-                'url': "https://api.3di.live",
+                'url': "",
                 'description': "No description provided",
             }
         ]

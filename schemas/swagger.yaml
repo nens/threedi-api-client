@@ -3,8 +3,8 @@ info:
   title: Rana simulation API
   version: v3
   description: "Rana simulation API (latest stable version: v3) \n\nFramework release:
-    3.4.104 \n\nRana simulation core release: 3.7.2 \n\ndeployed on:  10:09AM (UTC)
-    on June 16, 2026"
+    3.5.6 \n\nRana simulation core release: 3.7.2 \n\ndeployed on:  12:56PM (UTC)
+    on June 19, 2026"
   contact:
     email: info@nelen-schuurmans.nl
   license:
@@ -710,18 +710,6 @@ paths:
           type: integer
         description: A unique integer value identifying this obstacle edit.
         required: true
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
       - in: path
         name: simulation_pk
         schema:
@@ -742,7 +730,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedRasterEditUrlsList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/RasterEditUrls'
           description: ''
   /v3-beta/simulations/{simulation_pk}/events/rain/timeseries/file/:
     get:
@@ -2548,19 +2538,6 @@ paths:
     get:
       operationId: auth_profile_list
       description: Read-only API endpoint for viewing user details for current user
-      parameters:
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
       tags:
       - v3
       security:
@@ -2576,7 +2553,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedUserList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
           description: ''
   /v3/auth/refresh-token/:
     post:
@@ -4417,12 +4396,6 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
       - in: query
         name: logged_in_user_has_role
         schema:
@@ -4469,12 +4442,6 @@ paths:
         name: name__startswith
         schema:
           type: string
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
       - in: path
         name: unique_id
         schema:
@@ -4541,7 +4508,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedOrganisationRoleList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrganisationRole'
           description: ''
   /v3/organisations/{unique_id}/users/:
     get:
@@ -5368,18 +5337,6 @@ paths:
           type: integer
         description: A unique integer value identifying this repository.
         required: true
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
       - in: query
         name: organisation__id
         schema:
@@ -5542,7 +5499,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedRevisionList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Revision'
           description: ''
   /v3/repositories/{id}/threedimodels/:
     get:
@@ -5555,18 +5514,6 @@ paths:
           type: integer
         description: A unique integer value identifying this repository.
         required: true
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
       - in: query
         name: organisation__id
         schema:
@@ -5729,7 +5676,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedThreediModelList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/ThreediModel'
           description: ''
   /v3/revisions/:
     get:
@@ -6201,12 +6150,6 @@ paths:
         name: is_pinned
         schema:
           type: boolean
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
       - in: query
         name: number
         schema:
@@ -6229,12 +6172,6 @@ paths:
           type: integer
       - in: query
         name: number__lte
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
         schema:
           type: integer
       - in: query
@@ -6399,7 +6336,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedThreediModelList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/ThreediModel'
           description: ''
   /v3/roles/:
     get:
@@ -6863,6 +6802,40 @@ paths:
         name: owner__unique_id__startswith
         schema:
           type: string
+      - in: query
+        name: rana_project_id
+        schema:
+          type: string
+      - in: query
+        name: rana_project_id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: rana_project_id__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: rana_tenant_id
+        schema:
+          type: string
+      - in: query
+        name: rana_tenant_id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: rana_tenant_id__isnull
+        schema:
+          type: boolean
       - in: query
         name: slug
         schema:
@@ -8074,20 +8047,8 @@ paths:
         schema:
           type: boolean
         description: is_valid
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
       - in: query
         name: number
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
         schema:
           type: integer
       - name: ordering
@@ -8243,7 +8204,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedThreediModelList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/ThreediModel'
           description: ''
   /v3/schematisations/{schematisation_pk}/revisions/{revision_pk}/rasters/:
     get:
@@ -14829,18 +14792,6 @@ paths:
           type: integer
         description: A unique integer value identifying this raster edit.
         required: true
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
       - in: path
         name: simulation_pk
         schema:
@@ -14861,7 +14812,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedRasterEditUrlsList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/RasterEditUrls'
           description: ''
   /v3/simulations/{simulation_pk}/events/sources-sinks/constant/:
     get:
@@ -20298,18 +20251,6 @@ paths:
       operationId: simulations_progress_list
       description: A simple ViewSet for viewing simulations
       parameters:
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
       - in: path
         name: simulation_pk
         schema:
@@ -20330,7 +20271,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedProgressList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Progress'
           description: ''
   /v3/simulations/{simulation_pk}/results/files/:
     get:
@@ -20661,18 +20604,6 @@ paths:
         - The simulation must have a BasicPostProcessing resource with 'process_basic_results'=True.
         - Lizard may not already have been triggered to processing this simulation.
       parameters:
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
       - in: path
         name: simulation_pk
         schema:
@@ -20695,7 +20626,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedArrivalTimePostProcessingList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/ArrivalTimePostProcessing'
           description: ''
     post:
       operationId: simulations_results_post_processing_lizard_arrival_create
@@ -20819,18 +20752,6 @@ paths:
         }
         ```
       parameters:
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
       - in: path
         name: simulation_pk
         schema:
@@ -20853,7 +20774,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedBasicPostProcessingList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/BasicPostProcessing'
           description: ''
     post:
       operationId: simulations_results_post_processing_lizard_basic_create
@@ -21021,18 +20944,6 @@ paths:
         }
         ```
       parameters:
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
       - in: path
         name: simulation_pk
         schema:
@@ -21055,7 +20966,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedDamagePostProcessingList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/DamagePostProcessing'
           description: ''
     post:
       operationId: simulations_results_post_processing_lizard_damage_create
@@ -21234,18 +21147,6 @@ paths:
         }
         ```
       parameters:
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
       - in: path
         name: simulation_pk
         schema:
@@ -21266,7 +21167,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedPostProcessingOverviewList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/PostProcessingOverview'
           description: ''
         '404':
           description: No basic post-processing resource found
@@ -21361,18 +21264,6 @@ paths:
       operationId: simulations_results_post_processing_lizard_status_list
       description: Show the latest post-processing status of one simulation.
       parameters:
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
       - in: path
         name: simulation_pk
         schema:
@@ -21395,7 +21286,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedPostProcessingStatusList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/PostProcessingStatus'
           description: ''
     post:
       operationId: simulations_results_post_processing_lizard_status_create
@@ -23477,18 +23370,6 @@ paths:
         schema:
           type: string
         required: true
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
       - in: path
         name: simulation_pk
         schema:
@@ -23509,7 +23390,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedProfileList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Profile'
           description: ''
   /v3/simulations/{simulation_pk}/visualisations/{layer}/tms/:
     get:
@@ -23520,18 +23403,6 @@ paths:
         schema:
           type: string
         required: true
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
       - in: path
         name: simulation_pk
         schema:
@@ -23552,7 +23423,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedTMSList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/TMS'
           description: ''
   /v3/simulations/{simulation_pk}/visualisations/breach_graph/:
     post:
@@ -23841,18 +23714,6 @@ paths:
     get:
       operationId: simulations_visualisations_waterdepth_list
       parameters:
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
       - in: path
         name: simulation_pk
         schema:
@@ -23873,7 +23734,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedWaterdepthList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Waterdepth'
           description: ''
   /v3/simulations/{simulation_pk}/websockets/:
     get:
@@ -24621,12 +24484,6 @@ paths:
         name: id__lte
         schema:
           type: integer
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
       - in: query
         name: name
         schema:
@@ -24686,12 +24543,6 @@ paths:
         name: name__startswith
         schema:
           type: string
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
       - name: ordering
         required: false
         in: query
@@ -24833,7 +24684,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedSimulationStatusStatisticsList'
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimulationStatusStatistics'
           description: ''
   /v3/threedimodels/:
     get:
@@ -29386,7 +29239,7 @@ components:
           description: |-
             Only allowed for name values: 'start', 'initialize' or 'queue Simulation runner version used to execute the simulation. If not filled in the default version is used. (Note: used for testing new calccore releases on the staging environment. On production only the default version can be picked)
 
-            * `3.4.104-3.7.2` - 3.4.104-3.7.2
+            * `3.5.6-3.7.2` - 3.5.6-3.7.2
             * `3.2.17-2.3.6` - 3.2.17-2.3.6
       required:
       - name
@@ -31242,7 +31095,10 @@ components:
           type: string
           maxLength: 128
         units:
-          $ref: '#/components/schemas/RasterRainUnitsEnum'
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/RasterRainUnitsEnum'
+          - $ref: '#/components/schemas/NullEnum'
         geotransform:
           type: array
           items:
@@ -31331,7 +31187,10 @@ components:
           type: string
           maxLength: 128
         units:
-          $ref: '#/components/schemas/RasterRainUnitsEnum'
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/RasterRainUnitsEnum'
+          - $ref: '#/components/schemas/NullEnum'
         geotransform:
           type: array
           items:
@@ -31418,7 +31277,10 @@ components:
           type: string
           maxLength: 128
         units:
-          $ref: '#/components/schemas/RasterRainUnitsEnum'
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/RasterRainUnitsEnum'
+          - $ref: '#/components/schemas/NullEnum'
         geotransform:
           type: array
           items:
@@ -31616,7 +31478,10 @@ components:
           - $ref: '#/components/schemas/NetCDFFileTypeEnum'
           readOnly: true
         units:
-          $ref: '#/components/schemas/TimeseriesRainMmUnitsEnum'
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/TimeseriesRainMmUnitsEnum'
+          - $ref: '#/components/schemas/NullEnum'
         file:
           $ref: '#/components/schemas/FileReadOnly'
         uid:
@@ -32496,7 +32361,7 @@ components:
       type: string
       description: '* `m3/s` - m3/s'
       x-enum-varnames:
-      - M3
+      - M3S
     LeveeMaterialEnum:
       enum:
       - sand
@@ -32837,9 +32702,9 @@ components:
         * `mm/h` - mm/h
         * `m/s` - m/s
       x-enum-varnames:
-      - MM
-      - MM
-      - M
+      - MMDURATION
+      - MMH
+      - MS
     LocalRain:
       type: object
       description: |-
@@ -33283,7 +33148,10 @@ components:
           nullable: true
           maxLength: 255
         units:
-          $ref: '#/components/schemas/RasterRainUnitsEnum'
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/RasterRainUnitsEnum'
+          - $ref: '#/components/schemas/NullEnum'
         geotransform:
           type: array
           items:
@@ -33363,7 +33231,10 @@ components:
           type: string
           maxLength: 128
         units:
-          $ref: '#/components/schemas/RasterRainUnitsEnum'
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/RasterRainUnitsEnum'
+          - $ref: '#/components/schemas/NullEnum'
         geotransform:
           type: array
           items:
@@ -33432,7 +33303,10 @@ components:
           nullable: true
           maxLength: 255
         units:
-          $ref: '#/components/schemas/RasterRainUnitsEnum'
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/RasterRainUnitsEnum'
+          - $ref: '#/components/schemas/NullEnum'
         geotransform:
           type: array
           items:
@@ -33509,7 +33383,10 @@ components:
           nullable: true
           maxLength: 255
         units:
-          $ref: '#/components/schemas/TimeseriesRainMmUnitsEnum'
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/TimeseriesRainMmUnitsEnum'
+          - $ref: '#/components/schemas/NullEnum'
         file:
           $ref: '#/components/schemas/FileReadOnly'
         fill_value:
@@ -33640,7 +33517,10 @@ components:
           nullable: true
           maxLength: 255
         units:
-          $ref: '#/components/schemas/TimeseriesRainMmUnitsEnum'
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/TimeseriesRainMmUnitsEnum'
+          - $ref: '#/components/schemas/NullEnum'
         file:
           $ref: '#/components/schemas/FileReadOnly'
         fill_value:
@@ -33659,6 +33539,9 @@ components:
             $ref: '#/components/schemas/ForcingSubstance'
       required:
       - units
+    NullEnum:
+      enum:
+      - null
     NumericalSettings:
       type: object
       properties:
@@ -34311,52 +34194,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AggregationSettings'
-    PaginatedArrivalTimePostProcessingList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ArrivalTimePostProcessing'
-    PaginatedBasicPostProcessingList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/BasicPostProcessing'
     PaginatedBoundaryConditionList:
       type: object
       required:
@@ -34610,29 +34447,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CustomizedResultArea'
-    PaginatedDamagePostProcessingList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DamagePostProcessing'
     PaginatedFileBoundaryConditionList:
       type: object
       required:
@@ -35346,29 +35160,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PersonalAPIKey'
-    PaginatedPostProcessingOverviewList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/PostProcessingOverview'
     PaginatedPostProcessingQueueList:
       type: object
       required:
@@ -35438,52 +35229,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PotentialBreach'
-    PaginatedProfileList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Profile'
-    PaginatedProgressList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Progress'
     PaginatedRasterEditList:
       type: object
       required:
@@ -35507,29 +35252,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RasterEdit'
-    PaginatedRasterEditUrlsList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/RasterEditUrls'
     PaginatedRasterList:
       type: object
       required:
@@ -35806,29 +35528,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SimulationStatus'
-    PaginatedSimulationStatusStatisticsList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/SimulationStatusStatistics'
     PaginatedStableThresholdSavedStateList:
       type: object
       required:
@@ -35875,29 +35574,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Substance'
-    PaginatedTMSList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/TMS'
     PaginatedTableStructureControlList:
       type: object
       required:
@@ -36335,29 +36011,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WaterQualityCustomizedResultArea'
-    PaginatedWaterdepthList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Waterdepth'
     PaginatedWindDragCoefficientList:
       type: object
       required:
@@ -38030,7 +37683,10 @@ components:
           type: string
           maxLength: 128
         units:
-          $ref: '#/components/schemas/RasterRainUnitsEnum'
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/RasterRainUnitsEnum'
+          - $ref: '#/components/schemas/NullEnum'
         geotransform:
           type: array
           items:
@@ -38099,7 +37755,10 @@ components:
           nullable: true
           maxLength: 255
         units:
-          $ref: '#/components/schemas/RasterRainUnitsEnum'
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/RasterRainUnitsEnum'
+          - $ref: '#/components/schemas/NullEnum'
         geotransform:
           type: array
           items:
@@ -39157,6 +38816,17 @@ components:
           type: integer
           nullable: true
           readOnly: true
+        rana_project_id:
+          type: string
+          nullable: true
+          description: ID of the project in Rana. (only superusers can modify this
+            field)
+          maxLength: 16
+        rana_tenant_id:
+          type: string
+          nullable: true
+          description: ID of the tenant in Rana. (only superusers can modify this
+            field)
     PatchedSimulationStatus:
       type: object
       description: |-
@@ -41482,10 +41152,10 @@ components:
         * `mm/h` - mm/h
         * `mm/hr` - mm/hr
       x-enum-varnames:
-      - M
+      - MS
       - MM
-      - MM
-      - MM
+      - MMH
+      - MMHR
     RasterTypeEnum:
       enum:
       - dem_file
@@ -42070,6 +41740,17 @@ components:
           type: integer
           nullable: true
           readOnly: true
+        rana_project_id:
+          type: string
+          nullable: true
+          description: ID of the project in Rana. (only superusers can modify this
+            field)
+          maxLength: 16
+        rana_tenant_id:
+          type: string
+          nullable: true
+          description: ID of the tenant in Rana. (only superusers can modify this
+            field)
       required:
       - name
     SchematisationRevision:
@@ -42288,11 +41969,11 @@ components:
       - TIMEOUT
     SimulationRunnerEnum:
       enum:
-      - 3.4.104-3.7.2
+      - 3.5.6-3.7.2
       - 3.2.17-2.3.6
       type: string
       description: |-
-        * `3.4.104-3.7.2` - 3.4.104-3.7.2
+        * `3.5.6-3.7.2` - 3.5.6-3.7.2
         * `3.2.17-2.3.6` - 3.2.17-2.3.6
       x-enum-varnames:
       - _3
@@ -43904,14 +43585,14 @@ components:
         * `mm/h` - mm/h
       x-enum-varnames:
       - MM
-      - MM
+      - MMH
     TimeseriesRainMsUnitEnum:
       enum:
       - m/s
       type: string
       description: '* `m/s` - m/s'
       x-enum-varnames:
-      - M
+      - MS
     TimeseriesRainOverview:
       type: object
       description: |-
@@ -45145,5 +44826,3 @@ components:
       in: cookie
       name: sessionid
       description: Session authentication via cookie.
-servers:
-- url: https://api.3di.live
