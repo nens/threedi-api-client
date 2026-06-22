@@ -6,7 +6,7 @@ History
 5.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add reason to rest response class
 
 
 5.0.1 (2026-06-19)
