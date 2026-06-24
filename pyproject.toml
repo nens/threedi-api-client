@@ -96,3 +96,4 @@ omit = ["*/tests/*"]
 [tool.zest-releaser]
 create-wheel = true
 python-file-with-version = "threedi_api_client/__init__.py"
+release = false
