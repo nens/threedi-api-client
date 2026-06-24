@@ -3,8 +3,8 @@ info:
   title: Rana simulation API
   version: v3
   description: "Rana simulation API (latest stable version: v3) \n\nFramework release:
-    3.5.6 \n\nRana simulation core release: 3.7.2 \n\ndeployed on:  12:56PM (UTC)
-    on June 19, 2026"
+    3.5.8 \n\nRana simulation core release: 3.7.2 \n\ndeployed on:  09:08AM (UTC)
+    on June 24, 2026"
   contact:
     email: info@nelen-schuurmans.nl
   license:
@@ -2104,9 +2104,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Status'
+                $ref: '#/components/schemas/Status'
           description: ''
   /v3-beta/status/current-version/:
     get:
@@ -2553,9 +2551,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/AuthProfile'
           description: ''
   /v3/auth/refresh-token/:
     post:
@@ -20271,9 +20267,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Progress'
+                $ref: '#/components/schemas/Progress'
           description: ''
   /v3/simulations/{simulation_pk}/results/files/:
     get:
@@ -20626,9 +20620,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ArrivalTimePostProcessing'
+                $ref: '#/components/schemas/ArrivalTimePostProcessing'
           description: ''
     post:
       operationId: simulations_results_post_processing_lizard_arrival_create
@@ -20774,9 +20766,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/BasicPostProcessing'
+                $ref: '#/components/schemas/BasicPostProcessing'
           description: ''
     post:
       operationId: simulations_results_post_processing_lizard_basic_create
@@ -20966,9 +20956,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/DamagePostProcessing'
+                $ref: '#/components/schemas/DamagePostProcessing'
           description: ''
     post:
       operationId: simulations_results_post_processing_lizard_damage_create
@@ -21167,9 +21155,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/PostProcessingOverview'
+                $ref: '#/components/schemas/PostProcessingOverview'
           description: ''
         '404':
           description: No basic post-processing resource found
@@ -21210,7 +21196,12 @@ paths:
       - OAuth2: []
       responses:
         '201':
-          description: No response body
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
       x-codegen-request-body-name: data
   /v3/simulations/{simulation_pk}/results/post_processing/lizard/start/retry/:
     post:
@@ -21253,7 +21244,12 @@ paths:
       - OAuth2: []
       responses:
         '200':
-          description: No response body
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
         '400':
           description: Bad request
         '403':
@@ -21286,9 +21282,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/PostProcessingStatus'
+                $ref: '#/components/schemas/PostProcessingStatus'
           description: ''
     post:
       operationId: simulations_results_post_processing_lizard_status_create
@@ -21396,7 +21390,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedPostProcessingStatusList'
+                $ref: '#/components/schemas/PaginatedPostProcessingStatusHistoryList'
           description: ''
   /v3/simulations/{simulation_pk}/settings/aggregation/:
     get:
@@ -23390,9 +23384,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Profile'
+                $ref: '#/components/schemas/Profile'
           description: ''
   /v3/simulations/{simulation_pk}/visualisations/{layer}/tms/:
     get:
@@ -23423,9 +23415,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/TMS'
+                $ref: '#/components/schemas/TMS'
           description: ''
   /v3/simulations/{simulation_pk}/visualisations/breach_graph/:
     post:
@@ -23734,9 +23724,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Waterdepth'
+                $ref: '#/components/schemas/Waterdepth'
           description: ''
   /v3/simulations/{simulation_pk}/websockets/:
     get:
@@ -29239,7 +29227,7 @@ components:
           description: |-
             Only allowed for name values: 'start', 'initialize' or 'queue Simulation runner version used to execute the simulation. If not filled in the default version is used. (Note: used for testing new calccore releases on the staging environment. On production only the default version can be picked)
 
-            * `3.5.6-3.7.2` - 3.5.6-3.7.2
+            * `3.5.8-3.7.2` - 3.5.8-3.7.2
             * `3.2.17-2.3.6` - 3.2.17-2.3.6
       required:
       - name
@@ -29374,6 +29362,35 @@ components:
         basic_post_processing:
           type: integer
           readOnly: true
+    AuthProfile:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+        external_user_id:
+          type: string
+          nullable: true
+          readOnly: true
+      required:
+      - username
     Authenticate:
       type: object
       properties:
@@ -31126,8 +31143,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ForcingSubstance'
-      required:
-      - units
     FileRasterRain:
       type: object
       description: |-
@@ -33178,8 +33193,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ForcingSubstance'
-      required:
-      - units
     NetCDFRasterRain:
       type: object
       description: |-
@@ -33333,8 +33346,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ForcingSubstance'
-      required:
-      - units
     NetCDFTimeseriesLeakage:
       type: object
       description: |-
@@ -35183,7 +35194,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PostProcessingQueue'
-    PaginatedPostProcessingStatusList:
+    PaginatedPostProcessingStatusHistoryList:
       type: object
       required:
       - count
@@ -35205,7 +35216,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/PostProcessingStatus'
+            $ref: '#/components/schemas/PostProcessingStatusHistory'
     PaginatedPotentialBreachList:
       type: object
       required:
@@ -40671,6 +40682,28 @@ components:
       - ARCHIVING
       - ARCHIVING_FAILED
       - ARCHIVED
+    PostProcessingStatusHistory:
+      type: object
+      description: |-
+        A type of `ModelSerializer` that uses
+        hyperlinked relationships with compound keys instead
+        of primary key relationships.  Specifically:
+        * A 'url' field is included instead of the 'id' field.
+        * Relationships to other instances are hyperlinks, instead of primary keys.
+        NOTE: this only works with DRF 3.1.0 and above.
+      properties:
+        simulation:
+          type: string
+          format: uri
+          readOnly: true
+        status:
+          $ref: '#/components/schemas/PostProcessingStatusEnum'
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - status
     PotentialBreach:
       type: object
       description: |-
@@ -41969,11 +42002,11 @@ components:
       - TIMEOUT
     SimulationRunnerEnum:
       enum:
-      - 3.5.6-3.7.2
+      - 3.5.8-3.7.2
       - 3.2.17-2.3.6
       type: string
       description: |-
-        * `3.5.6-3.7.2` - 3.5.6-3.7.2
+        * `3.5.8-3.7.2` - 3.5.8-3.7.2
         * `3.2.17-2.3.6` - 3.2.17-2.3.6
       x-enum-varnames:
       - _3

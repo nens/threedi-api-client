@@ -35,7 +35,7 @@ Repository = "https://github.com/nens/threedi-api-client"
 
 [project.optional-dependencies]
 aio = [
-    "aiohttp>=3.6.3,<3.10",
+    "aiohttp",
     "aiofiles>=0.6",
 ]
 test = [

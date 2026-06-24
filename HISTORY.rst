@@ -6,7 +6,7 @@ History
 5.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- lizard postporcessing and websocket backwards compatibility fixes for openapi spec 3
 
 
 5.0.1 (2026-06-19)

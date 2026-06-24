@@ -5,7 +5,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.5.6   Rana simulation core release: 3.7.2   deployed on:  12:56PM (UTC) on June 19, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.8   Rana simulation core release: 3.7.2   deployed on:  09:08AM (UTC) on June 24, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,6 +37,7 @@ from threedi_api_client.openapi.models.add_user import AddUser
 from threedi_api_client.openapi.models.aggregation_method_enum import AggregationMethodEnum
 from threedi_api_client.openapi.models.aggregation_settings import AggregationSettings
 from threedi_api_client.openapi.models.arrival_time_post_processing import ArrivalTimePostProcessing
+from threedi_api_client.openapi.models.auth_profile import AuthProfile
 from threedi_api_client.openapi.models.authenticate import Authenticate
 from threedi_api_client.openapi.models.base_event_state import BaseEventState
 from threedi_api_client.openapi.models.basic_post_processing import BasicPostProcessing
@@ -190,7 +191,7 @@ from threedi_api_client.openapi.models.paginated_organisation_role_list import P
 from threedi_api_client.openapi.models.paginated_organisation_user_list import PaginatedOrganisationUserList
 from threedi_api_client.openapi.models.paginated_personal_api_key_list import PaginatedPersonalAPIKeyList
 from threedi_api_client.openapi.models.paginated_post_processing_queue_list import PaginatedPostProcessingQueueList
-from threedi_api_client.openapi.models.paginated_post_processing_status_list import PaginatedPostProcessingStatusList
+from threedi_api_client.openapi.models.paginated_post_processing_status_history_list import PaginatedPostProcessingStatusHistoryList
 from threedi_api_client.openapi.models.paginated_potential_breach_list import PaginatedPotentialBreachList
 from threedi_api_client.openapi.models.paginated_raster_edit_list import PaginatedRasterEditList
 from threedi_api_client.openapi.models.paginated_raster_list import PaginatedRasterList
@@ -315,6 +316,7 @@ from threedi_api_client.openapi.models.post_processing_overview import PostProce
 from threedi_api_client.openapi.models.post_processing_queue import PostProcessingQueue
 from threedi_api_client.openapi.models.post_processing_status import PostProcessingStatus
 from threedi_api_client.openapi.models.post_processing_status_enum import PostProcessingStatusEnum
+from threedi_api_client.openapi.models.post_processing_status_history import PostProcessingStatusHistory
 from threedi_api_client.openapi.models.potential_breach import PotentialBreach
 from threedi_api_client.openapi.models.profile import Profile
 from threedi_api_client.openapi.models.progress import Progress

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.5.6   Rana simulation core release: 3.7.2   deployed on:  12:56PM (UTC) on June 19, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.8   Rana simulation core release: 3.7.2   deployed on:  09:08AM (UTC) on June 24, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -8139,7 +8139,7 @@ class V3BetaApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: list[Status]
+        :rtype: Status
         """
         kwargs['_return_http_data_only'] = True
         return self.status_list_with_http_info(**kwargs)  # noqa: E501
@@ -8174,7 +8174,7 @@ class V3BetaApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(list[Status], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(Status, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -8222,7 +8222,7 @@ class V3BetaApi(object):
         auth_settings = ['ApiKeyBasic', 'Basic', 'Bearer', 'OAuth2', 'OAuth2Bearer', 'Session']  # noqa: E501
 
         response_types_map = {
-            200: "list[Status]",
+            200: "Status",
         }
 
         return self.api_client.call_api(
