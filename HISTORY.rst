@@ -3,7 +3,7 @@ History
 =======
 
 
-5.0.2 (unreleased)
+5.0.2 (2026-06-24)
 ------------------
 
 - lizard postporcessing and websocket backwards compatibility fixes for openapi spec 3
