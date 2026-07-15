@@ -3,7 +3,7 @@ History
 =======
 
 
-5.0.4 (unreleased)
+5.0.4 (2026-07-15)
 ------------------
 
 - Add missing clone revision file
