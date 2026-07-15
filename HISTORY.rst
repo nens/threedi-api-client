@@ -3,7 +3,7 @@ History
 =======
 
 
-5.0.3 (unreleased)
+5.0.3 (2026-07-15)
 ------------------
 
 - Fix enum names
