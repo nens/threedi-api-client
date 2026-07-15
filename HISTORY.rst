@@ -6,7 +6,7 @@ History
 5.0.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add missing clone revision file
 
 
 5.0.3 (2026-07-15)
