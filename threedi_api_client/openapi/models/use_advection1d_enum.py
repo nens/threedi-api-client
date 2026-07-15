@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.5.8   Rana simulation core release: 3.7.2   deployed on:  09:08AM (UTC) on June 24, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.23   Rana simulation core release: 3.7.2   deployed on:  09:44AM (UTC) on July 15, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -32,9 +32,9 @@ class UseAdvection1dEnum(object):
     allowed enum values
     """
     OFF = 0
-    MOMENTUM = 1
-    ENERGY = 2
-    COMBINED = 3
+    MOMENTUM_CONSERVATIVE = 1
+    ENERGY_CONSERVATIVE = 2
+    COMBINED_MOMENTUM_AND_ENERGY_CONSERVATIVE = 3
 
     """
     Attributes:

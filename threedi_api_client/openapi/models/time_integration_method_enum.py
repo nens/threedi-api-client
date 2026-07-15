@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.5.8   Rana simulation core release: 3.7.2   deployed on:  09:08AM (UTC) on June 24, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.23   Rana simulation core release: 3.7.2   deployed on:  09:44AM (UTC) on July 15, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -31,7 +31,7 @@ class TimeIntegrationMethodEnum(object):
     """
     allowed enum values
     """
-    EULER = 0
+    EULER_IMPLICIT = 0
 
     """
     Attributes:

@@ -3,8 +3,8 @@ info:
   title: Rana simulation API
   version: v3
   description: "Rana simulation API (latest stable version: v3) \n\nFramework release:
-    3.5.8 \n\nRana simulation core release: 3.7.2 \n\ndeployed on:  09:08AM (UTC)
-    on June 24, 2026"
+    3.5.23 \n\nRana simulation core release: 3.7.2 \n\ndeployed on:  09:44AM (UTC)
+    on July 15, 2026"
   contact:
     email: info@nelen-schuurmans.nl
   license:
@@ -7630,6 +7630,55 @@ paths:
           description: ''
         '409':
           description: Conflict with other task already pending
+  /v3/schematisations/{schematisation_pk}/revisions/{id}/clone_to_schematisation/:
+    post:
+      operationId: schematisations_revisions_clone_to_schematisation
+      description: |-
+        Clone the revision to a different schematisation
+
+        Returns: the newly created revision in the new schematisation
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this revision.
+        required: true
+      - in: path
+        name: schematisation_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - v3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CloneRevision'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CloneRevision'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CloneRevision'
+        required: true
+      security:
+      - Bearer: []
+      - OAuth2Bearer: []
+      - ApiKeyBasic: []
+      - Session: []
+      - Basic: []
+      - Bearer: []
+      - OAuth2: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SchematisationRevision'
+          description: ''
+      x-codegen-request-body-name: data
   /v3/schematisations/{schematisation_pk}/revisions/{id}/commit/:
     post:
       operationId: schematisations_revisions_commit
@@ -29227,7 +29276,7 @@ components:
           description: |-
             Only allowed for name values: 'start', 'initialize' or 'queue Simulation runner version used to execute the simulation. If not filled in the default version is used. (Note: used for testing new calccore releases on the staging environment. On production only the default version can be picked)
 
-            * `3.5.8-3.7.2` - 3.5.8-3.7.2
+            * `3.5.23-3.7.2` - 3.5.23-3.7.2
             * `3.2.17-2.3.6` - 3.2.17-2.3.6
       required:
       - name
@@ -29291,8 +29340,8 @@ components:
         * `min` -  minimum
       x-enum-varnames:
       - MEAN
-      - MAXIMUM
-      - MINIMUM
+      - MAX
+      - MIN
     AggregationSettings:
       type: object
       description: |-
@@ -29639,6 +29688,24 @@ components:
           minimum: -2147483648
       required:
       - offset
+    CloneRevision:
+      type: object
+      properties:
+        schematisation_name:
+          type: string
+          maxLength: 256
+        rana_project_id:
+          type: string
+          description: Optional rana project id (only superusers can modify this field)
+        rana_tenant_id:
+          type: string
+          description: Optional rana tenant id (only superusers can modify this field)
+        created_by:
+          type: string
+          description: Optional created_by cognito UUID (only superusers can modify
+            this field)
+      required:
+      - schematisation_name
     Commit:
       type: object
       properties:
@@ -30442,25 +30509,25 @@ components:
         * `breach_width` - breach width
         * `q_pump` - pump discharge
       x-enum-varnames:
-      - WATER
-      - VOLUME
-      - WET
-      - INFILTRATION
+      - S1
+      - VOL
+      - SU
+      - INFILTRATION_RATE_SIMPLE
       - RAIN
-      - LATERAL
-      - SURFACE
-      - FLOW
-      - FLOW
-      - LEAKAGE
-      - INTERCEPTED
-      - FLOW
-      - DISCHARGE
-      - WET
-      - FLOW
-      - DISCHARGE
-      - BREACH
-      - BREACH
-      - PUMP
+      - Q_LAT
+      - Q_SSS
+      - UCX
+      - UCY
+      - LEAK
+      - INTERCEPTED_VOLUME
+      - U1
+      - Q
+      - AU
+      - UP1
+      - QP
+      - BREACH_DEPTH
+      - BREACH_WIDTH
+      - Q_PUMP
     CustomizedResultArea:
       type: object
       description: |-
@@ -31742,19 +31809,19 @@ components:
         * `interception` - Interception
         * `surface_source_sink_discharge` - Surface Source Sink Discharge
       x-enum-varnames:
-      - WATER
-      - FLOW
+      - WATER_LEVEL
+      - FLOW_VELOCITY
       - DISCHARGE
       - VOLUME
-      - PUMP
-      - WET
-      - LATERAL
-      - WET
+      - PUMP_DISCHARGE
+      - WET_CROSS_SECTION
+      - LATERAL_DISCHARGE
+      - WET_SURFACE
       - RAIN
-      - SIMPLE
+      - SIMPLE_INFILTRATION
       - LEAKAGE
       - INTERCEPTION
-      - SURFACE
+      - SURFACE_SOURCE_SINK_DISCHARGE
     ForceAsEnum:
       enum:
       - default
@@ -31767,7 +31834,7 @@ components:
         * `new_schematisation` - new_schematisation
       x-enum-varnames:
       - DEFAULT
-      - NEW
+      - NEW_REVISION
       - NEW_SCHEMATISATION
     ForcingSubstance:
       type: object
@@ -31908,9 +31975,9 @@ components:
         * `3` - linearizes the depth based on a weighed averaged
       x-enum-varnames:
       - 'OFF'
-      - MAX
-      - ALWAYS
-      - LINEARIZES
+      - MAX_BETWEEN_AVG_AND_DIVIDED_CHANNEL_BASED_FRICTION
+      - ALWAYS_LINEARIZED
+      - LINEARIZES_THE_DEPTH_BASED_ON_A_WEIGHED_AVERAGED
     FromTemplate:
       type: object
       properties:
@@ -32376,7 +32443,7 @@ components:
       type: string
       description: '* `m3/s` - m3/s'
       x-enum-varnames:
-      - M3S
+      - M3_S
     LeveeMaterialEnum:
       enum:
       - sand
@@ -32402,10 +32469,9 @@ components:
         * `3` - combination traditional method thin layer approach
       x-enum-varnames:
       - 'OFF'
-      - HIGHER
-      - CROSS
-      - SECTIONS
-      - COMBINATION
+      - HIGHER_ORDER_SCHEME__MIGHT_BE_SENSITIVE_TO_INSTABILITIES_
+      - CROSS_SECTIONS_TREATED_AS_UPWIND_METHOD_VOLUME_SURFACE_AREA
+      - COMBINATION_TRADITIONAL_METHOD_THIN_LAYER_APPROACH
     LizardRasterRain:
       type: object
       description: |-
@@ -32717,9 +32783,9 @@ components:
         * `mm/h` - mm/h
         * `m/s` - m/s
       x-enum-varnames:
-      - MMDURATION
-      - MMH
-      - MS
+      - MM_DURATION
+      - MM_H
+      - M_S
     LocalRain:
       type: object
       description: |-
@@ -32851,9 +32917,9 @@ components:
         * `mm/h` - millimeter_per_hour
         * `mm/min` - millimeter_per_minute
       x-enum-varnames:
-      - METER_PER_SECOND
-      - MILLIMETER_PER_HOUR
-      - MILLIMETER_PER_MINUTE
+      - M_S
+      - MM_H
+      - MM_MIN
     MeasureLocation:
       type: object
       properties:
@@ -32980,10 +33046,10 @@ components:
         * `q` - discharge
         * `u1` - velocity
       x-enum-varnames:
-      - WATERLEVEL
-      - VOLUME
-      - DISCHARGE
-      - VELOCITY
+      - S1
+      - VOL1
+      - Q
+      - U1
     MemoryStructureControl:
       type: object
       description: |-
@@ -33100,14 +33166,14 @@ components:
         * `current` - current value of a variable
         * `sum` - variable summation over configured interval
       x-enum-varnames:
-      - MINIMUM
-      - MAXIMUM
-      - AVERAGE
-      - VARIABLE
-      - VARIABLE
-      - VARIABLE
+      - MIN
+      - MAX
+      - AVG
+      - CUM
+      - CUM_POSITIVE
+      - CUM_NEGATIVE
       - CURRENT
-      - VARIABLE
+      - SUM
     NetCDFFileTypeEnum:
       enum:
       - netcdf4
@@ -33553,6 +33619,7 @@ components:
     NullEnum:
       enum:
       - null
+      x-enum-varnames: []
     NumericalSettings:
       type: object
       properties:
@@ -41185,10 +41252,10 @@ components:
         * `mm/h` - mm/h
         * `mm/hr` - mm/hr
       x-enum-varnames:
-      - MS
+      - M_S
       - MM
-      - MMH
-      - MMHR
+      - MM_H
+      - MM_HR
     RasterTypeEnum:
       enum:
       - dem_file
@@ -42002,19 +42069,15 @@ components:
       - TIMEOUT
     SimulationRunnerEnum:
       enum:
-      - 3.5.8-3.7.2
+      - 3.5.23-3.7.2
       - 3.2.17-2.3.6
       type: string
       description: |-
-        * `3.5.8-3.7.2` - 3.5.8-3.7.2
+        * `3.5.23-3.7.2` - 3.5.23-3.7.2
         * `3.2.17-2.3.6` - 3.2.17-2.3.6
       x-enum-varnames:
-      - _3
-      - _3
-      - _3
-      - _2
-      - _3
-      - _2
+      - _3_5_23_3_7_2
+      - _3_2_17_2_3_6
     SimulationSettingsOverview:
       type: object
       properties:
@@ -42412,7 +42475,7 @@ components:
       - _1D
       - _2D
       - _1D2D
-      - GROUNDWATER
+      - GW
     Substance:
       type: object
       description: |-
@@ -42924,7 +42987,7 @@ components:
       - MAKE_COG
       - MAKE_GEOJSON
       - MAKE_SIMULATION_TEMPLATES
-      - INHERIT_SIMULATION_TEMPLATE
+      - INHERIT_SIMULATION_TEMPLATES
       - MAKE_AGGREGATIONS
     ThreediModelTaskStatusEnum:
       enum:
@@ -42972,7 +43035,7 @@ components:
       type: integer
       description: '* `0` - euler implicit'
       x-enum-varnames:
-      - EULER
+      - EULER_IMPLICIT
     TimeStepSettings:
       type: object
       properties:
@@ -43618,14 +43681,14 @@ components:
         * `mm/h` - mm/h
       x-enum-varnames:
       - MM
-      - MMH
+      - MM_H
     TimeseriesRainMsUnitEnum:
       enum:
       - m/s
       type: string
       description: '* `m/s` - m/s'
       x-enum-varnames:
-      - MS
+      - M_S
     TimeseriesRainOverview:
       type: object
       description: |-
@@ -44294,9 +44357,9 @@ components:
         * `3` - combined momentum and energy conservative
       x-enum-varnames:
       - 'OFF'
-      - MOMENTUM
-      - ENERGY
-      - COMBINED
+      - MOMENTUM_CONSERVATIVE
+      - ENERGY_CONSERVATIVE
+      - COMBINED_MOMENTUM_AND_ENERGY_CONSERVATIVE
     UsePreconditionerCgEnum:
       enum:
       - 0
@@ -44792,8 +44855,8 @@ components:
         * `m/s` - meter_per_second
         * `km/h` - kilometer_per_hour
       x-enum-varnames:
-      - METER_PER_SECOND
-      - KILOMETER_PER_HOUR
+      - M_S
+      - KM_H
     settings:
       type: object
       properties:

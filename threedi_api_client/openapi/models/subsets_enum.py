@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.5.8   Rana simulation core release: 3.7.2   deployed on:  09:08AM (UTC) on June 24, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.23   Rana simulation core release: 3.7.2   deployed on:  09:44AM (UTC) on July 15, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -34,7 +34,7 @@ class SubsetsEnum(object):
     _1D = "1D"
     _2D = "2D"
     _1D2D = "1D2D"
-    GROUNDWATER = "GW"
+    GW = "GW"
 
     """
     Attributes:

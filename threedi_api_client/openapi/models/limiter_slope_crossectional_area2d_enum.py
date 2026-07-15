@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.5.8   Rana simulation core release: 3.7.2   deployed on:  09:08AM (UTC) on June 24, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.23   Rana simulation core release: 3.7.2   deployed on:  09:44AM (UTC) on July 15, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -32,9 +32,9 @@ class LimiterSlopeCrossectionalArea2dEnum(object):
     allowed enum values
     """
     OFF = 0
-    HIGHER = 1
-    CROSS = 2
-    SECTIONS = 3
+    HIGHER_ORDER_SCHEME__MIGHT_BE_SENSITIVE_TO_INSTABILITIES_ = 1
+    CROSS_SECTIONS_TREATED_AS_UPWIND_METHOD_VOLUME_SURFACE_AREA = 2
+    COMBINATION_TRADITIONAL_METHOD_THIN_LAYER_APPROACH = 3
 
     """
     Attributes:

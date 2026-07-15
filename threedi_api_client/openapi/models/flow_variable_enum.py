@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.5.8   Rana simulation core release: 3.7.2   deployed on:  09:08AM (UTC) on June 24, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.23   Rana simulation core release: 3.7.2   deployed on:  09:44AM (UTC) on July 15, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -31,19 +31,19 @@ class FlowVariableEnum(object):
     """
     allowed enum values
     """
-    WATER = "water_level"
-    FLOW = "flow_velocity"
+    WATER_LEVEL = "water_level"
+    FLOW_VELOCITY = "flow_velocity"
     DISCHARGE = "discharge"
     VOLUME = "volume"
-    PUMP = "pump_discharge"
-    WET = "wet_cross_section"
-    LATERAL = "lateral_discharge"
-    WET = "wet_surface"
+    PUMP_DISCHARGE = "pump_discharge"
+    WET_CROSS_SECTION = "wet_cross_section"
+    LATERAL_DISCHARGE = "lateral_discharge"
+    WET_SURFACE = "wet_surface"
     RAIN = "rain"
-    SIMPLE = "simple_infiltration"
+    SIMPLE_INFILTRATION = "simple_infiltration"
     LEAKAGE = "leakage"
     INTERCEPTION = "interception"
-    SURFACE = "surface_source_sink_discharge"
+    SURFACE_SOURCE_SINK_DISCHARGE = "surface_source_sink_discharge"
 
     """
     Attributes:

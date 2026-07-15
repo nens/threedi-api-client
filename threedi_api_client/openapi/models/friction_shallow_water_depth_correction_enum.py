@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.5.8   Rana simulation core release: 3.7.2   deployed on:  09:08AM (UTC) on June 24, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.23   Rana simulation core release: 3.7.2   deployed on:  09:44AM (UTC) on July 15, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -32,9 +32,9 @@ class FrictionShallowWaterDepthCorrectionEnum(object):
     allowed enum values
     """
     OFF = 0
-    MAX = 1
-    ALWAYS = 2
-    LINEARIZES = 3
+    MAX_BETWEEN_AVG_AND_DIVIDED_CHANNEL_BASED_FRICTION = 1
+    ALWAYS_LINEARIZED = 2
+    LINEARIZES_THE_DEPTH_BASED_ON_A_WEIGHED_AVERAGED = 3
 
     """
     Attributes:

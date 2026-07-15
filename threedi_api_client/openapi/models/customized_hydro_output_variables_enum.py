@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.5.8   Rana simulation core release: 3.7.2   deployed on:  09:08AM (UTC) on June 24, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.23   Rana simulation core release: 3.7.2   deployed on:  09:44AM (UTC) on July 15, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -31,25 +31,25 @@ class CustomizedHydroOutputVariablesEnum(object):
     """
     allowed enum values
     """
-    WATER = "s1"
-    VOLUME = "vol"
-    WET = "su"
-    INFILTRATION = "infiltration_rate_simple"
+    S1 = "s1"
+    VOL = "vol"
+    SU = "su"
+    INFILTRATION_RATE_SIMPLE = "infiltration_rate_simple"
     RAIN = "rain"
-    LATERAL = "q_lat"
-    SURFACE = "q_sss"
-    FLOW = "ucx"
-    FLOW = "ucy"
-    LEAKAGE = "leak"
-    INTERCEPTED = "intercepted_volume"
-    FLOW = "u1"
-    DISCHARGE = "q"
-    WET = "au"
-    FLOW = "up1"
-    DISCHARGE = "qp"
-    BREACH = "breach_depth"
-    BREACH = "breach_width"
-    PUMP = "q_pump"
+    Q_LAT = "q_lat"
+    Q_SSS = "q_sss"
+    UCX = "ucx"
+    UCY = "ucy"
+    LEAK = "leak"
+    INTERCEPTED_VOLUME = "intercepted_volume"
+    U1 = "u1"
+    Q = "q"
+    AU = "au"
+    UP1 = "up1"
+    QP = "qp"
+    BREACH_DEPTH = "breach_depth"
+    BREACH_WIDTH = "breach_width"
+    Q_PUMP = "q_pump"
 
     """
     Attributes:

@@ -6,7 +6,8 @@ History
 5.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix enum names
+- Schematisation clone endpoint
 
 
 5.0.2 (2026-06-24)

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.5.8   Rana simulation core release: 3.7.2   deployed on:  09:08AM (UTC) on June 24, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.23   Rana simulation core release: 3.7.2   deployed on:  09:44AM (UTC) on July 15, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -213,7 +213,7 @@ class Action(object):
     def simulation_runner(self):
         """Gets the simulation_runner of this Action.  # noqa: E501
 
-        Only allowed for name values: 'start', 'initialize' or 'queue Simulation runner version used to execute the simulation. If not filled in the default version is used. (Note: used for testing new calccore releases on the staging environment. On production only the default version can be picked)  * `3.5.8-3.7.2` - 3.5.8-3.7.2 * `3.2.17-2.3.6` - 3.2.17-2.3.6  # noqa: E501
+        Only allowed for name values: 'start', 'initialize' or 'queue Simulation runner version used to execute the simulation. If not filled in the default version is used. (Note: used for testing new calccore releases on the staging environment. On production only the default version can be picked)  * `3.5.23-3.7.2` - 3.5.23-3.7.2 * `3.2.17-2.3.6` - 3.2.17-2.3.6  # noqa: E501
 
         :return: The simulation_runner of this Action.  # noqa: E501
         :rtype: SimulationRunnerEnum
@@ -224,7 +224,7 @@ class Action(object):
     def simulation_runner(self, simulation_runner):
         """Sets the simulation_runner of this Action.
 
-        Only allowed for name values: 'start', 'initialize' or 'queue Simulation runner version used to execute the simulation. If not filled in the default version is used. (Note: used for testing new calccore releases on the staging environment. On production only the default version can be picked)  * `3.5.8-3.7.2` - 3.5.8-3.7.2 * `3.2.17-2.3.6` - 3.2.17-2.3.6  # noqa: E501
+        Only allowed for name values: 'start', 'initialize' or 'queue Simulation runner version used to execute the simulation. If not filled in the default version is used. (Note: used for testing new calccore releases on the staging environment. On production only the default version can be picked)  * `3.5.23-3.7.2` - 3.5.23-3.7.2 * `3.2.17-2.3.6` - 3.2.17-2.3.6  # noqa: E501
 
         :param simulation_runner: The simulation_runner of this Action.  # noqa: E501
         :type: SimulationRunnerEnum
