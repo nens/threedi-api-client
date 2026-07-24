@@ -6,7 +6,7 @@ History
 5.0.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix double enum name concatenation in openapi spec 3
 
 
 5.0.4 (2026-07-15)

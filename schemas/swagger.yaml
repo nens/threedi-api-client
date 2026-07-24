@@ -3,8 +3,8 @@ info:
   title: Rana simulation API
   version: v3
   description: "Rana simulation API (latest stable version: v3) \n\nFramework release:
-    3.5.23 \n\nRana simulation core release: 3.7.2 \n\ndeployed on:  09:44AM (UTC)
-    on July 15, 2026"
+    3.5.28 \n\nRana simulation core release: 3.7.3 \n\ndeployed on:  10:15AM (UTC)
+    on July 24, 2026"
   contact:
     email: info@nelen-schuurmans.nl
   license:
@@ -29276,7 +29276,7 @@ components:
           description: |-
             Only allowed for name values: 'start', 'initialize' or 'queue Simulation runner version used to execute the simulation. If not filled in the default version is used. (Note: used for testing new calccore releases on the staging environment. On production only the default version can be picked)
 
-            * `3.5.23-3.7.2` - 3.5.23-3.7.2
+            * `3.5.28-3.7.3` - 3.5.28-3.7.3
             * `3.2.17-2.3.6` - 3.2.17-2.3.6
       required:
       - name
@@ -31180,9 +31180,8 @@ components:
           maxLength: 128
         units:
           nullable: true
-          oneOf:
+          allOf:
           - $ref: '#/components/schemas/RasterRainUnitsEnum'
-          - $ref: '#/components/schemas/NullEnum'
         geotransform:
           type: array
           items:
@@ -31270,9 +31269,8 @@ components:
           maxLength: 128
         units:
           nullable: true
-          oneOf:
+          allOf:
           - $ref: '#/components/schemas/RasterRainUnitsEnum'
-          - $ref: '#/components/schemas/NullEnum'
         geotransform:
           type: array
           items:
@@ -31360,9 +31358,8 @@ components:
           maxLength: 128
         units:
           nullable: true
-          oneOf:
+          allOf:
           - $ref: '#/components/schemas/RasterRainUnitsEnum'
-          - $ref: '#/components/schemas/NullEnum'
         geotransform:
           type: array
           items:
@@ -31561,9 +31558,8 @@ components:
           readOnly: true
         units:
           nullable: true
-          oneOf:
+          allOf:
           - $ref: '#/components/schemas/TimeseriesRainMmUnitsEnum'
-          - $ref: '#/components/schemas/NullEnum'
         file:
           $ref: '#/components/schemas/FileReadOnly'
         uid:
@@ -33230,9 +33226,8 @@ components:
           maxLength: 255
         units:
           nullable: true
-          oneOf:
+          allOf:
           - $ref: '#/components/schemas/RasterRainUnitsEnum'
-          - $ref: '#/components/schemas/NullEnum'
         geotransform:
           type: array
           items:
@@ -33311,9 +33306,8 @@ components:
           maxLength: 128
         units:
           nullable: true
-          oneOf:
+          allOf:
           - $ref: '#/components/schemas/RasterRainUnitsEnum'
-          - $ref: '#/components/schemas/NullEnum'
         geotransform:
           type: array
           items:
@@ -33383,9 +33377,8 @@ components:
           maxLength: 255
         units:
           nullable: true
-          oneOf:
+          allOf:
           - $ref: '#/components/schemas/RasterRainUnitsEnum'
-          - $ref: '#/components/schemas/NullEnum'
         geotransform:
           type: array
           items:
@@ -33461,9 +33454,8 @@ components:
           maxLength: 255
         units:
           nullable: true
-          oneOf:
+          allOf:
           - $ref: '#/components/schemas/TimeseriesRainMmUnitsEnum'
-          - $ref: '#/components/schemas/NullEnum'
         file:
           $ref: '#/components/schemas/FileReadOnly'
         fill_value:
@@ -33595,9 +33587,8 @@ components:
           maxLength: 255
         units:
           nullable: true
-          oneOf:
+          allOf:
           - $ref: '#/components/schemas/TimeseriesRainMmUnitsEnum'
-          - $ref: '#/components/schemas/NullEnum'
         file:
           $ref: '#/components/schemas/FileReadOnly'
         fill_value:
@@ -37762,9 +37753,8 @@ components:
           maxLength: 128
         units:
           nullable: true
-          oneOf:
+          allOf:
           - $ref: '#/components/schemas/RasterRainUnitsEnum'
-          - $ref: '#/components/schemas/NullEnum'
         geotransform:
           type: array
           items:
@@ -37834,9 +37824,8 @@ components:
           maxLength: 255
         units:
           nullable: true
-          oneOf:
+          allOf:
           - $ref: '#/components/schemas/RasterRainUnitsEnum'
-          - $ref: '#/components/schemas/NullEnum'
         geotransform:
           type: array
           items:
@@ -42069,14 +42058,14 @@ components:
       - TIMEOUT
     SimulationRunnerEnum:
       enum:
-      - 3.5.23-3.7.2
+      - 3.5.28-3.7.3
       - 3.2.17-2.3.6
       type: string
       description: |-
-        * `3.5.23-3.7.2` - 3.5.23-3.7.2
+        * `3.5.28-3.7.3` - 3.5.28-3.7.3
         * `3.2.17-2.3.6` - 3.2.17-2.3.6
       x-enum-varnames:
-      - _3_5_23_3_7_2
+      - _3_5_28_3_7_3
       - _3_2_17_2_3_6
     SimulationSettingsOverview:
       type: object
