@@ -3,7 +3,7 @@ History
 =======
 
 
-5.0.5 (unreleased)
+5.0.5 (2026-07-24)
 ------------------
 
 - Fix double enum name concatenation in openapi spec 3
