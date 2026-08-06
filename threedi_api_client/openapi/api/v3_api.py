@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.5.28   Rana simulation core release: 3.7.3   deployed on:  10:15AM (UTC) on July 24, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.38   Rana simulation core release: 3.7.3   deployed on:  02:10PM (UTC) on August 06, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -60901,7 +60901,6 @@ class V3Api(object):
     def simulations_post_processing_lizard_queue_list(self, **kwargs):  # noqa: E501
         """simulations_post_processing_lizard_queue_list  # noqa: E501
 
-        Read-only API endpoint for viewing simulations that need to be post-processed by Lizard (post-processing status is 'requested').  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -60933,7 +60932,6 @@ class V3Api(object):
     def simulations_post_processing_lizard_queue_list_with_http_info(self, **kwargs):  # noqa: E501
         """simulations_post_processing_lizard_queue_list  # noqa: E501
 
-        Read-only API endpoint for viewing simulations that need to be post-processed by Lizard (post-processing status is 'requested').  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

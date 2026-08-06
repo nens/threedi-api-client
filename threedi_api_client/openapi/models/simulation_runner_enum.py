@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.5.28   Rana simulation core release: 3.7.3   deployed on:  10:15AM (UTC) on July 24, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.38   Rana simulation core release: 3.7.3   deployed on:  02:10PM (UTC) on August 06, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -31,7 +31,7 @@ class SimulationRunnerEnum(object):
     """
     allowed enum values
     """
-    _3_5_28_3_7_3 = "3.5.28-3.7.3"
+    _3_5_38_3_7_3 = "3.5.38-3.7.3"
     _3_2_17_2_3_6 = "3.2.17-2.3.6"
 
     """

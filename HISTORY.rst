@@ -6,8 +6,7 @@ History
 5.0.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Fix url parameter type mismatch (int, str)
 
 5.0.5 (2026-07-24)
 ------------------

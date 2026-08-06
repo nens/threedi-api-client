@@ -3,8 +3,8 @@ info:
   title: Rana simulation API
   version: v3
   description: "Rana simulation API (latest stable version: v3) \n\nFramework release:
-    3.5.28 \n\nRana simulation core release: 3.7.3 \n\ndeployed on:  10:15AM (UTC)
-    on July 24, 2026"
+    3.5.38 \n\nRana simulation core release: 3.7.3 \n\ndeployed on:  02:10PM (UTC)
+    on August 06, 2026"
   contact:
     email: info@nelen-schuurmans.nl
   license:
@@ -23817,9 +23817,6 @@ paths:
   /v3/simulations/post_processing/lizard/queue/:
     get:
       operationId: simulations_post_processing_lizard_queue_list
-      description: |-
-        Read-only API endpoint for viewing simulations that need to be
-        post-processed by Lizard (post-processing status is 'requested').
       parameters:
       - name: limit
         required: false
@@ -29276,7 +29273,7 @@ components:
           description: |-
             Only allowed for name values: 'start', 'initialize' or 'queue Simulation runner version used to execute the simulation. If not filled in the default version is used. (Note: used for testing new calccore releases on the staging environment. On production only the default version can be picked)
 
-            * `3.5.28-3.7.3` - 3.5.28-3.7.3
+            * `3.5.38-3.7.3` - 3.5.38-3.7.3
             * `3.2.17-2.3.6` - 3.2.17-2.3.6
       required:
       - name
@@ -29430,10 +29427,13 @@ components:
           type: string
           maxLength: 150
         email:
-          type: string
-          format: email
           title: Email address
-          maxLength: 254
+          oneOf:
+          - type: string
+            format: email
+            maxLength: 254
+          - type: string
+            maxLength: 0
         external_user_id:
           type: string
           nullable: true
@@ -29694,11 +29694,17 @@ components:
         schematisation_name:
           type: string
           maxLength: 256
+        schematisation_description:
+          type: string
+          description: Optional description for the new schematisation
+          maxLength: 1024
         rana_project_id:
           type: string
+          nullable: true
           description: Optional rana project id (only superusers can modify this field)
         rana_tenant_id:
           type: string
+          nullable: true
           description: Optional rana tenant id (only superusers can modify this field)
         created_by:
           type: string
@@ -34132,10 +34138,13 @@ components:
           pattern: ^[\w.@+-]+$
           maxLength: 150
         email:
-          type: string
-          format: email
           title: Email address
-          maxLength: 254
+          oneOf:
+          - type: string
+            format: email
+            maxLength: 254
+          - type: string
+            maxLength: 0
         roles:
           type: array
           items:
@@ -38876,9 +38885,7 @@ components:
           description: Automatically calculated.
         threedimodel_limit:
           type: integer
-          maximum: 32767
-          minimum: 0
-          description: Maximum amount of ThreediModels per Schematisation
+          readOnly: true
         latest_revision_nr:
           type: integer
           nullable: true
@@ -41822,9 +41829,7 @@ components:
           description: Automatically calculated.
         threedimodel_limit:
           type: integer
-          maximum: 32767
-          minimum: 0
-          description: Maximum amount of ThreediModels per Schematisation
+          readOnly: true
         latest_revision_nr:
           type: integer
           nullable: true
@@ -42058,14 +42063,14 @@ components:
       - TIMEOUT
     SimulationRunnerEnum:
       enum:
-      - 3.5.28-3.7.3
+      - 3.5.38-3.7.3
       - 3.2.17-2.3.6
       type: string
       description: |-
-        * `3.5.28-3.7.3` - 3.5.28-3.7.3
+        * `3.5.38-3.7.3` - 3.5.38-3.7.3
         * `3.2.17-2.3.6` - 3.2.17-2.3.6
       x-enum-varnames:
-      - _3_5_28_3_7_3
+      - _3_5_38_3_7_3
       - _3_2_17_2_3_6
     SimulationSettingsOverview:
       type: object
@@ -44379,10 +44384,13 @@ components:
           type: string
           maxLength: 150
         email:
-          type: string
-          format: email
           title: Email address
-          maxLength: 254
+          oneOf:
+          - type: string
+            format: email
+            maxLength: 254
+          - type: string
+            maxLength: 0
         external_user_id:
           type: string
           nullable: true

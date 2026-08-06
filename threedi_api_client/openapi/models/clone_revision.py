@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.5.28   Rana simulation core release: 3.7.3   deployed on:  10:15AM (UTC) on July 24, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.38   Rana simulation core release: 3.7.3   deployed on:  02:10PM (UTC) on August 06, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -37,6 +37,7 @@ class CloneRevision(object):
     """
     openapi_types = {
         'schematisation_name': 'str',
+        'schematisation_description': 'str',
         'rana_project_id': 'str',
         'rana_tenant_id': 'str',
         'created_by': 'str'
@@ -48,12 +49,13 @@ class CloneRevision(object):
 
     attribute_map = {
         'schematisation_name': 'schematisation_name',
+        'schematisation_description': 'schematisation_description',
         'rana_project_id': 'rana_project_id',
         'rana_tenant_id': 'rana_tenant_id',
         'created_by': 'created_by'
     }
 
-    def __init__(self, schematisation_name=None, rana_project_id=None, rana_tenant_id=None, created_by=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
+    def __init__(self, schematisation_name=None, schematisation_description=None, rana_project_id=None, rana_tenant_id=None, created_by=None, local_vars_configuration=None, fetched_from_api=False):  # noqa: E501
         """CloneRevision - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -63,16 +65,17 @@ class CloneRevision(object):
         self._fetched_from_api = fetched_from_api
 
         self._schematisation_name = None
+        self._schematisation_description = None
         self._rana_project_id = None
         self._rana_tenant_id = None
         self._created_by = None
         self.discriminator = None
 
         self.schematisation_name = schematisation_name
-        if rana_project_id is not None:
-            self.rana_project_id = rana_project_id
-        if rana_tenant_id is not None:
-            self.rana_tenant_id = rana_tenant_id
+        if schematisation_description is not None:
+            self.schematisation_description = schematisation_description
+        self.rana_project_id = rana_project_id
+        self.rana_tenant_id = rana_tenant_id
         if created_by is not None:
             self.created_by = created_by
 
@@ -101,6 +104,32 @@ class CloneRevision(object):
             self.__handle_validation_error("Invalid value for `schematisation_name`, length must be less than or equal to `256`")  # noqa: E501
 
         self._schematisation_name = schematisation_name
+
+    @property
+    def schematisation_description(self):
+        """Gets the schematisation_description of this CloneRevision.  # noqa: E501
+
+        Optional description for the new schematisation  # noqa: E501
+
+        :return: The schematisation_description of this CloneRevision.  # noqa: E501
+        :rtype: str
+        """
+        return self._schematisation_description
+
+    @schematisation_description.setter
+    def schematisation_description(self, schematisation_description):
+        """Sets the schematisation_description of this CloneRevision.
+
+        Optional description for the new schematisation  # noqa: E501
+
+        :param schematisation_description: The schematisation_description of this CloneRevision.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                schematisation_description is not None and len(schematisation_description) > 1024):
+            self.__handle_validation_error("Invalid value for `schematisation_description`, length must be less than or equal to `1024`")  # noqa: E501
+
+        self._schematisation_description = schematisation_description
 
     @property
     def rana_project_id(self):

@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.5.28   Rana simulation core release: 3.7.3   deployed on:  10:15AM (UTC) on July 24, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.38   Rana simulation core release: 3.7.3   deployed on:  02:10PM (UTC) on August 06, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -40,7 +40,7 @@ class OrganisationUser(object):
         'first_name': 'str',
         'last_name': 'str',
         'username': 'str',
-        'email': 'str',
+        'email': 'OneOfstringstring',
         'roles': 'list[str]'
     }
 
@@ -81,8 +81,7 @@ class OrganisationUser(object):
         if last_name is not None:
             self.last_name = last_name
         self.username = username
-        if email is not None:
-            self.email = email
+        self.email = email
         if roles is not None:
             self.roles = roles
 
@@ -192,7 +191,7 @@ class OrganisationUser(object):
 
 
         :return: The email of this OrganisationUser.  # noqa: E501
-        :rtype: str
+        :rtype: OneOfstringstring
         """
         return self._email
 
@@ -202,11 +201,8 @@ class OrganisationUser(object):
 
 
         :param email: The email of this OrganisationUser.  # noqa: E501
-        :type: str
+        :type: OneOfstringstring
         """
-        if (self.local_vars_configuration.client_side_validation and
-                email is not None and len(email) > 254):
-            self.__handle_validation_error("Invalid value for `email`, length must be less than or equal to `254`")  # noqa: E501
 
         self._email = email
 

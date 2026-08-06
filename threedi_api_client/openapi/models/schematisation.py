@@ -3,7 +3,7 @@
 """
     Rana simulation API
 
-    Rana simulation API (latest stable version: v3)   Framework release: 3.5.28   Rana simulation core release: 3.7.3   deployed on:  10:15AM (UTC) on July 24, 2026  # noqa: E501
+    Rana simulation API (latest stable version: v3)   Framework release: 3.5.38   Rana simulation core release: 3.7.3   deployed on:  02:10PM (UTC) on August 06, 2026  # noqa: E501
 
     The version of the OpenAPI document: v3
     Contact: info@nelen-schuurmans.nl
@@ -459,7 +459,6 @@ class Schematisation(object):
     def threedimodel_limit(self):
         """Gets the threedimodel_limit of this Schematisation.  # noqa: E501
 
-        Maximum amount of ThreediModels per Schematisation  # noqa: E501
 
         :return: The threedimodel_limit of this Schematisation.  # noqa: E501
         :rtype: int
@@ -470,17 +469,10 @@ class Schematisation(object):
     def threedimodel_limit(self, threedimodel_limit):
         """Sets the threedimodel_limit of this Schematisation.
 
-        Maximum amount of ThreediModels per Schematisation  # noqa: E501
 
         :param threedimodel_limit: The threedimodel_limit of this Schematisation.  # noqa: E501
         :type: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                threedimodel_limit is not None and threedimodel_limit > 32767):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `threedimodel_limit`, must be a value less than or equal to `32767`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                threedimodel_limit is not None and threedimodel_limit < 0):  # noqa: E501
-            self.__handle_validation_error("Invalid value for `threedimodel_limit`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._threedimodel_limit = threedimodel_limit
 
