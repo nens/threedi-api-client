@@ -3,7 +3,7 @@ History
 =======
 
 
-5.0.6 (unreleased)
+5.0.6 (2026-08-06)
 ------------------
 
 - Fix url parameter type mismatch (int, str)
